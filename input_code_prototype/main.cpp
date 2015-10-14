@@ -9,21 +9,28 @@ using namespace std;
 
 //DIRECTORY LISTENING
 
+vector <string> oldList;
+
 //Nota: In C++ moet je als een methode een andere methode callt, de methode die gecallt word BOVEN de "caller" zetten
 static vector <string> getFileList()
 {
 	//define pointer + list 
-	DIR *dpdf;
+	DIR* dpdf;
 	struct dirent *epdf;
 	vector <string> dlist;
 
 	//check current dir
 	dpdf = opendir("csv/");
 
+    cout << "dir: " << dpdf << endl ;
+
+
 	//if not empty
 	if (dpdf != NULL)
 	{
-	   //loop through dir
+        cout << "dir: " << dpdf << endl ;
+
+        //loop through dir
 	   while (epdf = readdir(dpdf))
 	   {
 		  //push every file into list
@@ -40,6 +47,7 @@ static string checkEvery2Secs()
 	//start clock, create vector(basically the same as a Java-style list) with files at 00:00
 	clock_t time;
 	vector <string> oldlist = getFileList();
+
     time = clock();
 	
 	//every 2 secs check if folder got new files
@@ -49,12 +57,24 @@ static string checkEvery2Secs()
 		vector <string> newlist = getFileList();
 		if(newlist.size() > oldlist.size())
 		{
+            cout << "testmessage OK1" << endl ;
+
 			//get last elem: cant select elem like this
 			filePath = newlist[newlist.size()];
 			//TODO: send file of that elem through to cj
 			//reset the oldlist
 			oldlist = newlist;
 		}
+        else if(newlist.size() > oldList.size()){
+            cout << "testmessage OK2" << endl ;
+
+            filePath = newlist[newlist.size()];
+            oldList = newlist;
+        }
+        else {
+            cout << "testmessage failed" << endl ;
+
+        }
 	}
 	return filePath;
 }
@@ -95,6 +115,29 @@ istream & operator >>(std::istream & str, CSVRow& data){
 
 int main() {
 
+    DIR* dir;
+    struct dirent* dirent1;
+
+    dir  = opendir("/csv");
+
+    if (dir == NULL){
+        perror("can't open csv path");
+    }else {
+        for (;;) {
+            dirent1 = readdir(dir);
+            if (dirent1 == NULL){ break;}
+            printf("%s\n" ,dirent1->d_name);
+
+        }
+
+        closedir(dir);
+    }
+
+
+
+
+
+    oldList = getFileList();
 
     ifstream file(checkEvery2Secs());
 
