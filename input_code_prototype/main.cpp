@@ -95,6 +95,7 @@ istream & operator >>(std::istream & str, CSVRow& data){
 
 int main() {
 
+
     ifstream file(checkEvery2Secs());
 
     CSVRow row;
@@ -103,5 +104,19 @@ int main() {
     }
 
     cout << "--" << endl;
+
+    int i = 0 ;
+    cin >> i;
+
+    ifstream file1(checkEvery2Secs());
+
+    CSVRow row1;
+    while (file1 >> row1){
+        cout << "(" << row1[0] << ") "   << endl;
+    }
+
+    cout << "--" << endl;
+
+
 	return 0;
 }
