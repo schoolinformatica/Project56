@@ -39,7 +39,7 @@ istream & operator >>(std::istream & str, CSVRow& data){
 
 int main() {
 
-    ifstream file("C:/Users/ceesjan/ClionProjects/TestProgram/something.csv");
+    ifstream file("C:/something.csv");
 
     CSVRow row;
     while (file >> row){
