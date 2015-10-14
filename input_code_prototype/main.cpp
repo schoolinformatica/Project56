@@ -40,7 +40,7 @@ static string checkEvery2Secs()
 	//start clock, create vector(basically the same as a Java-style list) with files at 00:00
 	clock_t time;
 	vector <string> oldlist = getFileList();
-    time = std::clock();
+    time = clock();
 	
 	//every 2 secs check if folder got new files
 	if(time % 100 == 2)
