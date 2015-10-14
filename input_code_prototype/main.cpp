@@ -1,16 +1,11 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
-#include "stdafx.h"
-#include <string>
-#include <cstdio>
 #include <ctime>
-#include <filesystem>
-#include <iostream>
 #include <dirent.h>
+#include <iostream>
 
 using namespace std;
-using namespace std::tr2::sys;
 
 //DIRECTORY LISTENING
 
@@ -41,8 +36,9 @@ static vector <string> getFileList()
 
 static string checkEvery2Secs()
 {
+    string filePath;
 	//start clock, create vector(basically the same as a Java-style list) with files at 00:00
-	std::clock_t time;
+	clock_t time;
 	vector <string> oldlist = getFileList();
     time = std::clock();
 	
@@ -54,7 +50,7 @@ static string checkEvery2Secs()
 		if(newlist.size() > oldlist.size())
 		{
 			//get last elem: cant select elem like this
-			string filePath = newlist[newlist.size()];
+			filePath = newlist[newlist.size()];
 			//TODO: send file of that elem through to cj
 			//reset the oldlist
 			oldlist = newlist;
@@ -99,7 +95,7 @@ istream & operator >>(std::istream & str, CSVRow& data){
 
 int main() {
 
-    ifstream file(checkEvery2Secs);
+    ifstream file(checkEvery2Secs());
 
     CSVRow row;
     while (file >> row){
