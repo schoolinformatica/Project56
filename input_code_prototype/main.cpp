@@ -1,3 +1,5 @@
+
+
 #include <fstream>
 #include <sstream>
 #include <vector>
@@ -6,6 +8,8 @@
 #include <iostream>
 
 using namespace std;
+
+
 
 //DIRECTORY LISTENING
 
@@ -129,6 +133,7 @@ int main() {
             printf("%s\n" ,dirent1->d_name);
 
         }
+
 
         closedir(dir);
     }
