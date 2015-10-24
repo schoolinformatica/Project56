@@ -39,11 +39,11 @@ istream & operator >>(std::istream & str, CSVRow& data){
 
 int main() {
 
-    ifstream file("C:/something.csv");
+    ifstream file("C:/positions.csv");
 
     CSVRow row;
     while (file >> row){
-        cout << "(" << row[0] << ") "   << endl;
+
     }
 
     cout << "--" << endl;
