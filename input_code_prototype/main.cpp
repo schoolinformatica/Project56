@@ -64,16 +64,18 @@ static string checkEvery2Secs()
 			//TODO: send file of that elem through to cj
 			//reset the oldlist
 			oldlist = newlist;
+			checkEvery2Secs()
 		}
         else if(newlist.size() > oldList.size()){
             cout << "testmessage OK2" << endl ;
 
             filePath = newlist[newlist.size()];
             oldList = newlist;
+			checkEvery2Secs()
         }
         else {
             cout << "testmessage failed" << endl ;
-
+			checkEvery2Secs()
         }
 	}
 	return filePath;
