@@ -11,7 +11,7 @@ int main() {
     const char line_terminator  = '\n';
     const char enclosure_char   = '"';
 
-    csv_parser file_parser;
+    csv_parser file_parser = csv_parser();
 
     /* Define how many records we're gonna skip. This could be used to skip the column definitions. */
     file_parser.set_skip_lines(1);
