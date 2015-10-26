@@ -4,7 +4,8 @@
 #include <vector>
 #include <sstream>
 #include <istream>
- 
+
+using std::vector;
 using std::cout;
 using std::endl;
  
@@ -21,11 +22,14 @@ int main(int argc, char *argv[])
     {
         std::vector<std::string> row = csv_read_row(in, ';');
         for(int i=0, leng=row.size(); i<leng; i++){}
-            //cout << "[" << row[i] << "]" << "\t";
-        //cout << endl;
+            cout << row[i] << "\t";
+        cout << endl;
     }
     in.close();
     cout << "ok done" << endl;
+
+
+
 
 //    std::string line;
 //    in.open("/home/robert/something.csv");
