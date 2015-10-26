@@ -4,6 +4,7 @@
 #include <vector>
 #include <sstream>
 #include <istream>
+<<<<<<< HEAD
 
 using std::vector;
 using std::cout;
@@ -14,20 +15,45 @@ std::vector<std::string> csv_read_row(std::string &in, char delimiter);
  
 int main(int argc, char *argv[])
 {
+=======
+#include <bits/stl_list.h>
+>>>>>>> 6d65ffed9704e4c8f9963b28b049bc4d64ab7d0c
 
-    std::ifstream in("/home/robert/something.csv");
+using namespace std;
+
+vector<string> csv_read_row(istream &in, char delimiter);
+
+int main(int argc, char *argv[]) {
+
+    vector<string> mylist2;
+
+    ifstream in("C:/something.csv");
 
     if (in.fail()) return (cout << "File not found" << endl) && 0;
+<<<<<<< HEAD
     while(in.good())
     {
         std::vector<std::string> row = csv_read_row(in, ';');
         for(int i=0, leng=row.size(); i<leng; i++){}
             cout << row[i] << "\t";
         cout << endl;
+=======
+    while (in.good()) {
+        vector<string> row = csv_read_row(in, ';');
+        for (int i = 0, leng = row.size(); i < leng; i++) {
+
+
+            mylist2.push_back(row[i]);
+
+        }
+        //cout << "[" << row[i] << "]" << "\t";
+        //cout << endl;
+>>>>>>> 6d65ffed9704e4c8f9963b28b049bc4d64ab7d0c
     }
     in.close();
     cout << "ok done" << endl;
 
+<<<<<<< HEAD
 
 
 
@@ -42,51 +68,48 @@ int main(int argc, char *argv[])
 //    }
 //    in.close();
  
+=======
+    cout << mylist2.size();
+    for (int y = 0 ; y < mylist2.size(); y++){
+        cout << mylist2.at(y) << endl;
+    }
+
+>>>>>>> 6d65ffed9704e4c8f9963b28b049bc4d64ab7d0c
     return 0;
 }
- 
-std::vector<std::string> csv_read_row(std::string &line, char delimiter)
-{
-    std::stringstream ss(line);
-    return csv_read_row(ss, delimiter);
-}
- 
-std::vector<std::string> csv_read_row(std::istream &in, char delimiter)
-{
-    std::stringstream ss;
+
+vector<string> csv_read_row(istream &in, char delimiter) {
+    stringstream ss;
     bool inquotes = false;
-    std::vector<std::string> row;//relying on RVO
-    while(in.good())
-    {
+    vector<string> row;//relying on RVO
+    while (in.good()) {
         char c = in.get();
-        if (!inquotes && c=='"') //beginquotechar
+        if (!inquotes && c == '"') //beginquotechar
         {
-            inquotes=true;
+            inquotes = true;
         }
-        else if (inquotes && c=='"') //quotechar
+        else if (inquotes && c == '"') //quotechar
         {
-            if ( in.peek() == '"')//2 consecutive quotes resolve to 1
+            if (in.peek() == '"')//2 consecutive quotes resolve to 1
             {
-                ss << (char)in.get();
+                ss << (char) in.get();
             }
             else //endquotechar
             {
-                inquotes=false;
+                inquotes = false;
             }
         }
-        else if (!inquotes && c==delimiter) //end of field
+        else if (!inquotes && c == delimiter) //end of field
         {
-            row.push_back( ss.str() );
+            row.push_back(ss.str());
             ss.str("");
         }
-        else if (!inquotes && (c=='\r' || c=='\n') )
-        {
-            if(in.peek()=='\n') { in.get(); }
-            row.push_back( ss.str() );
+        else if (!inquotes && (c == '\r' || c == '\n')) {
+            if (in.peek() == '\n') { in.get(); }
+            row.push_back(ss.str());
             return row;
         }
-        else
-        {
+        else {
             ss << c;
         }
     }
