@@ -7,6 +7,15 @@
 
 using namespace std;
 
+
+string checkForNewFiles(vector<string> oldList);
+
+string checkForNewFiles(vector<string> oldList, vector<string> newList)
+{
+
+}
+
+//null als standaardparam zodat de param optioneel is
 vector<string> getDirFileList(const char* directory)
 {
     DIR *dir;
@@ -18,8 +27,8 @@ vector<string> getDirFileList(const char* directory)
         /* print all the files and directories within directory */
         while ((ent = readdir (dir)) != NULL)
         {
-            printf ("%s\n", ent->d_name);
             FileList.push_back(ent->d_name);
+            printf(ent->d_name);
         }
         closedir (dir);
         return FileList;
@@ -32,19 +41,20 @@ vector<string> getDirFileList(const char* directory)
     }
 }
 
-
-
 int main()
 {
-
-    //vector<string> oldFiles = getDirFileList("home/robert/");
     while(true)
     {
-        // Constructs the new thread and runs it. Does not block execution.
-        thread t1(getDirFileList, "/home/cooperatio/");
+        vector<string> oldFileList = getDirFileList("/home/robert/");
+        thread t1(getDirFileList, "/home/robert/");
         t1.join();
         sleep(2);
+        vector<string> newFileList = getDirFileList("/home/robert/");
+        if(oldFileList.size() < newFileList.size());
+        {
+            printf("NEW FILE ADDED");
+            //newFileList[newFileList.size() - 1] doorpipen
+        }
     }
-    // Makes the main thread wait for the new thread to finish execution, therefore blocks its own execution.
     return 0;
 }
