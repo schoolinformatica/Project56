@@ -7,35 +7,28 @@
 
 using namespace std;
 
-
-string checkForNewFiles(vector<string> oldList);
-
-string checkForNewFiles(vector<string> oldList, vector<string> newList)
-{
-
-}
-
-//null als standaardparam zodat de param optioneel is
-vector<string> getDirFileList(const char* directory)
+//this method returns a vector containg all the files in the given directory.
+vector<const char*> getDirFileList(const char* directory)
 {
     DIR *dir;
-    vector<string> FileList;
+    vector<const char*> FileList;
     struct dirent *ent;
 
     if ((dir = opendir (directory)) != NULL)
     {
-        /* print all the files and directories within directory */
+        //we loop through the given directory and add all the files we find to our FileList
         while ((ent = readdir (dir)) != NULL)
         {
             FileList.push_back(ent->d_name);
             printf(ent->d_name);
         }
+        //When we scanned all the files, we close the directory and return the list
         closedir (dir);
         return FileList;
     }
     else
     {
-        /* could not open directory */
+        //We were not able to find the directory and return an error
         perror ("");
         return FileList;
     }
@@ -45,15 +38,22 @@ int main()
 {
     while(true)
     {
-        vector<string> oldFileList = getDirFileList("/home/robert/");
-        thread t1(getDirFileList, "/home/robert/");
+        //We create a vector that holds the list of files and dirs BEFORE the 2 second loop
+        vector<const char*> oldFileList = getDirFileList("/home/cooperatio/");
+        thread t1(getDirFileList, "/home/cooperatio/");
         t1.join();
         sleep(2);
-        vector<string> newFileList = getDirFileList("/home/robert/");
+        //We redo this procedure AFTER the 2 seconds have passed
+        vector<const char*> newFileList = getDirFileList("/home/cooperatio/");
+
+        //Then, we check wether the newList is larger than the old one. If so, new files have been added!
         if(oldFileList.size() < newFileList.size());
         {
-            printf("NEW FILE ADDED");
-            //newFileList[newFileList.size() - 1] doorpipen
+            //We create a const char that contains the last element in the newFileList(the file that has been added, and convert it to a string.
+            //Note: We do not take any measures to ensure that only .csv files will be handled, since the web interface will provide this constraint.
+            const char* FileChar = newFileList.back();
+            string str(FileChar);
+            printf(FileChar);
         }
     }
     return 0;
