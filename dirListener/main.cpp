@@ -20,7 +20,8 @@ vector<const char*> getDirFileList(const char* directory)
         while ((ent = readdir (dir)) != NULL)
         {
             FileList.push_back(ent->d_name);
-            printf(ent->d_name);
+		cout << ent->d_name << endl;
+//            printf(ent->d_name);
         }
         //When we scanned all the files, we close the directory and return the list
         closedir (dir);
@@ -53,7 +54,8 @@ int main()
             //Note: We do not take any measures to ensure that only .csv files will be handled, since the web interface will provide this constraint.
             const char* FileChar = newFileList.back();
             string str(FileChar);
-            printf(FileChar);
+cout << FileChar << endl;
+//            printf(FileChar);
         }
     }
     return 0;
