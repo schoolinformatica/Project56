@@ -4,61 +4,72 @@
 #include <vector>
 #include <sstream>
 #include <istream>
+#include <map>
 
 using std::vector;
 using std::cout;
 using std::endl;
- 
+
 std::vector<std::string> csv_read_row(std::istream &in, char delimiter);
 
- 
 
 using namespace std;
 
 vector<string> csv_read_row(istream &in, char delimiter);
 
+vector<string> headers;
+
 int main(int argc, char *argv[]) {
 
-    vector<string> mylist2;
+    time_t t = time(0);
+    vector<map<string, string>> mylist2;
+    vector<string> mylist1;
 
     ifstream in("C:/something.csv");
 
     if (in.fail()) return (cout << "File not found" << endl) && 0;
 
     while (in.good()) {
-        vector<string> row = csv_read_row(in, ';');
+        //getting the header
+        vector<string> row = csv_read_row(in, ',');
+        //the first row is the header
+        string header = row[0];
+        stringstream headerstream(header);
+        string headerpart;
 
+        //pushing it into headers array
+        while (getline(headerstream, headerpart, ';')) {
+            headers.push_back(headerpart);
+        }
+        break;
+    }
+
+    ifstream in2("C:/something.csv");
+    while (in2.good()) {
+
+        //reading the rest of the CSV file
+        vector<string> row = csv_read_row(in2, ';');
+
+        //looping through the rest of the file. except the headers (i = 1)
         for (int i = 0, leng = row.size(); i < leng; i++) {
 
-            mylist2.push_back(row[i]);
+            mylist1.push_back(row[i]);
 
         }
-        //cout << "[" << row[i] << "]" << "\t";
-        //cout << endl;
+
 
     }
     in.close();
-    cout << "ok done" << endl;
 
+    for (int i = headers.size(); i < mylist1.size(); i++) {
+        map<string, string> rows;
+        rows.insert(pair<string, string>(headers.at(i % headers.size()), mylist1.at(i)));
 
-
-
-//    std::string line;
-//    in.open("/home/robert/something.csv");
-//    while(getline(in, line)  && in.good())
-//    {
-//        std::vector<std::string> row = csv_read_row(line, ';');
-//        for(int i=0, leng=row.size(); i<leng; i++)
-//            cout << "[" << row[i] << "]" << "\t";
-//        cout << endl;
-//    }
-//    in.close();
-
-    cout << mylist2.size();
-    for (int y = 0 ; y < mylist2.size(); y++){
-        cout << mylist2.at(y) << endl;
+        mylist2.push_back(rows);
     }
-
+    time_t t1 = time(0);
+    cout << t1 << " < t1 t > " << t << endl ;
+    cout << t1 - t ;
     return 0;
 }
 
