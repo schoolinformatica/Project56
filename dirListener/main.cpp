@@ -41,7 +41,7 @@ int main()
     while(true)
     {
         // Constructs the new thread and runs it. Does not block execution.
-        thread t1(getDirFileList, "/home/robert/");
+        thread t1(getDirFileList, "/home/cooperatio/");
         t1.join();
         sleep(2);
     }
