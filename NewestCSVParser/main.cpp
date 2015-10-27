@@ -19,8 +19,8 @@ int main(int argc, char *argv[]) {
     if (in.fail()) return (cout << "File not found" << endl) && 0;
     while (in.good()) {
         vector<string> row = csv_read_row(in, ';');
-        for (int i = 0, leng = row.size(); i < leng; i++) {
 
+        for (int i = 0, leng = row.size(); i < leng; i++) {
 
             mylist2.push_back(row[i]);
 
@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
     in.close();
     cout << "ok done" << endl;
 
-    cout << mylist2.size();
+    cout << mylist2.size() << endl;
     for (int y = 0 ; y < mylist2.size(); y++){
         cout << mylist2.at(y) << endl;
     }
