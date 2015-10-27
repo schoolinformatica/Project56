@@ -36,7 +36,7 @@ vector<string> getDirFileList(const char* directory)
 
 int main() {
 
-    vector<string> oldFiles = getDirFileList("home/robert/");
+    //vector<string> oldFiles = getDirFileList("home/robert/");
     while(true)
     {
         // Constructs the new thread and runs it. Does not block execution.
