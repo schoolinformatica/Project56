@@ -1,16 +1,13 @@
 #include <iostream>
 #include <fstream>
-#include <string>
 #include <vector>
 #include <sstream>
-#include <istream>
 #include <map>
 
-using std::vector;
-using std::cout;
-using std::endl;
 
-std::vector<std::string> csv_read_row(std::istream &in, char delimiter);
+using namespace std;
+
+vector<string> csv_read_row(istream &in, char delimiter);
 
 
 using namespace std;
@@ -25,7 +22,7 @@ int main(int argc, char *argv[]) {
     vector<map<string, string>> mylist2;
     vector<string> mylist1;
 
-    ifstream in("C:/something.csv");
+    ifstream in("C:/positions.csv");
 
     if (in.fail()) return (cout << "File not found" << endl) && 0;
 
@@ -41,10 +38,13 @@ int main(int argc, char *argv[]) {
         while (getline(headerstream, headerpart, ';')) {
             headers.push_back(headerpart);
         }
+        for (int i = 0 ; i < headers.size(); i++){
+            cout << headers.at(i) << endl;
+        }
         break;
     }
 
-    ifstream in2("C:/something.csv");
+    ifstream in2("C:/positions.csv");
     while (in2.good()) {
 
         //reading the rest of the CSV file
@@ -61,12 +61,15 @@ int main(int argc, char *argv[]) {
     }
     in.close();
 
+    cout << mylist1.size() << endl ;
+
     for (int i = headers.size(); i < mylist1.size(); i++) {
         map<string, string> rows;
         rows.insert(pair<string, string>(headers.at(i % headers.size()), mylist1.at(i)));
 
         mylist2.push_back(rows);
     }
+    cout << mylist2.size() << endl ;
     time_t t1 = time(0);
     cout << t1 << " < t1 t > " << t << endl ;
     cout << t1 - t ;
