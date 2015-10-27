@@ -7,44 +7,54 @@
 
 using namespace std;
 
-vector<string> getDirFileList(const char* directory)
+//this method returns a vector containg all the files in the given directory.
+vector<const char*> getDirFileList(const char* directory)
 {
     DIR *dir;
-    vector<string> FileList;
+    vector<const char*> FileList;
     struct dirent *ent;
 
     if ((dir = opendir (directory)) != NULL)
     {
-        /* print all the files and directories within directory */
+        //we loop through the given directory and add all the files we find to our FileList
         while ((ent = readdir (dir)) != NULL)
         {
-            printf ("%s\n", ent->d_name);
             FileList.push_back(ent->d_name);
+            printf(ent->d_name);
         }
+        //When we scanned all the files, we close the directory and return the list
         closedir (dir);
         return FileList;
     }
     else
     {
-        /* could not open directory */
+        //We were not able to find the directory and return an error
         perror ("");
         return FileList;
     }
 }
 
-
-
 int main()
 {
-
-    //vector<string> oldFiles = getDirFileList("home/robert/");
     while(true)
     {
-        // Constructs the new thread and runs it. Does not block execution.
+        //We create a vector that holds the list of files and dirs BEFORE the 2 second loop
+        vector<const char*> oldFileList = getDirFileList("/home/cooperatio/");
         thread t1(getDirFileList, "/home/cooperatio/");
         t1.join();
         sleep(2);
+        //We redo this procedure AFTER the 2 seconds have passed
+        vector<const char*> newFileList = getDirFileList("/home/cooperatio/");
+
+        //Then, we check wether the newList is larger than the old one. If so, new files have been added!
+        if(oldFileList.size() < newFileList.size());
+        {
+            //We create a const char that contains the last element in the newFileList(the file that has been added, and convert it to a string.
+            //Note: We do not take any measures to ensure that only .csv files will be handled, since the web interface will provide this constraint.
+            const char* FileChar = newFileList.back();
+            string str(FileChar);
+            printf(FileChar);
+        }
     }
-    // Makes the main thread wait for the new thread to finish execution, therefore blocks its own execution.
     return 0;
 }
