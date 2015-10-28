@@ -85,7 +85,6 @@ int csvreader(string path) {
     }
 
     return 0;
-
 }
 
 vector<string> csv_read_row(istream &in, char delimiter) {

@@ -51,7 +51,12 @@ int listener(string path) {
                 }
                 else {
                     printf("The file %s was created.\n", event->name);
-                    csvreader(path + event->name);
+                    if (strstr(event->name, ".csv") != NULL){
+                        csvreader(path + event->name);
+                    }
+                    else {
+                        cout << "non valid csv file!" << endl;
+                    }
                 }
             }
             else if (event->mask & IN_DELETE) {
@@ -68,7 +73,12 @@ int listener(string path) {
                 }
                 else {
                     printf("The file %s was modified.\n", event->name);
-                    csvreader(path + event->name);
+                    if (strstr(event->name, ".csv") != NULL){
+                        csvreader(path + event->name);
+                    }
+                    else {
+                        cout << "non valid csv file!" << endl;
+                    }
                 }
             }
         }
