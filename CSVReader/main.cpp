@@ -1,63 +1,76 @@
 #include <iostream>
 #include <fstream>
-#include <string>
 #include <vector>
 #include <sstream>
-#include <istream>
-
-using std::vector;
-using std::cout;
-using std::endl;
- 
-std::vector<std::string> csv_read_row(std::istream &in, char delimiter);
-
- 
+#include <map>
 
 using namespace std;
 
 vector<string> csv_read_row(istream &in, char delimiter);
 
+vector<string> headers;
+
 int main(int argc, char *argv[]) {
 
-    vector<string> mylist2;
+    vector<map<string, string>> mylist2;
+    vector<string> mylist1;
 
     ifstream in("C:/something.csv");
 
     if (in.fail()) return (cout << "File not found" << endl) && 0;
 
     while (in.good()) {
-        vector<string> row = csv_read_row(in, ';');
+        //getting the header
+        vector<string> row = csv_read_row(in, ',');
+        //the first row is the header
+        string header = row[0];
+        stringstream headerstream(header);
+        string headerpart;
 
-        for (int i = 0, leng = row.size(); i < leng; i++) {
-
-            mylist2.push_back(row[i]);
-
+        //pushing it into headers array
+        while (getline(headerstream, headerpart, ';')) {
+            headers.push_back(headerpart);
         }
-        //cout << "[" << row[i] << "]" << "\t";
-        //cout << endl;
+        for (int i = 0; i < headers.size(); i++) {
+            cout << headers.at(i) << endl;
+        }
+        break;
+    }
 
+    ifstream in2("C:/something.csv");
+    while (in2.good()) {
+
+        //reading the rest of the CSV file
+        vector<string> row = csv_read_row(in2, ';');
+
+        //looping through the rest of the file. except the headers (i = 1)
+        for (int i = 0, leng = row.size(); i < leng; i++) {
+            mylist1.push_back(row[i]);
+        }
     }
     in.close();
-    cout << "ok done" << endl;
 
+    //map for the rows
+    map<string, string> rows;
+    //looping through the list to put all the items in the map
+    for (int i = headers.size(); i < mylist1.size(); i++) {
 
-
-
-//    std::string line;
-//    in.open("/home/robert/something.csv");
-//    while(getline(in, line)  && in.good())
-//    {
-//        std::vector<std::string> row = csv_read_row(line, ';');
-//        for(int i=0, leng=row.size(); i<leng; i++)
-//            cout << "[" << row[i] << "]" << "\t";
-//        cout << endl;
-//    }
-//    in.close();
-
-    cout << mylist2.size();
-    for (int y = 0 ; y < mylist2.size(); y++){
-        cout << mylist2.at(y) << endl;
+        rows.insert(pair<string, string>(headers.at(i % headers.size()), mylist1.at(i)));
+        //if its the end of the row, add it to the list and clear the map
+        if (i % headers.size() == headers.size() - 1) {
+            mylist2.push_back(rows);
+            rows.clear();
+        }
     }
+
+    //this code can be removed. Its to show that in the list the rows are
+    for (int i = 0; i < mylist2.size(); i++) {
+        for (map<string, string>::iterator ii = mylist2.at(i).begin(); ii != mylist2.at(i).end(); ii++) {
+            cout << " " << ii->first << " : " << ii->second << " ";
+        }
+        cout << endl;
+    }
+
 
     return 0;
 }

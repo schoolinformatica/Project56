@@ -22,7 +22,12 @@ vector<const char*> getDirFileList(const char* directory)
         while ((ent = readdir (dir)) != NULL)
         {
             FileList.push_back(ent->d_name);
+<<<<<<< HEAD
             printf("%s\n", ent->d_name);
+=======
+		cout << ent->d_name << endl;
+//            printf(ent->d_name);
+>>>>>>> a7ad33a498a6a47fc22b742dbd5672354d05fcc8
         }
         //When we scanned all the files, we close the directory and return the list
         closedir (dir);
@@ -53,6 +58,7 @@ int main()
         {
             //We create a const char that contains the last element in the newFileList(the file that has been added, and convert it to a string.
             //Note: We do not take any measures to ensure that only .csv files will be handled, since the web interface will provide this constraint.
+<<<<<<< HEAD
             const char *FileChar = newFileList.back();
             string FileString = string(FileChar);
             //Finally, we add our servers' home directory (where we will be storing our .csv files) to the FileString so we have a complete path.
@@ -68,6 +74,12 @@ int main()
         else if(oldFileList.size() == newFileList.size())
         {
             printf("NO ACTIVITY");
+=======
+            const char* FileChar = newFileList.back();
+            string str(FileChar);
+cout << FileChar << endl;
+//            printf(FileChar);
+>>>>>>> a7ad33a498a6a47fc22b742dbd5672354d05fcc8
         }
     }
     return 0;
