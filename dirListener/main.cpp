@@ -51,7 +51,7 @@ int main() {
             string FinalFileString = "/home/cooperatio/" + FileString;
             //And then we call ouCSV-parsing method from our header file
             cout << "----------------test----------------" << endl;
-            //csvreader(FinalFileString);
+            csvreader(FinalFileString);
         }
     }
     return 0;
