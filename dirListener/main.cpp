@@ -48,6 +48,8 @@ int main() {
 
             }
 
+            cout << "now the old is coming"  << endl;
+
             for (int i = 0 ; i <  oldFileList.size() ; i ++){
                 cout << oldFileList.at(i) <<  endl;
             }
