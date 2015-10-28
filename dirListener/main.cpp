@@ -66,8 +66,8 @@ int main() {
             //And then we call ouCSV-parsing method from our header file
             cout << "----------------test----------------" << endl;
             csvreader(FinalFileString);
-            break;
         }
+        break;
     }
     for (int i = 0 ; i < newFileList.size(); i ++){
         cout << newFileList.at(i) <<endl;
