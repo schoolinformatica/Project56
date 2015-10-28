@@ -34,6 +34,7 @@ int main() {
     vector<const char *> oldFileList;
     vector<const char *> newFileList;
     newFileList = getDirFileList("/home/cooperatio");
+
     while (true)
     {
         //We create a vector that holds the list of files and dirs BEFORE the 2 second loop
@@ -65,7 +66,19 @@ int main() {
             //And then we call ouCSV-parsing method from our header file
             cout << "----------------test----------------" << endl;
             csvreader(FinalFileString);
+            break;
         }
     }
+    for (int i = 0 ; i < newFileList.size(); i ++){
+        cout << newFileList.at(i) <<endl;
+
+    }
+
+    cout << "now the old is coming"  << endl;
+
+    for (int i = 0 ; i <  oldFileList.size() ; i ++){
+        cout << oldFileList.at(i) <<  endl;
+    }
+
     return 0;
 }
