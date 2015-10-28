@@ -25,6 +25,7 @@ int csvreader(string path) {
 
     while (in.good()) {
         //getting the header
+        cout << "file is ok" << endl;
         vector<string> row = csv_read_row(in, ',');
         cout << "csvreader started4.2" << endl;
         cout << path << endl;
