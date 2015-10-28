@@ -16,44 +16,32 @@ vector<string> headers;
 
 int csvreader(string path) {
 
-    cout << path << endl;
+    cout << "CSV reader started!" << endl;
     vector<map<string, string>> mylist2;
     vector<string> mylist1;
 
-    ifstream in("/home/cooperatio/something.csv");
+    ifstream in(path.c_str());
 
     if (in.fail()) return (cout << "File not found" << endl) && 0;
 
     while (in.good()) {
         //getting the header
-        cout << "file is ok" << endl;
         vector<string> row = csv_read_row(in, ',');
-        cout << "csvreader started4.2" << endl;
-        cout << path << endl;
         //the first row is the header
-        cout << row.size() << endl;
         string header = row[0];
-        cout << "csvreader started4.3" << endl;
         stringstream headerstream(header);
-        cout << "csvreader started4.4" << endl;
         string headerpart;
-        cout << "csvreader started4.5" << endl;
 
         //pushing it into headers array
         while (getline(headerstream, headerpart, ';')) {
-            cout << "csvreader started4.6" << endl;
             headers.push_back(headerpart);
-        }
-        cout << "csvreader started4.7" << endl;
-        for (int i = 0; i < headers.size(); i++) {
-            cout << headers.at(i) << endl;
         }
         break;
     }
 
 
 
-    ifstream in2("/home/cooperatio/something.csv");
+    ifstream in2(path.c_str());
     while (in2.good()) {
 
         //reading the rest of the CSV file
