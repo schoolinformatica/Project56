@@ -74,7 +74,6 @@ int csvreader(string path) {
         cout << endl;
     }
 
-
     return 0;
 
 }
