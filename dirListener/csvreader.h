@@ -16,28 +16,31 @@ vector<string> headers;
 
 int csvreader(string path) {
 
-    cout << "csvreader started" << endl;
     vector<map<string, string>> mylist2;
-    cout << "csvreader started1" << endl;
     vector<string> mylist1;
-    cout << "csvreader started2" << endl;
     ifstream in(path);
-    cout << "csvreader started3" << endl;
+    
     if (in.fail()) return (cout << "File not found" << endl) && 0;
     cout << "csvreader started4" << endl;
     while (in.good()) {
         //getting the header
-
+        cout << "csvreader started4.1" << endl;
         vector<string> row = csv_read_row(in, ',');
+        cout << "csvreader started4.2" << endl;
         //the first row is the header
         string header = row[0];
+        cout << "csvreader started4.3" << endl;
         stringstream headerstream(header);
+        cout << "csvreader started4.4" << endl;
         string headerpart;
+        cout << "csvreader started4.5" << endl;
 
         //pushing it into headers array
         while (getline(headerstream, headerpart, ';')) {
+            cout << "csvreader started4.6" << endl;
             headers.push_back(headerpart);
         }
+        cout << "csvreader started4.7" << endl;
         for (int i = 0; i < headers.size(); i++) {
             cout << headers.at(i) << endl;
         }
@@ -45,7 +48,6 @@ int csvreader(string path) {
     }
 
 
-    cout << "csvreader started5" << endl;
 
     ifstream in2(path);
     while (in2.good()) {
