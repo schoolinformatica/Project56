@@ -4,12 +4,6 @@
 #include <sstream>
 #include <map>
 
-
-using namespace std;
-
-vector<string> csv_read_row(istream &in, char delimiter);
-
-
 using namespace std;
 
 vector<string> csv_read_row(istream &in, char delimiter);
@@ -18,11 +12,10 @@ vector<string> headers;
 
 int main(int argc, char *argv[]) {
 
-    time_t t = time(0);
     vector<map<string, string>> mylist2;
     vector<string> mylist1;
 
-    ifstream in("C:/positions.csv");
+    ifstream in("C:/something.csv");
 
     if (in.fail()) return (cout << "File not found" << endl) && 0;
 
@@ -38,13 +31,13 @@ int main(int argc, char *argv[]) {
         while (getline(headerstream, headerpart, ';')) {
             headers.push_back(headerpart);
         }
-        for (int i = 0 ; i < headers.size(); i++){
+        for (int i = 0; i < headers.size(); i++) {
             cout << headers.at(i) << endl;
         }
         break;
     }
 
-    ifstream in2("C:/positions.csv");
+    ifstream in2("C:/something.csv");
     while (in2.good()) {
 
         //reading the rest of the CSV file
@@ -52,27 +45,33 @@ int main(int argc, char *argv[]) {
 
         //looping through the rest of the file. except the headers (i = 1)
         for (int i = 0, leng = row.size(); i < leng; i++) {
-
             mylist1.push_back(row[i]);
-
         }
-
-
     }
     in.close();
 
-    cout << mylist1.size() << endl ;
-
+    //map for the rows
+    map<string, string> rows;
+    //looping through the list to put all the items in the map
     for (int i = headers.size(); i < mylist1.size(); i++) {
-        map<string, string> rows;
-        rows.insert(pair<string, string>(headers.at(i % headers.size()), mylist1.at(i)));
 
-        mylist2.push_back(rows);
+        rows.insert(pair<string, string>(headers.at(i % headers.size()), mylist1.at(i)));
+        //if its the end of the row, add it to the list and clear the map
+        if (i % headers.size() == headers.size() - 1) {
+            mylist2.push_back(rows);
+            rows.clear();
+        }
     }
-    cout << mylist2.size() << endl ;
-    time_t t1 = time(0);
-    cout << t1 << " < t1 t > " << t << endl ;
-    cout << t1 - t ;
+
+    //this code can be removed. Its to show that in the list the rows are
+    for (int i = 0; i < mylist2.size(); i++) {
+        for (map<string, string>::iterator ii = mylist2.at(i).begin(); ii != mylist2.at(i).end(); ii++) {
+            cout << " " << ii->first << " : " << ii->second << " ";
+        }
+        cout << endl;
+    }
+
+
     return 0;
 }
 
