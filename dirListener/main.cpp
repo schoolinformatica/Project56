@@ -17,7 +17,7 @@ vector<const char *> getDirFileList(const char *directory) {
         //we loop through the given directory and add all the files we find to our FileList
         while ((ent = readdir(dir)) != NULL) {
             FileList.push_back(ent->d_name);
-            cout << ent->d_name << endl ;
+
         }
         //When we scanned all the files, we close the directory and return the list
         closedir(dir);

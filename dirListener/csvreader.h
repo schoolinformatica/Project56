@@ -15,6 +15,8 @@ vector<string> csv_read_row(istream &in, char delimiter);
 vector<string> headers;
 
 int csvreader(string path) {
+
+    cout << "csvreader started" << endl;
     vector<map<string, string>> mylist2;
     vector<string> mylist1;
 
