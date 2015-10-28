@@ -39,6 +39,8 @@ int main() {
         //We redo this procedure AFTER the 2 seconds have passed
         vector<const char *> newFileList = getDirFileList("/home/cooperatio/");
 
+        cout << "----------------------------------------" << endl;
+
         //Then, we check wether the newList is larger than the old one. If so, new files have been added!
         if (newFileList.size() > oldFileList.size()) {
             //We create a const char that contains the last element in the newFileList(the file that has been added, and convert it to a string.
