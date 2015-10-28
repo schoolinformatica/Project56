@@ -3,9 +3,7 @@
 #include <dirent.h>
 #include <vector>
 #include <unistd.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <string.h>
+#include "csvreader.h"
 
 using namespace std;
 
@@ -39,13 +37,13 @@ int main()
 {
     while(true)
     {
-        thread t1(getDirFileList, "/home/robert/TESTFOLDER/");
+        thread t1(getDirFileList, "/home/cooperatio/");
         t1.join();
         //We create a vector that holds the list of files and dirs BEFORE the 2 second loop
-        vector<const char*> oldFileList = getDirFileList("/home/robert/TESTFOLDER/");
+        vector<const char*> oldFileList = getDirFileList("/home/cooperatio/");
         sleep(2);
         //We redo this procedure AFTER the 2 seconds have passed
-        vector<const char*> newFileList = getDirFileList("/home/robert/TESTFOLDER/");
+        vector<const char*> newFileList = getDirFileList("/home/cooperatio/");
 
         //Then, we check wether the newList is larger than the old one. If so, new files have been added!
         if(newFileList.size() > oldFileList.size())
@@ -55,18 +53,9 @@ int main()
             const char * FileChar = newFileList.back();
             string FileString(FileChar);
             //Finally, we add our servers' home directory (where we will be storing our .csv files) to the FileString so we have a complete path.
-            string FinalFileString = "/home/robert/TESTFOLDER/" + FileString;
-            //And then we call our piping method.
-
-        }
-        //Some checks for debugging purposes
-        else if(oldFileList.size() > newFileList.size())
-        {
-            printf("FILES HAVE BEEN REMOVED");
-        }
-        else if(oldFileList.size() == newFileList.size())
-        {
-            printf("NO ACTIVITY");
+            string FinalFileString = "/home/cooperatio/" + FileString;
+            //And then we call ouCSV-parsing method from our header file
+            csvreader(FinalFileString);
         }
     }
     return 0;
