@@ -27,6 +27,7 @@ int csvreader(string path) {
         //getting the header
         vector<string> row = csv_read_row(in, ',');
         cout << "csvreader started4.2" << endl;
+        cout << path << endl;
         //the first row is the header
         cout << row.size() << endl;
         string header = row[0];
