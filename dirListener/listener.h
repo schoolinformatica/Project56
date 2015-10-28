@@ -1,14 +1,27 @@
+//
+// Created by ceesjan on 28-10-2015.
+//
+
+#ifndef Listener
+#define Listener
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
 #include <sys/types.h>
 #include <sys/inotify.h>
 #include <unistd.h>
+#include "csvreader.h"
+
 
 #define EVENT_SIZE  ( sizeof (struct inotify_event) )
 #define BUF_LEN     ( 1024 * ( EVENT_SIZE + 16 ) )
 
-int main(int argc, char **argv) {
+using namespace std;
+
+
+int listener(string path) {
+
     int length, i = 0;
     int fd;
     int wd;
@@ -20,7 +33,7 @@ int main(int argc, char **argv) {
         perror("inotify_init");
     }
 
-    wd = inotify_add_watch(fd, "/home/cooperatio/",
+    wd = inotify_add_watch(fd, path,
                            IN_MODIFY | IN_CREATE | IN_DELETE);
     length = read(fd, buffer, BUF_LEN);
 
@@ -37,6 +50,7 @@ int main(int argc, char **argv) {
                 }
                 else {
                     printf("The file %s was created.\n", event->name);
+                    csvreader(path + event->name);
                 }
             }
             else if (event->mask & IN_DELETE) {
@@ -53,6 +67,7 @@ int main(int argc, char **argv) {
                 }
                 else {
                     printf("The file %s was modified.\n", event->name);
+                    csvreader(path + event->name);
                 }
             }
         }
@@ -61,5 +76,8 @@ int main(int argc, char **argv) {
     (void) inotify_rm_watch(fd, wd);
     (void) close(fd);
 
-    exit(0);
+    this->listener(path);
 }
+
+
+#endif Listener
