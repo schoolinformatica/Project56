@@ -37,13 +37,12 @@ int main() {
 
     while (true)
     {
-        sleep(1);
+
         //We create a vector that holds the list of files and dirs BEFORE the 2 second loop
         //oldFileList = newFileList;
-        sleep(1);
+        sleep(3);
         //We redo this procedure AFTER the 2 seconds have passed
         newFileList = getDirFileList("/home/cooperatio/");
-        sleep(1);
         cout << "----------------------------------------" << endl;
 
         //Then, we check wether the newList is larger than the old one. If so, new files have been added!
