@@ -6,5 +6,5 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
 
-    csvreader("C:/something.csv");
+    csvreader("/home/cooperatio/something.csv");
     }

@@ -18,7 +18,7 @@ int csvreader(string path) {
     vector<map<string, string>> mylist2;
     vector<string> mylist1;
 
-    ifstream in("C:/something.csv");
+    ifstream in("/home/cooperatio/something.csv");
 
     if (in.fail()) return (cout << "File not found" << endl) && 0;
 
@@ -40,7 +40,7 @@ int csvreader(string path) {
         break;
     }
 
-    ifstream in2("C:/something.csv");
+    ifstream in2("/home/cooperatio/something.csv");
     while (in2.good()) {
 
         //reading the rest of the CSV file
