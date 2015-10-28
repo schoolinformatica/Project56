@@ -19,6 +19,7 @@ int csvreader(string path) {
     cout << path << endl;
     vector<map<string, string>> mylist2;
     vector<string> mylist1;
+
     ifstream in("/home/cooperatio/something.csv");
 
     if (in.fail()) return (cout << "File not found" << endl) && 0;
