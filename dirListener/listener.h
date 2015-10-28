@@ -19,7 +19,6 @@
 
 using namespace std;
 
-
 int listener(string path) {
 
     int length, i = 0;
@@ -76,8 +75,8 @@ int listener(string path) {
     (void) inotify_rm_watch(fd, wd);
     (void) close(fd);
 
-    this->listener(path);
+    listener(path);
 }
 
 
-#endif Listener
+#endif 
