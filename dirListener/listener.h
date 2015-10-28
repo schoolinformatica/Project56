@@ -32,7 +32,9 @@ int listener(string path) {
         perror("inotify_init");
     }
 
-    wd = inotify_add_watch(fd, path,
+
+
+    wd = inotify_add_watch(fd, path.c_str(),
                            IN_MODIFY | IN_CREATE | IN_DELETE);
     length = read(fd, buffer, BUF_LEN);
 
@@ -79,4 +81,4 @@ int listener(string path) {
 }
 
 
-#endif 
+#endif
