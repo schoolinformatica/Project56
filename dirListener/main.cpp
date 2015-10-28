@@ -31,13 +31,16 @@ vector<const char *> getDirFileList(const char *directory) {
 }
 
 int main() {
+    vector<const char *> oldFileList;
+    vector<const char *> newFileList;
+    newFileList = getDirFileList("/home/cooperatio");
     while (true)
     {
         //We create a vector that holds the list of files and dirs BEFORE the 2 second loop
-        vector<const char *> oldFileList = getDirFileList("/home/cooperatio/");
+        oldFileList = newFileList;
         sleep(2);
         //We redo this procedure AFTER the 2 seconds have passed
-        vector<const char *> newFileList = getDirFileList("/home/cooperatio/");
+        newFileList = getDirFileList("/home/cooperatio/");
 
         cout << "----------------------------------------" << endl;
 
