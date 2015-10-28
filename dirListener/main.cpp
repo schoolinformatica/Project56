@@ -31,9 +31,10 @@ vector<const char *> getDirFileList(const char *directory) {
 }
 
 int main() {
-    vector<const char *> oldFileList  = getDirFileList("/home/cooperatio");
+    vector<const char *> oldFileList ;
+    oldFileList = getDirFileList("/home/cooperatio");
     vector<const char *> newFileList;
-    newFileList = getDirFileList("/home/cooperatio");
+
 
     while (true)
     {
@@ -72,7 +73,7 @@ int main() {
     for (int i = 0 ; i <  oldFileList.size() ; i ++){
         cout << oldFileList.at(i) <<  endl;
     }
-    
+
     cout << "now the old is coming"  << endl;
 
     for (int i = 0 ; i < newFileList.size(); i ++){
