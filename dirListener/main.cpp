@@ -69,16 +69,18 @@ int main() {
 //        }
         break;
     }
+    for (int i = 0 ; i <  oldFileList.size() ; i ++){
+        cout << oldFileList.at(i) <<  endl;
+    }
+    
+    cout << "now the old is coming"  << endl;
+
     for (int i = 0 ; i < newFileList.size(); i ++){
         cout << newFileList.at(i) <<endl;
 
     }
 
-    cout << "now the old is coming"  << endl;
 
-    for (int i = 0 ; i <  oldFileList.size() ; i ++){
-        cout << oldFileList.at(i) <<  endl;
-    }
 
     return 0;
 }
