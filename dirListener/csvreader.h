@@ -53,7 +53,6 @@ int csvreader(string path) {
         }
     }
     in.close();
-
     //map for the rows
     map<string, string> rows;
     //looping through the list to put all the items in the map
