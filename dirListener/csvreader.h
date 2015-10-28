@@ -18,14 +18,16 @@ int csvreader(string path) {
 
     cout << "csvreader started" << endl;
     vector<map<string, string>> mylist2;
+    cout << "csvreader started1" << endl;
     vector<string> mylist1;
-
+    cout << "csvreader started2" << endl;
     ifstream in(path);
-
+    cout << "csvreader started3" << endl;
     if (in.fail()) return (cout << "File not found" << endl) && 0;
-
+    cout << "csvreader started4" << endl;
     while (in.good()) {
         //getting the header
+
         vector<string> row = csv_read_row(in, ',');
         //the first row is the header
         string header = row[0];
@@ -41,6 +43,9 @@ int csvreader(string path) {
         }
         break;
     }
+
+
+    cout << "csvreader started5" << endl;
 
     ifstream in2(path);
     while (in2.good()) {
