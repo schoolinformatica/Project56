@@ -16,6 +16,7 @@ vector<string> headers;
 
 int csvreader(string path) {
 
+    cout << path << endl;
     vector<map<string, string>> mylist2;
     vector<string> mylist1;
     ifstream in(path);
