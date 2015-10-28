@@ -49,7 +49,8 @@ int main() {
             //Finally, we add our servers' home directory (where we will be storing our .csv files) to the FileString so we have a complete path.
             string FinalFileString = "/home/cooperatio/" + FileString;
             //And then we call ouCSV-parsing method from our header file
-            csvreader(FinalFileString);
+            cout << "test";
+            //csvreader(FinalFileString);
         }
     }
     return 0;
