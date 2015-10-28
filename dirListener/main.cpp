@@ -46,11 +46,13 @@ int main() {
             for (int i = 0 ; i < newFileList.size(); i ++){
                 for (int y = 0 ; y < oldFileList.size(); y++){
                     if (newFileList.at(i) == oldFileList.at(y)){
-                        break;
+                        newFileList.erase(newFileList.begin() + i);
                     }
                 }
-                cout <<newFileList.at(i) << "not found" << endl;
 
+            }
+            for (int i = 0 ; i <  newFileList.size() ; i ++){
+                cout << newFileList.at(i) <<  " is the new file" << endl;
             }
             //We create a const char that contains the last element in the newFileList(the file that has been added, and convert it to a string.
             //Note: We do not take any measures to ensure that only .csv files will be handled, since the web interface will provide this constraint.
