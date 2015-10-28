@@ -37,6 +37,7 @@ int main() {
 
     while (true)
     {
+        sleep(1);
         //We create a vector that holds the list of files and dirs BEFORE the 2 second loop
         oldFileList = newFileList;
         sleep(1);
