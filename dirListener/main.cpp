@@ -45,10 +45,10 @@ int main() {
         if (newFileList.size() > oldFileList.size()) {
             for (int i = 0 ; i < newFileList.size(); i ++){
                 for (int y = 0 ; y < oldFileList.size(); y++){
-                    if (newFileList.at(i) == oldFileList.at(y)){
+                    
                         cout << newFileList.at(i) << " < new  old > " << oldFileList.at(y) << endl;
 
-                    }
+
                 }
 
             }
