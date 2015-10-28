@@ -31,10 +31,8 @@ vector<const char *> getDirFileList(const char *directory) {
 }
 
 int main() {
-    while (true) {
-        thread t1(getDirFileList, "/home/cooperatio/");
-        t1.join();
-
+    while (true)
+    {
         //We create a vector that holds the list of files and dirs BEFORE the 2 second loop
         vector<const char *> oldFileList = getDirFileList("/home/cooperatio/");
         sleep(2);
@@ -50,8 +48,7 @@ int main() {
             //Finally, we add our servers' home directory (where we will be storing our .csv files) to the FileString so we have a complete path.
             string FinalFileString = "/home/cooperatio/" + FileString;
             //And then we call ouCSV-parsing method from our header file
-
-            cout << "test";
+            cout << "test" << endl;
             //csvreader(FinalFileString);
         }
     }
