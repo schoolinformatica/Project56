@@ -72,6 +72,7 @@ int listener(string path) {
                 }
             }
         }
+        i += EVENT_SIZE + event->len;
     }
 
     (void) inotify_rm_watch(fd, wd);
