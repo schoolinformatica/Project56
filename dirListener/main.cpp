@@ -46,7 +46,8 @@ int main() {
             for (int i = 0 ; i < newFileList.size(); i ++){
                 for (int y = 0 ; y < oldFileList.size(); y++){
                     if (newFileList.at(i) == oldFileList.at(y)){
-                        newFileList.erase(newFileList.begin() + i);
+                        newFileList.erase(newFileList.begin() + i +1);
+                        break;
                     }
                 }
 
