@@ -53,7 +53,7 @@ int listener(string path) {
                 else {
                     printf("The file %s was created.\n", event->name);
                     if (strstr(event->name, ".csv") != NULL){
-                        sleep(1);
+                        sleep(5);
                         csvreader(path + event->name);
                     }
                     else {
@@ -76,7 +76,7 @@ int listener(string path) {
                 else {
                     printf("The file %s was modified.\n", event->name);
                     if (strstr(event->name, ".csv") != NULL){
-                        sleep(1);
+                        sleep(5);
                         csvreader(path + event->name);
                     }
                     else {
