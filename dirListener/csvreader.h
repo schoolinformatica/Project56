@@ -40,7 +40,6 @@ int csvreader(string path) {
     }
 
 
-
     ifstream in2(path.c_str());
     while (in2.good()) {
 
