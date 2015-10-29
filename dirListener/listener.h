@@ -60,7 +60,7 @@ int listener(string path) {
                     }
                 }
             }
-            else if (event->mask & IN_DELETE) { 
+            else if (event->mask & IN_DELETE) {
                 if (event->mask & IN_ISDIR) {
                     printf("The directory %s was deleted.\n", event->name);
                 }
