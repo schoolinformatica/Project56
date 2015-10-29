@@ -52,8 +52,8 @@ int listener(string path) {
                 else {
                     printf("The file %s was created.\n", event->name);
                     if (strstr(event->name, ".csv") != NULL) {
-                        //sleep(5);
-                        //csvreader(path + event->name);
+                        sleep(5);
+                        csvreader(path + event->name);
                         cout << "test" << endl;
                     }
                     else {
@@ -91,8 +91,8 @@ int listener(string path) {
                 else {
                     printf("The file %s is done modifying.\n", event->name);
                     if (strstr(event->name, ".csv") != NULL) {
-                        cout << "tes ASDASDASDAt" << endl;
-                        //csvreader(path + event->name);
+
+                        csvreader(path + event->name);
                     }
                     else {
                         cout << "non valid csv file!" << endl;
