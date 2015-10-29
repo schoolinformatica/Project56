@@ -35,7 +35,7 @@ int listener(string path) {
 
 
     wd = inotify_add_watch(fd, path.c_str(),
-                           IN_MODIFY | IN_CREATE | IN_DELETE | IN_CLOSE_WRITE);
+                           IN_MODIFY | IN_CREATE | IN_DELETE | IN_CLOSE_WRITE |  IN_MOVE);
     length = read(fd, buffer, BUF_LEN);
 
     if (length < 0) {
@@ -74,6 +74,21 @@ int listener(string path) {
                 }
                 else {
                     printf("The file %s was modified.\n", event->name);
+                    if (strstr(event->name, ".csv") != NULL) {
+                        sleep(5);
+                        csvreader(path + event->name);
+                    }
+                    else {
+                        cout << "non valid csv file!" << endl;
+                    }
+                }
+            }
+             else if (event->mask & IN_MOVE) {
+                if (event->mask & IN_ISDIR) {
+                    printf("The directory %s was moved.\n", event->name);
+                }
+                else {
+                    printf("The file %s was moved.\n", event->name);
                     if (strstr(event->name, ".csv") != NULL) {
                         sleep(5);
                         csvreader(path + event->name);
