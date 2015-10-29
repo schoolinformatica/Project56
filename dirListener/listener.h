@@ -54,14 +54,13 @@ int listener(string path) {
                     if (strstr(event->name, ".csv") != NULL) {
                         sleep(5);
                         csvreader(path + event->name);
-                        cout << "test" << endl;
                     }
                     else {
                         cout << "non valid csv file!" << endl;
                     }
                 }
             }
-            else if (event->mask & IN_DELETE) {
+            else if (event->mask & IN_DELETE) { 
                 if (event->mask & IN_ISDIR) {
                     printf("The directory %s was deleted.\n", event->name);
                 }
