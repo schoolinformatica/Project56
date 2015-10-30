@@ -65,13 +65,17 @@ int csvreader(string path) {
         }
     }
 
-    //this code can be removed. Its to show that in the list the rows are
-    for (int i = 0; i < listrows.size(); i++) {
-        for (map<string, string>::iterator ii = listrows.at(i).begin(); ii != listrows.at(i).end(); ii++) {
-            cout << " " << ii->first << " : " << ii->second << " ";
-        }
-        cout << endl;
-    }
+//    //this code can be removed. Its to show that in the list the rows are
+//    for (int i = 0; i < listrows.size(); i++) {
+//        for (map<string, string>::iterator ii = listrows.at(i).begin(); ii != listrows.at(i).end(); ii++) {
+//            cout << " " << ii->first << " : " << ii->second << " ";
+//        }
+//        cout << endl;
+//    }
+
+    //deleting the csv file
+    cout << "deleting file" << endl;
+    remove(path.c_str());
 
     return 0;
 }
