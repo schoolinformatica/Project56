@@ -7,7 +7,7 @@
 int main() {
 
     int fd;
-    char * myfifo = "/tmp/myfifo";
+    char * myfifo = '/tmp/myfifo';
 
     /* create a fifo (fifo is a named pipe)*/
     mkfifo(myfifo, 0666);
