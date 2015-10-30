@@ -7,7 +7,7 @@
 int main() {
 
     int fd;
-    char * myfifo = '/tmp/myfifo';
+    char * myfifo = "/tmp/myfifo";
 
     /* create a fifo (fifo is a named pipe)*/
     mkfifo(myfifo, 0666);
@@ -18,7 +18,7 @@ int main() {
     close(fd);
 
     //remove the fifo
-    unlink(fd);
+    unlink(myfifo);
 
 
     return 0;
