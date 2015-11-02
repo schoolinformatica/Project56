@@ -17,8 +17,8 @@ vector<string> headers;
 int csvreader(string path) {
 
     cout << "CSV reader started!" << endl;
-    vector<map<string, string>> mylist2;
-    vector<string> mylist1;
+    vector<map<string, string>> listrows;
+    vector<string> allItemsList;
 
     ifstream in(path.c_str());
 
@@ -40,7 +40,6 @@ int csvreader(string path) {
     }
 
 
-
     ifstream in2(path.c_str());
     while (in2.good()) {
 
@@ -49,30 +48,34 @@ int csvreader(string path) {
 
         //looping through the rest of the file. except the headers (i = 1)
         for (int i = 0, leng = row.size(); i < leng; i++) {
-            mylist1.push_back(row[i]);
+            allItemsList.push_back(row[i]);
         }
     }
     in.close();
     //map for the rows
     map<string, string> rows;
     //looping through the list to put all the items in the map
-    for (int i = headers.size(); i < mylist1.size(); i++) {
+    for (int i = headers.size(); i < allItemsList.size(); i++) {
 
-        rows.insert(pair<string, string>(headers.at(i % headers.size()), mylist1.at(i)));
+        rows.insert(pair<string, string>(headers.at(i % headers.size()), allItemsList.at(i)));
         //if its the end of the row, add it to the list and clear the map
         if (i % headers.size() == headers.size() - 1) {
-            mylist2.push_back(rows);
+            listrows.push_back(rows);
             rows.clear();
         }
     }
 
-    //this code can be removed. Its to show that in the list the rows are
-    for (int i = 0; i < mylist2.size(); i++) {
-        for (map<string, string>::iterator ii = mylist2.at(i).begin(); ii != mylist2.at(i).end(); ii++) {
-            cout << " " << ii->first << " : " << ii->second << " ";
-        }
-        cout << endl;
-    }
+//    //this code can be removed. Its to show that in the list the rows are
+//    for (int i = 0; i < listrows.size(); i++) {
+//        for (map<string, string>::iterator ii = listrows.at(i).begin(); ii != listrows.at(i).end(); ii++) {
+//            cout << " " << ii->first << " : " << ii->second << " ";
+//        }
+//        cout << endl;
+//    }
+
+    //deleting the csv file
+    cout << "deleting file" << endl;
+    remove(path.c_str());
 
     return 0;
 }
