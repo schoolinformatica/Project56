@@ -22,7 +22,7 @@ vector<map<string, string>> csvreader(string path) {
 
     ifstream in(path.c_str());
 
-    if (in.fail()) return (cout << "File not found" << endl) && 0;
+    if (in.fail()) return (cout << "File not found" << endl);
 
     while (in.good()) {
         //getting the header
