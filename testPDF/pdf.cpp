@@ -482,7 +482,7 @@ string PDF::toString()
 
 bool PDF::writeToFile(const string &fileName, string &errMsg)
 {
-    string filepath = "C:\\Users\\ceesjan\\Documents\\Hogeschool\\" + fileName;
+    string filepath = "/home/cees-jan/schoolproject/Project56/" + fileName;
    ofstream theFile(filepath.c_str(), ios::out | ios::binary);
 
    if(!theFile)
