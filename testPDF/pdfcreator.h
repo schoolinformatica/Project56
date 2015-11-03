@@ -460,13 +460,14 @@ static void demoFour(PDF &pdf, vector<map<string,string>> list) {
         for (map<string, string>::iterator ii = list.at(i).begin(); ii != list.at(i).end(); ii++) {
 
             if (!first){
-                pdf.showTextXY(ii->first, 50 + 100 * x , 745);
-                pdf.showTextXY(ii->second, 50 + 100 * x, 730 );
-                first = true;
+                pdf.showTextXY(ii->first, 50 + 175 * x , 745);
+                pdf.showTextXY(ii->second, 50 + 175 * x, 730 );
+
             }
             else {
-                pdf.showTextXY(ii->second, 50 + 100 * x, 715 - 15 * i);
+                pdf.showTextXY(ii->second, 50 + 175 * x, 715 - 15 * i);
             }
+            first = true;
             x++;
         }
     }
