@@ -484,7 +484,7 @@ string PDF::toString()
 
 bool PDF::writeToFile(const string &fileName, string &errMsg)
 {
-    string x = "/home/ubuntu-0902130/"  + fileName;
+    string x = "/home/ubuntu-0902130"  + fileName;
 
    ofstream theFile(x.c_str(), ios::out | ios::binary);
 
