@@ -33,9 +33,8 @@ int listener(string path) {
         perror("inotify_init");
     }
 
-
     wd = inotify_add_watch(fd, path.c_str(),
-                           IN_MODIFY | IN_CREATE | IN_DELETE | IN_CLOSE_WRITE);
+                           IN_MODIFY | IN_CREATE | IN_DELETE | IN_CLOSE_WRITE | IN_MOVE);
     length = read(fd, buffer, BUF_LEN);
 
     if (length < 0) {
@@ -60,7 +59,7 @@ int listener(string path) {
                     }
                 }
             }
-            else if (event->mask & IN_DELETE) { 
+            else if (event->mask & IN_DELETE) {
                 if (event->mask & IN_ISDIR) {
                     printf("The directory %s was deleted.\n", event->name);
                 }
@@ -83,6 +82,20 @@ int listener(string path) {
                     }
                 }
             }
+            else if (event->mask & IN_MOVE) {
+                if (event->mask & IN_ISDIR) {
+                    printf("The directory %s was moved.\n", event->name);
+                }
+                else {
+                    printf("The file %s was moved.\n", event->name);
+                    if (strstr(event->name, ".csv") != NULL) {
+                        csvreader(path + event->name);
+                    }
+                    else {
+                        cout << "non valid csv file!" << endl;
+                    }
+                }
+            }
             else if (event->mask & IN_CLOSE_WRITE) {
                 if (event->mask & IN_ISDIR) {
                     printf("The directory %s is done modifying.\n", event->name);
@@ -98,16 +111,15 @@ int listener(string path) {
                     }
                 }
 
-                }
             }
-            i += EVENT_SIZE + event->len;
         }
-
-        (void) inotify_rm_watch(fd, wd);
-        (void) close(fd);
-
-        listener(path);
+        i += EVENT_SIZE + event->len;
     }
 
+    (void) inotify_rm_watch(fd, wd);
+    (void) close(fd);
+
+    listener(path);
+}
 
 #endif
