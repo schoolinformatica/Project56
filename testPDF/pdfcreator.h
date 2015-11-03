@@ -1,5 +1,5 @@
-#ifndef pdfcreator
-#define pdfcreator
+#ifndef PDFCreator
+#define PDFCreator
 /**************************
  * Headers
  **************************/
