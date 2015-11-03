@@ -1,10 +1,12 @@
 #include <iostream>
 #include "listener.h"
+#include "filedatabase.h"
 
 using namespace std;
 
 int main() {
-    listener("/var/www/html/uploads/");
+    //listener("d:/Bureaublad");
+    insert();
     return 0;
 }
 
