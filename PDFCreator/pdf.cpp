@@ -9,7 +9,7 @@
 #include <cctype>
 #include <cmath>
 
-#include "metrics.h"
+#include "metrics.cpp"
 #include "pdf.h"
 
 /************************************************************
