@@ -454,20 +454,13 @@ static void demoFour(PDF &pdf, vector<map<string,string>> list) {
 
     pdf.setLineColor(0, 5, 150);
     pdf.setFont(PDF::COURIER, 12);
-    bool first = false;
     for (int i = 0; i < list.size(); i++) {
         int x = 0;
         for (map<string, string>::iterator ii = list.at(i).begin(); ii != list.at(i).end(); ii++) {
 
-            if (!first){
-                pdf.showTextXY(ii->first, 50 + 175 * x , 745);
-                pdf.showTextXY(ii->second, 50 + 175 * x, 730 );
-
-            }
-            else {
-                pdf.showTextXY(ii->second, 50 + 175 * x, 715 - 15 * i);
-            }
-            first = true;
+            pdf.showTextXY(ii->first, 50 + 175 * x, 745);
+            pdf.showTextXY(ii->second, 50 + 175 * x, 730 - 15 * i);
+            
             x++;
         }
     }
