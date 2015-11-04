@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home</title>
+        <title>Upload</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -65,13 +65,13 @@
                     <li><a href="/upload/">Upload files</a></li>
                     <!--<li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">Messages <b class="caret"></b></a>
-                            <ul role="menu" class="dropdown-menu">
-                                <li><a href="#">Inbox</a></li>
-                                <li><a href="#">Drafts</a></li>
-                                <li><a href="#">Sent Items</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Trash</a></li>
-                            </ul>
+                        <ul role="menu" class="dropdown-menu">
+                            <li><a href="#">Inbox</a></li>
+                            <li><a href="#">Drafts</a></li>
+                            <li><a href="#">Sent Items</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Trash</a></li>
+                        </ul>
                     </li>-->
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

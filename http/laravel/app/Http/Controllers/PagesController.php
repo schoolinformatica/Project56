@@ -23,4 +23,9 @@ class PagesController extends Controller
     {
         return view('pages.login');
     }
+
+    public function upload()
+        {
+            return view('pages.upload');
+        }
 }
