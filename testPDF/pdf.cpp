@@ -16,18 +16,16 @@
  * Using Declarations
  ************************************************************/
 
-//using std::ios;
-//using std::hex;
-//using std::setw;
-//using std::cout;
-//using std::endl;
-//using std::setfill;
-//using std::ofstream;
-//using std::ifstream;
-//using std::uppercase;
-//using std::ostringstream;
-
-using namespace std;
+using std::ios;
+using std::hex;
+using std::setw;
+using std::cout;
+using std::endl;
+using std::setfill;
+using std::ofstream;
+using std::ifstream;
+using std::uppercase;
+using std::ostringstream;
 
 /************************************************************
  * Static Member Variables
@@ -484,9 +482,8 @@ string PDF::toString()
 
 bool PDF::writeToFile(const string &fileName, string &errMsg)
 {
-    string x = "/home/ubuntu-0902130"  + fileName;
-
-   ofstream theFile(x.c_str(), ios::out | ios::binary);
+    string filepath = "/home/cees-jan/schoolproject/Project56/" + fileName;
+   ofstream theFile(filepath.c_str(), ios::out | ios::binary);
 
    if(!theFile)
    {
