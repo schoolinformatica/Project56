@@ -15,9 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 //Route::get('login', function() {
 //    return view('login');
 //});
 
-
+Route::get('welcome', 'PagesController@home');
 Route::get('about','PagesController@about');
+Route::get('login', 'PagesController@login');
+

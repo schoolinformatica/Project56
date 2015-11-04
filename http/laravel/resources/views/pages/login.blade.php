@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home</title>
+        <title>Login</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -60,8 +60,8 @@
             <!-- Collection of nav links, forms, and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">Home</a></li>
-                    <li><a href="/about/">About Us</a></li>
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
                     <li class="dropdown">
                         <!-- <a data-toggle="dropdown" class="dropdown-toggle" href="#">Messages <b class="caret"></b></a>
                         <ul role="menu" class="dropdown-menu">
@@ -74,7 +74,7 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/login/">Login</a></li>
+                    <li><a href="#">Login</a></li>
                 </ul>
             </div>
         </nav>

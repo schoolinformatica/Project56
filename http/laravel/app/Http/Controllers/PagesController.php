@@ -9,8 +9,18 @@ use App\Http\Controllers\Controller;
 
 class PagesController extends Controller
 {
+    public function home()
+    {
+        return view('welcome');
+    }
+
     public function about()
     {
         return view('pages.about');
+    }
+
+    public function login()
+    {
+        return view('pages.login');
     }
 }
