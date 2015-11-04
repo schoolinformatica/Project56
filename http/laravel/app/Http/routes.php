@@ -14,6 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+<<<<<<< HEAD
 Route::get('login', function() {
     return view('login');
 });
+=======
+
+Route::get('about','PagesController@about');
+>>>>>>> 713ce7e3ef751f3e4336fb4377350b8adff9f3eb
