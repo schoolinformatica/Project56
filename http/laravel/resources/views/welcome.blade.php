@@ -63,6 +63,7 @@
                     <li class="active"><a href="/">Home</a></li>
                     <li><a href="/about/">About Us</a></li>
                     <li><a href="/upload/">Upload files</a></li>
+                    <li><a href="/download/">Download files</a></li>
                     <!--<li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">Messages <b class="caret"></b></a>
                             <ul role="menu" class="dropdown-menu">
@@ -80,10 +81,70 @@
             </div>
         </nav>
 
-        <div class="container">
-            <div class="content">
-                <div class="title">RobbieBakkie</div>
+        <!-- Page Content -->
+            <div class="container">
+
+                <!-- Heading Row -->
+                <div class="row">
+                    <div class="col-md-8">
+                        <img class="img-responsive img-rounded" src="http://placehold.it/900x350" alt="">
+                    </div>
+                    <!-- /.col-md-8 -->
+                    <div class="col-md-4">
+                        <h1>Cooperatio</h1>
+                        <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!</p>
+                        <a class="btn btn-primary btn-lg" href="#">Call to Action!</a>
+                    </div>
+                    <!-- /.col-md-4 -->
+                </div>
+                <!-- /.row -->
+
+                <hr>
+
+                <!-- Call to Action Well -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="well text-center">
+                            This is a well that is a great spot for a business tagline or phone number for easy access!
+                        </div>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+
+                <!-- Content Row -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <h2>About us</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
+                        <a class="btn btn-default" href="/about/">More Info</a>
+                    </div>
+                    <!-- /.col-md-4 -->
+                    <div class="col-md-4">
+                        <h2>Download files</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
+                        <a class="btn btn-default" href="#">More Info</a>
+                    </div>
+                    <!-- /.col-md-4 -->
+                    <div class="col-md-4">
+                        <h2>Upload files</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
+                        <a class="btn btn-default" href="/upload/">More Info</a>
+                    </div>
+                    <!-- /.col-md-4 -->
+                </div>
+                <!-- /.row -->
+
+                <!-- Footer -->
+                <footer>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p>Copyright &copy; Cooperatio 2015</p>
+                        </div>
+                    </div>
+                </footer>
+
             </div>
-        </div>
+            <!-- /.container -->
     </body>
 </html>

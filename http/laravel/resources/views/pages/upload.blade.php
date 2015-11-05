@@ -63,6 +63,7 @@
                     <li class="active"><a href="/">Home</a></li>
                     <li><a href="/about/">About Us</a></li>
                     <li><a href="/upload/">Upload files</a></li>
+                    <li><a href="/download/">Download files</a></li>
                     <!--<li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">Messages <b class="caret"></b></a>
                         <ul role="menu" class="dropdown-menu">
@@ -83,6 +84,12 @@
         <div class="container">
             <div class="content">
                 <div class="title">RobbieBakkie</div>
+                <form action="/uploadAdd/" method="post" enctype="multipart/form-data">
+                    Select image to upload:
+                    <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                    <input type="file" name="file" >
+                    <input type="submit">
+                </form>
             </div>
         </div>
     </body>

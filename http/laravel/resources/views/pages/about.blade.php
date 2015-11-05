@@ -62,6 +62,8 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="/">Home</a></li>
                     <li><a href="/about/">About Us</a></li>
+                    <li><a href="/upload/">Upload files</a></li>
+                    <li><a href="/download/">Download files</a></li>
                     <li class="dropdown">
                         <!-- <a data-toggle="dropdown" class="dropdown-toggle" href="#">Messages <b class="caret"></b></a>
                         <ul role="menu" class="dropdown-menu">
