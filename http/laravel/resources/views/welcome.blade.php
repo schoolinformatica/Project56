@@ -47,7 +47,7 @@
     <body>
 
         <nav role="navigation" class="navbar navbar-inverse">
-            <!-- Brand and toggle get grouped for better mobile display -->
+            <!--toggle is grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
                     <span class="sr-only">Toggle navigation</span>
@@ -55,8 +55,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="#" class="navbar-brand">Brand</a>
             </div>
+
             <!-- Collection of nav links, forms, and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -79,21 +79,20 @@
                     <li><a href="/login/">Login</a></li>
                 </ul>
             </div>
-        </nav>
 
+        </nav>
         <!-- Page Content -->
             <div class="container">
 
                 <!-- Heading Row -->
                 <div class="row">
                     <div class="col-md-8">
-                        <img class="img-responsive img-rounded" src="http://placehold.it/900x350" alt="">
+                        <img class="img-responsive img-rounded" src="handshake.jpg" alt="">
                     </div>
                     <!-- /.col-md-8 -->
                     <div class="col-md-4">
                         <h1>Cooperatio</h1>
                         <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!</p>
-                        <a class="btn btn-primary btn-lg" href="#">Call to Action!</a>
                     </div>
                     <!-- /.col-md-4 -->
                 </div>

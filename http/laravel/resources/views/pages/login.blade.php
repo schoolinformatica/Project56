@@ -26,7 +26,7 @@
                 width: 100%;
                 display: table;
                 font-weight: 100;
-                font-family: "Times New Roman", Georgia, Serif;;
+                font-family: "Times New Roman", Georgia, Serif;
             }
 
             .container {
@@ -55,8 +55,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="#" class="navbar-brand">Brand</a>
             </div>
+
             <!-- Collection of nav links, forms, and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">

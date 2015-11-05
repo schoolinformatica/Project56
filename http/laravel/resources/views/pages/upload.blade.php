@@ -26,7 +26,7 @@
                 width: 100%;
                 display: table;
                 font-weight: 100;
-                font-family: "Times New Roman", Georgia, Serif;;
+                font-family: "Times New Roman", Georgia, Serif;
             }
 
             .container {
