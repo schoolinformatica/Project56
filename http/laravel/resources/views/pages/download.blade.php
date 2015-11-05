@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>About us</title>
+<head>
+    <title>Upload</title>
 
-<link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
@@ -61,9 +61,9 @@
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="/">Home</a></li>
-                    <li><a  style="color:white" href="/about/">About Us</a></li>
+                    <li><a href="/about/">About Us</a></li>
                     <li><a href="/uploadPage/">Upload files</a></li>
-                    <li><a href="/download/">Download files</a></li>
+                    <li><a  style="color:white" href="/download/">Download files</a></li>
                     <!--<li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">Messages <b class="caret"></b></a>
                             <ul role="menu" class="dropdown-menu">
@@ -82,21 +82,9 @@
 
         </nav>
 
-        <div class="container">
-            <div class="content">
-                <h1>Cooperatio</h1>
-                <br />
-                <p>
-                    Cooperatio, opgericht op "" "" 2015. Wij zijn een groep van 5 enthousiaste en leergierige
-                    studenten. Wij hebben elkaar ontmoet op de Hoge School Rotterdam. Cooperatio is opgericht voor het project
-                    van periode 5/6. De teamleden zijn: "Cees-Jan Nolen, Robert Kraaijeveld, Robin Bakker, Steven Schenk
-                    en William de Visser".
-                    <br />
-                    <br />
-                    Bij dit project moeten we voor CityGis een systeem maken dat csv-bestanden kan uploaden en toevoegen aan de database.
-                    Ook moeten er files 'verkocht' kunnen worden. Waarna de gebruiker de csv bestand(en) kan downloaden.
-                </p>
-            </div>
-        </div>
-    </body>
+<div class="container">
+    <div class="content">
+    </div>
+</div>
+</body>
 </html>

@@ -28,4 +28,9 @@ class PagesController extends Controller
         {
             return view('pages.upload');
         }
+
+    public function download()
+    {
+        return view('pages.download');
+    }
 }
