@@ -38,10 +38,7 @@
                 text-align: center;
                 display: inline-block;
             }
-
-            .title {
-                font-size: 96px;
-            }
+            
         </style>
     </head>
     <body>
@@ -60,7 +57,7 @@
             <!-- Collection of nav links, forms, and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="/about/">About Us</a></li>
                     <li><a href="/upload/">Upload files</a></li>
                     <li><a href="/download/">Download files</a></li>
@@ -83,7 +80,6 @@
 
         <div class="container">
             <div class="content">
-                <div class="title">RobbieBakkie</div>
                 <form action="/uploadAdd/" method="post" enctype="multipart/form-data">
                     Select image to upload:
                     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
