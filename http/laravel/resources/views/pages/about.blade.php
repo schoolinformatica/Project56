@@ -26,7 +26,7 @@
                 width: 100%;
                 display: table;
                 font-weight: 100;
-                font-family: 'Lato';
+                font-family: "Times New Roman", Georgia, Serif;;
             }
 
             .container {
@@ -39,9 +39,6 @@
                 display: inline-block;
             }
 
-            .title {
-                font-size: 96px;
-            }
         </style>
     </head>
     <body>
@@ -83,7 +80,18 @@
 
         <div class="container">
             <div class="content">
-
+                <h1>Cooperatio</h1>
+                <br />
+                <p>
+                    Cooperatio, opgericht op "" "" 2015. Wij zijn een groep van 5 enthousiaste en leergierige
+                    studenten. Wij hebben elkaar ontmoet op de Hoge School Rotterdam. Cooperatio is opgericht voor het project
+                    van periode 5/6. De teamleden zijn: "Cees-Jan Nolen, Robert Kraaijeveld, Robin Bakker, Steven Schenk
+                    en William de Visser".
+                    <br />
+                    <br />
+                    Bij dit project moeten we voor CityGis een systeem maken dat csv-bestanden kan uploaden en toevoegen aan de database.
+                    Ook moeten er files 'verkocht' kunnen worden. Waarna de gebruiker de csv bestand(en) kan downloaden.
+                </p>
             </div>
         </div>
     </body>
