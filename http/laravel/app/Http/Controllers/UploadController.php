@@ -24,10 +24,11 @@ class UploadController extends Controller {
     {
         $image = Input::file('file');
 
-        $destinationPath = '../../../public/uploads';
+        $destinationPath = storage_path() . '/uploads';
         if(!$image->move($destinationPath, $image->getClientOriginalName())) {
             return $this->errors(['message' => 'Error saving the file.', 'code' => 400]);
         }
-        return response()->json(['success' => true], 200);
+        //return response()->json(['success' => true], 200);
+        return view('pages.upload');
     }
 }
