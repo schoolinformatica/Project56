@@ -23,7 +23,6 @@ Route::get('/', function () {
 Route::get('welcome', 'PagesController@home');
 Route::get('about','PagesController@about');
 Route::get('login', 'PagesController@login');
-Route::get('upload', 'UploadController@upload');
 
-Route::get('uploadFile', 'UploadController@upload');
-Route::post('uploadAdd', 'UploadController@uploadFiles');
+Route::get('uploadPage', 'UploadController@upload');
+Route::post('uploadAdd', 'UploadController@store');
