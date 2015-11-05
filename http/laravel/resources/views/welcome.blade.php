@@ -4,9 +4,9 @@
         <title>Home</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
@@ -87,12 +87,13 @@
                 <!-- Heading Row -->
                 <div class="row">
                     <div class="col-md-8">
-                        <img class="img-responsive img-rounded" src="handshake.jpg" alt="">
+                        <img class="img-responsive img-rounded" src="handshake.jpg" alt="photo from two people shaking hands">
                     </div>
                     <!-- /.col-md-8 -->
                     <div class="col-md-4">
                         <h1>Cooperatio</h1>
-                        <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!</p>
+                        <p>Deze website is gemaakt in opdracht van CityGis. Op deze website kunt u csv bestanden uploaden.
+                        En data kopen waarna u het desbetreffende csv bestand kan downloaden.</p>
                     </div>
                     <!-- /.col-md-4 -->
                 </div>
@@ -104,7 +105,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="well text-center">
-                            This is a well that is a great spot for a business tagline or phone number for easy access!
+                            THIS IS COOPERATIO!!!
                         </div>
                     </div>
                     <!-- /.col-lg-12 -->
