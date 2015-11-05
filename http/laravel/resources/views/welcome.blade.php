@@ -12,35 +12,35 @@
 
         <style type="text/css">
 
-        	.navbar{
-        		margin-top: 0px;
-        	}
-
-            html, body {
-                height: 100%;
-            }
 
             body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: "Times New Roman", Georgia, Serif;;
+                padding-top: 0px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
             }
 
-            .container {
-                text-align: center;
-                vertical-align: middle;
+            .navbar-inverse {
+                border-radius:0px;
             }
 
-            .content {
-                text-align: center;
-                display: inline-block;
+            .navbar-fixed-top .nav {
+                padding: 15px 0;
             }
 
-            .title {
-                font-size: 96px;
+            .navbar-fixed-top .navbar-brand {
+                padding: 0 15px;
+            }
+
+            footer {
+                padding-top: 50px;
+            }
+
+            @media(min-width:768px) {
+                body {
+                    padding-top: 0px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+                }
+
+                .navbar-fixed-top .navbar-brand {
+                    padding: 15px 0;
+                }
             }
         </style>
     </head>
@@ -60,7 +60,7 @@
             <!-- Collection of nav links, forms, and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="/">Home</a></li>
+                    <li><a  style="color:white" href="/">Home</a></li>
                     <li><a href="/about/">About Us</a></li>
                     <li><a href="/uploadPage/">Upload files</a></li>
                     <li><a href="/download/">Download files</a></li>
@@ -89,23 +89,13 @@
                 <!-- Heading Row -->
                 <div class="row">
                     <div class="col-md-8">
-<<<<<<< HEAD
                         <img class="img-responsive img-rounded" src="main_pic.jpg" alt="">
                     </div>
                     <!-- /.col-md-8 -->
                     <div class="col-md-4">
                         <h1>Team Cooperatio</h1>
-                        <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!</p>
-                        <a class="btn btn-primary btn-lg" href="#">Call to Action!</a>
-=======
-                        <img class="img-responsive img-rounded" src="handshake.jpg" alt="photo from two people shaking hands">
-                    </div>
-                    <!-- /.col-md-8 -->
-                    <div class="col-md-4">
-                        <h1>Cooperatio</h1>
-                        <p>Deze website is gemaakt in opdracht van CityGis. Op deze website kunt u csv bestanden uploaden.
-                        En data kopen waarna u het desbetreffende csv bestand kan downloaden.</p>
->>>>>>> d787eab94e48a9cd8fec96e9b94a3484c886bd46
+                            <p>This team is called Cooperatio. We are working on a project called 'Project56' which means that we have to process data as fast as possible. This website will serve as the webervice of our application.</p>
+                            <a class="btn btn-primary btn-lg" href="/about/">Read more about us</a>
                     </div>
                     <!-- /.col-md-4 -->
                 </div>
@@ -117,7 +107,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="well text-center">
-                            THIS IS COOPERATIO!!!
+                            "We are not a team because we work together. We are a team because we respect, trust and care for each other." ~ Vala Afshar
                         </div>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -127,21 +117,21 @@
                 <!-- Content Row -->
                 <div class="row">
                     <div class="col-md-4">
-                        <h2>Heading 1</h2>
+                        <h2>Upload data</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-                        <a class="btn btn-default" href="#">More Info</a>
+                        <a class="btn btn-default" href="/uploadPage/">More Info</a>
                     </div>
                     <!-- /.col-md-4 -->
                     <div class="col-md-4">
-                        <h2>Heading 2</h2>
+                        <h2>Download data</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-                        <a class="btn btn-default" href="#">More Info</a>
+                        <a class="btn btn-default" href="/loadPage/">More Info</a>
                     </div>
                     <!-- /.col-md-4 -->
                     <div class="col-md-4">
-                        <h2>Heading 3</h2>
+                        <h2>Contact us</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-                        <a class="btn btn-default" href="#">More Info</a>
+                        <a class="btn btn-default" href="/contact/">More Info</a>
                     </div>
                     <!-- /.col-md-4 -->
                 </div>
@@ -151,13 +141,16 @@
                 <footer>
                     <div class="row">
                         <div class="col-lg-12">
-                            <p>Copyright &copy; Your Website 2014</p>
+                            <p>Copyright &copy;: Cooperatio 2015</p>
                         </div>
                     </div>
                 </footer>
 
             </div>
             <!-- /.container -->
+
+
+
 
 
     </body>
