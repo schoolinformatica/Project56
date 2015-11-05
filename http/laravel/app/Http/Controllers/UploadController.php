@@ -2,53 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Input;
 use Validator;
-use Request;
-use Response;
-
 
 class UploadController extends Controller {
+    /**
+     * Store an image.
+     *
+     * @return simple JSON response message
+     */
 
-    public function upload()
+     public function upload()
+     {
+         return view('pages.upload');
+     }
+
+    public function store(Request $r)
     {
-        return view('pages.upload');
-    }
+        $image = Input::file('file');
 
-    public function uploadFiles() {
-
-        // GET ALL THE INPUT DATA , $_GET,$_POST,$_FILES.
-        $input = Input::all();
-
-        // VALIDATION RULES
-        $rules = array(
-            'file' => 'image|max:3000',
-        );
-
-       // PASS THE INPUT AND RULES INTO THE VALIDATOR
-        $validation = Validator::make($input, $rules);
-
-        // CHECK GIVEN DATA IS VALID OR NOT
-        if ($validation->fails()) {
-            return Redirect::to('/')->with('message', $validation->errors->first());
+        $destinationPath = '../../../public/uploads';
+        if(!$image->move($destinationPath, $image->getClientOriginalName())) {
+            return $this->errors(['message' => 'Error saving the file.', 'code' => 400]);
         }
-
-
-           $file = array_get($input,'file');
-           // SET UPLOAD PATH
-            $destinationPath = '..\..\..\resources\uploads';
-            // GET THE FILE EXTENSION
-            $extension = $file->getClientOriginalExtension();
-            // RENAME THE UPLOAD WITH RANDOM NUMBER
-            $fileName = rand(11111, 99999) . '.' . $extension;
-            // MOVE THE UPLOADED FILES TO THE DESTINATION DIRECTORY
-            $upload_success = $file->move($destinationPath, $fileName);
-
-        // IF UPLOAD IS SUCCESSFUL SEND SUCCESS MESSAGE OTHERWISE SEND ERROR MESSAGE
-        if ($upload_success) {
-            return Redirect::to('/')->with('message', 'Image uploaded successfully');
-        }
+        return response()->json(['success' => true], 200);
     }
-
 }
