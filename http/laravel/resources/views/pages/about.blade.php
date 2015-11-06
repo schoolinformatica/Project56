@@ -17,6 +17,11 @@
                 padding-top: 0px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
             }
 
+            .row div {
+                max-width:800px;
+                margin:auto;
+            }
+
             .navbar-inverse {
                 border-radius:0px;
             }
@@ -82,21 +87,36 @@
 
         </nav>
 
-        <div class="container">
-            <div class="content">
-                <h1>Cooperatio</h1>
-                <br />
-                <p>
-                    Cooperatio, opgericht op "" "" 2015. Wij zijn een groep van 5 enthousiaste en leergierige
-                    studenten. Wij hebben elkaar ontmoet op de Hoge School Rotterdam. Cooperatio is opgericht voor het project
-                    van periode 5/6. De teamleden zijn: "Cees-Jan Nolen, Robert Kraaijeveld, Robin Bakker, Steven Schenk
-                    en William de Visser".
-                    <br />
-                    <br />
-                    Bij dit project moeten we voor CityGis een systeem maken dat csv-bestanden kan uploaden en toevoegen aan de database.
-                    Ook moeten er files 'verkocht' kunnen worden. Waarna de gebruiker de csv bestand(en) kan downloaden.
-                </p>
+        <!-- Page Content -->
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h1>Cooperatio</h1>
+                        <p class="lead">
+                                        Cooperatio, founded in September 2015. We are a team of 5 enthusiastic and studious students.
+                                        We have met each other at the Hogeschool Rotterdam (High School of Rotterdam). Cooperatio is founded for the 'Project56.'
+                                        The teammembers are: "Cees-Jan Nolen, Robert Kraaijeveld, Robin Bakker, Steven Schenk
+                                        en William de Visser".
+                        </p>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h1>Project56</h1>
+                        <p class="lead">
+                                        Bij dit project moeten we voor CityGis een systeem maken dat csv-bestanden kan uploaden en toevoegen aan de database.
+                                        Ook moeten er files 'verkocht' kunnen worden. Waarna de gebruiker de csv bestand(en) kan downloaden.
+                        </p>
+                    </div>
+                </div>
+                <!-- /.row -->
+
             </div>
-        </div>
+            <!-- /.container -->
+
+
     </body>
 </html>
