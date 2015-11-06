@@ -17,6 +17,11 @@
                 padding-top: 0px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
             }
 
+            #button1 {
+                background-image:linear-gradient(to bottom,#303030 0,#303030 100%);
+                background-color:#303030;
+            }
+
             .navbar-inverse {
                 border-radius:0px;
             }
@@ -95,7 +100,7 @@
                     <div class="col-md-4">
                         <h1>Team Cooperatio</h1>
                             <p>This team is called Cooperatio. We are working on a project called 'Project56' which means that we have to process data as fast as possible. This website will serve as the webervice of our application.</p>
-                            <a class="btn btn-primary btn-lg" href="/about/">Read more about us</a>
+                            <a id="button1" class="btn btn-primary btn-lg" href="/about/">Read more about us</a>
                     </div>
                     <!-- /.col-md-4 -->
                 </div>
