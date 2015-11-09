@@ -3,7 +3,7 @@
     <head>
         <title>About us</title>
 
-<link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
@@ -17,9 +17,26 @@
                 padding-top: 0px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
             }
 
+            .container {
+                width:100%;
+                margin-top:60px;
+            }
+
+            .row {
+                margin-bottom:50px;
+                background-color:#eeeeee;
+            }
+
             .row div {
-                max-width:800px;
                 margin:auto;
+                padding-top:20px;
+                float:initial;
+                max-width:800px;
+                height:100%;;
+            }
+
+            .leadh1 {
+                margin-top:0px;
             }
 
             .navbar-inverse {
@@ -35,7 +52,14 @@
             }
 
             footer {
-                padding: 50px 0;
+                padding-top: 50px;
+                margin:0px,0px,0px,10px;
+            }
+            #footer {
+                padding-top:0px;
+                margin:0px, 0px, 0px, 10px;
+                border:1px black solid;
+                width:100%;
             }
 
             @media(min-width:768px) {
@@ -92,7 +116,7 @@
 
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h1>Cooperatio</h1>
+                        <h1 class="leadh1">Cooperatio</h1>
                         <p class="lead">
                                         Cooperatio, founded in September 2015. We are a team of 5 enthusiastic and studious students.
                                         We have met each other at the Hogeschool Rotterdam (High School of Rotterdam). Cooperatio is founded for the 'Project56.'
@@ -105,7 +129,7 @@
 
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h1>Project56</h1>
+                        <h1 class="leadh1">Project56</h1>
                         <p class="lead">
                                         Bij dit project moeten we voor CityGis een systeem maken dat csv-bestanden kan uploaden en toevoegen aan de database.
                                         Ook moeten er files 'verkocht' kunnen worden. Waarna de gebruiker de csv bestand(en) kan downloaden.
@@ -116,6 +140,18 @@
 
             </div>
             <!-- /.container -->
+
+            <!-- Footer -->
+            <footer>
+                <div class="row" id="footer" style="background-color:white; ">
+                    <div class="col-lg-120">
+                        <p>Copyright &copy;: Cooperatio 2015</p>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+        <!-- /.container -->
 
 
     </body>
