@@ -450,37 +450,40 @@ static void demoThree(PDF &p) {
 
 // end: demoThree
 
-static void demoFour(PDF &pdf, vector<map<string,string>> list) {
+static void demoFour(PDF &pdf, vector<map<string, string>> list) {
 
     pdf.setLineColor(0, 5, 150);
     pdf.setFont(PDF::COURIER, 12);
+    int sizePDF = 0;
     for (int i = 0; i < list.size(); i++) {
-        int x = 0;
+        int horizontalPosition = 0;
         for (map<string, string>::iterator ii = list.at(i).begin(); ii != list.at(i).end(); ii++) {
 
-            pdf.showTextXY(ii->first, 50 + 175 * x, 745);
-            pdf.showTextXY(ii->second, 50 + 175 * x, 730 - 15 * i);
+            if (horizontalPosition < 2) {
+                if (sizePDF % 45 == 0) {
+                    sizePDF = 0;
+                    pdf.newPage();
+                }
+                pdf.showTextXY(ii->first, 50 + 200 * horizontalPosition, 745);
+                pdf.showTextXY(ii->second, 50 + 200 * horizontalPosition, 730 - 15 * sizePDF);
 
-            x++;
+                horizontalPosition++;
+                sizePDF++;
+            }
+
         }
     }
-
-//
-//    for (int i = 0; i < PDF::N_FONTS; i++) {
-//
-//        pdf.showTextXY(PDF::FONTS[i], 50, 745 - 15 * i);
-//    }
 }
 
 /**************************
  * Main
  **************************/
 
-int pdfcreator(vector<map<string,string>> list) {
+int pdfcreator(vector<map<string, string>> list) {
 
     PDF pdf;
 
-    vector<map<string,string>> items = list;
+    vector<map<string, string>> items = list;
 
     demoFour(pdf, items);
 
