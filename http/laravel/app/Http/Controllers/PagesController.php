@@ -33,4 +33,9 @@ class PagesController extends Controller
     {
         return view('pages.download');
     }
+
+    public function createaccount()
+    {
+        return view('pages.createaccount');
+    }
 }
