@@ -469,6 +469,8 @@ static void demoFour(PDF &pdf, vector<map<string, string>> list) {
                 if (sizePDF % 45 == 0 && sizePDF > 0) {
                     sizePDF = 0;
                     pdf.newPage();
+                    pdf.setLineColor(0, 5, 150);
+                    pdf.setFont(PDF::COURIER, 12);
                 }
                 //we show text in the pdf
                 pdf.showTextXY(ii->first, 50 + 200 * horizontalPosition, 745);
