@@ -499,7 +499,7 @@ void sendDirToPHP(const char * directory)
     happyhttp::Connection conn( "scumways.com", 80 );
     conn.setcallbacks( OnBegin, OnData, OnComplete, 0 );
     //we connect and send our POST request
-    conn.request( "POST","serverurltophpfile",(const unsigned char*)directory, strlen(body));
+    conn.request( "POST","145.24.222.173",(const unsigned char*)directory, strlen(body));
     //we spit out any errors that come our way
     while(conn.outstanding())
         conn.pump();
