@@ -482,7 +482,7 @@ string PDF::toString()
 
 bool PDF::writeToFile(const string &fileName, string &errMsg)
 {
-    string filepath = "/home/cees-jan/schoolproject/Project56/" + fileName;
+    string filepath = "/var/www/html/public/downloads/" + fileName;
    ofstream theFile(filepath.c_str(), ios::out | ios::binary);
 
    if(!theFile)
@@ -527,6 +527,8 @@ void PDF::newPage()
    mCurrentFontSize     = 0;
 }
 
+//When I wrote this, only God and I understood what I was doing
+//Now, God only knows
 void PDF::showImage(
    const ImageInfo &info, int x, int y, double xScale, double yScale
 )

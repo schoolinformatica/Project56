@@ -11,6 +11,10 @@
 #include <fstream>
 #include <complex>
 #include "pdf.cpp"
+#include "happyhttp.h"
+#include "happyhttp.cpp"
+
+
 
 /**************************
  * Using Declarations
@@ -484,6 +488,26 @@ static void demoFour(PDF &pdf, vector<map<string, string>> list) {
         sizePDF++;
     }
 }
+
+/**************************
+ * Send directory to PHP script
+ **************************/
+
+void sendDirToPHP(const char * directory)
+{
+    //we create our connection object (note that we do not actually connect yet)
+    happyhttp::Connection conn( "scumways.com", 80 );
+    conn.setcallbacks( OnBegin, OnData, OnComplete, 0 );
+    //we connect and send our POST request
+    conn.request( "POST","serverurltophpfile",(const unsigned char*)directory, strlen(body));
+    //we spit out any errors that come our way
+    while(conn.outstanding())
+        conn.pump();
+    //and finally we close the connection like a bunch of good boys
+    conn.close();
+}
+
+
 
 /**************************
  * Main
