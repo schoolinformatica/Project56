@@ -476,9 +476,10 @@ static void demoFour(PDF &pdf, vector<map<string, string>> list) {
 
                 //we increment the horizontal position and the length of the PDF
                 horizontalPosition++;
-                sizePDF++;
+
             }
         }
+        sizePDF++;
     }
 }
 
