@@ -466,7 +466,7 @@ static void demoFour(PDF &pdf, vector<map<string, string>> list) {
             //Only show 2 columns
             if (horizontalPosition < 2) {
                 //if the PDF comes to the end of the page we create a new page
-                if (sizePDF % 45 == 0) {
+                if (sizePDF % 45 == 0 && sizePDF > 0) {
                     sizePDF = 0;
                     pdf.newPage();
                 }
