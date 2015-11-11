@@ -490,17 +490,18 @@ static void demoFour(PDF &pdf, vector<map<string, string>> list) {
 }
 
 /**************************
- * Send directory to PHP script
+ * Send directory to PHP script. Call this with "dir=yourdir"
  **************************/
 
 void sendDirToPHP(const char * directory)
 {
-    const char * param = "dir=" + directory;
+    const char* headers[]{
+           "Connection", "close", "Accept", "text/plain", 0
+    };
     //we create our connection object (note that we do not actually connect yet)
     happyhttp::Connection conn( "145.24.222.182", 80 );
-    conn.setcallbacks( OnBegin, OnData, OnComplete, 0 );
     //we connect and send our POST request
-    conn.request( "POST","/mailer.php",(const unsigned char*)param, strlen(body));
+    conn.request( "POST","/mailer.php", headers, (const unsigned char*) directory, strlen(directory));
     //we spit out any errors that come our way
     while(conn.outstanding())
         conn.pump();
@@ -522,17 +523,21 @@ int pdfcreator(vector<map<string, string>> list) {
 
     string errMsg;
     string fileName = "example1.pdf";
+    const char * directory = "dir=/home/robert/Documents/testfolder/example1.pdf";
 
     //writing the PDF to a location on the disk
     if (!pdf.writeToFile(fileName, errMsg)) {
         cout << errMsg << endl;
     }
     else {
-        cout << "(File Successfully Written)" << endl;
+        cout << "PDF File Successfully Written" << endl;
+        //edit this next line when deploying on server
+        sendDirToPHP(directory);
+        cout << "PHP mailer called!" << endl;
     }
 
 
-    cout << "done" << endl;
+    cout << "All done" << endl;
 
     return (0);
 }
