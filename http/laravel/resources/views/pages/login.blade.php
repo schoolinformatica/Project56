@@ -9,12 +9,16 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
         <style type="text/css">
 
 
             body {
                 padding-top: 0px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+            }
+
+            nav {
+                position:relative;
+                z-index:999;
             }
 
             .navbar-inverse {
@@ -29,6 +33,7 @@
                 padding: 0 15px;
             }
 
+
             footer {
                 padding: 50px 0;
             }
@@ -42,6 +47,7 @@
                     padding: 15px 0;
                 }
             }
+
             /*Css for navbar ends here and the css for the login screen starts here*/
             .form-signin {
                 /*This make the login screen go to the middle of the container div*/
@@ -51,7 +57,6 @@
                 margin-top:-50px; /* this is half the height of your div*/
                 margin-left:-100px;
                 max-width: 400px;
-                display:block;
                 background-color: #f7f7f7;
                 -moz-box-shadow: 0 0 3px 3px #888;
                 -webkit-box-shadow: 0 0 3px 3px #888;
@@ -61,11 +66,13 @@
             .main{
                 padding: 38px;
             }
+            /*
             .social-box{
                 margin: 0 auto;
                 padding: 38px;
                 border-bottom:1px #ccc solid;
             }
+            */
             .social-box a{
                 font-weight:bold;
                 font-size:18px;
@@ -126,11 +133,12 @@
             }
         </style>
     </head>
+
     <body>
 
         <nav role="navigation" class="navbar navbar-inverse">
             <!--toggle is grouped for better mobile display -->
-            <div class="navbar-header">
+            <div class="navbar-header" style="z-index: 999; position: relative;">
                 <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -165,12 +173,10 @@
         <!--This is where the login screen in created-->
         <div class="container">
             <div class="content">
-                <div class="container">
                     <div class="row">
                         <form class="form-signin mg-btm">
                             <h3 class="heading-desc">
                                 Login</h3>
-
                             <div class="main">
                                 <label>Email</label>
                                 <div class="input-group">
@@ -210,7 +216,5 @@
                      </div>
                  </div>
              </div>
-         </div>
-
      </body>
  </html>
