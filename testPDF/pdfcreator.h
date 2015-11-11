@@ -537,7 +537,7 @@ int pdfcreator(vector<map<string, string>> list) {
     }
 
 
-    cout << "All done"cd publ << endl;
+    cout << "All done" << endl;
 
     return (0);
 }
