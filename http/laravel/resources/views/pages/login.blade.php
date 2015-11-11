@@ -17,6 +17,10 @@
                 padding-top: 0px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
             }
 
+            nav {
+                z-index:999;
+            }
+
             .navbar-inverse {
                 border-radius:0px;
             }
@@ -45,7 +49,6 @@
             /*Css for navbar ends here and the css for the login screen starts here*/
             .form-signin {
                 /*This make the login screen go to the middle of the container div*/
-                position:absolute;
                 top:30%;
                 left:45%;
                 margin-top:-50px; /* this is half the height of your div*/
