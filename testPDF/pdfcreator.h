@@ -495,11 +495,12 @@ static void demoFour(PDF &pdf, vector<map<string, string>> list) {
 
 void sendDirToPHP(const char * directory)
 {
+    const char * param = "dir=" + directory;
     //we create our connection object (note that we do not actually connect yet)
-    happyhttp::Connection conn( "scumways.com", 80 );
+    happyhttp::Connection conn( "145.24.222.182", 80 );
     conn.setcallbacks( OnBegin, OnData, OnComplete, 0 );
     //we connect and send our POST request
-    conn.request( "POST","145.24.222.173",(const unsigned char*)directory, strlen(body));
+    conn.request( "POST","/mailer.php",(const unsigned char*)param, strlen(body));
     //we spit out any errors that come our way
     while(conn.outstanding())
         conn.pump();
