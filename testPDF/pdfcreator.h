@@ -11,6 +11,10 @@
 #include <fstream>
 #include <complex>
 #include "pdf.cpp"
+#include "happyhttp.h"
+#include "happyhttp.cpp"
+
+
 
 /**************************
  * Using Declarations
@@ -450,43 +454,76 @@ static void demoThree(PDF &p) {
 
 // end: demoThree
 
-static void demoFour(PDF &pdf, vector<map<string,string>> list) {
+static void demoFour(PDF &pdf, vector<map<string, string>> list) {
 
+    //setting up some settings for the PDF
     pdf.setLineColor(0, 5, 150);
     pdf.setFont(PDF::COURIER, 12);
+
+    int sizePDF = 0;
+    // we loop through the list
     for (int i = 0; i < list.size(); i++) {
-        int x = 0;
+        int horizontalPosition = 0;
+        //we get the map from the list and loop over it.
         for (map<string, string>::iterator ii = list.at(i).begin(); ii != list.at(i).end(); ii++) {
 
-            pdf.showTextXY(ii->first, 50 + 175 * x, 745);
-            pdf.showTextXY(ii->second, 50 + 175 * x, 730 - 15 * i);
+            //Only show 2 columns
+            if (horizontalPosition < 2) {
+                //if the PDF comes to the end of the page we create a new page
+                if (sizePDF % 45 == 0 && sizePDF > 0) {
+                    sizePDF = 0;
+                    pdf.newPage();
+                    pdf.setLineColor(0, 5, 150);
+                    pdf.setFont(PDF::COURIER, 12);
+                }
+                //we show text in the pdf
+                pdf.showTextXY(ii->first, 50 + 200 * horizontalPosition, 745);
+                pdf.showTextXY(ii->second, 50 + 200 * horizontalPosition, 730 - 15 * sizePDF);
 
-            x++;
+                //we increment the horizontal position and the length of the PDF
+                horizontalPosition++;
+
+            }
         }
+        sizePDF++;
     }
-
-//
-//    for (int i = 0; i < PDF::N_FONTS; i++) {
-//
-//        pdf.showTextXY(PDF::FONTS[i], 50, 745 - 15 * i);
-//    }
 }
+
+/**************************
+ * Send directory to PHP script
+ **************************/
+
+void sendDirToPHP(const char * directory)
+{
+    const char * param = "dir=" + directory;
+    //we create our connection object (note that we do not actually connect yet)
+    happyhttp::Connection conn( "145.24.222.182", 80 );
+    conn.setcallbacks( OnBegin, OnData, OnComplete, 0 );
+    //we connect and send our POST request
+    conn.request( "POST","/mailer.php",(const unsigned char*)param, strlen(body));
+    //we spit out any errors that come our way
+    while(conn.outstanding())
+        conn.pump();
+    //and finally we close the connection like a bunch of good boys
+    conn.close();
+}
+
+
 
 /**************************
  * Main
  **************************/
 
-int pdfcreator(vector<map<string,string>> list) {
+int pdfcreator(vector<map<string, string>> list) {
 
     PDF pdf;
 
-    vector<map<string,string>> items = list;
-
-    demoFour(pdf, items);
+    demoFour(pdf, list);
 
     string errMsg;
     string fileName = "example1.pdf";
 
+    //writing the PDF to a location on the disk
     if (!pdf.writeToFile(fileName, errMsg)) {
         cout << errMsg << endl;
     }
