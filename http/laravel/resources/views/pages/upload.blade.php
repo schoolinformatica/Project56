@@ -117,27 +117,11 @@
             </div>
 
             <div class="row">
-                    <div class="col-lg-6 col-sm-6 col-12">
-                        <div class="input-group">
-                            <form action="/uploadAdd/" method="post" enctype="multipart/form-data">
-                                <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                                <span class="input-group-btn">
-                                    <span class="btn btn-primary btn-file">
-                                        Browse&hellip; <input type="file" multiple>
-                                    </span>
-                                </span>
-                                <input type="text" class="form-control" readonly>
-                                <input type="submit">
-                            </form>
-                        </div>
-                        <span class="help-block">
-                            Select one or more files to upload.
-                        </span>
-
                         <form action="/uploadAdd/" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                        <label for="exampleInputFile">File input</label>
                           <div class="form-group">
-                            <label for="exampleInputFile">File input</label>
+
                             <span class="btn btn-primary btn-file">
                                 Browse&hellip; <input type="file" id="exampleInputFile" name="file" multiple>
                              </span>
