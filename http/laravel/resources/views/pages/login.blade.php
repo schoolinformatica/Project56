@@ -17,7 +17,10 @@
             }
 
             nav {
+<<<<<<< HEAD
                 position:relative;
+=======
+>>>>>>> f5bfbda1973ab775c2882fb9eaefe3b3535e57be
                 z-index:999;
             }
 
@@ -51,7 +54,6 @@
             /*Css for navbar ends here and the css for the login screen starts here*/
             .form-signin {
                 /*This make the login screen go to the middle of the container div*/
-                position:absolute;
                 top:30%;
                 left:45%;
                 margin-top:-50px; /* this is half the height of your div*/
