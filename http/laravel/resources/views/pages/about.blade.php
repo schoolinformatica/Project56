@@ -57,8 +57,7 @@
             }
             #footer {
                 padding-top:0px;
-                margin:0px, 0px, 0px, 10px;
-                border:1px black solid;
+                margin-left:10px;
                 width:100%;
             }
 
