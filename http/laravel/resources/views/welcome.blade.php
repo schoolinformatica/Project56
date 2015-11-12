@@ -124,20 +124,20 @@
                 <div class="row">
                     <div class="col-md-4">
                         <h2>Upload data</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
+                        <p>Uploading your data files in order to be processed to certain reports you prefer to have. You can download these reports in the download page of this site. This is one of our services we offer to you. It is mandatory to log in to make use of this service.</p>
                         <a class="btn btn-default" href="/uploadPage/">More Info</a>
                     </div>
                     <!-- /.col-md-4 -->
                     <div class="col-md-4">
                         <h2>Download data</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-                        <a class="btn btn-default" href="/loadPage/">More Info</a>
+                        <p>You can download data, or better said, reports as one of our services. These reports are created on your demand when you upload your datafiles to our servers. For downloading this data it's required to have an account and you have to log in.</p>
+                        <a class="btn btn-default" href="/download/">More Info</a>
                     </div>
                     <!-- /.col-md-4 -->
                     <div class="col-md-4">
-                        <h2>Contact us</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-                        <a class="btn btn-default" href="/contact/">More Info</a>
+                        <h2>Log in</h2>
+                        <p>Log in or create an account to get access to our services. As a member you get access to upload data and download created reports. These reports are based on the data which is uploaded in you uploaded files.</p>
+                        <a class="btn btn-default" href="/login/">More Info</a>
                     </div>
                     <!-- /.col-md-4 -->
                 </div>
