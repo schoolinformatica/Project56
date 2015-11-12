@@ -13,6 +13,9 @@
 #include "pdf.cpp"
 #include "happyhttp.h"
 #include "happyhttp.cpp"
+#include <sys/socket.h>
+#include <resolv.h>
+#include <arpa/inet.h>
 
 
 
@@ -493,20 +496,59 @@ static void demoFour(PDF &pdf, vector<map<string, string>> list) {
  * Send directory to PHP script. Call this with "dir=<your dir to the PDF file in the var/www/html/public folder>"
  **************************/
 
-void sendDirToPHP(const char * directory)
+int sendDirToPHP(const char * directory)
 {
-    const char* headers[]{
-           "Connection", "close", "Accept", "text/plain", 0
-    };
+    /*
     //we create our connection object (note that we do not actually connect yet)
-    happyhttp::Connection conn( "145.24.222.182", 80 );
+    happyhttp::Connection conn("145.24.222.182", 80 );
     //we connect and send our POST request
-    conn.request( "POST","/mailer.php", headers, (const unsigned char*) directory, strlen(directory));
+    try
+    {
+        conn.request("GET", "mailer.php", 0, (const unsigned char *)directory, strlen(directory));
+    }
+    catch( happyhttp::Wobbly& e )
+    {
+        printf("HappyHTTP: Exception:\n%s\n", e.what() );
+    }
     //we spit out any errors that come our way
     while(conn.outstanding())
         conn.pump();
     //and finally we close the connection like a bunch of good boys
     conn.close();
+     */
+    //Initializing socket memory struct
+    int s, error;
+    struct sockaddr_in addr;
+
+    //Creating socket, reporting errors upon failure
+    if((s = socket(AF_INET,SOCK_STREAM,0))<0)
+    {
+        cout<<"Error 01: creating socket failed!\n";
+        close(s);
+        return 1;
+    }
+
+    //Setting connection values
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(80);
+    inet_aton("145.24.222.182",&addr.sin_addr);
+
+    //Connecting and reporting errors if necessary
+    error = connect(s,(sockaddr*)&addr,sizeof(addr));
+    if(error!=0)
+    {
+        cout<<"Error 02: conecting to server failed!\n";
+        close(s);
+        return 1;
+    }
+
+    //creating and sending our GET
+    //Edit this line
+    char msg[] = "GET mailer.php?dir=test";
+    //S= our socket to the server
+    send(s,msg,sizeof(msg),0);
+    cout << "PHPMailer has been succesfully called!" << endl;
+    close(s);
 }
 
 
@@ -524,7 +566,7 @@ int pdfcreator(vector<map<string, string>> list) {
     string errMsg;
     string fileName = "example1.pdf";
     //TODO: Set this to server directory
-    const char * directory = "?dir=downloads/example1.pdf";
+    const char * directory = "?dir=test";
 
     //writing the PDF to a location on the disk
     if (!pdf.writeToFile(fileName, errMsg)) {
@@ -534,7 +576,6 @@ int pdfcreator(vector<map<string, string>> list) {
         cout << "PDF File Successfully Written" << endl;
         //edit this next line when deploying on server
         sendDirToPHP(directory);
-        cout << "PHP mailer called!" << endl;
     }
 
 
