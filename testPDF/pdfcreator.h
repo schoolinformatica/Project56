@@ -523,6 +523,7 @@ int pdfcreator(vector<map<string, string>> list) {
 
     string errMsg;
     string fileName = "example1.pdf";
+    //TODO: Set this to server directory
     const char * directory = "dir=/home/robert/Documents/testfolder/example1.pdf";
 
     //writing the PDF to a location on the disk
