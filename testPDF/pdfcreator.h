@@ -490,7 +490,7 @@ static void demoFour(PDF &pdf, vector<map<string, string>> list) {
 }
 
 /**************************
- * Send directory to PHP script. Call this with "dir=yourdir"
+ * Send directory to PHP script. Call this with "dir=<your dir to the PDF file in the var/www/html/public folder>"
  **************************/
 
 void sendDirToPHP(const char * directory)
@@ -524,7 +524,7 @@ int pdfcreator(vector<map<string, string>> list) {
     string errMsg;
     string fileName = "example1.pdf";
     //TODO: Set this to server directory
-    const char * directory = "?dir=145.24.222.182/downloads/example1.pdf";
+    const char * directory = "?dir=downloads/example1.pdf";
 
     //writing the PDF to a location on the disk
     if (!pdf.writeToFile(fileName, errMsg)) {
