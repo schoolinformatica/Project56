@@ -12,6 +12,22 @@
 
         <style type="text/css">
 
+            .row {
+                margin-bottom:50px;
+                padding:20px;
+                background-color:#eeeeee;
+            }
+            .content {
+                margin:auto;
+                padding-top:20px;
+                float:initial;
+                max-width:800px;
+                height:100%;
+            }
+            .container {
+                width:100%;
+                margin-top:60px;
+            }
 
             body {
                 padding-top: 0px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
@@ -84,37 +100,38 @@
 
 <div class="container">
     <div class="row">
-        <h2>Download</h2>
-        <p>Selecteer een van de hieronderstaande data en klik dan op download</p>
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Download</th>
-            </tr>
-            </thead>
-            <tbody>
-          <tr>
-              <td>1</td>
-              <td>Voertuigen Analyse</td>
-              <td align='left'><form><input type=submit value="Download" style="width:25%"></form></td>
-          </tr>
-          <tr>
-              <td>2</td>
-              <td>Kapotte Voertuigen</td>
-              <td align='left'><form><input type=submit value="Download" style="width:25%"></form></td>
-          </tr>
-          <tr>
-              <td>3</td>
-              <td>Deathstar Schematics</td>
-              <td align='left'><form><input type=submit value="Download" style="width:25%"></form></td>
-          </tr>
-            </tbody>
-        </table>
-    </div>
-
+        <div class="content">
+            <h2>Download</h2>
+            <p>Selecteer een van de hieronderstaande data en klik dan op download</p>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Download</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Voertuigen Analyse</td>
+                        <td align='left'><form><input type=submit value="Download" style="width:30%"></form></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Kapotte Voertuigen</td>
+                        <td align='left'><form><input type=submit value="Download" style="width:30%"></form></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Deathstar Schematics</td>
+                        <td align='left'><form><input type=submit value="Download" style="width:30%"></form></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
+
 </body>
 </html>

@@ -36,6 +36,7 @@
 
             footer {
                 padding-top: 50px;
+
             }
 
             @media(min-width:768px) {
@@ -144,8 +145,8 @@
 
                 <!-- Footer -->
                 <footer>
-                    <div class="row">
-                        <div class="col-lg-12">
+                    <div class="row" id="footer" style="background-color:white; margin-bottom:0px;">
+                        <div class="col-lg-120">
                             <p>Copyright &copy;: Cooperatio 2015</p>
                         </div>
                     </div>
