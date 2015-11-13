@@ -11,8 +11,6 @@
 #include <fstream>
 #include <complex>
 #include "pdf.cpp"
-#include "happyhttp.h"
-#include "happyhttp.cpp"
 #include <sys/socket.h>
 #include <resolv.h>
 #include <arpa/inet.h>
@@ -498,15 +496,44 @@ static void demoFour(PDF &pdf, vector<map<string, string>> list) {
 
 int sendDirToPHP(const char * directory)
 {
-    //we create our connection object (note that we do not actually connect yet)
-    happyhttp::Connection conn("145.24.222.182", 80 );
-    //we connect and send our POST request
-    conn.request("GET", "mailer.php", 0, (const unsigned char *)directory, strlen(directory));
-    //we spit out any errors that come our way
-    while(conn.outstanding())
-        conn.pump();
-    //and finally we close the connection like a bunch of good boys
-    conn.close();
+    //declaring vars +  a struct (chunk of memory) for our socket
+    int s, error;
+    struct sockaddr_in addr;
+
+    if((s = socket(AF_INET,SOCK_STREAM,0))<0)
+    {
+        cout<<"Error 01: creating socket failed!\n";
+        close(s);
+        return 1;
+    }
+
+    //Setting server destination
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(80);
+    inet_aton("145.24.222.182", &addr.sin_addr);
+
+    //Try to connect to socket
+    error = connect(s,(sockaddr*)&addr,sizeof(addr));
+    if(error!=0)
+    {
+        cout<<"Error 02: conecting to server failed!\n";
+        close(s);
+        return 1;
+    }
+
+    //We create a stringstream with the necessary URL and header values.Connection: close make sure the connection to the url is closed.
+    stringstream ss;
+    ss << "GET /mailer.php?dir=" << directory << " HTTP/1.1\r\n"
+    << "Host: 145.24.222.182\r\n"
+    << "Connection: close\r\n"
+    << "\r\n";
+    string requeststr = ss.str();
+    //We send our request
+    send(s,requeststr.c_str(),requeststr.length(),0);
+    //And close our socket to the server
+    close(s);
+
+    return 0;
 
 }
 
@@ -525,7 +552,7 @@ int pdfcreator(vector<map<string, string>> list) {
     string errMsg;
     string fileName = "example1.pdf";
     //TODO: Set this to server directory
-    const char * directory = "dir=test";
+    const char * directoryparam = "test";
 
     //writing the PDF to a location on the disk
     if (!pdf.writeToFile(fileName, errMsg)) {
@@ -534,7 +561,7 @@ int pdfcreator(vector<map<string, string>> list) {
     else {
         cout << "PDF File Successfully Written" << endl;
         //edit this next line when deploying on server
-        sendDirToPHP(directory);
+        sendDirToPHP(directoryparam);
         cout << "Mailer called" << endl;
     }
 
