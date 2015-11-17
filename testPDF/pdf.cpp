@@ -485,9 +485,9 @@ string PDF::toString()
 bool PDF::writeToFile(const string &fileName, string &errMsg)
 {
    //CHANGE NEXT LINE
-   string filepath = "/home/robert/Documents/testfolder" + fileName;
-   //string filepath = "/var/www/html/public/downloads/" + fileName;
-   // string filepath = "/home/robert/Documents/testfolder" + fileName;
+   //string filepath = "/home/robert/Documents/testfolder" + fileName;
+   string filepath = "/var/www/html/public/downloads/" + fileName;
+
    ofstream theFile(filepath.c_str(), ios::out | ios::binary);
 
    if(!theFile)
