@@ -509,7 +509,7 @@ int sendDirToPHP(const char * directory)
 
     //Setting server destination
     addr.sin_family = AF_INET;
-    addr.sin_port = htons(80);
+    addr.sin_port = htons(8000);
     inet_aton("145.24.222.182", &addr.sin_addr);
 
     //Try to connect to socket
@@ -552,7 +552,7 @@ int pdfcreator(vector<map<string, string>> list) {
     string errMsg;
     string fileName = "example1.pdf";
     //TODO: Set this to server directory
-    const char * directoryparam = "test";
+    const char * directoryparam = "http://145.24.222.182/downloads/example1.pdf";
 
     //writing the PDF to a location on the disk
     if (!pdf.writeToFile(fileName, errMsg)) {
