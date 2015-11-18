@@ -552,7 +552,7 @@ int pdfcreator(vector<map<string, string>> list) {
     string errMsg;
     string fileName = "example1.pdf";
     //TODO: Set this to server directory
-    const char * directoryparam = "http://145.24.222.182/downloads/example1.pdf";
+    const char * directoryparam = "http://145.24.222.182:8000/downloads/example1.pdf";
 
     //writing the PDF to a location on the disk
     if (!pdf.writeToFile(fileName, errMsg)) {
