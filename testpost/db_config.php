@@ -6,7 +6,7 @@
  
 define('DB_USER', "root"); // db user
 define('DB_PASSWORD', "root123"); // db password
-define('DB_DATABASE', "project56"); // database name
+define('DB_DATABASE', "test"); // database name
 define('DB_SERVER', "localhost"); // db server
 
 ?>
