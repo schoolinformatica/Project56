@@ -560,6 +560,9 @@ int pdfcreator(vector<map<string, string>> list) {
 =======
     //TODO: Set this to server directory
     const char * directoryparam = "http://145.24.222.182:8000/downloads/example1.pdf";
+<<<<<<< HEAD
+>>>>>>> 2308425da2783615005d3c2435d4d033a8b8d4b6
+=======
 >>>>>>> 2308425da2783615005d3c2435d4d033a8b8d4b6
 
     //writing the PDF to a location on the disk
