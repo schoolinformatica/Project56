@@ -500,6 +500,7 @@ int sendDirToPHP(const char * directory)
     int s, error;
     struct sockaddr_in addr;
 
+    //Creating our socket and catching errors
     if((s = socket(AF_INET,SOCK_STREAM,0))<0)
     {
         cout<<"Error 01: creating socket failed!\n";
@@ -512,18 +513,21 @@ int sendDirToPHP(const char * directory)
     addr.sin_port = htons(8000);
     inet_aton("145.24.222.182", &addr.sin_addr);
 
-    //Try to connect to socket
+    //Try to connect to socket, catching errors once more
     error = connect(s,(sockaddr*)&addr,sizeof(addr));
     if(error!=0)
     {
-        cout<<"Error 02: conecting to server failed!\n";
+        cout<<"Error 02: connecting to server failed!\n";
         close(s);
         return 1;
     }
 
-    //We create a stringstream with the necessary URL and header values.Connection: close make sure the connection to the url is closed.
+    //We create a stringstream with the necessary URL and header values.
+    //the 'Connection: close' header makes sure the connection to the url is closed.
     stringstream ss;
-    ss << "GET /mailer.php?dir=" << directory << " HTTP/1.1\r\n"
+    ss << "GET /mailer.php?dir=" 
+    << "145.24.222.182/downloads/"
+    << directory << " HTTP/1.1\r\n"
     << "Host: 145.24.222.182\r\n"
     << "Connection: close\r\n"
     << "\r\n";
@@ -534,7 +538,6 @@ int sendDirToPHP(const char * directory)
     close(s);
 
     return 0;
-
 }
 
 
@@ -551,8 +554,16 @@ int pdfcreator(vector<map<string, string>> list) {
 
     string errMsg;
     string fileName = "example1.pdf";
+<<<<<<< HEAD
+    //TODO: Make PDF names variable. IE: Pdf1, Pdf2, etc.
+    const char * directoryparam = fileName.c_str();
+=======
     //TODO: Set this to server directory
     const char * directoryparam = "http://145.24.222.182:8000/downloads/example1.pdf";
+<<<<<<< HEAD
+>>>>>>> 2308425da2783615005d3c2435d4d033a8b8d4b6
+=======
+>>>>>>> 2308425da2783615005d3c2435d4d033a8b8d4b6
 
     //writing the PDF to a location on the disk
     if (!pdf.writeToFile(fileName, errMsg)) {
@@ -560,13 +571,10 @@ int pdfcreator(vector<map<string, string>> list) {
     }
     else {
         cout << "PDF File Successfully Written" << endl;
-        //edit this next line when deploying on server
         sendDirToPHP(directoryparam);
-        cout << "Mailer called" << endl;
+        cout << "Mailer called succesfully!" << endl;
     }
-
-
-    cout << "All done" << endl;
+    cout << "All operations completed" << endl;
 
 
     return (0);
