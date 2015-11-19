@@ -128,51 +128,68 @@
 
         </nav>
 
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-heading">Register</div>
+				<div class="panel-body">
 
-        <div class="container">
-
-            <div class="row">
-                <div class="content">
-                    <div class="col-lg-12 text-center">
-                        <h1 class="leadh1">Upload</h1>
-                        <p class="lead">
-                            Dear <User>, on this page you can upload files to our servers. Our servers will process the file and create reports of it.
-                            For inserting only .CSV files are allowed.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="content">
-                    <form class="fileUploadForm" action="/uploadAdd/" method="post" enctype="multipart/form-data" files=true>
-                        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                        <label for="exampleInputFile">File input</label>
-                        <div class="form-group">
-
-                            <span class="btn btn-primary btn-file">
-                                Browse&hellip; <input type="file" id="exampleInputFile" multiple="multiple" name="images[]" multiple>
-                            </span>
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
                         </div>
+                    @endif
+
+                    <form class="form-horizontal" role="form" method="POST" action="/auth/register">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
                         <div class="form-group">
-                            <input type="text" class="form-control" readonly>
-                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                            <label class="col-md-4 control-label">Name</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">E-Mail Address</label>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Password</label>
+                            <div class="col-md-6">
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Confirm Password</label>
+                            <div class="col-md-6">
+                                <input type="password" class="form-control" name="password_confirmation">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+    	                            Register
+                                </button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="content">
-                    {!! Form::open(array('url'=>'apply/multiple_upload','method'=>'POST', 'files'=>true)) !!}
-                    {!! Form::file('images[]', array('multiple'=>true)) !!}
-                    {!! Form::submit('Submit', array('class'=>'send-btn')) !!}
-                    {!! Form::close() !!}
-                </div>
-            </div>
         </div>
-
+    </div>
+</div>
         <!-- Footer -->
         <footer>
             <div class="row" id="footer" style="background-color:white; margin-bottom:0px;">
@@ -183,31 +200,6 @@
         </footer>
 
 
-
-
-        <script> //Script to let the file feedback work (the readonly textblock which shows the chosen file)
-        $(document).on('change', '.btn-file :file', function() {
-          var input = $(this),
-              numFiles = input.get(0).files ? input.get(0).files.length : 1,
-              label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-          input.trigger('fileselect', [numFiles, label]);
-        });
-
-        $(document).ready( function() {
-            $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
-
-                var input = $(this).parents('.fileUploadForm').find(':text'),
-                    log = numFiles > 1 ? numFiles + ' files selected' : label;
-
-                if( input.length ) {
-                    input.val(log);
-                } else {
-                    if( log ) alert(log);
-                }
-
-            });
-        });
-        </script>
 
     </body>
 </html>

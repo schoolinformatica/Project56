@@ -27,4 +27,18 @@ Route::get('createaccount', 'PagesController@createaccount');
 Route::get('download', 'PagesController@download');
 
 Route::get('uploadPage', 'UploadController@upload');
-Route::post('uploadAdd', 'UploadController@store');
+Route::post('uploadAdd', 'UploadController@multiple_upload');
+
+// Authentication routes...
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+// Registration routes...
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+
+Route::controllers([
+   'password' => 'Auth\PasswordController',
+]);
