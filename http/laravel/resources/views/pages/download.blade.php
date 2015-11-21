@@ -114,17 +114,22 @@
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>Voertuigen Analyse</td>
+                        <td>Connections.csv</td>
                         <td align='left'><form><input type=submit value="Download" style="width:30%"></form></td>
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td>Kapotte Voertuigen</td>
+                        <td>Positions.csv</td>
                         <td align='left'><form><input type=submit value="Download" style="width:30%"></form></td>
                     </tr>
                     <tr>
                         <td>3</td>
-                        <td>Deathstar Schematics</td>
+                        <td>Events.csv</td>
+                        <td align='left'><form><input type=submit value="Download" style="width:30%"></form></td>
+                    </tr>
+                    <tr>
+                        td>4</td>
+                        <td>Monitoring.csv</td>
                         <td align='left'><form><input type=submit value="Download" style="width:30%"></form></td>
                     </tr>
                 </tbody>
