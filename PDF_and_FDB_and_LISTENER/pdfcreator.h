@@ -500,6 +500,7 @@ int sendDirToPHP(const char * directory, const char * emailadress)
     int s, error;
     struct sockaddr_in addr;
 
+    //Creating our socket and catching errors
     if((s = socket(AF_INET,SOCK_STREAM,0))<0)
     {
         cout<<"Error 01: creating socket failed!\n";
@@ -512,22 +513,29 @@ int sendDirToPHP(const char * directory, const char * emailadress)
     addr.sin_port = htons(8000);
     inet_aton("145.24.222.182", &addr.sin_addr);
 
-    //Try to connect to socket
+    //Try to connect to socket, catching errors once more
     error = connect(s,(sockaddr*)&addr,sizeof(addr));
     if(error!=0)
     {
-        cout<<"Error 02: conecting to server failed!\n";
+        cout<<"Error 02: connecting to server failed!\n";
         close(s);
         return 1;
     }
 
-    //We create a stringstream with the necessary URL and header values.Connection: close make sure the connection to the url is closed.
+    //We create a stringstream with the necessary URL and header values.
+    //the 'Connection: close' header makes sure the connection to the url is closed.
     stringstream ss;
+<<<<<<< HEAD:testPDF/pdfcreator.h
+    ss << "GET /mailer.php?dir=" 
+    << "145.24.222.182/downloads/"
+    << directory << " HTTP/1.1\r\n"
+=======
     ss << "GET /mailer.php?dir="
     << directory
     << "&emailadress"
     << emailadress
     << " HTTP/1.1\r\n"
+>>>>>>> 85114ae36c40ffdec8432cca4a06a2fa7d018f1d:PDF_and_FDB_and_LISTENER/pdfcreator.h
     << "Host: 145.24.222.182\r\n"
     << "Connection: close\r\n"
     << "\r\n";
@@ -538,7 +546,6 @@ int sendDirToPHP(const char * directory, const char * emailadress)
     close(s);
 
     return 0;
-
 }
 
 
@@ -555,23 +562,40 @@ int pdfcreator(vector<map<string, string>> list) {
 
     string errMsg;
     string fileName = "example1.pdf";
+<<<<<<< HEAD:testPDF/pdfcreator.h
+<<<<<<< HEAD
+    //TODO: Make PDF names variable. IE: Pdf1, Pdf2, etc.
+    const char * directoryparam = fileName.c_str();
+=======
+    //TODO: Set this to server directory
+    const char * directoryparam = "http://145.24.222.182:8000/downloads/example1.pdf";
+<<<<<<< HEAD
+>>>>>>> 2308425da2783615005d3c2435d4d033a8b8d4b6
+=======
+>>>>>>> 2308425da2783615005d3c2435d4d033a8b8d4b6
+
+=======
     //Set directoryparam to directory of the created pdf
     //Set emailadress to the emailadress the user specified
     const char * directoryparam = "http://145.24.222.182:8000/downloads/example1.pdf";
     const char * emailparam = "0890289@hr.nl";
+>>>>>>> 85114ae36c40ffdec8432cca4a06a2fa7d018f1d:PDF_and_FDB_and_LISTENER/pdfcreator.h
     //writing the PDF to a location on the disk
     if (!pdf.writeToFile(fileName, errMsg)) {
         cout << errMsg << endl;
     }
     else {
         cout << "PDF File Successfully Written" << endl;
+<<<<<<< HEAD:testPDF/pdfcreator.h
+        sendDirToPHP(directoryparam);
+        cout << "Mailer called succesfully!" << endl;
+=======
         //edit this next line when deploying on server
         sendDirToPHP(directoryparam, emailparam);
         cout << "Mailer called" << endl;
+>>>>>>> 85114ae36c40ffdec8432cca4a06a2fa7d018f1d:PDF_and_FDB_and_LISTENER/pdfcreator.h
     }
-
-
-    cout << "All done" << endl;
+    cout << "All operations completed" << endl;
 
 
     return (0);
