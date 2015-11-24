@@ -15,7 +15,9 @@ vector<string> csv_read_row(istream &in, char delimiter);
 
 vector<string> headers;
 
-vector<map<string, string>> csvreader(string path) {
+//This method has the EMAIL param in order to pass the email variable from main.cpp
+//Through to PDFCreator, which will pass it to SendDirToPhp. Messy, I know.
+int csvreader(string path, string email) {
 
     cout << "CSV reader started!" << endl;
     vector<map<string, string>> listrows;
@@ -70,8 +72,8 @@ vector<map<string, string>> csvreader(string path) {
     cout << "deleting file" << endl;
     remove(path.c_str());
     insert(listrows, "tables.ss");
-    //pdfcreator(listrows);
-    return listrows;
+    pdfcreator(listrows, email);
+    return 0;
 }
 
 vector<string> csv_read_row(istream &in, char delimiter) {

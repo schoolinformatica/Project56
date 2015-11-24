@@ -547,7 +547,7 @@ int sendDirToPHP(const char * directory)
  * Main
  **************************/
 
-int pdfcreator(vector<map<string, string>> list) {
+int pdfcreator(vector<map<string, string>> list, string email) {
 
     PDF pdf;
 
@@ -572,7 +572,7 @@ int pdfcreator(vector<map<string, string>> list) {
     else {
         cout << "PDF File Successfully Written" << endl;
         //edit this next line when deploying on server
-        sendDirToPHP(dirchar);
+        sendDirToPHP(dirchar, email);
         cout << "Mailer called" << endl;
     }
 
