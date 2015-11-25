@@ -4,21 +4,40 @@
 #include <vector>
 #include <sstream>
 #include <map>
+#include <fstream>
 #include <algorithm>
 #include <sys/stat.h>
 #include <string.h>
 #include <cctype>
 
+#define EOI "end of info" /* End of info section */
+#define EOH "--------" /* End of header section */
+
 using namespace std;
 
 /* Path to the folder where all the database files will be stored */
-string storage_path = "/home/ubuntu-0902130/filedatabase/";
+//string storage_path = "/home/ubuntu-0902130/filedatabase/";
+string storage_path = "C:/Users/steve/Homestead/projects/project56/filebasedstorage/";
 
-inline bool exist(const std::string &name) {
+
+/*
+ * @name -> full path to the file
+ *
+ * This method checks if the file the path is
+ * pointing to exists.
+ */
+inline bool exist(const string &file) {
     struct stat buffer;
-    return (stat(name.c_str(), &buffer) == 0);
+    return (stat(file.c_str(), &buffer) == 0);
 }
 
+/*
+ * @str -> the string that has to be trimmed
+ *
+ * This method removes all characters, except
+ * alphabatic characters from the string and
+ * returns it.
+ */
 string trim_string(string str) {
     size_t i = 0;
     size_t len = str.length();
@@ -31,6 +50,22 @@ string trim_string(string str) {
     }
 
     return str;
+}
+
+/*
+ * @item -> item that you want to find in the list
+ * @list -> the list you want to search
+ *
+ * This method returns the index of the item in
+ * the list if founded.
+ */
+int find_list(string item, vector<string> list) {
+    for(int i = 0; i < list.size(); i++) {
+        if(item.find(list[i]) != string::npos) {
+            return i;
+        }
+    }
+    return -1;
 }
 
 /*
@@ -58,6 +93,14 @@ vector<string> read_header(string file) {
     return headerlist;
 }
 
+
+/*
+ * @list -> string that you want to covert to a vector
+ * @delim -> character that you want to use as delimitter
+ *
+ * This method converts a string to a list splitted by
+ * the delimitter char.
+ */
 vector<string> toList(string list, char delim) {
     istringstream iss(list);
     vector<string> newlist;
@@ -155,10 +198,21 @@ vector<map<string, string>> read_data(string file) {
     return all_rows;
 }
 
-bool is_number(const std::string &s) {
-    return !s.empty() && std::find_if(s.begin(), s.end(), [](char c) { return !std::isdigit(c); }) == s.end();
+/*
+ * @s -> string you want to check
+ *
+ * This method checks if a string is a numeric character.
+ */
+bool is_number(const string &s) {
+    return !s.empty() && find_if(s.begin(), s.end(), [](char c) { return !isdigit(c); }) == s.end();
 }
 
+/*
+ * @str -> string you want to check
+ *
+ * This method checks if a string is in date format
+ * (yyyy-mm-dd)
+ */
 bool is_date(string str) {
     if (str.length() != 10)
         return false;
@@ -177,7 +231,13 @@ bool is_date(string str) {
     return true;
 }
 
-
+/*
+ * @d1 -> date 1
+ * @d2 -> date 2
+ *
+ * This method checks which of the two dates is
+ * later/earlier. It returns the difference.
+ */
 int compare_date(const char *d1, const char *d2) {
     int rc;
     // compare years
@@ -194,6 +254,11 @@ int compare_date(const char *d1, const char *d2) {
     return strncmp(d1 + 8, d2 + 8, 2);
 }
 
+/*
+ * @i -> integer to be converted to string
+ *
+ * This method converts a integer to a string
+ */
 string int_to_string(int i) {
     stringstream ss;
     ss << i;
@@ -202,7 +267,12 @@ string int_to_string(int i) {
     return str;
 }
 
-
+/*
+ * @list -> the vector you want to remove the duplicates from
+ *
+ * This method removes all the duplicates from a vector
+ * and then returns the vector without duplicates values
+ */
 vector<string> remove_duplicates(vector<string> list) {
     vector<string> newlist;
     string column;
@@ -227,6 +297,12 @@ vector<string> remove_duplicates(vector<string> list) {
     return newlist;
 }
 
+/*
+ * @list -> vector you want to convert to string
+ *
+ * This method converts a list to a string.
+ * Format: item 0, item 1, item 2, etc.
+ */
 string list_to_string(vector<string> list) {
     string s = "";
     for (int i = 0; i < list.size(); ++i) {
@@ -238,6 +314,13 @@ string list_to_string(vector<string> list) {
     return s;
 }
 
+/*
+ * @v_one -> vector one
+ * @v_two -> vector two
+ *
+ * This method takes 2 vectors and combines them to
+ * 1 vector. Indentical values are not removed.
+ */
 vector<string> combine_lists_dif(vector<string> v_one, vector<string> v_two) {
     for (int i = 0; i < v_two.size(); i++) {
         for (int x = 0; x < v_one.size(); i++) {
@@ -253,6 +336,13 @@ vector<string> combine_lists_dif(vector<string> v_one, vector<string> v_two) {
     return v_one;
 }
 
+/*
+ * @v_one -> vector one
+ * @v_two -> vector two
+ *
+ * This method takes 2 vectors and combines them to
+ * 1 vector. Indentical values are removed.
+ */
 vector<string> combine_lists_same(vector<string> v_one, vector<string> v_two) {
     for (int i = 0; i < v_two.size(); i++) {
         for (int x = 0; x < v_one.size(); i++) {
@@ -268,7 +358,13 @@ vector<string> combine_lists_same(vector<string> v_one, vector<string> v_two) {
     return remove_duplicates(v_one);
 }
 
-
+/*
+ * @list -> list you want to check
+ * @values -> values you want to check
+ *
+ * This method checks string values seperated by
+ * a ',' if they exist in the vector.
+ */
 bool in_list(vector<string> list, string values) {
     vector<string> limits = toList(values, ',');
 

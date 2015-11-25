@@ -1,8 +1,6 @@
 #ifndef filedatabase
 #define filedatabase
 
-#define EOI "end of info" /* End of info section */
-#define EOH "--------" /* End of header section */
 
 #include "fdbhelperfunc.h"
 #include <iostream>
@@ -149,64 +147,74 @@ void create_index(string table, int filenumber, map<string, vector<string>> inde
  * It devides the data over multiple files, so reading the files
  * shouldn't take too long.
  */
-void insert(vector<map<string, string>> rows, string table) {
+void insert(vector<string> rows, string table) {
+
     ofstream myfile;
     vector<string> headers = get_table(table);
     vector<string> indexed_columns = get_indexed_columns(headers);
     map<string, vector<string>> index;
     vector<string> index_one, index_two;
 
+    int index_pos_one = find_list(indexed_columns.front(), headers);
+    int index_pos_two = find_list(indexed_columns.back(), headers);
+
     cout << "start converting to .fdb" << endl;
 
     int fileversion;
+    int cnt = 0;
+    bool start = false;
 
     //Iterate over the data. Each entry is a column.
     for (int i = 0; i < rows.size(); i++) {
 
-        //Make a new file after every x lines
-        if (i % 100000 == 0) {
-            fileversion = i / 100000 + 1 + get_latest_filenumber(table);
+        //Start after the header
+        if((i % headers.size() == 0 && i > 0) || start) {
+            start = true;
 
-            //If it isn't the first file, the last file should be indexed
-            if (i > 0) {
-                index.insert(pair<string, vector<string>>(indexed_columns.front(), index_one));
-                index.insert(pair<string, vector<string>>(indexed_columns.back(), index_two));
-                thread first(create_index, table, fileversion - 1, index);
-                first.detach();
-                index_one.clear();
-                index_two.clear();
-                index.clear();
+            //Make a new file after every x lines
+            if (i % (100000 * headers.size()) == 0 || i == headers.size()) {
+                fileversion = i / (100000 * headers.size()) + 1 + get_latest_filenumber(table);
+
+                //If it isn't the first file, the previous file should be indexed
+                if (i > headers.size()) {
+                    index.insert(pair<string, vector<string>>(indexed_columns.front(), index_one));
+                    index.insert(pair<string, vector<string>>(indexed_columns.back(), index_two));
+                    create_index(table, fileversion -1, index);
+                    index_one.clear();
+                    index_two.clear();
+                    index.clear();
+                }
+
+                //Create new file
+                stringstream ss;
+                ss << fileversion;
+                myfile.close();
+                myfile.open(storage_path + table + "-" + ss.str() + ".fdb");
+
+                //Add headers to the new file
+                for (int i = 0; i < headers.size(); i++) {
+                    myfile << headers[i] << ";";
+                }
+                myfile << endl;
+                myfile << EOH << endl;
             }
 
-            //Create new file
-            stringstream ss;
-            ss << fileversion;
-            myfile.close();
-            myfile.open(storage_path + table + "-" + ss.str() + ".fdb");
+            myfile << rows[i] << ";";
 
-            //Add headers to the new file
-            for (int i = 0; i < headers.size(); i++) {
-                myfile << headers[i] << ";";
+            if (cnt == index_pos_one)
+                index_one.push_back(rows[i]);
+
+            if (cnt == index_pos_two)
+                index_two.push_back(rows[i]);
+
+            cnt++;
+            if((i + 1) % headers.size() == 0) {
+                myfile << endl;
+                cnt = 0;
             }
-            myfile << endl;
-            myfile << EOH << endl;
         }
-
-        //Fill the file with the data
-        for (map<string, string>::iterator ii = rows.at(i).begin(); ii != rows.at(i).end(); ii++) {
-
-            myfile << ii->second << ";";
-
-            //Keep track of the data that should be indexed
-            for (int j = 0; j < 2; ++j) {
-                if (indexed_columns[j].find(ii->first) != string::npos && j == 0)
-                    index_one.push_back(ii->second);
-                if (indexed_columns[j].find(ii->first) != string::npos && j == 1)
-                    index_two.push_back(ii->second);
-            }
-        }
-        myfile << endl;
     }
+
     myfile.close();
 
     index.insert(pair<string, vector<string>>(indexed_columns.front(), index_one));
