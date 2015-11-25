@@ -27,7 +27,8 @@ Route::get('createaccount', 'PagesController@createaccount');
 Route::get('download', 'PagesController@download');
 
 Route::get('uploadPage', 'UploadController@upload');
-Route::post('uploadAdd', 'UploadController@multiple_upload');
+Route::post('uploadMultiple', 'UploadController@multiple_upload');
+Route::post('uploadSingle', 'UploadController@store');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');

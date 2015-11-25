@@ -54,13 +54,9 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-<<<<<<< HEAD
-            'host'      => env('DB_HOST', 'localhost'),
-            'database'  => env('DB_DATABASE', 'homestead'),
-=======
+
             'host'      => env('DB_HOST', 'localhost:7777'),
             'database'  => env('DB_DATABASE', 'project56'),
->>>>>>> 7089cb6f6f4bb76ae723334cf580dd380ac10410
             'username'  => env('DB_USERNAME', 'root'),
             'password'  => env('DB_PASSWORD', 'root123'),
             'charset'   => 'utf8',
