@@ -24,7 +24,7 @@ class UploadController extends Controller {
 
     public function store(Request $r)
     {
-        $image = Input::file('file');
+        $image = Input::file('image');
 
         $destinationPath = storage_path() . '/uploads';
         if(!$image->move($destinationPath, $image->getClientOriginalName())) {
@@ -34,29 +34,29 @@ class UploadController extends Controller {
         return view('pages.upload');
     }
 
-    public function multiple_upload()
-    {
+    public function multiple_upload() {
         // getting all of the post data
         $files = Input::file('images');
+        // Making counting of uploaded images
+        $file_count = count($files);
+        // start count how many uploaded
+        $uploadcount = 0;
         foreach($files as $file) {
-          // validating each file.
-          $rules = array('file' => 'required'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
-          $validator = Validator::make(array('file'=> $file), $rules);
-          if($validator->passes()){
-            // path is root/uploads
-            $destinationPath = storage_path() . '/uploads';
-            $filename = $file->getClientOriginalName();
-            $upload_success = $file->move($destinationPath, $filename);
-            // flash message to show success.
+            $rules = array('file' => 'required'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
+            $validator = Validator::make(array('file'=> $file), $rules);
+            if($validator->passes()){
+                $destinationPath = storage_path() . '/uploads';
+                $filename = $file->getClientOriginalName();
+                $upload_success = $file->move($destinationPath, $filename);
+                $uploadcount ++;
+            }
+        }
+        if($uploadcount == $file_count){
             Session::flash('success', 'Upload successfully');
             return view('pages.upload');
-          }
-          else {
-            // redirect back with errors.
+        }
+        else {
             return view('pages.upload');
-          }
-
+        }
+      }
     }
-
-    }
-}

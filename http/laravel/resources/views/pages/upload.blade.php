@@ -145,7 +145,7 @@
 
             <div class="row">
                 <div class="content">
-                    <form class="fileUploadForm" action="/uploadAdd/" method="post" enctype="multipart/form-data" files=true>
+                    <form class="fileUploadForm" action="/uploadSingle/" method="post" enctype="multipart/form-data" files=true>
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                         <label for="exampleInputFile">File input</label>
                         <div class="form-group">
@@ -165,7 +165,7 @@
 
             <div class="row">
                 <div class="content">
-                    {!! Form::open(array('url'=>'apply/multiple_upload','method'=>'POST', 'files'=>true)) !!}
+                    {!! Form::open(array('url'=>'/uploadMultiple/','method'=>'POST', 'files'=>true)) !!}
                     {!! Form::file('images[]', array('multiple'=>true)) !!}
                     {!! Form::submit('Submit', array('class'=>'send-btn')) !!}
                     {!! Form::close() !!}
