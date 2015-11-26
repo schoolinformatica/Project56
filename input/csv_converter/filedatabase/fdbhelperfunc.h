@@ -16,8 +16,8 @@
 using namespace std;
 
 /* Path to the folder where all the database files will be stored */
-//string storage_path = "/home/ubuntu-0902130/filedatabase/";
-string storage_path = "C:/Users/steve/Homestead/projects/project56/filebasedstorage/";
+string storage_path = "/home/ubuntu-0902130/filedatabase/";
+//string storage_path = "C:/Users/steve/Homestead/projects/project56/filebasedstorage/";
 
 
 /*

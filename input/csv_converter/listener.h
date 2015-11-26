@@ -60,9 +60,7 @@ int listener(string path) {
 
                     if (strstr(event->name, ".csv") != NULL) {
                         thread t1(csvreader, path + event->name, get_file_name(event->name));
-                        t1.
                         t1.detach();
-//                        csvreader(path + event->name, get_file_name(event->name));
                     }
                     else {
                         cout << "non valid csv file!" << endl;
@@ -76,9 +74,8 @@ int listener(string path) {
                 else {
 
                     if (strstr(event->name, ".csv") != NULL) {
-                        csvreader(path + event->name, get_file_name(event->name));
-//                        thread t1(csvreader, path + event->name, get_file_name(event->name));
-//                        t1.detach();
+                          thread t1(csvreader, path + event->name, get_file_name(event->name));
+                          t1.detach();
                     }
                     else {
                         cout << "non valid csv file!" << endl;
