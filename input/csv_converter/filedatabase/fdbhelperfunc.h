@@ -16,8 +16,8 @@
 using namespace std;
 
 /* Path to the folder where all the database files will be stored */
-string storage_path = "/home/ubuntu-0902130/filedatabase/";
-//string storage_path = "C:/Users/steve/Homestead/projects/project56/filebasedstorage/";
+//string storage_path = "/home/ubuntu-0902130/filedatabase/";
+//string storage_path = "C:/Users/steve/Homestead/projects/project56/input/csv_converter/";
 
 
 /*
@@ -166,10 +166,9 @@ vector<string> get_table(string table) {
  *
  * This method reads a dsv file and returns the data.
  */
-vector<map<string, string>> read_data(string file) {
+vector<string> read_data(string file) {
     vector<string> header_list = read_header(file);
-    vector<map<string, string>> all_rows;
-    map<string, string> row;
+    vector<string> rows;
     string column;
     const unsigned int length = 10000;
     char Buffer[length];
@@ -183,19 +182,13 @@ vector<map<string, string>> read_data(string file) {
         if (column.find(EOH) != string::npos)
             break;
     }
-    int x = 0;
-    while (getline(index, column, ';')) {
-        row.insert(pair<string, string>(header_list.at(x), column));
-        if (x == header_list.size() - 1) {
-            all_rows.push_back(row);
-            row.clear();
-            x = 0;
-        }
 
-        x++;
+    while (getline(index, column, ';')) {
+        rows.push_back(column);
     }
+
     index.close();
-    return all_rows;
+    return rows;
 }
 
 /*
