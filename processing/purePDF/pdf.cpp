@@ -484,13 +484,9 @@ string PDF::toString()
 //This method determines where the pdf file will be placed after completion
 bool PDF::writeToFile(const string &fileName, string &errMsg)
 {
-<<<<<<< HEAD:testPDF/pdf.cpp
-   string filepath = "/var/www/laravel/public/downloads/" + fileName;
-
-=======
    //CHANGE NEXT LINE
    string filepath = "/var/www/laravel/public/downloads/" + fileName;
->>>>>>> 85114ae36c40ffdec8432cca4a06a2fa7d018f1d:PDF_and_FDB_and_LISTENER/pdf.cpp
+   // string filepath = "/home/robert/Documents/testfolder" + fileName;
    ofstream theFile(filepath.c_str(), ios::out | ios::binary);
 
    if(!theFile)
