@@ -109,6 +109,13 @@ static void drawBoundedText(
     p.drawRect(x, y - offset, width, fontSize + offset);
 }
 
+/*
+**************************************
+* CREATE AND FILL PDF WITH ALL VALUES
+*************************************
+*/
+
+
 
 static void createAndFillPDF(PDF &pdf, vector<string> list, string table) {
 
@@ -136,6 +143,71 @@ static void createAndFillPDF(PDF &pdf, vector<string> list, string table) {
 	sizePDF++;
     }
 
+}
+
+/***********************************
+ * FILL PDF WITH GRAPH
+ ***********************************/
+
+//pointer to pdf as param: We want an actual pdf, not a new one
+void createGraph(PDF &pdf, int scale, vector<int> y, vector<int> x)
+{
+    //IMPORTANT: This int determines the scale/interval at which the line graph will be drawn. Set it to a whole number.
+    int scaler;
+    if(scale > 0)
+    {
+        scaler = scale;
+    }
+    else
+    {
+        cout << "Scaler not set or invalid!" << endl;
+    }
+    string errMsg;
+    pdf.setFont(PDF::Font(2), 10);
+
+    //Sequential values for the Y part of the graph, these represent the values in our CSV.
+    vector<int> seqYVector;
+    for(int y = 0; y < y.size(); y++)
+    {
+        //we save every 100 values, including 0; 0 however do not get scaled to / scaler.
+        if(y % 100 == 0 && y != 0) {
+            seqYVector.push_back(y / scaler);
+        }
+    }
+
+    //sequential values for the X part of the graph, these represent Date/Time
+    vector<int> seqXVector;
+    for(int x = 0; x < x.size(); x++)
+    {
+        //we save every 100 values, including 0; 0 however do not get scaled to / scaler.
+        if(x % 100 == 0 && x != 0) {
+            seqXVector.push_back(x / scaler);
+        }
+    }
+
+    for(int z = 0; z < seqXVector.size(); z++)
+    {
+        //first x of first dot, first y of first dot, then same for second dot.
+        pdf.setLineWidth(1);
+        //0-values are not taken, only in the values to the side of the graph below.
+        pdf.drawLine(seqXVector[z] + 100, seqYVector[z] + 100, seqXVector[z + 1] + 100, seqYVector[z + 1] + 100);
+    }
+
+    // We draw every hundred number on the x axis
+    for(int xas =0; xas < seqXVector.size(); xas++)
+    {
+        // The +95 makes sure the line isnt drawn directly in the corner of the pdf.
+        pdf.showTextXY(std::to_string(seqXVector[xas] * scaler), seqXVector[xas] + 95, 95);
+    }
+    //We draw every hundred number on the y axis.
+    //NOTE: We add 0 manually so we can draw the line normally whilst still displaying 0. We only add it to one of the lists, else there would be 2 0's.
+    vector<int>::iterator it = seqYVector.begin();
+    seqYVector.insert(it, 0);
+    for (int yas =0; yas < seqYVector.size(); yas++)
+    {
+        // The +95 makes sure the line isnt drawn directly in the corner of the pdf.
+        pdf.showTextXY(std::to_string(seqYVector[yas] * scaler), 95, seqYVector[yas] + 95);
+    }
 }
 
 
@@ -175,11 +247,11 @@ int sendDirToPHP(const char * directory, const char * email)
     stringstream ss;
     ss << "GET /mailer.php?dir="
     <<    directory
-<< "&emailadress=" 
-<< email
- << " HTTP/1.1\r\n"
+    << "&emailadress=" 
+    << email
+    << " HTTP/1.1\r\n"
     << "Host: 145.24.222.182\r\n"
-   << "Connection: close\r\n"
+    << "Connection: close\r\n"
     << "\r\n";
     string requeststr = ss.str();
     //We send our request
@@ -202,7 +274,8 @@ int pdfcreator(vector <string> list, string email, string table) {
     cout << "PDFCreator called" << endl;
     PDF pdf;
 
-    createAndFillPDF(pdf, list, table);
+//TODO: Convert vector<string> to int, and find way to use dates on x axis
+    createGraph(pdf, list, );
 
     string errMsg;
 
@@ -210,9 +283,9 @@ int pdfcreator(vector <string> list, string email, string table) {
     time_t rawtime;
     time (&rawtime);
     string filename = ctime(&rawtime);
-filename = filename + ".pdf";
+    filename = filename + ".pdf";
     replace(filename.begin(), filename.end(), ' ', '_');
-filename.erase(remove(filename.begin(), filename.end(), '\n'), filename.end());
+    filename.erase(remove(filename.begin(), filename.end(), '\n'), filename.end());
 
     //Remove underscores from filename and concat it with the server download dir
     string dir = "http://145.24.222.182:8000/downloads/" + filename;
