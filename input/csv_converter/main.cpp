@@ -1,12 +1,14 @@
 #include <iostream>
 #include "listener.h"
 
+
 using namespace std;
 
 int main() {
 
     // start the listener on the given path
-    listener("/var/www/laravel/storage/uploads/");
+    listener("/home/cooperatio/filedatabase/");
+
 
     return 0;
 }

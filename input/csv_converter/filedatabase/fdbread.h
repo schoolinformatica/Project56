@@ -11,7 +11,7 @@
 using namespace std;
 
 // Vector containg all the selected data
-vector<map<string, string>> data;
+vector<string> data;
 
 /*
  * @index -> index values you want to get the rows from
@@ -88,7 +88,7 @@ vector<string> get_files_to_read(string table, string index_one, string index_tw
  */
 void push_data_to_list(string file) {
 
-    vector<map<string, string>> temp_data = read_data(file);
+    vector<string> temp_data = read_data(file);
     data.insert(data.end(), temp_data.begin(), temp_data.end());
     temp_data.clear();
 }
@@ -107,7 +107,7 @@ void push_data_to_list(string file) {
  * according to the given indexes. This method should
  * be called to select data.
  */
-vector<map<string, string>> select(string table, string index_one, string index_two) {
+vector<string> select(string table, string index_one, string index_two) {
     vector<string> files = get_files_to_read(table, index_one, index_two);
 
     for (int i = 0; i < files.size(); i++) {
@@ -119,6 +119,5 @@ vector<map<string, string>> select(string table, string index_one, string index_
     return data;
 };
 
-select("positions", "2015-3-15, 2015-3-17", "*");
 
 #endif
