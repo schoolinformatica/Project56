@@ -67,14 +67,17 @@ void csvreader(string path, string table) {
             }
         }
 
+
         in.close();
 
         //Call the insert method
+
         insert(row, table);
 
         //deleting the csv file
         cout << "deleting file" << endl;
         remove(path.c_str());
+	cout << "All done. CSV file removed and converted to .FDB"
     }
 }
 

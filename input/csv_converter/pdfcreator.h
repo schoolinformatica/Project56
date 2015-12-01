@@ -490,6 +490,87 @@ static void demoFour(PDF &pdf, vector<map<string, string>> list) {
     }
 }
 
+/***********************************
+ * Graph Creator
+ ***********************************/
+
+void createGraph(int scale)
+{
+    //IMPORTANT: This int determines the scale/interval at which the line graph will be drawn. Set it to a whole number.
+    int scaler;
+    if(scale > 0)
+    {
+        scaler = scale;
+    }
+    else
+    {
+        cout << "Scaler not set or invalid!" << endl;
+    }
+
+    PDF pdf;
+    string errMsg;
+    pdf.setFont(PDF::Font(2), 10);
+
+    //Sequential values for the Y part of the graph, these represent the values in our CSV.
+    vector<int> seqYVector;
+    for(int y = 0; y < 501; y++)
+    {
+        //we save every 100 values, including 0; 0 however do not get scaled to / scaler.
+        if(y % 100 == 0 && y != 0) {
+            seqYVector.push_back(y / scaler);
+        }
+    }
+
+    //sequential values for the X part of the graph, these represent Date/Time
+    vector<int> seqXVector;
+    for(int x = 0; x < 501; x++)
+    {
+        //we save every 100 values, including 0; 0 however do not get scaled to / scaler.
+        if(x % 100 == 0 && x != 0) {
+            seqXVector.push_back(x / scaler);
+        }
+    }
+
+    for(int z = 0; z < seqXVector.size(); z++)
+    {
+        //first x of first dot, first y of first dot, then same for second dot.
+        pdf.setLineWidth(1);
+        //0-values are not taken, only in the values to the side of the graph below.
+        pdf.drawLine(seqXVector[z] + 100, seqYVector[z] + 100, seqXVector[z + 1] + 100, seqYVector[z + 1] + 100);
+    }
+
+    // We draw every hundred number on the x axis
+    for(int xas =0; xas < seqXVector.size(); xas++)
+    {
+        // The +95 makes sure the line isnt drawn directly in the corner of the pdf.
+        pdf.showTextXY(std::to_string(seqXVector[xas] * scaler), seqXVector[xas] + 95, 95);
+    }
+    //We draw every hundred number on the y axis.
+    //NOTE: We add 0 manually so we can draw the line normally whilst still displaying 0. We only add it to one of the lists, else there would be 2 0's.
+    vector<int>::iterator it = seqYVector.begin();
+    seqYVector.insert(it, 0);
+    for (int yas =0; yas < seqYVector.size(); yas++)
+    {
+        // The +95 makes sure the line isnt drawn directly in the corner of the pdf.
+        pdf.showTextXY(std::to_string(seqYVector[yas] * scaler), 95, seqYVector[yas] + 95);
+    }
+
+    for(int i =0; i < seqYVector.size(); i++)
+    {
+        cout << seqYVector[i] << endl;
+    }
+
+    if(!pdf.writeToFile("graph.pdf", errMsg))
+    {
+        cout << errMsg << endl;
+    }
+    else
+    {
+        cout << "(File with graph Successfully Written)" << endl;
+    }
+    cout << endl;
+}
+
 /**************************
  * Send directory to PHP script. Call this with "dir=<your dir to the PDF file in the var/www/html/public folder>"
  **************************/
@@ -525,17 +606,14 @@ int sendDirToPHP(const char * directory, const char * emailadress)
     //We create a stringstream with the necessary URL and header values.
     //the 'Connection: close' header makes sure the connection to the url is closed.
     stringstream ss;
-<<<<<<< HEAD:testPDF/pdfcreator.h
     ss << "GET /mailer.php?dir=" 
     << "145.24.222.182/downloads/"
     << directory << " HTTP/1.1\r\n"
-=======
     ss << "GET /mailer.php?dir="
     << directory
     << "&emailadress"
     << emailadress
     << " HTTP/1.1\r\n"
->>>>>>> 85114ae36c40ffdec8432cca4a06a2fa7d018f1d:PDF_and_FDB_and_LISTENER/pdfcreator.h
     << "Host: 145.24.222.182\r\n"
     << "Connection: close\r\n"
     << "\r\n";
@@ -554,7 +632,7 @@ int sendDirToPHP(const char * directory, const char * emailadress)
  * Main
  **************************/
 
-int pdfcreator(vector<map<string, string>> list) {
+int pdfcreator(vector<map<string, string>> list, int scale) {
 
     PDF pdf;
 
@@ -562,38 +640,30 @@ int pdfcreator(vector<map<string, string>> list) {
 
     string errMsg;
     string fileName = "example1.pdf";
-<<<<<<< HEAD:testPDF/pdfcreator.h
-<<<<<<< HEAD
+
     //TODO: Make PDF names variable. IE: Pdf1, Pdf2, etc.
     const char * directoryparam = fileName.c_str();
-=======
     //TODO: Set this to server directory
     const char * directoryparam = "http://145.24.222.182:8000/downloads/example1.pdf";
-<<<<<<< HEAD
->>>>>>> 2308425da2783615005d3c2435d4d033a8b8d4b6
-=======
->>>>>>> 2308425da2783615005d3c2435d4d033a8b8d4b6
-
-=======
     //Set directoryparam to directory of the created pdf
     //Set emailadress to the emailadress the user specified
     const char * directoryparam = "http://145.24.222.182:8000/downloads/example1.pdf";
     const char * emailparam = "0890289@hr.nl";
->>>>>>> 85114ae36c40ffdec8432cca4a06a2fa7d018f1d:PDF_and_FDB_and_LISTENER/pdfcreator.h
+
     //writing the PDF to a location on the disk
     if (!pdf.writeToFile(fileName, errMsg)) {
         cout << errMsg << endl;
     }
     else {
         cout << "PDF File Successfully Written" << endl;
-<<<<<<< HEAD:testPDF/pdfcreator.h
+
         sendDirToPHP(directoryparam);
         cout << "Mailer called succesfully!" << endl;
-=======
+
         //edit this next line when deploying on server
         sendDirToPHP(directoryparam, emailparam);
         cout << "Mailer called" << endl;
->>>>>>> 85114ae36c40ffdec8432cca4a06a2fa7d018f1d:PDF_and_FDB_and_LISTENER/pdfcreator.h
+
     }
     cout << "All operations completed" << endl;
 

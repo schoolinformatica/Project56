@@ -147,6 +147,7 @@ void create_index(string table, int filenumber, map<string, vector<string>> inde
  * It devides the data over multiple files, so reading the files
  * shouldn't take too long.
  */
+
 void insert(vector<string> rows, string table) {
 
     ofstream myfile;
@@ -154,7 +155,6 @@ void insert(vector<string> rows, string table) {
     vector<string> indexed_columns = get_indexed_columns(headers);
     map<string, vector<string>> index;
     vector<string> index_one, index_two;
-
     int index_pos_one = find_list(indexed_columns.front(), headers);
     int index_pos_two = find_list(indexed_columns.back(), headers);
 
