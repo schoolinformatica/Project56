@@ -145,6 +145,7 @@ static void createAndFillPDF(PDF &pdf, vector<string> list, string table) {
 
 }
 
+
 /***********************************
  * FILL PDF WITH GRAPH
  ***********************************/
@@ -165,6 +166,10 @@ void createGraph(PDF &pdf, int scale, vector<int> y, vector<int> x)
     string errMsg;
     pdf.setFont(PDF::Font(2), 10);
 
+	//Als we met events/connections van doen hebben moeten we een percentage van TRUEs per dag krijgen
+	//Dit moet @fdb gebeuren
+
+	/*
     //Sequential values for the Y part of the graph, these represent the values in our CSV.
     vector<int> seqYVector;
     for(int y = 0; y < y.size(); y++)
@@ -184,6 +189,7 @@ void createGraph(PDF &pdf, int scale, vector<int> y, vector<int> x)
             seqXVector.push_back(x / scaler);
         }
     }
+	*/
 
     for(int z = 0; z < seqXVector.size(); z++)
     {
