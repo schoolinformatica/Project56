@@ -25,13 +25,13 @@ class PagesController extends Controller
     }
 
     public function upload()
-        {
-            return view('pages.upload');
-        }
+    {
+        return view('pages.upload');
+    }
 
     public function download()
     {
-        return view('pages.download');
+        return view('pages.login');
     }
 
     public function createaccount()
