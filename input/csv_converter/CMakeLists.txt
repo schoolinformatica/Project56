@@ -3,5 +3,5 @@ project(input_process)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES RunAllTests.cpp)
-add_executable(input_UnitTests ${SOURCE_FILES})
+set(SOURCE_FILES main.cpp)
+add_executable(input_process ${SOURCE_FILES})
