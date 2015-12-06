@@ -259,9 +259,7 @@ int sendDirToPHP(const char * directory, const char * email)
     //And close our socket to the server
     close(s);
 
-
     return 0;
-
 }
 
 
@@ -273,7 +271,10 @@ int sendDirToPHP(const char * directory, const char * email)
 int pdfcreator(vector <string> list, string email, string table) {
     cout << "PDFCreator called" << endl;
     PDF pdf;
-
+    
+    //
+    
+	
     //TODO: Convert vector<string> to int, and find way to use dates on x axis
     createGraph(pdf, list, );
 
