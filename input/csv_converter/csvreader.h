@@ -19,12 +19,19 @@ using namespace std;
  * This method reads the csv file and calls the insert()
  * method to convert all the data to our own file
  * format.
+ *
+ * This method returns 1 upon a successfull read, 0 upon any kind of failure
  */
-void csvreader(string path, string table) {
+
+
+int csvreader(string path, string table) {
     cout << "CSV reader started!" << endl;
 
     if(!exist(path))
+    {
         cout << "file not found" << endl;
+        return 0;
+    }
     else {
 
         vector<string> row;
@@ -67,14 +74,18 @@ void csvreader(string path, string table) {
             }
         }
 
+
         in.close();
 
         //Call the insert method
+
         insert(row, table);
 
         //deleting the csv file
         cout << "deleting file" << endl;
         remove(path.c_str());
+	    cout << "All done. CSV file removed and converted to .FDB" << endl;
+        return 1;
     }
 }
 

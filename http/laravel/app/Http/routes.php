@@ -11,24 +11,21 @@
 |
 */
 
+//The route to the homepage
 Route::get('/', function () {
     return view('welcome');
 });
 
-
-//Route::get('login', function() {
-//    return view('login');
-//});
-
+//The routes to the other pages
 Route::get('welcome', 'PagesController@home');
 Route::get('about','PagesController@about');
 Route::get('login', 'PagesController@login');
 Route::get('createaccount', 'PagesController@createaccount');
-Route::get('download', 'PagesController@download');
+Route::get('download', ['middleware' => 'auth', 'uses' => 'PagesController@download']);
 
-Route::get('uploadPage', 'UploadController@upload');
+//Routes for the uploadpage and the post request for uploading files
+Route::get('uploadPage', ['middleware' => 'auth', 'uses' => 'UploadController@upload']);
 Route::post('uploadMultiple', 'UploadController@multiple_upload');
-Route::post('uploadSingle', 'UploadController@store');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
@@ -39,7 +36,7 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-
+//Route for the passwordcontroller (forgot password function)
 Route::controllers([
    'password' => 'Auth\PasswordController',
 ]);
