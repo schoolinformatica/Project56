@@ -46,7 +46,7 @@ string trim(string& str)
 bool CheckIfFileExists(const char * filename) 
 {
     if (FILE * file = fopen(filename, "r")) {
-    	fclose(file)
+    	fclose(file);
 	return true;
     }
     return false;
