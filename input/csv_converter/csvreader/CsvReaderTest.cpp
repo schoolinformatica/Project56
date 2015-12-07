@@ -15,6 +15,7 @@ void TestCsvReaderForNullParams(CuTest *tc)
     string param = "";
     int actual = csvreader(param, param);
     int expected = 0;
+
     CuAssertIntEquals(tc, expected, actual);
 }
 
@@ -24,6 +25,7 @@ void TestCsvReaderForGoodParams(CuTest *tc)
     string goodParam2 = "/home/robert/Desktop/Hogeschool/Project56/Project56/input/csv_converter/tables.ss";
     int actual = csvreader(goodParam1, goodParam2);
     int expected = 1;
+
     CuAssertIntEquals(tc, expected, actual);
 }
 

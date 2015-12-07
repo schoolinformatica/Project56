@@ -6,9 +6,8 @@
 #include <vector>
 #include <sstream>
 #include "dbpusher.h"
-#include "../helperfunc/helperfunc.h"
 #include <map>
-#include "helperfunc/helperfunc.h"
+
 
 
 using namespace std;
