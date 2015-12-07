@@ -43,10 +43,13 @@ string trim(string& str)
  *
  */
 
-inline bool CheckIfFileExists(const string &file) 
+bool CheckIfFileExists(const char * filename) 
 {
-    struct stat buffer;
-    return (stat(file.c_str(), &buffer) == 0);
+    if (FILE * file = fopen(filename, "r")) {
+    	fclose(file)
+	return true;
+    }
+    return false;
 }
 
 #endif

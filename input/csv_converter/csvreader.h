@@ -27,7 +27,7 @@ int csvreader(string path, string table)
 {
     cout << "CSV reader started!" << endl;
 
-    if(!CheckIfFileExists(path))
+    if(!CheckIfFileExists(path.c_str()))
     {
         cout << "file not found" << endl;
         return 0;
@@ -81,13 +81,13 @@ int csvreader(string path, string table)
 
         in.close();
 
-	//ToDO: Call postgres instead!
+	//TODO: Call postgres instead!
 
         //deleting the csv file
         cout << "deleting file" << endl;
         remove(path.c_str());
 
-	cout << "All done. CSV file removed and converted to .FDB" << endl;
+	cout << "All done. CSV file removed and put into database" << endl;
         return 1;
     }
 }
