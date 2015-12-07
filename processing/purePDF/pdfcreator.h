@@ -226,7 +226,7 @@ int sendDirToPHP(const char * directory, const char * email)
     {
         cout<<"Error 01: creating socket failed!\n";
         close(s);
-        return 1;
+        return 0;
     }
 
     //Setting server destination
@@ -240,10 +240,10 @@ int sendDirToPHP(const char * directory, const char * email)
     {
         cout<<"Error 02: conecting to server failed!\n";
         close(s);
-        return 1;
+        return 0;
     }
 
-    //We create a stringstream with the necessary URL and header values.Connection: close make sure the connection to the url is closed.
+    //We create a stringstream with the necessary URL and header values.Connection: close makes sure the connection to the url is closed.
     stringstream ss;
     ss << "GET /mailer.php?dir="
     <<    directory
@@ -259,7 +259,7 @@ int sendDirToPHP(const char * directory, const char * email)
     //And close our socket to the server
     close(s);
 
-    return 0;
+    return 1;
 }
 
 
@@ -268,15 +268,12 @@ int sendDirToPHP(const char * directory, const char * email)
  * Main
  **************************/
 
-int pdfcreator(vector <string> list, string email, string table) {
+int pdfcreator(vector <string> list, string email, string table) 
+{
     cout << "PDFCreator called" << endl;
-    PDF pdf;
-    
-    //
-    
-	
+
     //TODO: Convert vector<string> to int, and find way to use dates on x axis
-    createGraph(pdf, list, );
+    //createGraph(pdf, list, );
 
     string errMsg;
 
@@ -294,20 +291,18 @@ int pdfcreator(vector <string> list, string email, string table) {
     const char * emailchar = email.c_str();
 
     //writing the PDF to a location on the disk
-    if (!pdf.writeToFile(filename, errMsg)) {
+    if (!pdf.writeToFile(filename, errMsg)) 
+    {
         cout << errMsg << endl;
     }
-    else {
+    else 
+    {
         cout << "PDF File Successfully Written" << endl;
         //edit this next line when deploying on server
         sendDirToPHP(dirchar, emailchar);
         cout << "Your report can be found at: <a target='_blank' href='" << dirchar << "'> " << dirchar << "</a> " << endl;
     }
-
-
-
-
-    return (0);
+    return 1;
 }
 
 #endif
