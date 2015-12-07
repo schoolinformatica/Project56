@@ -5,14 +5,11 @@
 #include <fstream>
 #include <vector>
 #include <sstream>
-<<<<<<< HEAD:input/csv_converter/csvreader/csvreader.h
 #include "dbpusher.h"
 #include "../helperfunc/helperfunc.h"
-
-=======
 #include <map>
 #include "helperfunc/helperfunc.h"
->>>>>>> f513602a3a801b3ad0c8947decd3dcc271b6abdd:input/csv_converter/csvreader.h
+
 
 using namespace std;
 
@@ -32,13 +29,8 @@ using namespace std;
 int csvreader(string path, string table)
 {
     cout << "CSV reader started!" << endl;
-
-<<<<<<< HEAD:input/csv_converter/csvreader/csvreader.h
-    if (!exist(path)) {
-=======
     if(!CheckIfFileExists(path.c_str()))
     {
->>>>>>> f513602a3a801b3ad0c8947decd3dcc271b6abdd:input/csv_converter/csvreader.h
         cout << "file not found" << endl;
         return 0;
     }
@@ -91,24 +83,13 @@ int csvreader(string path, string table)
 
         in.close();
 
-<<<<<<< HEAD:input/csv_converter/csvreader/csvreader.h
         //Call the insert method
         push_list_to_database(row, table);
 
         //deleting the csv file
         cout << "deleting file" << endl;
-        remove(path.c_str());
-        cout << "All done. CSV file removed and converted to .FDB" << endl;
-=======
-	//TODO: Call postgres instead!
-
-        //deleting the csv file
-        cout << "deleting file" << endl;
-	//TODO This line was temporarily removed for testing purposes
         //remove(path.c_str());
-
 	cout << "All done. CSV file removed and put into database" << endl;
->>>>>>> f513602a3a801b3ad0c8947decd3dcc271b6abdd:input/csv_converter/csvreader.h
         return 1;
     }
 }
