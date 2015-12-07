@@ -85,7 +85,8 @@ int csvreader(string path, string table)
 
         //deleting the csv file
         cout << "deleting file" << endl;
-        remove(path.c_str());
+	//TODO This line was temporarily removed for testing purposes
+        //remove(path.c_str());
 
 	cout << "All done. CSV file removed and put into database" << endl;
         return 1;
