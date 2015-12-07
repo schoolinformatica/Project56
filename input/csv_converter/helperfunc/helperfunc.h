@@ -49,4 +49,20 @@ string trim(string& str)
     return str.substr(first, (last-first+1));
 }
 
+/*
+ * @&file -> File that you want to check existance of
+ *
+ * Returns true if exists, false otherwise.
+ *
+ */
+
+bool CheckIfFileExists(const char * filename) 
+{
+    if (FILE * file = fopen(filename, "r")) {
+    	fclose(file);
+	return true;
+    }
+    return false;
+}
+
 #endif
