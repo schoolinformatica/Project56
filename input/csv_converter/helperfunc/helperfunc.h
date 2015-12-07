@@ -36,4 +36,17 @@ string trim(string& str)
     return str.substr(first, (last-first+1));
 }
 
+/*
+ * @&file -> File that you want to check existance of
+ *
+ * Returns true if exists, false otherwise.
+ *
+ */
+
+inline bool CheckIfFileExists(const string &file) 
+{
+    struct stat buffer;
+    return (stat(file.c_str(), &buffer) == 0);
+}
+
 #endif

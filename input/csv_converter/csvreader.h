@@ -1,16 +1,15 @@
 #ifndef CSVReader
 #define CSVReader
 
-
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <sstream>
 #include <map>
-#include "filedatabase/filedatabase.h"
-
+#include "helperfunc/helperfunc.h"
 
 using namespace std;
+
 
 /*
  * @path -> full path to the csv file
@@ -24,16 +23,17 @@ using namespace std;
  */
 
 
-int csvreader(string path, string table) {
+int csvreader(string path, string table)
+{
     cout << "CSV reader started!" << endl;
 
-    if(!exist(path))
+    if(!CheckIfFileExists(path))
     {
         cout << "file not found" << endl;
         return 0;
     }
-    else {
-
+    else 
+    {
         vector<string> row;
         stringstream ss;
         ifstream in;
@@ -64,27 +64,30 @@ int csvreader(string path, string table) {
                 row.push_back(ss.str());
                 ss.str("");
             }
-            else if (!inquotes && (c == '\r' || c == '\n')) {
-                if (in.peek() == '\n') { in.get(); }
+            else if (!inquotes && (c == '\r' || c == '\n')) 
+            {
+                if (in.peek() == '\n') 
+                { 
+                    in.get(); 
+                }
                 row.push_back(ss.str());
                 ss.str(string());
             }
-            else {
+            else
+	    {
                 ss << c;
             }
         }
 
-
         in.close();
 
-        //Call the insert method
-
-        insert(row, table);
+	//ToDO: Call postgres instead!
 
         //deleting the csv file
         cout << "deleting file" << endl;
         remove(path.c_str());
-	    cout << "All done. CSV file removed and converted to .FDB" << endl;
+
+	cout << "All done. CSV file removed and converted to .FDB" << endl;
         return 1;
     }
 }
