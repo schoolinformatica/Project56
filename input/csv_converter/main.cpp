@@ -1,20 +1,15 @@
 #include <iostream>
-#include "listener.h"
-
-
+#include "csvreader/csvreader.h"
 
 using namespace std;
 
-string path_to_listen_directory = "/var/www/laravel/storage/downloads/";
 
 
 int main() {
 
+    csvreader("/home/steve/positions.csv", "positions");
 
-//    // Start the listener on the directory
-//    listener(path_to_listen_directory);
+
 
     return 0;
 }
-
-

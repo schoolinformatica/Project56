@@ -3,8 +3,21 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <sys/stat.h>
 
 using namespace std;
+
+/*
+ * @name -> full path to the file
+ *
+ * This method checks if the file the path is
+ * pointing to exists.
+ */
+inline bool exist(const string &file) {
+    struct stat buffer;
+    return (stat(file.c_str(), &buffer) == 0);
+}
 
 
 /*
@@ -16,7 +29,7 @@ using namespace std;
  * it returns FALSE.
  *
  */
-bool equals(string & string_one, string & string_two) {
+bool equals(string string_one, string string_two) {
     if(string_one.compare(string_two) == 0)
         return true;
     return false;

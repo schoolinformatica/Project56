@@ -6,11 +6,12 @@
 #include <fstream>
 #include <vector>
 #include <sstream>
-#include <map>
-#include "filedatabase/filedatabase.h"
+#include "dbpusher.h"
+#include "../helperfunc/helperfunc.h"
 
 
 using namespace std;
+
 
 /*
  * @path -> full path to the csv file
@@ -27,8 +28,7 @@ using namespace std;
 int csvreader(string path, string table) {
     cout << "CSV reader started!" << endl;
 
-    if(!exist(path))
-    {
+    if (!exist(path)) {
         cout << "file not found" << endl;
         return 0;
     }
@@ -78,17 +78,15 @@ int csvreader(string path, string table) {
         in.close();
 
         //Call the insert method
-
-        insert(row, table);
+        push_list_to_database(row, table);
 
         //deleting the csv file
         cout << "deleting file" << endl;
         remove(path.c_str());
-	    cout << "All done. CSV file removed and converted to .FDB" << endl;
+        cout << "All done. CSV file removed and converted to .FDB" << endl;
         return 1;
     }
 }
-
 
 
 #endif
