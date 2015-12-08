@@ -25,6 +25,8 @@ map<string, string> read_config_file() {
 
     string column;
     map<string, string> credentials;
+    if(PATH_TO_CONFIG_FILE != "")
+    {}
 
     ifstream config_file (PATH_TO_CONFIG_FILE);
 

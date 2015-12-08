@@ -24,15 +24,15 @@ static string connection_string = "dbname=" + credentials[DATABASE] + " user=" +
  * PostgreSQL database.
  */
 
-class Pgsqlcon {
-
-// Public methods declaration
+class Pgsqlcon
+{
+    int errorCode;
 public:
     result exec_transaction(vector<string>&); // Ececute query in transaction mode
     result exec_none_transaction(const string&); // Execute query in non-transaction mode
+    int getErrorCode(){return errorCode; }; //0 meaning failure, 1 meaning sucess
 
 };
-
 
 /*
  * @query -> Single SQL query
@@ -41,14 +41,21 @@ public:
  * retreives the result (if any)
  *
  */
+
+
 result Pgsqlcon::exec_none_transaction(const string & query) {
-    try {
-        connection C(connection_string); // Connect to database
-        nontransaction N(C); // Nontransaction to database
-        result result = N.exec(query); // Execute the query
-        C.disconnect(); // Disconnect from the database
-        return result; // Return result from the query
-    } catch(const std::exception &e) {
+    try
+    {
+            connection C(connection_string); // Connect to database
+            nontransaction N(C); // Nontransaction to database
+            result result = N.exec(query); // Execute the query
+            C.disconnect(); // Disconnect from the database
+            errorCode = 1;
+            return result; // Return result from the query
+    }
+    catch(const std::exception &e)
+    {
+        errorCode = 0;
         cerr << e.what() << endl;
     }
 }
@@ -60,18 +67,23 @@ result Pgsqlcon::exec_none_transaction(const string & query) {
  *
  */
 result Pgsqlcon::exec_transaction(vector<string> & queries) {
-    try {
+    try
+    {
         connection C(connection_string); // Connection to database
         work W(C); // Transaction to database
 
         //Add all queries to the transaction
-        for(string &query : queries) {
+        for(string &query : queries)
+        {
             W.exec(query);
         }
-
+        errorCode = 1;
         W.commit(); // Commit the transaction
         C.disconnect(); // Disconnect from database
-    } catch(const std::exception &e) {
+    }
+    catch(const std::exception &e)
+    {
+        errorCode = 0;
         cerr << e.what() << endl;
     }
 }
