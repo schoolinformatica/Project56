@@ -28,9 +28,9 @@ using namespace std;
 int csvreader(string path, string table)
 {
     cout << "CSV reader started!" << endl;
-    if(!CheckIfFileExists(path.c_str()))
+    if(!CheckIfFileExists(path.c_str()) || table.empty() == true)
     {
-        cout << "file not found" << endl;
+        cout << "Error: file not found or table not recognized" << endl;
         return 0;
     }
     else 
