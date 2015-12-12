@@ -5,60 +5,6 @@
 // main.cpp -- take 2
 #include "UnitTest++/UnitTest++.h"
 #include "pqcon/pgsqlcon.h"
-#include "csvreader/csvreader.h"
-
-TEST(testCsvReaderNullParams)
-{
-    cout << "Testing csvreader() with both params empty..." << endl;
-
-    string csvFileParam = "";
-    string tableParam = "";
-    int expectedResult = 0;
-
-    int actualResult = csvreader(csvFileParam, tableParam);
-
-    CHECK_EQUAL(expectedResult, actualResult);
-}
-
-TEST(testCsvReaderFirstParamGood)
-{
-    cout << "Testing csvreader() with table param empty..." << endl;
-
-    string csvFileParam = "/home/robert/Hogeschool/Project56/Project56/input/csv_converter/positions.csv";
-    string tableParam = "";
-    int expectedResult = 0;
-
-    int actualResult = csvreader(csvFileParam, tableParam);
-
-    CHECK_EQUAL(expectedResult, actualResult);
-}
-
-TEST(testCsvReaderSecondParamGood)
-{
-    cout << "Testing csvreader() with csvfile param empty..." << endl;
-
-    string csvFileParam = "";
-    string tableParam = "positions";
-    int expectedResult = 0;
-
-    int actualResult = csvreader(csvFileParam, tableParam);
-
-    CHECK_EQUAL(expectedResult, actualResult);
-}
-
-TEST(testCsvReaderBothParamsGood)
-{
-    cout << "Testing csvreader() with both params good..." << endl;
-
-    string csvFileParam = "/home/robert/Desktop/Hogeschool/Project56/Project56/input/csv_converter/positions.csv";
-    string tableParam = "positions";
-    int expectedResult = 1;
-
-    int actualResult = csvreader(csvFileParam, tableParam);
-
-    CHECK_EQUAL(expectedResult, actualResult);
-}
-//exec none trans en normale trans, good n bad param
 
 TEST(testExecNoneTransBadParam)
 {
