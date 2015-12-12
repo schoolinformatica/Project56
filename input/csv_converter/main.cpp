@@ -1,15 +1,16 @@
 #include <iostream>
-#include "listener.h"
-
+#include "csvreader/csvreader.h"
 
 using namespace std;
 
+
+
 int main() {
 
-    // start the listener on the given path
-    listener("/home/cooperatio/filedatabase/");
+
+    csvreader("/home/steve/positions.csv", "positions");
+
 
 
     return 0;
 }
-

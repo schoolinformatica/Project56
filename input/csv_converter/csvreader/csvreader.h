@@ -1,16 +1,17 @@
 #ifndef CSVReader
 #define CSVReader
 
-
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <sstream>
+#include "dbpusher.h"
 #include <map>
-#include "filedatabase/filedatabase.h"
+
 
 
 using namespace std;
+
 
 /*
  * @path -> full path to the csv file
@@ -19,14 +20,21 @@ using namespace std;
  * This method reads the csv file and calls the insert()
  * method to convert all the data to our own file
  * format.
+ *
+ * This method returns 1 upon a successfull read, 0 upon any kind of failure
  */
-void csvreader(string path, string table) {
+
+
+int csvreader(string path, string table)
+{
     cout << "CSV reader started!" << endl;
-
-    if(!exist(path))
-        cout << "file not found" << endl;
-    else {
-
+    if(!CheckIfFileExists(path.c_str()) || table.empty() == true)
+    {
+        cout << "Error: file not found or table not recognized" << endl;
+        return 0;
+    }
+    else 
+    {
         vector<string> row;
         stringstream ss;
         ifstream in;
@@ -57,30 +65,33 @@ void csvreader(string path, string table) {
                 row.push_back(ss.str());
                 ss.str("");
             }
-            else if (!inquotes && (c == '\r' || c == '\n')) {
-                if (in.peek() == '\n') { in.get(); }
+            else if (!inquotes && (c == '\r' || c == '\n')) 
+            {
+                if (in.peek() == '\n') 
+                { 
+                    in.get(); 
+                }
                 row.push_back(ss.str());
                 ss.str(string());
             }
-            else {
+            else
+	    {
                 ss << c;
             }
         }
 
-
         in.close();
 
         //Call the insert method
-
-        insert(row, table);
+        push_list_to_database(row, table);
 
         //deleting the csv file
         cout << "deleting file" << endl;
-        remove(path.c_str());
-	cout << "All done. CSV file removed and converted to .FDB"
+        //remove(path.c_str());
+	cout << "All done. CSV file removed and put into database" << endl;
+        return 1;
     }
 }
-
 
 
 #endif

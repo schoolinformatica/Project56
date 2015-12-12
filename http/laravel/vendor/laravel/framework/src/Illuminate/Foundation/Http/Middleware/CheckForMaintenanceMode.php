@@ -32,7 +32,11 @@ class CheckForMaintenanceMode
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
      * @return mixed
+<<<<<<< HEAD
      *
+=======
+     * 
+>>>>>>> feature-1.1
      * @throws \Symfony\Component\HttpKernel\Exception\HttpException
      */
     public function handle($request, Closure $next)
