@@ -6,9 +6,10 @@
 #define INPUT_PROCESS_CONNECTIONENTITY_H
 
 #include "../pqcon/pgsqlcon.h"
+#include "dbEntity.h"
 
 
-class ConnectionEntity {
+class ConnectionEntity: dbEntity{
 private:
     string date_time; // Time stamp
     string unit_id; // ID of the vehicle

@@ -7,10 +7,11 @@
 
 #include <string>
 #include "../pqcon/pgsqlcon.h"
+#include "dbEntity.h"
 
 using namespace std;
 
-class PositionEntity {
+class PositionEntity : dbEntity {
 private:
     string date_time;
     string unit_id;

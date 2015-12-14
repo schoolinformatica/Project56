@@ -5,10 +5,10 @@
 #ifndef INPUT_PROCESS_MONITORINGENTITY_H
 #define INPUT_PROCESS_MONITORINGENTITY_H
 
-
+#include "dbEntity.h"
 #include "../pqcon/pgsqlcon.h"
 
-class MonitoringEntity {
+class MonitoringEntity : dbEntity {
 private:
     string unit_id;
     string begin_time;

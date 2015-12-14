@@ -5,8 +5,10 @@
 #ifndef INPUT_PROCESS_EVENTENTITY_H
 #define INPUT_PROCESS_EVENTENTITY_H
 
+#include "dbEntity.h"
 
-class EventEntity {
+
+class EventEntity : dbEntity {
 private:
     string date_time;
     string unit_id;
