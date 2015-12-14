@@ -2,9 +2,10 @@
 // Created by robert on 12/10/15.
 //
 
-// main.cpp -- take 2
-#include "UnitTest++/UnitTest++.h"
+#include "pqcon/configreader.h"
 #include "pqcon/pgsqlcon.h"
+#include "dbpusher/dbpusher.h"
+#include "UnitTest++/UnitTest++.h"
 
 TEST(testExecNoneTransBadParam)
 {
@@ -12,10 +13,10 @@ TEST(testExecNoneTransBadParam)
 
     string param = "";
     int expectedResult = 0;
-    Pgsqlcon* instance = new Pgsqlcon();
+    Pgsqlcon p;
 
-    instance->exec_none_transaction(param);
-    int actualResult = instance->getErrorCode();
+    p.exec_none_transaction(param);
+    int actualResult = p.getErrorCode();
 
     CHECK_EQUAL(expectedResult, actualResult);
 }
@@ -27,13 +28,27 @@ TEST(testExecTransBadParam)
     vector<string> param;
     param.push_back("");
     int expectedResult = 0;
-    Pgsqlcon* instance = new Pgsqlcon();
 
-    instance->exec_transaction(param);
-    int actualResult = instance->getErrorCode();
+    Pgsqlcon p;
+
+    p.exec_transaction(param);
+    int actualResult = p.getErrorCode();
 
     CHECK_EQUAL(expectedResult, actualResult);
 }
+
+TEST(testPushListToDatabaseBadParam)
+{
+    cout << "Testing dbpusher::PushListToDatabase with empty param..." << endl;
+
+    string param = "";
+    int expectedResult = 0;
+
+    int actualResult = push_list_to_database(param);
+
+    CHECK_EQUAL(expectedResult, actualResult);
+}
+
 int main(int, const char *[])
 {
     return UnitTest::RunAllTests();

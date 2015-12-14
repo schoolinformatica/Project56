@@ -11,7 +11,9 @@ using namespace std;
 
 string createQuery(string pathToFile, string table)
 {
-    return "COPY " + table + " FROM \'" + pathToFile + "\' DELIMITER ';' CSV HEADER";
+    string tablename = table.substr(0, table.length() - 4);
+    //substringing to get rid of '.csv'
+    return "DELETE FROM " + tablename + ";" "" + " COPY " + tablename + " FROM \'" + pathToFile + "\' DELIMITER ';' CSV HEADER";
 }
 
 string extractCsvFileName(string fullPathToCsvFile)
@@ -21,36 +23,41 @@ string extractCsvFileName(string fullPathToCsvFile)
     return fullPathToCsvFile.substr(found + 1);
 }
 
-void push_list_to_database(string pathToFile)
+int push_list_to_database(string pathToFile)
 {
     Pgsqlcon p;
 
     string csvName = extractCsvFileName(pathToFile);
 
-    //TODO: Make sure DB matches CSV Files as far as tables and their columsn are concerned
     if (csvName.compare("") != 0)
     {
         //0 == strings are equal
         if(csvName.compare("positions.csv") == 0)
         {
-            p.exec_none_transaction(createQuery(pathToFile, "positions"));
+            p.exec_none_transaction(createQuery(pathToFile, csvName));
+            cout << "CSV file entered." << endl;
         }
         else if(csvName.compare("connections.csv") == 0)
         {
-            p.exec_none_transaction(createQuery(pathToFile, "connections"));
+            p.exec_none_transaction(createQuery(pathToFile, csvName));
+            cout << "CSV file entered." << endl;
         }
         else if(csvName.compare("monitoring.csv") == 0)
         {
-            p.exec_none_transaction(createQuery(pathToFile, "monitoring"));
+            p.exec_none_transaction(createQuery(pathToFile, csvName));
+            cout << "CSV file entered." << endl;
         }
         else if(csvName.compare("events.csv") == 0)
         {
-            p.exec_none_transaction(createQuery(pathToFile, "events"));
+            p.exec_none_transaction(createQuery(pathToFile, csvName));
+            cout << "CSV file entered." << endl;
         }
+        return 1;
     }
     else
     {
         cout << "CSV file not recognized as CityGis CSV file." << endl;
+        return 0;
     }
 }
 
