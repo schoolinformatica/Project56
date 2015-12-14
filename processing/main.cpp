@@ -1,8 +1,5 @@
 #include <iostream>
 #include "pdfcreator.h"
-#include "fdbread.h"
-#include "fdbhelperfunc.h"
-#include "filedatabase.h"
 #include "dbreader.h"
 
 using namespace std;
@@ -11,10 +8,10 @@ using namespace std;
 int start(string file, string email){
 	vector <dbEntity> results = read_from_database("positions", "*", "");
 	//getting a list with maps containing data about a table
-	vector<map <string, string> > result = select(file, "*", "*");
+	//vector<map <string, string> > result = select(file, "*", "*");
 	//generating a PDF with the list. The email that is given is used
 	//to send the PDF to the user.
-	pdfcreator(result, email);
+	pdfcreator(results, email);
 	cout << "Done" << endl;
 	return 0;
 }
