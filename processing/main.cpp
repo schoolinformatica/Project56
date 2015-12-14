@@ -9,7 +9,7 @@ using namespace std;
 
 //method start for making pdf 
 int start(string file, string email){
-	vector <dbEntity> results = read_from_database("SELECT * FROM positions");
+	vector <dbEntity> results = read_from_database("positions", "*", "");
 	//getting a list with maps containing data about a table
 	vector<map <string, string> > result = select(file, "*", "*");
 	//generating a PDF with the list. The email that is given is used
