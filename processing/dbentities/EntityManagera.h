@@ -1,9 +1,5 @@
-//
-// Created by ceesjan on 15-12-2015.
-//
-
-#ifndef PROCESSING_ENTITYMANAGER_H
-#define PROCESSING_ENTITYMANAGER_H
+#ifndef INPUT_PROCESS_ENTITYMANAGER_H
+#define INPUT_PROCESS_ENTITYMANAGER_H
 
 #include "../pqcon/pgsqlcon.h"
 
@@ -23,4 +19,4 @@ result select(string table, string what, string where) {
     return pgsqlcon.exec_none_transaction(query);
 }
 
-#endif //PROCESSING_ENTITYMANAGER_H
+#endif
