@@ -21,7 +21,7 @@ private:
 
 public:
     // Database management functions
-    void insert_into_database();
+    void insert_in_database();
 
     //Setters
     void set_date_time(string);
