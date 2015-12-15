@@ -35,7 +35,7 @@ vector <dbEntity> convert_to_entity(result result, string table) {
     }
     else if (equals(table, "monitoring")) {
         cout << table << endl;
-        vector <dbEntity> monitoringEntities = new vector<MonitoringEntity>();
+        vector <dbEntity> monitoringEntities;
         for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
             MonitoringEntity monitoringEntity;
             monitoringEntity.set_unit_id(c[0].as<string>());
