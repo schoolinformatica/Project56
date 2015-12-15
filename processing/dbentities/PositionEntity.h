@@ -5,9 +5,11 @@
 #ifndef INPUT_PROCESS_POSITIONENTITY_H
 #define INPUT_PROCESS_POSITIONENTITY_H
 
-#include <string>
-#include "../pqcon/pgsqlcon.h"
 #include "dbEntity.h"
+#include "../pqcon/pgsqlcon.h"
+#include <sstream>
+#include <string>
+#include <iostream>
 
 using namespace std;
 

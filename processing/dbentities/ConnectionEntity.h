@@ -7,7 +7,9 @@
 
 #include "../pqcon/pgsqlcon.h"
 #include "dbEntity.h"
-
+#include <sstream>
+#include <string>
+#include <iostream>
 
 class ConnectionEntity: dbEntity{
 private:

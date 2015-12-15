@@ -7,6 +7,9 @@
 
 #include "dbEntity.h"
 #include "../pqcon/pgsqlcon.h"
+#include <sstream>
+#include <string>
+#include <iostream>
 
 class MonitoringEntity : dbEntity {
 private:

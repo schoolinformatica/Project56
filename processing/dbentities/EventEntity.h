@@ -6,6 +6,10 @@
 #define INPUT_PROCESS_EVENTENTITY_H
 
 #include "dbEntity.h"
+#include "../pqcon/pgsqlcon.h"
+#include <sstream>
+#include <string>
+#include <iostream>
 
 
 class EventEntity : dbEntity {
@@ -35,7 +39,7 @@ public:
 
     string get_port();
 
-    string get_value();
+    int get_value();
 };
 
 // Database management functions
