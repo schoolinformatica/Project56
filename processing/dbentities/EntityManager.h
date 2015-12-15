@@ -5,6 +5,7 @@
 #ifndef PROCESSING_ENTITYMANAGER_H
 #define PROCESSING_ENTITYMANAGER_H
 
+
 #include "../pqcon/pgsqlcon.h"
 
 using namespace std;
@@ -23,4 +24,6 @@ result select(string table, string what, string where) {
     return pgsqlcon.exec_none_transaction(query);
 }
 
-#endif //PROCESSING_ENTITYMANAGER_H
+
+
+#endif //PROCESSING_ENTITYMMANAGER_H

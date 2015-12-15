@@ -8,7 +8,7 @@
 #include "dbentities/EventEntity.h"
 #include "dbentities/ConnectionEntity.h"
 #include "dbentities/MonitoringEntity.h"
-#include "dbentities/EntityManager.h"
+#include "dbentities/entityManager.h"
 
 using namespace std;
 
@@ -82,7 +82,8 @@ vector <dbEntity> convert_to_entity(result result, string table) {
 }
 
 vector <dbEntity> read_from_database(string table, string what, string where) {
-    EntityManager manager;
+    EntityManager manager = new EntityManager();
+
     result result = manager.select(table, what, where);
 
     return convert_to_entity(result, table);
