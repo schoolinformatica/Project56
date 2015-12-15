@@ -6,6 +6,7 @@ using namespace std;
 
 //method start for making pdf 
 int start(string file, string email){
+
 	vector <dbEntity> results = read_from_database("positions", "*", "");
 	//generating a PDF with the list. The email that is given is used
 	//to send the PDF to the user.
@@ -23,10 +24,15 @@ int main(int argc, char *argv[]) {
 	email1 = argv[2];
 	file1 = argv[1];
 
-	//calling method start 
-	start(file1, email1);
+	if (equals(file1, "positions") || equals(file1, "monitoring") || equals(file1, "connections") || equals(file1, "events")) {
+		//calling method start
+		start(file1, email1);
+		return 0;
+	}
+	else {
+		return -1;
+	}
 
-    	return 0;
 }
 
 

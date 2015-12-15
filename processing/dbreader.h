@@ -16,7 +16,7 @@ vector <dbEntity> convert_to_entity(result result, string table) {
 
     if (equals(table, "positions")) {
         cout << table << endl;
-        vector <PositionEntity> positionsEntities;
+        vector <dbEntity> positionsEntities;
         for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
             PositionEntity positionEntity;
             positionEntity.set_date_time(c[0].as<string>());
@@ -51,7 +51,7 @@ vector <dbEntity> convert_to_entity(result result, string table) {
     }
     else if (equals(table, "connections")) {
         cout << table << endl;
-        vector <ConnectionEntity> connectionEntities;
+        vector <dbEntity> connectionEntities;
         for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
             ConnectionEntity connectionEntity;
             connectionEntity.set_date_time(c[0].as<string>());
@@ -63,9 +63,9 @@ vector <dbEntity> convert_to_entity(result result, string table) {
         return connectionEntities;
 
     }
-    else if (equals(table, "events")) {
+    else  { //EVENTS
         cout << table << endl;
-        vector <EventEntity> eventEntities;
+        vector <dbEntity> eventEntities;
         for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
             EventEntity eventEntity;
             eventEntity.set_date_time(c[0].as<string>());
@@ -78,10 +78,7 @@ vector <dbEntity> convert_to_entity(result result, string table) {
         return eventEntities;
 
     }
-    else {
-        cout << "not a valid CityGis CSV Table" << endl;
-        return vector < dbEntity > empty = new vector<dbEntity>();
-    }
+
 }
 
 vector <dbEntity> read_from_database(string table, string what, string where) {
