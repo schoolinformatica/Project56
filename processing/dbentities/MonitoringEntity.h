@@ -24,7 +24,7 @@ private:
 public:
 
     //Database management function
-    void insert_in_databse();
+    void insert_in_database();
 
 
     // Setters
@@ -59,8 +59,8 @@ public:
 
 };
 
-void MonitoringEntity::insert_in_databse() {
-    ostreamstring insert_query;
+void MonitoringEntity::insert_in_database() {
+    ostringstream insert_query;
 
     insert_query << "INSERT INTO monitoring ";
     insert_query << "VALUES ('";

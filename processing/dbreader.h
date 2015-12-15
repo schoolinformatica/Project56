@@ -38,10 +38,10 @@ vector <dbEntity> convert_to_entity(result result, string table) {
         vector <MonitoringEntity> monitoringEntities;
         for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
             MonitoringEntity monitoringEntity;
-            monitoringEntity.set_date_time(c[1].as<string>());
             monitoringEntity.set_unit_id(c[0].as<string>());
-            monitoringEntity.set_begin_time(c[2].as<string>());
-            monitoringEntity.set_end_time(c[3].as<string>());
+            monitoringEntity.set_begin_time(c[1].as<string>());
+            monitoringEntity.set_end_time(c[2].as<string>());
+            monitoringEntity.set_type(c[3].as<string>());
             monitoringEntity.set_min(c[4].as<float>());
             monitoringEntity.set_max(c[5].as<float>());
             monitoringEntity.set_sum(c[6].as<float>());
