@@ -75,12 +75,12 @@ vector <dbEntity> convert_to_entity(result result, string table) {
 
             eventEntities.push_back(eventEntity);
         }
-        return positionsEntities;
+        return eventEntities;
 
     }
     else {
         cout << "not a valid CityGis CSV Table" << endl;
-        return vector < dbEntity > empty;
+        return vector < dbEntity > empty = new vector<dbEntity>();
     }
 }
 

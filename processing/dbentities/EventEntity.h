@@ -12,7 +12,7 @@
 #include <iostream>
 
 
-class EventEntity : dbEntity {
+class EventEntity : public dbEntity {
 private:
     string date_time;
     string unit_id;
