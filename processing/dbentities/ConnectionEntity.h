@@ -42,7 +42,7 @@ public:
 
 // Database management functions
 void ConnectionEntity::insert_in_database() {
-    stringstream insert_query;
+    ostringstream insert_query;
 
     insert_query << "INSERT INTO connection ";
     insert_query << "VALUES ('";

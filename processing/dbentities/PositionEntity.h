@@ -69,7 +69,7 @@ public:
 
 // Database management functions
 void PositionEntity::insert_in_database() {
-    stringstream insert_query;
+    ostringstream insert_query;
 
     insert_query << "INSERT INTO positions ";
     insert_query << "VALUES ('";

@@ -57,7 +57,7 @@ public:
 };
 
 void MonitoringEntity::insert_in_databse() {
-    string insert_query;
+    ostreamstring insert_query;
 
     insert_query << "INSERT INTO monitoring ";
     insert_query << "VALUES ('";

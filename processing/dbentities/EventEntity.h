@@ -40,7 +40,7 @@ public:
 
 // Database management functions
 void EventEntity::insert_in_database() {
-    stringstream insert_query;
+    ostringstream insert_query;
 
     insert_query << "INSERT INTO events ";
     insert_query << "VALUES ('";
