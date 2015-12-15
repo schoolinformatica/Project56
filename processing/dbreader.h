@@ -82,7 +82,7 @@ vector <dbEntity> convert_to_entity(result result, string table) {
 }
 
 vector <dbEntity> read_from_database(string table, string what, string where) {
-    EntityManager manager = new EntityManager();
+    EntityManager manager;
 
     result result = manager.select(table, what, where);
 
