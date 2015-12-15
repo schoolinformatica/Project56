@@ -8,7 +8,7 @@
 #include "dbentities/EventEntity.h"
 #include "dbentities/ConnectionEntity.h"
 #include "dbentities/MonitoringEntity.h"
-#include "EntityManager.h"
+#include "dbentities/EntityManager.h"
 
 using namespace std;
 
