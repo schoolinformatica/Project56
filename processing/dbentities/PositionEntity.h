@@ -13,7 +13,7 @@
 
 using namespace std;
 
-class PositionEntity : dbEntity {
+class PositionEntity : public dbEntity {
 private:
     string date_time;
     string unit_id;
