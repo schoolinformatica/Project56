@@ -1,5 +1,7 @@
 #include <iostream>
 //#include "pdfcreator.h"
+#include "helperfunc/helperfunc.h"
+#include "EntityManager.h"
 #include "dbreader.h"
 
 using namespace std;
