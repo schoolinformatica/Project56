@@ -9,6 +9,7 @@
 
 using namespace std;
 
+
 string createQuery(string pathToFile, string table) {
     return "COPY " + table + " FROM \'" + pathToFile + "\' DELIMITER ';' CSV HEADER";
 }
@@ -19,10 +20,13 @@ string extractCsvFileName(string fullPathToCsvFile) {
     return fullPathToCsvFile.substr(found + 1);
 }
 
-void push_list_to_database(string pathToFile) {
+
+int push_list_to_database(string pathToFile)
+{
     Pgsqlcon p;
 
     string csvName = extractCsvFileName(pathToFile);
+
 
     //TODO: Make sure DB matches CSV Files as far as tables and their columsn are concerned
     if (csvName.compare("") != 0) {
@@ -38,10 +42,13 @@ void push_list_to_database(string pathToFile) {
         }
         else if (csvName.compare("events.csv") == 0) {
             p.exec_none_transaction(createQuery(pathToFile, "events"));
+
         }
+        return 1;
     }
     else {
         cout << "CSV file not recognized as CityGis CSV file." << endl;
+        return 0;
     }
 }
 

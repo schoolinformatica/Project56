@@ -6,9 +6,12 @@
 #define INPUT_PROCESS_CONNECTIONENTITY_H
 
 #include "../pqcon/pgsqlcon.h"
+#include "dbEntity.h"
+#include <sstream>
+#include <string>
+#include <iostream>
 
-
-class ConnectionEntity {
+class ConnectionEntity : public dbEntity {
 private:
     string date_time; // Time stamp
     string unit_id; // ID of the vehicle
@@ -41,7 +44,7 @@ public:
 
 // Database management functions
 void ConnectionEntity::insert_in_database() {
-    stringstream insert_query;
+    ostringstream insert_query;
 
     insert_query << "INSERT INTO connection ";
     insert_query << "VALUES ('";
