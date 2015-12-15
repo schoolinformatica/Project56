@@ -51,7 +51,9 @@ result Pgsqlcon::exec_none_transaction(const string & query) {
             result result = N.exec(query); // Execute the query
             C.disconnect(); // Disconnect from the database
             errorCode = 1;
+            cout << "Query complete." << endl;
             return result; // Return result from the query
+
     }
     catch(const std::exception &e)
     {
@@ -77,6 +79,7 @@ result Pgsqlcon::exec_transaction(vector<string> & queries) {
         {
             W.exec(query);
         }
+        cout << "Query complete." << endl;
         errorCode = 1;
         W.commit(); // Commit the transaction
         C.disconnect(); // Disconnect from database

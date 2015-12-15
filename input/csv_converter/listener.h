@@ -51,7 +51,7 @@ int listener(string path) {
             {
                 if (event->mask & IN_ISDIR)
                 {
-                    printf("The directory %s was created.\n", event->name);
+                    printf("The directory %s was create.\n", event->name);
                 }
                 else
                 {
@@ -59,8 +59,8 @@ int listener(string path) {
 
                     if (strstr(event->name, ".csv") != NULL)
                     {
-                        sleep(5);
-                        push_list_to_database(path + event->name);
+                        thread t1(push_list_to_database, path + event->name);
+                        t1.join();
                     }
                     else
                     {
@@ -81,8 +81,8 @@ int listener(string path) {
 
                     if (strstr(event->name, ".csv") != NULL)
                     {
-                        sleep(5);
-                        push_list_to_database(path + event->name);
+                        thread t1(push_list_to_database, path + event->name);
+                        t1.join();
                     }
                     else
                     {
@@ -103,7 +103,8 @@ int listener(string path) {
 
                     if (strstr(event->name, ".csv") != NULL)
                     {
-                        push_list_to_database(path + event->name);
+                        thread t1(push_list_to_database, path + event->name);
+                        t1.join();
                     }
                     else
                     {
@@ -125,7 +126,8 @@ int listener(string path) {
                     if (strstr(event->name, ".csv") != NULL)
                     {
 
-                        push_list_to_database(path + event->name);
+                        thread t1(push_list_to_database, path + event->name);
+                        t1.join();
                     }
                     else
                     {
