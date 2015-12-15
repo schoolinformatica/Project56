@@ -68,8 +68,7 @@ void MonitoringEntity::insert_in_databse() {
     insert_query << type << "', '";
     insert_query << min << "', '";
     insert_query << max << "', '";
-    insert_query << sum << "'";
-    insert_query << ");";
+    insert_query << sum << "');";
 
     Pgsqlcon p;
     p.exec_none_transaction(insert_query.str());

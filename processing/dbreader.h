@@ -73,7 +73,7 @@ vector <dbEntity> convert_to_entity(result result, string table) {
             eventEntity.set_port(c[2].as<string>());
             eventEntity.set_value(c[3].as<bool>());
 
-            eventEntities.push_back(positionEntity);
+            eventEntities.push_back(eventEntity);
         }
         return positionsEntities;
 
