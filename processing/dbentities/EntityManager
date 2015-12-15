@@ -11,7 +11,10 @@ public:
 };
 
 result select(string table, string what, string where) {
-    string query = "SELECT " << what << " FROM " << table << " WHERE " << where;
+    ostringstream os;
+    os << "SELECT " << what << " FROM " << table << " WHERE " << where;
+    string query = os.str();
+    cout << query << endl;
     Pgsqlcon pgsqlcon;
     return pgsqlcon.exec_none_transaction(query);
 }
