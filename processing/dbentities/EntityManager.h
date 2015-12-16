@@ -12,7 +12,7 @@ using namespace std;
 
 class EntityManager {
 public:
-    result select(string table, string what, string where);
+    static result select(string table, string what, string where);
 };
 
 result select(string table, string what, string where) {
