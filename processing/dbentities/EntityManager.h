@@ -15,7 +15,7 @@ public:
     static result select(string table, string what, string where);
 };
 
-result select(string table, string what, string where) {
+static  result select(string table, string what, string where) {
     ostringstream os;
     os << "SELECT " << what << " FROM " << table << " WHERE " << where;
     string query = os.str();
