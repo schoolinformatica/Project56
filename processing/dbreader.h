@@ -13,6 +13,8 @@
 
 using namespace std;
 
+using namespace pqxx;
+
 vector <dbEntity> convert_to_entity(result result, string table) {
 
     if (equals(table, "positions")) {

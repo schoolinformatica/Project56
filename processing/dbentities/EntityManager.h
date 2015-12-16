@@ -7,7 +7,9 @@
 
 
 #include "../pqcon/pgsqlcon.h"
+#include <pqxx/pqxx>
 
+using namespace pqxx;
 using namespace std;
 
 class EntityManager {
