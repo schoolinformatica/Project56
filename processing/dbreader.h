@@ -63,6 +63,7 @@ vector <dbEntity> convert_to_entity(result result, string table) {
             connectionEntity.set_value(c[3].as<bool>());
             connectionEntities.push_back(connectionEntity);
         }
+
         return connectionEntities;
 
     }
