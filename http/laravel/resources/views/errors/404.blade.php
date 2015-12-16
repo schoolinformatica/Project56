@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Cooperatio - 503: Dienst momenteel niet beschikbaar!</title>
+        <title>Cooperatio - 404: Pagina niet gevonden!</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -121,7 +121,7 @@
 
                 <!-- Row -->
                 <div class="row">
-                    <div class="title">Dienst momenteel niet beschikbaar!</div>
+                    <div class="title">Pagina niet gevonden!</div>
                 </div>
                 <!-- /.row -->
 

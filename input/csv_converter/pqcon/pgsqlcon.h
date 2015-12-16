@@ -46,13 +46,13 @@ public:
 result Pgsqlcon::exec_none_transaction(const string & query) {
     try
     {
-            connection C(connection_string); // Connect to database
-            nontransaction N(C); // Nontransaction to database
-            result result = N.exec(query); // Execute the query
-            C.disconnect(); // Disconnect from the database
-            errorCode = 1;
-            cout << "Query complete." << endl;
-            return result; // Return result from the query
+        connection C(connection_string); // Connect to database
+        nontransaction N(C); // Nontransaction to database
+        result result = N.exec(query); // Execute the query
+        C.disconnect(); // Disconnect from the database
+        errorCode = 1;
+        cout << "Query complete." << endl;
+        return result; // Return result from the query
 
     }
     catch(const std::exception &e)

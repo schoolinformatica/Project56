@@ -33,6 +33,7 @@
               position: relative;
               overflow: hidden;
             }
+
             .btn-file input[type=file] {
               position: absolute;
               top: 0;
@@ -108,7 +109,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="/">Home</a></li>
                         <li><a href="/about/">About Us</a></li>
-                        <li><a  style="color:white" href="/uploadPage/">Upload files</a></li>
+                        <li><a href="/uploadPage/">Upload files</a></li>
                         <li><a href="/download/">Download files</a></li>
                         <!--<li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">Messages <b class="caret"></b></a>
@@ -122,7 +123,11 @@
                         </li>-->
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/login/">Login</a></li>
+                        @if(Auth::check())
+                        <li><a href="/auth/login/">Logout</a></li>
+                        @else
+                        <li><a style="color:white" href="/auth/login/">Login</a></li>
+                        @endif
                     </ul>
                 </div>
             </nav>
@@ -174,8 +179,7 @@
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
 								<button type="submit" class="btn btn-primary">Login</button>
-
-								<a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
+								<a class="btn btn-link" href="/auth/register/">Create an account</a>
 							</div>
 						</div>
 					</form>

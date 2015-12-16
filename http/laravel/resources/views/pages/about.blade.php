@@ -103,6 +103,7 @@
                             </ul>
                     </li>-->
                 </ul>
+
                 <ul class="nav navbar-nav navbar-right">
                     @if(Auth::check())
                         <li><a href="/auth/login/">Logout</a></li>
