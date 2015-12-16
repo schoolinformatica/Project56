@@ -34,8 +34,4 @@ class PagesController extends Controller
         return view('pages.login');
     }
 
-    public function createaccount()
-    {
-        return view('pages.createaccount');
-    }
 }
