@@ -18,14 +18,14 @@ public:
     result select(string table, string what, string where);
 };
 
-result EntityManager::select(string table, string what, string where) {
+result EntityManager::select(string table, string where) {
     ostringstream os;
 
     if(equals(where, "nothing"){
-        os << "SELECT " << what << " FROM " << table ;
+        os << "SELECT * FROM " << table ;
     }
     else {
-        os << "SELECT " << what << " FROM " << table << " WHERE " << where;
+        os << "SELECT * FROM " << table << " WHERE " << where;
     }
 
     string query = os.str();
