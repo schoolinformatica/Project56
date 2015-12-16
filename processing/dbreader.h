@@ -8,7 +8,7 @@
 #include "dbentities/EventEntity.h"
 #include "dbentities/ConnectionEntity.h"
 #include "dbentities/MonitoringEntity.h"
-#include "dbentities/EntityManager.h"
+#include "dbentities/DBEntityManager.h"
 #include "pqxx/pqxx"
 
 using namespace std;

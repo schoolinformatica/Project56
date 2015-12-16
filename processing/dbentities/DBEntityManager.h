@@ -2,8 +2,8 @@
 // Created by ceesjan on 15-12-2015.
 //
 
-#ifndef PROCESSING_ENTITYMANAGER_H
-#define PROCESSING_ENTITYMANAGER_H
+#ifndef PROCESSING_DBENTITYMANAGER_H
+#define PROCESSING_DBENTITYMANAGER_H
 
 
 #include "../pqcon/pgsqlcon.h"
@@ -36,4 +36,4 @@ result EntityManager::select(string table, string where) {
 
 
 
-#endif //PROCESSING_ENTITYMMANAGER_H
+#endif //PROCESSING_DBENTITYMMANAGER_H
