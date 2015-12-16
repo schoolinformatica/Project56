@@ -8,6 +8,7 @@
 
 #include "../pqcon/pgsqlcon.h"
 #include <pqxx/pqxx>
+#include "../helperfunc/helperfunc.h"
 
 using namespace pqxx;
 using namespace std;
@@ -19,7 +20,14 @@ public:
 
 result EntityManager::select(string table, string what, string where) {
     ostringstream os;
-    os << "SELECT " << what << " FROM " << table << " WHERE " << where;
+
+    if(equals(where, "nothing"){
+        os << "SELECT " << what << " FROM " << table ;
+    }
+    else {
+        os << "SELECT " << what << " FROM " << table << " WHERE " << where;
+    }
+
     string query = os.str();
     cout << query << endl;
     Pgsqlcon pgsqlcon;
