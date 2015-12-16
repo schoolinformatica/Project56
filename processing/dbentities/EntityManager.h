@@ -15,7 +15,7 @@ using namespace std;
 
 class EntityManager {
 public:
-    result select(string table, string what, string where);
+    result select(string table,  string where);
 };
 
 result EntityManager::select(string table, string where) {
