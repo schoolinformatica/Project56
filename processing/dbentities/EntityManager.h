@@ -7,7 +7,9 @@
 
 
 #include "../pqcon/pgsqlcon.h"
+#include <pqxx/pqxx>
 
+using namespace pqxx;
 using namespace std;
 
 class EntityManager {
@@ -15,7 +17,7 @@ public:
     result select(string table, string what, string where);
 };
 
-result select(string table, string what, string where) {
+result EntityManager::select(string table, string what, string where) {
     ostringstream os;
     os << "SELECT " << what << " FROM " << table << " WHERE " << where;
     string query = os.str();

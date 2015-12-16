@@ -59,7 +59,9 @@ int listener(string path) {
 
                     if (strstr(event->name, ".csv") != NULL)
                     {
-                        push_list_to_database(path + event->name);
+			            thread t1(push_list_to_database, path + event->name);
+			            t1.detach();
+                        //Todo: delete csv file in production
                     }
                     else
                     {
@@ -67,28 +69,6 @@ int listener(string path) {
                     }
                 }
             }
-
-            else if (event->mask & IN_MODIFY)
-            {
-                if (event->mask & IN_ISDIR)
-                {
-                    printf("The directory %s was modified.\n", event->name);
-                }
-                else
-                {
-                    printf("The file %s was modified.\n", event->name);
-
-                    if (strstr(event->name, ".csv") != NULL)
-                    {
-                        push_list_to_database(path + event->name);
-                    }
-                    else
-                    {
-                        cout << "non valid csv file!" << endl;
-                    }
-                }
-            }
-
             else if (event->mask & IN_MOVE)
             {
                 if (event->mask & IN_ISDIR)
@@ -101,7 +81,9 @@ int listener(string path) {
 
                     if (strstr(event->name, ".csv") != NULL)
                     {
-                        push_list_to_database(path + event->name);
+                        thread t1(push_list_to_database, path + event->name);
+                        t1.detach();
+                        //Todo: delete csv file in production
                     }
                     else
                     {
@@ -109,7 +91,6 @@ int listener(string path) {
                     }
                 }
             }
-
             else if (event->mask & IN_CLOSE_WRITE)
             {
                 if (event->mask & IN_ISDIR)
@@ -122,8 +103,9 @@ int listener(string path) {
 
                     if (strstr(event->name, ".csv") != NULL)
                     {
-
-                        push_list_to_database(path + event->name);
+                        thread t1(push_list_to_database, path + event->name);
+                        t1.detach();
+                        //Todo: delete csv file in production
                     }
                     else
                     {
