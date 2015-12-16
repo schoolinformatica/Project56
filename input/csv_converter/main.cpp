@@ -4,6 +4,6 @@
 using namespace std;
 
 int main() {
-    //listener("/home/cooperatio/");
+    listener("/home/cooperatio/");
     return 0;
 }
