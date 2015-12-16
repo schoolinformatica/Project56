@@ -8,7 +8,7 @@ using namespace std;
 
 //method start for making pdf 
 int start(string file, string email){
-
+	cout << "ok " << endl;
 	vector <dbEntity> results = read_from_database("connections", "*", "");
 	//generating a PDF with the list. The email that is given is used
 	//to send the PDF to the user.
