@@ -21,7 +21,7 @@ public:
 result EntityManager::select(string table, string where) {
     ostringstream os;
 
-    if(equals(where, "nothing"){
+    if(equals(where, "nothing")){
         os << "SELECT * FROM " << table ;
     }
     else {
