@@ -20,6 +20,7 @@ int start(string file, string email){
 
 //main method. 
 int main(int argc, char *argv[]) {
+	cout << "test" << endl;
 	//creating 2 string variables for the email and file
 	string file1, email1;
 	//getting email and file from the arguments of the main method.
