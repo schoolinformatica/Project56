@@ -59,8 +59,7 @@ int listener(string path) {
 
                     if (strstr(event->name, ".csv") != NULL)
                     {
-                        thread t1(push_list_to_database, path + event->name);
-                        t1.join();
+                        push_list_to_database(path + event->name);
                     }
                     else
                     {
@@ -81,8 +80,7 @@ int listener(string path) {
 
                     if (strstr(event->name, ".csv") != NULL)
                     {
-                        thread t1(push_list_to_database, path + event->name);
-                        t1.join();
+                        push_list_to_database(path + event->name);
                     }
                     else
                     {
@@ -103,8 +101,7 @@ int listener(string path) {
 
                     if (strstr(event->name, ".csv") != NULL)
                     {
-                        thread t1(push_list_to_database, path + event->name);
-                        t1.join();
+                        push_list_to_database(path + event->name);
                     }
                     else
                     {
@@ -126,8 +123,7 @@ int listener(string path) {
                     if (strstr(event->name, ".csv") != NULL)
                     {
 
-                        thread t1(push_list_to_database, path + event->name);
-                        t1.join();
+                        push_list_to_database(path + event->name);
                     }
                     else
                     {
