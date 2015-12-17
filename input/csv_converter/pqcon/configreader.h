@@ -8,7 +8,7 @@
 
 using namespace std;
 
-#define PATH_TO_CONFIG_FILE "c:/cygwin64/home/steve/dbcon/credentials.pgconf"
+#define PATH_TO_CONFIG_FILE "/home/steve/csv_converter/credentials.pgconf"
 #define HOST "hostip"
 #define PORT "port"
 #define DATABASE "database"
@@ -58,5 +58,3 @@ map<string, string> read_config_file() {
 }
 
 #endif
-
-

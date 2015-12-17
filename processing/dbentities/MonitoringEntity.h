@@ -5,10 +5,13 @@
 #ifndef INPUT_PROCESS_MONITORINGENTITY_H
 #define INPUT_PROCESS_MONITORINGENTITY_H
 
-
+#include "dbEntity.h"
 #include "../pqcon/pgsqlcon.h"
+#include <sstream>
+#include <string>
+#include <iostream>
 
-class MonitoringEntity {
+class MonitoringEntity : public dbEntity {
 private:
     string unit_id;
     string begin_time;
@@ -21,7 +24,7 @@ private:
 public:
 
     //Database management function
-    void insert_in_databse();
+    void insert_in_database();
 
 
     // Setters
@@ -56,8 +59,8 @@ public:
 
 };
 
-void MonitoringEntity::insert_in_databse() {
-    string insert_query;
+void MonitoringEntity::insert_in_database() {
+    ostringstream insert_query;
 
     insert_query << "INSERT INTO monitoring ";
     insert_query << "VALUES ('";
@@ -68,8 +71,7 @@ void MonitoringEntity::insert_in_databse() {
     insert_query << type << "', '";
     insert_query << min << "', '";
     insert_query << max << "', '";
-    insert_query << sum << "'";
-    insert_query << ");";
+    insert_query << sum << "');";
 
     Pgsqlcon p;
     p.exec_none_transaction(insert_query.str());

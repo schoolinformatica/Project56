@@ -5,8 +5,14 @@
 #ifndef INPUT_PROCESS_EVENTENTITY_H
 #define INPUT_PROCESS_EVENTENTITY_H
 
+#include "dbEntity.h"
+#include "../pqcon/pgsqlcon.h"
+#include <sstream>
+#include <string>
+#include <iostream>
 
-class EventEntity {
+
+class EventEntity : public dbEntity {
 private:
     string date_time;
     string unit_id;
@@ -15,7 +21,7 @@ private:
 
 public:
     // Database management functions
-    void insert_into_database();
+    void insert_in_database();
 
     //Setters
     void set_date_time(string);
@@ -33,12 +39,12 @@ public:
 
     string get_port();
 
-    string get_value();
+    int get_value();
 };
 
 // Database management functions
 void EventEntity::insert_in_database() {
-    stringstream insert_query;
+    ostringstream insert_query;
 
     insert_query << "INSERT INTO events ";
     insert_query << "VALUES ('";

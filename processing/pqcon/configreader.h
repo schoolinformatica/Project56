@@ -8,7 +8,7 @@
 
 using namespace std;
 
-#define PATH_TO_CONFIG_FILE "c:/cygwin64/home/steve/dbcon/credentials.pgconf"
+#define PATH_TO_CONFIG_FILE "/home/cees-jan/schoolproject/project56/processing/credentials.pgconf"
 #define HOST "hostip"
 #define PORT "port"
 #define DATABASE "database"

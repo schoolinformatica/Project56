@@ -34,7 +34,6 @@ return array(
     'ClassPreloader\\ClassNode' => $vendorDir . '/classpreloader/classpreloader/src/ClassNode.php',
     'ClassPreloader\\ClassPreloader' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader.php',
     'ClassPreloader\\Config' => $vendorDir . '/classpreloader/classpreloader/src/Config.php',
-    'ClassPreloader\\Exceptions\\SkipFileException' => $vendorDir . '/classpreloader/classpreloader/src/Exceptions/SkipFileException.php',
     'ClassPreloader\\Parser\\AbstractNodeVisitor' => $vendorDir . '/classpreloader/classpreloader/src/Parser/AbstractNodeVisitor.php',
     'ClassPreloader\\Parser\\DirVisitor' => $vendorDir . '/classpreloader/classpreloader/src/Parser/DirVisitor.php',
     'ClassPreloader\\Parser\\FileVisitor' => $vendorDir . '/classpreloader/classpreloader/src/Parser/FileVisitor.php',
@@ -1556,7 +1555,6 @@ return array(
     'PHP_Token_XOR_EQUAL' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_YIELD' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_YIELD_FROM' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
-<<<<<<< HEAD
     'PhpParser\\Autoloader' => $vendorDir . '/nikic/php-parser/lib/PhpParser/Autoloader.php',
     'PhpParser\\Builder' => $vendorDir . '/nikic/php-parser/lib/PhpParser/Builder.php',
     'PhpParser\\BuilderAbstract' => $vendorDir . '/nikic/php-parser/lib/PhpParser/BuilderAbstract.php',
@@ -1753,8 +1751,6 @@ return array(
     'PhpParser\\Serializer\\XML' => $vendorDir . '/nikic/php-parser/lib/PhpParser/Serializer/XML.php',
     'PhpParser\\Unserializer' => $vendorDir . '/nikic/php-parser/lib/PhpParser/Unserializer.php',
     'PhpParser\\Unserializer\\XML' => $vendorDir . '/nikic/php-parser/lib/PhpParser/Unserializer/XML.php',
-=======
->>>>>>> feature-1.1
     'PhpSpec\\CodeAnalysis\\AccessInspectorInterface' => $vendorDir . '/phpspec/phpspec/src/PhpSpec/CodeAnalysis/AccessInspectorInterface.php',
     'PhpSpec\\CodeAnalysis\\DisallowedScalarTypehintException' => $vendorDir . '/phpspec/phpspec/src/PhpSpec/CodeAnalysis/DisallowedScalarTypehintException.php',
     'PhpSpec\\CodeAnalysis\\MagicAwareAccessInspector' => $vendorDir . '/phpspec/phpspec/src/PhpSpec/CodeAnalysis/MagicAwareAccessInspector.php',

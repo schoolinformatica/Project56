@@ -5,12 +5,15 @@
 #ifndef INPUT_PROCESS_POSITIONENTITY_H
 #define INPUT_PROCESS_POSITIONENTITY_H
 
-#include <string>
+#include "dbEntity.h"
 #include "../pqcon/pgsqlcon.h"
+#include <sstream>
+#include <string>
+#include <iostream>
 
 using namespace std;
 
-class PositionEntity {
+class PositionEntity : public dbEntity {
 private:
     string date_time;
     string unit_id;
@@ -68,7 +71,7 @@ public:
 
 // Database management functions
 void PositionEntity::insert_in_database() {
-    stringstream insert_query;
+    ostringstream insert_query;
 
     insert_query << "INSERT INTO positions ";
     insert_query << "VALUES ('";

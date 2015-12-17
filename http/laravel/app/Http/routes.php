@@ -20,7 +20,6 @@ Route::get('/', function () {
 Route::get('welcome', 'PagesController@home');
 Route::get('about','PagesController@about');
 Route::get('login', 'PagesController@login');
-Route::get('createaccount', 'PagesController@createaccount');
 Route::get('download', ['middleware' => 'auth', 'uses' => 'PagesController@download']);
 
 //Routes for the uploadpage and the post request for uploading files
