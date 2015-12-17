@@ -6,6 +6,7 @@
 #include "pqcon/pgsqlcon.h"
 #include "dbpusher/dbpusher.h"
 #include "UnitTest++/UnitTest++.h"
+#include "UnitTest++/XmlTestReporter.h"
 
 TEST(testExecNoneTransBadParam)
 {
@@ -51,7 +52,12 @@ TEST(testPushListToDatabaseBadParam)
 
 int main(int, const char *[])
 {
-    return UnitTest::RunAllTests();
+    std::ofstream f("testreport.xml");
+    UnitTest::XmlTestReporter reporter(f);
+
+    UnitTest::TestRunner runner(reporter);
+
+    return runner.RunTestsIf(UnitTest::Test::GetTestList(), NULL, UnitTest::True(), 0);
 }
 
 

@@ -44,21 +44,28 @@ public:
 
 
 result Pgsqlcon::exec_none_transaction(const string & query) {
-    try
+    //0 means the string being compared are equal
+    if(query.compare("") != 0)
     {
-        connection C(connection_string); // Connect to database
-        nontransaction N(C); // Nontransaction to database
-        result result = N.exec(query); // Execute the query
-        C.disconnect(); // Disconnect from the database
-        errorCode = 1;
-        cout << "Query complete." << endl;
-        return result; // Return result from the query
+        try {
+            connection C(connection_string); // Connect to database
+            nontransaction N(C); // Nontransaction to database
+            result result = N.exec(query); // Execute the query
+            C.disconnect(); // Disconnect from the database
+            errorCode = 1;
+            cout << "Query complete." << endl;
+            return result; // Return result from the query
 
+        }
+        catch (const std::exception &e) {
+            errorCode = 0;
+            cerr << e.what() << endl;
+        }
     }
-    catch(const std::exception &e)
+    else
     {
+        cout << "Error: Query string was empty.";
         errorCode = 0;
-        cerr << e.what() << endl;
     }
 }
 
@@ -69,25 +76,39 @@ result Pgsqlcon::exec_none_transaction(const string & query) {
  *
  */
 result Pgsqlcon::exec_transaction(vector<string> & queries) {
-    try
+    if(queries.size() > 0)
     {
-        connection C(connection_string); // Connection to database
-        work W(C); // Transaction to database
+        try {
+            connection C(connection_string); // Connection to database
+            work W(C); // Transaction to database
 
-        //Add all queries to the transaction
-        for(string &query : queries)
-        {
-            W.exec(query);
+            //Add all queries to the transaction
+            for (string &query : queries)
+            {
+                //0 means the string being compared are equal
+                if(query.compare("") != 0)
+                {
+                    errorCode = 1;
+                    W.exec(query);
+                }
+                else
+                {
+                    cout << "Error: Queries vector contained empty strings.";
+                    errorCode = 0;
+                }
+            }
+            W.commit(); // Commit the transaction
+            C.disconnect(); // Disconnect from database
         }
-        cout << "Query complete." << endl;
-        errorCode = 1;
-        W.commit(); // Commit the transaction
-        C.disconnect(); // Disconnect from database
+        catch (const std::exception &e) {
+            errorCode = 0;
+            cerr << e.what() << endl;
+        }
     }
-    catch(const std::exception &e)
+    else
     {
+        cout << "Error: Queries vector was empty.";
         errorCode = 0;
-        cerr << e.what() << endl;
     }
 }
 

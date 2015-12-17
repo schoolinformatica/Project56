@@ -1,3 +1,4 @@
+
 //
 // Created by ceesjan on 28-10-2015.
 //
@@ -59,9 +60,29 @@ int listener(string path) {
 
                     if (strstr(event->name, ".csv") != NULL)
                     {
-			            thread t1(push_list_to_database, path + event->name);
-			            t1.detach();
-                        //Todo: delete csv file in production
+                        thread t1(push_list_to_database, path + event->name);
+                        t1.join();
+                    }
+                    else
+                    {
+                        cout << "non valid csv file!" << endl;
+                    }
+                }
+            }
+            else if (event->mask & IN_MODIFY)
+            {
+                if (event->mask & IN_ISDIR)
+                {
+                    printf("The directory %s was modified.\n", event->name);
+                }
+                else
+                {
+                    printf("The file %s was modified.\n", event->name);
+
+                    if (strstr(event->name, ".csv") != NULL)
+                    {
+                        thread t1(push_list_to_database, path + event->name);
+                        t1.join();
                     }
                     else
                     {
@@ -82,8 +103,7 @@ int listener(string path) {
                     if (strstr(event->name, ".csv") != NULL)
                     {
                         thread t1(push_list_to_database, path + event->name);
-                        t1.detach();
-                        //Todo: delete csv file in production
+                        t1.join();
                     }
                     else
                     {
@@ -91,6 +111,7 @@ int listener(string path) {
                     }
                 }
             }
+
             else if (event->mask & IN_CLOSE_WRITE)
             {
                 if (event->mask & IN_ISDIR)
@@ -103,9 +124,9 @@ int listener(string path) {
 
                     if (strstr(event->name, ".csv") != NULL)
                     {
+
                         thread t1(push_list_to_database, path + event->name);
-                        t1.detach();
-                        //Todo: delete csv file in production
+                        t1.join();
                     }
                     else
                     {
@@ -125,3 +146,5 @@ int listener(string path) {
 }
 
 #endif
+
+
