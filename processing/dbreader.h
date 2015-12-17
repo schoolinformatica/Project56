@@ -12,7 +12,6 @@
 #include "pqxx/pqxx"
 
 using namespace std;
-
 using namespace pqxx;
 
 vector <dbEntity> convert_to_entity(result result, string table) {
@@ -55,6 +54,7 @@ vector <dbEntity> convert_to_entity(result result, string table) {
     else if (equals(table, "connections")) {
         cout << table << endl;
         vector <dbEntity> connectionEntities;
+
         for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
             ConnectionEntity connectionEntity;
             connectionEntity.set_date_time(c[0].as<string>());
@@ -67,7 +67,7 @@ vector <dbEntity> convert_to_entity(result result, string table) {
         return connectionEntities;
 
     }
-    else  { //EVENTS
+    else { //EVENTS
         cout << table << endl;
         vector <dbEntity> eventEntities;
         for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
@@ -80,9 +80,7 @@ vector <dbEntity> convert_to_entity(result result, string table) {
             eventEntities.push_back(eventEntity);
         }
         return eventEntities;
-
     }
-
 }
 
 vector <dbEntity> read_from_database(string table, string where) {
