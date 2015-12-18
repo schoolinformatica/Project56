@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Psy\Readline\Readline" namespace="Psy\Readline" name="Readline" abstract="false" final="false" start="17" end="76">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Readline" file="Readline.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Readline/Readline.php" size="1434" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="6bb3a18d9ed736b9b695ec962c125cca8dc1c683" relative="vendor/psy/psysh/src/Psy/Readline/Readline.php"/>
+  <docblock>
+    <description compact="An interface abstracting the various readline_* functions."/>
+  </docblock>
+  <method name="isSupported" start="24" end="24" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Check whether this Readline class is supported by the current system."/>
+      <return type="object">
+        <type full="Psy\Readline\bool" namespace="Psy\Readline" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="addHistory" start="33" end="33" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a line to the command history."/>
+      <param type="string" variable="$line"/>
+      <return description="Success" type="object">
+        <type full="Psy\Readline\bool" namespace="Psy\Readline" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="line" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="clearHistory" start="40" end="40" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Clear the command history."/>
+      <return description="Success" type="object">
+        <type full="Psy\Readline\bool" namespace="Psy\Readline" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="listHistory" start="47" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="List the command history."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="readHistory" start="54" end="54" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Read the command history."/>
+      <return description="Success" type="object">
+        <type full="Psy\Readline\bool" namespace="Psy\Readline" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="readline" start="63" end="63" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Read a single line of input from the user."/>
+      <param type="object" variable="$prompt">
+        <type full="Psy\Readline\null|string" namespace="Psy\Readline" name="null|string"/>
+      </param>
+      <return type="object">
+        <type full="Psy\Readline\false|string" namespace="Psy\Readline" name="false|string"/>
+      </return>
+    </docblock>
+    <parameter name="prompt" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="redisplay" start="68" end="68" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Redraw readline to redraw the display."/>
+    </docblock>
+  </method>
+  <method name="writeHistory" start="75" end="75" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Write the command history to a file."/>
+      <return description="Success" type="object">
+        <type full="Psy\Readline\bool" namespace="Psy\Readline" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+</interface>

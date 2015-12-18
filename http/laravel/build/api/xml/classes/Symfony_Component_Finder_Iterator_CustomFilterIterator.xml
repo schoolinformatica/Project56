@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Finder\Iterator\CustomFilterIterator" namespace="Symfony\Component\Finder\Iterator" name="CustomFilterIterator" abstract="false" final="false" start="22" end="63">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/finder/Iterator" file="CustomFilterIterator.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/finder/Iterator/CustomFilterIterator.php" size="1543" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="7c3328b2629e93405c571837e95e6d3e5b8be895" relative="vendor/symfony/finder/Iterator/CustomFilterIterator.php"/>
+  <docblock>
+    <description compact="CustomFilterIterator filters files by applying anonymous functions.">The anonymous function receives a \SplFileInfo and must return false
+to remove files.</description>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\Finder\Iterator\FilterIterator" namespace="Symfony\Component\Finder\Iterator" name="FilterIterator"/>
+  <member name="filters" type="array" default="" visibility="private" line="24"/>
+  <constructor name="__construct" start="34" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="The Iterator to filter" type="object" variable="$iterator">
+        <type full="\Iterator" namespace="" name="Iterator"/>
+      </param>
+      <param description="An array of PHP callbacks" type="array" variable="$filters" of="object">
+        <type full="Symfony\Component\Finder\Iterator\callable" namespace="Symfony\Component\Finder\Iterator" name="callable"/>
+      </param>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="iterator" byreference="false" type="object">
+      <type full="Iterator" namespace="" name="Iterator"/>
+    </parameter>
+    <parameter name="filters" byreference="false" type="array"/>
+  </constructor>
+  <method name="accept" start="51" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Filters the iterator values."/>
+      <return description="true if the value should be kept, false otherwise" type="object">
+        <type full="Symfony\Component\Finder\Iterator\bool" namespace="Symfony\Component\Finder\Iterator" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+</class>

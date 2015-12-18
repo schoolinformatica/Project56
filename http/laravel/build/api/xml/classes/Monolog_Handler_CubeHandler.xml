@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Handler\CubeHandler" namespace="Monolog\Handler" name="CubeHandler" abstract="false" final="false" start="22" end="149">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler" file="CubeHandler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler/CubeHandler.php" size="4543" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="346263bb9debc52d02e6f40994d86f0adf444916" relative="vendor/monolog/monolog/src/Monolog/Handler/CubeHandler.php"/>
+  <docblock>
+    <description compact="Logs to Cube."/>
+    <link value="http://square.github.com/cube/"/>
+    <author value="Wan Chen &lt;kami@kamisama.me&gt;"/>
+  </docblock>
+  <extends full="Monolog\Handler\AbstractProcessingHandler" namespace="Monolog\Handler" name="AbstractProcessingHandler"/>
+  <member name="udpConnection" type="{unknown}" default="" constant="null" visibility="private" line="24"/>
+  <member name="httpConnection" type="{unknown}" default="" constant="null" visibility="private" line="25"/>
+  <member name="scheme" type="{unknown}" default="" constant="null" visibility="private" line="26"/>
+  <member name="host" type="{unknown}" default="" constant="null" visibility="private" line="27"/>
+  <member name="port" type="{unknown}" default="" constant="null" visibility="private" line="28"/>
+  <member name="acceptedSchemes" type="array" default="" visibility="private" line="29"/>
+  <constructor name="__construct" start="38" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a Cube handler"/>
+      <throws description="when given url is not a valid url." type="object">A valid url must consists of three parts : protocol://host:port
+                                 Only valid protocol used by Cube are http and udp<type full="\UnexpectedValueException" namespace="" name="UnexpectedValueException"/></throws>
+    </docblock>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+    <parameter name="level" byreference="false" type="{unknown}" default="" constant="Logger::DEBUG"/>
+    <parameter name="bubble" byreference="false" type="boolean" default="true"/>
+  </constructor>
+  <method name="connectUdp" start="64" end="78" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Establish a connection to an UDP socket"/>
+      <throws description="when unable to connect to the socket" type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="connectHttp" start="83" end="97" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Establish a connection to a http server"/>
+    </docblock>
+  </method>
+  <method name="write" start="102" end="124" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+  <method name="writeUdp" start="126" end="133" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="writeHttp" start="135" end="148" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+</class>

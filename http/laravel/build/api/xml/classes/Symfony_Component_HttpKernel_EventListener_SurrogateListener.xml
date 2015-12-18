@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\EventListener\SurrogateListener" namespace="Symfony\Component\HttpKernel\EventListener" name="SurrogateListener" abstract="false" final="false" start="24" end="58">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/EventListener" file="SurrogateListener.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/EventListener/SurrogateListener.php" size="1554" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="253d416335988e383b0cf8ad3fe43f929ec42dec" relative="vendor/symfony/http-kernel/EventListener/SurrogateListener.php"/>
+  <docblock>
+    <description compact="SurrogateListener adds a Surrogate-Control HTTP header when the Response needs to be parsed for Surrogates."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\EventDispatcher\EventSubscriberInterface" namespace="Symfony\Component\EventDispatcher" name="EventSubscriberInterface"/>
+  <member name="surrogate" visibility="private" line="26"/>
+  <constructor name="__construct" start="33" end="36" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="An SurrogateInterface instance" type="object" variable="$surrogate">
+        <type full="Symfony\Component\HttpKernel\HttpCache\SurrogateInterface" namespace="Symfony\Component\HttpKernel\HttpCache" name="SurrogateInterface"/>
+      </param>
+    </docblock>
+    <parameter name="surrogate" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\HttpKernel\HttpCache\SurrogateInterface" namespace="Symfony\Component\HttpKernel\HttpCache" name="SurrogateInterface"/>
+    </parameter>
+  </constructor>
+  <method name="onKernelResponse" start="43" end="50" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Filters the Response."/>
+      <param description="A FilterResponseEvent instance" type="object" variable="$event">
+        <type full="Symfony\Component\HttpKernel\Event\FilterResponseEvent" namespace="Symfony\Component\HttpKernel\Event" name="FilterResponseEvent"/>
+      </param>
+    </docblock>
+    <parameter name="event" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\Event\FilterResponseEvent" namespace="Symfony\Component\HttpKernel\Event" name="FilterResponseEvent"/>
+    </parameter>
+  </method>
+  <method name="getSubscribedEvents" start="52" end="57" abstract="false" final="false" static="true" visibility="public"/>
+</class>

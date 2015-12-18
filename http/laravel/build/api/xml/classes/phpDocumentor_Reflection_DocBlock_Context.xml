@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="phpDocumentor\Reflection\DocBlock\Context" namespace="phpDocumentor\Reflection\DocBlock" name="Context" abstract="false" final="false" start="22" end="154">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpdocumentor/reflection-docblock/src/phpDocumentor/Reflection/DocBlock" file="Context.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpdocumentor/reflection-docblock/src/phpDocumentor/Reflection/DocBlock/Context.php" size="4405" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="c99a1092e7a1760775f7635c744f8145f6c3d22a" relative="vendor/phpdocumentor/reflection-docblock/src/phpDocumentor/Reflection/DocBlock/Context.php"/>
+  <docblock>
+    <description compact="The context in which a DocBlock occurs."/>
+    <author value="Vasil Rangelov &lt;boen.robot@gmail.com&gt;"/>
+    <license name="http://www.opensource.org/licenses/mit-license.php MIT"/>
+    <link value="http://phpdoc.org"/>
+  </docblock>
+  <member name="namespace" type="string" default="''" visibility="protected" line="25">
+    <docblock>
+      <description compact="@var string The current namespace."/>
+    </docblock>
+  </member>
+  <member name="namespace_aliases" type="array" default="" visibility="protected" line="28">
+    <docblock>
+      <description compact="@var array List of namespace aliases =&gt; Fully Qualified Namespace."/>
+    </docblock>
+  </member>
+  <member name="lsen" type="string" default="''" visibility="protected" line="31">
+    <docblock>
+      <description compact="@var string Name of the structural element, within the namespace."/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="42" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Cteates a new context."/>
+      <param description="The namespace where this DocBlock" type="string" variable="$namespace">resides in.</param>
+      <param description="List of namespace aliases =&gt; Fully" type="array" variable="$namespace_aliases">Qualified Namespace.</param>
+      <param description="Name of the structural element, within" type="string" variable="$lsen">the namespace.</param>
+    </docblock>
+    <parameter name="namespace" byreference="false" type="string" default="''"/>
+    <parameter name="namespace_aliases" byreference="false" type="array" default=""/>
+    <parameter name="lsen" byreference="false" type="string" default="''"/>
+  </constructor>
+  <method name="getNamespace" start="57" end="60" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return description="The namespace where this DocBlock resides in." type="string"/>
+    </docblock>
+  </method>
+  <method name="getNamespaceAliases" start="65" end="68" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return description="List of namespace aliases =&gt; Fully Qualified Namespace." type="array"/>
+    </docblock>
+  </method>
+  <method name="getLSEN" start="75" end="78" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the Local Structural Element Name."/>
+      <return description="Name of the structural element, within the namespace." type="string"/>
+    </docblock>
+  </method>
+  <method name="setNamespace" start="91" end="102" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets a new namespace.">Sets a new namespace for the context. Leading and trailing slashes are
+trimmed, and the keywords "global" and "default" are treated as aliases
+to no namespace.</description>
+      <param description="The new namespace to set." type="string" variable="$namespace"/>
+      <return type="object">
+        <type full="phpDocumentor\Reflection\DocBlock\$this" namespace="phpDocumentor\Reflection\DocBlock" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="namespace" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setNamespaceAliases" start="112" end="119" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the namespace aliases, replacing all previous ones."/>
+      <param description="List of namespace aliases =&gt; Fully" type="array" variable="$namespace_aliases">Qualified Namespace.</param>
+      <return type="object">
+        <type full="phpDocumentor\Reflection\DocBlock\$this" namespace="phpDocumentor\Reflection\DocBlock" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="namespace_aliases" byreference="false" type="array"/>
+  </method>
+  <method name="setNamespaceAlias" start="132" end="136" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a namespace alias to the context."/>
+      <param description="The alias name (the part after &quot;as&quot;, or the last" type="string" variable="$alias">part of the Fully Qualified Namespace Name) to add.</param>
+      <param description="The Fully Qualified Namespace Name for this alias." type="string" variable="$fqnn">Any form of leading/trailing slashes are accepted, but what will be
+    stored is a name, prefixed with a slash, and no trailing slash.</param>
+      <return type="object">
+        <type full="phpDocumentor\Reflection\DocBlock\$this" namespace="phpDocumentor\Reflection\DocBlock" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="alias" byreference="false" type="{unknown}"/>
+    <parameter name="fqnn" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setLSEN" start="149" end="153" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets a new Local Structural Element Name.">Sets a new Local Structural Element Name. A local name also contains
+punctuation determining the kind of structural element (e.g. trailing "("
+and ")" for functions and methods).</description>
+      <param description="The new local name of a structural element." type="string" variable="$lsen"/>
+      <return type="object">
+        <type full="phpDocumentor\Reflection\DocBlock\$this" namespace="phpDocumentor\Reflection\DocBlock" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="lsen" byreference="false" type="{unknown}"/>
+  </method>
+</class>

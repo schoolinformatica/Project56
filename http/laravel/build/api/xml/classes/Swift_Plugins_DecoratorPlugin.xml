@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_Plugins_DecoratorPlugin" namespace="" name="Swift_Plugins_DecoratorPlugin" abstract="false" final="false" start="17" end="207">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Plugins" file="DecoratorPlugin.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Plugins/DecoratorPlugin.php" size="7270" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="6fa3e1b8c17acd1ad7ad9327f77dc5a937fbfa5d" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Plugins/DecoratorPlugin.php"/>
+  <docblock>
+    <description compact="Allows customization of Messages on-the-fly."/>
+    <author value="Chris Corbyn"/>
+    <author value="Fabien Potencier"/>
+  </docblock>
+  <implements full="Swift_Events_SendListener" namespace="" name="Swift_Events_SendListener"/>
+  <implements full="Swift_Plugins_Decorator_Replacements" namespace="" name="Swift_Plugins_Decorator_Replacements"/>
+  <member name="_replacements" visibility="private" line="20">
+    <docblock>
+      <description compact="The replacement map"/>
+    </docblock>
+  </member>
+  <member name="_originalBody" visibility="private" line="23">
+    <docblock>
+      <description compact="The body as it was before replacements"/>
+    </docblock>
+  </member>
+  <member name="_originalHeaders" type="array" default="" visibility="private" line="26">
+    <docblock>
+      <description compact="The original headers of the message, before replacements"/>
+    </docblock>
+  </member>
+  <member name="_originalChildBodies" type="array" default="" visibility="private" line="29">
+    <docblock>
+      <description compact="Bodies of children before they are replaced"/>
+    </docblock>
+  </member>
+  <member name="_lastMessage" visibility="private" line="32">
+    <docblock>
+      <description compact="The Message that was last replaced"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="54" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new DecoratorPlugin with $replacements.">The $replacements can either be an associative array, or an implementation
+of <link xmlns="http://xml.phpdox.net/src" value="Swift_Plugins_Decorator_Replacements"/>.
+When using an array, it should be of the form:
+&lt;code&gt;
+$replacements = array(
+ "address1@domain.tld" =&gt; array("{a}" =&gt; "b", "{c}" =&gt; "d"),
+ "address2@domain.tld" =&gt; array("{a}" =&gt; "x", "{c}" =&gt; "y")
+)
+&lt;/code&gt;
+When using an instance of <link xmlns="http://xml.phpdox.net/src" value="Swift_Plugins_Decorator_Replacements"/>,
+the object should return just the array of replacements for the address
+given to <link xmlns="http://xml.phpdox.net/src" value="Swift_Plugins_Decorator_Replacements::getReplacementsFor()"/>.
+</description>
+      <param description="Array or Swift_Plugins_Decorator_Replacements" type="mixed" variable="$replacements"/>
+    </docblock>
+    <parameter name="replacements" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="setReplacements" start="66" end="73" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets replacements."/>
+      <param description="Array or Swift_Plugins_Decorator_Replacements" type="mixed" variable="$replacements"/>
+      <see value="__construct()"/>
+    </docblock>
+    <parameter name="replacements" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="beforeSendPerformed" start="80" end="140" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Invoked immediately before the Message is sent."/>
+      <param type="object" variable="$evt">
+        <type full="Swift_Events_SendEvent" namespace="" name="Swift_Events_SendEvent"/>
+      </param>
+    </docblock>
+    <parameter name="evt" byreference="false" type="object">
+      <type full="Swift_Events_SendEvent" namespace="" name="Swift_Events_SendEvent"/>
+    </parameter>
+  </method>
+  <method name="getReplacementsFor" start="156" end="166" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Find a map of replacements for the address.">If this plugin was provided with a delegate instance of
+{@link Swift_Plugins_Decorator_Replacements} then the call will be
+delegated to it.  Otherwise, it will attempt to find the replacements
+from the array provided in the constructor.
+
+If no replacements can be found, an empty value (NULL) is returned.</description>
+      <param type="string" variable="$address"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="address" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="sendPerformed" start="173" end="176" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Invoked immediately after the Message is sent."/>
+      <param type="object" variable="$evt">
+        <type full="Swift_Events_SendEvent" namespace="" name="Swift_Events_SendEvent"/>
+      </param>
+    </docblock>
+    <parameter name="evt" byreference="false" type="object">
+      <type full="Swift_Events_SendEvent" namespace="" name="Swift_Events_SendEvent"/>
+    </parameter>
+  </method>
+  <method name="_restoreMessage" start="179" end="206" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Restore a changed message back to its original state"/>
+    </docblock>
+    <parameter name="message" byreference="false" type="object">
+      <type full="Swift_Mime_Message" namespace="" name="Swift_Mime_Message"/>
+    </parameter>
+  </method>
+</class>

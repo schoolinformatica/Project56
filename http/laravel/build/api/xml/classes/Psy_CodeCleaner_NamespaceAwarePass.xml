@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\CodeCleaner\NamespaceAwarePass" namespace="Psy\CodeCleaner" name="NamespaceAwarePass" abstract="true" final="false" start="22" end="71">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/CodeCleaner" file="NamespaceAwarePass.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/CodeCleaner/NamespaceAwarePass.php" size="1894" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="1293e7ed2f9c007671d40cc39689c0544c1d062a" relative="vendor/psy/psysh/src/Psy/CodeCleaner/NamespaceAwarePass.php"/>
+  <docblock>
+    <description compact="Abstract namespace-aware code cleaner pass."/>
+  </docblock>
+  <extends full="Psy\CodeCleaner\CodeCleanerPass" namespace="Psy\CodeCleaner" name="CodeCleanerPass"/>
+  <member name="namespace" visibility="protected" line="24"/>
+  <member name="currentScope" visibility="protected" line="25"/>
+  <method name="beforeTraverse" start="33" end="37" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="TODO: should this be final? Extending classes should be sure to either use afterTraverse or call parent::beforeTraverse() when overloading.">Reset the namespace and the current scope before beginning analysis.</description>
+    </docblock>
+    <parameter name="nodes" byreference="false" type="array"/>
+  </method>
+  <method name="enterNode" start="45" end="50" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="TODO: should this be final? Extending classes should be sure to either use leaveNode or call parent::enterNode() when overloading."/>
+      <param type="object" variable="$node">
+        <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+      </param>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+    </parameter>
+  </method>
+  <method name="getFullyQualifiedName" start="59" end="70" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get a fully-qualified name (class, function, interface, etc)."/>
+      <param type="mixed" variable="$name"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+</class>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Handler\ChromePHPHandler" namespace="Monolog\Handler" name="ChromePHPHandler" abstract="false" final="false" start="22" end="204">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler" file="ChromePHPHandler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler/ChromePHPHandler.php" size="5339" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="a898dbbf96bfae4d6a564127bccf0ca52c9aebf6" relative="vendor/monolog/monolog/src/Monolog/Handler/ChromePHPHandler.php"/>
+  <docblock>
+    <description compact="Handler sending logs to the ChromePHP extension (http://www.chromephp.com/)"/>
+    <author value="Christophe Coevoet &lt;stof@notk.org&gt;"/>
+  </docblock>
+  <extends full="Monolog\Handler\AbstractProcessingHandler" namespace="Monolog\Handler" name="AbstractProcessingHandler"/>
+  <constant type="string" name="VERSION" value="'4.0'">
+    <docblock>
+      <description compact="Version of the extension"/>
+    </docblock>
+  </constant>
+  <constant type="string" name="HEADER_NAME" value="'X-ChromeLogger-Data'">
+    <docblock>
+      <description compact="Header name"/>
+    </docblock>
+  </constant>
+  <member name="initialized" type="boolean" default="false" visibility="protected" line="34"/>
+  <member name="overflowed" type="boolean" default="false" visibility="protected" line="43">
+    <docblock>
+      <description compact="Tracks whether we sent too much data">Chrome limits the headers to 256KB, so when we sent 240KB we stop sending</description>
+      <var type="object">
+        <type full="Monolog\Handler\Boolean" namespace="Monolog\Handler" name="Boolean"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="json" type="array" default="" visibility="protected" line="45"/>
+  <member name="sendHeaders" type="boolean" default="true" visibility="protected" line="51"/>
+  <constructor name="__construct" start="57" end="63" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param description="The minimum logging level at which this handler will be triggered" type="integer" variable="$level"/>
+      <param description="Whether the messages that are handled can bubble up the stack or not" type="object" variable="$bubble">
+        <type full="Monolog\Handler\Boolean" namespace="Monolog\Handler" name="Boolean"/>
+      </param>
+    </docblock>
+    <parameter name="level" byreference="false" type="{unknown}" default="" constant="Logger::DEBUG"/>
+    <parameter name="bubble" byreference="false" type="boolean" default="true"/>
+  </constructor>
+  <method name="handleBatch" start="68" end="84" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="records" byreference="false" type="array"/>
+  </method>
+  <method name="getDefaultFormatter" start="89" end="92" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritDoc}"/>
+    </docblock>
+  </method>
+  <method name="write" start="101" end="106" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Creates &amp; sends header for a record"/>
+      <see value="sendHeader()"/>
+      <see value="send()"/>
+      <param type="array" variable="$record"/>
+    </docblock>
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+  <method name="send" start="113" end="152" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Sends the log header"/>
+      <see value="sendHeader()"/>
+    </docblock>
+  </method>
+  <method name="sendHeader" start="160" end="165" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Send header string to the client"/>
+      <param type="string" variable="$header"/>
+      <param type="string" variable="$content"/>
+    </docblock>
+    <parameter name="header" byreference="false" type="{unknown}"/>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="headersAccepted" start="172" end="179" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Verifies if the headers are accepted by the current user agent"/>
+      <return type="object">
+        <type full="Monolog\Handler\Boolean" namespace="Monolog\Handler" name="Boolean"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="__get" start="184" end="191" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="BC getter for the sendHeaders property that has been made static"/>
+    </docblock>
+    <parameter name="property" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__set" start="196" end="203" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="BC setter for the sendHeaders property that has been made static"/>
+    </docblock>
+    <parameter name="property" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+</class>

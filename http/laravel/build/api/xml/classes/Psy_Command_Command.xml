@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\Command\Command" namespace="Psy\Command" name="Command" abstract="true" final="false" start="25" end="282">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Command" file="Command.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Command/Command.php" size="7652" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="d6ec5e047f86470d56d2d12dbb6051957c6994d6" relative="vendor/psy/psysh/src/Psy/Command/Command.php"/>
+  <docblock>
+    <description compact="The Psy Shell base command."/>
+  </docblock>
+  <extends full="Symfony\Component\Console\Command\Command" namespace="Symfony\Component\Console\Command" name="Command"/>
+  <method name="setApplication" start="34" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the application instance for this command."/>
+      <param description="An Application instance" type="object" variable="$application">
+        <type full="Symfony\Component\Console\Application" namespace="Symfony\Component\Console" name="Application"/>
+      </param>
+      <api/>
+    </docblock>
+    <parameter name="application" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\Console\Application" namespace="Symfony\Component\Console" name="Application"/>
+    </parameter>
+  </method>
+  <method name="asText" start="46" end="72" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="getArguments" start="77" end="84" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="getHiddenArguments" start="91" end="94" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="These arguments will be excluded from help output."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getOptions" start="99" end="106" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="getHiddenOptions" start="113" end="116" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="These options will be excluded from help output."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="aliasesAsText" start="123" end="126" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Format command aliases as text.."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="argumentsAsText" start="133" end="157" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Format command arguments as text."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="optionsAsText" start="164" end="198" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Format options as text."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getMaxWidth" start="205" end="223" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Calculate the maximum padding width for a set of lines."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="formatDefaultValue" start="232" end="239" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Format an option default as text."/>
+      <param type="mixed" variable="$default"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="default" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getTable" start="248" end="265" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get a Table instance.">Falls back to legacy TableHelper.</description>
+      <return type="object">
+        <type full="Psy\Command\Table|TableHelper" namespace="Psy\Command" name="Table|TableHelper"/>
+      </return>
+    </docblock>
+    <parameter name="output" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+    </parameter>
+  </method>
+  <method name="getTableHelper" start="272" end="281" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Legacy fallback for getTable."/>
+      <return type="object">
+        <type full="Symfony\Component\Console\Helper\TableHelper" namespace="Symfony\Component\Console\Helper" name="TableHelper"/>
+      </return>
+    </docblock>
+  </method>
+</class>

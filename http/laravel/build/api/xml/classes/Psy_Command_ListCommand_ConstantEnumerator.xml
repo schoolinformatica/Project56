@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\Command\ListCommand\ConstantEnumerator" namespace="Psy\Command\ListCommand" name="ConstantEnumerator" abstract="false" final="false" start="19" end="103">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Command/ListCommand" file="ConstantEnumerator.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Command/ListCommand/ConstantEnumerator.php" size="2550" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="31a506a9dd322089edcd16ef9dd06a9f3278e782" relative="vendor/psy/psysh/src/Psy/Command/ListCommand/ConstantEnumerator.php"/>
+  <docblock>
+    <description compact="Constant Enumerator class."/>
+  </docblock>
+  <extends full="Psy\Command\ListCommand\Enumerator" namespace="Psy\Command\ListCommand" name="Enumerator"/>
+  <method name="listItems" start="24" end="54" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="input" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputInterface" namespace="Symfony\Component\Console\Input" name="InputInterface"/>
+    </parameter>
+    <parameter name="reflector" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Reflector" namespace="" name="Reflector"/>
+    </parameter>
+    <parameter name="target" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="only list constants when no Reflector is present." line="26"/>
+      <todo value="make a NamespaceReflector and pass that in for commands like:" line="28"/>
+      <comment value="ls --constants Foo" line="30"/>
+      <comment value="... for listing constants in the Foo namespace" line="32"/>
+      <comment value="only list constants if we are specifically asked" line="37"/>
+    </inline>
+  </method>
+  <method name="getConstants" start="65" end="74" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get defined constants.">Optionally restrict constants to a given category, e.g. "date".</description>
+      <param type="string" variable="$category"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="category" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="prepareConstants" start="83" end="102" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Prepare formatted constant array."/>
+      <param type="array" variable="$constants"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="constants" byreference="false" type="array"/>
+    <inline>
+      <comment value="My kingdom for a generator." line="85"/>
+    </inline>
+  </method>
+</class>

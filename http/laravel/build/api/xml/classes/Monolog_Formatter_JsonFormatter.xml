@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Formatter\JsonFormatter" namespace="Monolog\Formatter" name="JsonFormatter" abstract="false" final="false" start="21" end="116">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Formatter" file="JsonFormatter.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Formatter/JsonFormatter.php" size="2765" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="c35e91d9fc3b91e5551bd11c9d58d2b9154cd2c9" relative="vendor/monolog/monolog/src/Monolog/Formatter/JsonFormatter.php"/>
+  <docblock>
+    <description compact="Encodes whatever record data is passed to it as json">This can be useful to log to databases or remote APIs</description>
+    <author value="Jordi Boggiano &lt;j.boggiano@seld.be&gt;"/>
+  </docblock>
+  <implements full="Monolog\Formatter\FormatterInterface" namespace="Monolog\Formatter" name="FormatterInterface"/>
+  <constant type="integer" name="BATCH_MODE_JSON" value="1"/>
+  <constant type="integer" name="BATCH_MODE_NEWLINES" value="2"/>
+  <member name="batchMode" visibility="protected" line="26"/>
+  <member name="appendNewline" visibility="protected" line="27"/>
+  <constructor name="__construct" start="32" end="36" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="int" variable="$batchMode"/>
+    </docblock>
+    <parameter name="batchMode" byreference="false" type="{unknown}" default="" constant="self::BATCH_MODE_JSON"/>
+    <parameter name="appendNewline" byreference="false" type="boolean" default="true"/>
+  </constructor>
+  <method name="getBatchMode" start="47" end="50" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="The batch mode option configures the formatting style for multiple records. By default, multiple records will be formatted as a JSON-encoded array. However, for compatibility with some API endpoints, alternative styles are available."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="isAppendingNewlines" start="57" end="60" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="True if newlines are appended to every formatted record"/>
+      <return type="object">
+        <type full="Monolog\Formatter\bool" namespace="Monolog\Formatter" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="format" start="65" end="68" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+  <method name="formatBatch" start="73" end="83" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="records" byreference="false" type="array"/>
+  </method>
+  <method name="formatBatchJson" start="91" end="94" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Return a JSON-encoded array of records."/>
+      <param type="array" variable="$records"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="records" byreference="false" type="array"/>
+  </method>
+  <method name="formatBatchNewlines" start="103" end="115" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Use new lines to separate records instead of a JSON-encoded array."/>
+      <param type="array" variable="$records"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="records" byreference="false" type="array"/>
+  </method>
+</class>

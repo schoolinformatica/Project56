@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PHPUnit_Framework_TestResult" namespace="" name="PHPUnit_Framework_TestResult" abstract="false" final="false" start="16" end="1128">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Framework" file="TestResult.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Framework/TestResult.php" size="28153" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="a8f68e43fe5fb34c09bf6b7d31e607c53f4ce1bb" relative="vendor/phpunit/phpunit/src/Framework/TestResult.php"/>
+  <docblock>
+    <description compact="A TestResult collects the results of executing a test case."/>
+    <since value="Class available since Release 2.0.0"/>
+  </docblock>
+  <implements full="Countable" namespace="" name="Countable"/>
+  <member name="passed" type="array" default="" visibility="protected" line="21">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="errors" type="array" default="" visibility="protected" line="26">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="failures" type="array" default="" visibility="protected" line="31">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="notImplemented" type="array" default="" visibility="protected" line="36">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="risky" type="array" default="" visibility="protected" line="41">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="skipped" type="array" default="" visibility="protected" line="46">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="listeners" type="array" default="" visibility="protected" line="51">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="runTests" type="integer" default="0" visibility="protected" line="56">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="time" type="integer" default="0" visibility="protected" line="61">
+    <docblock>
+      <description/>
+      <var type="float"/>
+    </docblock>
+  </member>
+  <member name="topTestSuite" type="{unknown}" default="" constant="null" visibility="protected" line="66">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PHPUnit_Framework_TestSuite" namespace="" name="PHPUnit_Framework_TestSuite"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="codeCoverage" visibility="protected" line="73">
+    <docblock>
+      <description compact="Code Coverage information."/>
+      <var type="object">
+        <type full="PHP_CodeCoverage" namespace="" name="PHP_CodeCoverage"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="convertErrorsToExceptions" type="boolean" default="true" visibility="protected" line="78">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="stop" type="boolean" default="false" visibility="protected" line="83">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="stopOnError" type="boolean" default="false" visibility="protected" line="88">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="stopOnFailure" type="boolean" default="false" visibility="protected" line="93">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="beStrictAboutTestsThatDoNotTestAnything" type="boolean" default="false" visibility="protected" line="98">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="beStrictAboutOutputDuringTests" type="boolean" default="false" visibility="protected" line="103">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="beStrictAboutTestSize" type="boolean" default="false" visibility="protected" line="108">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="beStrictAboutTodoAnnotatedTests" type="boolean" default="false" visibility="protected" line="113">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="stopOnRisky" type="boolean" default="false" visibility="protected" line="118">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="stopOnIncomplete" type="boolean" default="false" visibility="protected" line="123">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="stopOnSkipped" type="boolean" default="false" visibility="protected" line="128">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="lastTestFailed" type="boolean" default="false" visibility="protected" line="133">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="timeoutForSmallTests" type="integer" default="1" visibility="protected" line="138">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="timeoutForMediumTests" type="integer" default="10" visibility="protected" line="143">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="timeoutForLargeTests" type="integer" default="60" visibility="protected" line="148">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <method name="addListener" start="155" end="158" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Registers a TestListener."/>
+      <param type="object">
+        <type full="PHPUnit_Framework_TestListener" namespace="" name="PHPUnit_Framework_TestListener"/>
+      </param>
+    </docblock>
+    <parameter name="listener" byreference="false" type="object">
+      <type full="PHPUnit_Framework_TestListener" namespace="" name="PHPUnit_Framework_TestListener"/>
+    </parameter>
+  </method>
+  <method name="removeListener" start="165" end="172" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Unregisters a TestListener."/>
+      <param type="object" variable="$listener">
+        <type full="PHPUnit_Framework_TestListener" namespace="" name="PHPUnit_Framework_TestListener"/>
+      </param>
+    </docblock>
+    <parameter name="listener" byreference="false" type="object">
+      <type full="PHPUnit_Framework_TestListener" namespace="" name="PHPUnit_Framework_TestListener"/>
+    </parameter>
+  </method>
+  <method name="flushListeners" start="179" end="186" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Flushes all flushable TestListeners."/>
+      <since value="Method available since Release 3.0.0"/>
+    </docblock>
+  </method>
+  <method name="addError" start="195" end="233" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds an error to the list of errors."/>
+      <param type="object" variable="$test">
+        <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+      </param>
+      <param type="object" variable="$e">
+        <type full="Exception" namespace="" name="Exception"/>
+      </param>
+      <param type="float" variable="$time"/>
+    </docblock>
+    <parameter name="test" byreference="false" type="object">
+      <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+    </parameter>
+    <parameter name="e" byreference="false" type="object">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+    <parameter name="time" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addFailure" start="243" end="282" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a failure to the list of failures.">The passed in exception caused the failure.</description>
+      <param type="object" variable="$test">
+        <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+      </param>
+      <param type="object" variable="$e">
+        <type full="PHPUnit_Framework_AssertionFailedError" namespace="" name="PHPUnit_Framework_AssertionFailedError"/>
+      </param>
+      <param type="float" variable="$time"/>
+    </docblock>
+    <parameter name="test" byreference="false" type="object">
+      <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+    </parameter>
+    <parameter name="e" byreference="false" type="object">
+      <type full="PHPUnit_Framework_AssertionFailedError" namespace="" name="PHPUnit_Framework_AssertionFailedError"/>
+    </parameter>
+    <parameter name="time" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="startTestSuite" start="291" end="300" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Informs the result that a testsuite will be started."/>
+      <param type="object" variable="$suite">
+        <type full="PHPUnit_Framework_TestSuite" namespace="" name="PHPUnit_Framework_TestSuite"/>
+      </param>
+      <since value="Method available since Release 2.2.0"/>
+    </docblock>
+    <parameter name="suite" byreference="false" type="object">
+      <type full="PHPUnit_Framework_TestSuite" namespace="" name="PHPUnit_Framework_TestSuite"/>
+    </parameter>
+  </method>
+  <method name="endTestSuite" start="309" end="314" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Informs the result that a testsuite was completed."/>
+      <param type="object" variable="$suite">
+        <type full="PHPUnit_Framework_TestSuite" namespace="" name="PHPUnit_Framework_TestSuite"/>
+      </param>
+      <since value="Method available since Release 2.2.0"/>
+    </docblock>
+    <parameter name="suite" byreference="false" type="object">
+      <type full="PHPUnit_Framework_TestSuite" namespace="" name="PHPUnit_Framework_TestSuite"/>
+    </parameter>
+  </method>
+  <method name="startTest" start="321" end="329" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Informs the result that a test will be started."/>
+      <param type="object" variable="$test">
+        <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+      </param>
+    </docblock>
+    <parameter name="test" byreference="false" type="object">
+      <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+    </parameter>
+  </method>
+  <method name="endTest" start="337" end="357" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Informs the result that a test was completed."/>
+      <param type="object" variable="$test">
+        <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+      </param>
+      <param type="float" variable="$time"/>
+    </docblock>
+    <parameter name="test" byreference="false" type="object">
+      <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+    </parameter>
+    <parameter name="time" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="allHarmless" start="366" end="369" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if no risky test occurred."/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <since value="Method available since Release 4.0.0"/>
+    </docblock>
+  </method>
+  <method name="riskyCount" start="378" end="381" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the number of risky tests."/>
+      <return type="int"/>
+      <since value="Method available since Release 4.0.0"/>
+    </docblock>
+  </method>
+  <method name="allCompletelyImplemented" start="388" end="391" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if no incomplete test occurred."/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="notImplementedCount" start="398" end="401" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the number of incomplete tests."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="risky" start="410" end="413" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an Enumeration for the risky tests."/>
+      <return type="array"/>
+      <since value="Method available since Release 4.0.0"/>
+    </docblock>
+  </method>
+  <method name="notImplemented" start="420" end="423" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an Enumeration for the incomplete tests."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="noneSkipped" start="432" end="435" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if no test has been skipped."/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <since value="Method available since Release 3.0.0"/>
+    </docblock>
+  </method>
+  <method name="skippedCount" start="444" end="447" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the number of skipped tests."/>
+      <return type="int"/>
+      <since value="Method available since Release 3.0.0"/>
+    </docblock>
+  </method>
+  <method name="skipped" start="456" end="459" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an Enumeration for the skipped tests."/>
+      <return type="array"/>
+      <since value="Method available since Release 3.0.0"/>
+    </docblock>
+  </method>
+  <method name="errorCount" start="466" end="469" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the number of detected errors."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="errors" start="476" end="479" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an Enumeration for the errors."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="failureCount" start="486" end="489" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the number of detected failures."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="failures" start="496" end="499" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an Enumeration for the failures."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="passed" start="508" end="511" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the names of the tests that have passed."/>
+      <return type="array"/>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+  </method>
+  <method name="topTestSuite" start="520" end="523" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the (top) test suite."/>
+      <return type="object">
+        <type full="PHPUnit_Framework_TestSuite" namespace="" name="PHPUnit_Framework_TestSuite"/>
+      </return>
+      <since value="Method available since Release 3.0.0"/>
+    </docblock>
+  </method>
+  <method name="getCollectCodeCoverageInformation" start="532" end="535" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns whether code coverage information should be collected."/>
+      <return description="If code coverage should be collected" type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <since value="Method available since Release 3.2.0"/>
+    </docblock>
+  </method>
+  <method name="run" start="542" end="734" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Runs a TestCase."/>
+      <param type="object" variable="$test">
+        <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+      </param>
+    </docblock>
+    <parameter name="test" byreference="false" type="object">
+      <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+    </parameter>
+  </method>
+  <method name="count" start="741" end="744" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the number of run tests."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="shouldStop" start="751" end="754" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks whether the test run should stop."/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="stop" start="759" end="762" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Marks that the test run should stop."/>
+    </docblock>
+  </method>
+  <method name="getCodeCoverage" start="771" end="774" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the PHP_CodeCoverage object."/>
+      <return type="object">
+        <type full="PHP_CodeCoverage" namespace="" name="PHP_CodeCoverage"/>
+      </return>
+      <since value="Method available since Release 3.5.0"/>
+    </docblock>
+  </method>
+  <method name="setCodeCoverage" start="783" end="786" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the PHP_CodeCoverage object."/>
+      <param type="object" variable="$codeCoverage">
+        <type full="PHP_CodeCoverage" namespace="" name="PHP_CodeCoverage"/>
+      </param>
+      <since value="Method available since Release 3.6.0"/>
+    </docblock>
+    <parameter name="codeCoverage" byreference="false" type="object">
+      <type full="PHP_CodeCoverage" namespace="" name="PHP_CodeCoverage"/>
+    </parameter>
+  </method>
+  <method name="convertErrorsToExceptions" start="797" end="804" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Enables or disables the error-to-exception conversion."/>
+      <param type="object" variable="$flag">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+      <since value="Method available since Release 3.2.14"/>
+    </docblock>
+    <parameter name="flag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getConvertErrorsToExceptions" start="813" end="816" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the error-to-exception conversion setting."/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+  </method>
+  <method name="stopOnError" start="827" end="834" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Enables or disables the stopping when an error occurs."/>
+      <param type="object" variable="$flag">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+      <since value="Method available since Release 3.5.0"/>
+    </docblock>
+    <parameter name="flag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="stopOnFailure" start="845" end="852" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Enables or disables the stopping when a failure occurs."/>
+      <param type="object" variable="$flag">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+      <since value="Method available since Release 3.1.0"/>
+    </docblock>
+    <parameter name="flag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="beStrictAboutTestsThatDoNotTestAnything" start="861" end="868" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$flag">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+      <since value="Method available since Release 4.0.0"/>
+    </docblock>
+    <parameter name="flag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isStrictAboutTestsThatDoNotTestAnything" start="875" end="878" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <since value="Method available since Release 4.0.0"/>
+    </docblock>
+  </method>
+  <method name="beStrictAboutOutputDuringTests" start="887" end="894" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$flag">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+      <since value="Method available since Release 4.0.0"/>
+    </docblock>
+    <parameter name="flag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isStrictAboutOutputDuringTests" start="901" end="904" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <since value="Method available since Release 4.0.0"/>
+    </docblock>
+  </method>
+  <method name="beStrictAboutTestSize" start="913" end="920" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$flag">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+      <since value="Method available since Release 4.0.0"/>
+    </docblock>
+    <parameter name="flag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isStrictAboutTestSize" start="927" end="930" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <since value="Method available since Release 4.0.0"/>
+    </docblock>
+  </method>
+  <method name="beStrictAboutTodoAnnotatedTests" start="939" end="946" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$flag">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+      <since value="Method available since Release 4.2.0"/>
+    </docblock>
+    <parameter name="flag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isStrictAboutTodoAnnotatedTests" start="953" end="956" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <since value="Method available since Release 4.2.0"/>
+    </docblock>
+  </method>
+  <method name="stopOnRisky" start="967" end="974" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Enables or disables the stopping for risky tests."/>
+      <param type="object" variable="$flag">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+      <since value="Method available since Release 4.0.0"/>
+    </docblock>
+    <parameter name="flag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="stopOnIncomplete" start="985" end="992" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Enables or disables the stopping for incomplete tests."/>
+      <param type="object" variable="$flag">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+      <since value="Method available since Release 3.5.0"/>
+    </docblock>
+    <parameter name="flag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="stopOnSkipped" start="1003" end="1010" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Enables or disables the stopping for skipped tests."/>
+      <param type="object" variable="$flag">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+      <since value="Method available since Release 3.1.0"/>
+    </docblock>
+    <parameter name="flag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="time" start="1017" end="1020" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the time spent running the tests."/>
+      <return type="float"/>
+    </docblock>
+  </method>
+  <method name="wasSuccessful" start="1027" end="1030" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns whether the entire test was successful or not."/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setTimeoutForSmallTests" start="1041" end="1048" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the timeout for small tests."/>
+      <param type="int" variable="$timeout"/>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+      <since value="Method available since Release 3.6.0"/>
+    </docblock>
+    <parameter name="timeout" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setTimeoutForMediumTests" start="1059" end="1066" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the timeout for medium tests."/>
+      <param type="int" variable="$timeout"/>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+      <since value="Method available since Release 3.6.0"/>
+    </docblock>
+    <parameter name="timeout" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setTimeoutForLargeTests" start="1077" end="1084" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the timeout for large tests."/>
+      <param type="int" variable="$timeout"/>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+      <since value="Method available since Release 3.6.0"/>
+    </docblock>
+    <parameter name="timeout" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getHierarchy" start="1094" end="1127" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Returns the class hierarchy for a given class."/>
+      <param type="string" variable="$className"/>
+      <param type="object" variable="$asReflectionObjects">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="className" byreference="false" type="{unknown}"/>
+    <parameter name="asReflectionObjects" byreference="false" type="boolean" default="false"/>
+  </method>
+</class>

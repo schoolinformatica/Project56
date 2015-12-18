@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Finder\Expression\Regex" namespace="Symfony\Component\Finder\Expression" name="Regex" abstract="false" final="false" start="17" end="321">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/finder/Expression" file="Regex.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/finder/Expression/Regex.php" size="6394" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="920bbbf0bac81d16c6820f7616da646576bbc4e0" relative="vendor/symfony/finder/Expression/Regex.php"/>
+  <docblock>
+    <description/>
+    <author value="Jean-François Simon &lt;contact@jfsimon.fr&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\Finder\Expression\ValueInterface" namespace="Symfony\Component\Finder\Expression" name="ValueInterface"/>
+  <constant type="string" name="START_FLAG" value="'^'"/>
+  <constant type="string" name="END_FLAG" value="'$'"/>
+  <constant type="string" name="BOUNDARY" value="'~'"/>
+  <constant type="string" name="JOKER" value="'.*'"/>
+  <constant type="string" name="ESCAPING" value="'\\'"/>
+  <member name="pattern" visibility="private" line="28">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="options" visibility="private" line="33">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="startFlag" visibility="private" line="38">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\Finder\Expression\bool" namespace="Symfony\Component\Finder\Expression" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="endFlag" visibility="private" line="43">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\Finder\Expression\bool" namespace="Symfony\Component\Finder\Expression" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="startJoker" visibility="private" line="48">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\Finder\Expression\bool" namespace="Symfony\Component\Finder\Expression" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="endJoker" visibility="private" line="53">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\Finder\Expression\bool" namespace="Symfony\Component\Finder\Expression" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="create" start="62" end="78" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$expr"/>
+      <return type="object">
+        <type full="Symfony\Component\Finder\Expression\Regex" namespace="Symfony\Component\Finder\Expression" name="Regex"/>
+      </return>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="expr" byreference="false" type="{unknown}"/>
+  </method>
+  <constructor name="__construct" start="85" end="94" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$pattern"/>
+      <param type="string" variable="$options"/>
+      <param type="string" variable="$delimiter"/>
+    </docblock>
+    <parameter name="pattern" byreference="false" type="{unknown}"/>
+    <parameter name="options" byreference="false" type="string" default="''"/>
+    <parameter name="delimiter" byreference="false" type="{unknown}" default="" constant="null"/>
+  </constructor>
+  <method name="__toString" start="99" end="102" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="render" start="107" end="113" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="renderPattern" start="118" end="125" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="isCaseSensitive" start="130" end="133" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="getType" start="138" end="141" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="prepend" start="146" end="151" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="expr" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="append" start="156" end="161" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="expr" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasOption" start="168" end="171" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$option"/>
+      <return type="object">
+        <type full="Symfony\Component\Finder\Expression\bool" namespace="Symfony\Component\Finder\Expression" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="option" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addOption" start="178" end="185" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$option"/>
+      <return type="object">
+        <type full="Symfony\Component\Finder\Expression\Regex" namespace="Symfony\Component\Finder\Expression" name="Regex"/>
+      </return>
+    </docblock>
+    <parameter name="option" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="removeOption" start="192" end="197" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$option"/>
+      <return type="object">
+        <type full="Symfony\Component\Finder\Expression\Regex" namespace="Symfony\Component\Finder\Expression" name="Regex"/>
+      </return>
+    </docblock>
+    <parameter name="option" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setStartFlag" start="204" end="209" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$startFlag">
+        <type full="Symfony\Component\Finder\Expression\bool" namespace="Symfony\Component\Finder\Expression" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\Finder\Expression\Regex" namespace="Symfony\Component\Finder\Expression" name="Regex"/>
+      </return>
+    </docblock>
+    <parameter name="startFlag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasStartFlag" start="214" end="217" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="Symfony\Component\Finder\Expression\bool" namespace="Symfony\Component\Finder\Expression" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setEndFlag" start="224" end="229" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$endFlag">
+        <type full="Symfony\Component\Finder\Expression\bool" namespace="Symfony\Component\Finder\Expression" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\Finder\Expression\Regex" namespace="Symfony\Component\Finder\Expression" name="Regex"/>
+      </return>
+    </docblock>
+    <parameter name="endFlag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasEndFlag" start="234" end="237" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="Symfony\Component\Finder\Expression\bool" namespace="Symfony\Component\Finder\Expression" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setStartJoker" start="244" end="249" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$startJoker">
+        <type full="Symfony\Component\Finder\Expression\bool" namespace="Symfony\Component\Finder\Expression" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\Finder\Expression\Regex" namespace="Symfony\Component\Finder\Expression" name="Regex"/>
+      </return>
+    </docblock>
+    <parameter name="startJoker" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasStartJoker" start="254" end="257" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="Symfony\Component\Finder\Expression\bool" namespace="Symfony\Component\Finder\Expression" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setEndJoker" start="264" end="269" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$endJoker">
+        <type full="Symfony\Component\Finder\Expression\bool" namespace="Symfony\Component\Finder\Expression" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\Finder\Expression\Regex" namespace="Symfony\Component\Finder\Expression" name="Regex"/>
+      </return>
+    </docblock>
+    <parameter name="endJoker" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasEndJoker" start="274" end="277" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="Symfony\Component\Finder\Expression\bool" namespace="Symfony\Component\Finder\Expression" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="replaceJokers" start="284" end="296" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="array" variable="$replacement"/>
+      <return type="object">
+        <type full="Symfony\Component\Finder\Expression\Regex" namespace="Symfony\Component\Finder\Expression" name="Regex"/>
+      </return>
+    </docblock>
+    <parameter name="replacement" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="parsePattern" start="301" end="320" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$pattern"/>
+    </docblock>
+    <parameter name="pattern" byreference="false" type="{unknown}"/>
+  </method>
+</class>

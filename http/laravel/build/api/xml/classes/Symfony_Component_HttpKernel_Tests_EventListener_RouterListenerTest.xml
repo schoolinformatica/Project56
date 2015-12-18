@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\Tests\EventListener\RouterListenerTest" namespace="Symfony\Component\HttpKernel\Tests\EventListener" name="RouterListenerTest" abstract="false" final="false" start="21" end="161">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Tests/EventListener" file="RouterListenerTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Tests/EventListener/RouterListenerTest.php" size="6296" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="b74c9c1508c274e7d3ca10466e27b0c8b4703122" relative="vendor/symfony/http-kernel/Tests/EventListener/RouterListenerTest.php"/>
+  <extends full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+  <member name="requestStack" visibility="private" line="23"/>
+  <method name="setUp" start="25" end="28" abstract="false" final="false" static="false" visibility="protected"/>
+  <method name="testPort" start="33" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getPortData"/>
+    </docblock>
+    <parameter name="defaultHttpPort" byreference="false" type="{unknown}"/>
+    <parameter name="defaultHttpsPort" byreference="false" type="{unknown}"/>
+    <parameter name="uri" byreference="false" type="{unknown}"/>
+    <parameter name="expectedHttpPort" byreference="false" type="{unknown}"/>
+    <parameter name="expectedHttpsPort" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getPortData" start="54" end="62" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="createGetResponseEventForUri" start="69" end="76" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$uri"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Event\GetResponseEvent" namespace="Symfony\Component\HttpKernel\Event" name="GetResponseEvent"/>
+      </return>
+    </docblock>
+    <parameter name="uri" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Prevents going in to routing process" line="73"/>
+    </inline>
+  </method>
+  <method name="testInvalidMatcher" start="81" end="84" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\InvalidArgumentException"/>
+    </docblock>
+  </method>
+  <method name="testRequestMatcher" start="86" end="100" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSubRequestWithDifferentMethod" start="102" end="130" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="sub-request with another HTTP method" line="122"/>
+    </inline>
+  </method>
+  <method name="testLoggingParameter" start="135" end="152" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getLoggingParameterData"/>
+    </docblock>
+    <parameter name="parameter" byreference="false" type="{unknown}"/>
+    <parameter name="log" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getLoggingParameterData" start="154" end="160" abstract="false" final="false" static="false" visibility="public"/>
+</class>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\Controller\ControllerResolverInterface" namespace="Symfony\Component\HttpKernel\Controller" name="ControllerResolverInterface" abstract="false" final="false" start="26" end="57">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Controller" file="ControllerResolverInterface.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Controller/ControllerResolverInterface.php" size="1854" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="cfb209fad0bdd6ca537ab54ff2ebfd6fe4867232" relative="vendor/symfony/http-kernel/Controller/ControllerResolverInterface.php"/>
+  <docblock>
+    <description compact="A ControllerResolverInterface implementation knows how to determine the controller to execute based on a Request object.">It can also determine the arguments to pass to the Controller.
+
+A Controller can be any valid PHP callable.</description>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <method name="getController" start="44" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the Controller instance associated with a Request.">As several resolvers can exist for a single application, a resolver must
+return false when it is not able to determine the controller.
+
+The resolver must only throw an exception when it should be able to load
+controller but cannot because of some errors made by the developer.</description>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <return description="A PHP callable representing the Controller," type="object">or false if this resolver is not able to determine the controller<type full="Symfony\Component\HttpKernel\Controller\callable|false" namespace="Symfony\Component\HttpKernel\Controller" name="callable|false"/></return>
+      <throws description="If the controller can't be found" type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+  </method>
+  <method name="getArguments" start="56" end="56" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the arguments to pass to the controller."/>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <param description="A PHP callable" type="object" variable="$controller">
+        <type full="Symfony\Component\HttpKernel\Controller\callable" namespace="Symfony\Component\HttpKernel\Controller" name="callable"/>
+      </param>
+      <return description="An array of arguments to pass to the controller" type="array"/>
+      <throws description="When value for argument given is not provided" type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="controller" byreference="false" type="{unknown}"/>
+  </method>
+</interface>

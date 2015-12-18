@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesser" namespace="Symfony\Component\HttpFoundation\File\MimeType" name="MimeTypeGuesser" abstract="false" final="false" start="40" end="144">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/File/MimeType" file="MimeTypeGuesser.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/File/MimeType/MimeTypeGuesser.php" size="4069" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="0f36da8bf99c67d6d3c900cf276a0b7f004d695f" relative="vendor/symfony/http-foundation/File/MimeType/MimeTypeGuesser.php"/>
+  <docblock>
+    <description compact="A singleton mime type guesser.">By default, all mime type guessers provided by the framework are installed
+(if available on the current OS/PHP setup).
+
+You can register custom guessers by calling the register() method on the
+singleton instance. Custom guessers are always called before any default ones.
+
+    $guesser = MimeTypeGuesser::getInstance();
+    $guesser-&gt;register(new MyCustomMimeTypeGuesser());
+
+If you want to change the order of the default guessers, just re-register your
+preferred one as a custom one. The last registered guesser is preferred over
+previously registered ones.
+
+Re-registering a built-in guesser also allows you to configure it:
+
+    $guesser = MimeTypeGuesser::getInstance();
+    $guesser-&gt;register(new FileinfoMimeTypeGuesser('/path/to/magic/file'));</description>
+    <author value="Bernhard Schussek &lt;bschussek@gmail.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesserInterface" namespace="Symfony\Component\HttpFoundation\File\MimeType" name="MimeTypeGuesserInterface"/>
+  <member name="instance" type="{unknown}" default="" constant="null" visibility="private" line="47">
+    <docblock>
+      <description compact="The singleton instance."/>
+      <var type="object">
+        <type full="Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesser" namespace="Symfony\Component\HttpFoundation\File\MimeType" name="MimeTypeGuesser"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="guessers" type="array" default="" visibility="protected" line="54">
+    <docblock>
+      <description compact="All registered MimeTypeGuesserInterface instances."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="getInstance" start="61" end="68" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns the singleton instance."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesser" namespace="Symfony\Component\HttpFoundation\File\MimeType" name="MimeTypeGuesser"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="reset" start="73" end="76" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Resets the singleton instance."/>
+    </docblock>
+  </method>
+  <constructor name="__construct" start="81" end="90" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Registers all natively provided mime type guessers."/>
+    </docblock>
+  </constructor>
+  <method name="register" start="99" end="102" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Registers a new mime type guesser.">When guessing, this guesser is preferred over previously registered ones.</description>
+      <param type="object" variable="$guesser">
+        <type full="Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesserInterface" namespace="Symfony\Component\HttpFoundation\File\MimeType" name="MimeTypeGuesserInterface"/>
+      </param>
+    </docblock>
+    <parameter name="guesser" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesserInterface" namespace="Symfony\Component\HttpFoundation\File\MimeType" name="MimeTypeGuesserInterface"/>
+    </parameter>
+  </method>
+  <method name="guess" start="120" end="143" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Tries to guess the mime type of the given file.">The file is passed to each registered mime type guesser in reverse order
+of their registration (last registered is queried first). Once a guesser
+returns a value that is not NULL, this method terminates and returns the
+value.</description>
+      <param description="The path to the file" type="string" variable="$path"/>
+      <return description="The mime type or NULL, if none could be guessed" type="string"/>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException" namespace="Symfony\Component\HttpFoundation\File\Exception" name="FileNotFoundException"/>
+      </throws>
+      <throws type="object">
+        <type full="Symfony\Component\HttpFoundation\File\Exception\AccessDeniedException" namespace="Symfony\Component\HttpFoundation\File\Exception" name="AccessDeniedException"/>
+      </throws>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+</class>

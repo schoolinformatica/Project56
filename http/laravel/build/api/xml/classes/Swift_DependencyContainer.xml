@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_DependencyContainer" namespace="" name="Swift_DependencyContainer" abstract="false" final="false" start="16" end="373">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift" file="DependencyContainer.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/DependencyContainer.php" size="9831" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="181d7f191222462e6ab6b0ec6884cf98e0fcecba" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/DependencyContainer.php"/>
+  <docblock>
+    <description compact="Dependency Injection container."/>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <constant type="integer" name="TYPE_VALUE" value="0x0001">
+    <docblock>
+      <description compact="Constant for literal value types"/>
+    </docblock>
+  </constant>
+  <constant type="integer" name="TYPE_INSTANCE" value="0x0010">
+    <docblock>
+      <description compact="Constant for new instance types"/>
+    </docblock>
+  </constant>
+  <constant type="integer" name="TYPE_SHARED" value="0x0100">
+    <docblock>
+      <description compact="Constant for shared instance types"/>
+    </docblock>
+  </constant>
+  <constant type="integer" name="TYPE_ALIAS" value="0x1000">
+    <docblock>
+      <description compact="Constant for aliases"/>
+    </docblock>
+  </constant>
+  <member name="_instance" type="{unknown}" default="" constant="null" visibility="private" line="31">
+    <docblock>
+      <description compact="Singleton instance"/>
+    </docblock>
+  </member>
+  <member name="_store" type="array" default="" visibility="private" line="34">
+    <docblock>
+      <description compact="The data container"/>
+    </docblock>
+  </member>
+  <member name="_endPoint" visibility="private" line="37">
+    <docblock>
+      <description compact="The current endpoint in the data container"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="44" end="46" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor should not be used.">Use <link xmlns="http://xml.phpdox.net/src" value="getInstance()"/> instead.
+</description>
+    </docblock>
+  </constructor>
+  <method name="getInstance" start="53" end="60" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns a singleton of the DependencyContainer."/>
+      <return type="object">
+        <type full="Swift_DependencyContainer" namespace="" name="Swift_DependencyContainer"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="listItems" start="67" end="70" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="List the names of all items stored in the Container."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="has" start="81" end="85" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Test if an item is registered in this container with the given name."/>
+      <see value="register()"/>
+      <param type="string" variable="$itemName"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="itemName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="lookup" start="98" end="116" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Lookup the item with the given $itemName."/>
+      <see value="register()"/>
+      <param type="string" variable="$itemName"/>
+      <throws description="If the dependency is not found" type="object">
+        <type full="Swift_DependencyException" namespace="" name="Swift_DependencyException"/>
+      </throws>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="itemName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="createDependenciesFor" start="125" end="133" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create an array of arguments passed to the constructor of $itemName."/>
+      <param type="string" variable="$itemName"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="itemName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="register" start="148" end="154" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a new dependency with $itemName.">This method returns the current DependencyContainer instance because it
+requires the use of the fluid interface to set the specific details for the
+dependency.</description>
+      <see value="asNewInstanceOf(), asSharedInstanceOf(), asValue()"/>
+      <param type="string" variable="$itemName"/>
+      <return type="object">
+        <type full="Swift_DependencyContainer" namespace="" name="Swift_DependencyContainer"/>
+      </return>
+    </docblock>
+    <parameter name="itemName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="asValue" start="165" end="172" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Specify the previously registered item as a literal value.">{@link register()} must be called before this will work.</description>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Swift_DependencyContainer" namespace="" name="Swift_DependencyContainer"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="asAliasOf" start="181" end="188" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Specify the previously registered item as an alias of another item."/>
+      <param type="string" variable="$lookup"/>
+      <return type="object">
+        <type full="Swift_DependencyContainer" namespace="" name="Swift_DependencyContainer"/>
+      </return>
+    </docblock>
+    <parameter name="lookup" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="asNewInstanceOf" start="203" end="210" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Specify the previously registered item as a new instance of $className."><link value="register()"/> must be called before this will work.
+Any arguments can be set with <link xmlns="http://xml.phpdox.net/src" value="withDependencies()"/>,
+<link xmlns="http://xml.phpdox.net/src" value="addConstructorValue()"/> or <link xmlns="http://xml.phpdox.net/src" value="addConstructorLookup()"/>.
+</description>
+      <see value="withDependencies(), addConstructorValue(), addConstructorLookup()"/>
+      <param type="string" variable="$className"/>
+      <return type="object">
+        <type full="Swift_DependencyContainer" namespace="" name="Swift_DependencyContainer"/>
+      </return>
+    </docblock>
+    <parameter name="className" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="asSharedInstanceOf" start="221" end="228" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Specify the previously registered item as a shared instance of $className.">{@link register()} must be called before this will work.</description>
+      <param type="string" variable="$className"/>
+      <return type="object">
+        <type full="Swift_DependencyContainer" namespace="" name="Swift_DependencyContainer"/>
+      </return>
+    </docblock>
+    <parameter name="className" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="withDependencies" start="241" end="250" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Specify a list of injected dependencies for the previously registered item.">This method takes an array of lookup names.</description>
+      <see value="addConstructorValue(), addConstructorLookup()"/>
+      <param type="array" variable="$lookups"/>
+      <return type="object">
+        <type full="Swift_DependencyContainer" namespace="" name="Swift_DependencyContainer"/>
+      </return>
+    </docblock>
+    <parameter name="lookups" byreference="false" type="array"/>
+  </method>
+  <method name="addConstructorValue" start="262" end="271" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Specify a literal (non looked up) value for the constructor of the previously registered item."/>
+      <see value="withDependencies(), addConstructorLookup()"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Swift_DependencyContainer" namespace="" name="Swift_DependencyContainer"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addConstructorLookup" start="283" end="292" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Specify a dependency lookup for the constructor of the previously registered item."/>
+      <see value="withDependencies(), addConstructorValue()"/>
+      <param type="string" variable="$lookup"/>
+      <return type="object">
+        <type full="Swift_DependencyContainer" namespace="" name="Swift_DependencyContainer"/>
+      </return>
+    </docblock>
+    <parameter name="lookup" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_getValue" start="295" end="298" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Get the literal value with $itemName"/>
+    </docblock>
+    <parameter name="itemName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_createAlias" start="301" end="304" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Resolve an alias to another item"/>
+    </docblock>
+    <parameter name="itemName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_createNewInstance" start="307" end="317" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Create a fresh instance of $itemName"/>
+    </docblock>
+    <parameter name="itemName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_createSharedInstance" start="320" end="327" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Create and register a shared instance of $itemName"/>
+    </docblock>
+    <parameter name="itemName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_getEndPoint" start="330" end="339" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Get the current endpoint in the store"/>
+    </docblock>
+  </method>
+  <method name="_resolveArgs" start="342" end="357" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Get an argument list with dependencies resolved"/>
+    </docblock>
+    <parameter name="args" byreference="false" type="array"/>
+  </method>
+  <method name="_lookupRecursive" start="360" end="372" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Resolve a single dependency with an collections"/>
+    </docblock>
+    <parameter name="item" byreference="false" type="{unknown}"/>
+  </method>
+</class>

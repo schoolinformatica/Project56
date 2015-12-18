@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpFoundation\Session\SessionInterface" namespace="Symfony\Component\HttpFoundation\Session" name="SessionInterface" abstract="false" final="false" start="21" end="182">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/Session" file="SessionInterface.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/Session/SessionInterface.php" size="4408" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="6c4d6877fc8a1e466b753446c696b10e568eb76c" relative="vendor/symfony/http-foundation/Session/SessionInterface.php"/>
+  <docblock>
+    <description compact="Interface for the session."/>
+    <author value="Drak &lt;drak@zikula.org&gt;"/>
+  </docblock>
+  <method name="start" start="30" end="30" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Starts the session storage."/>
+      <return description="True if session started." type="object">
+        <type full="Symfony\Component\HttpFoundation\Session\bool" namespace="Symfony\Component\HttpFoundation\Session" name="bool"/>
+      </return>
+      <throws description="If session fails to start." type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="getId" start="37" end="37" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the session ID."/>
+      <return description="The session ID." type="string"/>
+    </docblock>
+  </method>
+  <method name="setId" start="44" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the session ID."/>
+      <param type="string" variable="$id"/>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getName" start="51" end="51" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the session name."/>
+      <return description="The session name." type="mixed"/>
+    </docblock>
+  </method>
+  <method name="setName" start="58" end="58" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the session name."/>
+      <param type="string" variable="$name"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="invalidate" start="73" end="73" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Invalidates the current session.">Clears all session attributes and flashes and regenerates the
+session and deletes the old session from persistence.</description>
+      <param description="Sets the cookie lifetime for the session cookie. A null value" type="int" variable="$lifetime">will leave the system settings unchanged, 0 sets the cookie
+                     to expire with browser session. Time is in seconds, and is
+                     not a Unix timestamp.</param>
+      <return description="True if session invalidated, false if error." type="object">
+        <type full="Symfony\Component\HttpFoundation\Session\bool" namespace="Symfony\Component\HttpFoundation\Session" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="lifetime" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="migrate" start="87" end="87" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Migrates the current session to a new session id while maintaining all session attributes."/>
+      <param description="Whether to delete the old session or leave it to garbage collection." type="object" variable="$destroy">
+        <type full="Symfony\Component\HttpFoundation\Session\bool" namespace="Symfony\Component\HttpFoundation\Session" name="bool"/>
+      </param>
+      <param description="Sets the cookie lifetime for the session cookie. A null value" type="int" variable="$lifetime">will leave the system settings unchanged, 0 sets the cookie
+                      to expire with browser session. Time is in seconds, and is
+                      not a Unix timestamp.</param>
+      <return description="True if session migrated, false if error." type="object">
+        <type full="Symfony\Component\HttpFoundation\Session\bool" namespace="Symfony\Component\HttpFoundation\Session" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="destroy" byreference="false" type="boolean" default="false"/>
+    <parameter name="lifetime" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="save" start="96" end="96" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Force the session to be saved and closed.">This method is generally not required for real sessions as
+the session will be automatically saved at the end of
+code execution.</description>
+    </docblock>
+  </method>
+  <method name="has" start="105" end="105" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks if an attribute is defined."/>
+      <param description="The attribute name" type="string" variable="$name"/>
+      <return description="true if the attribute is defined, false otherwise" type="object">
+        <type full="Symfony\Component\HttpFoundation\Session\bool" namespace="Symfony\Component\HttpFoundation\Session" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get" start="115" end="115" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an attribute."/>
+      <param description="The attribute name" type="string" variable="$name"/>
+      <param description="The default value if not found." type="mixed" variable="$default"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="set" start="123" end="123" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets an attribute."/>
+      <param type="string" variable="$name"/>
+      <param type="mixed" variable="$value"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="all" start="130" end="130" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns attributes."/>
+      <return description="Attributes" type="array"/>
+    </docblock>
+  </method>
+  <method name="replace" start="137" end="137" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets attributes."/>
+      <param description="Attributes" type="array" variable="$attributes"/>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array"/>
+  </method>
+  <method name="remove" start="146" end="146" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Removes an attribute."/>
+      <param type="string" variable="$name"/>
+      <return description="The removed value or null when it does not exist" type="mixed"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="clear" start="151" end="151" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Clears all attributes."/>
+    </docblock>
+  </method>
+  <method name="isStarted" start="158" end="158" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks if the session was started."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Session\bool" namespace="Symfony\Component\HttpFoundation\Session" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="registerBag" start="165" end="165" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Registers a SessionBagInterface with the session."/>
+      <param type="object" variable="$bag">
+        <type full="Symfony\Component\HttpFoundation\Session\SessionBagInterface" namespace="Symfony\Component\HttpFoundation\Session" name="SessionBagInterface"/>
+      </param>
+    </docblock>
+    <parameter name="bag" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Session\SessionBagInterface" namespace="Symfony\Component\HttpFoundation\Session" name="SessionBagInterface"/>
+    </parameter>
+  </method>
+  <method name="getBag" start="174" end="174" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets a bag instance by name."/>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Session\SessionBagInterface" namespace="Symfony\Component\HttpFoundation\Session" name="SessionBagInterface"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getMetadataBag" start="181" end="181" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets session meta."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag" namespace="Symfony\Component\HttpFoundation\Session\Storage" name="MetadataBag"/>
+      </return>
+    </docblock>
+  </method>
+</interface>

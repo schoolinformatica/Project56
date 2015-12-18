@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate" namespace="Symfony\Component\HttpKernel\CacheWarmer" name="CacheWarmerAggregate" abstract="false" final="false" start="19" end="74">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/CacheWarmer" file="CacheWarmerAggregate.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/CacheWarmer/CacheWarmerAggregate.php" size="1611" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="8220f6ab022e53139fd69b124a669003f7db6c3e" relative="vendor/symfony/http-kernel/CacheWarmer/CacheWarmerAggregate.php"/>
+  <docblock>
+    <description compact="Aggregates several cache warmers into a single one."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerInterface" namespace="Symfony\Component\HttpKernel\CacheWarmer" name="CacheWarmerInterface"/>
+  <member name="warmers" type="array" default="" visibility="protected" line="21"/>
+  <member name="optionalsEnabled" type="boolean" default="false" visibility="protected" line="22"/>
+  <constructor name="__construct" start="24" end="29" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="warmers" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="enableOptionalWarmers" start="31" end="34" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="warmUp" start="41" end="50" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Warms up the cache."/>
+      <param description="The cache directory" type="string" variable="$cacheDir"/>
+    </docblock>
+    <parameter name="cacheDir" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isOptional" start="57" end="60" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks whether this warmer is optional or not."/>
+      <return description="always false" type="object">
+        <type full="Symfony\Component\HttpKernel\CacheWarmer\bool" namespace="Symfony\Component\HttpKernel\CacheWarmer" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setWarmers" start="62" end="68" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="warmers" byreference="false" type="array"/>
+  </method>
+  <method name="add" start="70" end="73" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="warmer" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerInterface" namespace="Symfony\Component\HttpKernel\CacheWarmer" name="CacheWarmerInterface"/>
+    </parameter>
+  </method>
+</class>

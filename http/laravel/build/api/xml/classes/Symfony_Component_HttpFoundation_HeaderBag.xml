@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpFoundation\HeaderBag" namespace="Symfony\Component\HttpFoundation" name="HeaderBag" abstract="false" final="false" start="19" end="324">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation" file="HeaderBag.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/HeaderBag.php" size="8640" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="4c169e5ff650fa1d8642a5e6c466a102fe98e37a" relative="vendor/symfony/http-foundation/HeaderBag.php"/>
+  <docblock>
+    <description compact="HeaderBag is a container for HTTP headers."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <implements full="IteratorAggregate" namespace="" name="IteratorAggregate"/>
+  <implements full="Countable" namespace="" name="Countable"/>
+  <member name="headers" type="array" default="" visibility="protected" line="21"/>
+  <member name="cacheControl" type="array" default="" visibility="protected" line="22"/>
+  <constructor name="__construct" start="29" end="34" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="An array of HTTP headers" type="array" variable="$headers"/>
+    </docblock>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="__toString" start="41" end="58" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the headers as a string."/>
+      <return description="The headers" type="string"/>
+    </docblock>
+  </method>
+  <method name="all" start="65" end="68" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the headers."/>
+      <return description="An array of headers" type="array"/>
+    </docblock>
+  </method>
+  <method name="keys" start="75" end="78" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the parameter keys."/>
+      <return description="An array of parameter keys" type="array"/>
+    </docblock>
+  </method>
+  <method name="replace" start="85" end="89" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Replaces the current HTTP headers by a new set."/>
+      <param description="An array of HTTP headers" type="array" variable="$headers"/>
+    </docblock>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="add" start="96" end="101" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds new headers the current HTTP headers set."/>
+      <param description="An array of HTTP headers" type="array" variable="$headers"/>
+    </docblock>
+    <parameter name="headers" byreference="false" type="array"/>
+  </method>
+  <method name="get" start="112" end="129" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a header value by name."/>
+      <param description="The header name" type="string" variable="$key"/>
+      <param description="The default value" type="mixed" variable="$default"/>
+      <param description="Whether to return the first value or all header values" type="object" variable="$first">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </param>
+      <return description="The first header value if $first is true, an array of values otherwise" type="object">
+        <type full="Symfony\Component\HttpFoundation\string|array" namespace="Symfony\Component\HttpFoundation" name="string|array"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="first" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="set" start="138" end="153" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets a header by name."/>
+      <param description="The key" type="string" variable="$key"/>
+      <param description="The value or an array of values" type="object" variable="$values">
+        <type full="Symfony\Component\HttpFoundation\string|array" namespace="Symfony\Component\HttpFoundation" name="string|array"/>
+      </param>
+      <param description="Whether to replace the actual value or not (true by default)" type="object" variable="$replace">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="values" byreference="false" type="{unknown}"/>
+    <parameter name="replace" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="has" start="162" end="165" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if the HTTP header is defined."/>
+      <param description="The HTTP header" type="string" variable="$key"/>
+      <return description="true if the parameter exists, false otherwise" type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="contains" start="175" end="178" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if the given HTTP header contains the given value."/>
+      <param description="The HTTP header name" type="string" variable="$key"/>
+      <param description="The HTTP value" type="string" variable="$value"/>
+      <return description="true if the value is contained in the header, false otherwise" type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="remove" start="185" end="194" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Removes a header."/>
+      <param description="The HTTP header name" type="string" variable="$key"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getDate" start="206" end="217" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the HTTP header value converted to a date."/>
+      <param description="The parameter key" type="string" variable="$key"/>
+      <param description="The default value" type="object" variable="$default">
+        <type full="\DateTime" namespace="" name="DateTime"/>
+      </param>
+      <return description="The parsed DateTime or the default value if the header does not exist" type="object">
+        <type full="Symfony\Component\HttpFoundation\null|\DateTime" namespace="Symfony\Component\HttpFoundation\null|" name="DateTime"/>
+      </return>
+      <throws description="When the HTTP header is not parseable" type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+  </method>
+  <method name="addCacheControlDirective" start="225" end="230" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a custom Cache-Control directive."/>
+      <param description="The Cache-Control directive name" type="string" variable="$key"/>
+      <param description="The Cache-Control directive value" type="mixed" variable="$value"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="hasCacheControlDirective" start="239" end="242" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if the Cache-Control directive is defined."/>
+      <param description="The Cache-Control directive" type="string" variable="$key"/>
+      <return description="true if the directive exists, false otherwise" type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getCacheControlDirective" start="251" end="254" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a Cache-Control directive value by name."/>
+      <param description="The directive name" type="string" variable="$key"/>
+      <return description="The directive value if defined, null otherwise" type="object">
+        <type full="Symfony\Component\HttpFoundation\mixed|null" namespace="Symfony\Component\HttpFoundation" name="mixed|null"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="removeCacheControlDirective" start="261" end="266" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Removes a Cache-Control directive."/>
+      <param description="The Cache-Control directive" type="string" variable="$key"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getIterator" start="273" end="276" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an iterator for headers."/>
+      <return description="An \ArrayIterator instance" type="object">
+        <type full="\ArrayIterator" namespace="" name="ArrayIterator"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="count" start="283" end="286" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the number of headers."/>
+      <return description="The number of headers" type="int"/>
+    </docblock>
+  </method>
+  <method name="getCacheControlHeader" start="288" end="305" abstract="false" final="false" static="false" visibility="protected"/>
+  <method name="parseCacheControl" start="314" end="323" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Parses a Cache-Control HTTP header."/>
+      <param description="The value of the Cache-Control HTTP header" type="string" variable="$header"/>
+      <return description="An array representing the attribute values" type="array"/>
+    </docblock>
+    <parameter name="header" byreference="false" type="{unknown}"/>
+  </method>
+</class>

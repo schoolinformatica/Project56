@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="League\Flysystem\MountManager" namespace="League\Flysystem" name="MountManager" abstract="false" final="false" start="46" end="269">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/league/flysystem/src" file="MountManager.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/league/flysystem/src/MountManager.php" size="7058" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="6efe3d0c736381f9d7bf0aa8c5fceff5ccfbc3a0" relative="vendor/league/flysystem/src/MountManager.php"/>
+  <docblock>
+    <description compact="Class MountManager.">Proxies methods to Filesystem (@see __call):</description>
+    <method value="AdapterInterface getAdapter($prefix)"/>
+    <method value="Config getConfig($prefix)"/>
+    <method value="bool has($path)"/>
+    <method value="bool write($path, $contents, array $config = [])"/>
+    <method value="bool writeStream($path, $resource, array $config = [])"/>
+    <method value="bool put($path, $contents, $config = [])"/>
+    <method value="bool putStream($path, $contents, $config = [])"/>
+    <method value="string readAndDelete($path)"/>
+    <method value="bool update($path, $contents, $config = [])"/>
+    <method value="bool updateStream($path, $resource, $config = [])"/>
+    <method value="string|false read($path)"/>
+    <method value="resource|false readStream($path)"/>
+    <method value="bool rename($path, $newpath)"/>
+    <method value="bool delete($path)"/>
+    <method value="bool deleteDir($dirname)"/>
+    <method value="bool createDir($dirname, $config = [])"/>
+    <method value="array listFiles($directory = '', $recursive = false)"/>
+    <method value="array listPaths($directory = '', $recursive = false)"/>
+    <method value="array getWithMetadata($path, array $metadata)"/>
+    <method value="string|false getMimetype($path)"/>
+    <method value="string|false getTimestamp($path)"/>
+    <method value="string|false getVisibility($path)"/>
+    <method value="int|false getSize($path);"/>
+    <method value="bool setVisibility($path, $visibility)"/>
+    <method value="array|false getMetadata($path)"/>
+    <method value="Handler get($path, Handler $handler = null)"/>
+    <method value="Filesystem flushCache()"/>
+    <method value="assertPresent($path)"/>
+    <method value="assertAbsent($path)"/>
+    <method value="Filesystem addPlugin(PluginInterface $plugin)"/>
+  </docblock>
+  <uses full="League\Flysystem\Plugin\PluggableTrait" namespace="League\Flysystem\Plugin" name="PluggableTrait" start="48" end="48"/>
+  <member name="filesystems" type="array" default="" visibility="protected" line="53">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="60" end="63" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param type="array" variable="$filesystems"/>
+    </docblock>
+    <parameter name="filesystems" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="mountFilesystems" start="72" end="79" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Mount filesystems."/>
+      <param description="[:prefix =&gt; Filesystem,]" type="array" variable="$filesystems"/>
+      <return type="object">
+        <type full="League\Flysystem\$this" namespace="League\Flysystem" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="filesystems" byreference="false" type="array"/>
+  </method>
+  <method name="mountFilesystem" start="89" end="98" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Mount filesystems."/>
+      <param type="string" variable="$prefix"/>
+      <param type="object" variable="$filesystem">
+        <type full="League\Flysystem\FilesystemInterface" namespace="League\Flysystem" name="FilesystemInterface"/>
+      </param>
+      <return type="object">
+        <type full="League\Flysystem\$this" namespace="League\Flysystem" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="prefix" byreference="false" type="{unknown}"/>
+    <parameter name="filesystem" byreference="false" type="object">
+      <type full="League\Flysystem\FilesystemInterface" namespace="League\Flysystem" name="FilesystemInterface"/>
+    </parameter>
+  </method>
+  <method name="getFilesystem" start="109" end="116" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the filesystem with the corresponding prefix."/>
+      <param type="string" variable="$prefix"/>
+      <throws type="object">
+        <type full="LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <return type="object">
+        <type full="League\Flysystem\FilesystemInterface" namespace="League\Flysystem" name="FilesystemInterface"/>
+      </return>
+    </docblock>
+    <parameter name="prefix" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="filterPrefix" start="125" end="145" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieve the prefix from an arguments array."/>
+      <param type="array" variable="$arguments"/>
+      <return description="[:prefix, :arguments]" type="array"/>
+    </docblock>
+    <parameter name="arguments" byreference="false" type="array"/>
+  </method>
+  <method name="listContents" start="153" end="165" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$directory"/>
+      <param type="object" variable="$recursive">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="directory" byreference="false" type="string" default="''"/>
+    <parameter name="recursive" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="__call" start="175" end="180" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Call forwarder."/>
+      <param type="string" variable="$method"/>
+      <param type="array" variable="$arguments"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="copy" start="188" end="209" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param variable="$from"/>
+      <param variable="$to"/>
+      <return type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="from" byreference="false" type="{unknown}"/>
+    <parameter name="to" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="listWith" start="218" end="225" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="List with plugin adapter."/>
+      <param type="array" variable="$keys"/>
+      <param type="string" variable="$directory"/>
+      <param type="object" variable="$recursive">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="keys" byreference="false" type="array" default=""/>
+    <parameter name="directory" byreference="false" type="string" default="''"/>
+    <parameter name="recursive" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="move" start="235" end="244" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Move a file."/>
+      <param variable="$from"/>
+      <param variable="$to"/>
+      <return type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="from" byreference="false" type="{unknown}"/>
+    <parameter name="to" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="invokePluginOnFilesystem" start="255" end="268" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Invoke a plugin on a filesystem mounted on a given prefix."/>
+      <param variable="$method"/>
+      <param variable="$arguments"/>
+      <param variable="$prefix"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}"/>
+    <parameter name="prefix" byreference="false" type="{unknown}"/>
+  </method>
+</class>

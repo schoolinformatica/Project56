@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Queue\Queue" namespace="Illuminate\Queue" name="Queue" abstract="true" final="false" start="14" end="226">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Queue" file="Queue.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Queue/Queue.php" size="5443" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="ac93cb2fc671f6d4ef037e2d146349111892e321" relative="vendor/laravel/framework/src/Illuminate/Queue/Queue.php"/>
+  <member name="container" visibility="protected" line="21">
+    <docblock>
+      <description compact="The IoC container instance."/>
+      <var type="object">
+        <type full="\Illuminate\Container\Container" namespace="\Illuminate\Container" name="Container"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="pushOn" start="31" end="34" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Push a new job onto the queue."/>
+      <param type="string" variable="$queue"/>
+      <param type="string" variable="$job"/>
+      <param type="mixed" variable="$data"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="queue" byreference="false" type="{unknown}"/>
+    <parameter name="job" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="string" default="''"/>
+  </method>
+  <method name="laterOn" start="45" end="48" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Push a new job onto the queue after a delay."/>
+      <param type="string" variable="$queue"/>
+      <param type="object" variable="$delay">
+        <type full="\DateTime|int" namespace="" name="DateTime|int"/>
+      </param>
+      <param type="string" variable="$job"/>
+      <param type="mixed" variable="$data"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="queue" byreference="false" type="{unknown}"/>
+    <parameter name="delay" byreference="false" type="{unknown}"/>
+    <parameter name="job" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="string" default="''"/>
+  </method>
+  <method name="marshal" start="57" end="60" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Marshal a push queue request and fire the job."/>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+      <deprecated value="since version 5.1."/>
+    </docblock>
+  </method>
+  <method name="bulk" start="70" end="75" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Push an array of jobs onto the queue."/>
+      <param type="array" variable="$jobs"/>
+      <param type="mixed" variable="$data"/>
+      <param type="string" variable="$queue"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="jobs" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="string" default="''"/>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="createPayload" start="85" end="97" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create a payload string from the given job and data."/>
+      <param type="string" variable="$job"/>
+      <param type="mixed" variable="$data"/>
+      <param type="string" variable="$queue"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="job" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="string" default="''"/>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="createPlainPayload" start="106" end="109" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create a typical, &quot;plain&quot; queue payload array."/>
+      <param type="string" variable="$job"/>
+      <param type="mixed" variable="$data"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="job" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="prepareQueueableEntities" start="117" end="134" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Prepare any queueable entities for storage in the queue."/>
+      <param type="mixed" variable="$data"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="prepareQueueableEntity" start="142" end="149" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Prepare a single queueable entity for storage on the queue."/>
+      <param type="mixed" variable="$value"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="createClosurePayload" start="158" end="163" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create a payload string for the given Closure job."/>
+      <param type="object" variable="$job">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <param type="mixed" variable="$data"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="job" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setMeta" start="173" end="178" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Set additional meta on a payload string."/>
+      <param type="string" variable="$payload"/>
+      <param type="string" variable="$key"/>
+      <param type="string" variable="$value"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="payload" byreference="false" type="{unknown}"/>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getSeconds" start="186" end="193" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Calculate the number of seconds with the given delay."/>
+      <param type="object" variable="$delay">
+        <type full="\DateTime|int" namespace="" name="DateTime|int"/>
+      </param>
+      <return type="int"/>
+    </docblock>
+    <parameter name="delay" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getTime" start="200" end="203" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the current UNIX timestamp."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="setContainer" start="211" end="214" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the IoC container instance."/>
+      <param type="object" variable="$container">
+        <type full="\Illuminate\Container\Container" namespace="\Illuminate\Container" name="Container"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="container" byreference="false" type="object">
+      <type full="Illuminate\Container\Container" namespace="Illuminate\Container" name="Container"/>
+    </parameter>
+  </method>
+  <method name="setEncrypter" start="222" end="225" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the encrypter instance."/>
+      <param type="object" variable="$crypt">
+        <type full="\Illuminate\Contracts\Encryption\Encrypter" namespace="\Illuminate\Contracts\Encryption" name="Encrypter"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="crypt" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Encryption\Encrypter" namespace="Illuminate\Contracts\Encryption" name="Encrypter"/>
+    </parameter>
+  </method>
+</class>

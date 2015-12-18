@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\Command\ThrowUpCommand" namespace="Psy\Command" name="ThrowUpCommand" abstract="false" final="false" start="24" end="87">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Command" file="ThrowUpCommand.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Command/ThrowUpCommand.php" size="2185" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="1c1363f734c80989223dc701e38a9a99fdc81030" relative="vendor/psy/psysh/src/Psy/Command/ThrowUpCommand.php"/>
+  <docblock>
+    <description compact="Throw an exception out of the Psy Shell."/>
+  </docblock>
+  <extends full="Psy\Command\Command" namespace="Psy\Command" name="Command"/>
+  <implements full="Psy\ContextAware" namespace="Psy" name="ContextAware"/>
+  <member name="context" visibility="protected" line="31">
+    <docblock>
+      <description compact="Context instance (for ContextAware interface)."/>
+      <var type="object">
+        <type full="Psy\Context" namespace="Psy" name="Context"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="setContext" start="38" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="ContextAware interface."/>
+      <param type="object" variable="$context">
+        <type full="Psy\Context" namespace="Psy" name="Context"/>
+      </param>
+    </docblock>
+    <parameter name="context" byreference="false" type="object">
+      <type full="Psy\Context" namespace="Psy" name="Context"/>
+    </parameter>
+  </method>
+  <method name="configure" start="46" end="65" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="execute" start="73" end="86" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+      <throws description="if there is no exception to throw." type="object">
+        <type full="Psy\Command\InvalidArgumentException" namespace="Psy\Command" name="InvalidArgumentException"/>
+      </throws>
+      <throws description="because what else do you expect it to do?" type="object">
+        <type full="Psy\Exception\ThrowUpException" namespace="Psy\Exception" name="ThrowUpException"/>
+      </throws>
+    </docblock>
+    <parameter name="input" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputInterface" namespace="Symfony\Component\Console\Input" name="InputInterface"/>
+    </parameter>
+    <parameter name="output" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+    </parameter>
+  </method>
+</class>

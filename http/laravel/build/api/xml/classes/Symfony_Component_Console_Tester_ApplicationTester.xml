@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Console\Tester\ApplicationTester" namespace="Symfony\Component\Console\Tester" name="ApplicationTester" abstract="false" final="false" start="30" end="128">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Tester" file="ApplicationTester.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Tester/ApplicationTester.php" size="3419" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="52dcc263ba31e0c1bc19278122afa1596d254708" relative="vendor/symfony/console/Tester/ApplicationTester.php"/>
+  <docblock>
+    <description compact="Eases the testing of console applications.">When testing an application, don't forget to disable the auto exit flag:
+
+    $application = new Application();
+    $application-&gt;setAutoExit(false);</description>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <member name="application" visibility="private" line="32"/>
+  <member name="input" visibility="private" line="33"/>
+  <member name="output" visibility="private" line="34"/>
+  <member name="statusCode" visibility="private" line="35"/>
+  <constructor name="__construct" start="42" end="45" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="An Application instance to test." type="object" variable="$application">
+        <type full="Symfony\Component\Console\Application" namespace="Symfony\Component\Console" name="Application"/>
+      </param>
+    </docblock>
+    <parameter name="application" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Application" namespace="Symfony\Component\Console" name="Application"/>
+    </parameter>
+  </constructor>
+  <method name="run" start="61" end="77" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Executes the application.">Available options:
+
+ * interactive: Sets the input interactive flag
+ * decorated:   Sets the output decorated flag
+ * verbosity:   Sets the output verbosity flag</description>
+      <param description="An array of arguments and options" type="array" variable="$input"/>
+      <param description="An array of options" type="array" variable="$options"/>
+      <return description="The command exit code" type="int"/>
+    </docblock>
+    <parameter name="input" byreference="false" type="array"/>
+    <parameter name="options" byreference="false" type="array" default=""/>
+  </method>
+  <method name="getDisplay" start="86" end="97" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the display returned by the last execution of the application."/>
+      <param description="Whether to normalize end of lines to \n or not" type="object" variable="$normalize">
+        <type full="Symfony\Component\Console\Tester\bool" namespace="Symfony\Component\Console\Tester" name="bool"/>
+      </param>
+      <return description="The display" type="string"/>
+    </docblock>
+    <parameter name="normalize" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="getInput" start="104" end="107" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the input instance used by the last execution of the application."/>
+      <return description="The current input instance" type="object">
+        <type full="Symfony\Component\Console\Input\InputInterface" namespace="Symfony\Component\Console\Input" name="InputInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getOutput" start="114" end="117" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the output instance used by the last execution of the application."/>
+      <return description="The current output instance" type="object">
+        <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getStatusCode" start="124" end="127" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the status code returned by the last execution of the application."/>
+      <return description="The status code" type="int"/>
+    </docblock>
+  </method>
+</class>

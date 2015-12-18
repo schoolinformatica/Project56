@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\EventDispatcher\Tests\DependencyInjection\RegisterListenersPassTest" namespace="Symfony\Component\EventDispatcher\Tests\DependencyInjection" name="RegisterListenersPassTest" abstract="false" final="false" start="17" end="193">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/event-dispatcher/Tests/DependencyInjection" file="RegisterListenersPassTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/event-dispatcher/Tests/DependencyInjection/RegisterListenersPassTest.php" size="7565" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="ef4e95a623e1880d0431aecc1d518750106d2fc6" relative="vendor/symfony/event-dispatcher/Tests/DependencyInjection/RegisterListenersPassTest.php"/>
+  <extends full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+  <method name="testEventSubscriberWithoutInterface" start="25" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Tests that event subscribers not implementing EventSubscriberInterface trigger an exception."/>
+      <expectedexception value="\InvalidArgumentException"/>
+    </docblock>
+    <inline>
+      <comment value="one service, not implementing any interface" line="27"/>
+      <comment value="We don't test kernel.event_listener here" line="48"/>
+    </inline>
+  </method>
+  <method name="testValidEventSubscriber" start="61" end="98" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="We don't test kernel.event_listener here" line="83"/>
+    </inline>
+  </method>
+  <method name="testPrivateEventListener" start="104" end="112" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\InvalidArgumentException"/>
+      <expectedexceptionmessage value="The service &quot;foo&quot; must be public as event listeners are lazy-loaded."/>
+    </docblock>
+  </method>
+  <method name="testPrivateEventSubscriber" start="118" end="126" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\InvalidArgumentException"/>
+      <expectedexceptionmessage value="The service &quot;foo&quot; must be public as event subscribers are lazy-loaded."/>
+    </docblock>
+  </method>
+  <method name="testAbstractEventListener" start="132" end="140" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\InvalidArgumentException"/>
+      <expectedexceptionmessage value="The service &quot;foo&quot; must not be abstract as event listeners are lazy-loaded."/>
+    </docblock>
+  </method>
+  <method name="testAbstractEventSubscriber" start="146" end="154" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\InvalidArgumentException"/>
+      <expectedexceptionmessage value="The service &quot;foo&quot; must not be abstract as event subscribers are lazy-loaded."/>
+    </docblock>
+  </method>
+  <method name="testEventSubscriberResolvableClassName" start="156" end="178" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testEventSubscriberUnresolvableClassName" start="184" end="192" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\InvalidArgumentException"/>
+      <expectedexceptionmessage value="You have requested a non-existent parameter &quot;subscriber.class&quot;"/>
+    </docblock>
+  </method>
+</class>

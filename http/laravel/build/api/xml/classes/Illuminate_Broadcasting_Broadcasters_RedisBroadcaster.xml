@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Broadcasting\Broadcasters\RedisBroadcaster" namespace="Illuminate\Broadcasting\Broadcasters" name="RedisBroadcaster" abstract="false" final="false" start="8" end="50">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Broadcasting/Broadcasters" file="RedisBroadcaster.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Broadcasting/Broadcasters/RedisBroadcaster.php" size="1173" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="6acd4f43d4a7d0603a0a7a5f9d2a6a9970b73ca7" relative="vendor/laravel/framework/src/Illuminate/Broadcasting/Broadcasters/RedisBroadcaster.php"/>
+  <implements full="Illuminate\Contracts\Broadcasting\Broadcaster" namespace="Illuminate\Contracts\Broadcasting" name="Broadcaster"/>
+  <member name="redis" visibility="protected" line="15">
+    <docblock>
+      <description compact="The Redis instance."/>
+      <var type="object">
+        <type full="\Illuminate\Contracts\Redis\Database" namespace="\Illuminate\Contracts\Redis" name="Database"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="connection" visibility="protected" line="22">
+    <docblock>
+      <description compact="The Redis connection to use for broadcasting."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="31" end="35" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new broadcaster instance."/>
+      <param type="object" variable="$redis">
+        <type full="\Illuminate\Contracts\Redis\Database" namespace="\Illuminate\Contracts\Redis" name="Database"/>
+      </param>
+      <param type="string" variable="$connection"/>
+      <return type="object">
+        <type full="Illuminate\Broadcasting\Broadcasters\void" namespace="Illuminate\Broadcasting\Broadcasters" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="redis" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Redis\Database" namespace="Illuminate\Contracts\Redis" name="Database"/>
+    </parameter>
+    <parameter name="connection" byreference="false" type="{unknown}" default="" constant="null"/>
+  </constructor>
+  <method name="broadcast" start="40" end="49" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="channels" byreference="false" type="array"/>
+    <parameter name="event" byreference="false" type="{unknown}"/>
+    <parameter name="payload" byreference="false" type="array" default=""/>
+  </method>
+</class>

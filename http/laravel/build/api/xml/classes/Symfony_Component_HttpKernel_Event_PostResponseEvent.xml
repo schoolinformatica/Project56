@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\Event\PostResponseEvent" namespace="Symfony\Component\HttpKernel\Event" name="PostResponseEvent" abstract="false" final="false" start="24" end="73">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Event" file="PostResponseEvent.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Event/PostResponseEvent.php" size="1583" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="27b8f09ae6aaaaf7a5fccd300e86720d419fc528" relative="vendor/symfony/http-kernel/Event/PostResponseEvent.php"/>
+  <docblock>
+    <description compact="Allows to execute logic after a response was sent."/>
+    <author value="Jordi Boggiano &lt;j.boggiano@seld.be&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\EventDispatcher\Event" namespace="Symfony\Component\EventDispatcher" name="Event"/>
+  <member name="kernel" visibility="private" line="31">
+    <docblock>
+      <description compact="The kernel in which this event was thrown."/>
+      <var type="object">
+        <type full="Symfony\Component\HttpKernel\HttpKernelInterface" namespace="Symfony\Component\HttpKernel" name="HttpKernelInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="request" visibility="private" line="33"/>
+  <member name="response" visibility="private" line="35"/>
+  <constructor name="__construct" start="37" end="42" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="kernel" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\HttpKernelInterface" namespace="Symfony\Component\HttpKernel" name="HttpKernelInterface"/>
+    </parameter>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="response" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+    </parameter>
+  </constructor>
+  <method name="getKernel" start="49" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the kernel in which this event was thrown."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\HttpKernelInterface" namespace="Symfony\Component\HttpKernel" name="HttpKernelInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getRequest" start="59" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the request for which this event was thrown."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getResponse" start="69" end="72" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the response for which this event was thrown."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+  </method>
+</class>

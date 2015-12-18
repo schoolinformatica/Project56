@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpSpec\Locator\ResourceManager" namespace="PhpSpec\Locator" name="ResourceManager" abstract="false" final="false" start="18" end="101">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Locator" file="ResourceManager.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Locator/ResourceManager.php" size="2597" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="4280c36d3a68cdca2727e272a2a7b9e28ccaa556" relative="vendor/phpspec/phpspec/src/PhpSpec/Locator/ResourceManager.php"/>
+  <implements full="PhpSpec\Locator\ResourceManagerInterface" namespace="PhpSpec\Locator" name="ResourceManagerInterface"/>
+  <member name="locators" type="array" default="" visibility="private" line="23">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="PhpSpec\Locator\ResourceLocatorInterface" namespace="PhpSpec\Locator" name="ResourceLocatorInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="registerLocator" start="28" end="35" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$locator">
+        <type full="PhpSpec\Locator\ResourceLocatorInterface" namespace="PhpSpec\Locator" name="ResourceLocatorInterface"/>
+      </param>
+    </docblock>
+    <parameter name="locator" byreference="false" type="object">
+      <type full="PhpSpec\Locator\ResourceLocatorInterface" namespace="PhpSpec\Locator" name="ResourceLocatorInterface"/>
+    </parameter>
+  </method>
+  <method name="locateResources" start="42" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$query"/>
+      <return type="array" of="object">
+        <type full="PhpSpec\Locator\ResourceInterface" namespace="PhpSpec\Locator" name="ResourceInterface"/>
+      </return>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="createResource" start="68" end="82" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$classname"/>
+      <return type="object">
+        <type full="PhpSpec\Locator\ResourceInterface" namespace="PhpSpec\Locator" name="ResourceInterface"/>
+      </return>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="classname" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="removeDuplicateResources" start="89" end="100" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="array" variable="$resources"/>
+      <return type="array" of="object">
+        <type full="PhpSpec\Locator\ResourceInterface" namespace="PhpSpec\Locator" name="ResourceInterface"/>
+      </return>
+    </docblock>
+    <parameter name="resources" byreference="false" type="array"/>
+  </method>
+</class>

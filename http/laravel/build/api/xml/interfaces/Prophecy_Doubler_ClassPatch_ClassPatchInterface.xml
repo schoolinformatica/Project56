@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Prophecy\Doubler\ClassPatch\ClassPatchInterface" namespace="Prophecy\Doubler\ClassPatch" name="ClassPatchInterface" abstract="false" final="false" start="23" end="48">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Doubler/ClassPatch" file="ClassPatchInterface.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Doubler/ClassPatch/ClassPatchInterface.php" size="1132" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="9b08b67092447ef51051414ca11fdbe72add51a1" relative="vendor/phpspec/prophecy/src/Prophecy/Doubler/ClassPatch/ClassPatchInterface.php"/>
+  <docblock>
+    <description compact="Class patch interface.">Class patches extend doubles functionality or help
+Prophecy to avoid some internal PHP bugs.</description>
+    <author value="Konstantin Kudryashov &lt;ever.zet@gmail.com&gt;"/>
+  </docblock>
+  <method name="supports" start="32" end="32" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks if patch supports specific class node."/>
+      <param type="object" variable="$node">
+        <type full="Prophecy\Doubler\Generator\Node\ClassNode" namespace="Prophecy\Doubler\Generator\Node" name="ClassNode"/>
+      </param>
+      <return type="object">
+        <type full="Prophecy\Doubler\ClassPatch\bool" namespace="Prophecy\Doubler\ClassPatch" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="Prophecy\Doubler\Generator\Node\ClassNode" namespace="Prophecy\Doubler\Generator\Node" name="ClassNode"/>
+    </parameter>
+  </method>
+  <method name="apply" start="40" end="40" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Applies patch to the specific class node."/>
+      <param type="object" variable="$node">
+        <type full="Prophecy\Doubler\Generator\Node\ClassNode" namespace="Prophecy\Doubler\Generator\Node" name="ClassNode"/>
+      </param>
+      <return type="object">
+        <type full="Prophecy\Doubler\ClassPatch\void" namespace="Prophecy\Doubler\ClassPatch" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="Prophecy\Doubler\Generator\Node\ClassNode" namespace="Prophecy\Doubler\Generator\Node" name="ClassNode"/>
+    </parameter>
+  </method>
+  <method name="getPriority" start="47" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns patch priority, which determines when patch will be applied."/>
+      <return description="Priority number (higher - earlier)" type="int"/>
+    </docblock>
+  </method>
+</interface>

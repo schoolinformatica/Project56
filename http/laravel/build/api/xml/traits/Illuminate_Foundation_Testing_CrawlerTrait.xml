@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trait xmlns="http://xml.phpdox.net/src" full="Illuminate\Foundation\Testing\CrawlerTrait" namespace="Illuminate\Foundation\Testing" name="CrawlerTrait" abstract="false" final="false" start="8" end="519">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Testing" file="CrawlerTrait.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Testing/CrawlerTrait.php" size="13468" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="3d0b3b40a906c2b626b12a1f01d170bb7c647ce3" relative="vendor/laravel/framework/src/Illuminate/Foundation/Testing/CrawlerTrait.php"/>
+  <uses full="Illuminate\Foundation\Testing\InteractsWithPages" namespace="Illuminate\Foundation\Testing" name="InteractsWithPages" start="10" end="10"/>
+  <member name="response" visibility="protected" line="17">
+    <docblock>
+      <description compact="The last response returned by the application."/>
+      <var type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="currentUri" visibility="protected" line="24">
+    <docblock>
+      <description compact="The current URL being viewed."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="serverVariables" type="array" default="" visibility="protected" line="31">
+    <docblock>
+      <description compact="Additional server variables for the request."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="json" start="42" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Visit the given URI with a JSON request."/>
+      <param type="string" variable="$method"/>
+      <param type="string" variable="$uri"/>
+      <param type="array" variable="$data"/>
+      <param type="array" variable="$headers"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Testing\$this" namespace="Illuminate\Foundation\Testing" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="uri" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="get" start="66" end="73" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Visit the given URI with a GET request."/>
+      <param type="string" variable="$uri"/>
+      <param type="array" variable="$headers"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Testing\$this" namespace="Illuminate\Foundation\Testing" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="uri" byreference="false" type="{unknown}"/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="post" start="83" end="90" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Visit the given URI with a POST request."/>
+      <param type="string" variable="$uri"/>
+      <param type="array" variable="$data"/>
+      <param type="array" variable="$headers"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Testing\$this" namespace="Illuminate\Foundation\Testing" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="uri" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="put" start="100" end="107" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Visit the given URI with a PUT request."/>
+      <param type="string" variable="$uri"/>
+      <param type="array" variable="$data"/>
+      <param type="array" variable="$headers"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Testing\$this" namespace="Illuminate\Foundation\Testing" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="uri" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="patch" start="117" end="124" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Visit the given URI with a PATCH request."/>
+      <param type="string" variable="$uri"/>
+      <param type="array" variable="$data"/>
+      <param type="array" variable="$headers"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Testing\$this" namespace="Illuminate\Foundation\Testing" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="uri" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="delete" start="134" end="141" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Visit the given URI with a DELETE request."/>
+      <param type="string" variable="$uri"/>
+      <param type="array" variable="$data"/>
+      <param type="array" variable="$headers"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Testing\$this" namespace="Illuminate\Foundation\Testing" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="uri" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="handle" start="151" end="158" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Send the given request through the application.">This method allows you to fully customize the entire Request object.</description>
+      <param type="object" variable="$request">
+        <type full="\Illuminate\Http\Request" namespace="\Illuminate\Http" name="Request"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\Testing\$this" namespace="Illuminate\Foundation\Testing" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+    </parameter>
+  </method>
+  <method name="shouldReturnJson" start="166" end="169" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Assert that the response contains JSON."/>
+      <param type="object" variable="$data">
+        <type full="Illuminate\Foundation\Testing\array|null" namespace="Illuminate\Foundation\Testing" name="array|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\Testing\$this" namespace="Illuminate\Foundation\Testing" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="receiveJson" start="177" end="184" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Assert that the response contains JSON."/>
+      <param type="object" variable="$data">
+        <type full="Illuminate\Foundation\Testing\array|null" namespace="Illuminate\Foundation\Testing" name="array|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\Testing\$this|null" namespace="Illuminate\Foundation\Testing" name="$this|null"/>
+      </return>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="seeJsonEquals" start="192" end="201" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Assert that the response contains an exact JSON array."/>
+      <param type="array" variable="$data"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Testing\$this" namespace="Illuminate\Foundation\Testing" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="data" byreference="false" type="array"/>
+  </method>
+  <method name="seeJson" start="210" end="221" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Assert that the response contains JSON."/>
+      <param type="object" variable="$data">
+        <type full="Illuminate\Foundation\Testing\array|null" namespace="Illuminate\Foundation\Testing" name="array|null"/>
+      </param>
+      <param type="object" variable="$negate">
+        <type full="Illuminate\Foundation\Testing\bool" namespace="Illuminate\Foundation\Testing" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\Testing\$this" namespace="Illuminate\Foundation\Testing" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="negate" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="dontSeeJson" start="229" end="232" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Assert that the response doesn't contain JSON."/>
+      <param type="object" variable="$data">
+        <type full="Illuminate\Foundation\Testing\array|null" namespace="Illuminate\Foundation\Testing" name="array|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\Testing\$this" namespace="Illuminate\Foundation\Testing" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="seeJsonContains" start="241" end="265" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Assert that the response contains the given JSON."/>
+      <param type="array" variable="$data"/>
+      <param type="object" variable="$negate">
+        <type full="Illuminate\Foundation\Testing\bool" namespace="Illuminate\Foundation\Testing" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\Testing\$this" namespace="Illuminate\Foundation\Testing" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="data" byreference="false" type="array"/>
+    <parameter name="negate" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="formatToExpectedJson" start="274" end="287" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Format the given key and value into a JSON string for expectation checks."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="seeStatusCode" start="295" end="300" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Asserts that the status code of the response matches the given code."/>
+      <param type="int" variable="$status"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Testing\$this" namespace="Illuminate\Foundation\Testing" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="status" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="seeHeader" start="309" end="323" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Asserts that the response contains the given header and equals the optional value."/>
+      <param type="string" variable="$headerName"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Testing\$this" namespace="Illuminate\Foundation\Testing" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="headerName" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="seeCookie" start="332" end="355" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Asserts that the response contains the given cookie and equals the optional value."/>
+      <param type="string" variable="$cookieName"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Testing\$this" namespace="Illuminate\Foundation\Testing" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="cookieName" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="withServerVariables" start="363" end="368" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Define a set of server variables to be sent with the requests."/>
+      <param type="array" variable="$server"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Testing\$this" namespace="Illuminate\Foundation\Testing" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="server" byreference="false" type="array"/>
+  </method>
+  <method name="call" start="382" end="398" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Call the given URI and return the Response."/>
+      <param type="string" variable="$method"/>
+      <param type="string" variable="$uri"/>
+      <param type="array" variable="$parameters"/>
+      <param type="array" variable="$cookies"/>
+      <param type="array" variable="$files"/>
+      <param type="array" variable="$server"/>
+      <param type="string" variable="$content"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="uri" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="array" default=""/>
+    <parameter name="cookies" byreference="false" type="array" default=""/>
+    <parameter name="files" byreference="false" type="array" default=""/>
+    <parameter name="server" byreference="false" type="array" default=""/>
+    <parameter name="content" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="callSecure" start="412" end="417" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Call the given HTTPS URI and return the Response."/>
+      <param type="string" variable="$method"/>
+      <param type="string" variable="$uri"/>
+      <param type="array" variable="$parameters"/>
+      <param type="array" variable="$cookies"/>
+      <param type="array" variable="$files"/>
+      <param type="array" variable="$server"/>
+      <param type="string" variable="$content"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="uri" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="array" default=""/>
+    <parameter name="cookies" byreference="false" type="array" default=""/>
+    <parameter name="files" byreference="false" type="array" default=""/>
+    <parameter name="server" byreference="false" type="array" default=""/>
+    <parameter name="content" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="action" start="432" end="437" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Call a controller action and return the Response."/>
+      <param type="string" variable="$method"/>
+      <param type="string" variable="$action"/>
+      <param type="array" variable="$wildcards"/>
+      <param type="array" variable="$parameters"/>
+      <param type="array" variable="$cookies"/>
+      <param type="array" variable="$files"/>
+      <param type="array" variable="$server"/>
+      <param type="string" variable="$content"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="action" byreference="false" type="{unknown}"/>
+    <parameter name="wildcards" byreference="false" type="array" default=""/>
+    <parameter name="parameters" byreference="false" type="array" default=""/>
+    <parameter name="cookies" byreference="false" type="array" default=""/>
+    <parameter name="files" byreference="false" type="array" default=""/>
+    <parameter name="server" byreference="false" type="array" default=""/>
+    <parameter name="content" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="route" start="452" end="457" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Call a named route and return the Response."/>
+      <param type="string" variable="$method"/>
+      <param type="string" variable="$name"/>
+      <param type="array" variable="$routeParameters"/>
+      <param type="array" variable="$parameters"/>
+      <param type="array" variable="$cookies"/>
+      <param type="array" variable="$files"/>
+      <param type="array" variable="$server"/>
+      <param type="string" variable="$content"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="routeParameters" byreference="false" type="array" default=""/>
+    <parameter name="parameters" byreference="false" type="array" default=""/>
+    <parameter name="cookies" byreference="false" type="array" default=""/>
+    <parameter name="files" byreference="false" type="array" default=""/>
+    <parameter name="server" byreference="false" type="array" default=""/>
+    <parameter name="content" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="prepareUrlForRequest" start="465" end="476" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Turn the given URI into a fully qualified URL."/>
+      <param type="string" variable="$uri"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="uri" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="transformHeadersToServerVars" start="484" end="500" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Transform headers array to array of $_SERVER vars with HTTP_* format."/>
+      <param type="array" variable="$headers"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="headers" byreference="false" type="array"/>
+  </method>
+  <method name="dump" start="507" end="518" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Dump the content from the last response."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Testing\void" namespace="Illuminate\Foundation\Testing" name="void"/>
+      </return>
+    </docblock>
+  </method>
+</trait>

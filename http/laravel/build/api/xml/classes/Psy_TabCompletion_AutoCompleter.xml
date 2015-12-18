@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\TabCompletion\AutoCompleter" namespace="Psy\TabCompletion" name="AutoCompleter" abstract="false" final="false" start="21" end="102">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/TabCompletion" file="AutoCompleter.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/TabCompletion/AutoCompleter.php" size="2556" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="d3269cfc76623347d0289c8b50673c82b3071ee4" relative="vendor/psy/psysh/src/Psy/TabCompletion/AutoCompleter.php"/>
+  <docblock>
+    <description compact="A readline tab completion service."/>
+    <author value="Marc Garcia &lt;markcial@gmail.com&gt;"/>
+  </docblock>
+  <member name="matchers" visibility="protected" line="24">
+    <docblock>
+      <description compact="@var Matcher\AbstractMatcher[]"/>
+    </docblock>
+  </member>
+  <method name="addMatcher" start="31" end="34" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a tab completion Matcher."/>
+      <param type="object" variable="$matcher">
+        <type full="Psy\TabCompletion\Matcher\AbstractMatcher" namespace="Psy\TabCompletion\Matcher" name="AbstractMatcher"/>
+      </param>
+    </docblock>
+    <parameter name="matcher" byreference="false" type="object">
+      <type full="Psy\TabCompletion\Matcher\AbstractMatcher" namespace="Psy\TabCompletion\Matcher" name="AbstractMatcher"/>
+    </parameter>
+  </method>
+  <method name="activate" start="39" end="42" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Activate readline tab completion."/>
+    </docblock>
+  </method>
+  <method name="processCallback" start="53" end="72" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Handle readline completion."/>
+      <param description="Readline current word" type="string" variable="$input"/>
+      <param description="Current word index" type="int" variable="$index"/>
+      <param description="readline_info() data" type="array" variable="$info"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="input" byreference="false" type="{unknown}"/>
+    <parameter name="index" byreference="false" type="{unknown}"/>
+    <parameter name="info" byreference="false" type="array" default=""/>
+    <inline>
+      <comment value="remove whitespaces" line="57"/>
+    </inline>
+  </method>
+  <method name="callback" start="84" end="87" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="The readline_completion_function callback handler."/>
+      <see value="processCallback"/>
+      <param variable="$input"/>
+      <param variable="$index"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="input" byreference="false" type="{unknown}"/>
+    <parameter name="index" byreference="false" type="{unknown}"/>
+  </method>
+  <destructor name="__destruct" start="92" end="101" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remove readline callback handler on destruct."/>
+    </docblock>
+    <inline>
+      <comment value="PHP didn't implement the whole readline API when they first switched" line="94"/>
+      <comment value="to libedit. And they still haven't." line="95"/>
+      <comment value="So this is a thing to make PsySH work on 5.3.x:" line="97"/>
+    </inline>
+  </destructor>
+</class>

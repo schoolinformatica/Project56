@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Handler\TestHandler" namespace="Monolog\Handler" name="TestHandler" abstract="false" final="false" start="66" end="148">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler" file="TestHandler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler/TestHandler.php" size="4657" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="f31685cd8d160d37de6a52ffa5085d9a91c9a52e" relative="vendor/monolog/monolog/src/Monolog/Handler/TestHandler.php"/>
+  <docblock>
+    <description compact="Used for testing purposes.">It records all records and gives you access to them for verification.</description>
+    <author value="Jordi Boggiano &lt;j.boggiano@seld.be&gt;"/>
+    <method value="boolean hasEmergency($record)"/>
+    <method value="boolean hasAlert($record)"/>
+    <method value="boolean hasCritical($record)"/>
+    <method value="boolean hasError($record)"/>
+    <method value="boolean hasWarning($record)"/>
+    <method value="boolean hasNotice($record)"/>
+    <method value="boolean hasInfo($record)"/>
+    <method value="boolean hasDebug($record)"/>
+    <method value="boolean hasEmergencyRecords()"/>
+    <method value="boolean hasAlertRecords()"/>
+    <method value="boolean hasCriticalRecords()"/>
+    <method value="boolean hasErrorRecords()"/>
+    <method value="boolean hasWarningRecords()"/>
+    <method value="boolean hasNoticeRecords()"/>
+    <method value="boolean hasInfoRecords()"/>
+    <method value="boolean hasDebugRecords()"/>
+    <method value="boolean hasEmergencyThatContains($message)"/>
+    <method value="boolean hasAlertThatContains($message)"/>
+    <method value="boolean hasCriticalThatContains($message)"/>
+    <method value="boolean hasErrorThatContains($message)"/>
+    <method value="boolean hasWarningThatContains($message)"/>
+    <method value="boolean hasNoticeThatContains($message)"/>
+    <method value="boolean hasInfoThatContains($message)"/>
+    <method value="boolean hasDebugThatContains($message)"/>
+    <method value="boolean hasEmergencyThatMatches($message)"/>
+    <method value="boolean hasAlertThatMatches($message)"/>
+    <method value="boolean hasCriticalThatMatches($message)"/>
+    <method value="boolean hasErrorThatMatches($message)"/>
+    <method value="boolean hasWarningThatMatches($message)"/>
+    <method value="boolean hasNoticeThatMatches($message)"/>
+    <method value="boolean hasInfoThatMatches($message)"/>
+    <method value="boolean hasDebugThatMatches($message)"/>
+    <method value="boolean hasEmergencyThatPasses($message)"/>
+    <method value="boolean hasAlertThatPasses($message)"/>
+    <method value="boolean hasCriticalThatPasses($message)"/>
+    <method value="boolean hasErrorThatPasses($message)"/>
+    <method value="boolean hasWarningThatPasses($message)"/>
+    <method value="boolean hasNoticeThatPasses($message)"/>
+    <method value="boolean hasInfoThatPasses($message)"/>
+    <method value="boolean hasDebugThatPasses($message)"/>
+  </docblock>
+  <extends full="Monolog\Handler\AbstractProcessingHandler" namespace="Monolog\Handler" name="AbstractProcessingHandler"/>
+  <member name="records" type="array" default="" visibility="protected" line="68"/>
+  <member name="recordsByLevel" type="array" default="" visibility="protected" line="69"/>
+  <method name="getRecords" start="71" end="74" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="hasRecordRecords" start="76" end="79" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="level" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasRecord" start="81" end="90" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="record" byreference="false" type="{unknown}"/>
+    <parameter name="level" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasRecordThatContains" start="92" end="97" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="level" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasRecordThatMatches" start="99" end="104" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="regex" byreference="false" type="{unknown}"/>
+    <parameter name="level" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasRecordThatPasses" start="106" end="123" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="predicate" byreference="false" type="{unknown}"/>
+    <parameter name="level" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="write" start="128" end="132" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+  <method name="__call" start="134" end="147" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="args" byreference="false" type="{unknown}"/>
+  </method>
+</class>

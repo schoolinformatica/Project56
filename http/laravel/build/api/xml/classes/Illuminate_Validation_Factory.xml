@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Validation\Factory" namespace="Illuminate\Validation" name="Factory" abstract="false" final="false" start="11" end="241">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Validation" file="Factory.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Validation/Factory.php" size="6533" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="ba854898b17f946deb705e77a33916190c2bb0e2" relative="vendor/laravel/framework/src/Illuminate/Validation/Factory.php"/>
+  <implements full="Illuminate\Contracts\Validation\Factory" namespace="Illuminate\Contracts\Validation" name="Factory"/>
+  <member name="translator" visibility="protected" line="18">
+    <docblock>
+      <description compact="The Translator implementation."/>
+      <var type="object">
+        <type full="\Symfony\Component\Translation\TranslatorInterface" namespace="\Symfony\Component\Translation" name="TranslatorInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="verifier" visibility="protected" line="25">
+    <docblock>
+      <description compact="The Presence Verifier implementation."/>
+      <var type="object">
+        <type full="\Illuminate\Validation\PresenceVerifierInterface" namespace="\Illuminate\Validation" name="PresenceVerifierInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="container" visibility="protected" line="32">
+    <docblock>
+      <description compact="The IoC container instance."/>
+      <var type="object">
+        <type full="\Illuminate\Contracts\Container\Container" namespace="\Illuminate\Contracts\Container" name="Container"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="extensions" type="array" default="" visibility="protected" line="39">
+    <docblock>
+      <description compact="All of the custom validator extensions."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="implicitExtensions" type="array" default="" visibility="protected" line="46">
+    <docblock>
+      <description compact="All of the custom implicit validator extensions."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="replacers" type="array" default="" visibility="protected" line="53">
+    <docblock>
+      <description compact="All of the custom validator message replacers."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="fallbackMessages" type="array" default="" visibility="protected" line="60">
+    <docblock>
+      <description compact="All of the fallback messages for custom rules."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="resolver" visibility="protected" line="67">
+    <docblock>
+      <description compact="The Validator resolver instance."/>
+      <var type="object">
+        <type full="Closure" namespace="" name="Closure"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="76" end="80" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new Validator factory instance."/>
+      <param type="object" variable="$translator">
+        <type full="\Symfony\Component\Translation\TranslatorInterface" namespace="\Symfony\Component\Translation" name="TranslatorInterface"/>
+      </param>
+      <param type="object" variable="$container">
+        <type full="\Illuminate\Contracts\Container\Container" namespace="\Illuminate\Contracts\Container" name="Container"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Validation\void" namespace="Illuminate\Validation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="translator" byreference="false" type="object">
+      <type full="Symfony\Component\Translation\TranslatorInterface" namespace="Symfony\Component\Translation" name="TranslatorInterface"/>
+    </parameter>
+    <parameter name="container" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Illuminate\Contracts\Container\Container" namespace="Illuminate\Contracts\Container" name="Container"/>
+    </parameter>
+  </constructor>
+  <method name="make" start="91" end="112" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new Validator instance."/>
+      <param type="array" variable="$data"/>
+      <param type="array" variable="$rules"/>
+      <param type="array" variable="$messages"/>
+      <param type="array" variable="$customAttributes"/>
+      <return type="object">
+        <type full="\Illuminate\Validation\Validator" namespace="\Illuminate\Validation" name="Validator"/>
+      </return>
+    </docblock>
+    <parameter name="data" byreference="false" type="array"/>
+    <parameter name="rules" byreference="false" type="array"/>
+    <parameter name="messages" byreference="false" type="array" default=""/>
+    <parameter name="customAttributes" byreference="false" type="array" default=""/>
+    <inline>
+      <comment value="The presence verifier is responsible for checking the unique and exists data" line="93"/>
+      <comment value="for the validator. It is behind an interface so that multiple versions of" line="94"/>
+      <comment value="it may be written besides database. We'll inject it into the validator." line="95"/>
+      <comment value="Next we'll set the IoC container instance of the validator, which is used to" line="102"/>
+      <comment value="resolve out class based validator extensions. If it is not set then these" line="103"/>
+      <comment value="types of extensions will not be possible on these validation instances." line="104"/>
+    </inline>
+  </method>
+  <method name="addExtensions" start="120" end="134" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Add the extensions to a validator instance."/>
+      <param type="object" variable="$validator">
+        <type full="\Illuminate\Validation\Validator" namespace="\Illuminate\Validation" name="Validator"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Validation\void" namespace="Illuminate\Validation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="validator" byreference="false" type="object">
+      <type full="Illuminate\Validation\Validator" namespace="Illuminate\Validation" name="Validator"/>
+    </parameter>
+    <inline>
+      <comment value="Next, we will add the implicit extensions, which are similar to the required" line="124"/>
+      <comment value="and accepted rule in that they are run even if the attributes is not in a" line="125"/>
+      <comment value="array of data that is given to a validator instances via instantiation." line="126"/>
+    </inline>
+  </method>
+  <method name="resolve" start="145" end="152" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Resolve a new Validator instance."/>
+      <param type="array" variable="$data"/>
+      <param type="array" variable="$rules"/>
+      <param type="array" variable="$messages"/>
+      <param type="array" variable="$customAttributes"/>
+      <return type="object">
+        <type full="\Illuminate\Validation\Validator" namespace="\Illuminate\Validation" name="Validator"/>
+      </return>
+    </docblock>
+    <parameter name="data" byreference="false" type="array"/>
+    <parameter name="rules" byreference="false" type="array"/>
+    <parameter name="messages" byreference="false" type="array"/>
+    <parameter name="customAttributes" byreference="false" type="array"/>
+  </method>
+  <method name="extend" start="162" end="169" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a custom validator extension."/>
+      <param type="string" variable="$rule"/>
+      <param type="object" variable="$extension">
+        <type full="\Closure|string" namespace="" name="Closure|string"/>
+      </param>
+      <param type="string" variable="$message"/>
+      <return type="object">
+        <type full="Illuminate\Validation\void" namespace="Illuminate\Validation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="rule" byreference="false" type="{unknown}"/>
+    <parameter name="extension" byreference="false" type="{unknown}"/>
+    <parameter name="message" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="extendImplicit" start="179" end="186" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a custom implicit validator extension."/>
+      <param type="string" variable="$rule"/>
+      <param type="object" variable="$extension">
+        <type full="\Closure|string" namespace="" name="Closure|string"/>
+      </param>
+      <param type="string" variable="$message"/>
+      <return type="object">
+        <type full="Illuminate\Validation\void" namespace="Illuminate\Validation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="rule" byreference="false" type="{unknown}"/>
+    <parameter name="extension" byreference="false" type="{unknown}"/>
+    <parameter name="message" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="replacer" start="195" end="198" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a custom implicit validator message replacer."/>
+      <param type="string" variable="$rule"/>
+      <param type="object" variable="$replacer">
+        <type full="\Closure|string" namespace="" name="Closure|string"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Validation\void" namespace="Illuminate\Validation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="rule" byreference="false" type="{unknown}"/>
+    <parameter name="replacer" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="resolver" start="206" end="209" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the Validator instance resolver."/>
+      <param type="object" variable="$resolver">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Validation\void" namespace="Illuminate\Validation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="resolver" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="getTranslator" start="216" end="219" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the Translator implementation."/>
+      <return type="object">
+        <type full="\Symfony\Component\Translation\TranslatorInterface" namespace="\Symfony\Component\Translation" name="TranslatorInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getPresenceVerifier" start="226" end="229" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the Presence Verifier implementation."/>
+      <return type="object">
+        <type full="\Illuminate\Validation\PresenceVerifierInterface" namespace="\Illuminate\Validation" name="PresenceVerifierInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setPresenceVerifier" start="237" end="240" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the Presence Verifier implementation."/>
+      <param type="object" variable="$presenceVerifier">
+        <type full="\Illuminate\Validation\PresenceVerifierInterface" namespace="\Illuminate\Validation" name="PresenceVerifierInterface"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Validation\void" namespace="Illuminate\Validation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="presenceVerifier" byreference="false" type="object">
+      <type full="Illuminate\Validation\PresenceVerifierInterface" namespace="Illuminate\Validation" name="PresenceVerifierInterface"/>
+    </parameter>
+  </method>
+</class>

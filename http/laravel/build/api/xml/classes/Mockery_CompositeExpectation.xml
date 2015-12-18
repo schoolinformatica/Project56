@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Mockery\CompositeExpectation" namespace="Mockery" name="CompositeExpectation" abstract="false" final="false" start="23" end="131">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/mockery/mockery/library/Mockery" file="CompositeExpectation.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/mockery/mockery/library/Mockery/CompositeExpectation.php" size="3266" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="be783f6a98a9e8ff4025113866d1d6af50cd1b38" relative="vendor/mockery/mockery/library/Mockery/CompositeExpectation.php"/>
+  <implements full="Mockery\ExpectationInterface" namespace="Mockery" name="ExpectationInterface"/>
+  <member name="_expectations" type="array" default="" visibility="protected" line="31">
+    <docblock>
+      <description compact="Stores an array of all expectations for this composite"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="add" start="39" end="42" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add an expectation to the composite"/>
+      <param type="object" variable="$expectation">
+        <type full="\Mockery\Expectation|\Mockery\CompositeExpectation" namespace="\Mockery\Expectation|\Mockery" name="CompositeExpectation"/>
+      </param>
+      <return type="object">
+        <type full="Mockery\void" namespace="Mockery" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="expectation" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="andReturn" start="47" end="50" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="mixed" variable="..."/>
+    </docblock>
+  </method>
+  <method name="__call" start="59" end="65" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Intercept any expectation calls and direct against all expectations"/>
+      <param type="string" variable="$method"/>
+      <param type="array" variable="$args"/>
+      <return resolution="self" type="object">
+        <type full="Mockery\CompositeExpectation" namespace="Mockery" name="CompositeExpectation"/>
+      </return>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="args" byreference="false" type="array"/>
+  </method>
+  <method name="getOrderNumber" start="72" end="77" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return order number of the first expectation"/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getMock" start="84" end="89" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the parent mock of the first expectation"/>
+      <return type="object">
+        <type full="\Mockery\MockInterface" namespace="\Mockery" name="MockInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="mock" start="96" end="99" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Mockery API alias to getMock"/>
+      <return type="object">
+        <type full="\Mockery\MockInterface" namespace="\Mockery" name="MockInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="shouldReceive" start="108" end="114" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Starts a new expectation addition on the first mock which is the primary target outside of a demeter chain"/>
+      <param type="mixed" variable="..."/>
+      <return type="object">
+        <type full="\Mockery\Expectation" namespace="\Mockery" name="Expectation"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="__toString" start="121" end="130" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the string summary of this composite expectation"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+</class>

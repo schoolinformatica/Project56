@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="ClassPreloader\Parser\FileVisitor" namespace="ClassPreloader\Parser" name="FileVisitor" abstract="false" final="false" start="25" end="65">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/classpreloader/classpreloader/src/Parser" file="FileVisitor.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/classpreloader/classpreloader/src/Parser/FileVisitor.php" size="1490" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="c15ebfa8daabbb6bc2f4d0ff8064ec662ff019da" relative="vendor/classpreloader/classpreloader/src/Parser/FileVisitor.php"/>
+  <docblock>
+    <description compact="This is the file node visitor class.">This is used to replace all references to __FILE__ with the actual file.</description>
+  </docblock>
+  <extends full="ClassPreloader\Parser\AbstractNodeVisitor" namespace="ClassPreloader\Parser" name="AbstractNodeVisitor"/>
+  <member name="skip" type="boolean" default="false" visibility="protected" line="32">
+    <docblock>
+      <description compact="Should we skip the file if it contains a file constant?"/>
+      <var type="object">
+        <type full="ClassPreloader\Parser\bool" namespace="ClassPreloader\Parser" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="41" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new file visitor instance."/>
+      <param type="object" variable="$skip">
+        <type full="ClassPreloader\Parser\bool" namespace="ClassPreloader\Parser" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="ClassPreloader\Parser\void" namespace="ClassPreloader\Parser" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="skip" byreference="false" type="boolean" default="false"/>
+  </constructor>
+  <method name="enterNode" start="55" end="64" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Enter and modify the node."/>
+      <param type="object" variable="$node">
+        <type full="\PhpParser\Node" namespace="\PhpParser" name="Node"/>
+      </param>
+      <throws type="object">
+        <type full="\ClassPreloader\Exceptions\FileConstantException" namespace="\ClassPreloader\Exceptions" name="FileConstantException"/>
+      </throws>
+      <return type="object">
+        <type full="\PhpParser\Node\Scalar\String_|null" namespace="\PhpParser\Node\Scalar" name="String_|null"/>
+      </return>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+    </parameter>
+  </method>
+</class>

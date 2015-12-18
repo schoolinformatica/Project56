@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Cache\MemcachedStore" namespace="Illuminate\Cache" name="MemcachedStore" abstract="false" final="false" start="7" end="164">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Cache" file="MemcachedStore.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Cache/MemcachedStore.php" size="3385" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="b4776bd3bbf21a9a6b8094250d87096214179206" relative="vendor/laravel/framework/src/Illuminate/Cache/MemcachedStore.php"/>
+  <extends full="Illuminate\Cache\TaggableStore" namespace="Illuminate\Cache" name="TaggableStore"/>
+  <implements full="Illuminate\Contracts\Cache\Store" namespace="Illuminate\Contracts\Cache" name="Store"/>
+  <member name="memcached" visibility="protected" line="14">
+    <docblock>
+      <description compact="The Memcached instance."/>
+      <var type="object">
+        <type full="\Memcached" namespace="" name="Memcached"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="prefix" visibility="protected" line="21">
+    <docblock>
+      <description compact="A string that should be prepended to keys."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="30" end="34" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new Memcached store."/>
+      <param type="object" variable="$memcached">
+        <type full="\Memcached" namespace="" name="Memcached"/>
+      </param>
+      <param type="string" variable="$prefix"/>
+      <return type="object">
+        <type full="Illuminate\Cache\void" namespace="Illuminate\Cache" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="memcached" byreference="false" type="{unknown}"/>
+    <parameter name="prefix" byreference="false" type="string" default="''"/>
+  </constructor>
+  <method name="get" start="42" end="49" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieve an item from the cache by key."/>
+      <param type="string" variable="$key"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="put" start="59" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Store an item in the cache for a given number of minutes."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <param type="int" variable="$minutes"/>
+      <return type="object">
+        <type full="Illuminate\Cache\void" namespace="Illuminate\Cache" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="minutes" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="add" start="72" end="75" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Store an item in the cache if the key doesn't exist."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <param type="int" variable="$minutes"/>
+      <return type="object">
+        <type full="Illuminate\Cache\bool" namespace="Illuminate\Cache" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="minutes" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="increment" start="84" end="87" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Increment the value of an item in the cache."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Cache\int|bool" namespace="Illuminate\Cache" name="int|bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="integer" default="1"/>
+  </method>
+  <method name="decrement" start="96" end="99" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Decrement the value of an item in the cache."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Cache\int|bool" namespace="Illuminate\Cache" name="int|bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="integer" default="1"/>
+  </method>
+  <method name="forever" start="108" end="111" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Store an item in the cache indefinitely."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Cache\void" namespace="Illuminate\Cache" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="forget" start="119" end="122" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remove an item from the cache."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Cache\bool" namespace="Illuminate\Cache" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="flush" start="129" end="132" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remove all items from the cache."/>
+      <return type="object">
+        <type full="Illuminate\Cache\void" namespace="Illuminate\Cache" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getMemcached" start="139" end="142" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the underlying Memcached connection."/>
+      <return type="object">
+        <type full="\Memcached" namespace="" name="Memcached"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getPrefix" start="149" end="152" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the cache key prefix."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setPrefix" start="160" end="163" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the cache key prefix."/>
+      <param type="string" variable="$prefix"/>
+      <return type="object">
+        <type full="Illuminate\Cache\void" namespace="Illuminate\Cache" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="prefix" byreference="false" type="{unknown}"/>
+  </method>
+</class>

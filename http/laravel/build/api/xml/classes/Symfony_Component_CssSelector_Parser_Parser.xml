@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\CssSelector\Parser\Parser" namespace="Symfony\Component\CssSelector\Parser" name="Parser" abstract="false" final="false" start="26" end="399">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/css-selector/Parser" file="Parser.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/css-selector/Parser/Parser.php" size="12611" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="452aff5409cc7926c4c5307eab5e92879a670b14" relative="vendor/symfony/css-selector/Parser/Parser.php"/>
+  <docblock>
+    <description compact="CSS selector parser.">This component is a port of the Python cssselect library,
+which is copyright Ian Bicking, @see https://github.com/SimonSapin/cssselect.</description>
+    <author value="Jean-François Simon &lt;jeanfrancois.simon@sensiolabs.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\CssSelector\Parser\ParserInterface" namespace="Symfony\Component\CssSelector\Parser" name="ParserInterface"/>
+  <member name="tokenizer" visibility="private" line="31">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\CssSelector\Parser\Tokenizer\Tokenizer" namespace="Symfony\Component\CssSelector\Parser\Tokenizer" name="Tokenizer"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="38" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param type="object" variable="$tokenizer">
+        <type full="Symfony\Component\CssSelector\Parser\null|Tokenizer" namespace="Symfony\Component\CssSelector\Parser" name="null|Tokenizer"/>
+      </param>
+    </docblock>
+    <parameter name="tokenizer" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\CssSelector\Parser\Tokenizer\Tokenizer" namespace="Symfony\Component\CssSelector\Parser\Tokenizer" name="Tokenizer"/>
+    </parameter>
+  </constructor>
+  <method name="parse" start="46" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="source" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="parseSeries" start="63" end="101" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Parses the arguments for &quot;:nth-child()&quot; and friends."/>
+      <param type="array" variable="$tokens" of="object">
+        <type full="Symfony\Component\CssSelector\Parser\Token" namespace="Symfony\Component\CssSelector\Parser" name="Token"/>
+      </param>
+      <throws type="object">
+        <type full="Symfony\Component\CssSelector\Exception\SyntaxErrorException" namespace="Symfony\Component\CssSelector\Exception" name="SyntaxErrorException"/>
+      </throws>
+      <return type="array"/>
+    </docblock>
+    <parameter name="tokens" byreference="false" type="array"/>
+  </method>
+  <method name="parseSelectorList" start="110" end="127" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Parses selector nodes."/>
+      <param type="object" variable="$stream">
+        <type full="Symfony\Component\CssSelector\Parser\TokenStream" namespace="Symfony\Component\CssSelector\Parser" name="TokenStream"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="stream" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\Parser\TokenStream" namespace="Symfony\Component\CssSelector\Parser" name="TokenStream"/>
+    </parameter>
+  </method>
+  <method name="parserSelectorNode" start="138" end="166" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Parses next selector or combined node."/>
+      <param type="object" variable="$stream">
+        <type full="Symfony\Component\CssSelector\Parser\TokenStream" namespace="Symfony\Component\CssSelector\Parser" name="TokenStream"/>
+      </param>
+      <throws type="object">
+        <type full="Symfony\Component\CssSelector\Exception\SyntaxErrorException" namespace="Symfony\Component\CssSelector\Exception" name="SyntaxErrorException"/>
+      </throws>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\Parser\Node\SelectorNode" namespace="Symfony\Component\CssSelector\Parser\Node" name="SelectorNode"/>
+      </return>
+    </docblock>
+    <parameter name="stream" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\Parser\TokenStream" namespace="Symfony\Component\CssSelector\Parser" name="TokenStream"/>
+    </parameter>
+  </method>
+  <method name="parseSimpleSelector" start="178" end="290" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Parses next simple node (hash, class, pseudo, negation)."/>
+      <param type="object" variable="$stream">
+        <type full="Symfony\Component\CssSelector\Parser\TokenStream" namespace="Symfony\Component\CssSelector\Parser" name="TokenStream"/>
+      </param>
+      <param type="object" variable="$insideNegation">
+        <type full="Symfony\Component\CssSelector\Parser\bool" namespace="Symfony\Component\CssSelector\Parser" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="Symfony\Component\CssSelector\Exception\SyntaxErrorException" namespace="Symfony\Component\CssSelector\Exception" name="SyntaxErrorException"/>
+      </throws>
+      <return type="array"/>
+    </docblock>
+    <parameter name="stream" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\Parser\TokenStream" namespace="Symfony\Component\CssSelector\Parser" name="TokenStream"/>
+    </parameter>
+    <parameter name="insideNegation" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="parseElementNode" start="299" end="323" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Parses next element node."/>
+      <param type="object" variable="$stream">
+        <type full="Symfony\Component\CssSelector\Parser\TokenStream" namespace="Symfony\Component\CssSelector\Parser" name="TokenStream"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\Parser\Node\ElementNode" namespace="Symfony\Component\CssSelector\Parser\Node" name="ElementNode"/>
+      </return>
+    </docblock>
+    <parameter name="stream" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\Parser\TokenStream" namespace="Symfony\Component\CssSelector\Parser" name="TokenStream"/>
+    </parameter>
+  </method>
+  <method name="parseAttributeNode" start="335" end="398" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Parses next attribute node."/>
+      <param type="object" variable="$selector">
+        <type full="Symfony\Component\CssSelector\Parser\Node\NodeInterface" namespace="Symfony\Component\CssSelector\Parser\Node" name="NodeInterface"/>
+      </param>
+      <param type="object" variable="$stream">
+        <type full="Symfony\Component\CssSelector\Parser\TokenStream" namespace="Symfony\Component\CssSelector\Parser" name="TokenStream"/>
+      </param>
+      <throws type="object">
+        <type full="Symfony\Component\CssSelector\Exception\SyntaxErrorException" namespace="Symfony\Component\CssSelector\Exception" name="SyntaxErrorException"/>
+      </throws>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\Parser\Node\AttributeNode" namespace="Symfony\Component\CssSelector\Parser\Node" name="AttributeNode"/>
+      </return>
+    </docblock>
+    <parameter name="selector" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\Node\NodeInterface" namespace="Symfony\Component\CssSelector\Node" name="NodeInterface"/>
+    </parameter>
+    <parameter name="stream" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\Parser\TokenStream" namespace="Symfony\Component\CssSelector\Parser" name="TokenStream"/>
+    </parameter>
+  </method>
+</class>

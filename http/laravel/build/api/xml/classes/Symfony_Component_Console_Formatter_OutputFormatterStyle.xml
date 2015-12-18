@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Console\Formatter\OutputFormatterStyle" namespace="Symfony\Component\Console\Formatter" name="OutputFormatterStyle" abstract="false" final="false" start="19" end="219">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Formatter" file="OutputFormatterStyle.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Formatter/OutputFormatterStyle.php" size="6789" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="77b3445b48b6113b210e81e1a0052d8ae028eef2" relative="vendor/symfony/console/Formatter/OutputFormatterStyle.php"/>
+  <docblock>
+    <description compact="Formatter style class for defining styles."/>
+    <author value="Konstantin Kudryashov &lt;ever.zet@gmail.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\Console\Formatter\OutputFormatterStyleInterface" namespace="Symfony\Component\Console\Formatter" name="OutputFormatterStyleInterface"/>
+  <member name="availableForegroundColors" type="array" default="" visibility="private" line="21"/>
+  <member name="availableBackgroundColors" type="array" default="" visibility="private" line="32"/>
+  <member name="availableOptions" type="array" default="" visibility="private" line="43"/>
+  <member name="foreground" visibility="private" line="51"/>
+  <member name="background" visibility="private" line="52"/>
+  <member name="options" type="array" default="" visibility="private" line="53"/>
+  <constructor name="__construct" start="62" end="73" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Initializes output formatter style."/>
+      <param description="The style foreground color name" type="object" variable="$foreground">
+        <type full="Symfony\Component\Console\Formatter\string|null" namespace="Symfony\Component\Console\Formatter" name="string|null"/>
+      </param>
+      <param description="The style background color name" type="object" variable="$background">
+        <type full="Symfony\Component\Console\Formatter\string|null" namespace="Symfony\Component\Console\Formatter" name="string|null"/>
+      </param>
+      <param description="The style options" type="array" variable="$options"/>
+    </docblock>
+    <parameter name="foreground" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="background" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="options" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="setForeground" start="82" end="99" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets style foreground color."/>
+      <param description="The color name" type="object" variable="$color">
+        <type full="Symfony\Component\Console\Formatter\string|null" namespace="Symfony\Component\Console\Formatter" name="string|null"/>
+      </param>
+      <throws description="When the color name isn't defined" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="color" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="setBackground" start="108" end="125" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets style background color."/>
+      <param description="The color name" type="object" variable="$color">
+        <type full="Symfony\Component\Console\Formatter\string|null" namespace="Symfony\Component\Console\Formatter" name="string|null"/>
+      </param>
+      <throws description="When the color name isn't defined" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="color" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="setOption" start="134" end="147" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets some specific style option."/>
+      <param description="The option name" type="string" variable="$option"/>
+      <throws description="When the option name isn't defined" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="option" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="unsetOption" start="156" end="170" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Unsets some specific style option."/>
+      <param description="The option name" type="string" variable="$option"/>
+      <throws description="When the option name isn't defined" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="option" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setOptions" start="177" end="184" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets multiple style options at once."/>
+      <param type="array" variable="$options"/>
+    </docblock>
+    <parameter name="options" byreference="false" type="array"/>
+  </method>
+  <method name="apply" start="193" end="218" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Applies the style to a given text."/>
+      <param description="The text to style" type="string" variable="$text"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="text" byreference="false" type="{unknown}"/>
+  </method>
+</class>

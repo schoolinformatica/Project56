@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\HttpCache\HttpCache" namespace="Symfony\Component\HttpKernel\HttpCache" name="HttpCache" abstract="false" final="false" start="28" end="706">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/HttpCache" file="HttpCache.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/HttpCache/HttpCache.php" size="24522" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="0c33f576c59b1c825baf3c2ad0bb8ad5c1d0fae2" relative="vendor/symfony/http-kernel/HttpCache/HttpCache.php"/>
+  <docblock>
+    <description compact="Cache provides HTTP caching."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\HttpKernel\HttpKernelInterface" namespace="Symfony\Component\HttpKernel" name="HttpKernelInterface"/>
+  <implements full="Symfony\Component\HttpKernel\TerminableInterface" namespace="Symfony\Component\HttpKernel" name="TerminableInterface"/>
+  <member name="kernel" visibility="private" line="30"/>
+  <member name="store" visibility="private" line="31"/>
+  <member name="request" visibility="private" line="32"/>
+  <member name="surrogate" visibility="private" line="33"/>
+  <member name="surrogateCacheStrategy" visibility="private" line="34"/>
+  <member name="options" type="array" default="" visibility="private" line="35"/>
+  <member name="traces" type="array" default="" visibility="private" line="36"/>
+  <constructor name="__construct" start="78" end="96" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor.">The available options are:
+
+  * debug:                 If true, the traces are added as a HTTP header to ease debugging
+
+  * default_ttl            The number of seconds that a cache entry should be considered
+                           fresh when no explicit freshness information is provided in
+                           a response. Explicit Cache-Control or Expires headers
+                           override this value. (default: 0)
+
+  * private_headers        Set of request headers that trigger "private" cache-control behavior
+                           on responses that don't explicitly state whether the response is
+                           public or private via a Cache-Control directive. (default: Authorization and Cookie)
+
+  * allow_reload           Specifies whether the client can force a cache reload by including a
+                           Cache-Control "no-cache" directive in the request. Set it to ``true``
+                           for compliance with RFC 2616. (default: false)
+
+  * allow_revalidate       Specifies whether the client can force a cache revalidate by including
+                           a Cache-Control "max-age=0" directive in the request. Set it to ``true``
+                           for compliance with RFC 2616. (default: false)
+
+  * stale_while_revalidate Specifies the default number of seconds (the granularity is the second as the
+                           Response TTL precision is a second) during which the cache can immediately return
+                           a stale response while it revalidates it in the background (default: 2).
+                           This setting is overridden by the stale-while-revalidate HTTP Cache-Control
+                           extension (see RFC 5861).
+
+  * stale_if_error         Specifies the default number of seconds (the granularity is the second) during which
+                           the cache can serve a stale response when an error is encountered (default: 60).
+                           This setting is overridden by the stale-if-error HTTP Cache-Control extension
+                           (see RFC 5861).</description>
+      <param description="An HttpKernelInterface instance" type="object" variable="$kernel">
+        <type full="Symfony\Component\HttpKernel\HttpKernelInterface" namespace="Symfony\Component\HttpKernel" name="HttpKernelInterface"/>
+      </param>
+      <param description="A Store instance" type="object" variable="$store">
+        <type full="Symfony\Component\HttpKernel\HttpCache\StoreInterface" namespace="Symfony\Component\HttpKernel\HttpCache" name="StoreInterface"/>
+      </param>
+      <param description="A SurrogateInterface instance" type="object" variable="$surrogate">
+        <type full="Symfony\Component\HttpKernel\HttpCache\SurrogateInterface" namespace="Symfony\Component\HttpKernel\HttpCache" name="SurrogateInterface"/>
+      </param>
+      <param description="An array of options" type="array" variable="$options"/>
+    </docblock>
+    <parameter name="kernel" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\HttpKernelInterface" namespace="Symfony\Component\HttpKernel" name="HttpKernelInterface"/>
+    </parameter>
+    <parameter name="store" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\HttpCache\StoreInterface" namespace="Symfony\Component\HttpKernel\HttpCache" name="StoreInterface"/>
+    </parameter>
+    <parameter name="surrogate" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\HttpKernel\HttpCache\SurrogateInterface" namespace="Symfony\Component\HttpKernel\HttpCache" name="SurrogateInterface"/>
+    </parameter>
+    <parameter name="options" byreference="false" type="array" default=""/>
+    <inline>
+      <comment value="needed in case there is a fatal error because the backend is too slow to respond" line="84"/>
+    </inline>
+  </constructor>
+  <method name="getStore" start="103" end="106" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the current store."/>
+      <return description="$store A StoreInterface instance" type="object">
+        <type full="Symfony\Component\HttpKernel\HttpCache\StoreInterface" namespace="Symfony\Component\HttpKernel\HttpCache" name="StoreInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getTraces" start="113" end="116" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an array of events that took place during processing of the last request."/>
+      <return description="An array of events" type="array"/>
+    </docblock>
+  </method>
+  <method name="getLog" start="123" end="131" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a log message for the events of the last request processing."/>
+      <return description="A log message" type="string"/>
+    </docblock>
+  </method>
+  <method name="getRequest" start="138" end="141" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the Request instance associated with the master request."/>
+      <return description="A Request instance" type="object">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getKernel" start="148" end="151" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the Kernel instance."/>
+      <return description="An HttpKernelInterface instance" type="object">
+        <type full="Symfony\Component\HttpKernel\HttpKernelInterface" namespace="Symfony\Component\HttpKernel" name="HttpKernelInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getSurrogate" start="160" end="167" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the Surrogate instance."/>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <return description="A Surrogate instance" type="object">
+        <type full="Symfony\Component\HttpKernel\HttpCache\SurrogateInterface" namespace="Symfony\Component\HttpKernel\HttpCache" name="SurrogateInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getEsi" start="178" end="183" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the Esi instance."/>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <return description="An Esi instance" type="object">
+        <type full="Symfony\Component\HttpKernel\HttpCache\Esi" namespace="Symfony\Component\HttpKernel\HttpCache" name="Esi"/>
+      </return>
+      <deprecated value="since version 2.6, to be removed in 3.0. Use getSurrogate() instead"/>
+    </docblock>
+  </method>
+  <method name="handle" start="188" end="234" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="type" byreference="false" type="{unknown}" default="" constant="HttpKernelInterface::MASTER_REQUEST"/>
+    <parameter name="catch" byreference="false" type="boolean" default="true"/>
+    <inline>
+      <fixme value="catch exceptions and implement a 500 error page here? -&gt; in Varnish, there is a built-in error page mechanism" line="190"/>
+    </inline>
+  </method>
+  <method name="terminate" start="239" end="244" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="response" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+    </parameter>
+  </method>
+  <method name="pass" start="254" end="259" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Forwards the Request to the backend without storing the Response in the cache."/>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <param description="Whether to process exceptions" type="object" variable="$catch">
+        <type full="Symfony\Component\HttpKernel\HttpCache\bool" namespace="Symfony\Component\HttpKernel\HttpCache" name="bool"/>
+      </param>
+      <return description="A Response instance" type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="catch" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="invalidate" start="273" end="302" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Invalidates non-safe methods (like POST, PUT, and DELETE)."/>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <param description="Whether to process exceptions" type="object" variable="$catch">
+        <type full="Symfony\Component\HttpKernel\HttpCache\bool" namespace="Symfony\Component\HttpKernel\HttpCache" name="bool"/>
+      </param>
+      <return description="A Response instance" type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+      <throws type="object">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </throws>
+      <see value="RFC2616 13.10"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="catch" byreference="false" type="boolean" default="false"/>
+    <inline>
+      <comment value="invalidate only when the response is successful" line="277"/>
+    </inline>
+  </method>
+  <method name="lookup" start="320" end="358" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Lookups a Response from the cache for the given Request.">When a matching cache entry is found and is fresh, it uses it as the
+response without forwarding any request to the backend. When a matching
+cache entry is found but is stale, it attempts to "validate" the entry with
+the backend using conditional GET. When no matching cache entry is found,
+it triggers "miss" processing.</description>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <param description="whether to process exceptions" type="object" variable="$catch">
+        <type full="Symfony\Component\HttpKernel\HttpCache\bool" namespace="Symfony\Component\HttpKernel\HttpCache" name="bool"/>
+      </param>
+      <return description="A Response instance" type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+      <throws type="object">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="catch" byreference="false" type="boolean" default="false"/>
+    <inline>
+      <comment value="if allow_reload and no-cache Cache-Control, allow a cache reload" line="322"/>
+    </inline>
+  </method>
+  <method name="validate" start="372" end="421" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Validates that a cache entry is fresh.">The original request is used as a template for a conditional
+GET request with the backend.</description>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <param description="A Response instance to validate" type="object" variable="$entry">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </param>
+      <param description="Whether to process exceptions" type="object" variable="$catch">
+        <type full="Symfony\Component\HttpKernel\HttpCache\bool" namespace="Symfony\Component\HttpKernel\HttpCache" name="bool"/>
+      </param>
+      <return description="A Response instance" type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="entry" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+    </parameter>
+    <parameter name="catch" byreference="false" type="boolean" default="false"/>
+    <inline>
+      <comment value="send no head requests because we want content" line="376"/>
+      <comment value="add our cached last-modified validator" line="379"/>
+      <comment value="Add our cached etag validator to the environment." line="382"/>
+      <comment value="We keep the etags from the client to handle the case when the client" line="383"/>
+      <comment value="has a different private valid entry which is not cached here." line="384"/>
+    </inline>
+  </method>
+  <method name="fetch" start="433" end="451" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Forwards the Request to the backend and determines whether the response should be stored.">This methods is triggered when the cache missed or a reload is required.</description>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <param description="whether to process exceptions" type="object" variable="$catch">
+        <type full="Symfony\Component\HttpKernel\HttpCache\bool" namespace="Symfony\Component\HttpKernel\HttpCache" name="bool"/>
+      </param>
+      <return description="A Response instance" type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="catch" byreference="false" type="boolean" default="false"/>
+    <inline>
+      <comment value="send no head requests because we want content" line="437"/>
+      <comment value="avoid that the backend sends no content" line="440"/>
+    </inline>
+  </method>
+  <method name="forward" start="462" end="512" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Forwards the Request to the backend and returns the Response."/>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <param description="Whether to catch exceptions or not" type="object" variable="$catch">
+        <type full="Symfony\Component\HttpKernel\HttpCache\bool" namespace="Symfony\Component\HttpKernel\HttpCache" name="bool"/>
+      </param>
+      <param description="A Response instance (the stale entry if present, null otherwise)" type="object" variable="$entry">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </param>
+      <return description="A Response instance" type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="catch" byreference="false" type="boolean" default="false"/>
+    <parameter name="entry" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+    </parameter>
+    <inline>
+      <comment value="modify the X-Forwarded-For header if needed" line="468"/>
+      <comment value="fix the client IP address by setting it to 127.0.0.1 as HttpCache" line="476"/>
+      <comment value="is always called from the same process as the backend." line="477"/>
+      <comment value="make sure HttpCache is a trusted proxy" line="480"/>
+      <comment value="always a &quot;master&quot; request (as the real master request can be in cache)" line="486"/>
+      <fixme value="we probably need to also catch exceptions if raw === true" line="488"/>
+      <comment value="we don't implement the stale-if-error on Requests, which is nonetheless part of the RFC" line="490"/>
+    </inline>
+  </method>
+  <method name="isFreshEnough" start="522" end="533" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Checks whether the cache entry is &quot;fresh enough&quot; to satisfy the Request."/>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <param description="A Response instance" type="object" variable="$entry">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </param>
+      <return description="true if the cache entry if fresh enough, false otherwise" type="object">
+        <type full="Symfony\Component\HttpKernel\HttpCache\bool" namespace="Symfony\Component\HttpKernel\HttpCache" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="entry" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+    </parameter>
+  </method>
+  <method name="lock" start="543" end="591" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Locks a Request during the call to the backend."/>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <param description="A Response instance" type="object" variable="$entry">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </param>
+      <return description="true if the cache entry can be returned even if it is staled, false otherwise" type="object">
+        <type full="Symfony\Component\HttpKernel\HttpCache\bool" namespace="Symfony\Component\HttpKernel\HttpCache" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="entry" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+    </parameter>
+    <inline>
+      <comment value="try to acquire a lock to call the backend" line="545"/>
+      <comment value="there is already another process calling the backend" line="548"/>
+      <comment value="we have the lock, call the backend" line="589"/>
+    </inline>
+  </method>
+  <method name="store" start="601" end="619" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Writes the Response to the cache."/>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <param description="A Response instance" type="object" variable="$response">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </param>
+      <throws type="object">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="response" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+    </parameter>
+    <inline>
+      <comment value="now that the response is cached, release the lock" line="617"/>
+    </inline>
+  </method>
+  <method name="restoreResponseBody" start="627" end="658" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Restores the Response body."/>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <param description="A Response instance" type="object" variable="$response">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </param>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="response" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+    </parameter>
+  </method>
+  <method name="processResponseBody" start="660" end="665" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="response" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+    </parameter>
+  </method>
+  <method name="isPrivateRequest" start="675" end="690" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Checks if the Request includes authorization or other sensitive information that should cause the Response to be considered private by default."/>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <return description="true if the Request is private, false otherwise" type="object">
+        <type full="Symfony\Component\HttpKernel\HttpCache\bool" namespace="Symfony\Component\HttpKernel\HttpCache" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+  </method>
+  <method name="record" start="698" end="705" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Records that an event took place."/>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <param description="The event name" type="string" variable="$event"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="event" byreference="false" type="{unknown}"/>
+  </method>
+</class>

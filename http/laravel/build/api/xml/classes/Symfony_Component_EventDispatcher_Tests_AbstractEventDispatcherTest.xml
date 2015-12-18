@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\EventDispatcher\Tests\AbstractEventDispatcherTest" namespace="Symfony\Component\EventDispatcher\Tests" name="AbstractEventDispatcherTest" abstract="true" final="false" start="18" end="327">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/event-dispatcher/Tests" file="AbstractEventDispatcherTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/event-dispatcher/Tests/AbstractEventDispatcherTest.php" size="14018" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="2d059ccc54670fcd1c9bac6ccc0af8e10458f39c" relative="vendor/symfony/event-dispatcher/Tests/AbstractEventDispatcherTest.php"/>
+  <extends full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+  <constant type="string" name="preFoo" value="'pre.foo'"/>
+  <constant type="string" name="postFoo" value="'post.foo'"/>
+  <constant type="string" name="preBar" value="'pre.bar'"/>
+  <constant type="string" name="postBar" value="'post.bar'"/>
+  <member name="dispatcher" visibility="private" line="29">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\EventDispatcher\EventDispatcher" namespace="Symfony\Component\EventDispatcher" name="EventDispatcher"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="listener" visibility="private" line="31"/>
+  <method name="setUp" start="33" end="37" abstract="false" final="false" static="false" visibility="protected"/>
+  <method name="tearDown" start="39" end="43" abstract="false" final="false" static="false" visibility="protected"/>
+  <method name="createEventDispatcher" start="45" end="45" abstract="true" final="false" static="false" visibility="protected"/>
+  <method name="testInitialState" start="47" end="52" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testAddListener" start="54" end="63" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetListenersSortsByPriority" start="65" end="85" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetAllListenersSortsByPriority" start="87" end="109" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetListenerPriority" start="111" end="123" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testDispatch" start="125" end="137" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testLegacyDispatch" start="142" end="147" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <group value="legacy"/>
+    </docblock>
+  </method>
+  <method name="testDispatchForClosure" start="149" end="159" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testStopEventPropagation" start="161" end="173" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="postFoo() stops the propagation, so only one listener should" line="165"/>
+      <comment value="be executed" line="166"/>
+      <comment value="Manually set priority to enforce $this-&gt;listener to be called first" line="167"/>
+    </inline>
+  </method>
+  <method name="testDispatchByPriority" start="175" end="192" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testRemoveListener" start="194" end="201" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testAddSubscriber" start="203" end="209" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testAddSubscriberWithPriorities" start="211" end="223" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testAddSubscriberWithMultipleListeners" start="225" end="234" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testRemoveSubscriber" start="236" end="245" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testRemoveSubscriberWithPriorities" start="247" end="254" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testRemoveSubscriberWithMultipleListeners" start="256" end="264" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testLegacyEventReceivesTheDispatcherInstance" start="269" end="277" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <group value="legacy"/>
+    </docblock>
+  </method>
+  <method name="testEventReceivesTheDispatcherInstanceAsArgument" start="279" end="288" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testWorkaroundForPhpBug62976" start="298" end="304" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <see value="https://bugs.php.net/bug.php?id=62976">This bug affects:
+ - The PHP 5.3 branch for versions &lt; 5.3.18
+ - The PHP 5.4 branch for versions &lt; 5.4.8
+ - The PHP 5.5 branch is not affected</see>
+    </docblock>
+  </method>
+  <method name="testHasListenersWhenAddedCallbackListenerIsRemoved" start="306" end="312" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetListenersWhenAddedCallbackListenerIsRemoved" start="314" end="320" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testHasListenersWithoutEventsReturnsFalseAfterHasListenersWithEventHasBeenCalled" start="322" end="326" abstract="false" final="false" static="false" visibility="public"/>
+</class>

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PHPUnit_Framework_MockObject_MockBuilder" namespace="" name="PHPUnit_Framework_MockObject_MockBuilder" abstract="false" final="false" start="16" end="322">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit-mock-objects/src/Framework/MockObject" file="MockBuilder.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit-mock-objects/src/Framework/MockObject/MockBuilder.php" size="7438" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="fcb6cccf27560a534730b9dc4ec54819f632c5a8" relative="vendor/phpunit/phpunit-mock-objects/src/Framework/MockObject/MockBuilder.php"/>
+  <docblock>
+    <description compact="Implementation of the Builder pattern for Mock objects."/>
+    <since value="File available since Release 1.0.0"/>
+  </docblock>
+  <member name="testCase" visibility="private" line="21">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="type" visibility="private" line="26">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="methods" type="array" default="" visibility="private" line="31">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="mockClassName" type="string" default="''" visibility="private" line="36">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="constructorArgs" type="array" default="" visibility="private" line="41">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="originalConstructor" type="boolean" default="true" visibility="private" line="46">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="originalClone" type="boolean" default="true" visibility="private" line="51">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="autoload" type="boolean" default="true" visibility="private" line="56">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="cloneArguments" type="boolean" default="false" visibility="private" line="61">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="callOriginalMethods" type="boolean" default="false" visibility="private" line="66">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="proxyTarget" type="{unknown}" default="" constant="null" visibility="private" line="71">
+    <docblock>
+      <description/>
+      <var type="object"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="77" end="81" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$testCase">
+        <type full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+      </param>
+      <param type="object" variable="$type">
+        <type full="array|string" namespace="" name="array|string"/>
+      </param>
+    </docblock>
+    <parameter name="testCase" byreference="false" type="object">
+      <type full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+    </parameter>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="getMock" start="88" end="102" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Creates a mock object using a fluent interface."/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_MockObject" namespace="" name="PHPUnit_Framework_MockObject_MockObject"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getMockForAbstractClass" start="109" end="121" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Creates a mock object for an abstract class using a fluent interface."/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_MockObject" namespace="" name="PHPUnit_Framework_MockObject_MockObject"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getMockForTrait" start="128" end="140" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Creates a mock object for a trait using a fluent interface."/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_MockObject" namespace="" name="PHPUnit_Framework_MockObject_MockObject"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setMethods" start="148" end="153" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Specifies the subset of methods to mock. Default is to mock all of them."/>
+      <param type="object" variable="$methods">
+        <type full="array|null" namespace="" name="array|null"/>
+      </param>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_MockBuilder" namespace="" name="PHPUnit_Framework_MockObject_MockBuilder"/>
+      </return>
+    </docblock>
+    <parameter name="methods" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setConstructorArgs" start="161" end="166" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Specifies the arguments for the constructor."/>
+      <param type="array" variable="$args"/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_MockBuilder" namespace="" name="PHPUnit_Framework_MockObject_MockBuilder"/>
+      </return>
+    </docblock>
+    <parameter name="args" byreference="false" type="array"/>
+  </method>
+  <method name="setMockClassName" start="174" end="179" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Specifies the name for the mock class."/>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_MockBuilder" namespace="" name="PHPUnit_Framework_MockObject_MockBuilder"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="disableOriginalConstructor" start="186" end="191" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Disables the invocation of the original constructor."/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_MockBuilder" namespace="" name="PHPUnit_Framework_MockObject_MockBuilder"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="enableOriginalConstructor" start="199" end="204" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Enables the invocation of the original constructor."/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_MockBuilder" namespace="" name="PHPUnit_Framework_MockObject_MockBuilder"/>
+      </return>
+      <since value="Method available since Release 1.2.0"/>
+    </docblock>
+  </method>
+  <method name="disableOriginalClone" start="211" end="216" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Disables the invocation of the original clone constructor."/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_MockBuilder" namespace="" name="PHPUnit_Framework_MockObject_MockBuilder"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="enableOriginalClone" start="224" end="229" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Enables the invocation of the original clone constructor."/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_MockBuilder" namespace="" name="PHPUnit_Framework_MockObject_MockBuilder"/>
+      </return>
+      <since value="Method available since Release 1.2.0"/>
+    </docblock>
+  </method>
+  <method name="disableAutoload" start="236" end="241" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Disables the use of class autoloading while creating the mock object."/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_MockBuilder" namespace="" name="PHPUnit_Framework_MockObject_MockBuilder"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="enableAutoload" start="249" end="254" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Enables the use of class autoloading while creating the mock object."/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_MockBuilder" namespace="" name="PHPUnit_Framework_MockObject_MockBuilder"/>
+      </return>
+      <since value="Method available since Release 1.2.0"/>
+    </docblock>
+  </method>
+  <method name="disableArgumentCloning" start="262" end="267" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Disables the cloning of arguments passed to mocked methods."/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_MockBuilder" namespace="" name="PHPUnit_Framework_MockObject_MockBuilder"/>
+      </return>
+      <since value="Method available since Release 1.2.0"/>
+    </docblock>
+  </method>
+  <method name="enableArgumentCloning" start="275" end="280" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Enables the cloning of arguments passed to mocked methods."/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_MockBuilder" namespace="" name="PHPUnit_Framework_MockObject_MockBuilder"/>
+      </return>
+      <since value="Method available since Release 1.2.0"/>
+    </docblock>
+  </method>
+  <method name="enableProxyingToOriginalMethods" start="288" end="293" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Enables the invocation of the original methods."/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_MockBuilder" namespace="" name="PHPUnit_Framework_MockObject_MockBuilder"/>
+      </return>
+      <since value="Method available since Release 2.0.0"/>
+    </docblock>
+  </method>
+  <method name="disableProxyingToOriginalMethods" start="301" end="307" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Disables the invocation of the original methods."/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_MockBuilder" namespace="" name="PHPUnit_Framework_MockObject_MockBuilder"/>
+      </return>
+      <since value="Method available since Release 2.0.0"/>
+    </docblock>
+  </method>
+  <method name="setProxyTarget" start="316" end="321" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the proxy target."/>
+      <param type="object" variable="$object"/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_MockBuilder" namespace="" name="PHPUnit_Framework_MockObject_MockBuilder"/>
+      </return>
+      <since value="Method available since Release 2.0.0"/>
+    </docblock>
+    <parameter name="object" byreference="false" type="{unknown}"/>
+  </method>
+</class>

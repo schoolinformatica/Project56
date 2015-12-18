@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request" abstract="false" final="false" start="14" end="912">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Http" file="Request.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Http/Request.php" size="20149" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="afe695988cf3b510f3b10f52e3e63101af153cc8" relative="vendor/laravel/framework/src/Illuminate/Http/Request.php"/>
+  <extends full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+  <implements full="ArrayAccess" namespace="" name="ArrayAccess"/>
+  <member name="json" visibility="protected" line="21">
+    <docblock>
+      <description compact="The decoded JSON content for the request."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="userResolver" visibility="protected" line="28">
+    <docblock>
+      <description compact="The user resolver callback."/>
+      <var type="object">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="routeResolver" visibility="protected" line="35">
+    <docblock>
+      <description compact="The route resolver callback."/>
+      <var type="object">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="capture" start="42" end="47" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Create a new Illuminate HTTP request from server variables."/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="instance" start="54" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the Request instance."/>
+      <return type="object">
+        <type full="Illuminate\Http\$this" namespace="Illuminate\Http" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="method" start="64" end="67" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the request method."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="root" start="74" end="77" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the root URL for the application."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="url" start="84" end="87" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the URL (no query string) for the request."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="fullUrl" start="94" end="99" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the full URL for the request."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="path" start="106" end="111" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the current path info for the request."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="decodedPath" start="118" end="121" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the current encoded path info for the request."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="segment" start="130" end="133" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a segment from the URI (1 based index)."/>
+      <param type="int" variable="$index"/>
+      <param type="object" variable="$default">
+        <type full="Illuminate\Http\string|null" namespace="Illuminate\Http" name="string|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Http\string|null" namespace="Illuminate\Http" name="string|null"/>
+      </return>
+    </docblock>
+    <parameter name="index" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="segments" start="140" end="147" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get all of the segments for the request path."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="is" start="155" end="164" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the current request URI matches a pattern."/>
+      <param type="mixed" variable="string"/>
+      <return type="object">
+        <type full="Illuminate\Http\bool" namespace="Illuminate\Http" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="ajax" start="171" end="174" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the request is the result of an AJAX call."/>
+      <return type="object">
+        <type full="Illuminate\Http\bool" namespace="Illuminate\Http" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="pjax" start="181" end="184" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the request is the result of an PJAX call."/>
+      <return type="object">
+        <type full="Illuminate\Http\bool" namespace="Illuminate\Http" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="secure" start="191" end="194" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the request is over HTTPS."/>
+      <return type="object">
+        <type full="Illuminate\Http\bool" namespace="Illuminate\Http" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="ip" start="201" end="204" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the client IP address."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="ips" start="211" end="214" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the client IP addresses."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="exists" start="222" end="235" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the request contains a given input item key."/>
+      <param type="object" variable="$key">
+        <type full="Illuminate\Http\string|array" namespace="Illuminate\Http" name="string|array"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Http\bool" namespace="Illuminate\Http" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="has" start="243" end="254" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the request contains a non-empty value for an input item."/>
+      <param type="object" variable="$key">
+        <type full="Illuminate\Http\string|array" namespace="Illuminate\Http" name="string|array"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Http\bool" namespace="Illuminate\Http" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isEmptyString" start="262" end="269" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Determine if the given input key is an empty string for &quot;has&quot;."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Http\bool" namespace="Illuminate\Http" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="all" start="276" end="279" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get all of the input and files for the request."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="input" start="288" end="293" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieve an input item from the request."/>
+      <param type="string" variable="$key"/>
+      <param type="object" variable="$default">
+        <type full="Illuminate\Http\string|array|null" namespace="Illuminate\Http" name="string|array|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Http\string|array" namespace="Illuminate\Http" name="string|array"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="only" start="301" end="314" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a subset of the items from the input data."/>
+      <param type="array" variable="$keys"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="keys" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="except" start="322" end="331" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get all of the input except for a specified array of items."/>
+      <param type="object" variable="$keys">
+        <type full="Illuminate\Http\array|mixed" namespace="Illuminate\Http" name="array|mixed"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="keys" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="query" start="340" end="343" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieve a query string item from the request."/>
+      <param type="string" variable="$key"/>
+      <param type="object" variable="$default">
+        <type full="Illuminate\Http\string|array|null" namespace="Illuminate\Http" name="string|array|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Http\string|array" namespace="Illuminate\Http" name="string|array"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="hasCookie" start="351" end="354" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if a cookie is set on the request."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Http\bool" namespace="Illuminate\Http" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="cookie" start="363" end="366" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieve a cookie from the request."/>
+      <param type="string" variable="$key"/>
+      <param type="object" variable="$default">
+        <type full="Illuminate\Http\string|array|null" namespace="Illuminate\Http" name="string|array|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Http\string|array" namespace="Illuminate\Http" name="string|array"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="file" start="375" end="378" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieve a file from the request."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$default"/>
+      <return type="object">
+        <type full="\Symfony\Component\HttpFoundation\File\UploadedFile|array|null" namespace="\Symfony\Component\HttpFoundation\File" name="UploadedFile|array|null"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="hasFile" start="386" end="399" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the uploaded data contains a file."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Http\bool" namespace="Illuminate\Http" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isValidFile" start="407" end="410" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Check that the given file is a valid file instance."/>
+      <param type="mixed" variable="$file"/>
+      <return type="object">
+        <type full="Illuminate\Http\bool" namespace="Illuminate\Http" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="file" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="header" start="419" end="422" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieve a header from the request."/>
+      <param type="string" variable="$key"/>
+      <param type="object" variable="$default">
+        <type full="Illuminate\Http\string|array|null" namespace="Illuminate\Http" name="string|array|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Http\string|array" namespace="Illuminate\Http" name="string|array"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="server" start="431" end="434" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieve a server variable from the request."/>
+      <param type="string" variable="$key"/>
+      <param type="object" variable="$default">
+        <type full="Illuminate\Http\string|array|null" namespace="Illuminate\Http" name="string|array|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Http\string|array" namespace="Illuminate\Http" name="string|array"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="old" start="443" end="446" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieve an old input item."/>
+      <param type="string" variable="$key"/>
+      <param type="object" variable="$default">
+        <type full="Illuminate\Http\string|array|null" namespace="Illuminate\Http" name="string|array|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Http\string|array" namespace="Illuminate\Http" name="string|array"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="flash" start="455" end="460" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Flash the input for the current request to the session."/>
+      <param type="string" variable="$filter"/>
+      <param type="array" variable="$keys"/>
+      <return type="object">
+        <type full="Illuminate\Http\void" namespace="Illuminate\Http" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="filter" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="keys" byreference="false" type="array" default=""/>
+  </method>
+  <method name="flashOnly" start="468" end="473" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Flash only some of the input to the session."/>
+      <param type="object" variable="$keys">
+        <type full="Illuminate\Http\array|mixed" namespace="Illuminate\Http" name="array|mixed"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Http\void" namespace="Illuminate\Http" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="keys" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="flashExcept" start="481" end="486" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Flash only some of the input to the session."/>
+      <param type="object" variable="$keys">
+        <type full="Illuminate\Http\array|mixed" namespace="Illuminate\Http" name="array|mixed"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Http\void" namespace="Illuminate\Http" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="keys" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="flush" start="493" end="496" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Flush all of the old input from the session."/>
+      <return type="object">
+        <type full="Illuminate\Http\void" namespace="Illuminate\Http" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="retrieveItem" start="506" end="513" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Retrieve a parameter item from a given source."/>
+      <param type="string" variable="$source"/>
+      <param type="string" variable="$key"/>
+      <param type="object" variable="$default">
+        <type full="Illuminate\Http\string|array|null" namespace="Illuminate\Http" name="string|array|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Http\string|array" namespace="Illuminate\Http" name="string|array"/>
+      </return>
+    </docblock>
+    <parameter name="source" byreference="false" type="{unknown}"/>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="merge" start="521" end="524" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Merge new input into the current request's input array."/>
+      <param type="array" variable="$input"/>
+      <return type="object">
+        <type full="Illuminate\Http\void" namespace="Illuminate\Http" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="input" byreference="false" type="array"/>
+  </method>
+  <method name="replace" start="532" end="535" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Replace the input for the current request."/>
+      <param type="array" variable="$input"/>
+      <return type="object">
+        <type full="Illuminate\Http\void" namespace="Illuminate\Http" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="input" byreference="false" type="array"/>
+  </method>
+  <method name="json" start="544" end="555" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the JSON payload for the request."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$default"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getInputSource" start="562" end="569" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the input source for the request."/>
+      <return type="object">
+        <type full="\Symfony\Component\HttpFoundation\ParameterBag" namespace="\Symfony\Component\HttpFoundation" name="ParameterBag"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="matchesType" start="578" end="591" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Determine if the given content types match."/>
+      <param type="string" variable="$actual"/>
+      <param type="string" variable="$type"/>
+      <return type="object">
+        <type full="Illuminate\Http\bool" namespace="Illuminate\Http" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="actual" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isJson" start="598" end="601" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the request is sending JSON."/>
+      <return type="object">
+        <type full="Illuminate\Http\bool" namespace="Illuminate\Http" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="wantsJson" start="608" end="613" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the current request is asking for JSON in return."/>
+      <return type="object">
+        <type full="Illuminate\Http\bool" namespace="Illuminate\Http" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="accepts" start="621" end="644" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determines whether the current requests accepts a given content type."/>
+      <param type="object" variable="$contentTypes">
+        <type full="Illuminate\Http\string|array" namespace="Illuminate\Http" name="string|array"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Http\bool" namespace="Illuminate\Http" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="contentTypes" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="prefers" start="652" end="675" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the most suitable content type from the given array based on content negotiation."/>
+      <param type="object" variable="$contentTypes">
+        <type full="Illuminate\Http\string|array" namespace="Illuminate\Http" name="string|array"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Http\string|null" namespace="Illuminate\Http" name="string|null"/>
+      </return>
+    </docblock>
+    <parameter name="contentTypes" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="acceptsJson" start="682" end="685" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determines whether a request accepts JSON."/>
+      <return type="object">
+        <type full="Illuminate\Http\bool" namespace="Illuminate\Http" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="acceptsHtml" start="692" end="695" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determines whether a request accepts HTML."/>
+      <return type="object">
+        <type full="Illuminate\Http\bool" namespace="Illuminate\Http" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="format" start="703" end="712" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the data format expected in the response."/>
+      <param type="string" variable="$default"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="default" byreference="false" type="string" default="'html'"/>
+  </method>
+  <method name="createFromBase" start="720" end="740" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Create an Illuminate request from a Symfony instance."/>
+      <param type="object" variable="$request">
+        <type full="\Symfony\Component\HttpFoundation\Request" namespace="\Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Http\Request" namespace="\Illuminate\Http" name="Request"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+  </method>
+  <method name="duplicate" start="745" end="748" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="request" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="attributes" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="cookies" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="files" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="server" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="session" start="757" end="764" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the session associated with the request."/>
+      <return type="object">
+        <type full="\Illuminate\Session\Store" namespace="\Illuminate\Session" name="Store"/>
+      </return>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="user" start="771" end="774" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the user making the request."/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+  <method name="route" start="783" end="792" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the route handling the request."/>
+      <param type="object" variable="$param">
+        <type full="Illuminate\Http\string|null" namespace="Illuminate\Http" name="string|null"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Routing\Route|object|string" namespace="\Illuminate\Routing" name="Route|object|string"/>
+      </return>
+    </docblock>
+    <parameter name="param" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getUserResolver" start="799" end="802" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the user resolver callback."/>
+      <return type="object">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setUserResolver" start="810" end="815" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the user resolver callback."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Http\$this" namespace="Illuminate\Http" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="getRouteResolver" start="822" end="825" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the route resolver callback."/>
+      <return type="object">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setRouteResolver" start="833" end="838" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the route resolver callback."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Http\$this" namespace="Illuminate\Http" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="offsetExists" start="846" end="849" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the given offset exists."/>
+      <param type="string" variable="$offset"/>
+      <return type="object">
+        <type full="Illuminate\Http\bool" namespace="Illuminate\Http" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="offset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetGet" start="857" end="860" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the value at the given offset."/>
+      <param type="string" variable="$offset"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="offset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetSet" start="869" end="872" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the value at the given offset."/>
+      <param type="string" variable="$offset"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Http\void" namespace="Illuminate\Http" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="offset" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetUnset" start="880" end="883" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remove the value at the given offset."/>
+      <param type="string" variable="$offset"/>
+      <return type="object">
+        <type full="Illuminate\Http\void" namespace="Illuminate\Http" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="offset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__isset" start="891" end="894" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check if an input element is set on the request."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Http\bool" namespace="Illuminate\Http" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__get" start="902" end="911" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get an input element from the request."/>
+      <param type="string" variable="$key"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+</class>

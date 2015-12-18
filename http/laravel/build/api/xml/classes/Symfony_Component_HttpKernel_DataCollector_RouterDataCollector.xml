@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\DataCollector\RouterDataCollector" namespace="Symfony\Component\HttpKernel\DataCollector" name="RouterDataCollector" abstract="false" final="false" start="24" end="102">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/DataCollector" file="RouterDataCollector.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/DataCollector/RouterDataCollector.php" size="2404" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="1a4f3931f471e52cd29af91dc2ccaf9f676b5459" relative="vendor/symfony/http-kernel/DataCollector/RouterDataCollector.php"/>
+  <docblock>
+    <description compact="RouterDataCollector."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\HttpKernel\DataCollector\DataCollector" namespace="Symfony\Component\HttpKernel\DataCollector" name="DataCollector"/>
+  <member name="controllers" visibility="protected" line="26"/>
+  <constructor name="__construct" start="28" end="37" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="collect" start="42" end="54" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="response" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+    </parameter>
+    <parameter name="exception" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+  </method>
+  <method name="guessRoute" start="56" end="59" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="controller" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="onKernelController" start="66" end="69" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remembers the controller associated to each request."/>
+      <param description="The filter controller event" type="object" variable="$event">
+        <type full="Symfony\Component\HttpKernel\Event\FilterControllerEvent" namespace="Symfony\Component\HttpKernel\Event" name="FilterControllerEvent"/>
+      </param>
+    </docblock>
+    <parameter name="event" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\Event\FilterControllerEvent" namespace="Symfony\Component\HttpKernel\Event" name="FilterControllerEvent"/>
+    </parameter>
+  </method>
+  <method name="getRedirect" start="74" end="77" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return description="Whether this request will result in a redirect" type="object">
+        <type full="Symfony\Component\HttpKernel\DataCollector\bool" namespace="Symfony\Component\HttpKernel\DataCollector" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getTargetUrl" start="82" end="85" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return description="The target URL" type="object">
+        <type full="Symfony\Component\HttpKernel\DataCollector\string|null" namespace="Symfony\Component\HttpKernel\DataCollector" name="string|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getTargetRoute" start="90" end="93" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return description="The target route" type="object">
+        <type full="Symfony\Component\HttpKernel\DataCollector\string|null" namespace="Symfony\Component\HttpKernel\DataCollector" name="string|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getName" start="98" end="101" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+</class>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Swift_Signers_HeaderSigner" namespace="" name="Swift_Signers_HeaderSigner" abstract="false" final="false" start="16" end="65">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Signers" file="HeaderSigner.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Signers/HeaderSigner.php" size="1530" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="c84c1d80f56bda059a7c6f935c4d6f5544f9bbdf" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Signers/HeaderSigner.php"/>
+  <docblock>
+    <description compact="Header Signer Interface used to apply Header-Based Signature to a message."/>
+    <author value="Xavier De Cock &lt;xdecock@gmail.com&gt;"/>
+  </docblock>
+  <extends full="Swift_Signer" namespace="" name="Swift_Signer"/>
+  <extends full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+  <method name="ignoreHeader" start="25" end="25" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Exclude an header from the signed headers."/>
+      <param type="string" variable="$header_name"/>
+      <return type="object">
+        <type full="Swift_Signers_HeaderSigner" namespace="" name="Swift_Signers_HeaderSigner"/>
+      </return>
+    </docblock>
+    <parameter name="header_name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="startBody" start="32" end="32" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Prepare the Signer to get a new Body."/>
+      <return type="object">
+        <type full="Swift_Signers_HeaderSigner" namespace="" name="Swift_Signers_HeaderSigner"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="endBody" start="39" end="39" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Give the signal that the body has finished streaming."/>
+      <return type="object">
+        <type full="Swift_Signers_HeaderSigner" namespace="" name="Swift_Signers_HeaderSigner"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setHeaders" start="48" end="48" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Give the headers already given."/>
+      <param type="object" variable="$headers">
+        <type full="Swift_Mime_SimpleHeaderSet" namespace="" name="Swift_Mime_SimpleHeaderSet"/>
+      </param>
+      <return type="object">
+        <type full="Swift_Signers_HeaderSigner" namespace="" name="Swift_Signers_HeaderSigner"/>
+      </return>
+    </docblock>
+    <parameter name="headers" byreference="false" type="object">
+      <type full="Swift_Mime_HeaderSet" namespace="" name="Swift_Mime_HeaderSet"/>
+    </parameter>
+  </method>
+  <method name="addSignature" start="57" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add the header(s) to the headerSet."/>
+      <param type="object" variable="$headers">
+        <type full="Swift_Mime_HeaderSet" namespace="" name="Swift_Mime_HeaderSet"/>
+      </param>
+      <return type="object">
+        <type full="Swift_Signers_HeaderSigner" namespace="" name="Swift_Signers_HeaderSigner"/>
+      </return>
+    </docblock>
+    <parameter name="headers" byreference="false" type="object">
+      <type full="Swift_Mime_HeaderSet" namespace="" name="Swift_Mime_HeaderSet"/>
+    </parameter>
+  </method>
+  <method name="getAlteredHeaders" start="64" end="64" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the list of header a signer might tamper."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+</interface>

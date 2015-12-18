@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Yaml\Unescaper" namespace="Symfony\Component\Yaml" name="Unescaper" abstract="false" final="false" start="24" end="142">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/yaml" file="Unescaper.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/yaml/Unescaper.php" size="3925" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="a8eb2b364d063b25edc7c87b9b45c5678d61800d" relative="vendor/symfony/yaml/Unescaper.php"/>
+  <docblock>
+    <description compact="Unescaper encapsulates unescaping rules for single and double-quoted YAML strings."/>
+    <author value="Matthew Lewinski &lt;matthew@lewinski.org&gt;"/>
+    <internal/>
+  </docblock>
+  <constant type="string" name="REGEX_ESCAPED_CHARACTER" value="&quot;\\\\(x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8}|.)&quot;">
+    <docblock>
+      <description compact="Regex fragment that matches an escaped character in a double quoted string."/>
+    </docblock>
+  </constant>
+  <method name="unescapeSingleQuotedString" start="38" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Unescapes a single quoted string."/>
+      <param description="A single quoted string." type="string" variable="$value"/>
+      <return description="The unescaped string." type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="unescapeDoubleQuotedString" start="50" end="58" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Unescapes a double quoted string."/>
+      <param description="A double quoted string." type="string" variable="$value"/>
+      <return description="The unescaped string." type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="evaluate the string" line="56"/>
+    </inline>
+  </method>
+  <method name="unescapeCharacter" start="67" end="119" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Unescapes a character that was found in a double-quoted string."/>
+      <param description="An escaped character" type="string" variable="$value"/>
+      <return description="The unescaped character" type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="utf8chr" start="128" end="141" abstract="false" final="false" static="true" visibility="private">
+    <docblock>
+      <description compact="Get the UTF-8 character for the given code point."/>
+      <param description="The unicode code point" type="int" variable="$c"/>
+      <return description="The corresponding UTF-8 character" type="string"/>
+    </docblock>
+    <parameter name="c" byreference="false" type="{unknown}"/>
+  </method>
+</class>

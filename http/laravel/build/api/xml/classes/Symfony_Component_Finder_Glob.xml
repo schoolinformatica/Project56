@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Finder\Glob" namespace="Symfony\Component\Finder" name="Glob" abstract="false" final="false" start="36" end="104">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/finder" file="Glob.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/finder/Glob.php" size="3266" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="ad27f5170bfbfcabe682845881c4156251e95413" relative="vendor/symfony/finder/Glob.php"/>
+  <docblock>
+    <description compact="Glob matches globbing patterns against text.">if match_glob("foo.*", "foo.bar") echo "matched\n";
+
+// prints foo.bar and foo.baz
+$regex = glob_to_regex("foo.*");
+for (array('foo.bar', 'foo.baz', 'foo', 'bar') as $t)
+{
+  if (/$regex/) echo "matched: $car\n";
+}
+
+Glob implements glob(3) style matching that can be used to match
+against text, rather than fetching names from a filesystem.
+
+Based on the Perl Text::Glob module.</description>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt; PHP port"/>
+    <author value="Richard Clamp &lt;richardc@unixbeard.net&gt; Perl version"/>
+    <copyright value="2004-2005 Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+    <copyright value="2002 Richard Clamp &lt;richardc@unixbeard.net&gt;"/>
+  </docblock>
+  <method name="toRegex" start="48" end="103" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns a regexp which is the equivalent of the glob pattern."/>
+      <param description="The glob pattern" type="string" variable="$glob"/>
+      <param type="object" variable="$strictLeadingDot">
+        <type full="Symfony\Component\Finder\bool" namespace="Symfony\Component\Finder" name="bool"/>
+      </param>
+      <param type="object" variable="$strictWildcardSlash">
+        <type full="Symfony\Component\Finder\bool" namespace="Symfony\Component\Finder" name="bool"/>
+      </param>
+      <param description="Optional delimiter" type="string" variable="$delimiter"/>
+      <return description="regex The regexp" type="string"/>
+    </docblock>
+    <parameter name="glob" byreference="false" type="{unknown}"/>
+    <parameter name="strictLeadingDot" byreference="false" type="boolean" default="true"/>
+    <parameter name="strictWildcardSlash" byreference="false" type="boolean" default="true"/>
+    <parameter name="delimiter" byreference="false" type="string" default="'#'"/>
+  </method>
+</class>

@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpSpec\Wrapper\Subject\Caller" namespace="PhpSpec\Wrapper\Subject" name="Caller" abstract="false" final="false" start="29" end="431">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Wrapper/Subject" file="Caller.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Wrapper/Subject/Caller.php" size="12210" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="566c699bc8670d05b5ccb9ac9dea3a5bdd7839df" relative="vendor/phpspec/phpspec/src/PhpSpec/Wrapper/Subject/Caller.php"/>
+  <member name="wrappedObject" visibility="private" line="34">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\Wrapper\Subject\WrappedObject" namespace="PhpSpec\Wrapper\Subject" name="WrappedObject"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="example" visibility="private" line="38">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\Loader\Node\ExampleNode" namespace="PhpSpec\Loader\Node" name="ExampleNode"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="dispatcher" visibility="private" line="42">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\EventDispatcher\EventDispatcherInterface" namespace="Symfony\Component\EventDispatcher" name="EventDispatcherInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="wrapper" visibility="private" line="46">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\Wrapper\Wrapper" namespace="PhpSpec\Wrapper" name="Wrapper"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="exceptionFactory" visibility="private" line="50">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\Exception\ExceptionFactory" namespace="PhpSpec\Exception" name="ExceptionFactory"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="accessInspector" visibility="private" line="54">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\CodeAnalysis\AccessInspectorInterface" namespace="PhpSpec\CodeAnalysis" name="AccessInspectorInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="64" end="78" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$wrappedObject">
+        <type full="PhpSpec\Wrapper\Subject\WrappedObject" namespace="PhpSpec\Wrapper\Subject" name="WrappedObject"/>
+      </param>
+      <param type="object" variable="$example">
+        <type full="PhpSpec\Loader\Node\ExampleNode" namespace="PhpSpec\Loader\Node" name="ExampleNode"/>
+      </param>
+      <param type="object" variable="$dispatcher">
+        <type full="Symfony\Component\EventDispatcher\EventDispatcherInterface" namespace="Symfony\Component\EventDispatcher" name="EventDispatcherInterface"/>
+      </param>
+      <param type="object" variable="$exceptions">
+        <type full="PhpSpec\Exception\ExceptionFactory" namespace="PhpSpec\Exception" name="ExceptionFactory"/>
+      </param>
+      <param type="object" variable="$wrapper">
+        <type full="PhpSpec\Wrapper\Wrapper" namespace="PhpSpec\Wrapper" name="Wrapper"/>
+      </param>
+      <param type="object" variable="$accessInspector">
+        <type full="PhpSpec\CodeAnalysis\AccessInspectorInterface" namespace="PhpSpec\CodeAnalysis" name="AccessInspectorInterface"/>
+      </param>
+    </docblock>
+    <parameter name="wrappedObject" byreference="false" type="object">
+      <type full="PhpSpec\Wrapper\Subject\WrappedObject" namespace="PhpSpec\Wrapper\Subject" name="WrappedObject"/>
+    </parameter>
+    <parameter name="example" byreference="false" type="object">
+      <type full="PhpSpec\Loader\Node\ExampleNode" namespace="PhpSpec\Loader\Node" name="ExampleNode"/>
+    </parameter>
+    <parameter name="dispatcher" byreference="false" type="object">
+      <type full="Symfony\Component\EventDispatcher\EventDispatcherInterface" namespace="Symfony\Component\EventDispatcher" name="EventDispatcherInterface"/>
+    </parameter>
+    <parameter name="exceptions" byreference="false" type="object">
+      <type full="PhpSpec\Exception\ExceptionFactory" namespace="PhpSpec\Exception" name="ExceptionFactory"/>
+    </parameter>
+    <parameter name="wrapper" byreference="false" type="object">
+      <type full="PhpSpec\Wrapper\Wrapper" namespace="PhpSpec\Wrapper" name="Wrapper"/>
+    </parameter>
+    <parameter name="accessInspector" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="PhpSpec\CodeAnalysis\AccessInspectorInterface" namespace="PhpSpec\CodeAnalysis" name="AccessInspectorInterface"/>
+    </parameter>
+  </constructor>
+  <method name="call" start="90" end="105" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$method"/>
+      <param type="array" variable="$arguments"/>
+      <return type="object">
+        <type full="PhpSpec\Wrapper\Subject" namespace="PhpSpec\Wrapper" name="Subject"/>
+      </return>
+      <throws type="object">
+        <type full="\PhpSpec\Exception\Fracture\MethodNotFoundException" namespace="\PhpSpec\Exception\Fracture" name="MethodNotFoundException"/>
+      </throws>
+      <throws type="object">
+        <type full="\PhpSpec\Exception\Fracture\MethodNotVisibleException" namespace="\PhpSpec\Exception\Fracture" name="MethodNotVisibleException"/>
+      </throws>
+      <throws type="object">
+        <type full="\PhpSpec\Exception\Wrapper\SubjectException" namespace="\PhpSpec\Exception\Wrapper" name="SubjectException"/>
+      </throws>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="array" default=""/>
+  </method>
+  <method name="set" start="116" end="130" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$property"/>
+      <param type="mixed" variable="$value"/>
+      <return type="mixed"/>
+      <throws type="object">
+        <type full="\PhpSpec\Exception\Wrapper\SubjectException" namespace="\PhpSpec\Exception\Wrapper" name="SubjectException"/>
+      </throws>
+      <throws type="object">
+        <type full="\PhpSpec\Exception\Fracture\PropertyNotFoundException" namespace="\PhpSpec\Exception\Fracture" name="PropertyNotFoundException"/>
+      </throws>
+    </docblock>
+    <parameter name="property" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="get" start="140" end="155" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$property"/>
+      <return type="object">
+        <type full="PhpSpec\Wrapper\Subject\Subject|string" namespace="PhpSpec\Wrapper\Subject" name="Subject|string"/>
+      </return>
+      <throws type="object">
+        <type full="\PhpSpec\Exception\Fracture\PropertyNotFoundException" namespace="\PhpSpec\Exception\Fracture" name="PropertyNotFoundException"/>
+      </throws>
+      <throws type="object">
+        <type full="\PhpSpec\Exception\Wrapper\SubjectException" namespace="\PhpSpec\Exception\Wrapper" name="SubjectException"/>
+      </throws>
+    </docblock>
+    <parameter name="property" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getWrappedObject" start="162" end="186" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object"/>
+      <throws type="object">
+        <type full="\PhpSpec\Exception\Fracture\ClassNotFoundException" namespace="\PhpSpec\Exception\Fracture" name="ClassNotFoundException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="isObjectPropertyReadable" start="193" end="198" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$property"/>
+      <return type="object">
+        <type full="PhpSpec\Wrapper\Subject\bool" namespace="PhpSpec\Wrapper\Subject" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="property" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isObjectPropertyWritable" start="205" end="210" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$property"/>
+      <return type="object">
+        <type full="PhpSpec\Wrapper\Subject\bool" namespace="PhpSpec\Wrapper\Subject" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="property" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isObjectMethodCallable" start="217" end="220" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$method"/>
+      <return type="object">
+        <type full="PhpSpec\Wrapper\Subject\bool" namespace="PhpSpec\Wrapper\Subject" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="instantiateWrappedObject" start="225" end="238" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <return type="object"/>
+    </docblock>
+  </method>
+  <method name="invokeAndWrapMethodResult" start="247" end="262" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$subject"/>
+      <param type="string" variable="$method"/>
+      <param type="array" variable="$arguments"/>
+      <return type="object">
+        <type full="PhpSpec\Wrapper\Subject" namespace="PhpSpec\Wrapper" name="Subject"/>
+      </return>
+    </docblock>
+    <parameter name="subject" byreference="false" type="{unknown}"/>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="array" default=""/>
+  </method>
+  <method name="wrap" start="269" end="272" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="PhpSpec\Wrapper\Subject" namespace="PhpSpec\Wrapper" name="Subject"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="newInstanceWithArguments" start="284" end="297" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$reflection">
+        <type full="ReflectionClass" namespace="" name="ReflectionClass"/>
+      </param>
+      <return type="object"/>
+      <throws type="object">
+        <type full="\PhpSpec\Exception\Fracture\MethodNotFoundException" namespace="\PhpSpec\Exception\Fracture" name="MethodNotFoundException"/>
+      </throws>
+      <throws type="object">
+        <type full="\PhpSpec\Exception\Fracture\MethodNotVisibleException" namespace="\PhpSpec\Exception\Fracture" name="MethodNotVisibleException"/>
+      </throws>
+      <throws type="object">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </throws>
+      <throws type="object">
+        <type full="\ReflectionException" namespace="" name="ReflectionException"/>
+      </throws>
+    </docblock>
+    <parameter name="reflection" byreference="false" type="object">
+      <type full="ReflectionClass" namespace="" name="ReflectionClass"/>
+    </parameter>
+  </method>
+  <method name="newInstanceWithFactoryMethod" start="303" end="319" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <return type="mixed"/>
+      <throws type="object">
+        <type full="\PhpSpec\Exception\Fracture\MethodNotFoundException" namespace="\PhpSpec\Exception\Fracture" name="MethodNotFoundException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="detectMissingConstructorMessage" start="326" end="332" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$exception">
+        <type full="ReflectionException" namespace="" name="ReflectionException"/>
+      </param>
+      <return type="object">
+        <type full="PhpSpec\Wrapper\Subject\bool" namespace="PhpSpec\Wrapper\Subject" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="ReflectionException" namespace="" name="ReflectionException"/>
+    </parameter>
+  </method>
+  <method name="classNotFound" start="337" end="340" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="\PhpSpec\Exception\Fracture\ClassNotFoundException" namespace="\PhpSpec\Exception\Fracture" name="ClassNotFoundException"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="namedConstructorNotFound" start="348" end="353" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$method"/>
+      <param type="array" variable="$arguments"/>
+      <return type="object">
+        <type full="\PhpSpec\Exception\Fracture\MethodNotFoundException|\PhpSpec\Exception\Fracture\MethodNotVisibleException" namespace="\PhpSpec\Exception\Fracture\MethodNotFoundException|\PhpSpec\Exception\Fracture" name="MethodNotVisibleException"/>
+      </return>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="array" default=""/>
+  </method>
+  <method name="methodNotFound" start="360" end="369" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param variable="$method"/>
+      <param type="array" variable="$arguments"/>
+      <return type="object">
+        <type full="\PhpSpec\Exception\Fracture\MethodNotFoundException|\PhpSpec\Exception\Fracture\MethodNotVisibleException" namespace="\PhpSpec\Exception\Fracture\MethodNotFoundException|\PhpSpec\Exception\Fracture" name="MethodNotVisibleException"/>
+      </return>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="array" default=""/>
+  </method>
+  <method name="propertyNotFound" start="376" end="379" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$property"/>
+      <return type="object">
+        <type full="\PhpSpec\Exception\Fracture\PropertyNotFoundException" namespace="\PhpSpec\Exception\Fracture" name="PropertyNotFoundException"/>
+      </return>
+    </docblock>
+    <parameter name="property" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="callingMethodOnNonObject" start="386" end="389" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$method"/>
+      <return type="object">
+        <type full="\PhpSpec\Exception\Wrapper\SubjectException" namespace="\PhpSpec\Exception\Wrapper" name="SubjectException"/>
+      </return>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="settingPropertyOnNonObject" start="396" end="399" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$property"/>
+      <return type="object">
+        <type full="\PhpSpec\Exception\Wrapper\SubjectException" namespace="\PhpSpec\Exception\Wrapper" name="SubjectException"/>
+      </return>
+    </docblock>
+    <parameter name="property" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="accessingPropertyOnNonObject" start="406" end="409" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$property"/>
+      <return type="object">
+        <type full="\PhpSpec\Exception\Wrapper\SubjectException" namespace="\PhpSpec\Exception\Wrapper" name="SubjectException"/>
+      </return>
+    </docblock>
+    <parameter name="property" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="lookingForConstants" start="416" end="420" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$property"/>
+      <return type="object">
+        <type full="PhpSpec\Wrapper\Subject\bool" namespace="PhpSpec\Wrapper\Subject" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="property" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="constantDefined" start="427" end="430" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$property"/>
+      <return type="object">
+        <type full="PhpSpec\Wrapper\Subject\bool" namespace="PhpSpec\Wrapper\Subject" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="property" byreference="false" type="{unknown}"/>
+  </method>
+</class>

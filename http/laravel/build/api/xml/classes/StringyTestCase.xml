@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="StringyTestCase" namespace="" name="StringyTestCase" abstract="false" final="false" start="7" end="994">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/danielstjules/stringy/tests" file="StringyTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/danielstjules/stringy/tests/StringyTest.php" size="30975" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="288f00524d7f93adf7337437ecb1598a058fe977" relative="vendor/danielstjules/stringy/tests/StringyTest.php"/>
+  <extends full="CommonTest" namespace="" name="CommonTest"/>
+  <method name="testConstruct" start="9" end="15" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testConstructWithArray" start="20" end="24" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="InvalidArgumentException"/>
+    </docblock>
+  </method>
+  <method name="testMissingToString" start="29" end="34" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="InvalidArgumentException"/>
+    </docblock>
+  </method>
+  <method name="testToString" start="39" end="42" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="toStringProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="toStringProvider" start="44" end="54" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testCreate" start="56" end="62" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testChaining" start="64" end="70" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testCount" start="72" end="77" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetIterator" start="79" end="95" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testOffsetExists" start="100" end="105" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="offsetExistsProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="offset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetExistsProvider" start="107" end="117" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testOffsetGet" start="119" end="127" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testOffsetGetOutOfBounds" start="132" end="136" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\OutOfBoundsException"/>
+    </docblock>
+  </method>
+  <method name="testOffsetSet" start="141" end="145" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\Exception"/>
+    </docblock>
+  </method>
+  <method name="testOffsetUnset" start="150" end="154" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\Exception"/>
+    </docblock>
+  </method>
+  <method name="testIndexOf" start="159" end="163" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="indexOfProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="subStr" byreference="false" type="{unknown}"/>
+    <parameter name="offset" byreference="false" type="integer" default="0"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testIndexOfLast" start="168" end="172" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="indexOfLastProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="subStr" byreference="false" type="{unknown}"/>
+    <parameter name="offset" byreference="false" type="integer" default="0"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testChars" start="177" end="185" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="charsProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testUpperCaseFirst" start="190" end="195" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="upperCaseFirstProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testLowerCaseFirst" start="200" end="207" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="lowerCaseFirstProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testCamelize" start="212" end="219" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="camelizeProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testUpperCamelize" start="224" end="231" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="upperCamelizeProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testDasherize" start="236" end="243" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="dasherizeProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testUnderscored" start="248" end="255" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="underscoredProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testDelimit" start="260" end="267" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="delimitProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="delimiter" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testSwapCase" start="272" end="279" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="swapCaseProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testTitleize" start="284" end="292" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="titleizeProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="ignore" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testHumanize" start="297" end="304" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="humanizeProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testTidy" start="309" end="316" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="tidyProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testCollapseWhitespace" start="321" end="328" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="collapseWhitespaceProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testToAscii" start="333" end="340" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="toAsciiProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="removeUnsupported" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="testPad" start="345" end="353" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="padProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="length" byreference="false" type="{unknown}"/>
+    <parameter name="padStr" byreference="false" type="string" default="' '"/>
+    <parameter name="padType" byreference="false" type="string" default="'right'"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testPadException" start="358" end="362" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\InvalidArgumentException"/>
+    </docblock>
+  </method>
+  <method name="testPadLeft" start="367" end="375" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="padLeftProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="length" byreference="false" type="{unknown}"/>
+    <parameter name="padStr" byreference="false" type="string" default="' '"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testPadRight" start="380" end="388" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="padRightProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="length" byreference="false" type="{unknown}"/>
+    <parameter name="padStr" byreference="false" type="string" default="' '"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testPadBoth" start="393" end="401" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="padBothProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="length" byreference="false" type="{unknown}"/>
+    <parameter name="padStr" byreference="false" type="string" default="' '"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testStartsWith" start="406" end="414" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="startsWithProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="substring" byreference="false" type="{unknown}"/>
+    <parameter name="caseSensitive" byreference="false" type="boolean" default="true"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testEndsWith" start="419" end="427" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="endsWithProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="substring" byreference="false" type="{unknown}"/>
+    <parameter name="caseSensitive" byreference="false" type="boolean" default="true"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testToSpaces" start="432" end="439" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="toSpacesProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="tabLength" byreference="false" type="integer" default="4"/>
+  </method>
+  <method name="testToTabs" start="444" end="451" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="toTabsProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="tabLength" byreference="false" type="integer" default="4"/>
+  </method>
+  <method name="testToLowerCase" start="456" end="463" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="toLowerCaseProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testToTitleCase" start="468" end="475" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="toTitleCaseProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testToUpperCase" start="480" end="487" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="toUpperCaseProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testSlugify" start="492" end="499" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="slugifyProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="replacement" byreference="false" type="string" default="'-'"/>
+  </method>
+  <method name="testContains" start="504" end="512" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="containsProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="haystack" byreference="false" type="{unknown}"/>
+    <parameter name="needle" byreference="false" type="{unknown}"/>
+    <parameter name="caseSensitive" byreference="false" type="boolean" default="true"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testcontainsAny" start="517" end="525" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="containsAnyProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="haystack" byreference="false" type="{unknown}"/>
+    <parameter name="needles" byreference="false" type="{unknown}"/>
+    <parameter name="caseSensitive" byreference="false" type="boolean" default="true"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testContainsAll" start="530" end="538" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="containsAllProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="haystack" byreference="false" type="{unknown}"/>
+    <parameter name="needles" byreference="false" type="{unknown}"/>
+    <parameter name="caseSensitive" byreference="false" type="boolean" default="true"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testSurround" start="543" end="550" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="surroundProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="substring" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testInsert" start="555" end="563" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="insertProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="substring" byreference="false" type="{unknown}"/>
+    <parameter name="index" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testTruncate" start="568" end="576" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="truncateProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="length" byreference="false" type="{unknown}"/>
+    <parameter name="substring" byreference="false" type="string" default="''"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testSafeTruncate" start="581" end="589" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="safeTruncateProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="length" byreference="false" type="{unknown}"/>
+    <parameter name="substring" byreference="false" type="string" default="''"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testReverse" start="594" end="601" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="reverseProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testShuffle" start="606" end="624" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="shuffleProvider()"/>
+    </docblock>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="We'll make sure that the chars are present after shuffle" line="617"/>
+    </inline>
+  </method>
+  <method name="testTrim" start="629" end="636" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="trimProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="chars" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testTrimLeft" start="641" end="649" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="trimLeftProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="chars" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testTrimRight" start="654" end="662" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="trimRightProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="chars" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testLongestCommonPrefix" start="667" end="675" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="longestCommonPrefixProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="otherStr" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testLongestCommonSuffix" start="680" end="688" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="longestCommonSuffixProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="otherStr" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testLongestCommonSubstring" start="693" end="701" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="longestCommonSubstringProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="otherStr" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testLength" start="706" end="713" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="lengthProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testSubstr" start="718" end="726" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="substrProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="start" byreference="false" type="{unknown}"/>
+    <parameter name="length" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testAt" start="731" end="738" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="atProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="index" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testFirst" start="743" end="750" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="firstProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="n" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testLast" start="755" end="762" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="lastProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="n" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testEnsureLeft" start="767" end="774" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="ensureLeftProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="substring" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testEnsureRight" start="779" end="786" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="ensureRightProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="substring" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testRemoveLeft" start="791" end="798" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="removeLeftProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="substring" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testRemoveRight" start="803" end="810" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="removeRightProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="substring" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testIsAlpha" start="815" end="822" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="isAlphaProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testIsAlphanumeric" start="827" end="834" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="isAlphanumericProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testIsBlank" start="839" end="846" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="isBlankProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testIsJson" start="851" end="858" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="isJsonProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testIsLowerCase" start="863" end="870" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="isLowerCaseProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testHasLowerCase" start="875" end="882" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="hasLowerCaseProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testIsSerialized" start="887" end="894" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="isSerializedProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testIsUpperCase" start="899" end="906" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="isUpperCaseProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testHasUpperCase" start="911" end="918" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="hasUpperCaseProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testIsHexadecimal" start="923" end="930" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="isHexadecimalProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testCountSubstr" start="935" end="943" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="countSubstrProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="substring" byreference="false" type="{unknown}"/>
+    <parameter name="caseSensitive" byreference="false" type="boolean" default="true"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testReplace" start="948" end="956" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="replaceProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="search" byreference="false" type="{unknown}"/>
+    <parameter name="replacement" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testregexReplace" start="961" end="969" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="regexReplaceProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="pattern" byreference="false" type="{unknown}"/>
+    <parameter name="replacement" byreference="false" type="{unknown}"/>
+    <parameter name="options" byreference="false" type="string" default="'msr'"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testHtmlEncode" start="974" end="981" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="htmlEncodeProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="flags" byreference="false" type="{unknown}" default="" constant="ENT_COMPAT"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testHtmlDecode" start="986" end="993" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="htmlDecodeProvider()"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="flags" byreference="false" type="{unknown}" default="" constant="ENT_COMPAT"/>
+    <parameter name="encoding" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+</class>

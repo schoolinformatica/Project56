@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Database\Connection" namespace="Illuminate\Database" name="Connection" abstract="false" final="false" start="21" end="1148">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database" file="Connection.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Connection.php" size="27937" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="b7f305ee965a4f11ced5c4fe663831acda08655a" relative="vendor/laravel/framework/src/Illuminate/Database/Connection.php"/>
+  <implements full="Illuminate\Database\ConnectionInterface" namespace="Illuminate\Database" name="ConnectionInterface"/>
+  <uses full="Illuminate\Database\DetectsLostConnections" namespace="Illuminate\Database" name="DetectsLostConnections" start="23" end="23"/>
+  <member name="pdo" visibility="protected" line="30">
+    <docblock>
+      <description compact="The active PDO connection."/>
+      <var type="object">
+        <type full="PDO" namespace="" name="PDO"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="readPdo" visibility="protected" line="37">
+    <docblock>
+      <description compact="The active PDO connection used for reads."/>
+      <var type="object">
+        <type full="PDO" namespace="" name="PDO"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="reconnector" visibility="protected" line="44">
+    <docblock>
+      <description compact="The reconnector instance for the connection."/>
+      <var type="object">
+        <type full="Illuminate\Database\callable" namespace="Illuminate\Database" name="callable"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="queryGrammar" visibility="protected" line="51">
+    <docblock>
+      <description compact="The query grammar implementation."/>
+      <var type="object">
+        <type full="\Illuminate\Database\Query\Grammars\Grammar" namespace="\Illuminate\Database\Query\Grammars" name="Grammar"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="schemaGrammar" visibility="protected" line="58">
+    <docblock>
+      <description compact="The schema grammar implementation."/>
+      <var type="object">
+        <type full="\Illuminate\Database\Schema\Grammars\Grammar" namespace="\Illuminate\Database\Schema\Grammars" name="Grammar"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="postProcessor" visibility="protected" line="65">
+    <docblock>
+      <description compact="The query post processor implementation."/>
+      <var type="object">
+        <type full="\Illuminate\Database\Query\Processors\Processor" namespace="\Illuminate\Database\Query\Processors" name="Processor"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="events" visibility="protected" line="72">
+    <docblock>
+      <description compact="The event dispatcher instance."/>
+      <var type="object">
+        <type full="\Illuminate\Contracts\Events\Dispatcher" namespace="\Illuminate\Contracts\Events" name="Dispatcher"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="fetchMode" type="{unknown}" default="" constant="PDO::FETCH_OBJ" visibility="protected" line="79">
+    <docblock>
+      <description compact="The default fetch mode of the connection."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="transactions" type="integer" default="0" visibility="protected" line="86">
+    <docblock>
+      <description compact="The number of active transactions."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="queryLog" type="array" default="" visibility="protected" line="93">
+    <docblock>
+      <description compact="All of the queries run against the connection."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="loggingQueries" type="boolean" default="false" visibility="protected" line="100">
+    <docblock>
+      <description compact="Indicates whether queries are being logged."/>
+      <var type="object">
+        <type full="Illuminate\Database\bool" namespace="Illuminate\Database" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="pretending" type="boolean" default="false" visibility="protected" line="107">
+    <docblock>
+      <description compact="Indicates if the connection is in a &quot;dry run&quot;."/>
+      <var type="object">
+        <type full="Illuminate\Database\bool" namespace="Illuminate\Database" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="database" visibility="protected" line="114">
+    <docblock>
+      <description compact="The name of the connected database."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="doctrineConnection" visibility="protected" line="121">
+    <docblock>
+      <description compact="The instance of Doctrine connection."/>
+      <var type="object">
+        <type full="\Doctrine\DBAL\Connection" namespace="\Doctrine\DBAL" name="Connection"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="tablePrefix" type="string" default="''" visibility="protected" line="128">
+    <docblock>
+      <description compact="The table prefix for the connection."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="config" type="array" default="" visibility="protected" line="135">
+    <docblock>
+      <description compact="The database connection configuration options."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="146" end="165" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new database connection instance."/>
+      <param type="object" variable="$pdo">
+        <type full="\PDO" namespace="" name="PDO"/>
+      </param>
+      <param type="string" variable="$database"/>
+      <param type="string" variable="$tablePrefix"/>
+      <param type="array" variable="$config"/>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="pdo" byreference="false" type="object">
+      <type full="PDO" namespace="" name="PDO"/>
+    </parameter>
+    <parameter name="database" byreference="false" type="string" default="''"/>
+    <parameter name="tablePrefix" byreference="false" type="string" default="''"/>
+    <parameter name="config" byreference="false" type="array" default=""/>
+    <inline>
+      <comment value="First we will setup the default properties. We keep track of the DB" line="150"/>
+      <comment value="name we are connected to since it is needed when some reflective" line="151"/>
+      <comment value="type commands are run such as checking whether a table exists." line="152"/>
+      <comment value="We need to initialize a query grammar and the query post processors" line="159"/>
+      <comment value="which are both very important parts of the database abstractions" line="160"/>
+      <comment value="so we initialize these to their default values while starting." line="161"/>
+    </inline>
+  </constructor>
+  <method name="useDefaultQueryGrammar" start="172" end="175" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the query grammar to the default implementation."/>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getDefaultQueryGrammar" start="182" end="185" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the default query grammar instance."/>
+      <return type="object">
+        <type full="\Illuminate\Database\Query\Grammars\Grammar" namespace="\Illuminate\Database\Query\Grammars" name="Grammar"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="useDefaultSchemaGrammar" start="192" end="195" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the schema grammar to the default implementation."/>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getDefaultSchemaGrammar" start="202" end="205" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the default schema grammar instance."/>
+      <return type="object">
+        <type full="\Illuminate\Database\Schema\Grammars\Grammar" namespace="\Illuminate\Database\Schema\Grammars" name="Grammar"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="useDefaultPostProcessor" start="212" end="215" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the query post processor to the default implementation."/>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getDefaultPostProcessor" start="222" end="225" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the default post processor instance."/>
+      <return type="object">
+        <type full="\Illuminate\Database\Query\Processors\Processor" namespace="\Illuminate\Database\Query\Processors" name="Processor"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getSchemaBuilder" start="232" end="239" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a schema builder instance for the connection."/>
+      <return type="object">
+        <type full="\Illuminate\Database\Schema\Builder" namespace="\Illuminate\Database\Schema" name="Builder"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="table" start="247" end="250" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Begin a fluent query against a database table."/>
+      <param type="string" variable="$table"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </return>
+    </docblock>
+    <parameter name="table" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="query" start="257" end="262" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a new query builder instance."/>
+      <return type="object">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="raw" start="270" end="273" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a new raw query expression."/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Query\Expression" namespace="\Illuminate\Database\Query" name="Expression"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="selectOne" start="282" end="287" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Run a select statement and return a single result."/>
+      <param type="string" variable="$query"/>
+      <param type="array" variable="$bindings"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}"/>
+    <parameter name="bindings" byreference="false" type="array" default=""/>
+  </method>
+  <method name="selectFromWriteConnection" start="296" end="299" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Run a select statement against the database."/>
+      <param type="string" variable="$query"/>
+      <param type="array" variable="$bindings"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}"/>
+    <parameter name="bindings" byreference="false" type="array" default=""/>
+  </method>
+  <method name="select" start="309" end="325" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Run a select statement against the database."/>
+      <param type="string" variable="$query"/>
+      <param type="array" variable="$bindings"/>
+      <param type="object" variable="$useReadPdo">
+        <type full="Illuminate\Database\bool" namespace="Illuminate\Database" name="bool"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}"/>
+    <parameter name="bindings" byreference="false" type="array" default=""/>
+    <parameter name="useReadPdo" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="getPdoForSelect" start="333" end="336" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the PDO connection to use for a select query."/>
+      <param type="object" variable="$useReadPdo">
+        <type full="Illuminate\Database\bool" namespace="Illuminate\Database" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="\PDO" namespace="" name="PDO"/>
+      </return>
+    </docblock>
+    <parameter name="useReadPdo" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="insert" start="345" end="348" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Run an insert statement against the database."/>
+      <param type="string" variable="$query"/>
+      <param type="array" variable="$bindings"/>
+      <return type="object">
+        <type full="Illuminate\Database\bool" namespace="Illuminate\Database" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}"/>
+    <parameter name="bindings" byreference="false" type="array" default=""/>
+  </method>
+  <method name="update" start="357" end="360" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Run an update statement against the database."/>
+      <param type="string" variable="$query"/>
+      <param type="array" variable="$bindings"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}"/>
+    <parameter name="bindings" byreference="false" type="array" default=""/>
+  </method>
+  <method name="delete" start="369" end="372" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Run a delete statement against the database."/>
+      <param type="string" variable="$query"/>
+      <param type="array" variable="$bindings"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}"/>
+    <parameter name="bindings" byreference="false" type="array" default=""/>
+  </method>
+  <method name="statement" start="381" end="392" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Execute an SQL statement and return the boolean result."/>
+      <param type="string" variable="$query"/>
+      <param type="array" variable="$bindings"/>
+      <return type="object">
+        <type full="Illuminate\Database\bool" namespace="Illuminate\Database" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}"/>
+    <parameter name="bindings" byreference="false" type="array" default=""/>
+  </method>
+  <method name="affectingStatement" start="401" end="417" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Run an SQL statement and get the number of rows affected."/>
+      <param type="string" variable="$query"/>
+      <param type="array" variable="$bindings"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}"/>
+    <parameter name="bindings" byreference="false" type="array" default=""/>
+  </method>
+  <method name="unprepared" start="425" end="434" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Run a raw, unprepared query against the PDO connection."/>
+      <param type="string" variable="$query"/>
+      <return type="object">
+        <type full="Illuminate\Database\bool" namespace="Illuminate\Database" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="prepareBindings" start="442" end="458" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Prepare the query bindings for execution."/>
+      <param type="array" variable="$bindings"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="bindings" byreference="false" type="array"/>
+  </method>
+  <method name="transaction" start="468" end="495" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Execute a Closure within a transaction."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="mixed"/>
+      <throws type="object">
+        <type full="\Throwable" namespace="" name="Throwable"/>
+      </throws>
+    </docblock>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+    <inline>
+      <comment value="We'll simply execute the given callback within a try / catch block" line="472"/>
+      <comment value="and if we catch any exception we can rollback the transaction" line="473"/>
+      <comment value="so that none of the changes are persisted to the database." line="474"/>
+    </inline>
+  </method>
+  <method name="beginTransaction" start="502" end="515" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Start a new database transaction."/>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="commit" start="522" end="531" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Commit the active database transaction."/>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="rollBack" start="538" end="551" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Rollback the active database transaction."/>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="transactionLevel" start="558" end="561" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the number of active transactions."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="pretend" start="569" end="589" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Execute the given callback in &quot;dry run&quot; mode."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+    <inline>
+      <comment value="Basically to make the database connection &quot;pretend&quot;, we will just return" line="579"/>
+      <comment value="the default values for all the query methods, then we will return an" line="580"/>
+      <comment value="array of queries that were &quot;executed&quot; within the Closure callback." line="581"/>
+    </inline>
+  </method>
+  <method name="run" start="601" end="626" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Run a SQL statement and log its execution context."/>
+      <param type="string" variable="$query"/>
+      <param type="array" variable="$bindings"/>
+      <param type="object" variable="$callback">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="mixed"/>
+      <throws type="object">
+        <type full="\Illuminate\Database\QueryException" namespace="\Illuminate\Database" name="QueryException"/>
+      </throws>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}"/>
+    <parameter name="bindings" byreference="false" type="{unknown}"/>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+    <inline>
+      <comment value="Here we will run this query. If an exception occurs we'll determine if it was" line="607"/>
+      <comment value="caused by a connection that has been lost. If that is the cause, we'll try" line="608"/>
+      <comment value="to re-establish connection and re-run the query with a fresh connection." line="609"/>
+      <comment value="Once we have run the query we will calculate the time that it took to run and" line="618"/>
+      <comment value="then log the query, bindings, and execution time so we will report them on" line="619"/>
+      <comment value="the event that the developer needs them. We'll log time in milliseconds." line="620"/>
+    </inline>
+  </method>
+  <method name="runQueryCallback" start="638" end="657" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Run a SQL statement."/>
+      <param type="string" variable="$query"/>
+      <param type="array" variable="$bindings"/>
+      <param type="object" variable="$callback">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="mixed"/>
+      <throws type="object">
+        <type full="\Illuminate\Database\QueryException" namespace="\Illuminate\Database" name="QueryException"/>
+      </throws>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}"/>
+    <parameter name="bindings" byreference="false" type="{unknown}"/>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+    <inline>
+      <comment value="To execute the statement, we'll simply call the callback, which will actually" line="640"/>
+      <comment value="run the SQL against the PDO connection. Then we can calculate the time it" line="641"/>
+      <comment value="took to execute and log the query SQL, bindings and time in our memory." line="642"/>
+    </inline>
+  </method>
+  <method name="tryAgainIfCausedByLostConnection" start="670" end="679" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Handle a query exception that occurred during query execution."/>
+      <param type="object" variable="$e">
+        <type full="\Illuminate\Database\QueryException" namespace="\Illuminate\Database" name="QueryException"/>
+      </param>
+      <param type="string" variable="$query"/>
+      <param type="array" variable="$bindings"/>
+      <param type="object" variable="$callback">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="mixed"/>
+      <throws type="object">
+        <type full="\Illuminate\Database\QueryException" namespace="\Illuminate\Database" name="QueryException"/>
+      </throws>
+    </docblock>
+    <parameter name="e" byreference="false" type="object">
+      <type full="Illuminate\Database\QueryException" namespace="Illuminate\Database" name="QueryException"/>
+    </parameter>
+    <parameter name="query" byreference="false" type="{unknown}"/>
+    <parameter name="bindings" byreference="false" type="{unknown}"/>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="disconnect" start="686" end="689" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Disconnect from the underlying PDO connection."/>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="reconnect" start="698" end="705" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Reconnect to the database."/>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="reconnectIfMissingConnection" start="712" end="717" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Reconnect to the database if a PDO connection is missing."/>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="logQuery" start="727" end="738" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Log a query in the connection's query log."/>
+      <param type="string" variable="$query"/>
+      <param type="array" variable="$bindings"/>
+      <param type="object" variable="$time">
+        <type full="Illuminate\Database\float|null" namespace="Illuminate\Database" name="float|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}"/>
+    <parameter name="bindings" byreference="false" type="{unknown}"/>
+    <parameter name="time" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="listen" start="746" end="751" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a database query listener with the connection."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="fireConnectionEvent" start="759" end="764" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Fire an event for this connection."/>
+      <param type="string" variable="$event"/>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="event" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getElapsedTime" start="772" end="775" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the elapsed time since a given starting point."/>
+      <param type="int" variable="$start"/>
+      <return type="float"/>
+    </docblock>
+    <parameter name="start" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isDoctrineAvailable" start="782" end="785" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Is Doctrine available?"/>
+      <return type="object">
+        <type full="Illuminate\Database\bool" namespace="Illuminate\Database" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getDoctrineColumn" start="794" end="799" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a Doctrine Schema Column instance."/>
+      <param type="string" variable="$table"/>
+      <param type="string" variable="$column"/>
+      <return type="object">
+        <type full="\Doctrine\DBAL\Schema\Column" namespace="\Doctrine\DBAL\Schema" name="Column"/>
+      </return>
+    </docblock>
+    <parameter name="table" byreference="false" type="{unknown}"/>
+    <parameter name="column" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getDoctrineSchemaManager" start="806" end="809" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the Doctrine DBAL schema manager for the connection."/>
+      <return type="object">
+        <type full="\Doctrine\DBAL\Schema\AbstractSchemaManager" namespace="\Doctrine\DBAL\Schema" name="AbstractSchemaManager"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getDoctrineConnection" start="816" end="827" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the Doctrine DBAL database connection instance."/>
+      <return type="object">
+        <type full="\Doctrine\DBAL\Connection" namespace="\Doctrine\DBAL" name="Connection"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getPdo" start="834" end="837" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the current PDO connection."/>
+      <return type="object">
+        <type full="\PDO" namespace="" name="PDO"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getReadPdo" start="844" end="851" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the current PDO connection used for reading."/>
+      <return type="object">
+        <type full="\PDO" namespace="" name="PDO"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setPdo" start="859" end="868" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the PDO connection."/>
+      <param type="object" variable="$pdo">
+        <type full="\PDO|null" namespace="" name="PDO|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\$this" namespace="Illuminate\Database" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="pdo" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setReadPdo" start="876" end="881" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the PDO connection used for reading."/>
+      <param type="object" variable="$pdo">
+        <type full="\PDO|null" namespace="" name="PDO|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\$this" namespace="Illuminate\Database" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="pdo" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setReconnector" start="889" end="894" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the reconnect instance on the connection."/>
+      <param type="object" variable="$reconnector">
+        <type full="Illuminate\Database\callable" namespace="Illuminate\Database" name="callable"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\$this" namespace="Illuminate\Database" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="reconnector" byreference="false" type="object">
+      <type full="Illuminate\Database\callable" namespace="Illuminate\Database" name="callable"/>
+    </parameter>
+  </method>
+  <method name="getName" start="901" end="904" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the database connection name."/>
+      <return type="object">
+        <type full="Illuminate\Database\string|null" namespace="Illuminate\Database" name="string|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getConfig" start="912" end="915" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get an option from the configuration options."/>
+      <param type="string" variable="$option"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="option" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getDriverName" start="922" end="925" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the PDO driver name."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getQueryGrammar" start="932" end="935" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the query grammar used by the connection."/>
+      <return type="object">
+        <type full="\Illuminate\Database\Query\Grammars\Grammar" namespace="\Illuminate\Database\Query\Grammars" name="Grammar"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setQueryGrammar" start="943" end="946" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the query grammar used by the connection."/>
+      <param type="object" variable="$grammar">
+        <type full="\Illuminate\Database\Query\Grammars\Grammar" namespace="\Illuminate\Database\Query\Grammars" name="Grammar"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="grammar" byreference="false" type="object">
+      <type full="Illuminate\Database\Query\Grammars\Grammar" namespace="Illuminate\Database\Query\Grammars" name="Grammar"/>
+    </parameter>
+  </method>
+  <method name="getSchemaGrammar" start="953" end="956" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the schema grammar used by the connection."/>
+      <return type="object">
+        <type full="\Illuminate\Database\Schema\Grammars\Grammar" namespace="\Illuminate\Database\Schema\Grammars" name="Grammar"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setSchemaGrammar" start="964" end="967" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the schema grammar used by the connection."/>
+      <param type="object" variable="$grammar">
+        <type full="\Illuminate\Database\Schema\Grammars\Grammar" namespace="\Illuminate\Database\Schema\Grammars" name="Grammar"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="grammar" byreference="false" type="object">
+      <type full="Illuminate\Database\Schema\Grammars\Grammar" namespace="Illuminate\Database\Schema\Grammars" name="Grammar"/>
+    </parameter>
+  </method>
+  <method name="getPostProcessor" start="974" end="977" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the query post processor used by the connection."/>
+      <return type="object">
+        <type full="\Illuminate\Database\Query\Processors\Processor" namespace="\Illuminate\Database\Query\Processors" name="Processor"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setPostProcessor" start="985" end="988" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the query post processor used by the connection."/>
+      <param type="object" variable="$processor">
+        <type full="\Illuminate\Database\Query\Processors\Processor" namespace="\Illuminate\Database\Query\Processors" name="Processor"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="processor" byreference="false" type="object">
+      <type full="Illuminate\Database\Query\Processors\Processor" namespace="Illuminate\Database\Query\Processors" name="Processor"/>
+    </parameter>
+  </method>
+  <method name="getEventDispatcher" start="995" end="998" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the event dispatcher used by the connection."/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Events\Dispatcher" namespace="\Illuminate\Contracts\Events" name="Dispatcher"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setEventDispatcher" start="1006" end="1009" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the event dispatcher instance on the connection."/>
+      <param type="object" variable="$events">
+        <type full="\Illuminate\Contracts\Events\Dispatcher" namespace="\Illuminate\Contracts\Events" name="Dispatcher"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="events" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Events\Dispatcher" namespace="Illuminate\Contracts\Events" name="Dispatcher"/>
+    </parameter>
+  </method>
+  <method name="pretending" start="1016" end="1019" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the connection in a &quot;dry run&quot;."/>
+      <return type="object">
+        <type full="Illuminate\Database\bool" namespace="Illuminate\Database" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getFetchMode" start="1026" end="1029" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the default fetch mode for the connection."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="setFetchMode" start="1037" end="1040" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the default fetch mode for the connection."/>
+      <param type="int" variable="$fetchMode"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="fetchMode" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getQueryLog" start="1047" end="1050" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the connection query log."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="flushQueryLog" start="1057" end="1060" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Clear the query log."/>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="enableQueryLog" start="1067" end="1070" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Enable the query log on the connection."/>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="disableQueryLog" start="1077" end="1080" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Disable the query log on the connection."/>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="logging" start="1087" end="1090" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine whether we're logging queries."/>
+      <return type="object">
+        <type full="Illuminate\Database\bool" namespace="Illuminate\Database" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getDatabaseName" start="1097" end="1100" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the name of the connected database."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setDatabaseName" start="1108" end="1111" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the name of the connected database."/>
+      <param type="string" variable="$database"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="database" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getTablePrefix" start="1118" end="1121" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the table prefix for the connection."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setTablePrefix" start="1129" end="1134" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the table prefix in use by the connection."/>
+      <param type="string" variable="$prefix"/>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="prefix" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="withTablePrefix" start="1142" end="1147" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the table prefix and return the grammar."/>
+      <param type="object" variable="$grammar">
+        <type full="\Illuminate\Database\Grammar" namespace="\Illuminate\Database" name="Grammar"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Grammar" namespace="\Illuminate\Database" name="Grammar"/>
+      </return>
+    </docblock>
+    <parameter name="grammar" byreference="false" type="object">
+      <type full="Illuminate\Database\Grammar" namespace="Illuminate\Database" name="Grammar"/>
+    </parameter>
+  </method>
+</class>

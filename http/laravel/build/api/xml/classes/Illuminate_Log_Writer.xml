@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Log\Writer" namespace="Illuminate\Log" name="Writer" abstract="false" final="false" start="20" end="375">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Log" file="Writer.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Log/Writer.php" size="9516" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="20825920c68d6f42e62fbe12446f98137422e3b1" relative="vendor/laravel/framework/src/Illuminate/Log/Writer.php"/>
+  <implements full="Illuminate\Contracts\Logging\Log" namespace="Illuminate\Contracts\Logging" name="Log"/>
+  <implements full="Psr\Log\LoggerInterface" namespace="Psr\Log" name="LoggerInterface"/>
+  <member name="monolog" visibility="protected" line="27">
+    <docblock>
+      <description compact="The Monolog logger instance."/>
+      <var type="object">
+        <type full="\Monolog\Logger" namespace="\Monolog" name="Logger"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="dispatcher" visibility="protected" line="34">
+    <docblock>
+      <description compact="The event dispatcher instance."/>
+      <var type="object">
+        <type full="\Illuminate\Contracts\Events\Dispatcher" namespace="\Illuminate\Contracts\Events" name="Dispatcher"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="levels" type="array" default="" visibility="protected" line="41">
+    <docblock>
+      <description compact="The Log levels."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="59" end="66" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new log writer instance."/>
+      <param type="object" variable="$monolog">
+        <type full="\Monolog\Logger" namespace="\Monolog" name="Logger"/>
+      </param>
+      <param type="object" variable="$dispatcher">
+        <type full="\Illuminate\Contracts\Events\Dispatcher" namespace="\Illuminate\Contracts\Events" name="Dispatcher"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Log\void" namespace="Illuminate\Log" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="monolog" byreference="false" type="object">
+      <type full="Monolog\Logger" namespace="Monolog" name="Logger"/>
+    </parameter>
+    <parameter name="dispatcher" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Illuminate\Contracts\Events\Dispatcher" namespace="Illuminate\Contracts\Events" name="Dispatcher"/>
+    </parameter>
+  </constructor>
+  <method name="emergency" start="75" end="78" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Log an emergency message to the logs."/>
+      <param type="string" variable="$message"/>
+      <param type="array" variable="$context"/>
+      <return type="object">
+        <type full="Illuminate\Log\void" namespace="Illuminate\Log" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="alert" start="87" end="90" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Log an alert message to the logs."/>
+      <param type="string" variable="$message"/>
+      <param type="array" variable="$context"/>
+      <return type="object">
+        <type full="Illuminate\Log\void" namespace="Illuminate\Log" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="critical" start="99" end="102" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Log a critical message to the logs."/>
+      <param type="string" variable="$message"/>
+      <param type="array" variable="$context"/>
+      <return type="object">
+        <type full="Illuminate\Log\void" namespace="Illuminate\Log" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="error" start="111" end="114" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Log an error message to the logs."/>
+      <param type="string" variable="$message"/>
+      <param type="array" variable="$context"/>
+      <return type="object">
+        <type full="Illuminate\Log\void" namespace="Illuminate\Log" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="warning" start="123" end="126" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Log a warning message to the logs."/>
+      <param type="string" variable="$message"/>
+      <param type="array" variable="$context"/>
+      <return type="object">
+        <type full="Illuminate\Log\void" namespace="Illuminate\Log" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="notice" start="135" end="138" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Log a notice to the logs."/>
+      <param type="string" variable="$message"/>
+      <param type="array" variable="$context"/>
+      <return type="object">
+        <type full="Illuminate\Log\void" namespace="Illuminate\Log" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="info" start="147" end="150" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Log an informational message to the logs."/>
+      <param type="string" variable="$message"/>
+      <param type="array" variable="$context"/>
+      <return type="object">
+        <type full="Illuminate\Log\void" namespace="Illuminate\Log" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="debug" start="159" end="162" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Log a debug message to the logs."/>
+      <param type="string" variable="$message"/>
+      <param type="array" variable="$context"/>
+      <return type="object">
+        <type full="Illuminate\Log\void" namespace="Illuminate\Log" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="log" start="172" end="175" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Log a message to the logs."/>
+      <param type="string" variable="$level"/>
+      <param type="string" variable="$message"/>
+      <param type="array" variable="$context"/>
+      <return type="object">
+        <type full="Illuminate\Log\void" namespace="Illuminate\Log" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="level" byreference="false" type="{unknown}"/>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="write" start="185" end="188" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Dynamically pass log calls into the writer."/>
+      <param type="string" variable="$level"/>
+      <param type="string" variable="$message"/>
+      <param type="array" variable="$context"/>
+      <return type="object">
+        <type full="Illuminate\Log\void" namespace="Illuminate\Log" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="level" byreference="false" type="{unknown}"/>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="writeLog" start="198" end="203" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Write a message to Monolog."/>
+      <param type="string" variable="$level"/>
+      <param type="string" variable="$message"/>
+      <param type="array" variable="$context"/>
+      <return type="object">
+        <type full="Illuminate\Log\void" namespace="Illuminate\Log" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="level" byreference="false" type="{unknown}"/>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="useFiles" start="212" end="217" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a file log handler."/>
+      <param type="string" variable="$path"/>
+      <param type="string" variable="$level"/>
+      <return type="object">
+        <type full="Illuminate\Log\void" namespace="Illuminate\Log" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="level" byreference="false" type="string" default="'debug'"/>
+  </method>
+  <method name="useDailyFiles" start="227" end="234" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a daily file log handler."/>
+      <param type="string" variable="$path"/>
+      <param type="int" variable="$days"/>
+      <param type="string" variable="$level"/>
+      <return type="object">
+        <type full="Illuminate\Log\void" namespace="Illuminate\Log" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="days" byreference="false" type="integer" default="0"/>
+    <parameter name="level" byreference="false" type="string" default="'debug'"/>
+  </method>
+  <method name="useSyslog" start="243" end="246" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a Syslog handler."/>
+      <param type="string" variable="$name"/>
+      <param type="string" variable="$level"/>
+      <return type="object">
+        <type full="\Psr\Log\LoggerInterface" namespace="\Psr\Log" name="LoggerInterface"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="string" default="'laravel'"/>
+    <parameter name="level" byreference="false" type="string" default="'debug'"/>
+  </method>
+  <method name="useErrorLog" start="255" end="262" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register an error_log handler."/>
+      <param type="string" variable="$level"/>
+      <param type="int" variable="$messageType"/>
+      <return type="object">
+        <type full="Illuminate\Log\void" namespace="Illuminate\Log" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="level" byreference="false" type="string" default="'debug'"/>
+    <parameter name="messageType" byreference="false" type="{unknown}" default="" constant="ErrorLogHandler::OPERATING_SYSTEM"/>
+  </method>
+  <method name="listen" start="272" end="279" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a new callback handler for when a log event is triggered."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Log\void" namespace="Illuminate\Log" name="void"/>
+      </return>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="fireLogEvent" start="289" end="297" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Fires a log event."/>
+      <param type="string" variable="$level"/>
+      <param type="string" variable="$message"/>
+      <param type="array" variable="$context"/>
+      <return type="object">
+        <type full="Illuminate\Log\void" namespace="Illuminate\Log" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="level" byreference="false" type="{unknown}"/>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+    <inline>
+      <comment value="If the event dispatcher is set, we will pass along the parameters to the" line="291"/>
+      <comment value="log listeners. These are useful for building profilers or other tools" line="292"/>
+      <comment value="that aggregate all of the log messages for a given &quot;request&quot; cycle." line="293"/>
+    </inline>
+  </method>
+  <method name="formatMessage" start="305" end="316" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Format the parameters for the logger."/>
+      <param type="mixed" variable="$message"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="parseLevel" start="326" end="333" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Parse the string level into a Monolog constant."/>
+      <param type="string" variable="$level"/>
+      <return type="int"/>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="level" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getMonolog" start="340" end="343" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the underlying Monolog instance."/>
+      <return type="object">
+        <type full="\Monolog\Logger" namespace="\Monolog" name="Logger"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getDefaultFormatter" start="350" end="353" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get a defaut Monolog formatter instance."/>
+      <return type="object">
+        <type full="\Monolog\Formatter\LineFormatter" namespace="\Monolog\Formatter" name="LineFormatter"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getEventDispatcher" start="360" end="363" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the event dispatcher instance."/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Events\Dispatcher" namespace="\Illuminate\Contracts\Events" name="Dispatcher"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setEventDispatcher" start="371" end="374" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the event dispatcher instance."/>
+      <param type="object" variable="$dispatcher">
+        <type full="\Illuminate\Contracts\Events\Dispatcher" namespace="\Illuminate\Contracts\Events" name="Dispatcher"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Log\void" namespace="Illuminate\Log" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="dispatcher" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Events\Dispatcher" namespace="Illuminate\Contracts\Events" name="Dispatcher"/>
+    </parameter>
+  </method>
+</class>

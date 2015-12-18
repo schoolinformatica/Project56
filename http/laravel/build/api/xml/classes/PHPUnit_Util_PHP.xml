@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PHPUnit_Util_PHP" namespace="" name="PHPUnit_Util_PHP" abstract="true" final="false" start="16" end="227">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Util" file="PHP.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Util/PHP.php" size="6878" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="2ce73d81de10f93f0aae17da792b393cdc657798" relative="vendor/phpunit/phpunit/src/Util/PHP.php"/>
+  <docblock>
+    <description compact="Utility methods for PHP sub-processes."/>
+    <since value="Class available since Release 3.4.0"/>
+  </docblock>
+  <method name="factory" start="23" end="30" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="PHPUnit_Util_PHP" namespace="" name="PHPUnit_Util_PHP"/>
+      </return>
+      <since value="Method available since Release 3.5.12"/>
+    </docblock>
+  </method>
+  <method name="runTestJob" start="41" end="53" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Runs a single test in a separate PHP process."/>
+      <param type="string" variable="$job"/>
+      <param type="object" variable="$test">
+        <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+      </param>
+      <param type="object" variable="$result">
+        <type full="PHPUnit_Framework_TestResult" namespace="" name="PHPUnit_Framework_TestResult"/>
+      </param>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="job" byreference="false" type="{unknown}"/>
+    <parameter name="test" byreference="false" type="object">
+      <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+    </parameter>
+    <parameter name="result" byreference="false" type="object">
+      <type full="PHPUnit_Framework_TestResult" namespace="" name="PHPUnit_Framework_TestResult"/>
+    </parameter>
+  </method>
+  <method name="runJob" start="65" end="65" abstract="true" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Runs a single job (PHP code) using a separate PHP process."/>
+      <param type="string" variable="$job"/>
+      <param type="array" variable="$settings"/>
+      <return type="array"/>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="job" byreference="false" type="{unknown}"/>
+    <parameter name="settings" byreference="false" type="array" default=""/>
+  </method>
+  <method name="settingsToParameters" start="74" end="83" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="array" variable="$settings"/>
+      <return type="string"/>
+      <since value="Method available since Release 4.0.0"/>
+    </docblock>
+    <parameter name="settings" byreference="false" type="array"/>
+  </method>
+  <method name="processChildResult" start="95" end="189" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Processes the TestResult object from an isolated process."/>
+      <param type="object" variable="$test">
+        <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+      </param>
+      <param type="object" variable="$result">
+        <type full="PHPUnit_Framework_TestResult" namespace="" name="PHPUnit_Framework_TestResult"/>
+      </param>
+      <param type="string" variable="$stdout"/>
+      <param type="string" variable="$stderr"/>
+      <since value="Method available since Release 3.5.0"/>
+    </docblock>
+    <parameter name="test" byreference="false" type="object">
+      <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+    </parameter>
+    <parameter name="result" byreference="false" type="object">
+      <type full="PHPUnit_Framework_TestResult" namespace="" name="PHPUnit_Framework_TestResult"/>
+    </parameter>
+    <parameter name="stdout" byreference="false" type="{unknown}"/>
+    <parameter name="stderr" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getException" start="201" end="226" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Gets the thrown exception from a PHPUnit_Framework_TestFailure."/>
+      <param type="object" variable="$error">
+        <type full="PHPUnit_Framework_TestFailure" namespace="" name="PHPUnit_Framework_TestFailure"/>
+      </param>
+      <return type="object">
+        <type full="Exception" namespace="" name="Exception"/>
+      </return>
+      <since value="Method available since Release 3.6.0"/>
+      <see value="https://github.com/sebastianbergmann/phpunit/issues/74"/>
+    </docblock>
+    <parameter name="error" byreference="false" type="object">
+      <type full="PHPUnit_Framework_TestFailure" namespace="" name="PHPUnit_Framework_TestFailure"/>
+    </parameter>
+  </method>
+</class>

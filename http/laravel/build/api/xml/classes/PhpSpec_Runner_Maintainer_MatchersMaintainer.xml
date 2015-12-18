@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpSpec\Runner\Maintainer\MatchersMaintainer" namespace="PhpSpec\Runner\Maintainer" name="MatchersMaintainer" abstract="false" final="false" start="24" end="112">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Runner/Maintainer" file="MatchersMaintainer.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Runner/Maintainer/MatchersMaintainer.php" size="2903" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="82405d1f489184efb60c68f4879a4d6b49e979d5" relative="vendor/phpspec/phpspec/src/PhpSpec/Runner/Maintainer/MatchersMaintainer.php"/>
+  <implements full="PhpSpec\Runner\Maintainer\MaintainerInterface" namespace="PhpSpec\Runner\Maintainer" name="MaintainerInterface"/>
+  <member name="presenter" visibility="private" line="29">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\Formatter\Presenter\PresenterInterface" namespace="PhpSpec\Formatter\Presenter" name="PresenterInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="defaultMatchers" type="array" default="" visibility="private" line="34">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="PhpSpec\Runner\Maintainer\MatcherInterface" namespace="PhpSpec\Runner\Maintainer" name="MatcherInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="40" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$presenter">
+        <type full="PhpSpec\Formatter\Presenter\PresenterInterface" namespace="PhpSpec\Formatter\Presenter" name="PresenterInterface"/>
+      </param>
+      <param type="array" variable="$matchers" of="object">
+        <type full="PhpSpec\Runner\Maintainer\MatcherInterface" namespace="PhpSpec\Runner\Maintainer" name="MatcherInterface"/>
+      </param>
+    </docblock>
+    <parameter name="presenter" byreference="false" type="object">
+      <type full="PhpSpec\Formatter\Presenter\PresenterInterface" namespace="PhpSpec\Formatter\Presenter" name="PresenterInterface"/>
+    </parameter>
+    <parameter name="matchers" byreference="false" type="array"/>
+  </constructor>
+  <method name="supports" start="54" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$example">
+        <type full="PhpSpec\Loader\Node\ExampleNode" namespace="PhpSpec\Loader\Node" name="ExampleNode"/>
+      </param>
+      <return type="object">
+        <type full="PhpSpec\Runner\Maintainer\bool" namespace="PhpSpec\Runner\Maintainer" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="example" byreference="false" type="object">
+      <type full="PhpSpec\Loader\Node\ExampleNode" namespace="PhpSpec\Loader\Node" name="ExampleNode"/>
+    </parameter>
+  </method>
+  <method name="prepare" start="65" end="89" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$example">
+        <type full="PhpSpec\Loader\Node\ExampleNode" namespace="PhpSpec\Loader\Node" name="ExampleNode"/>
+      </param>
+      <param type="object" variable="$context">
+        <type full="PhpSpec\SpecificationInterface" namespace="PhpSpec" name="SpecificationInterface"/>
+      </param>
+      <param type="object" variable="$matchers">
+        <type full="PhpSpec\Runner\MatcherManager" namespace="PhpSpec\Runner" name="MatcherManager"/>
+      </param>
+      <param type="object" variable="$collaborators">
+        <type full="PhpSpec\Runner\CollaboratorManager" namespace="PhpSpec\Runner" name="CollaboratorManager"/>
+      </param>
+    </docblock>
+    <parameter name="example" byreference="false" type="object">
+      <type full="PhpSpec\Loader\Node\ExampleNode" namespace="PhpSpec\Loader\Node" name="ExampleNode"/>
+    </parameter>
+    <parameter name="context" byreference="false" type="object">
+      <type full="PhpSpec\SpecificationInterface" namespace="PhpSpec" name="SpecificationInterface"/>
+    </parameter>
+    <parameter name="matchers" byreference="false" type="object">
+      <type full="PhpSpec\Runner\MatcherManager" namespace="PhpSpec\Runner" name="MatcherManager"/>
+    </parameter>
+    <parameter name="collaborators" byreference="false" type="object">
+      <type full="PhpSpec\Runner\CollaboratorManager" namespace="PhpSpec\Runner" name="CollaboratorManager"/>
+    </parameter>
+  </method>
+  <method name="teardown" start="97" end="103" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$example">
+        <type full="PhpSpec\Loader\Node\ExampleNode" namespace="PhpSpec\Loader\Node" name="ExampleNode"/>
+      </param>
+      <param type="object" variable="$context">
+        <type full="PhpSpec\SpecificationInterface" namespace="PhpSpec" name="SpecificationInterface"/>
+      </param>
+      <param type="object" variable="$matchers">
+        <type full="PhpSpec\Runner\MatcherManager" namespace="PhpSpec\Runner" name="MatcherManager"/>
+      </param>
+      <param type="object" variable="$collaborators">
+        <type full="PhpSpec\Runner\CollaboratorManager" namespace="PhpSpec\Runner" name="CollaboratorManager"/>
+      </param>
+    </docblock>
+    <parameter name="example" byreference="false" type="object">
+      <type full="PhpSpec\Loader\Node\ExampleNode" namespace="PhpSpec\Loader\Node" name="ExampleNode"/>
+    </parameter>
+    <parameter name="context" byreference="false" type="object">
+      <type full="PhpSpec\SpecificationInterface" namespace="PhpSpec" name="SpecificationInterface"/>
+    </parameter>
+    <parameter name="matchers" byreference="false" type="object">
+      <type full="PhpSpec\Runner\MatcherManager" namespace="PhpSpec\Runner" name="MatcherManager"/>
+    </parameter>
+    <parameter name="collaborators" byreference="false" type="object">
+      <type full="PhpSpec\Runner\CollaboratorManager" namespace="PhpSpec\Runner" name="CollaboratorManager"/>
+    </parameter>
+  </method>
+  <method name="getPriority" start="108" end="111" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="int"/>
+    </docblock>
+  </method>
+</class>

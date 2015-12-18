@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\Tests\HttpCache\TestHttpKernel" namespace="Symfony\Component\HttpKernel\Tests\HttpCache" name="TestHttpKernel" abstract="false" final="false" start="21" end="91">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Tests/HttpCache" file="TestHttpKernel.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Tests/HttpCache/TestHttpKernel.php" size="2296" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="cbcbaa31384bf2a34c2dea2b9b1ffd1e1f1b9433" relative="vendor/symfony/http-kernel/Tests/HttpCache/TestHttpKernel.php"/>
+  <extends full="Symfony\Component\HttpKernel\HttpKernel" namespace="Symfony\Component\HttpKernel" name="HttpKernel"/>
+  <implements full="Symfony\Component\HttpKernel\Controller\ControllerResolverInterface" namespace="Symfony\Component\HttpKernel\Controller" name="ControllerResolverInterface"/>
+  <member name="body" visibility="protected" line="23"/>
+  <member name="status" visibility="protected" line="24"/>
+  <member name="headers" visibility="protected" line="25"/>
+  <member name="called" type="boolean" default="false" visibility="protected" line="26"/>
+  <member name="customizer" visibility="protected" line="27"/>
+  <member name="catch" type="boolean" default="false" visibility="protected" line="28"/>
+  <member name="backendRequest" visibility="protected" line="29"/>
+  <constructor name="__construct" start="31" end="39" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="body" byreference="false" type="{unknown}"/>
+    <parameter name="status" byreference="false" type="{unknown}"/>
+    <parameter name="headers" byreference="false" type="{unknown}"/>
+    <parameter name="customizer" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </constructor>
+  <method name="getBackendRequest" start="41" end="44" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="handle" start="46" end="52" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="type" byreference="false" type="{unknown}" default="" constant="HttpKernelInterface::MASTER_REQUEST"/>
+    <parameter name="catch" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="isCatchingExceptions" start="54" end="57" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getController" start="59" end="62" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+  </method>
+  <method name="getArguments" start="64" end="67" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="controller" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="callController" start="69" end="80" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+  </method>
+  <method name="hasBeenCalled" start="82" end="85" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="reset" start="87" end="90" abstract="false" final="false" static="false" visibility="public"/>
+</class>

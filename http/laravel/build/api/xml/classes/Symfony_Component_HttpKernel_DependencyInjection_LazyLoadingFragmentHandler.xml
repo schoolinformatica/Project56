@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\DependencyInjection\LazyLoadingFragmentHandler" namespace="Symfony\Component\HttpKernel\DependencyInjection" name="LazyLoadingFragmentHandler" abstract="false" final="false" start="23" end="58">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/DependencyInjection" file="LazyLoadingFragmentHandler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/DependencyInjection/LazyLoadingFragmentHandler.php" size="1585" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="85a1e33f0b6cd91c0bb25eecff8def9e577bbe99" relative="vendor/symfony/http-kernel/DependencyInjection/LazyLoadingFragmentHandler.php"/>
+  <docblock>
+    <description compact="Lazily loads fragment renderers from the dependency injection container."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\HttpKernel\Fragment\FragmentHandler" namespace="Symfony\Component\HttpKernel\Fragment" name="FragmentHandler"/>
+  <member name="container" visibility="private" line="25"/>
+  <member name="rendererIds" type="array" default="" visibility="private" line="26"/>
+  <constructor name="__construct" start="28" end="33" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="container" byreference="false" type="object">
+      <type full="Symfony\Component\DependencyInjection\ContainerInterface" namespace="Symfony\Component\DependencyInjection" name="ContainerInterface"/>
+    </parameter>
+    <parameter name="debug" byreference="false" type="boolean" default="false"/>
+    <parameter name="requestStack" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\HttpFoundation\RequestStack" namespace="Symfony\Component\HttpFoundation" name="RequestStack"/>
+    </parameter>
+  </constructor>
+  <method name="addRendererService" start="40" end="43" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a service as a fragment renderer."/>
+      <param description="The render service id" type="string" variable="$renderer"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="renderer" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="render" start="48" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="uri" byreference="false" type="{unknown}"/>
+    <parameter name="renderer" byreference="false" type="string" default="'inline'"/>
+    <parameter name="options" byreference="false" type="array" default=""/>
+  </method>
+</class>

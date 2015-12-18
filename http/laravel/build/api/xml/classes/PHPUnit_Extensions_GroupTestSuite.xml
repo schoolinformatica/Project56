@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PHPUnit_Extensions_GroupTestSuite" namespace="" name="PHPUnit_Extensions_GroupTestSuite" abstract="false" final="false" start="26" end="60">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Extensions" file="GroupTestSuite.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Extensions/GroupTestSuite.php" size="1927" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="d81c0191c35ac4f52d8fea1edc9c0c4af7f5961e" relative="vendor/phpunit/phpunit/src/Extensions/GroupTestSuite.php"/>
+  <docblock>
+    <description compact="We have a TestSuite object A.">In TestSuite object A we have Tests tagged with @group.
+We want a TestSuite object B that contains TestSuite objects C, D, ...
+for the Tests tagged with @group C, @group D, ...
+Running the Tests from TestSuite object B results in Tests tagged with both</description>
+    <group value="C and @group D in TestSuite object A to be run twice .">&lt;code&gt;
+$suite = new PHPUnit_Extensions_GroupTestSuite($A, array('C', 'D'));
+&lt;/code&gt;</group>
+    <since value="Class available since Release 3.3.0"/>
+  </docblock>
+  <extends full="PHPUnit_Framework_TestSuite" namespace="" name="PHPUnit_Framework_TestSuite"/>
+  <constructor name="__construct" start="28" end="59" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="suite" byreference="false" type="object">
+      <type full="PHPUnit_Framework_TestSuite" namespace="" name="PHPUnit_Framework_TestSuite"/>
+    </parameter>
+    <parameter name="groups" byreference="false" type="array"/>
+  </constructor>
+</class>

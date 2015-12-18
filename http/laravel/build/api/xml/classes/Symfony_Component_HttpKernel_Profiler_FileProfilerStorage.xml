@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage" namespace="Symfony\Component\HttpKernel\Profiler" name="FileProfilerStorage" abstract="false" final="false" start="19" end="284">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Profiler" file="FileProfilerStorage.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Profiler/FileProfilerStorage.php" size="8044" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="b7019ec2a86618cb10d336092f3571e891a49d51" relative="vendor/symfony/http-kernel/Profiler/FileProfilerStorage.php"/>
+  <docblock>
+    <description compact="Storage for profiler using files."/>
+    <author value="Alexandre Salomé &lt;alexandre.salome@gmail.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\HttpKernel\Profiler\ProfilerStorageInterface" namespace="Symfony\Component\HttpKernel\Profiler" name="ProfilerStorageInterface"/>
+  <member name="folder" visibility="private" line="26">
+    <docblock>
+      <description compact="Folder where profiler data are stored."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="37" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructs the file storage using a &quot;dsn-like&quot; path.">Example : "file:/path/to/the/storage/folder"</description>
+      <param description="The DSN" type="string" variable="$dsn"/>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="dsn" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="find" start="52" end="97" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="ip" byreference="false" type="{unknown}"/>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+    <parameter name="limit" byreference="false" type="{unknown}"/>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="start" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="end" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="purge" start="102" end="115" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="read" start="120" end="127" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="token" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="write" start="134" end="182" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="profile" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\Profiler\Profile" namespace="Symfony\Component\HttpKernel\Profiler" name="Profile"/>
+    </parameter>
+    <inline>
+      <comment value="Store profile" line="147"/>
+    </inline>
+  </method>
+  <method name="getFilename" start="191" end="198" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Gets filename to store data, associated to the token."/>
+      <param type="string" variable="$token"/>
+      <return description="The profile filename" type="string"/>
+    </docblock>
+    <parameter name="token" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Uses 4 last characters, because first are mostly the same." line="193"/>
+    </inline>
+  </method>
+  <method name="getIndexFilename" start="205" end="208" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Gets the index filename."/>
+      <return description="The index filename" type="string"/>
+    </docblock>
+  </method>
+  <method name="readLineFromFile" start="219" end="255" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Reads a line in the file, backward.">This function automatically skips the empty lines and do not include the line return in result value.</description>
+      <param description="The file resource, with the pointer placed at the end of the line to read" type="resource" variable="$file"/>
+      <return description="A string representing the line or null if beginning of file is reached" type="mixed"/>
+    </docblock>
+    <parameter name="file" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="createProfileFromData" start="257" end="283" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="token" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="parent" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+</class>

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage" namespace="Symfony\Component\HttpFoundation\Session\Storage" name="NativeSessionStorage" abstract="false" final="false" start="25" end="430">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/Session/Storage" file="NativeSessionStorage.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/Session/Storage/NativeSessionStorage.php" size="13032" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="6d154f0f0e7e379c34ba2bfe29ee74467afdef6a" relative="vendor/symfony/http-foundation/Session/Storage/NativeSessionStorage.php"/>
+  <docblock>
+    <description compact="This provides a base class for session attribute storage."/>
+    <author value="Drak &lt;drak@zikula.org&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\HttpFoundation\Session\Storage\SessionStorageInterface" namespace="Symfony\Component\HttpFoundation\Session\Storage" name="SessionStorageInterface"/>
+  <member name="bags" visibility="protected" line="32">
+    <docblock>
+      <description compact="Array of SessionBagInterface."/>
+      <var type="array" of="object">
+        <type full="Symfony\Component\HttpFoundation\Session\Storage\SessionBagInterface" namespace="Symfony\Component\HttpFoundation\Session\Storage" name="SessionBagInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="started" type="boolean" default="false" visibility="protected" line="37">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\HttpFoundation\Session\Storage\bool" namespace="Symfony\Component\HttpFoundation\Session\Storage" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="closed" type="boolean" default="false" visibility="protected" line="42">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\HttpFoundation\Session\Storage\bool" namespace="Symfony\Component\HttpFoundation\Session\Storage" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="saveHandler" visibility="protected" line="47">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\HttpFoundation\Session\Storage\Proxy\AbstractProxy" namespace="Symfony\Component\HttpFoundation\Session\Storage\Proxy" name="AbstractProxy"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="metadataBag" visibility="protected" line="52">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag" namespace="Symfony\Component\HttpFoundation\Session\Storage" name="MetadataBag"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="99" end="113" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor.">Depending on how you want the storage driver to behave you probably
+want to override this constructor entirely.
+
+List of options for $options array with their defaults.</description>
+      <see value="http://php.net/session.configuration for options">but we omit 'session.' from the beginning of the keys for convenience.
+
+("auto_start", is not supported as it tells PHP to start a session before
+PHP starts to execute user-land code. Setting during runtime has no effect).
+
+cache_limiter, "" (use "0" to prevent headers from being sent entirely).
+cookie_domain, ""
+cookie_httponly, ""
+cookie_lifetime, "0"
+cookie_path, "/"
+cookie_secure, ""
+entropy_file, ""
+entropy_length, "0"
+gc_divisor, "100"
+gc_maxlifetime, "1440"
+gc_probability, "1"
+hash_bits_per_character, "4"
+hash_function, "0"
+name, "PHPSESSID"
+referer_check, ""
+serialize_handler, "php"
+use_cookies, "1"
+use_only_cookies, "1"
+use_trans_sid, "0"
+upload_progress.enabled, "1"
+upload_progress.cleanup, "1"
+upload_progress.prefix, "upload_progress_"
+upload_progress.name, "PHP_SESSION_UPLOAD_PROGRESS"
+upload_progress.freq, "1%"
+upload_progress.min-freq, "1"
+url_rewriter.tags, "a=href,area=href,frame=src,form=,fieldset="</see>
+      <param description="Session configuration options." type="array" variable="$options"/>
+      <param type="object" variable="$handler">
+        <type full="Symfony\Component\HttpFoundation\Session\Storage\AbstractProxy|NativeSessionHandler|\SessionHandlerInterface|null" namespace="Symfony\Component\HttpFoundation\Session\Storage\AbstractProxy|NativeSessionHandler|" name="SessionHandlerInterface|null"/>
+      </param>
+      <param description="MetadataBag." type="object" variable="$metaBag">
+        <type full="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag" namespace="Symfony\Component\HttpFoundation\Session\Storage" name="MetadataBag"/>
+      </param>
+    </docblock>
+    <parameter name="options" byreference="false" type="array" default=""/>
+    <parameter name="handler" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="metaBag" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag" namespace="Symfony\Component\HttpFoundation\Session\Storage" name="MetadataBag"/>
+    </parameter>
+    <inline>
+      <comment value="disable by default because it's managed by HeaderBag (if used)" line="101"/>
+    </inline>
+  </constructor>
+  <method name="getSaveHandler" start="120" end="123" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the save handler instance."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Session\Storage\Proxy\AbstractProxy" namespace="Symfony\Component\HttpFoundation\Session\Storage\Proxy" name="AbstractProxy"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="start" start="128" end="159" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <inline>
+      <comment value="ok to try and start the session" line="147"/>
+    </inline>
+  </method>
+  <method name="getId" start="164" end="167" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="setId" start="172" end="175" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getName" start="180" end="183" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="setName" start="188" end="191" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="regenerate" start="196" end="223" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="destroy" byreference="false" type="boolean" default="false"/>
+    <parameter name="lifetime" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="Cannot regenerate the session ID for non-active sessions." line="198"/>
+      <comment value="Check if session ID exists in PHP 5.3" line="203"/>
+      <comment value="The reference to $_SESSION in session bags is lost in PHP7 and we need to re-create it." line="218"/>
+      <comment value="@see https://bugs.php.net/bug.php?id=70013" line="219"/>
+    </inline>
+  </method>
+  <method name="save" start="228" end="239" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="clear" start="244" end="256" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <inline>
+      <comment value="clear out the bags" line="246"/>
+      <comment value="clear out the session" line="251"/>
+      <comment value="reconnect the bags to the session" line="254"/>
+    </inline>
+  </method>
+  <method name="registerBag" start="261" end="264" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="bag" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Session\SessionBagInterface" namespace="Symfony\Component\HttpFoundation\Session" name="SessionBagInterface"/>
+    </parameter>
+  </method>
+  <method name="getBag" start="269" end="282" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setMetadataBag" start="289" end="296" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the MetadataBag."/>
+      <param type="object" variable="$metaBag">
+        <type full="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag" namespace="Symfony\Component\HttpFoundation\Session\Storage" name="MetadataBag"/>
+      </param>
+    </docblock>
+    <parameter name="metaBag" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag" namespace="Symfony\Component\HttpFoundation\Session\Storage" name="MetadataBag"/>
+    </parameter>
+  </method>
+  <method name="getMetadataBag" start="303" end="306" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the MetadataBag."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag" namespace="Symfony\Component\HttpFoundation\Session\Storage" name="MetadataBag"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isStarted" start="311" end="314" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="setOptions" start="326" end="345" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets session.* ini variables.">For convenience we omit 'session.' from the beginning of the keys.
+Explicitly ignores other ini keys.</description>
+      <param description="Session ini directives array(key =&gt; value)." type="array" variable="$options"/>
+      <see value="http://php.net/session.configuration"/>
+    </docblock>
+    <parameter name="options" byreference="false" type="array"/>
+  </method>
+  <method name="setSaveHandler" start="369" end="401" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Registers session save handler as a PHP session handler.">To use internal PHP session save handlers, override this method using ini_set with
+session.save_handler and session.save_path e.g.
+
+    ini_set('session.save_handler', 'files');
+    ini_set('session.save_path', /tmp');
+
+or pass in a NativeSessionHandler instance which configures session.save_handler in the
+constructor, for a template see NativeFileSessionHandler or use handlers in
+composer package drak/native-session</description>
+      <see value="http://php.net/session-set-save-handler"/>
+      <see value="http://php.net/sessionhandlerinterface"/>
+      <see value="http://php.net/sessionhandler"/>
+      <see value="http://github.com/drak/NativeSession"/>
+      <param type="object" variable="$saveHandler">
+        <type full="Symfony\Component\HttpFoundation\Session\Storage\AbstractProxy|NativeSessionHandler|\SessionHandlerInterface|null" namespace="Symfony\Component\HttpFoundation\Session\Storage\AbstractProxy|NativeSessionHandler|" name="SessionHandlerInterface|null"/>
+      </param>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="saveHandler" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="Wrap $saveHandler in proxy and prevent double wrapping of proxy" line="378"/>
+    </inline>
+  </method>
+  <method name="loadSession" start="413" end="429" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Load the session with attributes.">After starting the session, PHP retrieves the session from whatever handlers
+are set to (either PHP's internal, or a custom save handler set with session_set_save_handler()).
+PHP takes the return value from the read() handler, unserializes it
+and populates $_SESSION with the result automatically.</description>
+      <param type="object" variable="$session">
+        <type full="Symfony\Component\HttpFoundation\Session\Storage\array|null" namespace="Symfony\Component\HttpFoundation\Session\Storage" name="array|null"/>
+      </param>
+    </docblock>
+    <parameter name="session" byreference="true" type="{unknown}" default="" constant="null"/>
+  </method>
+</class>

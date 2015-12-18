@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Handler\BufferHandler" namespace="Monolog\Handler" name="BufferHandler" abstract="false" final="false" start="24" end="117">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler" file="BufferHandler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler/BufferHandler.php" size="3436" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="2b4234d0dd4f070fcb3c66577fc02827178387d8" relative="vendor/monolog/monolog/src/Monolog/Handler/BufferHandler.php"/>
+  <docblock>
+    <description compact="Buffers all records until closing the handler and then pass them as batch.">This is useful for a MailHandler to send only one mail per request instead of
+sending one per log message.</description>
+    <author value="Christophe Coevoet &lt;stof@notk.org&gt;"/>
+  </docblock>
+  <extends full="Monolog\Handler\AbstractHandler" namespace="Monolog\Handler" name="AbstractHandler"/>
+  <member name="handler" visibility="protected" line="26"/>
+  <member name="bufferSize" type="integer" default="0" visibility="protected" line="27"/>
+  <member name="bufferLimit" visibility="protected" line="28"/>
+  <member name="flushOnOverflow" visibility="protected" line="29"/>
+  <member name="buffer" type="array" default="" visibility="protected" line="30"/>
+  <member name="initialized" type="boolean" default="false" visibility="protected" line="31"/>
+  <constructor name="__construct" start="40" end="46" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param description="Handler." type="object" variable="$handler">
+        <type full="Monolog\Handler\HandlerInterface" namespace="Monolog\Handler" name="HandlerInterface"/>
+      </param>
+      <param description="How many entries should be buffered at most, beyond that the oldest items are removed from the buffer." type="integer" variable="$bufferLimit"/>
+      <param description="The minimum logging level at which this handler will be triggered" type="integer" variable="$level"/>
+      <param description="Whether the messages that are handled can bubble up the stack or not" type="object" variable="$bubble">
+        <type full="Monolog\Handler\Boolean" namespace="Monolog\Handler" name="Boolean"/>
+      </param>
+      <param description="If true, the buffer is flushed when the max size has been reached, by default oldest entries are discarded" type="object" variable="$flushOnOverflow">
+        <type full="Monolog\Handler\Boolean" namespace="Monolog\Handler" name="Boolean"/>
+      </param>
+    </docblock>
+    <parameter name="handler" byreference="false" type="object">
+      <type full="Monolog\Handler\HandlerInterface" namespace="Monolog\Handler" name="HandlerInterface"/>
+    </parameter>
+    <parameter name="bufferLimit" byreference="false" type="integer" default="0"/>
+    <parameter name="level" byreference="false" type="{unknown}" default="" constant="Logger::DEBUG"/>
+    <parameter name="bubble" byreference="false" type="boolean" default="true"/>
+    <parameter name="flushOnOverflow" byreference="false" type="boolean" default="false"/>
+  </constructor>
+  <method name="handle" start="51" end="82" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+  <method name="flush" start="84" end="92" abstract="false" final="false" static="false" visibility="public"/>
+  <destructor name="__destruct" start="94" end="99" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="close" start="104" end="107" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="clear" start="112" end="116" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Clears the buffer without flushing any messages down to the wrapped handler."/>
+    </docblock>
+  </method>
+</class>

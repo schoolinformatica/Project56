@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Prophecy\Argument\Token\ExactValueToken" namespace="Prophecy\Argument\Token" name="ExactValueToken" abstract="false" final="false" start="23" end="116">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Argument/Token" file="ExactValueToken.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Argument/Token/ExactValueToken.php" size="2977" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="6a16f396b5650f2f94a86b96cf3bded17216b989" relative="vendor/phpspec/prophecy/src/Prophecy/Argument/Token/ExactValueToken.php"/>
+  <docblock>
+    <description compact="Exact value token."/>
+    <author value="Konstantin Kudryashov &lt;ever.zet@gmail.com&gt;"/>
+  </docblock>
+  <implements full="Prophecy\Argument\Token\TokenInterface" namespace="Prophecy\Argument\Token" name="TokenInterface"/>
+  <member name="value" visibility="private" line="25"/>
+  <member name="string" visibility="private" line="26"/>
+  <member name="util" visibility="private" line="27"/>
+  <member name="comparatorFactory" visibility="private" line="28"/>
+  <constructor name="__construct" start="37" end="43" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Initializes token."/>
+      <param type="mixed" variable="$value"/>
+      <param type="object" variable="$util">
+        <type full="Prophecy\Util\StringUtil" namespace="Prophecy\Util" name="StringUtil"/>
+      </param>
+      <param type="object" variable="$comparatorFactory">
+        <type full="Prophecy\Comparator\Factory" namespace="Prophecy\Comparator" name="Factory"/>
+      </param>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="util" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Prophecy\Util\StringUtil" namespace="Prophecy\Util" name="StringUtil"/>
+    </parameter>
+    <parameter name="comparatorFactory" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Prophecy\Comparator\Factory" namespace="Prophecy\Comparator" name="Factory"/>
+    </parameter>
+  </constructor>
+  <method name="scoreArgument" start="52" end="81" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Scores 10 if argument matches preset value."/>
+      <param variable="$argument"/>
+      <return type="object">
+        <type full="Prophecy\Argument\Token\bool|int" namespace="Prophecy\Argument\Token" name="bool|int"/>
+      </return>
+    </docblock>
+    <parameter name="argument" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="If either one is an object it should be castable to a string" line="65"/>
+    </inline>
+  </method>
+  <method name="getValue" start="88" end="91" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns preset value against which token checks arguments."/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+  <method name="isLast" start="98" end="101" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns false."/>
+      <return type="object">
+        <type full="Prophecy\Argument\Token\bool" namespace="Prophecy\Argument\Token" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="__toString" start="108" end="115" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns string representation for token."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+</class>

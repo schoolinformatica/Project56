@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_Mime_ContentEncoder_PlainContentEncoder" namespace="" name="Swift_Mime_ContentEncoder_PlainContentEncoder" abstract="false" final="false" start="16" end="162">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/ContentEncoder" file="PlainContentEncoder.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/ContentEncoder/PlainContentEncoder.php" size="4232" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="4051bc90979d95188db1aea9cfeab12e24588d45" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/ContentEncoder/PlainContentEncoder.php"/>
+  <docblock>
+    <description compact="Handles binary/7/8-bit Transfer Encoding in Swift Mailer."/>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <implements full="Swift_Mime_ContentEncoder" namespace="" name="Swift_Mime_ContentEncoder"/>
+  <member name="_name" visibility="private" line="23">
+    <docblock>
+      <description compact="The name of this encoding scheme (probably 7bit or 8bit)."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_canonical" visibility="private" line="30">
+    <docblock>
+      <description compact="True if canonical transformations should be done."/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="38" end="42" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Creates a new PlainContentEncoder with $name (probably 7bit or 8bit)."/>
+      <param type="string" variable="$name"/>
+      <param description="If canonicalization transformation should be done." type="object" variable="$canonical">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="canonical" byreference="false" type="boolean" default="false"/>
+  </constructor>
+  <method name="encodeString" start="53" end="60" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Encode a given string to produce an encoded string."/>
+      <param type="string" variable="$string"/>
+      <param description="ignored" type="int" variable="$firstLineOffset"/>
+      <param description="- 0 means no wrapping will occur" type="int" variable="$maxLineLength"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="string" byreference="false" type="{unknown}"/>
+    <parameter name="firstLineOffset" byreference="false" type="integer" default="0"/>
+    <parameter name="maxLineLength" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="encodeByteStream" start="70" end="88" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Encode stream $in to stream $out."/>
+      <param type="object" variable="$os">
+        <type full="Swift_OutputByteStream" namespace="" name="Swift_OutputByteStream"/>
+      </param>
+      <param type="object" variable="$is">
+        <type full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+      </param>
+      <param description="ignored" type="int" variable="$firstLineOffset"/>
+      <param description="optional, 0 means no wrapping will occur" type="int" variable="$maxLineLength"/>
+    </docblock>
+    <parameter name="os" byreference="false" type="object">
+      <type full="Swift_OutputByteStream" namespace="" name="Swift_OutputByteStream"/>
+    </parameter>
+    <parameter name="is" byreference="false" type="object">
+      <type full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+    </parameter>
+    <parameter name="firstLineOffset" byreference="false" type="integer" default="0"/>
+    <parameter name="maxLineLength" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="getName" start="95" end="98" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the name of this encoding scheme."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="charsetChanged" start="103" end="105" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Not used."/>
+    </docblock>
+    <parameter name="charset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_safeWordwrap" start="116" end="145" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="A safer (but weaker) wordwrap for unicode."/>
+      <param type="string" variable="$string"/>
+      <param type="int" variable="$length"/>
+      <param type="string" variable="$le"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="string" byreference="false" type="{unknown}"/>
+    <parameter name="length" byreference="false" type="integer" default="75"/>
+    <parameter name="le" byreference="false" type="string" default="&quot;\r\n&quot;"/>
+  </method>
+  <method name="_canonicalize" start="154" end="161" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Canonicalize string input (fix CRLF)."/>
+      <param type="string" variable="$string"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="string" byreference="false" type="{unknown}"/>
+  </method>
+</class>

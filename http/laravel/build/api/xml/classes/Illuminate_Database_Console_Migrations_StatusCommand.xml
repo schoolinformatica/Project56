@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Database\Console\Migrations\StatusCommand" namespace="Illuminate\Database\Console\Migrations" name="StatusCommand" abstract="false" final="false" start="8" end="102">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations" file="StatusCommand.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/StatusCommand.php" size="2517" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="8c90ea077e46938e1fb8d184374a48ad1bd3a42c" relative="vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/StatusCommand.php"/>
+  <extends full="Illuminate\Database\Console\Migrations\BaseCommand" namespace="Illuminate\Database\Console\Migrations" name="BaseCommand"/>
+  <member name="name" type="string" default="'migrate:status'" visibility="protected" line="15">
+    <docblock>
+      <description compact="The console command name."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="description" type="string" default="'Show the status of each migration'" visibility="protected" line="22">
+    <docblock>
+      <description compact="The console command description."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="migrator" visibility="protected" line="29">
+    <docblock>
+      <description compact="The migrator instance."/>
+      <var type="object">
+        <type full="\Illuminate\Database\Migrations\Migrator" namespace="\Illuminate\Database\Migrations" name="Migrator"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="37" end="42" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new migration rollback command instance."/>
+      <param type="object" variable="$migrator">
+        <type full="\Illuminate\Database\Migrations\Migrator" namespace="\Illuminate\Database\Migrations" name="Migrator"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Console\Migrations\StatusCommand" namespace="\Illuminate\Database\Console\Migrations" name="StatusCommand"/>
+      </return>
+    </docblock>
+    <parameter name="migrator" byreference="false" type="object">
+      <type full="Illuminate\Database\Migrations\Migrator" namespace="Illuminate\Database\Migrations" name="Migrator"/>
+    </parameter>
+  </constructor>
+  <method name="fire" start="49" end="76" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Execute the console command."/>
+      <return type="object">
+        <type full="Illuminate\Database\Console\Migrations\void" namespace="Illuminate\Database\Console\Migrations" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getAllMigrationFiles" start="84" end="87" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get all of the migration files."/>
+      <param type="string" variable="$path"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getOptions" start="94" end="101" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the console command options."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+</class>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\DomCrawler\Field\FormField" namespace="Symfony\Component\DomCrawler\Field" name="FormField" abstract="true" final="false" start="19" end="114">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/dom-crawler/Field" file="FormField.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/dom-crawler/Field/FormField.php" size="2243" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="13ab03b62378a91030230a21586a250e1c6350dd" relative="vendor/symfony/dom-crawler/Field/FormField.php"/>
+  <docblock>
+    <description compact="FormField is the abstract class for all form fields."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <member name="node" visibility="protected" line="24">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="\DOMElement" namespace="" name="DOMElement"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="name" visibility="protected" line="28">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="value" visibility="protected" line="32">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="document" visibility="protected" line="36">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="\DOMDocument" namespace="" name="DOMDocument"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="xpath" visibility="protected" line="40">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="\DOMXPath" namespace="" name="DOMXPath"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="disabled" visibility="protected" line="44">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\DomCrawler\Field\bool" namespace="Symfony\Component\DomCrawler\Field" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="51" end="58" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="The node associated with this field" type="object" variable="$node">
+        <type full="\DOMElement" namespace="" name="DOMElement"/>
+      </param>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="DOMElement" namespace="" name="DOMElement"/>
+    </parameter>
+  </constructor>
+  <method name="getName" start="65" end="68" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the name of the field."/>
+      <return description="The name of the field" type="string"/>
+    </docblock>
+  </method>
+  <method name="getValue" start="75" end="78" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the value of the field."/>
+      <return description="The value of the field" type="object">
+        <type full="Symfony\Component\DomCrawler\Field\string|array" namespace="Symfony\Component\DomCrawler\Field" name="string|array"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setValue" start="85" end="88" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the value of the field."/>
+      <param description="The value of the field" type="string" variable="$value"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasValue" start="95" end="98" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if the field should be included in the submitted values."/>
+      <return description="true if the field should be included in the submitted values, false otherwise" type="object">
+        <type full="Symfony\Component\DomCrawler\Field\bool" namespace="Symfony\Component\DomCrawler\Field" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isDisabled" start="105" end="108" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check if the current field is disabled."/>
+      <return type="object">
+        <type full="Symfony\Component\DomCrawler\Field\bool" namespace="Symfony\Component\DomCrawler\Field" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="initialize" start="113" end="113" abstract="true" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Initializes the form field."/>
+    </docblock>
+  </method>
+</class>

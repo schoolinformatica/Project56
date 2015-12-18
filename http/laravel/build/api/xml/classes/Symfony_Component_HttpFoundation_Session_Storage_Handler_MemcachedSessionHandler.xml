@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpFoundation\Session\Storage\Handler\MemcachedSessionHandler" namespace="Symfony\Component\HttpFoundation\Session\Storage\Handler" name="MemcachedSessionHandler" abstract="false" final="false" start="24" end="125">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/Session/Storage/Handler" file="MemcachedSessionHandler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/Session/Storage/Handler/MemcachedSessionHandler.php" size="2939" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="d0441cd7876cdd9c1a22ea1b057e9761f69967f8" relative="vendor/symfony/http-foundation/Session/Storage/Handler/MemcachedSessionHandler.php"/>
+  <docblock>
+    <description compact="MemcachedSessionHandler.">Memcached based session storage handler based on the Memcached class
+provided by the PHP memcached extension.</description>
+    <see value="http://php.net/memcached"/>
+    <author value="Drak &lt;drak@zikula.org&gt;"/>
+  </docblock>
+  <implements full="SessionHandlerInterface" namespace="" name="SessionHandlerInterface"/>
+  <member name="memcached" visibility="private" line="29">
+    <docblock>
+      <description/>
+      <var description="Memcached driver." type="object">
+        <type full="\Memcached" namespace="" name="Memcached"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="ttl" visibility="private" line="34">
+    <docblock>
+      <description/>
+      <var description="Time to live in seconds" type="int"/>
+    </docblock>
+  </member>
+  <member name="prefix" visibility="private" line="39">
+    <docblock>
+      <description/>
+      <var description="Key prefix for shared environments." type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="53" end="65" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor.">List of available options:
+ * prefix: The prefix to use for the memcached keys in order to avoid collision
+ * expiretime: The time to live in seconds</description>
+      <param description="A \Memcached instance" type="object" variable="$memcached">
+        <type full="\Memcached" namespace="" name="Memcached"/>
+      </param>
+      <param description="An associative array of Memcached options" type="array" variable="$options"/>
+      <throws description="When unsupported options are passed" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="memcached" byreference="false" type="object">
+      <type full="Memcached" namespace="" name="Memcached"/>
+    </parameter>
+    <parameter name="options" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="open" start="70" end="73" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="savePath" byreference="false" type="{unknown}"/>
+    <parameter name="sessionName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="close" start="78" end="81" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="read" start="86" end="89" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="sessionId" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="write" start="94" end="97" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="sessionId" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="destroy" start="102" end="105" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="sessionId" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="gc" start="110" end="114" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="maxlifetime" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="not required here because memcached will auto expire the records anyhow." line="112"/>
+    </inline>
+  </method>
+  <method name="getMemcached" start="121" end="124" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Return a Memcached instance."/>
+      <return type="object">
+        <type full="\Memcached" namespace="" name="Memcached"/>
+      </return>
+    </docblock>
+  </method>
+</class>

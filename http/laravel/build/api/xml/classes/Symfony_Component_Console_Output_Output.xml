@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Console\Output\Output" namespace="Symfony\Component\Console\Output" name="Output" abstract="true" final="false" start="30" end="161">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Output" file="Output.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Output/Output.php" size="4123" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="2060dbef357fd130b496b7acee13bfa43b6929cd" relative="vendor/symfony/console/Output/Output.php"/>
+  <docblock>
+    <description compact="Base class for output classes.">There are five levels of verbosity:
+
+ * normal: no option passed (normal output)
+ * verbose: -v (more output)
+ * very verbose: -vv (highly extended output)
+ * debug: -vvv (all debug output)
+ * quiet: -q (no output)</description>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+  <member name="verbosity" visibility="private" line="32"/>
+  <member name="formatter" visibility="private" line="33"/>
+  <constructor name="__construct" start="42" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="The verbosity level (one of the VERBOSITY constants in OutputInterface)" type="int" variable="$verbosity"/>
+      <param description="Whether to decorate messages" type="object" variable="$decorated">
+        <type full="Symfony\Component\Console\Output\bool" namespace="Symfony\Component\Console\Output" name="bool"/>
+      </param>
+      <param description="Output formatter instance (null to use default OutputFormatter)" type="object" variable="$formatter">
+        <type full="Symfony\Component\Console\Output\OutputFormatterInterface|null" namespace="Symfony\Component\Console\Output" name="OutputFormatterInterface|null"/>
+      </param>
+    </docblock>
+    <parameter name="verbosity" byreference="false" type="{unknown}" default="" constant="self::VERBOSITY_NORMAL"/>
+    <parameter name="decorated" byreference="false" type="boolean" default="false"/>
+    <parameter name="formatter" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\Console\Formatter\OutputFormatterInterface" namespace="Symfony\Component\Console\Formatter" name="OutputFormatterInterface"/>
+    </parameter>
+  </constructor>
+  <method name="setFormatter" start="52" end="55" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="formatter" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Formatter\OutputFormatterInterface" namespace="Symfony\Component\Console\Formatter" name="OutputFormatterInterface"/>
+    </parameter>
+  </method>
+  <method name="getFormatter" start="60" end="63" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="setDecorated" start="68" end="71" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="decorated" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isDecorated" start="76" end="79" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="setVerbosity" start="84" end="87" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="level" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getVerbosity" start="92" end="95" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="isQuiet" start="97" end="100" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="isVerbose" start="102" end="105" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="isVeryVerbose" start="107" end="110" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="isDebug" start="112" end="115" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="writeln" start="120" end="123" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="messages" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}" default="" constant="self::OUTPUT_NORMAL"/>
+  </method>
+  <method name="write" start="128" end="152" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="messages" byreference="false" type="{unknown}"/>
+    <parameter name="newline" byreference="false" type="boolean" default="false"/>
+    <parameter name="type" byreference="false" type="{unknown}" default="" constant="self::OUTPUT_NORMAL"/>
+  </method>
+  <method name="doWrite" start="160" end="160" abstract="true" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Writes a message to the output."/>
+      <param description="A message to write to the output" type="string" variable="$message"/>
+      <param description="Whether to add a newline or not" type="object" variable="$newline">
+        <type full="Symfony\Component\Console\Output\bool" namespace="Symfony\Component\Console\Output" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="newline" byreference="false" type="{unknown}"/>
+  </method>
+</class>

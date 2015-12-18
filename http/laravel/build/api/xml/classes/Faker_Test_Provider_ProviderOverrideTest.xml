@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Faker\Test\Provider\ProviderOverrideTest" namespace="Faker\Test\Provider" name="ProviderOverrideTest" abstract="false" final="false" start="19" end="189">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/fzaninotto/faker/test/Faker/Provider" file="ProviderOverrideTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/fzaninotto/faker/test/Faker/Provider/ProviderOverrideTest.php" size="5039" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="666a8beb8c99e7eea2f8d78768a09f1491c68b5b" relative="vendor/fzaninotto/faker/test/Faker/Provider/ProviderOverrideTest.php"/>
+  <docblock>
+    <description compact="Class ProviderOverrideTest"/>
+    <package value="Faker\Test\Provider">This class tests a large portion of all locale specific providers. It does not test the entire stack, because each
+locale specific provider (can) has specific implementations. The goal of this test is to test the common denominator
+and to try to catch possible invalid multi-byte sequences.</package>
+  </docblock>
+  <extends full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+  <constant type="string" name="TEST_STRING_REGEX" value="'/.+/u'">
+    <docblock>
+      <description compact="Constants with regular expression patterns for testing the output.">Regular expressions are sensitive for malformed strings (e.g.: strings with incorrect encodings) so by using
+PCRE for the tests, even though they seem fairly pointless, we test for incorrect encodings also.</description>
+    </docblock>
+  </constant>
+  <constant type="string" name="TEST_EMAIL_REGEX" value="'/^(.+)@(.+)$/ui'">
+    <docblock>
+      <description compact="Slightly more specific for e-mail, the point isn't to properly validate e-mails."/>
+    </docblock>
+  </constant>
+  <method name="testAddress" start="38" end="46" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="localeDataProvider"/>
+      <param type="string" variable="$locale"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testCompany" start="53" end="58" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="localeDataProvider"/>
+      <param type="string" variable="$locale"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testDateTime" start="65" end="71" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="localeDataProvider"/>
+      <param type="string" variable="$locale"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testInternet" start="78" end="88" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="localeDataProvider"/>
+      <param type="string" variable="$locale"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testPerson" start="95" end="103" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="localeDataProvider"/>
+      <param type="string" variable="$locale"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testPhoneNumber" start="110" end="115" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="localeDataProvider"/>
+      <param type="string" variable="$locale"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testUserAgent" start="122" end="127" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="localeDataProvider"/>
+      <param type="string" variable="$locale"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="testUuid" start="136" end="141" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="localeDataProvider"/>
+      <param type="object" variable="$locale">
+        <type full="Faker\Test\Provider\null" namespace="Faker\Test\Provider" name="null"/>
+      </param>
+      <param type="string" variable="$locale"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="localeDataProvider" start="147" end="159" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getAllLocales" start="167" end="188" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Returns all locales as array values"/>
+      <return type="array"/>
+    </docblock>
+    <inline>
+      <comment value="Finding all PHP files in the xx_XX directories" line="175"/>
+    </inline>
+  </method>
+</class>

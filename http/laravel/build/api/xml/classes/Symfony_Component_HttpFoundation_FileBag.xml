@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpFoundation\FileBag" namespace="Symfony\Component\HttpFoundation" name="FileBag" abstract="false" final="false" start="22" end="145">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation" file="FileBag.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/FileBag.php" size="3915" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="1f828b3c2c11aa28c697ce5519e5ea63e0bec0df" relative="vendor/symfony/http-foundation/FileBag.php"/>
+  <docblock>
+    <description compact="FileBag is a container for uploaded files."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+    <author value="Bulat Shakirzyanov &lt;mallluhuct@gmail.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\HttpFoundation\ParameterBag" namespace="Symfony\Component\HttpFoundation" name="ParameterBag"/>
+  <member name="fileKeys" type="array" default="" visibility="private" line="24"/>
+  <constructor name="__construct" start="31" end="34" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="An array of HTTP files" type="array" variable="$parameters"/>
+    </docblock>
+    <parameter name="parameters" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="replace" start="39" end="43" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="files" byreference="false" type="array" default=""/>
+  </method>
+  <method name="set" start="48" end="55" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="add" start="60" end="65" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="files" byreference="false" type="array" default=""/>
+  </method>
+  <method name="convertFileInformation" start="74" end="97" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Converts uploaded files to UploadedFile instances."/>
+      <param description="A (multi-dimensional) array of uploaded file information" type="object" variable="$file">
+        <type full="Symfony\Component\HttpFoundation\array|UploadedFile" namespace="Symfony\Component\HttpFoundation" name="array|UploadedFile"/>
+      </param>
+      <return description="A (multi-dimensional) array of UploadedFile instances" type="array"/>
+    </docblock>
+    <parameter name="file" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="fixPhpFilesArray" start="115" end="144" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Fixes a malformed PHP $_FILES array.">PHP has a bug that the format of the $_FILES array differs, depending on
+whether the uploaded file fields had normal field names or array-like
+field names ("normal" vs. "parent[child]").
+
+This method fixes the array to look like the "normal" $_FILES array.
+
+It's safe to pass an already converted array, in which case this method
+just returns the original array unmodified.</description>
+      <param type="array" variable="$data"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+</class>

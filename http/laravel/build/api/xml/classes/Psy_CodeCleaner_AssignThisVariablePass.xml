@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\CodeCleaner\AssignThisVariablePass" namespace="Psy\CodeCleaner" name="AssignThisVariablePass" abstract="false" final="false" start="24" end="39">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/CodeCleaner" file="AssignThisVariablePass.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/CodeCleaner/AssignThisVariablePass.php" size="1004" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="cf80cb7b1aa7936c980de9af54c78a6f3dc048ab" relative="vendor/psy/psysh/src/Psy/CodeCleaner/AssignThisVariablePass.php"/>
+  <docblock>
+    <description compact="Validate that the user input does not assign the `$this` variable."/>
+    <author value="Martin Hasoň &lt;martin.hason@gmail.com&gt;"/>
+  </docblock>
+  <extends full="Psy\CodeCleaner\CodeCleanerPass" namespace="Psy\CodeCleaner" name="CodeCleanerPass"/>
+  <method name="enterNode" start="33" end="38" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Validate that the user input does not assign the `$this` variable."/>
+      <throws description="if the user assign the `$this` variable." type="object">
+        <type full="Psy\CodeCleaner\RuntimeException" namespace="Psy\CodeCleaner" name="RuntimeException"/>
+      </throws>
+      <param type="object" variable="$node">
+        <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+      </param>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+    </parameter>
+  </method>
+</class>

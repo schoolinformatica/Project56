@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\DataCollector\LoggerDataCollector" namespace="Symfony\Component\HttpKernel\DataCollector" name="LoggerDataCollector" abstract="false" final="false" start="23" end="195">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/DataCollector" file="LoggerDataCollector.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/DataCollector/LoggerDataCollector.php" size="5474" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="de7d53ad80ee06f18e8f238e48463ceb536f326c" relative="vendor/symfony/http-kernel/DataCollector/LoggerDataCollector.php"/>
+  <docblock>
+    <description compact="LogDataCollector."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\HttpKernel\DataCollector\DataCollector" namespace="Symfony\Component\HttpKernel\DataCollector" name="DataCollector"/>
+  <implements full="Symfony\Component\HttpKernel\DataCollector\LateDataCollectorInterface" namespace="Symfony\Component\HttpKernel\DataCollector" name="LateDataCollectorInterface"/>
+  <member name="logger" visibility="private" line="25"/>
+  <constructor name="__construct" start="27" end="32" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="logger" byreference="false" type="{unknown}" default="" constant="null"/>
+  </constructor>
+  <method name="collect" start="37" end="40" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="response" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+    </parameter>
+    <parameter name="exception" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+  </method>
+  <method name="lateCollect" start="45" end="51" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="countErrors" start="60" end="63" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the called events."/>
+      <return description="An array of called events" type="array"/>
+      <see value="TraceableEventDispatcherInterface"/>
+    </docblock>
+  </method>
+  <method name="getLogs" start="70" end="73" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the logs."/>
+      <return description="An array of logs" type="array"/>
+    </docblock>
+  </method>
+  <method name="getPriorities" start="75" end="78" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="countDeprecations" start="80" end="83" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="countScreams" start="85" end="88" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getName" start="93" end="96" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="sanitizeLogs" start="98" end="140" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="logs" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="sanitizeContext" start="142" end="161" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="context" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="computeErrorsCount" start="163" end="194" abstract="false" final="false" static="false" visibility="private"/>
+</class>

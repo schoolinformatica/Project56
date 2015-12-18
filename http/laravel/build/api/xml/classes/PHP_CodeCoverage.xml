@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PHP_CodeCoverage" namespace="" name="PHP_CodeCoverage" abstract="false" final="false" start="18" end="920">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/php-code-coverage/src" file="CodeCoverage.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/php-code-coverage/src/CodeCoverage.php" size="26995" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="95ffc54eadab5dafe0a8a4944dd86bb735012073" relative="vendor/phpunit/php-code-coverage/src/CodeCoverage.php"/>
+  <docblock>
+    <description compact="Provides collection functionality for PHP code coverage information."/>
+    <since value="Class available since Release 1.0.0"/>
+  </docblock>
+  <member name="driver" visibility="private" line="23">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PHP_CodeCoverage_Driver" namespace="" name="PHP_CodeCoverage_Driver"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="filter" visibility="private" line="28">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PHP_CodeCoverage_Filter" namespace="" name="PHP_CodeCoverage_Filter"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="cacheTokens" type="boolean" default="false" visibility="private" line="33">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="checkForUnintentionallyCoveredCode" type="boolean" default="false" visibility="private" line="38">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="forceCoversAnnotation" type="boolean" default="false" visibility="private" line="43">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="mapTestClassNameToCoveredClassName" type="boolean" default="false" visibility="private" line="48">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="addUncoveredFilesFromWhitelist" type="boolean" default="true" visibility="private" line="53">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="processUncoveredFilesFromWhitelist" type="boolean" default="false" visibility="private" line="58">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="currentId" visibility="private" line="63">
+    <docblock>
+      <description/>
+      <var type="mixed"/>
+    </docblock>
+  </member>
+  <member name="data" type="array" default="" visibility="private" line="70">
+    <docblock>
+      <description compact="Code coverage data."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="ignoredLines" type="array" default="" visibility="private" line="75">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="disableIgnoredLines" type="boolean" default="false" visibility="private" line="80">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="tests" type="array" default="" visibility="private" line="87">
+    <docblock>
+      <description compact="Test data."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="96" end="108" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param type="object" variable="$driver">
+        <type full="PHP_CodeCoverage_Driver" namespace="" name="PHP_CodeCoverage_Driver"/>
+      </param>
+      <param type="object" variable="$filter">
+        <type full="PHP_CodeCoverage_Filter" namespace="" name="PHP_CodeCoverage_Filter"/>
+      </param>
+      <throws type="object">
+        <type full="PHP_CodeCoverage_Exception" namespace="" name="PHP_CodeCoverage_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="driver" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="PHP_CodeCoverage_Driver" namespace="" name="PHP_CodeCoverage_Driver"/>
+    </parameter>
+    <parameter name="filter" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="PHP_CodeCoverage_Filter" namespace="" name="PHP_CodeCoverage_Filter"/>
+    </parameter>
+  </constructor>
+  <method name="getReport" start="117" end="122" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the PHP_CodeCoverage_Report_Node_* object graph for this PHP_CodeCoverage object."/>
+      <return type="object">
+        <type full="PHP_CodeCoverage_Report_Node_Directory" namespace="" name="PHP_CodeCoverage_Report_Node_Directory"/>
+      </return>
+      <since value="Method available since Release 1.1.0"/>
+    </docblock>
+  </method>
+  <method name="clear" start="127" end="132" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Clears collected code coverage data."/>
+    </docblock>
+  </method>
+  <method name="filter" start="139" end="142" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the PHP_CodeCoverage_Filter used."/>
+      <return type="object">
+        <type full="PHP_CodeCoverage_Filter" namespace="" name="PHP_CodeCoverage_Filter"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getData" start="152" end="165" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the collected code coverage data.">Set $raw = true to bypass all filters.</description>
+      <param type="object" variable="$raw">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="array"/>
+      <since value="Method available since Release 1.1.0"/>
+    </docblock>
+    <parameter name="raw" byreference="false" type="boolean" default="false"/>
+    <inline>
+      <comment value="We need to apply the blacklist filter a second time" line="158"/>
+      <comment value="when no whitelist is used." line="159"/>
+    </inline>
+  </method>
+  <method name="setData" start="173" end="176" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the coverage data."/>
+      <param type="array" variable="$data"/>
+      <since value="Method available since Release 2.0.0"/>
+    </docblock>
+    <parameter name="data" byreference="false" type="array"/>
+  </method>
+  <method name="getTests" start="184" end="187" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the test data."/>
+      <return type="array"/>
+      <since value="Method available since Release 1.1.0"/>
+    </docblock>
+  </method>
+  <method name="setTests" start="195" end="198" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the test data."/>
+      <param type="array" variable="$tests"/>
+      <since value="Method available since Release 2.0.0"/>
+    </docblock>
+    <parameter name="tests" byreference="false" type="array"/>
+  </method>
+  <method name="start" start="207" end="223" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Start collection of code coverage information."/>
+      <param type="mixed" variable="$id"/>
+      <param type="object" variable="$clear">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHP_CodeCoverage_Exception" namespace="" name="PHP_CodeCoverage_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="clear" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="stop" start="234" end="256" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Stop collection of code coverage information."/>
+      <param type="object" variable="$append">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param type="mixed" variable="$linesToBeCovered"/>
+      <param type="array" variable="$linesToBeUsed"/>
+      <return type="array"/>
+      <throws type="object">
+        <type full="PHP_CodeCoverage_Exception" namespace="" name="PHP_CodeCoverage_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="append" byreference="false" type="boolean" default="true"/>
+    <parameter name="linesToBeCovered" byreference="false" type="array" default=""/>
+    <parameter name="linesToBeUsed" byreference="false" type="array" default=""/>
+  </method>
+  <method name="append" start="268" end="334" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Appends code coverage data."/>
+      <param type="array" variable="$data"/>
+      <param type="mixed" variable="$id"/>
+      <param type="object" variable="$append">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param type="mixed" variable="$linesToBeCovered"/>
+      <param type="array" variable="$linesToBeUsed"/>
+      <throws type="object">
+        <type full="PHP_CodeCoverage_Exception" namespace="" name="PHP_CodeCoverage_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="data" byreference="false" type="array"/>
+    <parameter name="id" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="append" byreference="false" type="boolean" default="true"/>
+    <parameter name="linesToBeCovered" byreference="false" type="array" default=""/>
+    <parameter name="linesToBeUsed" byreference="false" type="array" default=""/>
+  </method>
+  <method name="merge" start="341" end="375" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Merges the data from another instance of PHP_CodeCoverage."/>
+      <param type="object" variable="$that">
+        <type full="PHP_CodeCoverage" namespace="" name="PHP_CodeCoverage"/>
+      </param>
+    </docblock>
+    <parameter name="that" byreference="false" type="object">
+      <type full="PHP_CodeCoverage" namespace="" name="PHP_CodeCoverage"/>
+    </parameter>
+  </method>
+  <method name="setCacheTokens" start="382" end="392" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$flag">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHP_CodeCoverage_Exception" namespace="" name="PHP_CodeCoverage_Exception"/>
+      </throws>
+      <since value="Method available since Release 1.1.0"/>
+    </docblock>
+    <parameter name="flag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getCacheTokens" start="397" end="400" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <since value="Method available since Release 1.1.0"/>
+    </docblock>
+  </method>
+  <method name="setCheckForUnintentionallyCoveredCode" start="407" end="417" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$flag">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHP_CodeCoverage_Exception" namespace="" name="PHP_CodeCoverage_Exception"/>
+      </throws>
+      <since value="Method available since Release 2.0.0"/>
+    </docblock>
+    <parameter name="flag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setForceCoversAnnotation" start="423" end="433" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$flag">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHP_CodeCoverage_Exception" namespace="" name="PHP_CodeCoverage_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="flag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setMapTestClassNameToCoveredClassName" start="439" end="449" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$flag">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHP_CodeCoverage_Exception" namespace="" name="PHP_CodeCoverage_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="flag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setAddUncoveredFilesFromWhitelist" start="455" end="465" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$flag">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHP_CodeCoverage_Exception" namespace="" name="PHP_CodeCoverage_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="flag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setProcessUncoveredFilesFromWhitelist" start="471" end="481" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$flag">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHP_CodeCoverage_Exception" namespace="" name="PHP_CodeCoverage_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="flag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setDisableIgnoredLines" start="487" end="497" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$flag">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHP_CodeCoverage_Exception" namespace="" name="PHP_CodeCoverage_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="flag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="applyCoversAnnotationFilter" start="507" end="538" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Applies the @covers annotation filtering."/>
+      <param type="array" variable="$data"/>
+      <param type="mixed" variable="$linesToBeCovered"/>
+      <param type="array" variable="$linesToBeUsed"/>
+      <throws type="object">
+        <type full="PHP_CodeCoverage_Exception_UnintentionallyCoveredCode" namespace="" name="PHP_CodeCoverage_Exception_UnintentionallyCoveredCode"/>
+      </throws>
+    </docblock>
+    <parameter name="data" byreference="true" type="array"/>
+    <parameter name="linesToBeCovered" byreference="false" type="{unknown}"/>
+    <parameter name="linesToBeUsed" byreference="false" type="array"/>
+  </method>
+  <method name="applyListsFilter" start="545" end="552" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Applies the blacklist/whitelist filtering."/>
+      <param type="array" variable="$data"/>
+    </docblock>
+    <parameter name="data" byreference="true" type="array"/>
+  </method>
+  <method name="applyIgnoredLinesFilter" start="559" end="570" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Applies the &quot;ignored lines&quot; filtering."/>
+      <param type="array" variable="$data"/>
+    </docblock>
+    <parameter name="data" byreference="true" type="array"/>
+  </method>
+  <method name="initializeFilesThatAreSeenTheFirstTime" start="576" end="587" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="array" variable="$data"/>
+      <since value="Method available since Release 1.1.0"/>
+    </docblock>
+    <parameter name="data" byreference="false" type="array"/>
+  </method>
+  <method name="addUncoveredFilesFromWhitelist" start="592" end="623" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Processes whitelisted files that are not covered."/>
+    </docblock>
+  </method>
+  <method name="processUncoveredFileFromWhitelist" start="630" end="648" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$uncoveredFile"/>
+      <param type="array" variable="$data"/>
+      <param type="array" variable="$uncoveredFiles"/>
+    </docblock>
+    <parameter name="uncoveredFile" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="true" type="array"/>
+    <parameter name="uncoveredFiles" byreference="false" type="array"/>
+  </method>
+  <method name="getLinesToBeIgnored" start="658" end="820" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Returns the lines of a source file that should be ignored."/>
+      <param type="string" variable="$filename"/>
+      <return type="array"/>
+      <throws type="object">
+        <type full="PHP_CodeCoverage_Exception" namespace="" name="PHP_CodeCoverage_Exception"/>
+      </throws>
+      <since value="Method available since Release 2.0.0"/>
+    </docblock>
+    <parameter name="filename" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="performUnintentionallyCoveredCodeCheck" start="829" end="857" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="array" variable="$data"/>
+      <param type="array" variable="$linesToBeCovered"/>
+      <param type="array" variable="$linesToBeUsed"/>
+      <throws type="object">
+        <type full="PHP_CodeCoverage_Exception_UnintentionallyCoveredCode" namespace="" name="PHP_CodeCoverage_Exception_UnintentionallyCoveredCode"/>
+      </throws>
+      <since value="Method available since Release 2.0.0"/>
+    </docblock>
+    <parameter name="data" byreference="true" type="array"/>
+    <parameter name="linesToBeCovered" byreference="false" type="array"/>
+    <parameter name="linesToBeUsed" byreference="false" type="array"/>
+  </method>
+  <method name="getAllowedLines" start="865" end="898" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="array" variable="$linesToBeCovered"/>
+      <param type="array" variable="$linesToBeUsed"/>
+      <return type="array"/>
+      <since value="Method available since Release 2.0.0"/>
+    </docblock>
+    <parameter name="linesToBeCovered" byreference="false" type="array"/>
+    <parameter name="linesToBeUsed" byreference="false" type="array"/>
+  </method>
+  <method name="selectDriver" start="904" end="919" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="PHP_CodeCoverage_Driver" namespace="" name="PHP_CodeCoverage_Driver"/>
+      </return>
+      <throws type="object">
+        <type full="PHP_CodeCoverage_Exception" namespace="" name="PHP_CodeCoverage_Exception"/>
+      </throws>
+    </docblock>
+  </method>
+</class>

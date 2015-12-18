@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\Command\DumpCommand" namespace="Psy\Command" name="DumpCommand" abstract="false" final="false" start="27" end="95">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Command" file="DumpCommand.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Command/DumpCommand.php" size="2606" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="27e9cdac2123adbe4c7d2572b587a0d0f9b732c7" relative="vendor/psy/psysh/src/Psy/Command/DumpCommand.php"/>
+  <docblock>
+    <description compact="Dump an object or primitive.">This is like var_dump but *way* awesomer.</description>
+  </docblock>
+  <extends full="Psy\Command\ReflectingCommand" namespace="Psy\Command" name="ReflectingCommand"/>
+  <implements full="Psy\VarDumper\PresenterAware" namespace="Psy\VarDumper" name="PresenterAware"/>
+  <member name="presenter" visibility="private" line="29"/>
+  <method name="setPresenter" start="36" end="39" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="PresenterAware interface."/>
+      <param type="object" variable="$presenter">
+        <type full="Psy\VarDumper\Presenter" namespace="Psy\VarDumper" name="Presenter"/>
+      </param>
+    </docblock>
+    <parameter name="presenter" byreference="false" type="object">
+      <type full="Psy\VarDumper\Presenter" namespace="Psy\VarDumper" name="Presenter"/>
+    </parameter>
+  </method>
+  <method name="configure" start="44" end="65" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="execute" start="70" end="75" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="input" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputInterface" namespace="Symfony\Component\Console\Input" name="InputInterface"/>
+    </parameter>
+    <parameter name="output" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+    </parameter>
+  </method>
+  <method name="resolveTarget" start="86" end="94" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Resolve dump target name."/>
+      <throws description="if target name does not exist in the current scope." type="object">
+        <type full="Psy\Exception\RuntimeException" namespace="Psy\Exception" name="RuntimeException"/>
+      </throws>
+      <param type="string" variable="$target"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="target" byreference="false" type="{unknown}"/>
+  </method>
+</class>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\TabCompletion\Matcher\CommandsMatcher" namespace="Psy\TabCompletion\Matcher" name="CommandsMatcher" abstract="false" final="false" start="24" end="114">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/TabCompletion/Matcher" file="CommandsMatcher.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/TabCompletion/Matcher/CommandsMatcher.php" size="2543" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="a51002fd50df9b56f5762de24c9ac68c06a06572" relative="vendor/psy/psysh/src/Psy/TabCompletion/Matcher/CommandsMatcher.php"/>
+  <docblock>
+    <description compact="A Psy Command tab completion Matcher.">This matcher provides completion for all registered Psy Command names and
+aliases.</description>
+    <author value="Marc Garcia &lt;markcial@gmail.com&gt;"/>
+  </docblock>
+  <extends full="Psy\TabCompletion\Matcher\AbstractMatcher" namespace="Psy\TabCompletion\Matcher" name="AbstractMatcher"/>
+  <member name="commands" type="array" default="" visibility="protected" line="27">
+    <docblock>
+      <description compact="@var string[]"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="34" end="37" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="CommandsMatcher constructor."/>
+      <param type="array" variable="$commands" of="object">
+        <type full="Psy\TabCompletion\Matcher\Command" namespace="Psy\TabCompletion\Matcher" name="Command"/>
+      </param>
+    </docblock>
+    <parameter name="commands" byreference="false" type="array"/>
+  </constructor>
+  <method name="setCommands" start="44" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set Commands for completion."/>
+      <param type="array" variable="$commands" of="object">
+        <type full="Psy\TabCompletion\Matcher\Command" namespace="Psy\TabCompletion\Matcher" name="Command"/>
+      </param>
+    </docblock>
+    <parameter name="commands" byreference="false" type="array"/>
+  </method>
+  <method name="isCommand" start="61" end="64" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Check whether a command $name is defined."/>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="Psy\TabCompletion\Matcher\bool" namespace="Psy\TabCompletion\Matcher" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="matchCommand" start="73" end="82" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Check whether input matches a defined command."/>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="Psy\TabCompletion\Matcher\bool" namespace="Psy\TabCompletion\Matcher" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getMatches" start="87" end="94" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="tokens" byreference="false" type="array"/>
+    <parameter name="info" byreference="false" type="array" default=""/>
+  </method>
+  <method name="hasMatched" start="99" end="113" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="tokens" byreference="false" type="array"/>
+    <inline>
+      <comment value="$openTag" line="101"/>
+    </inline>
+  </method>
+</class>

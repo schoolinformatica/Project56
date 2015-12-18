@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PHP_CodeCoverage_Report_Node_Directory" namespace="" name="PHP_CodeCoverage_Report_Node_Directory" abstract="false" final="false" start="16" end="478">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/php-code-coverage/src/CodeCoverage/Report/Node" file="Directory.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/php-code-coverage/src/CodeCoverage/Report/Node/Directory.php" size="10323" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="791b7a3a9f873da8ec7c5d5f908f8b3085ce3192" relative="vendor/phpunit/php-code-coverage/src/CodeCoverage/Report/Node/Directory.php"/>
+  <docblock>
+    <description compact="Represents a directory in the code coverage information tree."/>
+    <since value="Class available since Release 1.1.0"/>
+  </docblock>
+  <extends full="PHP_CodeCoverage_Report_Node" namespace="" name="PHP_CodeCoverage_Report_Node"/>
+  <implements full="IteratorAggregate" namespace="" name="IteratorAggregate"/>
+  <member name="children" type="array" default="" visibility="protected" line="21">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="PHP_CodeCoverage_Report_Node" namespace="" name="PHP_CodeCoverage_Report_Node"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="directories" type="array" default="" visibility="protected" line="26">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="PHP_CodeCoverage_Report_Node_Directory" namespace="" name="PHP_CodeCoverage_Report_Node_Directory"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="files" type="array" default="" visibility="protected" line="31">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="PHP_CodeCoverage_Report_Node_File" namespace="" name="PHP_CodeCoverage_Report_Node_File"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="classes" visibility="protected" line="36">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="traits" visibility="protected" line="41">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="functions" visibility="protected" line="46">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="linesOfCode" type="{unknown}" default="" constant="null" visibility="protected" line="51">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="numFiles" type="integer" default="1" visibility="protected" line="56">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="numExecutableLines" type="integer" default="1" visibility="protected" line="61">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="numExecutedLines" type="integer" default="1" visibility="protected" line="66">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="numClasses" type="integer" default="1" visibility="protected" line="71">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="numTestedClasses" type="integer" default="1" visibility="protected" line="76">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="numTraits" type="integer" default="1" visibility="protected" line="81">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="numTestedTraits" type="integer" default="1" visibility="protected" line="86">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="numMethods" type="integer" default="1" visibility="protected" line="91">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="numTestedMethods" type="integer" default="1" visibility="protected" line="96">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="numFunctions" type="integer" default="1" visibility="protected" line="101">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="numTestedFunctions" type="integer" default="1" visibility="protected" line="106">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <method name="count" start="113" end="124" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the number of files in/under this node."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getIterator" start="131" end="137" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an iterator for this node."/>
+      <return type="object">
+        <type full="RecursiveIteratorIterator" namespace="" name="RecursiveIteratorIterator"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="addDirectory" start="145" end="153" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a new directory."/>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="PHP_CodeCoverage_Report_Node_Directory" namespace="" name="PHP_CodeCoverage_Report_Node_Directory"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addFile" start="165" end="182" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a new file."/>
+      <param type="string" variable="$name"/>
+      <param type="array" variable="$coverageData"/>
+      <param type="array" variable="$testData"/>
+      <param type="object" variable="$cacheTokens">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="PHP_CodeCoverage_Report_Node_File" namespace="" name="PHP_CodeCoverage_Report_Node_File"/>
+      </return>
+      <throws type="object">
+        <type full="PHP_CodeCoverage_Exception" namespace="" name="PHP_CodeCoverage_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="coverageData" byreference="false" type="array"/>
+    <parameter name="testData" byreference="false" type="array"/>
+    <parameter name="cacheTokens" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getDirectories" start="189" end="192" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the directories in this directory."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getFiles" start="199" end="202" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the files in this directory."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getChildNodes" start="209" end="212" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the child nodes of this node."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getClasses" start="219" end="233" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the classes of this node."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getTraits" start="240" end="254" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the traits of this node."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getFunctions" start="261" end="275" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the functions of this node."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getLinesOfCode" start="282" end="297" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the LOC/CLOC/NCLOC of this node."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getNumExecutableLines" start="304" end="315" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the number of executable lines."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getNumExecutedLines" start="322" end="333" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the number of executed lines."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getNumClasses" start="340" end="351" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the number of classes."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getNumTestedClasses" start="358" end="369" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the number of tested classes."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getNumTraits" start="376" end="387" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the number of traits."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getNumTestedTraits" start="394" end="405" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the number of tested traits."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getNumMethods" start="412" end="423" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the number of methods."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getNumTestedMethods" start="430" end="441" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the number of tested methods."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getNumFunctions" start="448" end="459" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the number of functions."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getNumTestedFunctions" start="466" end="477" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the number of tested functions."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+</class>

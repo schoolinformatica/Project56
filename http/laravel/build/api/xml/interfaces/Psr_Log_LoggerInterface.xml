@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Psr\Log\LoggerInterface" namespace="Psr\Log" name="LoggerInterface" abstract="false" final="false" start="20" end="114">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psr/log/Psr/Log" file="LoggerInterface.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psr/log/Psr/Log/LoggerInterface.php" size="2965" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="8e6d82899aba3ce39ebebc140a2b871ae0da2028" relative="vendor/psr/log/Psr/Log/LoggerInterface.php"/>
+  <docblock>
+    <description compact="Describes a logger instance">The message MUST be a string or object implementing __toString().
+
+The message MAY contain placeholders in the form: {foo} where foo
+will be replaced by the context data in key "foo".
+
+The context array can contain arbitrary data, the only assumption that
+can be made by implementors is that if an Exception instance is given
+to produce a stack trace, it MUST be in a key named "exception".
+
+See https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md
+for the full interface specification.</description>
+  </docblock>
+  <method name="emergency" start="29" end="29" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="System is unusable."/>
+      <param type="string" variable="$message"/>
+      <param type="array" variable="$context"/>
+      <return type="object">
+        <type full="Psr\Log\null" namespace="Psr\Log" name="null"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="alert" start="41" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Action must be taken immediately.">Example: Entire website down, database unavailable, etc. This should
+trigger the SMS alerts and wake you up.</description>
+      <param type="string" variable="$message"/>
+      <param type="array" variable="$context"/>
+      <return type="object">
+        <type full="Psr\Log\null" namespace="Psr\Log" name="null"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="critical" start="52" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Critical conditions.">Example: Application component unavailable, unexpected exception.</description>
+      <param type="string" variable="$message"/>
+      <param type="array" variable="$context"/>
+      <return type="object">
+        <type full="Psr\Log\null" namespace="Psr\Log" name="null"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="error" start="62" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Runtime errors that do not require immediate action but should typically be logged and monitored."/>
+      <param type="string" variable="$message"/>
+      <param type="array" variable="$context"/>
+      <return type="object">
+        <type full="Psr\Log\null" namespace="Psr\Log" name="null"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="warning" start="74" end="74" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Exceptional occurrences that are not errors.">Example: Use of deprecated APIs, poor use of an API, undesirable things
+that are not necessarily wrong.</description>
+      <param type="string" variable="$message"/>
+      <param type="array" variable="$context"/>
+      <return type="object">
+        <type full="Psr\Log\null" namespace="Psr\Log" name="null"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="notice" start="83" end="83" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Normal but significant events."/>
+      <param type="string" variable="$message"/>
+      <param type="array" variable="$context"/>
+      <return type="object">
+        <type full="Psr\Log\null" namespace="Psr\Log" name="null"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="info" start="94" end="94" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Interesting events.">Example: User logs in, SQL logs.</description>
+      <param type="string" variable="$message"/>
+      <param type="array" variable="$context"/>
+      <return type="object">
+        <type full="Psr\Log\null" namespace="Psr\Log" name="null"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="debug" start="103" end="103" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Detailed debug information."/>
+      <param type="string" variable="$message"/>
+      <param type="array" variable="$context"/>
+      <return type="object">
+        <type full="Psr\Log\null" namespace="Psr\Log" name="null"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="log" start="113" end="113" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Logs with an arbitrary level."/>
+      <param type="mixed" variable="$level"/>
+      <param type="string" variable="$message"/>
+      <param type="array" variable="$context"/>
+      <return type="object">
+        <type full="Psr\Log\null" namespace="Psr\Log" name="null"/>
+      </return>
+    </docblock>
+    <parameter name="level" byreference="false" type="{unknown}"/>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+</interface>

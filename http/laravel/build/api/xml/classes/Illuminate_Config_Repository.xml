@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Config\Repository" namespace="Illuminate\Config" name="Repository" abstract="false" final="false" start="9" end="156">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Config" file="Repository.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Config/Repository.php" size="3078" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="0be9e0e862fd35a0356fa33315fefb365869cd9d" relative="vendor/laravel/framework/src/Illuminate/Config/Repository.php"/>
+  <implements full="ArrayAccess" namespace="" name="ArrayAccess"/>
+  <implements full="Illuminate\Contracts\Config\Repository" namespace="Illuminate\Contracts\Config" name="Repository"/>
+  <member name="items" type="array" default="" visibility="protected" line="16">
+    <docblock>
+      <description compact="All of the configuration items."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="24" end="27" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new configuration repository."/>
+      <param type="array" variable="$items"/>
+      <return type="object">
+        <type full="Illuminate\Config\void" namespace="Illuminate\Config" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="items" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="has" start="35" end="38" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the given configuration value exists."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Config\bool" namespace="Illuminate\Config" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get" start="47" end="50" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the specified configuration value."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$default"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="set" start="59" end="68" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set a given configuration value."/>
+      <param type="object" variable="$key">
+        <type full="Illuminate\Config\array|string" namespace="Illuminate\Config" name="array|string"/>
+      </param>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Config\void" namespace="Illuminate\Config" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="prepend" start="77" end="84" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Prepend a value onto an array configuration value."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Config\void" namespace="Illuminate\Config" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="push" start="93" end="100" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Push a value onto an array configuration value."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Config\void" namespace="Illuminate\Config" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="all" start="107" end="110" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get all of the configuration items for the application."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="offsetExists" start="118" end="121" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the given configuration option exists."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Config\bool" namespace="Illuminate\Config" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetGet" start="129" end="132" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a configuration option."/>
+      <param type="string" variable="$key"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetSet" start="141" end="144" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set a configuration option."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Config\void" namespace="Illuminate\Config" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetUnset" start="152" end="155" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Unset a configuration option."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Config\void" namespace="Illuminate\Config" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+</class>

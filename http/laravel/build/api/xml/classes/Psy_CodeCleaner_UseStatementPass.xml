@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\CodeCleaner\UseStatementPass" namespace="Psy\CodeCleaner" name="UseStatementPass" abstract="false" final="false" start="30" end="111">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/CodeCleaner" file="UseStatementPass.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/CodeCleaner/UseStatementPass.php" size="3467" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="5dd8a50400d2c3d9a46705d86aea958995ca9900" relative="vendor/psy/psysh/src/Psy/CodeCleaner/UseStatementPass.php"/>
+  <docblock>
+    <description compact="Provide implicit use statements for subsequent execution.">The use statement pass remembers the last use statement line encountered:
+
+    use Foo\Bar as Baz;
+
+... which it then applies implicitly to all future evaluated code, until the
+current namespace is replaced by another namespace.</description>
+  </docblock>
+  <extends full="Psy\CodeCleaner\NamespaceAwarePass" namespace="Psy\CodeCleaner" name="NamespaceAwarePass"/>
+  <member name="aliases" type="array" default="" visibility="private" line="32"/>
+  <member name="lastAliases" type="array" default="" visibility="private" line="33"/>
+  <member name="lastNamespace" type="{unknown}" default="" constant="null" visibility="private" line="34"/>
+  <method name="enterNode" start="45" end="54" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Re-load the last set of use statements on re-entering a namespace.">This isn't how namespaces normally work, but because PsySH has to spin
+up a new namespace for every line of code, we do this to make things
+work like you'd expect.</description>
+      <param type="object" variable="$node">
+        <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+      </param>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+    </parameter>
+  </method>
+  <method name="leaveNode" start="64" end="91" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="If this statement is a namespace, forget all the aliases we had.">If it's a use statement, remember the alias for later. Otherwise, apply
+remembered aliases to the code.</description>
+      <param type="object" variable="$node">
+        <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+      </param>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+    </parameter>
+  </method>
+  <method name="findAlias" start="100" end="110" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Find class/namespace aliases."/>
+      <param type="object" variable="$name">
+        <type full="PhpParser\Node\Name" namespace="PhpParser\Node" name="Name"/>
+      </param>
+      <return type="object">
+        <type full="Psy\CodeCleaner\FullyQualifiedName|null" namespace="Psy\CodeCleaner" name="FullyQualifiedName|null"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="object">
+      <type full="PhpParser\Node\Name" namespace="PhpParser\Node" name="Name"/>
+    </parameter>
+  </method>
+</class>

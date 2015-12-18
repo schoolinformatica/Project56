@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_Mime_Headers_UnstructuredHeaderTest" namespace="" name="Swift_Mime_Headers_UnstructuredHeaderTest" abstract="false" final="false" start="3" end="355">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/tests/unit/Swift/Mime/Headers" file="UnstructuredHeaderTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/tests/unit/Swift/Mime/Headers/UnstructuredHeaderTest.php" size="13284" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="ab3d3b374ecaba7b263e50db8ec1f7984f025789" relative="vendor/swiftmailer/swiftmailer/tests/unit/Swift/Mime/Headers/UnstructuredHeaderTest.php"/>
+  <extends full="SwiftMailerTestCase" namespace="" name="SwiftMailerTestCase"/>
+  <member name="_charset" type="string" default="'utf-8'" visibility="private" line="5"/>
+  <method name="testTypeIsTextHeader" start="7" end="11" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetNameReturnsNameVerbatim" start="13" end="17" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetValueReturnsValueVerbatim" start="19" end="24" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testBasicStructureIsKeyValuePair" start="26" end="35" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="-- RFC 2822, 2.2" line="28"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Header fields are lines composed of a field name, followed by a colon" line="29"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="(&quot;:&quot;), followed by a field body, and terminated by CRLF." line="30"/>
+    </inline>
+  </method>
+  <method name="testLongHeadersAreFoldedAtWordBoundary" start="37" end="66" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="-- RFC 2822, 2.2.3" line="39"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Each header field is logically a single line of characters comprising" line="40"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="the field name, the colon, and the field body.  For convenience" line="41"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="however, and to deal with the 998/78 character limitations per line," line="42"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="the field body portion of a header field can be split into a multiple" line="43"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="line representation; this is called &quot;folding&quot;.  The general rule is" line="44"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="that wherever this standard allows for folding white space (not" line="45"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="simply WSP characters), a CRLF may be inserted before any WSP." line="46"/>
+      <comment value="A safe [RFC 2822, 2.2.3] default" line="55"/>
+      <comment value="X-Custom-Header: The quick brown fox jumped over the fence, he was a very very" line="56"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="scary brown fox with a bushy tail" line="57"/>
+    </inline>
+  </method>
+  <method name="testPrintableAsciiOnlyAppearsInHeaders" start="68" end="84" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="-- RFC 2822, 2.2." line="70"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="A field name MUST be composed of printable US-ASCII characters (i.e.," line="71"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="characters that have values between 33 and 126, inclusive), except" line="72"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="colon.  A field body may be composed of any US-ASCII characters," line="73"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="except for CR and LF." line="74"/>
+    </inline>
+  </method>
+  <method name="testEncodedWordsFollowGeneralStructure" start="86" end="101" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="-- RFC 2047, 1." line="88"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Generally, an &quot;encoded-word&quot; is a sequence of printable ASCII" line="89"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="characters that begins with &quot;=?&quot;, ends with &quot;?=&quot;, and has two &quot;?&quot;s in" line="90"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="between." line="91"/>
+    </inline>
+  </method>
+  <method name="testEncodedWordIncludesCharsetAndEncodingMethodAndText" start="103" end="127" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="-- RFC 2047, 2." line="105"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="An 'encoded-word' is defined by the following ABNF grammar.  The" line="106"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="notation of RFC 822 is used, with the exception that white space" line="107"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="characters MUST NOT appear between components of an 'encoded-word'." line="108"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="encoded-word = &quot;=?&quot; charset &quot;?&quot; encoding &quot;?&quot; encoded-text &quot;?=&quot;" line="109"/>
+    </inline>
+  </method>
+  <method name="testEncodedWordsAreUsedToEncodedNonPrintableAscii" start="129" end="154" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="SPACE and TAB permitted" line="131"/>
+    </inline>
+  </method>
+  <method name="testEncodedWordsAreUsedToEncode8BitOctets" start="156" end="178" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testEncodedWordsAreNoMoreThan75CharsPerLine" start="180" end="211" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="-- RFC 2047, 2." line="182"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="An 'encoded-word' may not be more than 75 characters long, including" line="183"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="'charset', 'encoding', 'encoded-text', and delimiters." line="184"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="... SNIP ..." line="185"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="While there is no limit to the length of a multiple-line header" line="186"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="field, each line of a header field that contains one or more" line="187"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="'encoded-word's is limited to 76 characters." line="188"/>
+      <comment value="Note that multi-line headers begin with LWSP which makes 75 + 1 = 76" line="200"/>
+      <comment value="Note also that =?utf-8?q??= is 12 chars which makes 75 - 12 = 63" line="201"/>
+      <comment value="* X-Test: is 8 chars" line="203"/>
+    </inline>
+  </method>
+  <method name="testFWSPIsUsedWhenEncoderReturnsMultipleLines" start="213" end="243" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="--RFC 2047, 2." line="215"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="If it is desirable to encode more text than will fit in an 'encoded-word' of" line="216"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="75 characters, multiple 'encoded-word's (separated by CRLF SPACE) may" line="217"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="be used." line="218"/>
+      <comment value="Note the Mock does NOT return 8F encoded, the 8F merely triggers" line="221"/>
+      <comment value="encoding for the sake of testing" line="222"/>
+      <comment value="Note that multi-line headers begin with LWSP which makes 75 + 1 = 76" line="231"/>
+      <comment value="Note also that =?utf-8?q??= is 12 chars which makes 75 - 12 = 63" line="232"/>
+      <comment value="* X-Test: is 8 chars" line="234"/>
+    </inline>
+  </method>
+  <method name="testAdjacentWordsAreEncodedTogether" start="245" end="287" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="-- RFC 2047, 5 (1)" line="247"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Ordinary ASCII text and 'encoded-word's may appear together in the" line="248"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="same header field.  However, an 'encoded-word' that appears in a" line="249"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="header field defined as '*text' MUST be separated from any adjacent" line="250"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="'encoded-word' or 'text' by 'linear-white-space'." line="251"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="-- RFC 2047, 2." line="252"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="IMPORTANT: 'encoded-word's are designed to be recognized as 'atom's" line="253"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="by an RFC 822 parser.  As a consequence, unencoded white space" line="254"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="characters (such as SPACE and HTAB) are FORBIDDEN within an" line="255"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="'encoded-word'." line="256"/>
+      <comment value="It would be valid to encode all words needed, however it's probably" line="260"/>
+      <comment value="easiest to encode the longest amount required at a time" line="261"/>
+      <comment value="'start', ' word word', ' and end', ' word'" line="265"/>
+    </inline>
+  </method>
+  <method name="testLanguageInformationAppearsInEncodedWords" start="289" end="322" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="-- RFC 2231, 5." line="291"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="5.  Language specification in Encoded Words" line="292"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="RFC 2047 provides support for non-US-ASCII character sets in RFC 822" line="293"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="message header comments, phrases, and any unstructured text field." line="294"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="This is done by defining an encoded word construct which can appear" line="295"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="in any of these places.  Given that these are fields intended for" line="296"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="display, it is sometimes necessary to associate language information" line="297"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="with encoded words as well as just the character set.  This" line="298"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="specification extends the definition of an encoded word to allow the" line="299"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="inclusion of such information.  This is simply done by suffixing the" line="300"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="character set specification with an asterisk followed by the language" line="301"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="tag.  For example:" line="302"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="From: =?US-ASCII*EN?Q?Keith_Moore?= &lt;moore@cs.utk.edu&gt;" line="303"/>
+    </inline>
+  </method>
+  <method name="testSetBodyModel" start="324" end="329" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetBodyModel" start="331" end="336" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="_getHeader" start="338" end="344" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="encoder" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_getEncoder" start="346" end="354" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="type" byreference="false" type="{unknown}"/>
+    <parameter name="stub" byreference="false" type="boolean" default="false"/>
+  </method>
+</class>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Session\FileSessionHandler" namespace="Illuminate\Session" name="FileSessionHandler" abstract="false" final="false" start="9" end="97">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Session" file="FileSessionHandler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Session/FileSessionHandler.php" size="1912" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="3ae14a705c0bab892fde501452ba4c7b4969d45c" relative="vendor/laravel/framework/src/Illuminate/Session/FileSessionHandler.php"/>
+  <implements full="SessionHandlerInterface" namespace="" name="SessionHandlerInterface"/>
+  <member name="files" visibility="protected" line="16">
+    <docblock>
+      <description compact="The filesystem instance."/>
+      <var type="object">
+        <type full="\Illuminate\Filesystem\Filesystem" namespace="\Illuminate\Filesystem" name="Filesystem"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="path" visibility="protected" line="23">
+    <docblock>
+      <description compact="The path where sessions should be stored."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="32" end="36" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new file driven handler instance."/>
+      <param type="object" variable="$files">
+        <type full="\Illuminate\Filesystem\Filesystem" namespace="\Illuminate\Filesystem" name="Filesystem"/>
+      </param>
+      <param type="string" variable="$path"/>
+      <return type="object">
+        <type full="Illuminate\Session\void" namespace="Illuminate\Session" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="files" byreference="false" type="object">
+      <type full="Illuminate\Filesystem\Filesystem" namespace="Illuminate\Filesystem" name="Filesystem"/>
+    </parameter>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="open" start="41" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="savePath" byreference="false" type="{unknown}"/>
+    <parameter name="sessionName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="close" start="49" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="read" start="57" end="64" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="sessionId" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="write" start="69" end="72" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="sessionId" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="destroy" start="77" end="80" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="sessionId" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="gc" start="85" end="96" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="lifetime" byreference="false" type="{unknown}"/>
+  </method>
+</class>

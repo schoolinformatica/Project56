@@ -1,0 +1,890 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Database\Eloquent\Relations\BelongsToMany" namespace="Illuminate\Database\Eloquent\Relations" name="BelongsToMany" abstract="false" final="false" start="13" end="1251">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations" file="BelongsToMany.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsToMany.php" size="35483" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="be62d75951dc8b2c60c7abcdc650701b95f04fc9" relative="vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsToMany.php"/>
+  <extends full="Illuminate\Database\Eloquent\Relations\Relation" namespace="Illuminate\Database\Eloquent\Relations" name="Relation"/>
+  <member name="table" visibility="protected" line="20">
+    <docblock>
+      <description compact="The intermediate table for the relation."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="foreignKey" visibility="protected" line="27">
+    <docblock>
+      <description compact="The foreign key of the parent model."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="otherKey" visibility="protected" line="34">
+    <docblock>
+      <description compact="The associated key of the relation."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="relationName" visibility="protected" line="41">
+    <docblock>
+      <description compact="The &quot;name&quot; of the relationship."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="pivotColumns" type="array" default="" visibility="protected" line="48">
+    <docblock>
+      <description compact="The pivot table columns to retrieve."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="pivotWheres" type="array" default="" visibility="protected" line="55">
+    <docblock>
+      <description compact="Any pivot table restrictions."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="pivotCreatedAt" visibility="protected" line="62">
+    <docblock>
+      <description compact="The custom pivot table column for the created_at timestamp."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="pivotUpdatedAt" visibility="protected" line="69">
+    <docblock>
+      <description compact="The custom pivot table column for the updated_at timestamp."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="82" end="90" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new belongs to many relationship instance."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </param>
+      <param type="object" variable="$parent">
+        <type full="\Illuminate\Database\Eloquent\Model" namespace="\Illuminate\Database\Eloquent" name="Model"/>
+      </param>
+      <param type="string" variable="$table"/>
+      <param type="string" variable="$foreignKey"/>
+      <param type="string" variable="$otherKey"/>
+      <param type="string" variable="$relationName"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\Relations\void" namespace="Illuminate\Database\Eloquent\Relations" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Builder" namespace="Illuminate\Database\Eloquent" name="Builder"/>
+    </parameter>
+    <parameter name="parent" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Model" namespace="Illuminate\Database\Eloquent" name="Model"/>
+    </parameter>
+    <parameter name="table" byreference="false" type="{unknown}"/>
+    <parameter name="foreignKey" byreference="false" type="{unknown}"/>
+    <parameter name="otherKey" byreference="false" type="{unknown}"/>
+    <parameter name="relationName" byreference="false" type="{unknown}" default="" constant="null"/>
+  </constructor>
+  <method name="getResults" start="97" end="100" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the results of the relationship."/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+  <method name="wherePivot" start="111" end="116" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set a where clause for a pivot table column."/>
+      <param type="string" variable="$column"/>
+      <param type="string" variable="$operator"/>
+      <param type="mixed" variable="$value"/>
+      <param type="string" variable="$boolean"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Relations\BelongsToMany" namespace="\Illuminate\Database\Eloquent\Relations" name="BelongsToMany"/>
+      </return>
+    </docblock>
+    <parameter name="column" byreference="false" type="{unknown}"/>
+    <parameter name="operator" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="boolean" byreference="false" type="string" default="'and'"/>
+  </method>
+  <method name="orWherePivot" start="126" end="129" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set an or where clause for a pivot table column."/>
+      <param type="string" variable="$column"/>
+      <param type="string" variable="$operator"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Relations\BelongsToMany" namespace="\Illuminate\Database\Eloquent\Relations" name="BelongsToMany"/>
+      </return>
+    </docblock>
+    <parameter name="column" byreference="false" type="{unknown}"/>
+    <parameter name="operator" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="first" start="137" end="142" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Execute the query and get the first result."/>
+      <param type="array" variable="$columns"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="columns" byreference="false" type="array" default=""/>
+  </method>
+  <method name="firstOrFail" start="152" end="159" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Execute the query and get the first result or throw an exception."/>
+      <param type="array" variable="$columns"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Model|static" namespace="\Illuminate\Database\Eloquent" name="Model|static"/>
+      </return>
+      <throws type="object">
+        <type full="\Illuminate\Database\Eloquent\ModelNotFoundException" namespace="\Illuminate\Database\Eloquent" name="ModelNotFoundException"/>
+      </throws>
+    </docblock>
+    <parameter name="columns" byreference="false" type="array" default=""/>
+  </method>
+  <method name="get" start="167" end="188" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Execute the query as a &quot;select&quot; statement."/>
+      <param type="array" variable="$columns"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Collection" namespace="\Illuminate\Database\Eloquent" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="columns" byreference="false" type="array" default=""/>
+    <inline>
+      <comment value="First we'll add the proper select columns onto the query so it is run with" line="169"/>
+      <comment value="the proper columns. Then, we will get the results and hydrate out pivot" line="170"/>
+      <comment value="models with the result of those columns as a separate model relation." line="171"/>
+      <comment value="If we actually found models we will also eager load any relationships that" line="180"/>
+      <comment value="have been specified as needing to be eager loaded. This will solve the" line="181"/>
+      <comment value="n + 1 query problem for the developer and also increase performance." line="182"/>
+    </inline>
+  </method>
+  <method name="paginate" start="198" end="207" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a paginator for the &quot;select&quot; statement."/>
+      <param type="int" variable="$perPage"/>
+      <param type="array" variable="$columns"/>
+      <param type="string" variable="$pageName"/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Pagination\LengthAwarePaginator" namespace="\Illuminate\Contracts\Pagination" name="LengthAwarePaginator"/>
+      </return>
+    </docblock>
+    <parameter name="perPage" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="columns" byreference="false" type="array" default=""/>
+    <parameter name="pageName" byreference="false" type="string" default="'page'"/>
+  </method>
+  <method name="simplePaginate" start="216" end="225" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Paginate the given query into a simple paginator."/>
+      <param type="int" variable="$perPage"/>
+      <param type="array" variable="$columns"/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Pagination\Paginator" namespace="\Illuminate\Contracts\Pagination" name="Paginator"/>
+      </return>
+    </docblock>
+    <parameter name="perPage" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="columns" byreference="false" type="array" default=""/>
+  </method>
+  <method name="chunk" start="234" end="243" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Chunk the results of the query."/>
+      <param type="int" variable="$count"/>
+      <param type="object" variable="$callback">
+        <type full="Illuminate\Database\Eloquent\Relations\callable" namespace="Illuminate\Database\Eloquent\Relations" name="callable"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\Relations\void" namespace="Illuminate\Database\Eloquent\Relations" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="count" byreference="false" type="{unknown}"/>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Relations\callable" namespace="Illuminate\Database\Eloquent\Relations" name="callable"/>
+    </parameter>
+  </method>
+  <method name="hydratePivotRelation" start="251" end="261" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Hydrate the pivot table relationship on the models."/>
+      <param type="array" variable="$models"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\Relations\void" namespace="Illuminate\Database\Eloquent\Relations" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="models" byreference="false" type="array"/>
+    <inline>
+      <comment value="To hydrate the pivot relationship, we will just gather the pivot attributes" line="253"/>
+      <comment value="and create a new Pivot model, which is basically a dynamic model that we" line="254"/>
+      <comment value="will set the attributes, table, and connections on so it they be used." line="255"/>
+    </inline>
+  </method>
+  <method name="cleanPivotAttributes" start="269" end="285" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the pivot attributes from a model."/>
+      <param type="object" variable="$model">
+        <type full="\Illuminate\Database\Eloquent\Model" namespace="\Illuminate\Database\Eloquent" name="Model"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="model" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Model" namespace="Illuminate\Database\Eloquent" name="Model"/>
+    </parameter>
+  </method>
+  <method name="addConstraints" start="292" end="299" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the base constraints on the relation query."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\Relations\void" namespace="Illuminate\Database\Eloquent\Relations" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getRelationCountQuery" start="308" end="317" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add the constraints for a relationship count query."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </param>
+      <param type="object" variable="$parent">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </return>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Builder" namespace="Illuminate\Database\Eloquent" name="Builder"/>
+    </parameter>
+    <parameter name="parent" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Builder" namespace="Illuminate\Database\Eloquent" name="Builder"/>
+    </parameter>
+  </method>
+  <method name="getRelationCountQueryForSelfJoin" start="326" end="335" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add the constraints for a relationship count query on the same table."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </param>
+      <param type="object" variable="$parent">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </return>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Builder" namespace="Illuminate\Database\Eloquent" name="Builder"/>
+    </parameter>
+    <parameter name="parent" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Builder" namespace="Illuminate\Database\Eloquent" name="Builder"/>
+    </parameter>
+  </method>
+  <method name="getRelationCountHash" start="342" end="345" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a relationship join table hash."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getSelectColumns" start="353" end="360" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Set the select clause for the relation query."/>
+      <param type="array" variable="$columns"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Relations\BelongsToMany" namespace="\Illuminate\Database\Eloquent\Relations" name="BelongsToMany"/>
+      </return>
+    </docblock>
+    <parameter name="columns" byreference="false" type="array" default=""/>
+  </method>
+  <method name="getAliasedPivotColumns" start="367" end="381" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the pivot columns for the relation."/>
+      <return type="array"/>
+    </docblock>
+    <inline>
+      <comment value="We need to alias all of the pivot columns with the &quot;pivot_&quot; prefix so we" line="371"/>
+      <comment value="can easily extract them out of the models and put them into the pivot" line="372"/>
+      <comment value="relationships when they are retrieved and hydrated into the models." line="373"/>
+    </inline>
+  </method>
+  <method name="hasPivotColumn" start="389" end="392" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Determine whether the given column is defined as a pivot column."/>
+      <param type="string" variable="$column"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\Relations\bool" namespace="Illuminate\Database\Eloquent\Relations" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="column" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setJoin" start="400" end="414" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Set the join clause for the relation query."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Eloquent\Builder|null" namespace="\Illuminate\Database\Eloquent" name="Builder|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\Relations\$this" namespace="Illuminate\Database\Eloquent\Relations" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="We need to join to the intermediate table on the related model's primary" line="404"/>
+      <comment value="key column with the intermediate table's foreign key for the related" line="405"/>
+      <comment value="model instance. Then we can set the &quot;where&quot; for the parent models." line="406"/>
+    </inline>
+  </method>
+  <method name="setWhere" start="421" end="428" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Set the where clause for the relation query."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\Relations\$this" namespace="Illuminate\Database\Eloquent\Relations" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="addEagerConstraints" start="436" end="439" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the constraints for an eager load of the relation."/>
+      <param type="array" variable="$models"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\Relations\void" namespace="Illuminate\Database\Eloquent\Relations" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="models" byreference="false" type="array"/>
+  </method>
+  <method name="initRelation" start="448" end="455" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Initialize the relation on a set of models."/>
+      <param type="array" variable="$models"/>
+      <param type="string" variable="$relation"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="models" byreference="false" type="array"/>
+    <parameter name="relation" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="match" start="465" end="481" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Match the eagerly loaded results to their parents."/>
+      <param type="array" variable="$models"/>
+      <param type="object" variable="$results">
+        <type full="\Illuminate\Database\Eloquent\Collection" namespace="\Illuminate\Database\Eloquent" name="Collection"/>
+      </param>
+      <param type="string" variable="$relation"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="models" byreference="false" type="array"/>
+    <parameter name="results" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Collection" namespace="Illuminate\Database\Eloquent" name="Collection"/>
+    </parameter>
+    <parameter name="relation" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Once we have an array dictionary of child objects we can easily match the" line="469"/>
+      <comment value="children back to their parent using the dictionary and the keys on the" line="470"/>
+      <comment value="the parent models. Then we will return the hydrated models back out." line="471"/>
+    </inline>
+  </method>
+  <method name="buildDictionary" start="489" end="503" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Build model dictionary keyed by the relation's foreign key."/>
+      <param type="object" variable="$results">
+        <type full="\Illuminate\Database\Eloquent\Collection" namespace="\Illuminate\Database\Eloquent" name="Collection"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="results" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Collection" namespace="Illuminate\Database\Eloquent" name="Collection"/>
+    </parameter>
+    <inline>
+      <comment value="First we will build a dictionary of child models keyed by the foreign key" line="493"/>
+      <comment value="of the relation so that we will easily and quickly match them to their" line="494"/>
+      <comment value="parents without having a possibly slow inner loops for every models." line="495"/>
+    </inline>
+  </method>
+  <method name="touch" start="512" end="526" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Touch all of the related models for the relationship.">E.g.: Touch all roles associated with this user.</description>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\Relations\void" namespace="Illuminate\Database\Eloquent\Relations" name="void"/>
+      </return>
+    </docblock>
+    <inline>
+      <comment value="If we actually have IDs for the relation, we will run the query to update all" line="518"/>
+      <comment value="the related model's timestamps, to make sure these all reflect the changes" line="519"/>
+      <comment value="to the parent models. This will help us keep any caching synced up here." line="520"/>
+    </inline>
+  </method>
+  <method name="getRelatedIds" start="533" end="540" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get all of the IDs for the related models."/>
+      <return type="object">
+        <type full="\Illuminate\Support\Collection" namespace="\Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="save" start="550" end="557" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Save a new model and attach it to the parent model."/>
+      <param type="object" variable="$model">
+        <type full="\Illuminate\Database\Eloquent\Model" namespace="\Illuminate\Database\Eloquent" name="Model"/>
+      </param>
+      <param type="array" variable="$joining"/>
+      <param type="object" variable="$touch">
+        <type full="Illuminate\Database\Eloquent\Relations\bool" namespace="Illuminate\Database\Eloquent\Relations" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Model" namespace="\Illuminate\Database\Eloquent" name="Model"/>
+      </return>
+    </docblock>
+    <parameter name="model" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Model" namespace="Illuminate\Database\Eloquent" name="Model"/>
+    </parameter>
+    <parameter name="joining" byreference="false" type="array" default=""/>
+    <parameter name="touch" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="saveMany" start="566" end="575" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Save an array of new models and attach them to the parent model."/>
+      <param type="array" variable="$models"/>
+      <param type="array" variable="$joinings"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="models" byreference="false" type="array"/>
+    <parameter name="joinings" byreference="false" type="array" default=""/>
+  </method>
+  <method name="find" start="584" end="593" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Find a related model by its primary key."/>
+      <param type="mixed" variable="$id"/>
+      <param type="array" variable="$columns"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection|null" namespace="\Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent" name="Collection|null"/>
+      </return>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="columns" byreference="false" type="array" default=""/>
+  </method>
+  <method name="findMany" start="602" end="611" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Find multiple related models by their primary keys."/>
+      <param type="mixed" variable="$ids"/>
+      <param type="array" variable="$columns"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Collection" namespace="\Illuminate\Database\Eloquent" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="ids" byreference="false" type="{unknown}"/>
+    <parameter name="columns" byreference="false" type="array" default=""/>
+  </method>
+  <method name="findOrFail" start="622" end="635" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Find a related model by its primary key or throw an exception."/>
+      <param type="mixed" variable="$id"/>
+      <param type="array" variable="$columns"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection" namespace="\Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent" name="Collection"/>
+      </return>
+      <throws type="object">
+        <type full="\Illuminate\Database\Eloquent\ModelNotFoundException" namespace="\Illuminate\Database\Eloquent" name="ModelNotFoundException"/>
+      </throws>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="columns" byreference="false" type="array" default=""/>
+  </method>
+  <method name="findOrNew" start="644" end="651" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Find a related model by its primary key or return new instance of the related model."/>
+      <param type="mixed" variable="$id"/>
+      <param type="array" variable="$columns"/>
+      <return type="object">
+        <type full="\Illuminate\Support\Collection|\Illuminate\Database\Eloquent\Model" namespace="\Illuminate\Support\Collection|\Illuminate\Database\Eloquent" name="Model"/>
+      </return>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="columns" byreference="false" type="array" default=""/>
+  </method>
+  <method name="firstOrNew" start="659" end="666" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the first related model record matching the attributes or instantiate it."/>
+      <param type="array" variable="$attributes"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Model" namespace="\Illuminate\Database\Eloquent" name="Model"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array"/>
+  </method>
+  <method name="firstOrCreate" start="676" end="683" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the first related record matching the attributes or create it."/>
+      <param type="array" variable="$attributes"/>
+      <param type="array" variable="$joining"/>
+      <param type="object" variable="$touch">
+        <type full="Illuminate\Database\Eloquent\Relations\bool" namespace="Illuminate\Database\Eloquent\Relations" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Model" namespace="\Illuminate\Database\Eloquent" name="Model"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array"/>
+    <parameter name="joining" byreference="false" type="array" default=""/>
+    <parameter name="touch" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="updateOrCreate" start="694" end="705" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create or update a related record matching the attributes, and fill it with values."/>
+      <param type="array" variable="$attributes"/>
+      <param type="array" variable="$values"/>
+      <param type="array" variable="$joining"/>
+      <param type="object" variable="$touch">
+        <type full="Illuminate\Database\Eloquent\Relations\bool" namespace="Illuminate\Database\Eloquent\Relations" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Model" namespace="\Illuminate\Database\Eloquent" name="Model"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array"/>
+    <parameter name="values" byreference="false" type="array" default=""/>
+    <parameter name="joining" byreference="false" type="array" default=""/>
+    <parameter name="touch" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="create" start="715" end="727" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new instance of the related model."/>
+      <param type="array" variable="$attributes"/>
+      <param type="array" variable="$joining"/>
+      <param type="object" variable="$touch">
+        <type full="Illuminate\Database\Eloquent\Relations\bool" namespace="Illuminate\Database\Eloquent\Relations" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Model" namespace="\Illuminate\Database\Eloquent" name="Model"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array"/>
+    <parameter name="joining" byreference="false" type="array" default=""/>
+    <parameter name="touch" byreference="false" type="boolean" default="true"/>
+    <inline>
+      <comment value="Once we save the related model, we need to attach it to the base model via" line="719"/>
+      <comment value="through intermediate table so we'll use the existing &quot;attach&quot; method to" line="720"/>
+      <comment value="accomplish this which will insert the record and any more attributes." line="721"/>
+    </inline>
+  </method>
+  <method name="createMany" start="736" end="747" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create an array of new instances of the related models."/>
+      <param type="array" variable="$records"/>
+      <param type="array" variable="$joinings"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="records" byreference="false" type="array"/>
+    <parameter name="joinings" byreference="false" type="array" default=""/>
+  </method>
+  <method name="sync" start="756" end="798" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sync the intermediate tables with a list of IDs or collection of models."/>
+      <param type="object" variable="$ids">
+        <type full="\Illuminate\Database\Eloquent\Collection|array" namespace="\Illuminate\Database\Eloquent" name="Collection|array"/>
+      </param>
+      <param type="object" variable="$detaching">
+        <type full="Illuminate\Database\Eloquent\Relations\bool" namespace="Illuminate\Database\Eloquent\Relations" name="bool"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="ids" byreference="false" type="{unknown}"/>
+    <parameter name="detaching" byreference="false" type="boolean" default="true"/>
+    <inline>
+      <comment value="First we need to attach any of the associated models that are not currently" line="766"/>
+      <comment value="in this joining table. We'll spin through the given IDs, checking to see" line="767"/>
+      <comment value="if they exist in the array of current ones, and if not we will insert." line="768"/>
+      <comment value="Next, we will take the differences of the currents and given IDs and detach" line="775"/>
+      <comment value="all of the entities that exist in the &quot;current&quot; array but are not in the" line="776"/>
+      <comment value="the array of the IDs given to the method which will complete the sync." line="777"/>
+      <comment value="Now we are finally ready to attach the new records. Note that we'll disable" line="786"/>
+      <comment value="touching until after the entire operation is complete so we don't fire a" line="787"/>
+      <comment value="ton of touch operations until we are totally done syncing the records." line="788"/>
+    </inline>
+  </method>
+  <method name="formatSyncList" start="806" end="819" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Format the sync list so that it is keyed by ID."/>
+      <param type="array" variable="$records"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="records" byreference="false" type="array"/>
+  </method>
+  <method name="attachNew" start="829" end="853" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Attach all of the IDs that aren't in the current array."/>
+      <param type="array" variable="$records"/>
+      <param type="array" variable="$current"/>
+      <param type="object" variable="$touch">
+        <type full="Illuminate\Database\Eloquent\Relations\bool" namespace="Illuminate\Database\Eloquent\Relations" name="bool"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="records" byreference="false" type="array"/>
+    <parameter name="current" byreference="false" type="array"/>
+    <parameter name="touch" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="updateExistingPivot" start="863" end="876" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Update an existing pivot record on the table."/>
+      <param type="mixed" variable="$id"/>
+      <param type="array" variable="$attributes"/>
+      <param type="object" variable="$touch">
+        <type full="Illuminate\Database\Eloquent\Relations\bool" namespace="Illuminate\Database\Eloquent\Relations" name="bool"/>
+      </param>
+      <return type="int"/>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="attributes" byreference="false" type="array"/>
+    <parameter name="touch" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="attach" start="886" end="899" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Attach a model to the parent."/>
+      <param type="mixed" variable="$id"/>
+      <param type="array" variable="$attributes"/>
+      <param type="object" variable="$touch">
+        <type full="Illuminate\Database\Eloquent\Relations\bool" namespace="Illuminate\Database\Eloquent\Relations" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\Relations\void" namespace="Illuminate\Database\Eloquent\Relations" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="attributes" byreference="false" type="array" default=""/>
+    <parameter name="touch" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="createAttachRecords" start="908" end="923" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create an array of records to insert into the pivot table."/>
+      <param type="array" variable="$ids"/>
+      <param type="array" variable="$attributes"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="ids" byreference="false" type="{unknown}"/>
+    <parameter name="attributes" byreference="false" type="array"/>
+    <inline>
+      <comment value="To create the attachment records, we will simply spin through the IDs given" line="915"/>
+      <comment value="and create a new record to insert for each ID. Each ID may actually be a" line="916"/>
+      <comment value="key in the array, with extra attributes to be placed in other columns." line="917"/>
+    </inline>
+  </method>
+  <method name="attacher" start="934" end="944" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create a full attachment record payload."/>
+      <param type="int" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <param type="array" variable="$attributes"/>
+      <param type="object" variable="$timed">
+        <type full="Illuminate\Database\Eloquent\Relations\bool" namespace="Illuminate\Database\Eloquent\Relations" name="bool"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="attributes" byreference="false" type="{unknown}"/>
+    <parameter name="timed" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="To create the attachment records, we will simply spin through the IDs given" line="938"/>
+      <comment value="and create a new record to insert for each ID. Each ID may actually be a" line="939"/>
+      <comment value="key in the array, with extra attributes to be placed in other columns." line="940"/>
+    </inline>
+  </method>
+  <method name="getAttachId" start="954" end="961" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the attach record ID and extra attributes."/>
+      <param type="mixed" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <param type="array" variable="$attributes"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="attributes" byreference="false" type="array"/>
+  </method>
+  <method name="createAttachRecord" start="970" end="984" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create a new pivot attachment record."/>
+      <param type="int" variable="$id"/>
+      <param type="object" variable="$timed">
+        <type full="Illuminate\Database\Eloquent\Relations\bool" namespace="Illuminate\Database\Eloquent\Relations" name="bool"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="timed" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="If the record needs to have creation and update timestamps, we will make" line="976"/>
+      <comment value="them by calling the parent model's &quot;freshTimestamp&quot; method which will" line="977"/>
+      <comment value="provide us with a fresh timestamp in this model's preferred format." line="978"/>
+    </inline>
+  </method>
+  <method name="setTimestampsOnAttach" start="993" end="1006" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Set the creation and update timestamps on an attach record."/>
+      <param type="array" variable="$record"/>
+      <param type="object" variable="$exists">
+        <type full="Illuminate\Database\Eloquent\Relations\bool" namespace="Illuminate\Database\Eloquent\Relations" name="bool"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="record" byreference="false" type="array"/>
+    <parameter name="exists" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="detach" start="1015" end="1042" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Detach models from the relationship."/>
+      <param type="object" variable="$ids">
+        <type full="Illuminate\Database\Eloquent\Relations\int|array" namespace="Illuminate\Database\Eloquent\Relations" name="int|array"/>
+      </param>
+      <param type="object" variable="$touch">
+        <type full="Illuminate\Database\Eloquent\Relations\bool" namespace="Illuminate\Database\Eloquent\Relations" name="bool"/>
+      </param>
+      <return type="int"/>
+    </docblock>
+    <parameter name="ids" byreference="false" type="array" default=""/>
+    <parameter name="touch" byreference="false" type="boolean" default="true"/>
+    <inline>
+      <comment value="If associated IDs were passed to the method we will only delete those" line="1023"/>
+      <comment value="associations, otherwise all of the association ties will be broken." line="1024"/>
+      <comment value="We'll return the numbers of affected rows when we do the deletes." line="1025"/>
+      <comment value="Once we have all of the conditions set on the statement, we are ready" line="1032"/>
+      <comment value="to run the delete on the pivot table. Then, if the touch parameter" line="1033"/>
+      <comment value="is true, we will go ahead and touch all related models to sync." line="1034"/>
+    </inline>
+  </method>
+  <method name="touchIfTouching" start="1049" end="1058" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="If we're touching the parent model, touch."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\Relations\void" namespace="Illuminate\Database\Eloquent\Relations" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="touchingParent" start="1065" end="1068" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Determine if we should touch the parent on sync."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\Relations\bool" namespace="Illuminate\Database\Eloquent\Relations" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="guessInverseRelation" start="1075" end="1078" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Attempt to guess the name of the inverse of the relation."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="newPivotQuery" start="1085" end="1094" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create a new query builder for the pivot table."/>
+      <return type="object">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="newPivotStatement" start="1101" end="1104" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a new plain query builder for the pivot table."/>
+      <return type="object">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="newPivotStatementForId" start="1112" end="1115" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a new pivot statement for a given &quot;other&quot; ID."/>
+      <param type="mixed" variable="$id"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </return>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="newPivot" start="1124" end="1129" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new pivot model instance."/>
+      <param type="array" variable="$attributes"/>
+      <param type="object" variable="$exists">
+        <type full="Illuminate\Database\Eloquent\Relations\bool" namespace="Illuminate\Database\Eloquent\Relations" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Relations\Pivot" namespace="\Illuminate\Database\Eloquent\Relations" name="Pivot"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array" default=""/>
+    <parameter name="exists" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="newExistingPivot" start="1137" end="1140" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new existing pivot model instance."/>
+      <param type="array" variable="$attributes"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Relations\Pivot" namespace="\Illuminate\Database\Eloquent\Relations" name="Pivot"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array" default=""/>
+  </method>
+  <method name="withPivot" start="1148" end="1155" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the columns on the pivot table to retrieve."/>
+      <param type="object" variable="$columns">
+        <type full="Illuminate\Database\Eloquent\Relations\array|mixed" namespace="Illuminate\Database\Eloquent\Relations" name="array|mixed"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\Relations\$this" namespace="Illuminate\Database\Eloquent\Relations" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="columns" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="withTimestamps" start="1164" end="1170" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Specify that the pivot table has creation and update timestamps."/>
+      <param type="mixed" variable="$createdAt"/>
+      <param type="mixed" variable="$updatedAt"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Relations\BelongsToMany" namespace="\Illuminate\Database\Eloquent\Relations" name="BelongsToMany"/>
+      </return>
+    </docblock>
+    <parameter name="createdAt" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="updatedAt" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="createdAt" start="1177" end="1180" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the name of the &quot;created at&quot; column."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="updatedAt" start="1187" end="1190" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the name of the &quot;updated at&quot; column."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getRelatedFreshUpdate" start="1197" end="1200" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the related model's updated at column name."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getHasCompareKey" start="1207" end="1210" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the key for comparing against the parent key in &quot;has&quot; query."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getForeignKey" start="1217" end="1220" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the fully qualified foreign key for the relation."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getOtherKey" start="1227" end="1230" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the fully qualified &quot;other key&quot; for the relation."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getTable" start="1237" end="1240" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the intermediate table for the relationship."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getRelationName" start="1247" end="1250" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the relationship name for the relationship."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+</class>

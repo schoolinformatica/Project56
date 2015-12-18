@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\Configuration" namespace="Psy" name="Configuration" abstract="false" final="false" start="31" end="983">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy" file="Configuration.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Configuration.php" size="26272" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="162fe618e6e5e80bdc43a0f0e006000d9aff8216" relative="vendor/psy/psysh/src/Psy/Configuration.php"/>
+  <docblock>
+    <description compact="The Psy Shell configuration."/>
+  </docblock>
+  <member name="AVAILABLE_OPTIONS" type="array" default="" visibility="private" line="33"/>
+  <member name="defaultIncludes" visibility="private" line="40"/>
+  <member name="configDir" visibility="private" line="41"/>
+  <member name="dataDir" visibility="private" line="42"/>
+  <member name="runtimeDir" visibility="private" line="43"/>
+  <member name="configFile" visibility="private" line="44"/>
+  <member name="historyFile" visibility="private" line="45"/>
+  <member name="historySize" visibility="private" line="46"/>
+  <member name="eraseDuplicates" visibility="private" line="47"/>
+  <member name="manualDbFile" visibility="private" line="48"/>
+  <member name="hasReadline" visibility="private" line="49"/>
+  <member name="useReadline" visibility="private" line="50"/>
+  <member name="hasPcntl" visibility="private" line="51"/>
+  <member name="usePcntl" visibility="private" line="52"/>
+  <member name="newCommands" type="array" default="" visibility="private" line="53"/>
+  <member name="requireSemicolons" type="boolean" default="false" visibility="private" line="54"/>
+  <member name="tabCompletion" visibility="private" line="55"/>
+  <member name="tabCompletionMatchers" type="array" default="" visibility="private" line="56"/>
+  <member name="errorLoggingLevel" type="{unknown}" default="" constant="E_ALL" visibility="private" line="57"/>
+  <member name="warnOnMultipleConfigs" type="boolean" default="false" visibility="private" line="58"/>
+  <member name="readline" visibility="private" line="61"/>
+  <member name="output" visibility="private" line="62"/>
+  <member name="shell" visibility="private" line="63"/>
+  <member name="cleaner" visibility="private" line="64"/>
+  <member name="pager" visibility="private" line="65"/>
+  <member name="loop" visibility="private" line="66"/>
+  <member name="manualDb" visibility="private" line="67"/>
+  <member name="presenter" visibility="private" line="68"/>
+  <member name="completer" visibility="private" line="69"/>
+  <constructor name="__construct" start="78" end="99" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Construct a Configuration instance.">Optionally, supply an array of configuration values to load.</description>
+      <param description="Optional array of configuration values." type="array" variable="$config"/>
+    </docblock>
+    <parameter name="config" byreference="false" type="array" default=""/>
+    <inline>
+      <comment value="explicit configFile option" line="80"/>
+      <comment value="legacy baseDir option" line="87"/>
+      <comment value="go go gadget, config!" line="96"/>
+    </inline>
+  </constructor>
+  <method name="init" start="111" end="124" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Initialize the configuration.">This checks for the presence of Readline and Pcntl extensions.
+
+If a config file is available, it will be loaded and merged with the current config.
+
+If no custom config file was specified and a local project config file
+is available, it will be loaded and merged with the current config.</description>
+    </docblock>
+    <inline>
+      <comment value="feature detection" line="113"/>
+    </inline>
+  </method>
+  <method name="getConfigFile" start="140" end="156" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the current PsySH config file.">If a `configFile` option was passed to the Configuration constructor,
+this file will be returned. If not, all possible config directories will
+be searched, and the first `config.php` or `rc.php` file which exists
+will be returned.
+
+If you're trying to decide where to put your config file, pick
+
+    ~/.config/psysh/config.php</description>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getLocalConfigFile" start="166" end="173" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the local PsySH config file.">Searches for a project specific config file `.psysh.php` in the current
+working directory.</description>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="loadConfig" start="180" end="195" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Load configuration values from an array of options."/>
+      <param type="array" variable="$options"/>
+    </docblock>
+    <parameter name="options" byreference="false" type="array"/>
+  </method>
+  <method name="loadConfigFile" start="208" end="226" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Load a configuration file (default: `$HOME/.config/psysh/config.php`).">This configuration instance will be available to the config file as $config.
+The config file may directly manipulate the configuration, or may return
+an array of options which will be merged with the current configuration.</description>
+      <throws description="if the config file returns a non-array result." type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <param type="string" variable="$file"/>
+    </docblock>
+    <parameter name="file" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setDefaultIncludes" start="233" end="236" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set files to be included by default at the start of each shell session."/>
+      <param type="array" variable="$includes"/>
+    </docblock>
+    <parameter name="includes" byreference="false" type="array" default=""/>
+  </method>
+  <method name="getDefaultIncludes" start="243" end="246" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get files to be included by default at the start of each shell session."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="setConfigDir" start="253" end="256" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the shell's config directory location."/>
+      <param type="string" variable="$dir"/>
+    </docblock>
+    <parameter name="dir" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getConfigDir" start="263" end="266" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the current configuration directory, if any is explicitly set."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setDataDir" start="273" end="276" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the shell's data directory location."/>
+      <param type="string" variable="$dir"/>
+    </docblock>
+    <parameter name="dir" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getDataDir" start="283" end="286" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the current data directory, if any is explicitly set."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setRuntimeDir" start="293" end="296" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the shell's temporary directory location."/>
+      <param type="string" variable="$dir"/>
+    </docblock>
+    <parameter name="dir" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getRuntimeDir" start="306" end="317" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the shell's temporary directory location.">Defaults to  `/psysh` inside the system's temp dir unless explicitly
+overridden.</description>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setHistoryFile" start="324" end="327" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the readline history file path."/>
+      <param type="string" variable="$file"/>
+    </docblock>
+    <parameter name="file" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getHistoryFile" start="337" end="379" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the readline history file path.">Defaults to `/history` inside the shell's base config dir unless
+explicitly overridden.</description>
+      <return type="string"/>
+    </docblock>
+    <inline>
+      <comment value="Deprecation warning for incorrect psysh_history path." line="343"/>
+      <todo value="remove this before v0.8.0" line="344"/>
+      <comment value="fallback: create our own history file" line="372"/>
+    </inline>
+  </method>
+  <method name="setHistorySize" start="386" end="389" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the readline max history size."/>
+      <param type="int" variable="$value"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getHistorySize" start="396" end="399" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the readline max history size."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="setEraseDuplicates" start="406" end="409" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets whether readline erases old duplicate history entries."/>
+      <param type="object" variable="$value">
+        <type full="Psy\bool" namespace="Psy" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getEraseDuplicates" start="416" end="419" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get whether readline erases old duplicate history entries."/>
+      <return type="object">
+        <type full="Psy\bool" namespace="Psy" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getTempFile" start="433" end="436" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a temporary file of type $type for process $pid.">The file will be created inside the current temporary directory.</description>
+      <see value="self::getRuntimeDir"/>
+      <param type="string" variable="$type"/>
+      <param type="int" variable="$pid"/>
+      <return description="Temporary file name" type="string"/>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+    <parameter name="pid" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getPipe" start="448" end="451" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a filename suitable for a FIFO pipe of $type for process $pid.">The pipe will be created inside the current temporary directory.</description>
+      <param type="string" variable="$type"/>
+      <param type="object" variable="$pid">
+        <type full="Psy\id" namespace="Psy" name="id"/>
+      </param>
+      <return description="Pipe name" type="string"/>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+    <parameter name="pid" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasReadline" start="458" end="461" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check whether this PHP instance has Readline available."/>
+      <return description="True if Readline is available." type="object">
+        <type full="Psy\bool" namespace="Psy" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setUseReadline" start="468" end="471" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Enable or disable Readline usage."/>
+      <param type="object" variable="$useReadline">
+        <type full="Psy\bool" namespace="Psy" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="useReadline" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="useReadline" start="481" end="484" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check whether to use Readline.">If `setUseReadline` as been set to true, but Readline is not actually
+available, this will return false.</description>
+      <return description="True if the current Shell should use Readline." type="object">
+        <type full="Psy\bool" namespace="Psy" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setReadline" start="491" end="494" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the Psy Shell readline service."/>
+      <param type="object" variable="$readline">
+        <type full="Psy\Readline\Readline" namespace="Psy\Readline" name="Readline"/>
+      </param>
+    </docblock>
+    <parameter name="readline" byreference="false" type="object">
+      <type full="Psy\Readline\Readline" namespace="Psy\Readline" name="Readline"/>
+    </parameter>
+  </method>
+  <method name="getReadline" start="507" end="519" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the Psy Shell readline service.">By default, this service uses (in order of preference):
+
+ * GNU Readline
+ * Libedit
+ * A transient array-based readline emulation.</description>
+      <return type="object">
+        <type full="Psy\Readline\Readline" namespace="Psy\Readline" name="Readline"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getReadlineClass" start="528" end="539" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Get the appropriate Readline implementation class name."/>
+      <see value="self::getReadline"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="hasPcntl" start="546" end="549" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check whether this PHP instance has Pcntl available."/>
+      <return description="True if Pcntl is available." type="object">
+        <type full="Psy\bool" namespace="Psy" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setUsePcntl" start="556" end="559" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Enable or disable Pcntl usage."/>
+      <param type="object" variable="$usePcntl">
+        <type full="Psy\bool" namespace="Psy" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="usePcntl" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="usePcntl" start="569" end="572" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check whether to use Pcntl.">If `setUsePcntl` has been set to true, but Pcntl is not actually
+available, this will return false.</description>
+      <return description="True if the current Shell should use Pcntl." type="object">
+        <type full="Psy\bool" namespace="Psy" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setRequireSemicolons" start="581" end="584" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Enable or disable strict requirement of semicolons."/>
+      <see value="self::requireSemicolons()"/>
+      <param type="object" variable="$requireSemicolons">
+        <type full="Psy\bool" namespace="Psy" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="requireSemicolons" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="requireSemicolons" start="595" end="598" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check whether to require semicolons on all statements.">By default, PsySH will automatically insert semicolons at the end of
+statements if they're missing. To strictly require semicolons, set
+`requireSemicolons` to true.</description>
+      <return type="object">
+        <type full="Psy\bool" namespace="Psy" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setErrorLoggingLevel" start="607" end="610" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the error logging level."/>
+      <see value="self::errorLoggingLevel"/>
+      <param type="object" variable="$errorLoggingLevel">
+        <type full="Psy\bool" namespace="Psy" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="errorLoggingLevel" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="errorLoggingLevel" start="627" end="630" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the current error logging level.">By default, PsySH will automatically log all errors, regardless of the
+current `error_reporting` level. Additionally, if the `error_reporting`
+level warrants, an ErrorException will be thrown.
+
+Set `errorLoggingLevel` to 0 to prevent logging non-thrown errors. Set it
+to any valid error_reporting value to log only errors which match that
+level.
+
+    http://php.net/manual/en/function.error-reporting.php</description>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="setCodeCleaner" start="637" end="640" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set a CodeCleaner service instance."/>
+      <param type="object" variable="$cleaner">
+        <type full="Psy\CodeCleaner" namespace="Psy" name="CodeCleaner"/>
+      </param>
+    </docblock>
+    <parameter name="cleaner" byreference="false" type="object">
+      <type full="Psy\CodeCleaner" namespace="Psy" name="CodeCleaner"/>
+    </parameter>
+  </method>
+  <method name="getCodeCleaner" start="649" end="656" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a CodeCleaner service instance.">If none has been explicitly defined, this will create a new instance.</description>
+      <return type="object">
+        <type full="Psy\CodeCleaner" namespace="Psy" name="CodeCleaner"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setTabCompletion" start="663" end="666" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Enable or disable tab completion."/>
+      <param type="object" variable="$tabCompletion">
+        <type full="Psy\bool" namespace="Psy" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="tabCompletion" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getTabCompletion" start="676" end="679" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check whether to use tab completion.">If `setTabCompletion` has been set to true, but readline is not actually
+available, this will return false.</description>
+      <return description="True if the current Shell should use tab completion." type="object">
+        <type full="Psy\bool" namespace="Psy" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setOutput" start="686" end="689" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the Shell Output service."/>
+      <param type="object" variable="$output">
+        <type full="Psy\Output\ShellOutput" namespace="Psy\Output" name="ShellOutput"/>
+      </param>
+    </docblock>
+    <parameter name="output" byreference="false" type="object">
+      <type full="Psy\Output\ShellOutput" namespace="Psy\Output" name="ShellOutput"/>
+    </parameter>
+  </method>
+  <method name="getOutput" start="701" end="708" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a Shell Output service instance.">If none has been explicitly provided, this will create a new instance
+with VERBOSITY_NORMAL and the output page supplied by self::getPager</description>
+      <see value="self::getPager"/>
+      <return type="object">
+        <type full="Psy\Output\ShellOutput" namespace="Psy\Output" name="ShellOutput"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setPager" start="720" end="727" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the OutputPager service.">If a string is supplied, a ProcOutputPager will be used which shells out
+to the specified command.</description>
+      <throws description="if $pager is not a string or OutputPager instance." type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <param type="object" variable="$pager">
+        <type full="Psy\string|OutputPager" namespace="Psy" name="string|OutputPager"/>
+      </param>
+    </docblock>
+    <parameter name="pager" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getPager" start="737" end="750" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get an OutputPager instance or a command for an external Proc pager.">If no Pager has been explicitly provided, and Pcntl is available, this
+will default to `cli.pager` ini value, falling back to `which less`.</description>
+      <return type="object">
+        <type full="Psy\string|OutputPager" namespace="Psy" name="string|OutputPager"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setLoop" start="757" end="760" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the Shell evaluation Loop service."/>
+      <param type="object" variable="$loop">
+        <type full="Psy\ExecutionLoop\Loop" namespace="Psy\ExecutionLoop" name="Loop"/>
+      </param>
+    </docblock>
+    <parameter name="loop" byreference="false" type="object">
+      <type full="Psy\ExecutionLoop\Loop" namespace="Psy\ExecutionLoop" name="Loop"/>
+    </parameter>
+  </method>
+  <method name="getLoop" start="770" end="781" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a Shell evaluation Loop service instance.">If none has been explicitly defined, this will create a new instance.
+If Pcntl is available and enabled, the new instance will be a ForkingLoop.</description>
+      <return type="object">
+        <type full="Psy\ExecutionLoop\Loop" namespace="Psy\ExecutionLoop" name="Loop"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setAutoCompleter" start="788" end="791" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the Shell autocompleter service."/>
+      <param type="object" variable="$completer">
+        <type full="Psy\TabCompletion\AutoCompleter" namespace="Psy\TabCompletion" name="AutoCompleter"/>
+      </param>
+    </docblock>
+    <parameter name="completer" byreference="false" type="object">
+      <type full="Psy\TabCompletion\AutoCompleter" namespace="Psy\TabCompletion" name="AutoCompleter"/>
+    </parameter>
+  </method>
+  <method name="getAutoCompleter" start="798" end="805" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get an AutoCompleter service instance."/>
+      <return type="object">
+        <type full="Psy\TabCompletion\AutoCompleter" namespace="Psy\TabCompletion" name="AutoCompleter"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getTabCompletionMatchers" start="812" end="815" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get user specified tab completion matchers for the AutoCompleter."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="addTabCompletionMatchers" start="822" end="828" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add additional tab completion matchers to the AutoCompleter."/>
+      <param type="array" variable="$matchers"/>
+    </docblock>
+    <parameter name="matchers" byreference="false" type="array"/>
+  </method>
+  <method name="addCommands" start="840" end="846" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add commands to the Shell.">This will buffer new commands in the event that the Shell has not yet
+been instantiated. This allows the user to specify commands in their
+config rc file, despite the fact that their file is needed in the Shell
+constructor.</description>
+      <param type="array" variable="$commands"/>
+    </docblock>
+    <parameter name="commands" byreference="false" type="array"/>
+  </method>
+  <method name="doAddCommands" start="852" end="858" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Internal method for adding commands. This will set any new commands once a Shell is available."/>
+    </docblock>
+  </method>
+  <method name="setShell" start="865" end="869" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the Shell backreference and add any new commands to the Shell."/>
+      <param type="object" variable="$shell">
+        <type full="Psy\Shell" namespace="Psy" name="Shell"/>
+      </param>
+    </docblock>
+    <parameter name="shell" byreference="false" type="object">
+      <type full="Psy\Shell" namespace="Psy" name="Shell"/>
+    </parameter>
+  </method>
+  <method name="setManualDbFile" start="879" end="882" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the PHP manual database file.">This file should be an SQLite database generated from the phpdoc source
+with the `bin/build_manual` script.</description>
+      <param type="string" variable="$filename"/>
+    </docblock>
+    <parameter name="filename" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getManualDbFile" start="889" end="904" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the current PHP manual database file."/>
+      <return description="Default: '~/.local/share/psysh/php_manual.sqlite'" type="string"/>
+    </docblock>
+  </method>
+  <method name="getManualDb" start="911" end="929" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a PHP manual database connection."/>
+      <return type="object">
+        <type full="Psy\PDO" namespace="Psy" name="PDO"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="addCasters" start="936" end="939" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add an array of casters definitions."/>
+      <param type="array" variable="$casters"/>
+    </docblock>
+    <parameter name="casters" byreference="false" type="array"/>
+  </method>
+  <method name="getPresenter" start="946" end="953" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the Presenter service."/>
+      <return type="object">
+        <type full="Psy\VarDumper\Presenter" namespace="Psy\VarDumper" name="Presenter"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setWarnOnMultipleConfigs" start="962" end="965" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Enable or disable warnings on multiple configuration or data files."/>
+      <see value="self::warnOnMultipleConfigs()"/>
+      <param type="object" variable="$warnOnMultipleConfigs">
+        <type full="Psy\bool" namespace="Psy" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="warnOnMultipleConfigs" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="warnOnMultipleConfigs" start="979" end="982" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check whether to warn on multiple configuration or data files.">By default, PsySH will use the file with highest precedence, and will
+silently ignore all others. With this enabled, a warning will be emitted
+(but not an exception thrown) if multiple configuration or data files
+are found.
+
+This will default to true in a future release, but is false for now.</description>
+      <return type="object">
+        <type full="Psy\bool" namespace="Psy" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+</class>

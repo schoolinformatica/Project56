@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Cron\FieldInterface" namespace="Cron" name="FieldInterface" abstract="false" final="false" start="8" end="39">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/mtdowling/cron-expression/src/Cron" file="FieldInterface.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/mtdowling/cron-expression/src/Cron/FieldInterface.php" size="1075" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="b60c95f3c3aec6b4d6d1ee12e6297c760a481a07" relative="vendor/mtdowling/cron-expression/src/Cron/FieldInterface.php"/>
+  <docblock>
+    <description compact="CRON field interface"/>
+  </docblock>
+  <method name="isSatisfiedBy" start="18" end="18" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check if the respective value of a DateTime field satisfies a CRON exp"/>
+      <param description="DateTime object to check" type="object" variable="$date">
+        <type full="Cron\DateTime" namespace="Cron" name="DateTime"/>
+      </param>
+      <param description="CRON expression to test against" type="string" variable="$value"/>
+      <return description="Returns TRUE if satisfied, FALSE otherwise" type="object">
+        <type full="Cron\bool" namespace="Cron" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="date" byreference="false" type="object">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="increment" start="29" end="29" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="When a CRON expression is not satisfied, this method is used to increment or decrement a DateTime object by the unit of the cron field"/>
+      <param description="DateTime object to change" type="object" variable="$date">
+        <type full="Cron\DateTime" namespace="Cron" name="DateTime"/>
+      </param>
+      <param description="(optional) Set to TRUE to decrement" type="object" variable="$invert">
+        <type full="Cron\bool" namespace="Cron" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="Cron\FieldInterface" namespace="Cron" name="FieldInterface"/>
+      </return>
+    </docblock>
+    <parameter name="date" byreference="false" type="object">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+    <parameter name="invert" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="validate" start="38" end="38" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Validates a CRON expression for a given field"/>
+      <param description="CRON expression value to validate" type="string" variable="$value"/>
+      <return description="Returns TRUE if valid, FALSE otherwise" type="object">
+        <type full="Cron\bool" namespace="Cron" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+</interface>

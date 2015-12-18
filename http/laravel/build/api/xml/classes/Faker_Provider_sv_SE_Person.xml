@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Faker\Provider\sv_SE\Person" namespace="Faker\Provider\sv_SE" name="Person" abstract="false" final="false" start="7" end="143">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/fzaninotto/faker/src/Faker/Provider/sv_SE" file="Person.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/fzaninotto/faker/src/Faker/Provider/sv_SE/Person.php" size="14296" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="b5d5c1760591127f376dfa287b180a377413fc6e" relative="vendor/fzaninotto/faker/src/Faker/Provider/sv_SE/Person.php"/>
+  <extends full="Faker\Provider\Person" namespace="Faker\Provider" name="Person"/>
+  <member name="formats" type="array" default="" visibility="protected" line="9"/>
+  <member name="firstNameFemale" type="array" default="" visibility="protected" line="27">
+    <docblock>
+      <description/>
+      <var description="Swedish female first names" type="array"/>
+      <link value="http://spraakbanken.gu.se/statistik/lbfnamnalf.phtml"/>
+    </docblock>
+  </member>
+  <member name="firstNameMale" type="array" default="" visibility="protected" line="59">
+    <docblock>
+      <description/>
+      <var description="Swedish male first names" type="array"/>
+      <link value="http://spraakbanken.gu.se/statistik/lbfnamnalf.phtml"/>
+    </docblock>
+  </member>
+  <member name="lastName" type="array" default="" visibility="protected" line="91">
+    <docblock>
+      <description/>
+      <var description="Swedish common last names" type="array"/>
+      <link value="http://www.scb.se/sv_/Hitta-statistik/Statistik-efter-amne/Befolkning/Amnesovergripande-statistik/Namnstatistik/30898/2012A01x/Samtliga-folkbokforda--Efternamn-topplistor/Efternamn-topp-100/"/>
+    </docblock>
+  </member>
+  <method name="personalIdentityNumber" start="123" end="142" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="National Personal Identity number (personnummer)"/>
+      <link value="http://en.wikipedia.org/wiki/Personal_identity_number_(Sweden)"/>
+      <param type="object" variable="$birthdate">
+        <type full="\DateTime" namespace="" name="DateTime"/>
+      </param>
+      <param description="Person::GENDER_MALE || Person::GENDER_FEMALE" type="string" variable="$gender"/>
+      <return description="on format XXXXXX-XXXX" type="string"/>
+    </docblock>
+    <parameter name="birthdate" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+    <parameter name="gender" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+</class>

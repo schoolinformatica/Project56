@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpFoundation\RequestMatcher" namespace="Symfony\Component\HttpFoundation" name="RequestMatcher" abstract="false" final="false" start="19" end="178">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation" file="RequestMatcher.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/RequestMatcher.php" size="4326" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="fabaa475375356196602310d954bb874a5484c7b" relative="vendor/symfony/http-foundation/RequestMatcher.php"/>
+  <docblock>
+    <description compact="RequestMatcher compares a pre-defined set of checks against a Request instance."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\HttpFoundation\RequestMatcherInterface" namespace="Symfony\Component\HttpFoundation" name="RequestMatcherInterface"/>
+  <member name="path" visibility="private" line="24">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="host" visibility="private" line="29">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="methods" type="array" default="" visibility="private" line="34">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="ips" type="array" default="" visibility="private" line="39">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="attributes" type="array" default="" visibility="private" line="44">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="schemes" type="array" default="" visibility="private" line="49">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="Symfony\Component\HttpFoundation\string" namespace="Symfony\Component\HttpFoundation" name="string"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="59" end="70" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$path">
+        <type full="Symfony\Component\HttpFoundation\string|null" namespace="Symfony\Component\HttpFoundation" name="string|null"/>
+      </param>
+      <param type="object" variable="$host">
+        <type full="Symfony\Component\HttpFoundation\string|null" namespace="Symfony\Component\HttpFoundation" name="string|null"/>
+      </param>
+      <param type="array" variable="$methods" of="object">
+        <type full="Symfony\Component\HttpFoundation\string|string[]|nu" namespace="Symfony\Component\HttpFoundation" name="string|string[]|nu"/>
+      </param>
+      <param type="array" variable="$ips" of="object">
+        <type full="Symfony\Component\HttpFoundation\string|string[]|nu" namespace="Symfony\Component\HttpFoundation" name="string|string[]|nu"/>
+      </param>
+      <param type="array" variable="$attributes"/>
+      <param type="array" variable="$schemes" of="object">
+        <type full="Symfony\Component\HttpFoundation\string|string[]|nu" namespace="Symfony\Component\HttpFoundation" name="string|string[]|nu"/>
+      </param>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="host" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="methods" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="ips" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="attributes" byreference="false" type="array" default=""/>
+    <parameter name="schemes" byreference="false" type="{unknown}" default="" constant="null"/>
+  </constructor>
+  <method name="matchScheme" start="77" end="80" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a check for the HTTP scheme."/>
+      <param description="An HTTP scheme or an array of HTTP schemes" type="array" variable="$scheme" of="object">
+        <type full="Symfony\Component\HttpFoundation\string|string[]|nu" namespace="Symfony\Component\HttpFoundation" name="string|string[]|nu"/>
+      </param>
+    </docblock>
+    <parameter name="scheme" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="matchHost" start="87" end="90" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a check for the URL host name."/>
+      <param description="A Regexp" type="string" variable="$regexp"/>
+    </docblock>
+    <parameter name="regexp" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="matchPath" start="97" end="100" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a check for the URL path info."/>
+      <param description="A Regexp" type="string" variable="$regexp"/>
+    </docblock>
+    <parameter name="regexp" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="matchIp" start="107" end="110" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a check for the client IP."/>
+      <param description="A specific IP address or a range specified using IP/netmask like 192.168.1.0/24" type="string" variable="$ip"/>
+    </docblock>
+    <parameter name="ip" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="matchIps" start="117" end="120" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a check for the client IP."/>
+      <param description="A specific IP address or a range specified using IP/netmask like 192.168.1.0/24" type="array" variable="$ips" of="object">
+        <type full="Symfony\Component\HttpFoundation\string|string" namespace="Symfony\Component\HttpFoundation" name="string|string"/>
+      </param>
+    </docblock>
+    <parameter name="ips" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="matchMethod" start="127" end="130" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a check for the HTTP method."/>
+      <param description="An HTTP method or an array of HTTP methods" type="array" variable="$method" of="object">
+        <type full="Symfony\Component\HttpFoundation\string|string" namespace="Symfony\Component\HttpFoundation" name="string|string"/>
+      </param>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="matchAttribute" start="138" end="141" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a check for request attribute."/>
+      <param description="The request attribute name" type="string" variable="$key"/>
+      <param description="A Regexp" type="string" variable="$regexp"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="regexp" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="matches" start="146" end="177" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <inline>
+      <comment value="Note to future implementors: add additional checks above the" line="174"/>
+      <comment value="foreach above or else your check might not be run!" line="175"/>
+    </inline>
+  </method>
+</class>

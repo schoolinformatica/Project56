@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Routing\Loader\AnnotationClassLoader" namespace="Symfony\Component\Routing\Loader" name="AnnotationClassLoader" abstract="true" final="false" start="58" end="268">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/routing/Loader" file="AnnotationClassLoader.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/routing/Loader/AnnotationClassLoader.php" size="8178" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="6195691232fb4b22b1c8f801fa2db170423910a7" relative="vendor/symfony/routing/Loader/AnnotationClassLoader.php"/>
+  <docblock>
+    <description compact="AnnotationClassLoader loads routing information from a PHP class and its methods.">You need to define an implementation for the getRouteDefaults() method. Most of the
+time, this method should define some PHP callable to be called for the route
+(a controller in MVC speak).
+
+The @Route annotation can be set on the class (for global parameters),
+and on each method.
+
+The @Route annotation main value is the route path. The annotation also
+recognizes several parameters: requirements, options, defaults, schemes,
+methods, host, and name. The name parameter is mandatory.
+Here is an example of how you should be able to use it:
+
+    /
+     * @Route("/Blog")
+     * /
+    class Blog
+    {
+        /
+         * @Route("/", name="blog_index")
+         * /
+        public function index()
+        {
+        }
+
+        /
+         * @Route("/{id}", name="blog_post", requirements = {"id" = "\d+"})
+         * /
+        public function show()
+        {
+        }
+    }</description>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\Config\Loader\LoaderInterface" namespace="Symfony\Component\Config\Loader" name="LoaderInterface"/>
+  <member name="reader" visibility="protected" line="63">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Doctrine\Common\Annotations\Reader" namespace="Doctrine\Common\Annotations" name="Reader"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="routeAnnotationClass" type="string" default="'Symfony\\Component\\Routing\\Annotation\\Route'" visibility="protected" line="68">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="defaultRouteIndex" type="integer" default="0" visibility="protected" line="73">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="80" end="83" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param type="object" variable="$reader">
+        <type full="Doctrine\Common\Annotations\Reader" namespace="Doctrine\Common\Annotations" name="Reader"/>
+      </param>
+    </docblock>
+    <parameter name="reader" byreference="false" type="object">
+      <type full="Doctrine\Common\Annotations\Reader" namespace="Doctrine\Common\Annotations" name="Reader"/>
+    </parameter>
+  </constructor>
+  <method name="setRouteAnnotationClass" start="90" end="93" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the annotation class to read route properties from."/>
+      <param description="A fully-qualified class name" type="string" variable="$class"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="load" start="105" end="131" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Loads from annotations from a class."/>
+      <param description="A class name" type="string" variable="$class"/>
+      <param description="The resource type" type="object" variable="$type">
+        <type full="Symfony\Component\Routing\Loader\string|null" namespace="Symfony\Component\Routing\Loader" name="string|null"/>
+      </param>
+      <return description="A RouteCollection instance" type="object">
+        <type full="Symfony\Component\Routing\RouteCollection" namespace="Symfony\Component\Routing" name="RouteCollection"/>
+      </return>
+      <throws description="When route can't be parsed" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="addRoute" start="133" end="166" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="collection" byreference="false" type="object">
+      <type full="Symfony\Component\Routing\RouteCollection" namespace="Symfony\Component\Routing" name="RouteCollection"/>
+    </parameter>
+    <parameter name="annot" byreference="false" type="{unknown}"/>
+    <parameter name="globals" byreference="false" type="{unknown}"/>
+    <parameter name="class" byreference="false" type="object">
+      <type full="ReflectionClass" namespace="" name="ReflectionClass"/>
+    </parameter>
+    <parameter name="method" byreference="false" type="object">
+      <type full="ReflectionMethod" namespace="" name="ReflectionMethod"/>
+    </parameter>
+  </method>
+  <method name="supports" start="171" end="174" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="resource" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="setResolver" start="179" end="181" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="resolver" byreference="false" type="object">
+      <type full="Symfony\Component\Config\Loader\LoaderResolverInterface" namespace="Symfony\Component\Config\Loader" name="LoaderResolverInterface"/>
+    </parameter>
+  </method>
+  <method name="getResolver" start="186" end="188" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="getDefaultRouteName" start="198" end="207" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Gets the default route name for a class method."/>
+      <param type="object" variable="$class">
+        <type full="\ReflectionClass" namespace="" name="ReflectionClass"/>
+      </param>
+      <param type="object" variable="$method">
+        <type full="\ReflectionMethod" namespace="" name="ReflectionMethod"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="object">
+      <type full="ReflectionClass" namespace="" name="ReflectionClass"/>
+    </parameter>
+    <parameter name="method" byreference="false" type="object">
+      <type full="ReflectionMethod" namespace="" name="ReflectionMethod"/>
+    </parameter>
+  </method>
+  <method name="getGlobals" start="209" end="260" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="class" byreference="false" type="object">
+      <type full="ReflectionClass" namespace="" name="ReflectionClass"/>
+    </parameter>
+  </method>
+  <method name="createRoute" start="262" end="265" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="defaults" byreference="false" type="{unknown}"/>
+    <parameter name="requirements" byreference="false" type="{unknown}"/>
+    <parameter name="options" byreference="false" type="{unknown}"/>
+    <parameter name="host" byreference="false" type="{unknown}"/>
+    <parameter name="schemes" byreference="false" type="{unknown}"/>
+    <parameter name="methods" byreference="false" type="{unknown}"/>
+    <parameter name="condition" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="configureRoute" start="267" end="267" abstract="true" final="false" static="false" visibility="protected">
+    <parameter name="route" byreference="false" type="object">
+      <type full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route"/>
+    </parameter>
+    <parameter name="class" byreference="false" type="object">
+      <type full="ReflectionClass" namespace="" name="ReflectionClass"/>
+    </parameter>
+    <parameter name="method" byreference="false" type="object">
+      <type full="ReflectionMethod" namespace="" name="ReflectionMethod"/>
+    </parameter>
+    <parameter name="annot" byreference="false" type="{unknown}"/>
+  </method>
+</class>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpParser\Node\Scalar\String_" namespace="PhpParser\Node\Scalar" name="String_" abstract="false" final="false" start="8" end="147">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/nikic/php-parser/lib/PhpParser/Node/Scalar" file="String_.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/nikic/php-parser/lib/PhpParser/Node/Scalar/String_.php" size="4346" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="47b3ed9b47085f9ce9d5dff89a8f85e689c88c83" relative="vendor/nikic/php-parser/lib/PhpParser/Node/Scalar/String_.php"/>
+  <extends full="PhpParser\Node\Scalar" namespace="PhpParser\Node" name="Scalar"/>
+  <member name="value" visibility="public" line="11">
+    <docblock>
+      <description compact="@var string String value"/>
+    </docblock>
+  </member>
+  <member name="replacements" type="array" default="" visibility="protected" line="13"/>
+  <constructor name="__construct" start="30" end="33" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructs a string scalar node."/>
+      <param description="Value of the string" type="string" variable="$value"/>
+      <param description="Additional attributes" type="array" variable="$attributes"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="attributes" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="getSubNodeNames" start="35" end="37" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="parse" start="49" end="66" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <internal/>
+      <param description="String token content" type="string" variable="$str"/>
+      <param description="Whether to parse PHP 7 \u escapes" type="object" variable="$parseUnicodeEscape">
+        <type full="PhpParser\Node\Scalar\bool" namespace="PhpParser\Node\Scalar" name="bool"/>
+      </param>
+      <return description="The parsed string" type="string"/>
+    </docblock>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="parseUnicodeEscape" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="parseEscapeSequences" start="79" end="106" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <internal/>
+      <param description="String without quotes" type="string" variable="$str"/>
+      <param description="Quote type" type="object" variable="$quote">
+        <type full="PhpParser\Node\Scalar\null|string" namespace="PhpParser\Node\Scalar" name="null|string"/>
+      </param>
+      <param description="Whether to parse PHP 7 \u escapes" type="object" variable="$parseUnicodeEscape">
+        <type full="PhpParser\Node\Scalar\bool" namespace="PhpParser\Node\Scalar" name="bool"/>
+      </param>
+      <return description="String with escape sequences parsed" type="string"/>
+    </docblock>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="quote" byreference="false" type="{unknown}"/>
+    <parameter name="parseUnicodeEscape" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="codePointToUtf8" start="108" end="123" abstract="false" final="false" static="true" visibility="private">
+    <parameter name="num" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="parseDocString" start="136" end="146" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <internal/>
+      <param description="Doc string start token content (&lt;&lt;&lt;SMTHG)" type="string" variable="$startToken"/>
+      <param description="String token content" type="string" variable="$str"/>
+      <param description="Whether to parse PHP 7 \u escapes" type="object" variable="$parseUnicodeEscape">
+        <type full="PhpParser\Node\Scalar\bool" namespace="PhpParser\Node\Scalar" name="bool"/>
+      </param>
+      <return description="Parsed string" type="string"/>
+    </docblock>
+    <parameter name="startToken" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="parseUnicodeEscape" byreference="false" type="boolean" default="true"/>
+    <inline>
+      <comment value="strip last newline (thanks tokenizer for sticking it into the string!)" line="137"/>
+      <comment value="nowdoc string" line="140"/>
+    </inline>
+  </method>
+</class>

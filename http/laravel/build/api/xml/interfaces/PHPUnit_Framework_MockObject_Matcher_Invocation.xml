@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="PHPUnit_Framework_MockObject_Matcher_Invocation" namespace="" name="PHPUnit_Framework_MockObject_Matcher_Invocation" abstract="false" final="false" start="17" end="48">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit-mock-objects/src/Framework/MockObject/Matcher" file="Invocation.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit-mock-objects/src/Framework/MockObject/Matcher/Invocation.php" size="2052" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="bf785ff9030dd1c26a09b685849bcec57ec61672" relative="vendor/phpunit/phpunit-mock-objects/src/Framework/MockObject/Matcher/Invocation.php"/>
+  <docblock>
+    <description compact="Interface for classes which matches an invocation based on its method name, argument, order or call count."/>
+    <since value="Interface available since Release 1.0.0"/>
+  </docblock>
+  <extends full="PHPUnit_Framework_SelfDescribing" namespace="" name="PHPUnit_Framework_SelfDescribing"/>
+  <extends full="PHPUnit_Framework_MockObject_Verifiable" namespace="" name="PHPUnit_Framework_MockObject_Verifiable"/>
+  <method name="invoked" start="35" end="35" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Registers the invocation $invocation in the object as being invoked.">This will only occur after matches() returns true which means the
+current invocation is the correct one.
+
+The matcher can store information from the invocation which can later
+be checked in verify(), or it can check the values directly and throw
+and exception if an expectation is not met.
+
+If the matcher is a stub it will also have a return value.</description>
+      <param type="object" variable="$invocation">Object containing information on a mocked or stubbed method which
+                                                            was invoked.<type full="PHPUnit_Framework_MockObject_Invocation" namespace="" name="PHPUnit_Framework_MockObject_Invocation"/></param>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="invocation" byreference="false" type="object">
+      <type full="PHPUnit_Framework_MockObject_Invocation" namespace="" name="PHPUnit_Framework_MockObject_Invocation"/>
+    </parameter>
+  </method>
+  <method name="matches" start="47" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks if the invocation $invocation matches the current rules. If it does the matcher will get the invoked() method called which should check if an expectation is met."/>
+      <param type="object" variable="$invocation">Object containing information on a mocked or stubbed method which
+                                                            was invoked.<type full="PHPUnit_Framework_MockObject_Invocation" namespace="" name="PHPUnit_Framework_MockObject_Invocation"/></param>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="invocation" byreference="false" type="object">
+      <type full="PHPUnit_Framework_MockObject_Invocation" namespace="" name="PHPUnit_Framework_MockObject_Invocation"/>
+    </parameter>
+  </method>
+</interface>

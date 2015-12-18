@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\Command\ListCommand" namespace="Psy\Command" name="ListCommand" abstract="false" final="false" start="37" end="278">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Command" file="ListCommand.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Command/ListCommand.php" size="10380" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="5896beca62e03e5220388aa309064bc5f3d03a08" relative="vendor/psy/psysh/src/Psy/Command/ListCommand.php"/>
+  <docblock>
+    <description compact="List available local variables, object properties, etc."/>
+  </docblock>
+  <extends full="Psy\Command\ReflectingCommand" namespace="Psy\Command" name="ReflectingCommand"/>
+  <implements full="Psy\VarDumper\PresenterAware" namespace="Psy\VarDumper" name="PresenterAware"/>
+  <member name="presenter" visibility="protected" line="39"/>
+  <member name="enumerators" visibility="protected" line="40"/>
+  <method name="setPresenter" start="47" end="50" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="PresenterAware interface."/>
+      <param type="object" variable="$manager">
+        <type full="Psy\VarDumper\Presenter" namespace="Psy\VarDumper" name="Presenter"/>
+      </param>
+    </docblock>
+    <parameter name="presenter" byreference="false" type="object">
+      <type full="Psy\VarDumper\Presenter" namespace="Psy\VarDumper" name="Presenter"/>
+    </parameter>
+  </method>
+  <method name="configure" start="55" end="106" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="execute" start="111" end="136" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="input" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputInterface" namespace="Symfony\Component\Console\Input" name="InputInterface"/>
+    </parameter>
+    <parameter name="output" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+    </parameter>
+    <inline>
+      <todo value="something cleaner than this :-/" line="124"/>
+    </inline>
+  </method>
+  <method name="initEnumerators" start="141" end="159" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Initialize Enumerators."/>
+    </docblock>
+  </method>
+  <method name="write" start="167" end="177" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Write the list items to $output."/>
+      <param type="object" variable="$output">
+        <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+      </param>
+      <param description="List of enumerated items." type="object" variable="$result">
+        <type full="Psy\Command\null|array" namespace="Psy\Command" name="null|array"/>
+      </param>
+    </docblock>
+    <parameter name="output" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+    </parameter>
+    <parameter name="result" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="writeLong" start="187" end="210" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Write the list items to $output.">Items are listed one per line, and include the item signature.</description>
+      <param type="object" variable="$output">
+        <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+      </param>
+      <param description="List of enumerated items." type="object" variable="$result">
+        <type full="Psy\Command\null|array" namespace="Psy\Command" name="null|array"/>
+      </param>
+    </docblock>
+    <parameter name="output" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+    </parameter>
+    <parameter name="result" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="formatItemName" start="219" end="222" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Format an item name given its visibility."/>
+      <param type="array" variable="$item"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="item" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="validateInput" start="231" end="277" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Validate that input options make sense, provide defaults when called without options."/>
+      <throws description="if options are inconsistent." type="object">
+        <type full="Psy\Exception\RuntimeException" namespace="Psy\Exception" name="RuntimeException"/>
+      </throws>
+      <param type="object" variable="$input">
+        <type full="Symfony\Component\Console\Input\InputInterface" namespace="Symfony\Component\Console\Input" name="InputInterface"/>
+      </param>
+    </docblock>
+    <parameter name="input" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputInterface" namespace="Symfony\Component\Console\Input" name="InputInterface"/>
+    </parameter>
+    <inline>
+      <comment value="grep, invert and insensitive" line="233"/>
+    </inline>
+  </method>
+</class>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpSpec\Formatter\TapFormatter" namespace="PhpSpec\Formatter" name="TapFormatter" abstract="false" final="false" start="21" end="179">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Formatter" file="TapFormatter.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Formatter/TapFormatter.php" size="5098" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="7cc8540cf013b2b72662bc06d2e4cb08e986b2f2" relative="vendor/phpspec/phpspec/src/PhpSpec/Formatter/TapFormatter.php"/>
+  <extends full="PhpSpec\Formatter\ConsoleFormatter" namespace="PhpSpec\Formatter" name="ConsoleFormatter"/>
+  <constant type="string" name="VERSION" value="'TAP version 13'"/>
+  <constant type="string" name="OK" value="'ok %d'"/>
+  <constant type="string" name="NOT_OK" value="'not ok %d'"/>
+  <constant type="string" name="DESC" value="' - %s: %s'"/>
+  <constant type="string" name="SKIP" value="' # SKIP %s'"/>
+  <constant type="string" name="TODO" value="' # TODO %s'"/>
+  <constant type="string" name="PLAN" value="'1..%d'"/>
+  <constant type="string" name="MESSAGE" value="&quot;---\nmessage: %s\n...&quot;"/>
+  <constant type="string" name="SEVERITY" value="&quot;\n---\nseverity: %s\n...&quot;"/>
+  <constant type="integer" name="UNDEFINED_RESULT" value="1"/>
+  <member name="examplesCount" type="integer" default="0" visibility="private" line="47">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="currentSpecificationTitle" visibility="private" line="52">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <method name="beforeSuite" start="57" end="60" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$event">
+        <type full="PhpSpec\Event\SuiteEvent" namespace="PhpSpec\Event" name="SuiteEvent"/>
+      </param>
+    </docblock>
+    <parameter name="event" byreference="false" type="object">
+      <type full="PhpSpec\Event\SuiteEvent" namespace="PhpSpec\Event" name="SuiteEvent"/>
+    </parameter>
+  </method>
+  <method name="beforeSpecification" start="65" end="68" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$event">
+        <type full="PhpSpec\Event\SpecificationEvent" namespace="PhpSpec\Event" name="SpecificationEvent"/>
+      </param>
+    </docblock>
+    <parameter name="event" byreference="false" type="object">
+      <type full="PhpSpec\Event\SpecificationEvent" namespace="PhpSpec\Event" name="SpecificationEvent"/>
+    </parameter>
+  </method>
+  <method name="afterExample" start="73" end="105" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$event">
+        <type full="PhpSpec\Event\ExampleEvent" namespace="PhpSpec\Event" name="ExampleEvent"/>
+      </param>
+    </docblock>
+    <parameter name="event" byreference="false" type="object">
+      <type full="PhpSpec\Event\ExampleEvent" namespace="PhpSpec\Event" name="ExampleEvent"/>
+    </parameter>
+  </method>
+  <method name="afterSuite" start="110" end="116" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$event">
+        <type full="PhpSpec\Event\SuiteEvent" namespace="PhpSpec\Event" name="SuiteEvent"/>
+      </param>
+    </docblock>
+    <parameter name="event" byreference="false" type="object">
+      <type full="PhpSpec\Event\SuiteEvent" namespace="PhpSpec\Event" name="SuiteEvent"/>
+    </parameter>
+  </method>
+  <method name="getResultData" start="126" end="156" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Format message as two-space indented YAML when needed outside of a SKIP or TODO directive."/>
+      <param type="object" variable="$event">
+        <type full="PhpSpec\Event\ExampleEvent" namespace="PhpSpec\Event" name="ExampleEvent"/>
+      </param>
+      <param type="int" variable="$result"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="event" byreference="false" type="object">
+      <type full="PhpSpec\Event\ExampleEvent" namespace="PhpSpec\Event" name="ExampleEvent"/>
+    </parameter>
+    <parameter name="result" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="stripNewlines" start="162" end="165" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$string"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="string" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="indent" start="171" end="178" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$string"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="string" byreference="false" type="{unknown}"/>
+  </method>
+</class>

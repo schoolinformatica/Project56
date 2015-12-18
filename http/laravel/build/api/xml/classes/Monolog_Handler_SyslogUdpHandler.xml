@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Handler\SyslogUdpHandler" namespace="Monolog\Handler" name="SyslogUdpHandler" abstract="false" final="false" start="22" end="82">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler" file="SyslogUdpHandler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler/SyslogUdpHandler.php" size="2036" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="40c6d16595194f098357ee2205346467a6b0244b" relative="vendor/monolog/monolog/src/Monolog/Handler/SyslogUdpHandler.php"/>
+  <docblock>
+    <description compact="A Handler for logging to a remote syslogd server."/>
+    <author value="Jesper Skovgaard Nielsen &lt;nulpunkt@gmail.com&gt;"/>
+  </docblock>
+  <extends full="Monolog\Handler\AbstractSyslogHandler" namespace="Monolog\Handler" name="AbstractSyslogHandler"/>
+  <member name="socket" visibility="protected" line="24"/>
+  <constructor name="__construct" start="33" end="38" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$host"/>
+      <param type="int" variable="$port"/>
+      <param type="mixed" variable="$facility"/>
+      <param description="The minimum logging level at which this handler will be triggered" type="integer" variable="$level"/>
+      <param description="Whether the messages that are handled can bubble up the stack or not" type="object" variable="$bubble">
+        <type full="Monolog\Handler\Boolean" namespace="Monolog\Handler" name="Boolean"/>
+      </param>
+    </docblock>
+    <parameter name="host" byreference="false" type="{unknown}"/>
+    <parameter name="port" byreference="false" type="integer" default="514"/>
+    <parameter name="facility" byreference="false" type="{unknown}" default="" constant="LOG_USER"/>
+    <parameter name="level" byreference="false" type="{unknown}" default="" constant="Logger::DEBUG"/>
+    <parameter name="bubble" byreference="false" type="boolean" default="true"/>
+  </constructor>
+  <method name="write" start="40" end="49" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+  <method name="close" start="51" end="54" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="splitMessageIntoLines" start="56" end="63" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="message" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="makeCommonSyslogHeader" start="68" end="73" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Make common syslog header (see rfc5424)"/>
+    </docblock>
+    <parameter name="severity" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setSocket" start="78" end="81" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Inject your own socket, mainly used for testing"/>
+    </docblock>
+    <parameter name="socket" byreference="false" type="{unknown}"/>
+  </method>
+</class>

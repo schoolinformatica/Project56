@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Database\Eloquent\Factory" namespace="Illuminate\Database\Eloquent" name="Factory" abstract="false" final="false" start="9" end="218">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Eloquent" file="Factory.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factory.php" size="5142" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="b6d8e98e7468a2fc9107eaa20b396fdf81ff19a1" relative="vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factory.php"/>
+  <implements full="ArrayAccess" namespace="" name="ArrayAccess"/>
+  <member name="faker" visibility="protected" line="16">
+    <docblock>
+      <description compact="The Faker instance for the builder."/>
+      <var type="object">
+        <type full="\Faker\Generator" namespace="\Faker" name="Generator"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="24" end="27" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new factory instance."/>
+      <param type="object" variable="$faker">
+        <type full="\Faker\Generator" namespace="\Faker" name="Generator"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="faker" byreference="false" type="object">
+      <type full="Faker\Generator" namespace="Faker" name="Generator"/>
+    </parameter>
+  </constructor>
+  <member name="definitions" type="array" default="" visibility="protected" line="34">
+    <docblock>
+      <description compact="The model definitions in the container."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="construct" start="43" end="56" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Create a new factory container."/>
+      <param type="object" variable="$faker">
+        <type full="\Faker\Generator" namespace="\Faker" name="Generator"/>
+      </param>
+      <param type="object" variable="$pathToFactories">
+        <type full="Illuminate\Database\Eloquent\string|null" namespace="Illuminate\Database\Eloquent" name="string|null"/>
+      </param>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Database\Eloquent\Factory" namespace="Illuminate\Database\Eloquent" name="Factory"/>
+      </return>
+    </docblock>
+    <parameter name="faker" byreference="false" type="object">
+      <type full="Faker\Generator" namespace="Faker" name="Generator"/>
+    </parameter>
+    <parameter name="pathToFactories" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="defineAs" start="66" end="69" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Define a class with a given short-name."/>
+      <param type="string" variable="$class"/>
+      <param type="string" variable="$name"/>
+      <param type="object" variable="$attributes">
+        <type full="Illuminate\Database\Eloquent\callable" namespace="Illuminate\Database\Eloquent" name="callable"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="attributes" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\callable" namespace="Illuminate\Database\Eloquent" name="callable"/>
+    </parameter>
+  </method>
+  <method name="define" start="79" end="82" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Define a class with a given set of attributes."/>
+      <param type="string" variable="$class"/>
+      <param type="object" variable="$attributes">
+        <type full="Illuminate\Database\Eloquent\callable" namespace="Illuminate\Database\Eloquent" name="callable"/>
+      </param>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="attributes" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\callable" namespace="Illuminate\Database\Eloquent" name="callable"/>
+    </parameter>
+    <parameter name="name" byreference="false" type="string" default="'default'"/>
+  </method>
+  <method name="create" start="91" end="94" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create an instance of the given model and persist it to the database."/>
+      <param type="string" variable="$class"/>
+      <param type="array" variable="$attributes"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="attributes" byreference="false" type="array" default=""/>
+  </method>
+  <method name="createAs" start="104" end="107" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create an instance of the given model and type and persist it to the database."/>
+      <param type="string" variable="$class"/>
+      <param type="string" variable="$name"/>
+      <param type="array" variable="$attributes"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="attributes" byreference="false" type="array" default=""/>
+  </method>
+  <method name="make" start="116" end="119" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create an instance of the given model."/>
+      <param type="string" variable="$class"/>
+      <param type="array" variable="$attributes"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="attributes" byreference="false" type="array" default=""/>
+  </method>
+  <method name="makeAs" start="129" end="132" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create an instance of the given model and type."/>
+      <param type="string" variable="$class"/>
+      <param type="string" variable="$name"/>
+      <param type="array" variable="$attributes"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="attributes" byreference="false" type="array" default=""/>
+  </method>
+  <method name="rawOf" start="142" end="145" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the raw attribute array for a given named model."/>
+      <param type="string" variable="$class"/>
+      <param type="string" variable="$name"/>
+      <param type="array" variable="$attributes"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="attributes" byreference="false" type="array" default=""/>
+  </method>
+  <method name="raw" start="155" end="160" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the raw attribute array for a given model."/>
+      <param type="string" variable="$class"/>
+      <param type="array" variable="$attributes"/>
+      <param type="string" variable="$name"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="attributes" byreference="false" type="array" default=""/>
+    <parameter name="name" byreference="false" type="string" default="'default'"/>
+  </method>
+  <method name="of" start="169" end="172" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a builder for the given model."/>
+      <param type="string" variable="$class"/>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\FactoryBuilder" namespace="\Illuminate\Database\Eloquent" name="FactoryBuilder"/>
+      </return>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="string" default="'default'"/>
+  </method>
+  <method name="offsetExists" start="180" end="183" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the given offset exists."/>
+      <param type="string" variable="$offset"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="offset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetGet" start="191" end="194" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the value of the given offset."/>
+      <param type="string" variable="$offset"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="offset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetSet" start="203" end="206" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the given offset to the given value."/>
+      <param type="string" variable="$offset"/>
+      <param type="object" variable="$value">
+        <type full="Illuminate\Database\Eloquent\callable" namespace="Illuminate\Database\Eloquent" name="callable"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="offset" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetUnset" start="214" end="217" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Unset the value at the given offset."/>
+      <param type="string" variable="$offset"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="offset" byreference="false" type="{unknown}"/>
+  </method>
+</class>

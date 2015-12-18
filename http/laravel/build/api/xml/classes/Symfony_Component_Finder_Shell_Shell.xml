@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Finder\Shell\Shell" namespace="Symfony\Component\Finder\Shell" name="Shell" abstract="false" final="false" start="17" end="97">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/finder/Shell" file="Shell.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/finder/Shell/Shell.php" size="1939" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="053f95bfa77b85d5ed739b92764777e61956578c" relative="vendor/symfony/finder/Shell/Shell.php"/>
+  <docblock>
+    <description/>
+    <author value="Jean-François Simon &lt;contact@jfsimon.fr&gt;"/>
+  </docblock>
+  <constant type="integer" name="TYPE_UNIX" value="1"/>
+  <constant type="integer" name="TYPE_DARWIN" value="2"/>
+  <constant type="integer" name="TYPE_CYGWIN" value="3"/>
+  <constant type="integer" name="TYPE_WINDOWS" value="4"/>
+  <constant type="integer" name="TYPE_BSD" value="5"/>
+  <member name="type" visibility="private" line="28">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\Finder\Shell\string|null" namespace="Symfony\Component\Finder\Shell" name="string|null"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="getType" start="35" end="42" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns guessed OS type."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="testCommand" start="51" end="68" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Tests if a command is available."/>
+      <param type="string" variable="$command"/>
+      <return type="object">
+        <type full="Symfony\Component\Finder\Shell\bool" namespace="Symfony\Component\Finder\Shell" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="command" byreference="false" type="{unknown}"/>
+    <inline>
+      <todo value="find a better way (command could not be available)" line="57"/>
+    </inline>
+  </method>
+  <method name="guessType" start="75" end="96" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Guesses OS type."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+</class>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_Encoder_QpEncoder" namespace="" name="Swift_Encoder_QpEncoder" abstract="false" final="false" start="18" end="289">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Encoder" file="QpEncoder.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Encoder/QpEncoder.php" size="10541" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="4840f06e8179977707d314c6f3b1c05c30b15153" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Encoder/QpEncoder.php"/>
+  <docblock>
+    <description compact="Handles Quoted Printable (QP) Encoding in Swift Mailer.">Possibly the most accurate RFC 2045 QP implementation found in PHP.</description>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <implements full="Swift_Encoder" namespace="" name="Swift_Encoder"/>
+  <member name="_charStream" visibility="protected" line="25">
+    <docblock>
+      <description compact="The CharacterStream used for reading characters (as opposed to bytes)."/>
+      <var type="object">
+        <type full="Swift_CharacterStream" namespace="" name="Swift_CharacterStream"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="_filter" visibility="protected" line="32">
+    <docblock>
+      <description compact="A filter used if input should be canonicalized."/>
+      <var type="object">
+        <type full="Swift_StreamFilter" namespace="" name="Swift_StreamFilter"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="_qpMap" type="array" default="" visibility="protected" line="39">
+    <docblock>
+      <description compact="Pre-computed QP for HUGE optimization."/>
+      <var type="array" of="string"/>
+    </docblock>
+  </member>
+  <member name="_safeMapShare" type="array" default="" visibility="protected" line="94"/>
+  <member name="_safeMap" type="array" default="" visibility="protected" line="101">
+    <docblock>
+      <description compact="A map of non-encoded ascii characters."/>
+      <var type="array" of="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="109" end="119" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Creates a new QpEncoder for the given CharacterStream."/>
+      <param description="to use for reading characters" type="object" variable="$charStream">
+        <type full="Swift_CharacterStream" namespace="" name="Swift_CharacterStream"/>
+      </param>
+      <param description="if input should be canonicalized" type="object" variable="$filter">
+        <type full="Swift_StreamFilter" namespace="" name="Swift_StreamFilter"/>
+      </param>
+    </docblock>
+    <parameter name="charStream" byreference="false" type="object">
+      <type full="Swift_CharacterStream" namespace="" name="Swift_CharacterStream"/>
+    </parameter>
+    <parameter name="filter" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Swift_StreamFilter" namespace="" name="Swift_StreamFilter"/>
+    </parameter>
+  </constructor>
+  <method name="__sleep" start="121" end="124" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="__wakeup" start="126" end="134" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getSafeMapShareId" start="136" end="139" abstract="false" final="false" static="false" visibility="protected"/>
+  <method name="initSafeMap" start="141" end="147" abstract="false" final="false" static="false" visibility="protected"/>
+  <method name="encodeString" start="162" end="212" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Takes an unencoded string and produces a QP encoded string from it.">QP encoded strings have a maximum line length of 76 characters.
+If the first line needs to be shorter, indicate the difference with
+$firstLineOffset.</description>
+      <param description="to encode" type="string" variable="$string"/>
+      <param description="optional" type="int" variable="$firstLineOffset"/>
+      <param description="optional 0 indicates the default of 76 chars" type="int" variable="$maxLineLength"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="string" byreference="false" type="{unknown}"/>
+    <parameter name="firstLineOffset" byreference="false" type="integer" default="0"/>
+    <parameter name="maxLineLength" byreference="false" type="integer" default="0"/>
+    <inline>
+      <comment value="Fetching more than 4 chars at one is slower, as is fetching fewer bytes" line="179"/>
+      <comment value="Conveniently 4 chars is the UTF-8 safe number since UTF-8 has up to 6" line="180"/>
+      <comment value="bytes per char and (6 * 4 * 3 = 72 chars per line) * =NN is 3 bytes" line="181"/>
+    </inline>
+  </method>
+  <method name="charsetChanged" start="219" end="222" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Updates the charset used."/>
+      <param type="string" variable="$charset"/>
+    </docblock>
+    <parameter name="charset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_encodeByteSequence" start="232" end="247" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Encode the given byte array into a verbatim QP form."/>
+      <param type="array" variable="$bytes" of="integer"/>
+      <param type="int" variable="$size"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="bytes" byreference="false" type="array"/>
+    <parameter name="size" byreference="true" type="{unknown}"/>
+  </method>
+  <method name="_nextSequence" start="256" end="259" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the next sequence of bytes to read from the char stream."/>
+      <param description="number of bytes to read" type="int" variable="$size"/>
+      <return type="array" of="integer"/>
+    </docblock>
+    <parameter name="size" byreference="false" type="integer" default="4"/>
+  </method>
+  <method name="_standardize" start="268" end="280" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Make sure CRLF is correct and HT/SPACE are in valid places."/>
+      <param type="string" variable="$string"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="string" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__clone" start="285" end="288" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Make a deep copy of object."/>
+    </docblock>
+  </method>
+</class>

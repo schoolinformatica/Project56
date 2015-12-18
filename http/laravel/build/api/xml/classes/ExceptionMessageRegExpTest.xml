@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="ExceptionMessageRegExpTest" namespace="" name="ExceptionMessageRegExpTest" abstract="false" final="false" start="15" end="56">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/tests/Framework/Constraint" file="ExceptionMessageRegExpTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/tests/Framework/Constraint/ExceptionMessageRegExpTest.php" size="1558" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="e6896747da3908a5d9367818202115060d9945a7" relative="vendor/phpunit/phpunit/tests/Framework/Constraint/ExceptionMessageRegExpTest.php"/>
+  <docblock>
+    <description/>
+    <since value="Class available since Release 4.3.0"/>
+    <covers value="PHPUnit_Framework_Constraint_ExceptionMessageRegExp"/>
+  </docblock>
+  <extends full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+  <method name="testRegexMessage" start="21" end="24" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\Exception"/>
+      <expectedexceptionmessageregexp value="/^A polymorphic \w+ message/"/>
+    </docblock>
+  </method>
+  <method name="testRegexMessageExtreme" start="30" end="33" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\Exception"/>
+      <expectedexceptionmessageregexp value="/^a poly[a-z]+ [a-zA-Z0-9_]+ me(s){2}age$/i"/>
+    </docblock>
+  </method>
+  <method name="testMessageXdebugScreamCompatibility" start="41" end="45" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <runinseparateprocess/>
+      <requires value="extension xdebug"/>
+      <expectedexception value="\Exception"/>
+      <expectedexceptionmessageregexp value="#Screaming preg_match#"/>
+    </docblock>
+  </method>
+  <method name="testSimultaneousLiteralAndRegExpExceptionMessage" start="52" end="55" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <coversnothing/>
+      <expectedexception value="\Exception variadic"/>
+      <expectedexceptionmessageregexp value="/^A variadic \w+ message/"/>
+    </docblock>
+  </method>
+</class>

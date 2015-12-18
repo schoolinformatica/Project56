@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Routing\Matcher\Dumper\DumperCollection" namespace="Symfony\Component\Routing\Matcher\Dumper" name="DumperCollection" abstract="false" final="false" start="21" end="161">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/routing/Matcher/Dumper" file="DumperCollection.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/routing/Matcher/Dumper/DumperCollection.php" size="3594" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="e8242fb37ed77c1fc9f91abeac646f1f17ac077e" relative="vendor/symfony/routing/Matcher/Dumper/DumperCollection.php"/>
+  <docblock>
+    <description compact="Collection of routes."/>
+    <author value="Arnaud Le Blanc &lt;arnaud.lb@gmail.com&gt;"/>
+    <internal/>
+  </docblock>
+  <implements full="IteratorAggregate" namespace="" name="IteratorAggregate"/>
+  <member name="parent" visibility="private" line="26">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\Routing\Matcher\Dumper\DumperCollection|null" namespace="Symfony\Component\Routing\Matcher\Dumper" name="DumperCollection|null"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="children" type="array" default="" visibility="private" line="31">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="Symfony\Component\Routing\Matcher\Dumper\(DumperCollection|DumperRoute)" namespace="Symfony\Component\Routing\Matcher\Dumper" name="(DumperCollection|DumperRoute)"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="attributes" type="array" default="" visibility="private" line="36">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="all" start="43" end="46" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the children routes and collections."/>
+      <return description="Array of DumperCollection|DumperRoute" type="array" of="object">
+        <type full="Symfony\Component\Routing\Matcher\Dumper\(DumperCollection|DumperRoute)" namespace="Symfony\Component\Routing\Matcher\Dumper" name="(DumperCollection|DumperRoute)"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="add" start="53" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a route or collection."/>
+      <param description="The route or collection" type="object">
+        <type full="Symfony\Component\Routing\Matcher\Dumper\DumperRoute|DumperCollection" namespace="Symfony\Component\Routing\Matcher\Dumper" name="DumperRoute|DumperCollection"/>
+      </param>
+    </docblock>
+    <parameter name="child" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setAll" start="66" end="74" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets children."/>
+      <param description="The children" type="array" variable="$children"/>
+    </docblock>
+    <parameter name="children" byreference="false" type="array"/>
+  </method>
+  <method name="getIterator" start="81" end="84" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an iterator over the children."/>
+      <return description="The iterator" type="object">
+        <type full="\Iterator" namespace="" name="Iterator"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getRoot" start="91" end="94" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the root of the collection."/>
+      <return description="The root collection" type="object">
+        <type full="Symfony\Component\Routing\Matcher\Dumper\DumperCollection" namespace="Symfony\Component\Routing\Matcher\Dumper" name="DumperCollection"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getParent" start="101" end="104" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Returns the parent collection."/>
+      <return description="The parent collection or null if the collection has no parent" type="object">
+        <type full="Symfony\Component\Routing\Matcher\Dumper\DumperCollection|null" namespace="Symfony\Component\Routing\Matcher\Dumper" name="DumperCollection|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setParent" start="111" end="114" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Sets the parent collection."/>
+      <param description="The parent collection" type="object" variable="$parent">
+        <type full="Symfony\Component\Routing\Matcher\Dumper\DumperCollection" namespace="Symfony\Component\Routing\Matcher\Dumper" name="DumperCollection"/>
+      </param>
+    </docblock>
+    <parameter name="parent" byreference="false" type="object">
+      <type full="Symfony\Component\Routing\Matcher\Dumper\DumperCollection" namespace="Symfony\Component\Routing\Matcher\Dumper" name="DumperCollection"/>
+    </parameter>
+  </method>
+  <method name="hasAttribute" start="123" end="126" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if the attribute is defined."/>
+      <param description="The attribute name" type="string" variable="$name"/>
+      <return description="true if the attribute is defined, false otherwise" type="object">
+        <type full="Symfony\Component\Routing\Matcher\Dumper\bool" namespace="Symfony\Component\Routing\Matcher\Dumper" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getAttribute" start="136" end="139" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an attribute by name."/>
+      <param description="The attribute name" type="string" variable="$name"/>
+      <param description="Default value is the attribute doesn't exist" type="mixed" variable="$default"/>
+      <return description="The attribute value" type="mixed"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="setAttribute" start="147" end="150" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets an attribute by name."/>
+      <param description="The attribute name" type="string" variable="$name"/>
+      <param description="The attribute value" type="mixed" variable="$value"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setAttributes" start="157" end="160" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets multiple attributes."/>
+      <param description="The attributes" type="array" variable="$attributes"/>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="{unknown}"/>
+  </method>
+</class>

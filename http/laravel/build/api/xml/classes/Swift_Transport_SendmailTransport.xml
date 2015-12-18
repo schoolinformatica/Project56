@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_Transport_SendmailTransport" namespace="" name="Swift_Transport_SendmailTransport" abstract="false" final="false" start="20" end="159">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport" file="SendmailTransport.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/SendmailTransport.php" size="4985" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="93bf8b9aa56235f9c55a0a83e7f33c5ecfcc9cd0" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/SendmailTransport.php"/>
+  <docblock>
+    <description compact="SendmailTransport for sending mail through a Sendmail/Postfix (etc..) binary.">Supported modes are -bs and -t, with any additional flags desired.
+It is advised to use -bs mode since error reporting with -t mode is not
+possible.</description>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <extends full="Swift_Transport_AbstractSmtpTransport" namespace="" name="Swift_Transport_AbstractSmtpTransport"/>
+  <member name="_params" type="array" default="" visibility="private" line="27">
+    <docblock>
+      <description compact="Connection buffer parameters."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="40" end="43" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new SendmailTransport with $buf for I/O."/>
+      <param type="object" variable="$buf">
+        <type full="Swift_Transport_IoBuffer" namespace="" name="Swift_Transport_IoBuffer"/>
+      </param>
+      <param type="object" variable="$dispatcher">
+        <type full="Swift_Events_EventDispatcher" namespace="" name="Swift_Events_EventDispatcher"/>
+      </param>
+    </docblock>
+    <parameter name="buf" byreference="false" type="object">
+      <type full="Swift_Transport_IoBuffer" namespace="" name="Swift_Transport_IoBuffer"/>
+    </parameter>
+    <parameter name="dispatcher" byreference="false" type="object">
+      <type full="Swift_Events_EventDispatcher" namespace="" name="Swift_Events_EventDispatcher"/>
+    </parameter>
+  </constructor>
+  <method name="start" start="48" end="53" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Start the standalone SMTP session if running in -bs mode."/>
+    </docblock>
+  </method>
+  <method name="setCommand" start="69" end="74" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the command to invoke.">If using -t mode you are strongly advised to include -oi or -i in the flags.
+For example: /usr/sbin/sendmail -oi -t
+Swift will append a -f&lt;sender&gt; flag if one is not present.
+
+The recommended mode is "-bs" since it is interactive and failure notifications
+are hence possible.</description>
+      <param type="string" variable="$command"/>
+      <return type="object">
+        <type full="Swift_Transport_SendmailTransport" namespace="" name="Swift_Transport_SendmailTransport"/>
+      </return>
+    </docblock>
+    <parameter name="command" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getCommand" start="81" end="84" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the sendmail command which will be invoked."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="send" start="100" end="152" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Send the given Message.">Recipient/sender data will be retrieved from the Message API.
+
+The return value is the number of recipients who were accepted for delivery.
+NOTE: If using 'sendmail -t' you will not be aware of any failures until
+they bounce (i.e. send() will always return 100% success).</description>
+      <param type="object" variable="$message">
+        <type full="Swift_Mime_Message" namespace="" name="Swift_Mime_Message"/>
+      </param>
+      <param description="An array of failures by-reference" type="array" variable="$failedRecipients" of="string"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="message" byreference="false" type="object">
+      <type full="Swift_Mime_Message" namespace="" name="Swift_Mime_Message"/>
+    </parameter>
+    <parameter name="failedRecipients" byreference="true" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="_getBufferParams" start="155" end="158" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the params to initialize the buffer"/>
+    </docblock>
+  </method>
+</class>

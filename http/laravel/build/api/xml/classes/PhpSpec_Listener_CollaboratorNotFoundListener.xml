@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpSpec\Listener\CollaboratorNotFoundListener" namespace="PhpSpec\Listener" name="CollaboratorNotFoundListener" abstract="false" final="false" start="25" end="115">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Listener" file="CollaboratorNotFoundListener.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Listener/CollaboratorNotFoundListener.php" size="3091" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="20ea25beee2b33558ce1cb0d99b80f0ab96e1398" relative="vendor/phpspec/phpspec/src/PhpSpec/Listener/CollaboratorNotFoundListener.php"/>
+  <implements full="Symfony\Component\EventDispatcher\EventSubscriberInterface" namespace="Symfony\Component\EventDispatcher" name="EventSubscriberInterface"/>
+  <member name="io" visibility="private" line="30">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\Console\IO" namespace="PhpSpec\Console" name="IO"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="exceptions" type="array" default="" visibility="private" line="35">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="PhpSpec\Listener\CollaboratorNotFoundException" namespace="PhpSpec\Listener" name="CollaboratorNotFoundException"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="resources" visibility="private" line="40">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\Locator\ResourceManagerInterface" namespace="PhpSpec\Locator" name="ResourceManagerInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="generator" visibility="private" line="45">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\CodeGenerator\GeneratorManager" namespace="PhpSpec\CodeGenerator" name="GeneratorManager"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="52" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$io">
+        <type full="PhpSpec\Console\IO" namespace="PhpSpec\Console" name="IO"/>
+      </param>
+      <param type="object" variable="$resources">
+        <type full="PhpSpec\Locator\ResourceManagerInterface" namespace="PhpSpec\Locator" name="ResourceManagerInterface"/>
+      </param>
+      <param type="object" variable="$generator">
+        <type full="PhpSpec\CodeGenerator\GeneratorManager" namespace="PhpSpec\CodeGenerator" name="GeneratorManager"/>
+      </param>
+    </docblock>
+    <parameter name="io" byreference="false" type="object">
+      <type full="PhpSpec\Console\IO" namespace="PhpSpec\Console" name="IO"/>
+    </parameter>
+    <parameter name="resources" byreference="false" type="object">
+      <type full="PhpSpec\Locator\ResourceManagerInterface" namespace="PhpSpec\Locator" name="ResourceManagerInterface"/>
+    </parameter>
+    <parameter name="generator" byreference="false" type="object">
+      <type full="PhpSpec\CodeGenerator\GeneratorManager" namespace="PhpSpec\CodeGenerator" name="GeneratorManager"/>
+    </parameter>
+  </constructor>
+  <method name="getSubscribedEvents" start="62" end="68" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="afterExample" start="73" end="79" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$event">
+        <type full="PhpSpec\Event\ExampleEvent" namespace="PhpSpec\Event" name="ExampleEvent"/>
+      </param>
+    </docblock>
+    <parameter name="event" byreference="false" type="object">
+      <type full="PhpSpec\Event\ExampleEvent" namespace="PhpSpec\Event" name="ExampleEvent"/>
+    </parameter>
+  </method>
+  <method name="afterSuite" start="84" end="104" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$event">
+        <type full="PhpSpec\Event\SuiteEvent" namespace="PhpSpec\Event" name="SuiteEvent"/>
+      </param>
+    </docblock>
+    <parameter name="event" byreference="false" type="object">
+      <type full="PhpSpec\Event\SuiteEvent" namespace="PhpSpec\Event" name="SuiteEvent"/>
+    </parameter>
+  </method>
+  <method name="resourceIsInSpecNamespace" start="111" end="114" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$exception">
+        <type full="PhpSpec\Exception\Fracture\CollaboratorNotFoundException" namespace="PhpSpec\Exception\Fracture" name="CollaboratorNotFoundException"/>
+      </param>
+      <param type="object" variable="$resource">
+        <type full="PhpSpec\Locator\ResourceInterface" namespace="PhpSpec\Locator" name="ResourceInterface"/>
+      </param>
+      <return type="object">
+        <type full="PhpSpec\Listener\bool" namespace="PhpSpec\Listener" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="exception" byreference="false" type="{unknown}"/>
+    <parameter name="resource" byreference="false" type="{unknown}"/>
+  </method>
+</class>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\EventListener\ExceptionListener" namespace="Symfony\Component\HttpKernel\EventListener" name="ExceptionListener" abstract="false" final="false" start="29" end="120">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/EventListener" file="ExceptionListener.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/EventListener/ExceptionListener.php" size="4132" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="9827c61b15918ec3e491760edde9f263ab257eb0" relative="vendor/symfony/http-kernel/EventListener/ExceptionListener.php"/>
+  <docblock>
+    <description compact="ExceptionListener."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\EventDispatcher\EventSubscriberInterface" namespace="Symfony\Component\EventDispatcher" name="EventSubscriberInterface"/>
+  <member name="controller" visibility="protected" line="31"/>
+  <member name="logger" visibility="protected" line="32"/>
+  <constructor name="__construct" start="34" end="38" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="controller" byreference="false" type="{unknown}"/>
+    <parameter name="logger" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Psr\Log\LoggerInterface" namespace="Psr\Log" name="LoggerInterface"/>
+    </parameter>
+  </constructor>
+  <method name="onKernelException" start="40" end="70" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="event" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent" namespace="Symfony\Component\HttpKernel\Event" name="GetResponseForExceptionEvent"/>
+    </parameter>
+  </method>
+  <method name="getSubscribedEvents" start="72" end="77" abstract="false" final="false" static="true" visibility="public"/>
+  <method name="logException" start="85" end="94" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Logs an exception."/>
+      <param description="The \Exception instance" type="object" variable="$exception">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </param>
+      <param description="The error message to log" type="string" variable="$message"/>
+    </docblock>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="duplicateRequest" start="104" end="119" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Clones the request for the exception."/>
+      <param description="The thrown exception." type="object" variable="$exception">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </param>
+      <param description="The original request." type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <return description="$request The cloned request." type="object">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </return>
+    </docblock>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+  </method>
+</class>

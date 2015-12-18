@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Console\Tests\Descriptor\AbstractDescriptorTest" namespace="Symfony\Component\Console\Tests\Descriptor" name="AbstractDescriptorTest" abstract="true" final="false" start="21" end="105">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Tests/Descriptor" file="AbstractDescriptorTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Tests/Descriptor/AbstractDescriptorTest.php" size="3779" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="4bd3e3eec7a70c16151061d00b66b8e0776ad92e" relative="vendor/symfony/console/Tests/Descriptor/AbstractDescriptorTest.php"/>
+  <extends full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+  <method name="testDescribeInputArgument" start="24" end="27" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="@dataProvider getDescribeInputArgumentTestData"/>
+    </docblock>
+    <parameter name="argument" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputArgument" namespace="Symfony\Component\Console\Input" name="InputArgument"/>
+    </parameter>
+    <parameter name="expectedDescription" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testDescribeInputOption" start="30" end="33" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="@dataProvider getDescribeInputOptionTestData"/>
+    </docblock>
+    <parameter name="option" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputOption" namespace="Symfony\Component\Console\Input" name="InputOption"/>
+    </parameter>
+    <parameter name="expectedDescription" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testDescribeInputDefinition" start="36" end="39" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="@dataProvider getDescribeInputDefinitionTestData"/>
+    </docblock>
+    <parameter name="definition" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputDefinition" namespace="Symfony\Component\Console\Input" name="InputDefinition"/>
+    </parameter>
+    <parameter name="expectedDescription" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testDescribeCommand" start="42" end="45" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="@dataProvider getDescribeCommandTestData"/>
+    </docblock>
+    <parameter name="command" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Command\Command" namespace="Symfony\Component\Console\Command" name="Command"/>
+    </parameter>
+    <parameter name="expectedDescription" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testDescribeApplication" start="48" end="58" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="@dataProvider getDescribeApplicationTestData"/>
+    </docblock>
+    <parameter name="application" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Application" namespace="Symfony\Component\Console" name="Application"/>
+    </parameter>
+    <parameter name="expectedDescription" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Replaces the dynamic placeholders of the command help text with a static version." line="50"/>
+      <comment value="The placeholder %command.full_name% includes the script path that is not predictable" line="51"/>
+      <comment value="and can not be tested against." line="52"/>
+    </inline>
+  </method>
+  <method name="getDescribeInputArgumentTestData" start="60" end="63" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getDescribeInputOptionTestData" start="65" end="68" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getDescribeInputDefinitionTestData" start="70" end="73" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getDescribeCommandTestData" start="75" end="78" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getDescribeApplicationTestData" start="80" end="83" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getDescriptor" start="85" end="85" abstract="true" final="false" static="false" visibility="protected"/>
+  <method name="getFormat" start="86" end="86" abstract="true" final="false" static="false" visibility="protected"/>
+  <method name="getDescriptionTestData" start="88" end="97" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="objects" byreference="false" type="array"/>
+  </method>
+  <method name="assertDescription" start="99" end="104" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="expectedDescription" byreference="false" type="{unknown}"/>
+    <parameter name="describedObject" byreference="false" type="{unknown}"/>
+  </method>
+</class>

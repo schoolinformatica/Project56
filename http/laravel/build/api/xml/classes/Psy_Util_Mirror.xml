@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\Util\Mirror" namespace="Psy\Util" name="Mirror" abstract="false" final="false" start="20" end="94">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Util" file="Mirror.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Util/Mirror.php" size="3273" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="47869c00f97d348e0baed350113aef7a7d2efc4c" relative="vendor/psy/psysh/src/Psy/Util/Mirror.php"/>
+  <docblock>
+    <description compact="A utility class for getting Reflectors."/>
+  </docblock>
+  <constant type="integer" name="CONSTANT" value="1"/>
+  <constant type="integer" name="METHOD" value="2"/>
+  <constant type="integer" name="STATIC_PROPERTY" value="4"/>
+  <constant type="integer" name="PROPERTY" value="8"/>
+  <method name="get" start="44" end="69" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get a Reflector for a function, class or instance, constant, method or property.">Optionally, pass a $filter param to restrict the types of members checked. For example, to only Reflectors for
+static properties and constants, pass:
+
+   $filter = Mirror::CONSTANT | Mirror::STATIC_PROPERTY</description>
+      <throws description="when a $member specified but not present on $value." type="object">
+        <type full="\Psy\Exception\RuntimeException" namespace="\Psy\Exception" name="RuntimeException"/>
+      </throws>
+      <throws description="if $value is something other than an object or class/function name." type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <param description="Class or function name, or variable instance." type="mixed" variable="$value"/>
+      <param description="Optional: property, constant or method name (default: null)" type="string" variable="$member"/>
+      <param description="(default: CONSTANT | METHOD | PROPERTY | STATIC_PROPERTY)" type="int" variable="$filter"/>
+      <return type="object">
+        <type full="Psy\Util\Reflector" namespace="Psy\Util" name="Reflector"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="member" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="filter" byreference="false" type="integer" default="15"/>
+  </method>
+  <method name="getClass" start="80" end="93" abstract="false" final="false" static="true" visibility="private">
+    <docblock>
+      <description compact="Get a ReflectionClass (or ReflectionObject) if possible."/>
+      <throws description="if $value is not a class name or instance." type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="\ReflectionClass" namespace="" name="ReflectionClass"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+</class>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Translation\MetadataAwareInterface" namespace="Symfony\Component\Translation" name="MetadataAwareInterface" abstract="false" final="false" start="19" end="54">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation" file="MetadataAwareInterface.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation/MetadataAwareInterface.php" size="1551" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="935b7d20aa63fb6264a90f52ea38a0e0c72a82ae" relative="vendor/symfony/translation/MetadataAwareInterface.php"/>
+  <docblock>
+    <description compact="MetadataAwareInterface."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <method name="getMetadata" start="33" end="33" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets metadata for the given domain and key.">Passing an empty domain will return an array with all metadata indexed by
+domain and then by key. Passing an empty key will return an array with all
+metadata for the given domain.</description>
+      <param description="The key" type="string" variable="$key"/>
+      <param description="The domain name" type="string" variable="$domain"/>
+      <return description="The value that was set or an array with the domains/keys or null" type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="string" default="''"/>
+    <parameter name="domain" byreference="false" type="string" default="'messages'"/>
+  </method>
+  <method name="setMetadata" start="42" end="42" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds metadata to a message domain."/>
+      <param description="The key" type="string" variable="$key"/>
+      <param description="The value" type="mixed" variable="$value"/>
+      <param description="The domain name" type="string" variable="$domain"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="domain" byreference="false" type="string" default="'messages'"/>
+  </method>
+  <method name="deleteMetadata" start="53" end="53" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Deletes metadata for the given key and domain.">Passing an empty domain will delete all metadata. Passing an empty key will
+delete all metadata for the given domain.</description>
+      <param description="The key" type="string" variable="$key"/>
+      <param description="The domain name" type="string" variable="$domain"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="string" default="''"/>
+    <parameter name="domain" byreference="false" type="string" default="'messages'"/>
+  </method>
+</interface>

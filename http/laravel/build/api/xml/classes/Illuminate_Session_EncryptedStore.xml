@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Session\EncryptedStore" namespace="Illuminate\Session" name="EncryptedStore" abstract="false" final="false" start="9" end="69">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Session" file="EncryptedStore.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Session/EncryptedStore.php" size="1643" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="a83a688dc7d64532a547fa45b0893cec03bfbda5" relative="vendor/laravel/framework/src/Illuminate/Session/EncryptedStore.php"/>
+  <extends full="Illuminate\Session\Store" namespace="Illuminate\Session" name="Store"/>
+  <member name="encrypter" visibility="protected" line="16">
+    <docblock>
+      <description compact="The encrypter instance."/>
+      <var type="object">
+        <type full="\Illuminate\Contracts\Encryption\Encrypter" namespace="\Illuminate\Contracts\Encryption" name="Encrypter"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="27" end="32" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new session instance."/>
+      <param type="string" variable="$name"/>
+      <param type="object" variable="$handler">
+        <type full="\SessionHandlerInterface" namespace="" name="SessionHandlerInterface"/>
+      </param>
+      <param type="object" variable="$encrypter">
+        <type full="\Illuminate\Contracts\Encryption\Encrypter" namespace="\Illuminate\Contracts\Encryption" name="Encrypter"/>
+      </param>
+      <param type="object" variable="$id">
+        <type full="Illuminate\Session\string|null" namespace="Illuminate\Session" name="string|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Session\void" namespace="Illuminate\Session" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="handler" byreference="false" type="object">
+      <type full="SessionHandlerInterface" namespace="" name="SessionHandlerInterface"/>
+    </parameter>
+    <parameter name="encrypter" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Encryption\Encrypter" namespace="Illuminate\Contracts\Encryption" name="Encrypter"/>
+    </parameter>
+    <parameter name="id" byreference="false" type="{unknown}" default="" constant="null"/>
+  </constructor>
+  <method name="prepareForUnserialize" start="40" end="47" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Prepare the raw string data from the session for unserialization."/>
+      <param type="string" variable="$data"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="prepareForStorage" start="55" end="58" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Prepare the serialized session data for storage."/>
+      <param type="string" variable="$data"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getEncrypter" start="65" end="68" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the encrypter instance."/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Encryption\Encrypter" namespace="\Illuminate\Contracts\Encryption" name="Encrypter"/>
+      </return>
+    </docblock>
+  </method>
+</class>

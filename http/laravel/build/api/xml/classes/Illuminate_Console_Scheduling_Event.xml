@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Console\Scheduling\Event" namespace="Illuminate\Console\Scheduling" name="Event" abstract="false" final="false" start="15" end="852">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Console/Scheduling" file="Event.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Console/Scheduling/Event.php" size="18364" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="81b3ff64f821f4febdb29a147875cd0783efc911" relative="vendor/laravel/framework/src/Illuminate/Console/Scheduling/Event.php"/>
+  <member name="command" visibility="public" line="22">
+    <docblock>
+      <description compact="The command string."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="expression" type="string" default="'* * * * * *'" visibility="public" line="29">
+    <docblock>
+      <description compact="The cron expression representing the event's frequency."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="timezone" visibility="public" line="36">
+    <docblock>
+      <description compact="The timezone the date should be evaluated on."/>
+      <var type="object">
+        <type full="\DateTimeZone|string" namespace="" name="DateTimeZone|string"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="user" visibility="public" line="43">
+    <docblock>
+      <description compact="The user the command should run as."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="environments" type="array" default="" visibility="public" line="50">
+    <docblock>
+      <description compact="The list of environments the command should run under."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="evenInMaintenanceMode" type="boolean" default="false" visibility="public" line="57">
+    <docblock>
+      <description compact="Indicates if the command should run in maintenance mode."/>
+      <var type="object">
+        <type full="Illuminate\Console\Scheduling\bool" namespace="Illuminate\Console\Scheduling" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="withoutOverlapping" type="boolean" default="false" visibility="public" line="64">
+    <docblock>
+      <description compact="Indicates if the command should not overlap itself."/>
+      <var type="object">
+        <type full="Illuminate\Console\Scheduling\bool" namespace="Illuminate\Console\Scheduling" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="filter" visibility="protected" line="71">
+    <docblock>
+      <description compact="The filter callback."/>
+      <var type="object">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="reject" visibility="protected" line="78">
+    <docblock>
+      <description compact="The reject callback."/>
+      <var type="object">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="output" type="string" default="'/dev/null'" visibility="public" line="85">
+    <docblock>
+      <description compact="The location that output should be sent to."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="shouldAppendOutput" type="boolean" default="false" visibility="protected" line="92">
+    <docblock>
+      <description compact="Indicates whether output should be appended."/>
+      <var type="object">
+        <type full="Illuminate\Console\Scheduling\bool" namespace="Illuminate\Console\Scheduling" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="beforeCallbacks" type="array" default="" visibility="protected" line="99">
+    <docblock>
+      <description compact="The array of callbacks to be run before the event is started."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="afterCallbacks" type="array" default="" visibility="protected" line="106">
+    <docblock>
+      <description compact="The array of callbacks to be run after the event is finished."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="description" visibility="public" line="113">
+    <docblock>
+      <description compact="The human readable description of the event."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="121" end="125" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new event instance."/>
+      <param type="string" variable="$command"/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\void" namespace="Illuminate\Console\Scheduling" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="command" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="getDefaultOutput" start="132" end="135" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the default output depending on the OS."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="run" start="143" end="150" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Run the given event."/>
+      <param type="object" variable="$container">
+        <type full="\Illuminate\Contracts\Container\Container" namespace="\Illuminate\Contracts\Container" name="Container"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\void" namespace="Illuminate\Console\Scheduling" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="container" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Container\Container" namespace="Illuminate\Contracts\Container" name="Container"/>
+    </parameter>
+  </method>
+  <method name="runCommandInBackground" start="157" end="162" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Run the command in the background using exec."/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\void" namespace="Illuminate\Console\Scheduling" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="runCommandInForeground" start="170" end="179" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Run the command in the foreground."/>
+      <param type="object" variable="$container">
+        <type full="\Illuminate\Contracts\Container\Container" namespace="\Illuminate\Contracts\Container" name="Container"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\void" namespace="Illuminate\Console\Scheduling" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="container" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Container\Container" namespace="Illuminate\Contracts\Container" name="Container"/>
+    </parameter>
+  </method>
+  <method name="callBeforeCallbacks" start="187" end="192" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Call all of the &quot;before&quot; callbacks for the event."/>
+      <param type="object" variable="$container">
+        <type full="\Illuminate\Contracts\Container\Container" namespace="\Illuminate\Contracts\Container" name="Container"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\void" namespace="Illuminate\Console\Scheduling" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="container" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Container\Container" namespace="Illuminate\Contracts\Container" name="Container"/>
+    </parameter>
+  </method>
+  <method name="callAfterCallbacks" start="200" end="205" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Call all of the &quot;after&quot; callbacks for the event."/>
+      <param type="object" variable="$container">
+        <type full="\Illuminate\Contracts\Container\Container" namespace="\Illuminate\Contracts\Container" name="Container"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\void" namespace="Illuminate\Console\Scheduling" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="container" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Container\Container" namespace="Illuminate\Contracts\Container" name="Container"/>
+    </parameter>
+  </method>
+  <method name="buildCommand" start="212" end="223" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Build the comand string."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="mutexPath" start="230" end="233" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the mutex path for the scheduled command."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="isDue" start="241" end="250" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the given event should run based on the Cron expression."/>
+      <param type="object" variable="$app">
+        <type full="\Illuminate\Contracts\Foundation\Application" namespace="\Illuminate\Contracts\Foundation" name="Application"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\bool" namespace="Illuminate\Console\Scheduling" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="app" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Foundation\Application" namespace="Illuminate\Contracts\Foundation" name="Application"/>
+    </parameter>
+  </method>
+  <method name="expressionPasses" start="257" end="266" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Determine if the Cron expression passes."/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\bool" namespace="Illuminate\Console\Scheduling" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="filtersPass" start="274" end="282" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Determine if the filters pass for the event."/>
+      <param type="object" variable="$app">
+        <type full="\Illuminate\Contracts\Foundation\Application" namespace="\Illuminate\Contracts\Foundation" name="Application"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\bool" namespace="Illuminate\Console\Scheduling" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="app" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Foundation\Application" namespace="Illuminate\Contracts\Foundation" name="Application"/>
+    </parameter>
+  </method>
+  <method name="runsInEnvironment" start="290" end="293" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the event runs in the given environment."/>
+      <param type="string" variable="$environment"/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\bool" namespace="Illuminate\Console\Scheduling" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="environment" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="runsInMaintenanceMode" start="300" end="303" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the event runs in maintenance mode."/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\bool" namespace="Illuminate\Console\Scheduling" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="cron" start="311" end="316" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="The Cron expression representing the event's frequency."/>
+      <param type="string" variable="$expression"/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="expression" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hourly" start="323" end="326" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Schedule the event to run hourly."/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="daily" start="333" end="336" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Schedule the event to run daily."/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="at" start="344" end="347" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Schedule the command at a given time."/>
+      <param type="string" variable="$time"/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="time" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="dailyAt" start="355" end="361" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Schedule the event to run daily at a given time (10:00, 19:30, etc)."/>
+      <param type="string" variable="$time"/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="time" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="twiceDaily" start="370" end="376" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Schedule the event to run twice daily."/>
+      <param type="int" variable="$first"/>
+      <param type="int" variable="$second"/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="first" byreference="false" type="integer" default="1"/>
+    <parameter name="second" byreference="false" type="integer" default="13"/>
+  </method>
+  <method name="weekdays" start="383" end="386" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Schedule the event to run only on weekdays."/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="mondays" start="393" end="396" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Schedule the event to run only on Mondays."/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="tuesdays" start="403" end="406" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Schedule the event to run only on Tuesdays."/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="wednesdays" start="413" end="416" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Schedule the event to run only on Wednesdays."/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="thursdays" start="423" end="426" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Schedule the event to run only on Thursdays."/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="fridays" start="433" end="436" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Schedule the event to run only on Fridays."/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="saturdays" start="443" end="446" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Schedule the event to run only on Saturdays."/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="sundays" start="453" end="456" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Schedule the event to run only on Sundays."/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="weekly" start="463" end="466" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Schedule the event to run weekly."/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="weeklyOn" start="475" end="480" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Schedule the event to run weekly on a given day and time."/>
+      <param type="int" variable="$day"/>
+      <param type="string" variable="$time"/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="day" byreference="false" type="{unknown}"/>
+    <parameter name="time" byreference="false" type="string" default="'0:0'"/>
+  </method>
+  <method name="monthly" start="487" end="490" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Schedule the event to run monthly."/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="yearly" start="497" end="500" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Schedule the event to run yearly."/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="everyMinute" start="507" end="510" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Schedule the event to run every minute."/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="everyFiveMinutes" start="517" end="520" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Schedule the event to run every five minutes."/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="everyTenMinutes" start="527" end="530" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Schedule the event to run every ten minutes."/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="everyThirtyMinutes" start="537" end="540" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Schedule the event to run every thirty minutes."/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="days" start="548" end="553" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the days of the week the command should run on."/>
+      <param type="object" variable="$days">
+        <type full="Illuminate\Console\Scheduling\array|mixed" namespace="Illuminate\Console\Scheduling" name="array|mixed"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="days" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="timezone" start="561" end="566" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the timezone the date should be evaluated on."/>
+      <param type="object" variable="$timezone">
+        <type full="\DateTimeZone|string" namespace="" name="DateTimeZone|string"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="timezone" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="user" start="574" end="579" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set which user the command should run as."/>
+      <param type="string" variable="$user"/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="user" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="environments" start="587" end="592" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Limit the environments the command should run in."/>
+      <param type="object" variable="$environments">
+        <type full="Illuminate\Console\Scheduling\array|mixed" namespace="Illuminate\Console\Scheduling" name="array|mixed"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="environments" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="evenInMaintenanceMode" start="599" end="604" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="State that the command should run even in maintenance mode."/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="withoutOverlapping" start="611" end="618" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Do not allow the event to overlap each other."/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="when" start="626" end="631" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a callback to further filter the schedule."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="skip" start="639" end="644" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a callback to further filter the schedule."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="sendOutputTo" start="653" end="660" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Send the output of the command to a given location."/>
+      <param type="string" variable="$location"/>
+      <param type="object" variable="$append">
+        <type full="Illuminate\Console\Scheduling\bool" namespace="Illuminate\Console\Scheduling" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="location" byreference="false" type="{unknown}"/>
+    <parameter name="append" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="appendOutputTo" start="668" end="671" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Append the output of the command to a given location."/>
+      <param type="string" variable="$location"/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="location" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="emailOutputTo" start="681" end="692" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="E-mail the results of the scheduled operation."/>
+      <param type="object" variable="$addresses">
+        <type full="Illuminate\Console\Scheduling\array|mixed" namespace="Illuminate\Console\Scheduling" name="array|mixed"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+    <parameter name="addresses" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="emailOutput" start="701" end="710" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="E-mail the output of the event to the recipients."/>
+      <param type="object" variable="$mailer">
+        <type full="\Illuminate\Contracts\Mail\Mailer" namespace="\Illuminate\Contracts\Mail" name="Mailer"/>
+      </param>
+      <param type="array" variable="$addresses"/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\void" namespace="Illuminate\Console\Scheduling" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="mailer" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Mail\Mailer" namespace="Illuminate\Contracts\Mail" name="Mailer"/>
+    </parameter>
+    <parameter name="addresses" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getEmailSubject" start="717" end="724" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the e-mail subject line for output results."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="pingBefore" start="732" end="737" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a callback to ping a given URL before the job runs."/>
+      <param type="string" variable="$url"/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="before" start="745" end="750" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a callback to be called before the operation."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="thenPing" start="758" end="763" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a callback to ping a given URL after the job runs."/>
+      <param type="string" variable="$url"/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="after" start="771" end="774" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a callback to be called after the operation."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="then" start="782" end="787" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a callback to be called after the operation."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="name" start="795" end="798" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the human-friendly description of the event."/>
+      <param type="string" variable="$description"/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="description" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="description" start="806" end="811" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the human-friendly description of the event."/>
+      <param type="string" variable="$description"/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="description" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="spliceIntoPosition" start="820" end="827" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Splice the given value into the given position of the expression."/>
+      <param type="int" variable="$position"/>
+      <param type="string" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Console\Scheduling\$this" namespace="Illuminate\Console\Scheduling" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="position" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getSummaryForDisplay" start="834" end="841" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the summary of the event for display."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getExpression" start="848" end="851" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the Cron expression for the event."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+</class>

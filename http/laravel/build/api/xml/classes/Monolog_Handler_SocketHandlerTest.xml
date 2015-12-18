@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Handler\SocketHandlerTest" namespace="Monolog\Handler" name="SocketHandlerTest" abstract="false" final="false" start="20" end="282">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/tests/Monolog/Handler" file="SocketHandlerTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/tests/Monolog/Handler/SocketHandlerTest.php" size="7874" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="8eeadb746eca1a8a4b0bf4a291c2f3de70b016ff" relative="vendor/monolog/monolog/tests/Monolog/Handler/SocketHandlerTest.php"/>
+  <docblock>
+    <description/>
+    <author value="Pablo de Leon Belloc &lt;pablolb@gmail.com&gt;"/>
+  </docblock>
+  <extends full="Monolog\TestCase" namespace="Monolog" name="TestCase"/>
+  <member name="handler" visibility="private" line="25">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Monolog\Handler\Monolog\Handler\SocketHandler" namespace="Monolog\Handler\Monolog\Handler" name="SocketHandler"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="res" visibility="private" line="30">
+    <docblock>
+      <description/>
+      <var type="resource"/>
+    </docblock>
+  </member>
+  <method name="testInvalidHostname" start="35" end="39" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="UnexpectedValueException"/>
+    </docblock>
+  </method>
+  <method name="testBadConnectionTimeout" start="44" end="48" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\InvalidArgumentException"/>
+    </docblock>
+  </method>
+  <method name="testSetConnectionTimeout" start="50" end="55" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testBadTimeout" start="60" end="64" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\InvalidArgumentException"/>
+    </docblock>
+  </method>
+  <method name="testSetTimeout" start="66" end="71" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSetConnectionString" start="73" end="77" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testExceptionIsThrownOnFsockopenError" start="82" end="89" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="UnexpectedValueException"/>
+    </docblock>
+  </method>
+  <method name="testExceptionIsThrownOnPfsockopenError" start="94" end="102" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="UnexpectedValueException"/>
+    </docblock>
+  </method>
+  <method name="testExceptionIsThrownIfCannotSetTimeout" start="107" end="114" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="UnexpectedValueException"/>
+    </docblock>
+  </method>
+  <method name="testWriteFailsOnIfFwriteReturnsFalse" start="119" end="137" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="RuntimeException"/>
+    </docblock>
+  </method>
+  <method name="testWriteFailsIfStreamTimesOut" start="142" end="163" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="RuntimeException"/>
+    </docblock>
+  </method>
+  <method name="testWriteFailsOnIncompleteWrite" start="168" end="187" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="RuntimeException"/>
+    </docblock>
+  </method>
+  <method name="testWriteWithMemoryFile" start="189" end="197" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testWriteWithMock" start="199" end="217" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testClose" start="219" end="226" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testCloseDoesNotClosePersistentSocket" start="228" end="236" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="createHandler" start="238" end="242" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="connectionString" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="writeRecord" start="244" end="247" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="string" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setMockHandler" start="249" end="281" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="methods" byreference="false" type="array" default=""/>
+  </method>
+</class>

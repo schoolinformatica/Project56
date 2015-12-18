@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpSpec\Util\ClassFileAnalyser" namespace="PhpSpec\Util" name="ClassFileAnalyser" abstract="false" final="true" start="18" end="235">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Util" file="ClassFileAnalyser.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Util/ClassFileAnalyser.php" size="5455" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="5d856a6d21cee07d6f753060839bab7ce964bdcf" relative="vendor/phpspec/phpspec/src/PhpSpec/Util/ClassFileAnalyser.php"/>
+  <member name="tokenLists" type="array" default="" visibility="private" line="20"/>
+  <method name="getStartLineOfFirstMethod" start="26" end="31" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$class"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getEndLineOfLastMethod" start="37" end="42" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$class"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="classHasMethods" start="48" end="61" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$class"/>
+      <return type="object">
+        <type full="PhpSpec\Util\bool" namespace="PhpSpec\Util" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getEndLineOfNamedMethod" start="68" end="74" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$class"/>
+      <param type="string" variable="$methodName"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="methodName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="findIndexOfFirstMethod" start="80" end="87" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="array" variable="$tokens"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="tokens" byreference="false" type="array"/>
+  </method>
+  <method name="findIndexOfLastMethod" start="93" end="100" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="array" variable="$tokens"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="tokens" byreference="false" type="array"/>
+  </method>
+  <method name="offsetForDocblock" start="107" end="136" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="array" variable="$tokens"/>
+      <param type="int" variable="$index"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="tokens" byreference="false" type="array"/>
+    <parameter name="index" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getTokensForClass" start="142" end="151" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param variable="$class"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="findIndexOfNamedMethodEnd" start="158" end="162" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="array" variable="$tokens"/>
+      <param type="string" variable="$methodName"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="tokens" byreference="false" type="array"/>
+    <parameter name="methodName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="findIndexOfNamedMethod" start="170" end="199" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="array" variable="$tokens"/>
+      <param type="string" variable="$methodName"/>
+      <return type="int"/>
+      <throws type="object">
+        <type full="PhpSpec\Exception\Generator\NamedMethodNotFoundException" namespace="PhpSpec\Exception\Generator" name="NamedMethodNotFoundException"/>
+      </throws>
+    </docblock>
+    <parameter name="tokens" byreference="false" type="array"/>
+    <parameter name="methodName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="findIndexOfMethodEnd" start="206" end="225" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="array" variable="$tokens"/>
+      <param type="int" variable="$index"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="tokens" byreference="false" type="array"/>
+    <parameter name="index" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="tokenIsFunction" start="231" end="234" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="mixed" variable="$token"/>
+      <return type="object">
+        <type full="PhpSpec\Util\bool" namespace="PhpSpec\Util" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="token" byreference="false" type="{unknown}"/>
+  </method>
+</class>

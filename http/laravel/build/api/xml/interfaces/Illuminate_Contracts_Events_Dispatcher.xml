@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Illuminate\Contracts\Events\Dispatcher" namespace="Illuminate\Contracts\Events" name="Dispatcher" abstract="false" final="false" start="5" end="90">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Contracts/Events" file="Dispatcher.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Contracts/Events/Dispatcher.php" size="1936" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="4a0ebac6c4333cc7c0cf4da910b670d8428b315e" relative="vendor/laravel/framework/src/Illuminate/Contracts/Events/Dispatcher.php"/>
+  <method name="listen" start="15" end="15" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register an event listener with the dispatcher."/>
+      <param type="object" variable="$events">
+        <type full="Illuminate\Contracts\Events\string|array" namespace="Illuminate\Contracts\Events" name="string|array"/>
+      </param>
+      <param type="mixed" variable="$listener"/>
+      <param type="int" variable="$priority"/>
+      <return type="object">
+        <type full="Illuminate\Contracts\Events\void" namespace="Illuminate\Contracts\Events" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="events" byreference="false" type="{unknown}"/>
+    <parameter name="listener" byreference="false" type="{unknown}"/>
+    <parameter name="priority" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="hasListeners" start="23" end="23" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if a given event has listeners."/>
+      <param type="string" variable="$eventName"/>
+      <return type="object">
+        <type full="Illuminate\Contracts\Events\bool" namespace="Illuminate\Contracts\Events" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="eventName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="push" start="32" end="32" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register an event and payload to be fired later."/>
+      <param type="string" variable="$event"/>
+      <param type="array" variable="$payload"/>
+      <return type="object">
+        <type full="Illuminate\Contracts\Events\void" namespace="Illuminate\Contracts\Events" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="event" byreference="false" type="{unknown}"/>
+    <parameter name="payload" byreference="false" type="array" default=""/>
+  </method>
+  <method name="subscribe" start="40" end="40" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register an event subscriber with the dispatcher."/>
+      <param type="object" variable="$subscriber">
+        <type full="Illuminate\Contracts\Events\object|string" namespace="Illuminate\Contracts\Events" name="object|string"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Contracts\Events\void" namespace="Illuminate\Contracts\Events" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="subscriber" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="until" start="49" end="49" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Fire an event until the first non-null response is returned."/>
+      <param type="string" variable="$event"/>
+      <param type="array" variable="$payload"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="event" byreference="false" type="{unknown}"/>
+    <parameter name="payload" byreference="false" type="array" default=""/>
+  </method>
+  <method name="flush" start="57" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Flush a set of pushed events."/>
+      <param type="string" variable="$event"/>
+      <return type="object">
+        <type full="Illuminate\Contracts\Events\void" namespace="Illuminate\Contracts\Events" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="event" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="fire" start="67" end="67" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Fire an event and call the listeners."/>
+      <param type="object" variable="$event">
+        <type full="Illuminate\Contracts\Events\string|object" namespace="Illuminate\Contracts\Events" name="string|object"/>
+      </param>
+      <param type="mixed" variable="$payload"/>
+      <param type="object" variable="$halt">
+        <type full="Illuminate\Contracts\Events\bool" namespace="Illuminate\Contracts\Events" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Contracts\Events\array|null" namespace="Illuminate\Contracts\Events" name="array|null"/>
+      </return>
+    </docblock>
+    <parameter name="event" byreference="false" type="{unknown}"/>
+    <parameter name="payload" byreference="false" type="array" default=""/>
+    <parameter name="halt" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="firing" start="74" end="74" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the event that is currently firing."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="forget" start="82" end="82" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remove a set of listeners from the dispatcher."/>
+      <param type="string" variable="$event"/>
+      <return type="object">
+        <type full="Illuminate\Contracts\Events\void" namespace="Illuminate\Contracts\Events" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="event" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="forgetPushed" start="89" end="89" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Forget all of the queued listeners."/>
+      <return type="object">
+        <type full="Illuminate\Contracts\Events\void" namespace="Illuminate\Contracts\Events" name="void"/>
+      </return>
+    </docblock>
+  </method>
+</interface>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PHPUnit_Extensions_RepeatedTest" namespace="" name="PHPUnit_Extensions_RepeatedTest" abstract="false" final="false" start="16" end="90">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Extensions" file="RepeatedTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Extensions/RepeatedTest.php" size="2295" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="693f3155b895702a12c087a1f8b4f2490f09942b" relative="vendor/phpunit/phpunit/src/Extensions/RepeatedTest.php"/>
+  <docblock>
+    <description compact="A Decorator that runs a test repeatedly."/>
+    <since value="Class available since Release 2.0.0"/>
+  </docblock>
+  <extends full="PHPUnit_Extensions_TestDecorator" namespace="" name="PHPUnit_Extensions_TestDecorator"/>
+  <member name="processIsolation" type="boolean" default="false" visibility="protected" line="21">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="timesRepeat" type="integer" default="1" visibility="protected" line="26">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="35" end="50" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$test">
+        <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+      </param>
+      <param type="int" variable="$timesRepeat"/>
+      <param type="object" variable="$processIsolation">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="test" byreference="false" type="object">
+      <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+    </parameter>
+    <parameter name="timesRepeat" byreference="false" type="integer" default="1"/>
+    <parameter name="processIsolation" byreference="false" type="boolean" default="false"/>
+  </constructor>
+  <method name="count" start="58" end="61" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Counts the number of test cases that will be run by this test."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="run" start="73" end="89" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Runs the decorated test and collects the result in a TestResult."/>
+      <param type="object" variable="$result">
+        <type full="PHPUnit_Framework_TestResult" namespace="" name="PHPUnit_Framework_TestResult"/>
+      </param>
+      <return type="object">
+        <type full="PHPUnit_Framework_TestResult" namespace="" name="PHPUnit_Framework_TestResult"/>
+      </return>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="result" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="PHPUnit_Framework_TestResult" namespace="" name="PHPUnit_Framework_TestResult"/>
+    </parameter>
+    <inline>
+      <comment value="@codingStandardsIgnoreStart" line="79"/>
+    </inline>
+  </method>
+</class>

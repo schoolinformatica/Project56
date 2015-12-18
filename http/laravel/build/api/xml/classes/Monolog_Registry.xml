@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Registry" namespace="Monolog" name="Registry" abstract="false" final="false" start="38" end="134">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog" file="Registry.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Registry.php" size="4024" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="6d08839423ae899d5a396c5080812d8fd3c4c400" relative="vendor/monolog/monolog/src/Monolog/Registry.php"/>
+  <docblock>
+    <description compact="Monolog log registry">Allows to get `Logger` instances in the global scope
+via static method calls on this class.
+
+&lt;code&gt;
+$application = new Monolog\Logger('application');
+$api = new Monolog\Logger('api');
+
+Monolog\Registry::addLogger($application);
+Monolog\Registry::addLogger($api);
+
+function testLogger()
+{
+    Monolog\Registry::api()-&gt;addError('Sent to $api Logger instance');
+    Monolog\Registry::application()-&gt;addError('Sent to $application Logger instance');
+}
+&lt;/code&gt;</description>
+    <author value="Tomas Tatarko &lt;tomas@tatarko.sk&gt;"/>
+  </docblock>
+  <member name="loggers" type="array" default="" visibility="private" line="45">
+    <docblock>
+      <description compact="List of all loggers in the registry (by named indexes)"/>
+      <var type="array" of="object">
+        <type full="Monolog\Logger" namespace="Monolog" name="Logger"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="addLogger" start="55" end="64" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Adds new logging channel to the registry"/>
+      <param description="Instance of the logging channel" type="object" variable="$logger">
+        <type full="Monolog\Logger" namespace="Monolog" name="Logger"/>
+      </param>
+      <param description="Name of the logging channel ($logger-&gt;getName() by default)" type="object" variable="$name">
+        <type full="Monolog\string|null" namespace="Monolog" name="string|null"/>
+      </param>
+      <param description="Overwrite instance in the registry if the given name already exists?" type="boolean" variable="$overwrite"/>
+      <throws description="If $overwrite set to false and named Logger instance already exists" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="logger" byreference="false" type="object">
+      <type full="Monolog\Logger" namespace="Monolog" name="Logger"/>
+    </parameter>
+    <parameter name="name" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="overwrite" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="hasLogger" start="71" end="80" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Checks if such logging channel exists by name or instance"/>
+      <param description="Name or logger instance" type="object" variable="$logger">
+        <type full="Monolog\string|Logger" namespace="Monolog" name="string|Logger"/>
+      </param>
+    </docblock>
+    <parameter name="logger" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="removeLogger" start="87" end="96" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Removes instance from registry by name or instance"/>
+      <param description="Name or logger instance" type="object" variable="$logger">
+        <type full="Monolog\string|Logger" namespace="Monolog" name="string|Logger"/>
+      </param>
+    </docblock>
+    <parameter name="logger" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="clear" start="101" end="104" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Clears the registry"/>
+    </docblock>
+  </method>
+  <method name="getInstance" start="113" end="120" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Gets Logger instance from the registry"/>
+      <param description="Name of the requested Logger instance" type="string" variable="$name"/>
+      <return description="Requested instance of Logger" type="object">
+        <type full="Monolog\Logger" namespace="Monolog" name="Logger"/>
+      </return>
+      <throws description="If named Logger instance is not in the registry" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__callStatic" start="130" end="133" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Gets Logger instance from the registry via static method call"/>
+      <param description="Name of the requested Logger instance" type="string" variable="$name"/>
+      <param description="Arguments passed to static method call" type="array" variable="$arguments"/>
+      <return description="Requested instance of Logger" type="object">
+        <type full="Monolog\Logger" namespace="Monolog" name="Logger"/>
+      </return>
+      <throws description="If named Logger instance is not in the registry" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}"/>
+  </method>
+</class>

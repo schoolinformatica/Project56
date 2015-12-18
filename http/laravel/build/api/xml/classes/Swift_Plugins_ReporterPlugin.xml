@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_Plugins_ReporterPlugin" namespace="" name="Swift_Plugins_ReporterPlugin" abstract="false" final="false" start="16" end="73">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Plugins" file="ReporterPlugin.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Plugins/ReporterPlugin.php" size="2125" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="cc2e6981f66cbd55e474693cfb22e10bc4db93eb" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Plugins/ReporterPlugin.php"/>
+  <docblock>
+    <description compact="Does real time reporting of pass/fail for each recipient."/>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <implements full="Swift_Events_SendListener" namespace="" name="Swift_Events_SendListener"/>
+  <member name="_reporter" visibility="private" line="23">
+    <docblock>
+      <description compact="The reporter backend which takes notifications."/>
+      <var type="object">
+        <type full="Swift_Plugins_Reporter" namespace="" name="Swift_Plugins_Reporter"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="30" end="33" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new ReporterPlugin using $reporter."/>
+      <param type="object" variable="$reporter">
+        <type full="Swift_Plugins_Reporter" namespace="" name="Swift_Plugins_Reporter"/>
+      </param>
+    </docblock>
+    <parameter name="reporter" byreference="false" type="object">
+      <type full="Swift_Plugins_Reporter" namespace="" name="Swift_Plugins_Reporter"/>
+    </parameter>
+  </constructor>
+  <method name="beforeSendPerformed" start="38" end="40" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Not used."/>
+    </docblock>
+    <parameter name="evt" byreference="false" type="object">
+      <type full="Swift_Events_SendEvent" namespace="" name="Swift_Events_SendEvent"/>
+    </parameter>
+  </method>
+  <method name="sendPerformed" start="47" end="72" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Invoked immediately after the Message is sent."/>
+      <param type="object" variable="$evt">
+        <type full="Swift_Events_SendEvent" namespace="" name="Swift_Events_SendEvent"/>
+      </param>
+    </docblock>
+    <parameter name="evt" byreference="false" type="object">
+      <type full="Swift_Events_SendEvent" namespace="" name="Swift_Events_SendEvent"/>
+    </parameter>
+  </method>
+</class>

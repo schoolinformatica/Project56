@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\View\Factory" namespace="Illuminate\View" name="Factory" abstract="false" final="false" start="15" end="884">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/View" file="Factory.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/View/Factory.php" size="21138" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="d20a48a001b9058a4ec1dce23333ae423358f9c9" relative="vendor/laravel/framework/src/Illuminate/View/Factory.php"/>
+  <implements full="Illuminate\Contracts\View\Factory" namespace="Illuminate\Contracts\View" name="Factory"/>
+  <member name="engines" visibility="protected" line="22">
+    <docblock>
+      <description compact="The engine implementation."/>
+      <var type="object">
+        <type full="\Illuminate\View\Engines\EngineResolver" namespace="\Illuminate\View\Engines" name="EngineResolver"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="finder" visibility="protected" line="29">
+    <docblock>
+      <description compact="The view finder implementation."/>
+      <var type="object">
+        <type full="\Illuminate\View\ViewFinderInterface" namespace="\Illuminate\View" name="ViewFinderInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="events" visibility="protected" line="36">
+    <docblock>
+      <description compact="The event dispatcher instance."/>
+      <var type="object">
+        <type full="\Illuminate\Contracts\Events\Dispatcher" namespace="\Illuminate\Contracts\Events" name="Dispatcher"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="container" visibility="protected" line="43">
+    <docblock>
+      <description compact="The IoC container instance."/>
+      <var type="object">
+        <type full="\Illuminate\Contracts\Container\Container" namespace="\Illuminate\Contracts\Container" name="Container"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="shared" type="array" default="" visibility="protected" line="50">
+    <docblock>
+      <description compact="Data that should be available to all templates."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="aliases" type="array" default="" visibility="protected" line="57">
+    <docblock>
+      <description compact="Array of registered view name aliases."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="names" type="array" default="" visibility="protected" line="64">
+    <docblock>
+      <description compact="All of the registered view names."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="extensions" type="array" default="" visibility="protected" line="71">
+    <docblock>
+      <description compact="The extension to engine bindings."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="composers" type="array" default="" visibility="protected" line="78">
+    <docblock>
+      <description compact="The view composer events."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="sections" type="array" default="" visibility="protected" line="85">
+    <docblock>
+      <description compact="All of the finished, captured sections."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="sectionStack" type="array" default="" visibility="protected" line="92">
+    <docblock>
+      <description compact="The stack of in-progress sections."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="renderCount" type="integer" default="0" visibility="protected" line="99">
+    <docblock>
+      <description compact="The number of active rendering operations."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="109" end="116" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new view factory instance."/>
+      <param type="object" variable="$engines">
+        <type full="\Illuminate\View\Engines\EngineResolver" namespace="\Illuminate\View\Engines" name="EngineResolver"/>
+      </param>
+      <param type="object" variable="$finder">
+        <type full="\Illuminate\View\ViewFinderInterface" namespace="\Illuminate\View" name="ViewFinderInterface"/>
+      </param>
+      <param type="object" variable="$events">
+        <type full="\Illuminate\Contracts\Events\Dispatcher" namespace="\Illuminate\Contracts\Events" name="Dispatcher"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\View\void" namespace="Illuminate\View" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="engines" byreference="false" type="object">
+      <type full="Illuminate\View\Engines\EngineResolver" namespace="Illuminate\View\Engines" name="EngineResolver"/>
+    </parameter>
+    <parameter name="finder" byreference="false" type="object">
+      <type full="Illuminate\View\ViewFinderInterface" namespace="Illuminate\View" name="ViewFinderInterface"/>
+    </parameter>
+    <parameter name="events" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Events\Dispatcher" namespace="Illuminate\Contracts\Events" name="Dispatcher"/>
+    </parameter>
+  </constructor>
+  <method name="file" start="126" end="133" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the evaluated view contents for the given view."/>
+      <param type="string" variable="$path"/>
+      <param type="array" variable="$data"/>
+      <param type="array" variable="$mergeData"/>
+      <return type="object">
+        <type full="\Illuminate\View\View" namespace="\Illuminate\View" name="View"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="array" default=""/>
+    <parameter name="mergeData" byreference="false" type="array" default=""/>
+  </method>
+  <method name="make" start="143" end="158" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the evaluated view contents for the given view."/>
+      <param type="string" variable="$view"/>
+      <param type="array" variable="$data"/>
+      <param type="array" variable="$mergeData"/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\View\View" namespace="\Illuminate\Contracts\View" name="View"/>
+      </return>
+    </docblock>
+    <parameter name="view" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="array" default=""/>
+    <parameter name="mergeData" byreference="false" type="array" default=""/>
+  </method>
+  <method name="normalizeName" start="166" end="177" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Normalize a view name."/>
+      <param type="string" variable="$name"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="parseData" start="185" end="188" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Parse the given data into a raw array."/>
+      <param type="mixed" variable="$data"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="of" start="197" end="200" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the evaluated view contents for a named view."/>
+      <param type="string" variable="$view"/>
+      <param type="mixed" variable="$data"/>
+      <return type="object">
+        <type full="\Illuminate\View\View" namespace="\Illuminate\View" name="View"/>
+      </return>
+    </docblock>
+    <parameter name="view" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="array" default=""/>
+  </method>
+  <method name="name" start="209" end="212" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a named view."/>
+      <param type="string" variable="$view"/>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="Illuminate\View\void" namespace="Illuminate\View" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="view" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="alias" start="221" end="224" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add an alias for a view."/>
+      <param type="string" variable="$view"/>
+      <param type="string" variable="$alias"/>
+      <return type="object">
+        <type full="Illuminate\View\void" namespace="Illuminate\View" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="view" byreference="false" type="{unknown}"/>
+    <parameter name="alias" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="exists" start="232" end="241" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if a given view exists."/>
+      <param type="string" variable="$view"/>
+      <return type="object">
+        <type full="Illuminate\View\bool" namespace="Illuminate\View" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="view" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="renderEach" start="252" end="279" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the rendered contents of a partial from a loop."/>
+      <param type="string" variable="$view"/>
+      <param type="array" variable="$data"/>
+      <param type="string" variable="$iterator"/>
+      <param type="string" variable="$empty"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="view" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="iterator" byreference="false" type="{unknown}"/>
+    <parameter name="empty" byreference="false" type="string" default="'raw|'"/>
+    <inline>
+      <comment value="If is actually data in the array, we will loop through the data and append" line="256"/>
+      <comment value="an instance of the partial view to the final result HTML passing in the" line="257"/>
+      <comment value="iterated value of this data array, allowing the views to access them." line="258"/>
+    </inline>
+  </method>
+  <method name="getEngineFromPath" start="289" end="298" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the appropriate view engine for the given path."/>
+      <param type="string" variable="$path"/>
+      <return type="object">
+        <type full="\Illuminate\View\Engines\EngineInterface" namespace="\Illuminate\View\Engines" name="EngineInterface"/>
+      </return>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getExtension" start="306" end="313" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the extension used by the view file."/>
+      <param type="string" variable="$path"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="share" start="322" end="331" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a piece of shared data to the environment."/>
+      <param type="object" variable="$key">
+        <type full="Illuminate\View\array|string" namespace="Illuminate\View" name="array|string"/>
+      </param>
+      <param type="mixed" variable="$value"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="creator" start="340" end="349" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a view creator event."/>
+      <param type="object" variable="$views">
+        <type full="Illuminate\View\array|string" namespace="Illuminate\View" name="array|string"/>
+      </param>
+      <param type="object" variable="$callback">
+        <type full="\Closure|string" namespace="" name="Closure|string"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="views" byreference="false" type="{unknown}"/>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="composers" start="357" end="366" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register multiple view composers via an array."/>
+      <param type="array" variable="$composers"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="composers" byreference="false" type="array"/>
+  </method>
+  <method name="composer" start="376" end="385" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a view composer event."/>
+      <param type="object" variable="$views">
+        <type full="Illuminate\View\array|string" namespace="Illuminate\View" name="array|string"/>
+      </param>
+      <param type="object" variable="$callback">
+        <type full="\Closure|string" namespace="" name="Closure|string"/>
+      </param>
+      <param type="object" variable="$priority">
+        <type full="Illuminate\View\int|null" namespace="Illuminate\View" name="int|null"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="views" byreference="false" type="{unknown}"/>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+    <parameter name="priority" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="addViewEvent" start="396" end="407" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Add an event for a given view."/>
+      <param type="string" variable="$view"/>
+      <param type="object" variable="$callback">
+        <type full="\Closure|string" namespace="" name="Closure|string"/>
+      </param>
+      <param type="string" variable="$prefix"/>
+      <param type="object" variable="$priority">
+        <type full="Illuminate\View\int|null" namespace="Illuminate\View" name="int|null"/>
+      </param>
+      <return type="object">
+        <type full="\Closure|null" namespace="" name="Closure|null"/>
+      </return>
+    </docblock>
+    <parameter name="view" byreference="false" type="{unknown}"/>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+    <parameter name="prefix" byreference="false" type="string" default="'composing: '"/>
+    <parameter name="priority" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="addClassEvent" start="418" end="430" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register a class based view composer."/>
+      <param type="string" variable="$view"/>
+      <param type="string" variable="$class"/>
+      <param type="string" variable="$prefix"/>
+      <param type="object" variable="$priority">
+        <type full="Illuminate\View\int|null" namespace="Illuminate\View" name="int|null"/>
+      </param>
+      <return type="object">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </return>
+    </docblock>
+    <parameter name="view" byreference="false" type="{unknown}"/>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="prefix" byreference="false" type="{unknown}"/>
+    <parameter name="priority" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="When registering a class based view &quot;composer&quot;, we will simply resolve the" line="422"/>
+      <comment value="classes from the application IoC container then call the compose method" line="423"/>
+      <comment value="on the instance. This allows for convenient, testable view composers." line="424"/>
+    </inline>
+  </method>
+  <method name="addEventListener" start="440" end="447" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Add a listener to the event dispatcher."/>
+      <param type="string" variable="$name"/>
+      <param type="object" variable="$callback">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <param type="object" variable="$priority">
+        <type full="Illuminate\View\int|null" namespace="Illuminate\View" name="int|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\View\void" namespace="Illuminate\View" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+    <parameter name="priority" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="buildClassEventCallback" start="456" end="468" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Build a class based container callback Closure."/>
+      <param type="string" variable="$class"/>
+      <param type="string" variable="$prefix"/>
+      <return type="object">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </return>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="prefix" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Once we have the class and method name, we can build the Closure to resolve" line="460"/>
+      <comment value="the instance out of the IoC container and call the method on it with the" line="461"/>
+      <comment value="given arguments that are passed to the Closure as the composer's data." line="462"/>
+    </inline>
+  </method>
+  <method name="parseClassEvent" start="477" end="486" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Parse a class based composer name."/>
+      <param type="string" variable="$class"/>
+      <param type="string" variable="$prefix"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="prefix" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="callComposer" start="494" end="497" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Call the composer for a given view."/>
+      <param type="object" variable="$view">
+        <type full="\Illuminate\View\View" namespace="\Illuminate\View" name="View"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\View\void" namespace="Illuminate\View" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="view" byreference="false" type="object">
+      <type full="Illuminate\View\View" namespace="Illuminate\View" name="View"/>
+    </parameter>
+  </method>
+  <method name="callCreator" start="505" end="508" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Call the creator for a given view."/>
+      <param type="object" variable="$view">
+        <type full="\Illuminate\View\View" namespace="\Illuminate\View" name="View"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\View\void" namespace="Illuminate\View" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="view" byreference="false" type="object">
+      <type full="Illuminate\View\View" namespace="Illuminate\View" name="View"/>
+    </parameter>
+  </method>
+  <method name="startSection" start="517" end="526" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Start injecting content into a section."/>
+      <param type="string" variable="$section"/>
+      <param type="string" variable="$content"/>
+      <return type="object">
+        <type full="Illuminate\View\void" namespace="Illuminate\View" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="section" byreference="false" type="{unknown}"/>
+    <parameter name="content" byreference="false" type="string" default="''"/>
+  </method>
+  <method name="inject" start="535" end="538" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Inject inline content into a section."/>
+      <param type="string" variable="$section"/>
+      <param type="string" variable="$content"/>
+      <return type="object">
+        <type full="Illuminate\View\void" namespace="Illuminate\View" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="section" byreference="false" type="{unknown}"/>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="yieldSection" start="545" end="552" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Stop injecting content into a section and return its contents."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="stopSection" start="561" end="576" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Stop injecting content into a section."/>
+      <param type="object" variable="$overwrite">
+        <type full="Illuminate\View\bool" namespace="Illuminate\View" name="bool"/>
+      </param>
+      <return type="string"/>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="overwrite" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="appendSection" start="584" end="599" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Stop injecting content into a section and append it."/>
+      <return type="string"/>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="extendSection" start="608" end="615" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Append content to a given section."/>
+      <param type="string" variable="$section"/>
+      <param type="string" variable="$content"/>
+      <return type="object">
+        <type full="Illuminate\View\void" namespace="Illuminate\View" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="section" byreference="false" type="{unknown}"/>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="yieldContent" start="624" end="637" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the string contents of a section."/>
+      <param type="string" variable="$section"/>
+      <param type="string" variable="$default"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="section" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="string" default="''"/>
+  </method>
+  <method name="flushSections" start="644" end="649" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Flush all of the section contents."/>
+      <return type="object">
+        <type full="Illuminate\View\void" namespace="Illuminate\View" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="flushSectionsIfDoneRendering" start="656" end="661" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Flush all of the section contents if done rendering."/>
+      <return type="object">
+        <type full="Illuminate\View\void" namespace="Illuminate\View" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="incrementRender" start="668" end="671" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Increment the rendering counter."/>
+      <return type="object">
+        <type full="Illuminate\View\void" namespace="Illuminate\View" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="decrementRender" start="678" end="681" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Decrement the rendering counter."/>
+      <return type="object">
+        <type full="Illuminate\View\void" namespace="Illuminate\View" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="doneRendering" start="688" end="691" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check if there are no active render operations."/>
+      <return type="object">
+        <type full="Illuminate\View\bool" namespace="Illuminate\View" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="addLocation" start="699" end="702" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a location to the array of view locations."/>
+      <param type="string" variable="$location"/>
+      <return type="object">
+        <type full="Illuminate\View\void" namespace="Illuminate\View" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="location" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addNamespace" start="711" end="714" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a new namespace to the loader."/>
+      <param type="string" variable="$namespace"/>
+      <param type="object" variable="$hints">
+        <type full="Illuminate\View\string|array" namespace="Illuminate\View" name="string|array"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\View\void" namespace="Illuminate\View" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="namespace" byreference="false" type="{unknown}"/>
+    <parameter name="hints" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="prependNamespace" start="723" end="726" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Prepend a new namespace to the loader."/>
+      <param type="string" variable="$namespace"/>
+      <param type="object" variable="$hints">
+        <type full="Illuminate\View\string|array" namespace="Illuminate\View" name="string|array"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\View\void" namespace="Illuminate\View" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="namespace" byreference="false" type="{unknown}"/>
+    <parameter name="hints" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addExtension" start="736" end="747" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a valid view extension and its engine."/>
+      <param type="string" variable="$extension"/>
+      <param type="string" variable="$engine"/>
+      <param type="object" variable="$resolver">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\View\void" namespace="Illuminate\View" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="extension" byreference="false" type="{unknown}"/>
+    <parameter name="engine" byreference="false" type="{unknown}"/>
+    <parameter name="resolver" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getExtensions" start="754" end="757" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the extension to engine bindings."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getEngineResolver" start="764" end="767" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the engine resolver instance."/>
+      <return type="object">
+        <type full="\Illuminate\View\Engines\EngineResolver" namespace="\Illuminate\View\Engines" name="EngineResolver"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getFinder" start="774" end="777" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the view finder instance."/>
+      <return type="object">
+        <type full="\Illuminate\View\ViewFinderInterface" namespace="\Illuminate\View" name="ViewFinderInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setFinder" start="785" end="788" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the view finder instance."/>
+      <param type="object" variable="$finder">
+        <type full="\Illuminate\View\ViewFinderInterface" namespace="\Illuminate\View" name="ViewFinderInterface"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\View\void" namespace="Illuminate\View" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="finder" byreference="false" type="object">
+      <type full="Illuminate\View\ViewFinderInterface" namespace="Illuminate\View" name="ViewFinderInterface"/>
+    </parameter>
+  </method>
+  <method name="getDispatcher" start="795" end="798" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the event dispatcher instance."/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Events\Dispatcher" namespace="\Illuminate\Contracts\Events" name="Dispatcher"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setDispatcher" start="806" end="809" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the event dispatcher instance."/>
+      <param type="object" variable="$events">
+        <type full="\Illuminate\Contracts\Events\Dispatcher" namespace="\Illuminate\Contracts\Events" name="Dispatcher"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\View\void" namespace="Illuminate\View" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="events" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Events\Dispatcher" namespace="Illuminate\Contracts\Events" name="Dispatcher"/>
+    </parameter>
+  </method>
+  <method name="getContainer" start="816" end="819" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the IoC container instance."/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Container\Container" namespace="\Illuminate\Contracts\Container" name="Container"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setContainer" start="827" end="830" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the IoC container instance."/>
+      <param type="object" variable="$container">
+        <type full="\Illuminate\Contracts\Container\Container" namespace="\Illuminate\Contracts\Container" name="Container"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\View\void" namespace="Illuminate\View" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="container" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Container\Container" namespace="Illuminate\Contracts\Container" name="Container"/>
+    </parameter>
+  </method>
+  <method name="shared" start="839" end="842" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get an item from the shared data."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$default"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getShared" start="849" end="852" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get all of the shared data for the environment."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="hasSection" start="860" end="863" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check if section exists."/>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="Illuminate\View\bool" namespace="Illuminate\View" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getSections" start="870" end="873" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the entire array of sections."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getNames" start="880" end="883" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get all of the registered named views in environment."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+</class>

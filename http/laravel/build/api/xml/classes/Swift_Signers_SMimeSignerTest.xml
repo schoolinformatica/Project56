@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_Signers_SMimeSignerTest" namespace="" name="Swift_Signers_SMimeSignerTest" abstract="false" final="false" start="3" end="554">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/tests/unit/Swift/Signers" file="SMimeSignerTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/tests/unit/Swift/Signers/SMimeSignerTest.php" size="20079" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="88fd04b164cf823d4314b6b3cc3ad2c0fcc6fa7d" relative="vendor/swiftmailer/swiftmailer/tests/unit/Swift/Signers/SMimeSignerTest.php"/>
+  <extends full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+  <member name="replacementFactory" visibility="protected" line="8">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Swift_StreamFilters_StringReplacementFilterFactory" namespace="" name="Swift_StreamFilters_StringReplacementFilterFactory"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="samplesDir" visibility="protected" line="10"/>
+  <method name="setUp" start="12" end="18" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testUnSingedMessage" start="20" end="28" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSingedMessage" start="30" end="71" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSingedMessageExtraCerts" start="73" end="114" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSingedMessageBinary" start="116" end="149" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSingedMessageWithAttachments" start="151" end="213" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testEncryptedMessage" start="215" end="251" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testEncryptedMessageWithMultipleCerts" start="253" end="298" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSignThenEncryptedMessage" start="300" end="363" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testEncryptThenSignMessage" start="365" end="435" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="assertValidVerify" start="437" end="463" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="messageStream" byreference="false" type="object">
+      <type full="Swift_ByteStream_TemporaryFileByteStream" namespace="" name="Swift_ByteStream_TemporaryFileByteStream"/>
+    </parameter>
+    <inline>
+      <comment value="File is UNIX encoded so convert them to correct line ending" line="441"/>
+    </inline>
+  </method>
+  <method name="getBoundary" start="465" end="474" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="contentType" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="newFilteredStream" start="476" end="483" abstract="false" final="false" static="false" visibility="protected"/>
+  <method name="getBodyOfMessage" start="485" end="488" abstract="false" final="false" static="true" visibility="protected">
+    <parameter name="message" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="cleanMessage" start="496" end="518" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Strips of the sender headers and Mime-Version."/>
+      <param type="object" variable="$messageStream">
+        <type full="Swift_ByteStream_TemporaryFileByteStream" namespace="" name="Swift_ByteStream_TemporaryFileByteStream"/>
+      </param>
+      <param type="object" variable="$inputStream">
+        <type full="Swift_ByteStream_TemporaryFileByteStream" namespace="" name="Swift_ByteStream_TemporaryFileByteStream"/>
+      </param>
+    </docblock>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getHeadersOfMessage" start="529" end="553" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Returns the headers of the message.">Header-names are lowercase.</description>
+      <param type="string" variable="$message"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+  </method>
+</class>

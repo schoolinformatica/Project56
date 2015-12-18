@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Console\Tests\Command\CommandTest" namespace="Symfony\Component\Console\Tests\Command" name="CommandTest" abstract="false" final="false" start="26" end="350">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Tests/Command" file="CommandTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Tests/Command/CommandTest.php" size="15116" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="45b7b82e7946c66e2f20094518f0cac41f452285" relative="vendor/symfony/console/Tests/Command/CommandTest.php"/>
+  <extends full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+  <member name="fixturesPath" visibility="protected" line="28"/>
+  <method name="setUpBeforeClass" start="30" end="34" abstract="false" final="false" static="true" visibility="public"/>
+  <method name="testConstructor" start="36" end="40" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testCommandNameCannotBeEmpty" start="46" end="49" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\LogicException"/>
+      <expectedexceptionmessage value="The command defined in &quot;Symfony\Component\Console\Command\Command&quot; cannot have an empty name."/>
+    </docblock>
+  </method>
+  <method name="testSetApplication" start="51" end="57" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSetGetDefinition" start="59" end="69" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testAddArgument" start="71" end="77" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testAddOption" start="79" end="85" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetNamespaceGetNameSetName" start="87" end="97" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testInvalidCommandNames" start="102" end="108" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="provideInvalidCommandNames"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="provideInvalidCommandNames" start="110" end="116" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetSetDescription" start="118" end="125" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetSetHelp" start="127" end="136" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetProcessedHelp" start="138" end="148" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetSetAliases" start="150" end="157" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetSynopsis" start="159" end="165" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetHelper" start="167" end="174" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testMergeApplicationDefinition" start="176" end="196" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testMergeApplicationDefinitionWithoutArgsThenWithArgsAddsArgs" start="198" end="219" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testRunInteractive" start="221" end="228" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testRunNonInteractive" start="230" end="237" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testExecuteMethodNeedsToBeOverridden" start="243" end="247" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\LogicException"/>
+      <expectedexceptionmessage value="You must override the execute() method in the concrete command class."/>
+    </docblock>
+  </method>
+  <method name="testRunWithInvalidOption" start="253" end="258" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\InvalidArgumentException"/>
+      <expectedexceptionmessage value="The &quot;--bar&quot; option does not exist."/>
+    </docblock>
+  </method>
+  <method name="testRunReturnsIntegerExitCode" start="260" end="272" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testRunWithApplication" start="274" end="281" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testRunReturnsAlwaysInteger" start="283" end="288" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSetCode" start="290" end="300" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSetCodeWithNonClosureCallable" start="302" end="310" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSetCodeWithNonCallable" start="316" end="320" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\InvalidArgumentException"/>
+      <expectedexceptionmessage value="Invalid callable provided to Command::setCode."/>
+    </docblock>
+  </method>
+  <method name="callableMethodCommand" start="322" end="325" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="input" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputInterface" namespace="Symfony\Component\Console\Input" name="InputInterface"/>
+    </parameter>
+    <parameter name="output" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+    </parameter>
+  </method>
+  <method name="testLegacyAsText" start="330" end="337" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <group value="legacy"/>
+    </docblock>
+  </method>
+  <method name="testLegacyAsXml" start="342" end="349" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <group value="legacy"/>
+    </docblock>
+  </method>
+</class>

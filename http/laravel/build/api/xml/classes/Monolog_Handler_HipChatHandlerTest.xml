@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Handler\HipChatHandlerTest" namespace="Monolog\Handler" name="HipChatHandlerTest" abstract="false" final="false" start="21" end="244">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/tests/Monolog/Handler" file="HipChatHandlerTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/tests/Monolog/Handler/HipChatHandlerTest.php" size="9165" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="ad94ee72707ddde5521865f4ed3f67efa0dfd451" relative="vendor/monolog/monolog/tests/Monolog/Handler/HipChatHandlerTest.php"/>
+  <docblock>
+    <description/>
+    <author value="Rafael Dohms &lt;rafael@doh.ms&gt;"/>
+    <see value="https://www.hipchat.com/docs/api"/>
+  </docblock>
+  <extends full="Monolog\TestCase" namespace="Monolog" name="TestCase"/>
+  <member name="res" visibility="private" line="23"/>
+  <member name="handler" visibility="private" line="24"/>
+  <method name="testWriteHeader" start="26" end="36" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testWriteCustomHostHeader" start="38" end="48" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testWriteV2" start="50" end="60" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testWriteV2Notify" start="62" end="72" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testRoomSpaces" start="74" end="84" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testWriteContent" start="89" end="92" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <depends value="testWriteHeader"/>
+    </docblock>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testWriteContentNotify" start="97" end="100" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <depends value="testWriteCustomHostHeader"/>
+    </docblock>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testWriteContentV2" start="105" end="108" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <depends value="testWriteV2"/>
+    </docblock>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testWriteContentV2Notify" start="113" end="116" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <depends value="testWriteV2Notify"/>
+    </docblock>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testWriteWithComplexMessage" start="118" end="126" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testWriteWithErrorLevelsAndColors" start="131" end="139" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="provideLevelColors"/>
+    </docblock>
+    <parameter name="level" byreference="false" type="{unknown}"/>
+    <parameter name="expectedColor" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="provideLevelColors" start="141" end="153" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testHandleBatch" start="158" end="168" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="provideBatchRecords"/>
+    </docblock>
+    <parameter name="records" byreference="false" type="{unknown}"/>
+    <parameter name="expectedColor" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="provideBatchRecords" start="170" end="202" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="createHandler" start="204" end="229" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="token" byreference="false" type="string" default="'myToken'"/>
+    <parameter name="room" byreference="false" type="string" default="'room1'"/>
+    <parameter name="name" byreference="false" type="string" default="'Monolog'"/>
+    <parameter name="notify" byreference="false" type="boolean" default="false"/>
+    <parameter name="host" byreference="false" type="string" default="'api.hipchat.com'"/>
+    <parameter name="version" byreference="false" type="string" default="'v1'"/>
+  </method>
+  <method name="testCreateWithTooLongName" start="234" end="237" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="InvalidArgumentException"/>
+    </docblock>
+  </method>
+  <method name="testCreateWithTooLongNameV2" start="239" end="243" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="creating a handler with too long of a name but using the v2 api doesn't matter." line="241"/>
+    </inline>
+  </method>
+</class>

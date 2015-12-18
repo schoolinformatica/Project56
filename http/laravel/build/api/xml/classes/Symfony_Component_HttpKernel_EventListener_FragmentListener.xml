@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\EventListener\FragmentListener" namespace="Symfony\Component\HttpKernel\EventListener" name="FragmentListener" abstract="false" final="false" start="32" end="108">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/EventListener" file="FragmentListener.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/EventListener/FragmentListener.php" size="3482" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="17256a1c613d0d1beeccbbfc2c0605bda02cd1b9" relative="vendor/symfony/http-kernel/EventListener/FragmentListener.php"/>
+  <docblock>
+    <description compact="Handles content fragments represented by special URIs.">All URL paths starting with /_fragment are handled as
+content fragments by this listener.
+
+If throws an AccessDeniedHttpException exception if the request
+is not signed or if it is not an internal sub-request.</description>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\EventDispatcher\EventSubscriberInterface" namespace="Symfony\Component\EventDispatcher" name="EventSubscriberInterface"/>
+  <member name="signer" visibility="private" line="34"/>
+  <member name="fragmentPath" visibility="private" line="35"/>
+  <constructor name="__construct" start="43" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="A UriSigner instance" type="object" variable="$signer">
+        <type full="Symfony\Component\HttpKernel\UriSigner" namespace="Symfony\Component\HttpKernel" name="UriSigner"/>
+      </param>
+      <param description="The path that triggers this listener" type="string" variable="$fragmentPath"/>
+    </docblock>
+    <parameter name="signer" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\UriSigner" namespace="Symfony\Component\HttpKernel" name="UriSigner"/>
+    </parameter>
+    <parameter name="fragmentPath" byreference="false" type="string" default="'/_fragment'"/>
+  </constructor>
+  <method name="onKernelRequest" start="56" end="72" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Fixes request attributes when the path is '/_fragment'."/>
+      <param description="A GetResponseEvent instance" type="object" variable="$event">
+        <type full="Symfony\Component\HttpKernel\Event\GetResponseEvent" namespace="Symfony\Component\HttpKernel\Event" name="GetResponseEvent"/>
+      </param>
+      <throws description="if the request does not come from a trusted IP." type="object">
+        <type full="Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException" namespace="Symfony\Component\HttpKernel\Exception" name="AccessDeniedHttpException"/>
+      </throws>
+    </docblock>
+    <parameter name="event" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\Event\GetResponseEvent" namespace="Symfony\Component\HttpKernel\Event" name="GetResponseEvent"/>
+    </parameter>
+  </method>
+  <method name="validateRequest" start="74" end="88" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <inline>
+      <comment value="is the Request safe?" line="76"/>
+      <comment value="is the Request signed?" line="81"/>
+      <comment value="we cannot use $request-&gt;getUri() here as we want to work with the original URI (no query string reordering)" line="82"/>
+    </inline>
+  </method>
+  <method name="getLocalIpAddresses" start="95" end="100" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <deprecated value="since version 2.3.19, to be removed in 3.0."/>
+      <return type="array" of="object">
+        <type full="Symfony\Component\HttpKernel\EventListener\string" namespace="Symfony\Component\HttpKernel\EventListener" name="string"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getSubscribedEvents" start="102" end="107" abstract="false" final="false" static="true" visibility="public"/>
+</class>

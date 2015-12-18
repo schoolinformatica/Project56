@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trait xmlns="http://xml.phpdox.net/src" full="Illuminate\Foundation\Auth\Access\AuthorizesRequests" namespace="Illuminate\Foundation\Auth\Access" name="AuthorizesRequests" abstract="false" final="false" start="9" end="96">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Auth/Access" file="AuthorizesRequests.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Auth/Access/AuthorizesRequests.php" size="2993" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="53b5f0ee35d120b532c62e2cee7a3612e34f7a4f" relative="vendor/laravel/framework/src/Illuminate/Foundation/Auth/Access/AuthorizesRequests.php"/>
+  <method name="authorize" start="20" end="25" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Authorize a given action against a set of arguments."/>
+      <param type="mixed" variable="$ability"/>
+      <param type="object" variable="$arguments">
+        <type full="Illuminate\Foundation\Auth\Access\mixed|array" namespace="Illuminate\Foundation\Auth\Access" name="mixed|array"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Auth\Access\Response" namespace="\Illuminate\Auth\Access" name="Response"/>
+      </return>
+      <throws type="object">
+        <type full="\Symfony\Component\HttpKernel\Exception\HttpException" namespace="\Symfony\Component\HttpKernel\Exception" name="HttpException"/>
+      </throws>
+    </docblock>
+    <parameter name="ability" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="array" default=""/>
+  </method>
+  <method name="authorizeForUser" start="37" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Authorize a given action for a user."/>
+      <param type="object" variable="$user">
+        <type full="\Illuminate\Contracts\Auth\Authenticatable|mixed" namespace="\Illuminate\Contracts\Auth" name="Authenticatable|mixed"/>
+      </param>
+      <param type="mixed" variable="$ability"/>
+      <param type="object" variable="$arguments">
+        <type full="Illuminate\Foundation\Auth\Access\mixed|array" namespace="Illuminate\Foundation\Auth\Access" name="mixed|array"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Auth\Access\Response" namespace="\Illuminate\Auth\Access" name="Response"/>
+      </return>
+      <throws type="object">
+        <type full="\Symfony\Component\HttpKernel\Exception\HttpException" namespace="\Symfony\Component\HttpKernel\Exception" name="HttpException"/>
+      </throws>
+    </docblock>
+    <parameter name="user" byreference="false" type="{unknown}"/>
+    <parameter name="ability" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="array" default=""/>
+  </method>
+  <method name="authorizeAtGate" start="56" end="65" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Authorize the request at the given gate."/>
+      <param type="object" variable="$gate">
+        <type full="\Illuminate\Contracts\Auth\Access\Gate" namespace="\Illuminate\Contracts\Auth\Access" name="Gate"/>
+      </param>
+      <param type="mixed" variable="$ability"/>
+      <param type="object" variable="$arguments">
+        <type full="Illuminate\Foundation\Auth\Access\mixed|array" namespace="Illuminate\Foundation\Auth\Access" name="mixed|array"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Auth\Access\Response" namespace="\Illuminate\Auth\Access" name="Response"/>
+      </return>
+      <throws type="object">
+        <type full="\Symfony\Component\HttpKernel\Exception\HttpException" namespace="\Symfony\Component\HttpKernel\Exception" name="HttpException"/>
+      </throws>
+    </docblock>
+    <parameter name="gate" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Auth\Access\Gate" namespace="Illuminate\Contracts\Auth\Access" name="Gate"/>
+    </parameter>
+    <parameter name="ability" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="parseAbilityAndArguments" start="74" end="81" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Guesses the ability's name if it wasn't provided."/>
+      <param type="mixed" variable="$ability"/>
+      <param type="object" variable="$arguments">
+        <type full="Illuminate\Foundation\Auth\Access\mixed|array" namespace="Illuminate\Foundation\Auth\Access" name="mixed|array"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="ability" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="createGateUnauthorizedException" start="92" end="95" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Throw an unauthorized exception based on gate results."/>
+      <param type="string" variable="$ability"/>
+      <param type="object" variable="$arguments">
+        <type full="Illuminate\Foundation\Auth\Access\mixed|array" namespace="Illuminate\Foundation\Auth\Access" name="mixed|array"/>
+      </param>
+      <param type="string" variable="$message"/>
+      <param type="object" variable="$previousException">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </param>
+      <return type="object">
+        <type full="\Symfony\Component\HttpKernel\Exception\HttpException" namespace="\Symfony\Component\HttpKernel\Exception" name="HttpException"/>
+      </return>
+    </docblock>
+    <parameter name="ability" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}"/>
+    <parameter name="message" byreference="false" type="string" default="'This action is unauthorized.'"/>
+    <parameter name="previousException" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+</trait>

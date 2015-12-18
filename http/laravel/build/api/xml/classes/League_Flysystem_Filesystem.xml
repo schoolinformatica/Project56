@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="League\Flysystem\Filesystem" namespace="League\Flysystem" name="Filesystem" abstract="false" final="false" start="15" end="398">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/league/flysystem/src" file="Filesystem.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/league/flysystem/src/Filesystem.php" size="9481" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="a8082a8989f0b9ed2429454bb0835788aa772296" relative="vendor/league/flysystem/src/Filesystem.php"/>
+  <docblock>
+    <description/>
+    <method value="array getWithMetadata(string $path, array $metadata)"/>
+    <method value="array listFiles(string $path = '', boolean $recursive = false)"/>
+    <method value="array listPaths(string $path = '', boolean $recursive = false)"/>
+    <method value="array listWith(array $keys = [], $directory = '', $recursive = false)"/>
+  </docblock>
+  <implements full="League\Flysystem\FilesystemInterface" namespace="League\Flysystem" name="FilesystemInterface"/>
+  <uses full="League\Flysystem\Plugin\PluggableTrait" namespace="League\Flysystem\Plugin" name="PluggableTrait" start="17" end="17"/>
+  <uses full="League\Flysystem\ConfigAwareTrait" namespace="League\Flysystem" name="ConfigAwareTrait" start="18" end="18"/>
+  <member name="adapter" visibility="protected" line="23">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="League\Flysystem\AdapterInterface" namespace="League\Flysystem" name="AdapterInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="31" end="35" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param type="object" variable="$adapter">
+        <type full="League\Flysystem\AdapterInterface" namespace="League\Flysystem" name="AdapterInterface"/>
+      </param>
+      <param type="object" variable="$config">
+        <type full="League\Flysystem\Config|array" namespace="League\Flysystem" name="Config|array"/>
+      </param>
+    </docblock>
+    <parameter name="adapter" byreference="false" type="object">
+      <type full="League\Flysystem\AdapterInterface" namespace="League\Flysystem" name="AdapterInterface"/>
+    </parameter>
+    <parameter name="config" byreference="false" type="{unknown}" default="" constant="null"/>
+  </constructor>
+  <method name="getAdapter" start="42" end="45" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the Adapter."/>
+      <return description="adapter" type="object">
+        <type full="League\Flysystem\AdapterInterface" namespace="League\Flysystem" name="AdapterInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="has" start="50" end="55" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="write" start="60" end="67" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="contents" byreference="false" type="{unknown}"/>
+    <parameter name="config" byreference="false" type="array" default=""/>
+  </method>
+  <method name="writeStream" start="72" end="85" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="resource" byreference="false" type="{unknown}"/>
+    <parameter name="config" byreference="false" type="array" default=""/>
+  </method>
+  <method name="put" start="90" end="100" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="contents" byreference="false" type="{unknown}"/>
+    <parameter name="config" byreference="false" type="array" default=""/>
+  </method>
+  <method name="putStream" start="105" end="120" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="resource" byreference="false" type="{unknown}"/>
+    <parameter name="config" byreference="false" type="array" default=""/>
+  </method>
+  <method name="readAndDelete" start="125" end="138" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="update" start="143" end="151" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="contents" byreference="false" type="{unknown}"/>
+    <parameter name="config" byreference="false" type="array" default=""/>
+  </method>
+  <method name="updateStream" start="156" end="168" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="resource" byreference="false" type="{unknown}"/>
+    <parameter name="config" byreference="false" type="array" default=""/>
+  </method>
+  <method name="read" start="173" end="183" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="readStream" start="188" end="198" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="rename" start="203" end="211" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="newpath" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="copy" start="216" end="224" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="newpath" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="delete" start="229" end="235" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="deleteDir" start="240" end="249" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="dirname" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="createDir" start="254" end="260" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="dirname" byreference="false" type="{unknown}"/>
+    <parameter name="config" byreference="false" type="array" default=""/>
+  </method>
+  <method name="listContents" start="265" end="271" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="directory" byreference="false" type="string" default="''"/>
+    <parameter name="recursive" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="getMimetype" start="276" end="286" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getTimestamp" start="291" end="301" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getVisibility" start="306" end="316" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getSize" start="321" end="330" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setVisibility" start="335" end="340" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="visibility" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getMetadata" start="345" end="351" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get" start="356" end="369" abstract="false" final="false" static="false" visibility="public">
+    <docblock inherit="true">
+      <description/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="handler" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="League\Flysystem\Handler" namespace="League\Flysystem" name="Handler"/>
+    </parameter>
+  </method>
+  <method name="assertPresent" start="378" end="383" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Assert a file is present."/>
+      <param description="path to file" type="string" variable="$path"/>
+      <throws type="object">
+        <type full="League\Flysystem\FileNotFoundException" namespace="League\Flysystem" name="FileNotFoundException"/>
+      </throws>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="assertAbsent" start="392" end="397" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Assert a file is absent."/>
+      <param description="path to file" type="string" variable="$path"/>
+      <throws type="object">
+        <type full="League\Flysystem\FileExistsException" namespace="League\Flysystem" name="FileExistsException"/>
+      </throws>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+</class>

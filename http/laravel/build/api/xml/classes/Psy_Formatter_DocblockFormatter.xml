@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\Formatter\DocblockFormatter" namespace="Psy\Formatter" name="DocblockFormatter" abstract="false" final="false" start="20" end="168">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Formatter" file="DocblockFormatter.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Formatter/DocblockFormatter.php" size="4590" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="6defd3037bcb1875d81713c699b5ecbd26be1d64" relative="vendor/psy/psysh/src/Psy/Formatter/DocblockFormatter.php"/>
+  <docblock>
+    <description compact="A pretty-printer for docblocks."/>
+  </docblock>
+  <implements full="Psy\Formatter\Formatter" namespace="Psy\Formatter" name="Formatter"/>
+  <member name="vectorParamTemplates" type="array" default="" visibility="private" line="22"/>
+  <method name="format" start="34" end="62" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Format a docblock."/>
+      <param type="object" variable="$reflector">
+        <type full="\Reflector" namespace="" name="Reflector"/>
+      </param>
+      <return description="Formatted docblock" type="string"/>
+    </docblock>
+    <parameter name="reflector" byreference="false" type="object">
+      <type full="Reflector" namespace="" name="Reflector"/>
+    </parameter>
+  </method>
+  <method name="formatVector" start="74" end="96" abstract="false" final="false" static="true" visibility="private">
+    <docblock>
+      <description compact="Format a docblock vector, for example, `@throws`, `@param`, or `@return`."/>
+      <see value="DocBlock::$vectors"/>
+      <param type="array" variable="$vector"/>
+      <param type="array" variable="$lines"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="vector" byreference="false" type="array"/>
+    <parameter name="lines" byreference="false" type="array"/>
+  </method>
+  <method name="formatTags" start="106" end="123" abstract="false" final="false" static="true" visibility="private">
+    <docblock>
+      <description compact="Format docblock tags."/>
+      <param description="Tags to exclude" type="array" variable="$skip"/>
+      <param description="Tags to format" type="array" variable="$tags"/>
+      <return description="formatted tags" type="string"/>
+    </docblock>
+    <parameter name="skip" byreference="false" type="array"/>
+    <parameter name="tags" byreference="false" type="array"/>
+  </method>
+  <method name="getVectorParamTemplate" start="133" end="140" abstract="false" final="false" static="true" visibility="private">
+    <docblock>
+      <description compact="Get a docblock vector template."/>
+      <param description="Vector type" type="string" variable="$type"/>
+      <param description="Pad width" type="int" variable="$max"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+    <parameter name="max" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="indent" start="150" end="153" abstract="false" final="false" static="true" visibility="private">
+    <docblock>
+      <description compact="Indent a string."/>
+      <param description="String to indent" type="string" variable="$text"/>
+      <param description="(default: '  ')" type="string" variable="$indent"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="text" byreference="false" type="{unknown}"/>
+    <parameter name="indent" byreference="false" type="string" default="'  '"/>
+  </method>
+  <method name="inflect" start="162" end="167" abstract="false" final="false" static="true" visibility="private">
+    <docblock>
+      <description compact="Convert underscored or whitespace separated words into sentence case."/>
+      <param type="string" variable="$text"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="text" byreference="false" type="{unknown}"/>
+  </method>
+</class>

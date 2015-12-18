@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpParser\Error" namespace="PhpParser" name="Error" abstract="false" final="false" start="5" end="158">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/nikic/php-parser/lib/PhpParser" file="Error.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/nikic/php-parser/lib/PhpParser/Error.php" size="4265" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="886c55cf59aee6e41d4541a3f3bbf3c0eaf704d8" relative="vendor/nikic/php-parser/lib/PhpParser/Error.php"/>
+  <extends full="RuntimeException" namespace="" name="RuntimeException"/>
+  <member name="rawMessage" visibility="protected" line="7"/>
+  <member name="attributes" visibility="protected" line="8"/>
+  <constructor name="__construct" start="17" end="25" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Creates an Exception signifying a parse error."/>
+      <param description="Error message" type="string" variable="$message"/>
+      <param description="Attributes of node/token where error occurred" type="object" variable="$attributes">(or start line of error -- deprecated)<type full="PhpParser\array|int" namespace="PhpParser" name="array|int"/></param>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="attributes" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="getRawMessage" start="32" end="34" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the error message"/>
+      <return description="Error message" type="string"/>
+    </docblock>
+  </method>
+  <method name="getStartLine" start="41" end="43" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the line the error starts in."/>
+      <return description="Error start line" type="int"/>
+    </docblock>
+  </method>
+  <method name="getEndLine" start="50" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the line the error ends in."/>
+      <return description="Error end line" type="int"/>
+    </docblock>
+  </method>
+  <method name="getAttributes" start="60" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the attributes of the node/token the error occurred at."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="setRawMessage" start="69" end="72" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the line of the PHP file the error occurred in."/>
+      <param description="Error message" type="string" variable="$message"/>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setStartLine" start="79" end="82" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the line the error starts in."/>
+      <param description="Error start line" type="int" variable="$line"/>
+    </docblock>
+    <parameter name="line" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasColumnInfo" start="91" end="93" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns whether the error has start and end column information.">For column information enable the startFilePos and endFilePos in the lexer options.</description>
+      <return type="object">
+        <type full="PhpParser\bool" namespace="PhpParser" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getStartColumn" start="101" end="107" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the start column (1-based) into the line where the error started."/>
+      <param description="Source code of the file" type="string" variable="$code"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="code" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getEndColumn" start="115" end="121" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the end column (1-based) into the line where the error ended."/>
+      <param description="Source code of the file" type="string" variable="$code"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="code" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="toColumn" start="123" end="134" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="code" byreference="false" type="{unknown}"/>
+    <parameter name="pos" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="updateMessage" start="139" end="147" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Updates the exception message after a change to rawMessage or rawLine."/>
+    </docblock>
+  </method>
+  <method name="getRawLine" start="150" end="152" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="@deprecated Use getStartLine() instead"/>
+    </docblock>
+  </method>
+  <method name="setRawLine" start="155" end="157" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="@deprecated Use setStartLine() instead"/>
+    </docblock>
+    <parameter name="line" byreference="false" type="{unknown}"/>
+  </method>
+</class>

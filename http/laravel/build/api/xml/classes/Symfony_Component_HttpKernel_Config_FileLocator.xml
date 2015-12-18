@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\Config\FileLocator" namespace="Symfony\Component\HttpKernel\Config" name="FileLocator" abstract="false" final="false" start="22" end="56">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Config" file="FileLocator.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Config/FileLocator.php" size="1487" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="42c7b14159aa37b426c584ae90c617d8cd363b56" relative="vendor/symfony/http-kernel/Config/FileLocator.php"/>
+  <docblock>
+    <description compact="FileLocator uses the KernelInterface to locate resources in bundles."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\Config\FileLocator" namespace="Symfony\Component\Config" name="FileLocator"/>
+  <member name="kernel" visibility="private" line="24"/>
+  <member name="path" visibility="private" line="25"/>
+  <constructor name="__construct" start="34" end="43" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="A KernelInterface instance" type="object" variable="$kernel">
+        <type full="Symfony\Component\HttpKernel\KernelInterface" namespace="Symfony\Component\HttpKernel" name="KernelInterface"/>
+      </param>
+      <param description="The path the global resource directory" type="object" variable="$path">
+        <type full="Symfony\Component\HttpKernel\Config\null|string" namespace="Symfony\Component\HttpKernel\Config" name="null|string"/>
+      </param>
+      <param description="An array of paths where to look for resources" type="array" variable="$paths"/>
+    </docblock>
+    <parameter name="kernel" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\KernelInterface" namespace="Symfony\Component\HttpKernel" name="KernelInterface"/>
+    </parameter>
+    <parameter name="path" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="paths" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="locate" start="48" end="55" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="file" byreference="false" type="{unknown}"/>
+    <parameter name="currentPath" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="first" byreference="false" type="boolean" default="true"/>
+  </method>
+</class>

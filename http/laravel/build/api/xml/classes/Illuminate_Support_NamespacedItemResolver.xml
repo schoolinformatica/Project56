@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Support\NamespacedItemResolver" namespace="Illuminate\Support" name="NamespacedItemResolver" abstract="false" final="false" start="5" end="104">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Support" file="NamespacedItemResolver.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Support/NamespacedItemResolver.php" size="3302" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="84ddb20c6095b2794716b1b8f4fa1f478ce6512d" relative="vendor/laravel/framework/src/Illuminate/Support/NamespacedItemResolver.php"/>
+  <member name="parsed" type="array" default="" visibility="protected" line="12">
+    <docblock>
+      <description compact="A cache of the parsed items."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="parseKey" start="20" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Parse a key into namespace, group, and item."/>
+      <param type="string" variable="$key"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="If we've already parsed the given key, we'll return the cached version we" line="22"/>
+      <comment value="already have, as this will save us some processing. We cache off every" line="23"/>
+      <comment value="key we parse so we can quickly return it on all subsequent requests." line="24"/>
+      <comment value="If the key does not contain a double colon, it means the key is not in a" line="29"/>
+      <comment value="namespace, and is just a regular configuration item. Namespaces are a" line="30"/>
+      <comment value="tool for organizing configuration items for things such as modules." line="31"/>
+      <comment value="Once we have the parsed array of this key's elements, such as its groups" line="40"/>
+      <comment value="and namespace, we will cache each array inside a simple list that has" line="41"/>
+      <comment value="the key and the parsed array for quick look-ups for later requests." line="42"/>
+    </inline>
+  </method>
+  <method name="parseBasicSegments" start="52" end="71" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Parse an array of basic segments."/>
+      <param type="array" variable="$segments"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="segments" byreference="false" type="array"/>
+    <inline>
+      <comment value="The first segment in a basic array will always be the group, so we can go" line="54"/>
+      <comment value="ahead and grab that segment. If there is only one total segment we are" line="55"/>
+      <comment value="just pulling an entire group out of the array and not a single item." line="56"/>
+    </inline>
+  </method>
+  <method name="parseNamespacedSegments" start="79" end="91" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Parse an array of namespaced segments."/>
+      <param type="string" variable="$key"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="First we'll just explode the first segment to get the namespace and group" line="83"/>
+      <comment value="since the item should be in the remaining segments. Once we have these" line="84"/>
+      <comment value="two pieces of data we can proceed with parsing out the item's value." line="85"/>
+    </inline>
+  </method>
+  <method name="setParsedKey" start="100" end="103" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the parsed value of a key."/>
+      <param type="string" variable="$key"/>
+      <param type="array" variable="$parsed"/>
+      <return type="object">
+        <type full="Illuminate\Support\void" namespace="Illuminate\Support" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="parsed" byreference="false" type="{unknown}"/>
+  </method>
+</class>

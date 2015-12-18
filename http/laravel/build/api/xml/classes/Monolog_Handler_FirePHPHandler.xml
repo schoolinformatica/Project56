@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Handler\FirePHPHandler" namespace="Monolog\Handler" name="FirePHPHandler" abstract="false" final="false" start="21" end="195">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler" file="FirePHPHandler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler/FirePHPHandler.php" size="5466" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="66a3e2e0d9e67c97fc7258515923ac1996a2db5f" relative="vendor/monolog/monolog/src/Monolog/Handler/FirePHPHandler.php"/>
+  <docblock>
+    <description compact="Simple FirePHP Handler (http://www.firephp.org/), which uses the Wildfire protocol."/>
+    <author value="Eric Clemmons (@ericclemmons) &lt;eric@uxdriven.com&gt;"/>
+  </docblock>
+  <extends full="Monolog\Handler\AbstractProcessingHandler" namespace="Monolog\Handler" name="AbstractProcessingHandler"/>
+  <constant type="string" name="PROTOCOL_URI" value="'http://meta.wildfirehq.org/Protocol/JsonStream/0.2'">
+    <docblock>
+      <description compact="WildFire JSON header message format"/>
+    </docblock>
+  </constant>
+  <constant type="string" name="STRUCTURE_URI" value="'http://meta.firephp.org/Wildfire/Structure/FirePHP/FirebugConsole/0.1'">
+    <docblock>
+      <description compact="FirePHP structure for parsing messages &amp; their presentation"/>
+    </docblock>
+  </constant>
+  <constant type="string" name="PLUGIN_URI" value="'http://meta.firephp.org/Wildfire/Plugin/FirePHP/Library-FirePHPCore/0.3'">
+    <docblock>
+      <description compact="Must reference a &quot;known&quot; plugin, otherwise headers won't display in FirePHP"/>
+    </docblock>
+  </constant>
+  <constant type="string" name="HEADER_PREFIX" value="'X-Wf'">
+    <docblock>
+      <description compact="Header prefix for Wildfire to recognize &amp; parse headers"/>
+    </docblock>
+  </constant>
+  <member name="initialized" type="boolean" default="false" visibility="protected" line="46">
+    <docblock>
+      <description compact="Whether or not Wildfire vendor-specific headers have been generated &amp; sent yet"/>
+    </docblock>
+  </member>
+  <member name="messageIndex" type="integer" default="1" visibility="protected" line="52">
+    <docblock>
+      <description compact="Shared static message index between potentially multiple handlers"/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="sendHeaders" type="boolean" default="true" visibility="protected" line="54"/>
+  <method name="createHeader" start="63" end="68" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Base header creation function used by init headers &amp; record headers"/>
+      <param description="Wildfire Plugin, Protocol &amp; Structure Indexes" type="array" variable="$meta"/>
+      <param description="Log message" type="string" variable="$message"/>
+      <return description="Complete header string ready for the client as key and message as value" type="array"/>
+    </docblock>
+    <parameter name="meta" byreference="false" type="array"/>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="createRecordHeader" start="77" end="85" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Creates message header from record"/>
+      <see value="createHeader()"/>
+      <param type="array" variable="$record"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="record" byreference="false" type="array"/>
+    <inline>
+      <comment value="Wildfire is extensible to support multiple protocols &amp; plugins in a single request," line="79"/>
+      <comment value="but we're not taking advantage of that (yet), so we're using &quot;1&quot; for simplicity's sake." line="80"/>
+    </inline>
+  </method>
+  <method name="getDefaultFormatter" start="90" end="93" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritDoc}"/>
+    </docblock>
+  </method>
+  <method name="getInitHeaders" start="102" end="110" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Wildfire initialization headers to enable message parsing"/>
+      <see value="createHeader()"/>
+      <see value="sendHeader()"/>
+      <return type="array"/>
+    </docblock>
+    <inline>
+      <comment value="Initial payload consists of required headers for Wildfire" line="104"/>
+    </inline>
+  </method>
+  <method name="sendHeader" start="118" end="123" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Send header string to the client"/>
+      <param type="string" variable="$header"/>
+      <param type="string" variable="$content"/>
+    </docblock>
+    <parameter name="header" byreference="false" type="{unknown}"/>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="write" start="132" end="156" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Creates &amp; sends header for a record, ensuring init headers have been sent prior"/>
+      <see value="sendHeader()"/>
+      <see value="sendInitHeaders()"/>
+      <param type="array" variable="$record"/>
+    </docblock>
+    <parameter name="record" byreference="false" type="array"/>
+    <inline>
+      <comment value="WildFire-specific headers must be sent prior to any messages" line="138"/>
+    </inline>
+  </method>
+  <method name="headersAccepted" start="163" end="170" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Verifies if the headers are accepted by the current user agent"/>
+      <return type="object">
+        <type full="Monolog\Handler\Boolean" namespace="Monolog\Handler" name="Boolean"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="__get" start="175" end="182" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="BC getter for the sendHeaders property that has been made static"/>
+    </docblock>
+    <parameter name="property" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__set" start="187" end="194" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="BC setter for the sendHeaders property that has been made static"/>
+    </docblock>
+    <parameter name="property" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+</class>

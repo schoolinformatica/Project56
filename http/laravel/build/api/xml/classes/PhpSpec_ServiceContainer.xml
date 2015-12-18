@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpSpec\ServiceContainer" namespace="PhpSpec" name="ServiceContainer" abstract="false" final="false" start="22" end="248">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec" file="ServiceContainer.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/ServiceContainer.php" size="5942" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="8a0bb25392452759caa89e58bfbc92986de24f13" relative="vendor/phpspec/phpspec/src/PhpSpec/ServiceContainer.php"/>
+  <docblock>
+    <description compact="The Service Container is a lightweight container based on Pimple to handle object creation of PhpSpec services."/>
+  </docblock>
+  <member name="parameters" type="array" default="" visibility="private" line="27">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="services" type="array" default="" visibility="private" line="32">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="prefixed" type="array" default="" visibility="private" line="37">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="configurators" type="array" default="" visibility="private" line="42">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="setParam" start="50" end="53" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets a param in the container"/>
+      <param type="string" variable="$id"/>
+      <param type="mixed" variable="$value"/>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getParam" start="63" end="66" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets a param from the container or a default value."/>
+      <param type="string" variable="$id"/>
+      <param type="mixed" variable="$default"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="set" start="77" end="96" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets a object or a callable for the object creation. A callable will be invoked every time get is called."/>
+      <param type="string" variable="$id"/>
+      <param type="object" variable="$value">
+        <type full="PhpSpec\object|callable" namespace="PhpSpec" name="object|callable"/>
+      </param>
+      <throws description="if service is not an object or callable" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setShared" start="107" end="125" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets a callable for the object creation. The same object will be returned every time"/>
+      <param type="string" variable="$id"/>
+      <param type="object" variable="$callable">
+        <type full="PhpSpec\callable" namespace="PhpSpec" name="callable"/>
+      </param>
+      <throws description="if service is not a callable" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="callable" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get" start="136" end="148" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieves a service from the container"/>
+      <param type="string" variable="$id"/>
+      <return type="object"/>
+      <throws description="if service is not defined" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isDefined" start="154" end="157" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param variable="$id"/>
+      <return type="object">
+        <type full="PhpSpec\bool" namespace="PhpSpec" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getByPrefix" start="166" end="178" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieves a list of services of a given prefix"/>
+      <param type="string" variable="$prefix"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="prefix" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="remove" start="187" end="199" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Removes a service from the container"/>
+      <param type="string" variable="$id"/>
+      <throws description="if service is not defined" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addConfigurator" start="208" end="218" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a configurator, that can configure many services in one callable"/>
+      <param type="object" variable="$configurator">
+        <type full="PhpSpec\callable" namespace="PhpSpec" name="callable"/>
+      </param>
+      <throws description="if configurator is not a callable" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="configurator" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="configure" start="223" end="228" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Loop through all configurators and invoke them"/>
+    </docblock>
+  </method>
+  <method name="getPrefixAndSid" start="237" end="247" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Retrieves the prefix and sid of a given service"/>
+      <param type="string" variable="$id"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+</class>

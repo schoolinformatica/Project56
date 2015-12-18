@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\HttpKernelInterface" namespace="Symfony\Component\HttpKernel" name="HttpKernelInterface" abstract="false" final="false" start="22" end="43">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel" file="HttpKernelInterface.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/HttpKernelInterface.php" size="1316" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="ea2bf20842e216beeca178fcc7583eca31c5707f" relative="vendor/symfony/http-kernel/HttpKernelInterface.php"/>
+  <docblock>
+    <description compact="HttpKernelInterface handles a Request to convert it to a Response."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <constant type="integer" name="MASTER_REQUEST" value="1"/>
+  <constant type="integer" name="SUB_REQUEST" value="2"/>
+  <method name="handle" start="42" end="42" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Handles a Request to convert it to a Response.">When $catch is true, the implementation must catch all exceptions
+and do its best to convert them to a Response instance.</description>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <param description="The type of the request" type="int" variable="$type">(one of HttpKernelInterface::MASTER_REQUEST or HttpKernelInterface::SUB_REQUEST)</param>
+      <param description="Whether to catch exceptions or not" type="object" variable="$catch">
+        <type full="Symfony\Component\HttpKernel\bool" namespace="Symfony\Component\HttpKernel" name="bool"/>
+      </param>
+      <return description="A Response instance" type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+      <throws description="When an Exception occurs during processing" type="object">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="type" byreference="false" type="{unknown}" default="" constant="self::MASTER_REQUEST"/>
+    <parameter name="catch" byreference="false" type="boolean" default="true"/>
+  </method>
+</interface>

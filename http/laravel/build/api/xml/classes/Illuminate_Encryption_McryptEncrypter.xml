@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Encryption\McryptEncrypter" namespace="Illuminate\Encryption" name="McryptEncrypter" abstract="false" final="false" start="14" end="214">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Encryption" file="McryptEncrypter.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Encryption/McryptEncrypter.php" size="5594" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="012a268089ec9c163c3d693b5f61c000234855b0" relative="vendor/laravel/framework/src/Illuminate/Encryption/McryptEncrypter.php"/>
+  <docblock>
+    <description/>
+    <deprecated value="since version 5.1. Use Illuminate\Encryption\Encrypter."/>
+  </docblock>
+  <extends full="Illuminate\Encryption\BaseEncrypter" namespace="Illuminate\Encryption" name="BaseEncrypter"/>
+  <implements full="Illuminate\Contracts\Encryption\Encrypter" namespace="Illuminate\Contracts\Encryption" name="Encrypter"/>
+  <member name="cipher" visibility="protected" line="21">
+    <docblock>
+      <description compact="The algorithm used for encryption."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="block" visibility="protected" line="28">
+    <docblock>
+      <description compact="The block size of the cipher."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="39" end="50" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new encrypter instance."/>
+      <param type="string" variable="$key"/>
+      <param type="string" variable="$cipher"/>
+      <return type="object">
+        <type full="Illuminate\Encryption\void" namespace="Illuminate\Encryption" name="void"/>
+      </return>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="cipher" byreference="false" type="{unknown}" default="" constant="MCRYPT_RIJNDAEL_128"/>
+  </constructor>
+  <method name="supported" start="59" end="63" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Determine if the given key and cipher combination is valid."/>
+      <param type="string" variable="$key"/>
+      <param type="string" variable="$cipher"/>
+      <return type="object">
+        <type full="Illuminate\Encryption\bool" namespace="Illuminate\Encryption" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="cipher" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="encrypt" start="73" end="91" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Encrypt the given value."/>
+      <param type="string" variable="$value"/>
+      <return type="string"/>
+      <throws type="object">
+        <type full="\Illuminate\Contracts\Encryption\EncryptException" namespace="\Illuminate\Contracts\Encryption" name="EncryptException"/>
+      </throws>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Once we have the encrypted value we will go ahead base64_encode the input" line="79"/>
+      <comment value="vector and create the MAC for the encrypted value so we can verify its" line="80"/>
+      <comment value="authenticity. Then, we'll JSON encode the data in a &quot;payload&quot; array." line="81"/>
+    </inline>
+  </method>
+  <method name="padAndMcrypt" start="100" end="105" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Pad and use mcrypt on the given value and input vector."/>
+      <param type="string" variable="$value"/>
+      <param type="string" variable="$iv"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="iv" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="decrypt" start="113" end="125" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Decrypt the given value."/>
+      <param type="string" variable="$payload"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="payload" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="We'll go ahead and remove the PKCS7 padding from the encrypted value before" line="117"/>
+      <comment value="we decrypt it. Once we have the de-padded value, we will grab the vector" line="118"/>
+      <comment value="and decrypt the data, passing back the unserialized from of the value." line="119"/>
+    </inline>
+  </method>
+  <method name="mcryptDecrypt" start="136" end="143" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Run the mcrypt decryption routine for the value."/>
+      <param type="string" variable="$value"/>
+      <param type="string" variable="$iv"/>
+      <return type="string"/>
+      <throws type="object">
+        <type full="\Illuminate\Contracts\Encryption\DecryptException" namespace="\Illuminate\Contracts\Encryption" name="DecryptException"/>
+      </throws>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="iv" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addPadding" start="151" end="156" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Add PKCS7 padding to a given value."/>
+      <param type="string" variable="$value"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="stripPadding" start="164" end="169" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Remove the padding from the given value."/>
+      <param type="string" variable="$value"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="paddingIsValid" start="178" end="183" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Determine if the given padding for a value is valid."/>
+      <param type="string" variable="$pad"/>
+      <param type="string" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Encryption\bool" namespace="Illuminate\Encryption" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="pad" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getIvSize" start="190" end="193" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the IV size for the cipher."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getRandomizer" start="200" end="213" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the random data source available for the OS."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+</class>

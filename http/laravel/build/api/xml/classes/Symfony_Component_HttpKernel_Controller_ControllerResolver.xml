@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\Controller\ControllerResolver" namespace="Symfony\Component\HttpKernel\Controller" name="ControllerResolver" abstract="false" final="false" start="26" end="164">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Controller" file="ControllerResolver.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Controller/ControllerResolver.php" size="5214" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="67bba58bb47220ed9020d77c0ccda8c7db5742c1" relative="vendor/symfony/http-kernel/Controller/ControllerResolver.php"/>
+  <docblock>
+    <description compact="ControllerResolver.">This implementation uses the '_controller' request attribute to determine
+the controller to execute and uses the request attributes to determine
+the controller method arguments.</description>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\HttpKernel\Controller\ControllerResolverInterface" namespace="Symfony\Component\HttpKernel\Controller" name="ControllerResolverInterface"/>
+  <member name="logger" visibility="private" line="28"/>
+  <constructor name="__construct" start="35" end="38" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="A LoggerInterface instance" type="object" variable="$logger">
+        <type full="Psr\Log\LoggerInterface" namespace="Psr\Log" name="LoggerInterface"/>
+      </param>
+    </docblock>
+    <parameter name="logger" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Psr\Log\LoggerInterface" namespace="Psr\Log" name="LoggerInterface"/>
+    </parameter>
+  </constructor>
+  <method name="getController" start="46" end="83" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}">This method looks for a '_controller' request attribute that represents
+the controller name (a string like ClassName::MethodName).</description>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+  </method>
+  <method name="getArguments" start="88" end="100" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="controller" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="doGetArguments" start="102" end="127" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="controller" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="array"/>
+  </method>
+  <method name="createController" start="138" end="151" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Returns a callable for the given controller."/>
+      <param description="A Controller string" type="string" variable="$controller"/>
+      <return description="A PHP callable" type="object">
+        <type full="Symfony\Component\HttpKernel\Controller\callable" namespace="Symfony\Component\HttpKernel\Controller" name="callable"/>
+      </return>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="controller" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="instantiateController" start="160" end="163" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Returns an instantiated controller."/>
+      <param description="A class name" type="string" variable="$class"/>
+      <return type="object"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+  </method>
+</class>

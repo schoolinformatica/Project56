@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PHPUnit_Framework_Constraint_IsEqual" namespace="" name="PHPUnit_Framework_Constraint_IsEqual" abstract="false" final="false" start="22" end="179">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Framework/Constraint" file="IsEqual.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Framework/Constraint/IsEqual.php" size="4897" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="df6eafc83cbf8aea967c54513005d4b4b6aefbcb" relative="vendor/phpunit/phpunit/src/Framework/Constraint/IsEqual.php"/>
+  <docblock>
+    <description compact="Constraint that checks if one value is equal to another.">Equality is checked with PHP's == operator, the operator is explained in
+detail at <url xmlns="http://xml.phpdox.net/src" value="http://www.php.net/manual/en/types.comparisons.php"/>.
+Two values are equal if they have the same value disregarding type.
+The expected value is passed in the constructor.
+</description>
+    <since value="Class available since Release 3.0.0"/>
+  </docblock>
+  <extends full="PHPUnit_Framework_Constraint" namespace="" name="PHPUnit_Framework_Constraint"/>
+  <member name="value" visibility="protected" line="27">
+    <docblock>
+      <description/>
+      <var type="mixed"/>
+    </docblock>
+  </member>
+  <member name="delta" type="float" default="0.0" visibility="protected" line="32">
+    <docblock>
+      <description/>
+      <var type="float"/>
+    </docblock>
+  </member>
+  <member name="maxDepth" type="integer" default="10" visibility="protected" line="37">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="canonicalize" type="boolean" default="false" visibility="protected" line="42">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="ignoreCase" type="boolean" default="false" visibility="protected" line="47">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="lastFailure" visibility="protected" line="52">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="SebastianBergmann\Comparator\ComparisonFailure" namespace="SebastianBergmann\Comparator" name="ComparisonFailure"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="63" end="88" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="mixed" variable="$value"/>
+      <param type="float" variable="$delta"/>
+      <param type="int" variable="$maxDepth"/>
+      <param type="object" variable="$canonicalize">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param type="object" variable="$ignoreCase">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="delta" byreference="false" type="float" default="0.0"/>
+    <parameter name="maxDepth" byreference="false" type="integer" default="10"/>
+    <parameter name="canonicalize" byreference="false" type="boolean" default="false"/>
+    <parameter name="ignoreCase" byreference="false" type="boolean" default="false"/>
+  </constructor>
+  <method name="evaluate" start="108" end="144" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Evaluates the constraint for parameter $other">If $returnResult is set to false (the default), an exception is thrown
+in case of a failure. null is returned otherwise.
+
+If $returnResult is true, the result of the evaluation is returned as
+a boolean value instead: true in case of success, false in case of a
+failure.</description>
+      <param description="Value or object to evaluate." type="mixed" variable="$other"/>
+      <param description="Additional information about the test" type="string" variable="$description"/>
+      <param description="Whether to return a result or throw an exception" type="object" variable="$returnResult">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="mixed"/>
+      <throws type="object">
+        <type full="PHPUnit_Framework_ExpectationFailedException" namespace="" name="PHPUnit_Framework_ExpectationFailedException"/>
+      </throws>
+    </docblock>
+    <parameter name="other" byreference="false" type="{unknown}"/>
+    <parameter name="description" byreference="false" type="string" default="''"/>
+    <parameter name="returnResult" byreference="false" type="boolean" default="false"/>
+    <inline>
+      <comment value="If $this-&gt;value and $other are identical, they are also equal." line="110"/>
+      <comment value="This is the most common path and will allow us to skip" line="111"/>
+      <comment value="initialization of all the comparators." line="112"/>
+    </inline>
+  </method>
+  <method name="toString" start="151" end="178" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a string representation of the constraint."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+</class>

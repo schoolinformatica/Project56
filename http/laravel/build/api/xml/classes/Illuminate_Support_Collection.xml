@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection" abstract="false" final="false" start="16" end="1103">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Support" file="Collection.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Support/Collection.php" size="25365" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="623da399d502b933465926ecd3740289ad24a1fe" relative="vendor/laravel/framework/src/Illuminate/Support/Collection.php"/>
+  <implements full="ArrayAccess" namespace="" name="ArrayAccess"/>
+  <implements full="Illuminate\Contracts\Support\Arrayable" namespace="Illuminate\Contracts\Support" name="Arrayable"/>
+  <implements full="Countable" namespace="" name="Countable"/>
+  <implements full="IteratorAggregate" namespace="" name="IteratorAggregate"/>
+  <implements full="Illuminate\Contracts\Support\Jsonable" namespace="Illuminate\Contracts\Support" name="Jsonable"/>
+  <implements full="JsonSerializable" namespace="" name="JsonSerializable"/>
+  <uses full="Illuminate\Support\Traits\Macroable" namespace="Illuminate\Support\Traits" name="Macroable" start="18" end="18"/>
+  <member name="items" type="array" default="" visibility="protected" line="25">
+    <docblock>
+      <description compact="The items contained in the collection."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="33" end="36" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new collection."/>
+      <param type="mixed" variable="$items"/>
+      <return type="object">
+        <type full="Illuminate\Support\void" namespace="Illuminate\Support" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="items" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="make" start="44" end="47" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Create a new collection instance if the value isn't one already."/>
+      <param type="mixed" variable="$items"/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="items" byreference="false" type="array" default=""/>
+  </method>
+  <method name="all" start="54" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get all of the items in the collection."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="avg" start="65" end="70" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the average value of a given key."/>
+      <param type="object" variable="$key">
+        <type full="Illuminate\Support\string|null" namespace="Illuminate\Support" name="string|null"/>
+      </param>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="average" start="78" end="81" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Alias for the &quot;avg&quot; method."/>
+      <param type="object" variable="$key">
+        <type full="Illuminate\Support\string|null" namespace="Illuminate\Support" name="string|null"/>
+      </param>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="collapse" start="88" end="91" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Collapse the collection of items into a single array."/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="contains" start="100" end="113" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if an item exists in the collection."/>
+      <param type="mixed" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="diff" start="121" end="124" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the items in the collection that are not present in the given items."/>
+      <param type="mixed" variable="$items"/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="items" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="each" start="132" end="141" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Execute a callback over each item."/>
+      <param type="object" variable="$callback">
+        <type full="Illuminate\Support\callable" namespace="Illuminate\Support" name="callable"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Support\$this" namespace="Illuminate\Support" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Illuminate\Support\callable" namespace="Illuminate\Support" name="callable"/>
+    </parameter>
+  </method>
+  <method name="every" start="150" end="165" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new collection consisting of every n-th element."/>
+      <param type="int" variable="$step"/>
+      <param type="int" variable="$offset"/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="step" byreference="false" type="{unknown}"/>
+    <parameter name="offset" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="except" start="173" end="178" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get all items except for those with the specified keys."/>
+      <param type="mixed" variable="$keys"/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="keys" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="fetch" start="188" end="191" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Fetch a nested element of the collection."/>
+      <param type="string" variable="$key"/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+      <deprecated value="since version 5.1. Use pluck instead."/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="filter" start="199" end="206" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Run a filter over each of the items."/>
+      <param type="object" variable="$callback">
+        <type full="Illuminate\Support\callable|null" namespace="Illuminate\Support" name="callable|null"/>
+      </param>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Illuminate\Support\callable" namespace="Illuminate\Support" name="callable"/>
+    </parameter>
+  </method>
+  <method name="where" start="216" end="222" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Filter items by the given key value pair."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <param type="object" variable="$strict">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </param>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="strict" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="whereLoose" start="231" end="234" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Filter items by the given key value pair using loose comparison."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="first" start="243" end="250" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the first item from the collection."/>
+      <param type="object" variable="$callback">
+        <type full="Illuminate\Support\callable|null" namespace="Illuminate\Support" name="callable|null"/>
+      </param>
+      <param type="mixed" variable="$default"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Illuminate\Support\callable" namespace="Illuminate\Support" name="callable"/>
+    </parameter>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="flatten" start="257" end="260" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a flattened array of the items in the collection."/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="flip" start="267" end="270" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Flip the items in the collection."/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="forget" start="278" end="285" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remove an item from the collection by key."/>
+      <param type="object" variable="$keys">
+        <type full="Illuminate\Support\string|array" namespace="Illuminate\Support" name="string|array"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Support\$this" namespace="Illuminate\Support" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="keys" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get" start="294" end="301" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get an item from the collection by key."/>
+      <param type="mixed" variable="$key"/>
+      <param type="mixed" variable="$default"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="groupBy" start="310" end="327" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Group an associative array by a field or using a callback."/>
+      <param type="object" variable="$groupBy">
+        <type full="Illuminate\Support\callable|string" namespace="Illuminate\Support" name="callable|string"/>
+      </param>
+      <param type="object" variable="$preserveKeys">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </param>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="groupBy" byreference="false" type="{unknown}"/>
+    <parameter name="preserveKeys" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="keyBy" start="335" end="346" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Key an associative array by a field or using a callback."/>
+      <param type="object" variable="$keyBy">
+        <type full="Illuminate\Support\callable|string" namespace="Illuminate\Support" name="callable|string"/>
+      </param>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="keyBy" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="has" start="354" end="357" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if an item exists in the collection by key."/>
+      <param type="mixed" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="implode" start="366" end="375" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Concatenate values of a given key as a string."/>
+      <param type="string" variable="$value"/>
+      <param type="string" variable="$glue"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="glue" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="intersect" start="383" end="386" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Intersect the collection with the given items."/>
+      <param type="mixed" variable="$items"/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="items" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isEmpty" start="393" end="396" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the collection is empty or not."/>
+      <return type="object">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="useAsCallable" start="404" end="407" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Determine if the given value is callable, but not a string."/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="keys" start="414" end="417" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the keys of the collection items."/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="last" start="426" end="433" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the last item from the collection."/>
+      <param type="object" variable="$callback">
+        <type full="Illuminate\Support\callable|null" namespace="Illuminate\Support" name="callable|null"/>
+      </param>
+      <param type="mixed" variable="$default"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Illuminate\Support\callable" namespace="Illuminate\Support" name="callable"/>
+    </parameter>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="pluck" start="442" end="445" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the values of a given key."/>
+      <param type="string" variable="$value"/>
+      <param type="object" variable="$key">
+        <type full="Illuminate\Support\string|null" namespace="Illuminate\Support" name="string|null"/>
+      </param>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="key" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="lists" start="454" end="457" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Alias for the &quot;pluck&quot; method."/>
+      <param type="string" variable="$value"/>
+      <param type="object" variable="$key">
+        <type full="Illuminate\Support\string|null" namespace="Illuminate\Support" name="string|null"/>
+      </param>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="key" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="map" start="465" end="472" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Run a map over each of the items."/>
+      <param type="object" variable="$callback">
+        <type full="Illuminate\Support\callable" namespace="Illuminate\Support" name="callable"/>
+      </param>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Illuminate\Support\callable" namespace="Illuminate\Support" name="callable"/>
+    </parameter>
+  </method>
+  <method name="flatMap" start="480" end="483" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Map a collection and flatten the result by a single level."/>
+      <param type="object" variable="$callback">
+        <type full="Illuminate\Support\callable" namespace="Illuminate\Support" name="callable"/>
+      </param>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Illuminate\Support\callable" namespace="Illuminate\Support" name="callable"/>
+    </parameter>
+  </method>
+  <method name="max" start="491" end="498" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the max value of a given key."/>
+      <param type="object" variable="$key">
+        <type full="Illuminate\Support\string|null" namespace="Illuminate\Support" name="string|null"/>
+      </param>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="merge" start="506" end="509" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Merge the collection with the given items."/>
+      <param type="mixed" variable="$items"/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="items" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="min" start="517" end="524" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the min value of a given key."/>
+      <param type="object" variable="$key">
+        <type full="Illuminate\Support\string|null" namespace="Illuminate\Support" name="string|null"/>
+      </param>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="only" start="532" end="537" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the items with the specified keys."/>
+      <param type="mixed" variable="$keys"/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="keys" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="forPage" start="546" end="549" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="&quot;Paginate&quot; the collection by slicing it into a smaller collection."/>
+      <param type="int" variable="$page"/>
+      <param type="int" variable="$perPage"/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="page" byreference="false" type="{unknown}"/>
+    <parameter name="perPage" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="pop" start="556" end="559" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get and remove the last item from the collection."/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+  <method name="prepend" start="568" end="573" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Push an item onto the beginning of the collection."/>
+      <param type="mixed" variable="$value"/>
+      <param type="mixed" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Support\$this" namespace="Illuminate\Support" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="key" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="push" start="581" end="586" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Push an item onto the end of the collection."/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Support\$this" namespace="Illuminate\Support" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="pull" start="595" end="598" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Pulls an item from the collection."/>
+      <param type="mixed" variable="$key"/>
+      <param type="mixed" variable="$default"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="put" start="607" end="612" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Put an item in the collection by key."/>
+      <param type="mixed" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Support\$this" namespace="Illuminate\Support" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="random" start="622" end="635" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get one or more items randomly from the collection."/>
+      <param type="int" variable="$amount"/>
+      <return type="mixed"/>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="amount" byreference="false" type="integer" default="1"/>
+  </method>
+  <method name="reduce" start="644" end="647" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Reduce the collection to a single value."/>
+      <param type="object" variable="$callback">
+        <type full="Illuminate\Support\callable" namespace="Illuminate\Support" name="callable"/>
+      </param>
+      <param type="mixed" variable="$initial"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Illuminate\Support\callable" namespace="Illuminate\Support" name="callable"/>
+    </parameter>
+    <parameter name="initial" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="reject" start="655" end="666" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a collection of all elements that do not pass a given truth test."/>
+      <param type="object" variable="$callback">
+        <type full="Illuminate\Support\callable|mixed" namespace="Illuminate\Support" name="callable|mixed"/>
+      </param>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="reverse" start="673" end="676" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Reverse items order."/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="search" start="685" end="698" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Search the collection for a given value and return the corresponding key if successful."/>
+      <param type="mixed" variable="$value"/>
+      <param type="object" variable="$strict">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </param>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="strict" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="shift" start="705" end="708" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get and remove the first item from the collection."/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+  <method name="shuffle" start="715" end="722" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Shuffle the items in the collection."/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="slice" start="732" end="735" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Slice the underlying collection array."/>
+      <param type="int" variable="$offset"/>
+      <param type="int" variable="$length"/>
+      <param type="object" variable="$preserveKeys">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </param>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="offset" byreference="false" type="{unknown}"/>
+    <parameter name="length" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="preserveKeys" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="chunk" start="744" end="753" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Chunk the underlying collection array."/>
+      <param type="int" variable="$size"/>
+      <param type="object" variable="$preserveKeys">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </param>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="size" byreference="false" type="{unknown}"/>
+    <parameter name="preserveKeys" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="sort" start="761" end="775" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sort through each item with a callback."/>
+      <param type="object" variable="$callback">
+        <type full="Illuminate\Support\callable|null" namespace="Illuminate\Support" name="callable|null"/>
+      </param>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Illuminate\Support\callable" namespace="Illuminate\Support" name="callable"/>
+    </parameter>
+  </method>
+  <method name="sortBy" start="785" end="809" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sort the collection using the given callback."/>
+      <param type="object" variable="$callback">
+        <type full="Illuminate\Support\callable|string" namespace="Illuminate\Support" name="callable|string"/>
+      </param>
+      <param type="int" variable="$options"/>
+      <param type="object" variable="$descending">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </param>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+    <parameter name="options" byreference="false" type="{unknown}" default="" constant="SORT_REGULAR"/>
+    <parameter name="descending" byreference="false" type="boolean" default="false"/>
+    <inline>
+      <comment value="First we will loop through the items and get the comparator from a callback" line="791"/>
+      <comment value="function which we were given. Then, we will sort the returned values and" line="792"/>
+      <comment value="and grab the corresponding values for the sorted keys from this array." line="793"/>
+      <comment value="Once we have sorted all of the keys in the array, we will loop through them" line="801"/>
+      <comment value="and grab the corresponding model so we can set the underlying items list" line="802"/>
+      <comment value="to the sorted version. Then we'll just return the collection instance." line="803"/>
+    </inline>
+  </method>
+  <method name="sortByDesc" start="818" end="821" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sort the collection in descending order using the given callback."/>
+      <param type="object" variable="$callback">
+        <type full="Illuminate\Support\callable|string" namespace="Illuminate\Support" name="callable|string"/>
+      </param>
+      <param type="int" variable="$options"/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+    <parameter name="options" byreference="false" type="{unknown}" default="" constant="SORT_REGULAR"/>
+  </method>
+  <method name="splice" start="831" end="838" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Splice a portion of the underlying collection array."/>
+      <param type="int" variable="$offset"/>
+      <param type="object" variable="$length">
+        <type full="Illuminate\Support\int|null" namespace="Illuminate\Support" name="int|null"/>
+      </param>
+      <param type="mixed" variable="$replacement"/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="offset" byreference="false" type="{unknown}"/>
+    <parameter name="length" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="replacement" byreference="false" type="array" default=""/>
+  </method>
+  <method name="sum" start="846" end="857" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the sum of the given values."/>
+      <param type="object" variable="$callback">
+        <type full="Illuminate\Support\callable|string|null" namespace="Illuminate\Support" name="callable|string|null"/>
+      </param>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="take" start="865" end="872" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Take the first or last {$limit} items."/>
+      <param type="int" variable="$limit"/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="limit" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="transform" start="880" end="885" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Transform each item in the collection using a callback."/>
+      <param type="object" variable="$callback">
+        <type full="Illuminate\Support\callable" namespace="Illuminate\Support" name="callable"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Support\$this" namespace="Illuminate\Support" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Illuminate\Support\callable" namespace="Illuminate\Support" name="callable"/>
+    </parameter>
+  </method>
+  <method name="unique" start="893" end="910" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return only unique items from the collection array."/>
+      <param type="object" variable="$key">
+        <type full="Illuminate\Support\string|callable|null" namespace="Illuminate\Support" name="string|callable|null"/>
+      </param>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="values" start="917" end="920" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Reset the keys on the underlying array."/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="valueRetriever" start="928" end="937" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get a value retrieving callback."/>
+      <param type="string" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Support\callable" namespace="Illuminate\Support" name="callable"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="zip" start="948" end="959" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Zip the collection together with one or more arrays.">e.g. new Collection([1, 2, 3])-&gt;zip([4, 5, 6]);
+     =&gt; [[1, 4], [2, 5], [3, 6]]</description>
+      <param type="mixed" variable="...$items"/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="items" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="toArray" start="966" end="972" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the collection of items as a plain array."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="jsonSerialize" start="979" end="982" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Convert the object into something JSON serializable."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="toJson" start="990" end="993" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the collection of items as JSON."/>
+      <param type="int" variable="$options"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="options" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="getIterator" start="1000" end="1003" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get an iterator for the items."/>
+      <return type="object">
+        <type full="\ArrayIterator" namespace="" name="ArrayIterator"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getCachingIterator" start="1011" end="1014" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a CachingIterator instance."/>
+      <param type="int" variable="$flags"/>
+      <return type="object">
+        <type full="\CachingIterator" namespace="" name="CachingIterator"/>
+      </return>
+    </docblock>
+    <parameter name="flags" byreference="false" type="{unknown}" default="" constant="CachingIterator::CALL_TOSTRING"/>
+  </method>
+  <method name="count" start="1021" end="1024" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Count the number of items in the collection."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="offsetExists" start="1032" end="1035" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if an item exists at an offset."/>
+      <param type="mixed" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetGet" start="1043" end="1046" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get an item at a given offset."/>
+      <param type="mixed" variable="$key"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetSet" start="1055" end="1062" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the item at a given offset."/>
+      <param type="mixed" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Support\void" namespace="Illuminate\Support" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetUnset" start="1070" end="1073" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Unset the item at a given offset."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Support\void" namespace="Illuminate\Support" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__toString" start="1080" end="1083" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Convert the collection to its string representation."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getArrayableItems" start="1091" end="1102" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Results array of items from Collection or Arrayable."/>
+      <param type="mixed" variable="$items"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="items" byreference="false" type="{unknown}"/>
+  </method>
+</class>

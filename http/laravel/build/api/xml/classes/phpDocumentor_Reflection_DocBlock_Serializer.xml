@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="phpDocumentor\Reflection\DocBlock\Serializer" namespace="phpDocumentor\Reflection\DocBlock" name="Serializer" abstract="false" final="false" start="24" end="198">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpdocumentor/reflection-docblock/src/phpDocumentor/Reflection/DocBlock" file="Serializer.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpdocumentor/reflection-docblock/src/phpDocumentor/Reflection/DocBlock/Serializer.php" size="5390" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="6470c86a752dea52e669ce60cc06d8970625f7af" relative="vendor/phpdocumentor/reflection-docblock/src/phpDocumentor/Reflection/DocBlock/Serializer.php"/>
+  <docblock>
+    <description compact="Serializes a DocBlock instance."/>
+    <author value="Barry vd. Heuvel &lt;barryvdh@gmail.com&gt;"/>
+    <license name="http://www.opensource.org/licenses/mit-license.php MIT"/>
+    <link value="http://phpdoc.org"/>
+  </docblock>
+  <member name="indentString" type="string" default="' '" visibility="protected" line="28">
+    <docblock>
+      <description compact="@var string The string to indent the comment with."/>
+    </docblock>
+  </member>
+  <member name="indent" type="integer" default="0" visibility="protected" line="31">
+    <docblock>
+      <description compact="@var int The number of times the indent string is repeated."/>
+    </docblock>
+  </member>
+  <member name="isFirstLineIndented" type="boolean" default="true" visibility="protected" line="34">
+    <docblock>
+      <description compact="@var bool Whether to indent the first line."/>
+    </docblock>
+  </member>
+  <member name="lineLength" type="{unknown}" default="" constant="null" visibility="protected" line="37">
+    <docblock>
+      <description compact="@var int|null The max length of a line."/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="49" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a Serializer instance."/>
+      <param description="The number of times the indent string is" type="int" variable="$indent">repeated.</param>
+      <param description="The string to indent the comment with." type="string" variable="$indentString"/>
+      <param description="Whether to indent the first line." type="object" variable="$indentFirstLine">
+        <type full="phpDocumentor\Reflection\DocBlock\bool" namespace="phpDocumentor\Reflection\DocBlock" name="bool"/>
+      </param>
+      <param description="The max length of a line or NULL to" type="object" variable="$lineLength">disable line wrapping.<type full="phpDocumentor\Reflection\DocBlock\int|null" namespace="phpDocumentor\Reflection\DocBlock" name="int|null"/></param>
+    </docblock>
+    <parameter name="indent" byreference="false" type="integer" default="0"/>
+    <parameter name="indentString" byreference="false" type="string" default="' '"/>
+    <parameter name="indentFirstLine" byreference="false" type="boolean" default="true"/>
+    <parameter name="lineLength" byreference="false" type="{unknown}" default="" constant="null"/>
+  </constructor>
+  <method name="setIndentationString" start="68" end="72" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the string to indent comments with."/>
+      <param description="The string to indent comments with." type="string" variable="$indentationString"/>
+      <return description="This serializer object." type="object">
+        <type full="phpDocumentor\Reflection\DocBlock\$this" namespace="phpDocumentor\Reflection\DocBlock" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="indentString" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getIndentationString" start="79" end="82" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the string to indent comments with."/>
+      <return description="The indent string." type="string"/>
+    </docblock>
+  </method>
+  <method name="setIndent" start="91" end="95" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the number of indents."/>
+      <param description="The number of times the indent string is repeated." type="int" variable="$indent"/>
+      <return description="This serializer object." type="object">
+        <type full="phpDocumentor\Reflection\DocBlock\$this" namespace="phpDocumentor\Reflection\DocBlock" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="indent" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getIndent" start="102" end="105" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the number of indents."/>
+      <return description="The number of times the indent string is repeated." type="int"/>
+    </docblock>
+  </method>
+  <method name="setIsFirstLineIndented" start="117" end="121" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets whether or not the first line should be indented.">Sets whether or not the first line (the one with the "/**") should be
+indented.</description>
+      <param description="The new value for this setting." type="object" variable="$indentFirstLine">
+        <type full="phpDocumentor\Reflection\DocBlock\bool" namespace="phpDocumentor\Reflection\DocBlock" name="bool"/>
+      </param>
+      <return description="This serializer object." type="object">
+        <type full="phpDocumentor\Reflection\DocBlock\$this" namespace="phpDocumentor\Reflection\DocBlock" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="indentFirstLine" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isFirstLineIndented" start="128" end="131" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets whether or not the first line should be indented."/>
+      <return description="Whether or not the first line should be indented." type="object">
+        <type full="phpDocumentor\Reflection\DocBlock\bool" namespace="phpDocumentor\Reflection\DocBlock" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setLineLength" start="144" end="148" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the line length.">Sets the length of each line in the serialization. Content will be
+wrapped within this limit.</description>
+      <param description="The length of each line. NULL to disable line" type="object" variable="$lineLength">wrapping altogether.<type full="phpDocumentor\Reflection\DocBlock\int|null" namespace="phpDocumentor\Reflection\DocBlock" name="int|null"/></param>
+      <return description="This serializer object." type="object">
+        <type full="phpDocumentor\Reflection\DocBlock\$this" namespace="phpDocumentor\Reflection\DocBlock" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="lineLength" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getLineLength" start="156" end="159" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the line length."/>
+      <return description="The length of each line or NULL if line wrapping is" type="object">disabled.<type full="phpDocumentor\Reflection\DocBlock\int|null" namespace="phpDocumentor\Reflection\DocBlock" name="int|null"/></return>
+    </docblock>
+  </method>
+  <method name="getDocComment" start="168" end="197" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Generate a DocBlock comment."/>
+      <param description="The DocBlock to serialize." type="object">
+        <type full="phpDocumentor\Reflection\DocBlock" namespace="phpDocumentor\Reflection" name="DocBlock"/>
+      </param>
+      <return description="The serialized doc block." type="string"/>
+    </docblock>
+    <parameter name="docblock" byreference="false" type="object">
+      <type full="phpDocumentor\Reflection\DocBlock" namespace="phpDocumentor\Reflection" name="DocBlock"/>
+    </parameter>
+  </method>
+</class>

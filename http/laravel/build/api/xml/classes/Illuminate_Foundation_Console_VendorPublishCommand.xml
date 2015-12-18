@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Foundation\Console\VendorPublishCommand" namespace="Illuminate\Foundation\Console" name="VendorPublishCommand" abstract="false" final="false" start="12" end="167">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console" file="VendorPublishCommand.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/VendorPublishCommand.php" size="4316" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="64d9375a4287984aede832614b52595122d8fe02" relative="vendor/laravel/framework/src/Illuminate/Foundation/Console/VendorPublishCommand.php"/>
+  <extends full="Illuminate\Console\Command" namespace="Illuminate\Console" name="Command"/>
+  <member name="files" visibility="protected" line="19">
+    <docblock>
+      <description compact="The filesystem instance."/>
+      <var type="object">
+        <type full="\Illuminate\Filesystem\Filesystem" namespace="\Illuminate\Filesystem" name="Filesystem"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="signature" type="string" default="'vendor:publish {--force : Overwrite any existing files.}&#10;            {--provider= : The service provider that has assets you want to publish.}&#10;            {--tag=* : One or many tags that have assets you want to publish.}'" visibility="protected" line="26">
+    <docblock>
+      <description compact="The console command signature."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="description" type="string" default="'Publish any publishable assets from vendor packages'" visibility="protected" line="35">
+    <docblock>
+      <description compact="The console command description."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="43" end="48" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new command instance."/>
+      <param type="object" variable="$files">
+        <type full="\Illuminate\Filesystem\Filesystem" namespace="\Illuminate\Filesystem" name="Filesystem"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\Console\void" namespace="Illuminate\Foundation\Console" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="files" byreference="false" type="object">
+      <type full="Illuminate\Filesystem\Filesystem" namespace="Illuminate\Filesystem" name="Filesystem"/>
+    </parameter>
+  </constructor>
+  <method name="fire" start="55" end="64" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Execute the console command."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Console\void" namespace="Illuminate\Foundation\Console" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="publishTag" start="72" end="93" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Publishes the assets for a tag."/>
+      <param type="string" variable="$tag"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="tag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="publishFile" start="102" end="113" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Publish the file to the given path."/>
+      <param type="string" variable="$from"/>
+      <param type="string" variable="$to"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Console\void" namespace="Illuminate\Foundation\Console" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="from" byreference="false" type="{unknown}"/>
+    <parameter name="to" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="publishDirectory" start="122" end="136" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Publish the directory to the given directory."/>
+      <param type="string" variable="$from"/>
+      <param type="string" variable="$to"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Console\void" namespace="Illuminate\Foundation\Console" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="from" byreference="false" type="{unknown}"/>
+    <parameter name="to" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="createParentDirectory" start="144" end="149" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the directory to house the published files if needed."/>
+      <param type="string" variable="$directory"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Console\void" namespace="Illuminate\Foundation\Console" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="directory" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="status" start="159" end="166" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Write a status message to the console."/>
+      <param type="string" variable="$from"/>
+      <param type="string" variable="$to"/>
+      <param type="string" variable="$type"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Console\void" namespace="Illuminate\Foundation\Console" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="from" byreference="false" type="{unknown}"/>
+    <parameter name="to" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+  </method>
+</class>

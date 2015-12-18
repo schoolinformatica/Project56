@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Doctrine\Common\Inflector\Inflector" namespace="Doctrine\Common\Inflector" name="Inflector" abstract="false" final="false" start="36" end="482">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/doctrine/inflector/lib/Doctrine/Common/Inflector" file="Inflector.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/doctrine/inflector/lib/Doctrine/Common/Inflector/Inflector.php" size="17040" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="b4cbea1458132e156327f20810cf2a2d1f961869" relative="vendor/doctrine/inflector/lib/Doctrine/Common/Inflector/Inflector.php"/>
+  <docblock>
+    <description compact="Doctrine inflector has static methods for inflecting text.">The methods in these classes are from several different sources collected
+across several different php projects and several different authors. The
+original author names and emails are not known.
+
+Pluralize &amp; Singularize implementation are borrowed from CakePHP with some modifications.</description>
+    <link value="www.doctrine-project.org"/>
+    <since value="1.0"/>
+    <author value="Konsta Vesterinen &lt;kvesteri@cc.hut.fi&gt;"/>
+    <author value="Jonathan H. Wage &lt;jonwage@gmail.com&gt;"/>
+  </docblock>
+  <member name="plural" type="array" default="" visibility="private" line="43">
+    <docblock>
+      <description compact="Plural inflector rules."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="singular" type="array" default="" visibility="private" line="138">
+    <docblock>
+      <description compact="Singular inflector rules."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="uninflected" type="array" default="" visibility="private" line="205">
+    <docblock>
+      <description compact="Words that should not be inflected."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="cache" type="array" default="" visibility="private" line="225">
+    <docblock>
+      <description compact="Method cache array."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="initialState" type="array" default="" visibility="private" line="232">
+    <docblock>
+      <description compact="The initial state of Inflector so reset() works."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="tableize" start="241" end="244" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Converts a word into the format for a Doctrine table name. Converts 'ModelName' to 'model_name'."/>
+      <param description="The word to tableize." type="string" variable="$word"/>
+      <return description="The tableized word." type="string"/>
+    </docblock>
+    <parameter name="word" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="classify" start="253" end="256" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Converts a word into the format for a Doctrine class name. Converts 'table_name' to 'TableName'."/>
+      <param description="The word to classify." type="string" variable="$word"/>
+      <return description="The classified word." type="string"/>
+    </docblock>
+    <parameter name="word" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="camelize" start="265" end="268" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Camelizes a word. This uses the classify() method and turns the first character to lowercase."/>
+      <param description="The word to camelize." type="string" variable="$word"/>
+      <return description="The camelized word." type="string"/>
+    </docblock>
+    <parameter name="word" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="ucwords" start="295" end="304" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Uppercases words with configurable delimeters between words.">Takes a string and capitalizes all of the words, like PHP's built-in
+ucwords function.  This extends that behavior, however, by allowing the
+word delimeters to be configured, rather than only separating on
+whitespace.
+
+Here is an example:
+&lt;code&gt;
+&lt;?php
+$string = 'top-o-the-morning to all_of_you!';
+echo \Doctrine\Common\Inflector\Inflector::ucwords($string);
+// Top-O-The-Morning To All_of_you!
+
+echo \Doctrine\Common\Inflector\Inflector::ucwords($string, '-_ ');
+// Top-O-The-Morning To All_Of_You!
+?&gt;
+&lt;/code&gt;</description>
+      <param description="The string to operate on." type="string" variable="$string"/>
+      <param description="A list of word separators." type="string" variable="$delimiters"/>
+      <return description="The string with all delimeter-separated words capitalized." type="string"/>
+    </docblock>
+    <parameter name="string" byreference="false" type="{unknown}"/>
+    <parameter name="delimiters" byreference="false" type="string" default="&quot; \n\t\r\0\x0B-&quot;"/>
+  </method>
+  <method name="reset" start="312" end="325" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Clears Inflectors inflected value caches, and resets the inflection rules to the initial values."/>
+      <return type="object">
+        <type full="Doctrine\Common\Inflector\void" namespace="Doctrine\Common\Inflector" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="rules" start="348" end="377" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Adds custom inflection $rules, of either 'plural' or 'singular' $type.">### Usage:
+
+{{{
+Inflector::rules('plural', array('/^(inflect)or$/i' =&gt; '\1ables'));
+Inflector::rules('plural', array(
+    'rules' =&gt; array('/^(inflect)ors$/i' =&gt; '\1ables'),
+    'uninflected' =&gt; array('dontinflectme'),
+    'irregular' =&gt; array('red' =&gt; 'redlings')
+));
+}}}</description>
+      <param description="The type of inflection, either 'plural' or 'singular'" type="string" variable="$type"/>
+      <param description="An array of rules to be added." type="array" variable="$rules"/>
+      <param description="If true, will unset default inflections for all" type="boolean" variable="$reset">new rules that are being defined in $rules.</param>
+      <return type="object">
+        <type full="Doctrine\Common\Inflector\void" namespace="Doctrine\Common\Inflector" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+    <parameter name="rules" byreference="false" type="{unknown}"/>
+    <parameter name="reset" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="pluralize" start="386" end="424" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns a word in plural form."/>
+      <param description="The word in singular form." type="string" variable="$word"/>
+      <return description="The word in plural form." type="string"/>
+    </docblock>
+    <parameter name="word" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="singularize" start="433" end="481" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns a word in singular form."/>
+      <param description="The word in plural form." type="string" variable="$word"/>
+      <return description="The word in singular form." type="string"/>
+    </docblock>
+    <parameter name="word" byreference="false" type="{unknown}"/>
+  </method>
+</class>

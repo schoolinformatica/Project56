@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Mockery\Generator\MockConfiguration" namespace="Mockery\Generator" name="MockConfiguration" abstract="false" final="false" start="9" end="460">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/mockery/mockery/library/Mockery/Generator" file="MockConfiguration.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php" size="13439" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="84efb93a3cdc68e31a0e6865b7b24e252edd7956" relative="vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php"/>
+  <docblock>
+    <description compact="This class describes the configuration of mocks and hides away some of the reflection implementation"/>
+  </docblock>
+  <member name="mockCounter" type="integer" default="0" visibility="protected" line="11"/>
+  <member name="targetClass" visibility="protected" line="16">
+    <docblock>
+      <description compact="A class that we'd like to mock"/>
+    </docblock>
+  </member>
+  <member name="targetClassName" visibility="protected" line="17"/>
+  <member name="targetInterfaces" type="array" default="" visibility="protected" line="23">
+    <docblock>
+      <description compact="A number of interfaces we'd like to mock, keyed by name to attempt to keep unique"/>
+    </docblock>
+  </member>
+  <member name="targetInterfaceNames" type="array" default="" visibility="protected" line="24"/>
+  <member name="targetObject" visibility="protected" line="29">
+    <docblock>
+      <description compact="An object we'd like our mock to proxy to"/>
+    </docblock>
+  </member>
+  <member name="name" visibility="protected" line="34">
+    <docblock>
+      <description compact="The class name we'd like to use for a generated mock"/>
+    </docblock>
+  </member>
+  <member name="blackListedMethods" type="array" default="" visibility="protected" line="42">
+    <docblock>
+      <description compact="Methods that should specifically not be mocked">This is currently populated with stuff we don't know how to deal with,
+should really be somewhere else</description>
+    </docblock>
+  </member>
+  <member name="whiteListedMethods" type="array" default="" visibility="protected" line="47">
+    <docblock>
+      <description compact="If not empty, only these methods will be mocked"/>
+    </docblock>
+  </member>
+  <member name="instanceMock" type="boolean" default="false" visibility="protected" line="53">
+    <docblock>
+      <description compact="An instance mock is where we override the original class before it's autoloaded"/>
+    </docblock>
+  </member>
+  <member name="parameterOverrides" type="array" default="" visibility="protected" line="58">
+    <docblock>
+      <description compact="Param overrides"/>
+    </docblock>
+  </member>
+  <member name="allMethods" visibility="protected" line="63">
+    <docblock>
+      <description compact="Instance cache of all methods"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="65" end="73" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="targets" byreference="false" type="array" default=""/>
+    <parameter name="blackListedMethods" byreference="false" type="array" default=""/>
+    <parameter name="whiteListedMethods" byreference="false" type="array" default=""/>
+    <parameter name="name" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="instanceMock" byreference="false" type="boolean" default="false"/>
+    <parameter name="parameterOverrides" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="getHash" start="82" end="95" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Attempt to create a hash of the configuration, in order to allow caching"/>
+      <todo value="workout if this will work"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getMethodsToMock" start="102" end="149" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets a list of methods from the classes, interfaces and objects and filters them appropriately. Lot's of filtering going on, perhaps we could have filter classes to iterate through"/>
+    </docblock>
+    <inline>
+      <comment value="Whitelist trumps everything else" line="112"/>
+      <comment value="Remove blacklisted methods" line="124"/>
+      <comment value="Internal objects can not be instantiated with newInstanceArgs and if" line="134"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="they implement Serializable, unserialize will have to be called. As" line="135"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="such, we can't mock it and will need a pass to add a dummy" line="136"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="implementation" line="137"/>
+    </inline>
+  </method>
+  <method name="requiresCallTypeHintRemoval" start="155" end="165" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="We declare the __call method to handle undefined stuff, if the class we're mocking has also defined it, we need to comply with their interface"/>
+    </docblock>
+  </method>
+  <method name="requiresCallStaticTypeHintRemoval" start="171" end="181" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="We declare the __callStatic method to handle undefined stuff, if the class we're mocking has also defined it, we need to comply with their interface"/>
+    </docblock>
+  </method>
+  <method name="rename" start="183" end="207" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="className" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addTarget" start="209" end="243" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="target" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Default is to set as class, or interface if class already set" line="231"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Don't like this condition, can't remember what the default" line="232"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="targetClass is for" line="233"/>
+    </inline>
+  </method>
+  <method name="addTargets" start="245" end="250" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="interfaces" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getTargetClassName" start="252" end="255" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getTargetClass" start="257" end="286" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getTargetInterfaces" start="288" end="335" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="just in case" line="333"/>
+    </inline>
+  </method>
+  <method name="getTargetObject" start="337" end="340" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getName" start="342" end="345" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="generateName" start="350" end="370" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Generate a suitable name based on the config"/>
+    </docblock>
+  </method>
+  <method name="getShortName" start="372" end="376" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getNamespaceName" start="378" end="388" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getBlackListedMethods" start="390" end="393" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getWhiteListedMethods" start="395" end="398" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="isInstanceMock" start="400" end="403" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getParameterOverrides" start="405" end="408" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="setTargetClassName" start="410" end="413" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="targetClassName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getAllMethods" start="415" end="443" abstract="false" final="false" static="false" visibility="protected"/>
+  <method name="addTargetInterfaceName" start="450" end="453" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="If we attempt to implement Traversable, we must ensure we are also implementing either Iterator or IteratorAggregate, and that whichever one it is comes before Traversable in the list of implements."/>
+    </docblock>
+    <parameter name="targetInterface" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setTargetObject" start="456" end="459" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="object" byreference="false" type="{unknown}"/>
+  </method>
+</class>

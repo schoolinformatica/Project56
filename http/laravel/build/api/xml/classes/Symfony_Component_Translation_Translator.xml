@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Translation\Translator" namespace="Symfony\Component\Translation" name="Translator" abstract="false" final="false" start="25" end="478">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation" file="Translator.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation/Translator.php" size="13413" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="bb01179092a852ff6f31cea7163be9d9507846da" relative="vendor/symfony/translation/Translator.php"/>
+  <docblock>
+    <description compact="Translator."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\Translation\TranslatorInterface" namespace="Symfony\Component\Translation" name="TranslatorInterface"/>
+  <implements full="Symfony\Component\Translation\TranslatorBagInterface" namespace="Symfony\Component\Translation" name="TranslatorBagInterface"/>
+  <member name="catalogues" type="array" default="" visibility="protected" line="30">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="Symfony\Component\Translation\MessageCatalogueInterface" namespace="Symfony\Component\Translation" name="MessageCatalogueInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="locale" visibility="protected" line="35">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="fallbackLocales" type="array" default="" visibility="private" line="40">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="loaders" type="array" default="" visibility="private" line="45">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="Symfony\Component\Translation\LoaderInterface" namespace="Symfony\Component\Translation" name="LoaderInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="resources" type="array" default="" visibility="private" line="50">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="selector" visibility="private" line="55">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\Translation\MessageSelector" namespace="Symfony\Component\Translation" name="MessageSelector"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="cacheDir" visibility="private" line="60">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="debug" visibility="private" line="65">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\Translation\bool" namespace="Symfony\Component\Translation" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="configCacheFactory" visibility="private" line="70">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\Translation\ConfigCacheFactoryInterface|null" namespace="Symfony\Component\Translation" name="ConfigCacheFactoryInterface|null"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="82" end="88" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="The locale" type="string" variable="$locale"/>
+      <param description="The message selector for pluralization" type="object" variable="$selector">
+        <type full="Symfony\Component\Translation\MessageSelector|null" namespace="Symfony\Component\Translation" name="MessageSelector|null"/>
+      </param>
+      <param description="The directory to use for the cache" type="object" variable="$cacheDir">
+        <type full="Symfony\Component\Translation\string|null" namespace="Symfony\Component\Translation" name="string|null"/>
+      </param>
+      <param description="Use cache in debug mode ?" type="object" variable="$debug">
+        <type full="Symfony\Component\Translation\bool" namespace="Symfony\Component\Translation" name="bool"/>
+      </param>
+      <throws description="If a locale contains invalid characters" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="selector" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\Translation\MessageSelector" namespace="Symfony\Component\Translation" name="MessageSelector"/>
+    </parameter>
+    <parameter name="cacheDir" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="debug" byreference="false" type="boolean" default="false"/>
+  </constructor>
+  <method name="setConfigCacheFactory" start="95" end="98" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the ConfigCache factory to use."/>
+      <param type="object" variable="$configCacheFactory">
+        <type full="Symfony\Component\Config\ConfigCacheFactoryInterface" namespace="Symfony\Component\Config" name="ConfigCacheFactoryInterface"/>
+      </param>
+    </docblock>
+    <parameter name="configCacheFactory" byreference="false" type="object">
+      <type full="Symfony\Component\Config\ConfigCacheFactoryInterface" namespace="Symfony\Component\Config" name="ConfigCacheFactoryInterface"/>
+    </parameter>
+  </method>
+  <method name="addLoader" start="106" end="109" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a Loader."/>
+      <param description="The name of the loader (@see addResource())" type="string" variable="$format"/>
+      <param description="A LoaderInterface instance" type="object" variable="$loader">
+        <type full="Symfony\Component\Translation\Loader\LoaderInterface" namespace="Symfony\Component\Translation\Loader" name="LoaderInterface"/>
+      </param>
+    </docblock>
+    <parameter name="format" byreference="false" type="{unknown}"/>
+    <parameter name="loader" byreference="false" type="object">
+      <type full="Symfony\Component\Translation\Loader\LoaderInterface" namespace="Symfony\Component\Translation\Loader" name="LoaderInterface"/>
+    </parameter>
+  </method>
+  <method name="addResource" start="121" end="136" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a Resource."/>
+      <param description="The name of the loader (@see addLoader())" type="string" variable="$format"/>
+      <param description="The resource name" type="mixed" variable="$resource"/>
+      <param description="The locale" type="string" variable="$locale"/>
+      <param description="The domain" type="string" variable="$domain"/>
+      <throws description="If the locale contains invalid characters" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="format" byreference="false" type="{unknown}"/>
+    <parameter name="resource" byreference="false" type="{unknown}"/>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="domain" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="setLocale" start="141" end="145" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getLocale" start="150" end="153" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="setFallbackLocale" start="164" end="169" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the fallback locale(s)."/>
+      <param description="The fallback locale(s)" type="object" variable="$locales">
+        <type full="Symfony\Component\Translation\string|array" namespace="Symfony\Component\Translation" name="string|array"/>
+      </param>
+      <throws description="If a locale contains invalid characters" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <deprecated value="since version 2.3, to be removed in 3.0. Use setFallbackLocales() instead."/>
+    </docblock>
+    <parameter name="locales" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setFallbackLocales" start="178" end="188" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the fallback locales."/>
+      <param description="The fallback locales" type="array" variable="$locales"/>
+      <throws description="If a locale contains invalid characters" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="locales" byreference="false" type="array"/>
+    <inline>
+      <comment value="needed as the fallback locales are linked to the already loaded catalogues" line="180"/>
+    </inline>
+  </method>
+  <method name="getFallbackLocales" start="195" end="198" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the fallback locales."/>
+      <return description="$locales The fallback locales" type="array"/>
+    </docblock>
+  </method>
+  <method name="trans" start="203" end="210" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="array" default=""/>
+    <parameter name="domain" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="locale" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="transChoice" start="215" end="234" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="number" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="array" default=""/>
+    <parameter name="domain" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="locale" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getCatalogue" start="239" end="252" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getLoaders" start="259" end="262" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Gets the loaders."/>
+      <return description="LoaderInterface[]" type="array"/>
+    </docblock>
+  </method>
+  <method name="getMessages" start="271" end="280" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Collects all messages for the given locale."/>
+      <param description="Locale of translations, by default is current locale" type="object" variable="$locale">
+        <type full="Symfony\Component\Translation\string|null" namespace="Symfony\Component\Translation" name="string|null"/>
+      </param>
+      <return description="indexed by catalog" type="object">
+        <type full="Symfony\Component\Translation\array[array]" namespace="Symfony\Component\Translation" name="array[array]"/>
+      </return>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="loadCatalogue" start="285" end="292" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$locale"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="initializeCatalogue" start="297" end="309" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$locale"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="initializeCacheCatalogue" start="314" end="336" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$locale"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="required for PHP 5.3 where &quot;$this&quot; cannot be use()d in anonymous functions. Change in Symfony 3.0." line="322"/>
+      <comment value="Read catalogue from cache." line="334"/>
+    </inline>
+  </method>
+  <method name="dumpCatalogue" start="343" end="366" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="This method is public because it needs to be callable from a closure in PHP 5.3. It should be made protected (or even private, if possible) in 3.0."/>
+      <internal/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="cache" byreference="false" type="object">
+      <type full="Symfony\Component\Config\ConfigCacheInterface" namespace="Symfony\Component\Config" name="ConfigCacheInterface"/>
+    </parameter>
+  </method>
+  <method name="getFallbackContent" start="368" end="396" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="catalogue" byreference="false" type="object">
+      <type full="Symfony\Component\Translation\MessageCatalogue" namespace="Symfony\Component\Translation" name="MessageCatalogue"/>
+    </parameter>
+  </method>
+  <method name="getCatalogueCachePath" start="398" end="401" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="doLoadCatalogue" start="403" end="415" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="loadFallbackCatalogues" start="417" end="430" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="computeFallbackLocales" start="432" end="448" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="assertValidLocale" start="457" end="462" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Asserts that the locale is valid, throws an Exception if not."/>
+      <param description="Locale to tests" type="string" variable="$locale"/>
+      <throws description="If the locale contains invalid characters" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getConfigCacheFactory" start="470" end="477" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Provides the ConfigCache factory implementation, falling back to a default implementation if necessary."/>
+      <return description="$configCacheFactory" type="object">
+        <type full="Symfony\Component\Config\ConfigCacheFactoryInterface" namespace="Symfony\Component\Config" name="ConfigCacheFactoryInterface"/>
+      </return>
+    </docblock>
+  </method>
+</class>

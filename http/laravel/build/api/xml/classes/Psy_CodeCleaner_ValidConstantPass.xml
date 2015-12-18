@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\CodeCleaner\ValidConstantPass" namespace="Psy\CodeCleaner" name="ValidConstantPass" abstract="false" final="false" start="31" end="85">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/CodeCleaner" file="ValidConstantPass.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/CodeCleaner/ValidConstantPass.php" size="2988" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="5152952c0eea136d23fa4a8235213be51110baa3" relative="vendor/psy/psysh/src/Psy/CodeCleaner/ValidConstantPass.php"/>
+  <docblock>
+    <description compact="Validate that namespaced constant references will succeed.">This pass throws a FatalErrorException rather than letting PHP run
+headfirst into a real fatal error and die.</description>
+    <todo value="Detect constants defined in the current code snippet?">... Might not be worth it, since it would need to both be defining and
+      referencing a namespaced constant, which doesn't seem like that big of
+      a target for failure.</todo>
+  </docblock>
+  <extends full="Psy\CodeCleaner\NamespaceAwarePass" namespace="Psy\CodeCleaner" name="NamespaceAwarePass"/>
+  <method name="leaveNode" start="43" end="53" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Validate that namespaced constant references will succeed.">Note that this does not (yet) detect constants defined in the current code
+snippet. It won't happen very often, so we'll punt for now.</description>
+      <throws description="if a constant reference is not defined." type="object">
+        <type full="Psy\Exception\FatalErrorException" namespace="Psy\Exception" name="FatalErrorException"/>
+      </throws>
+      <param type="object" variable="$node">
+        <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+      </param>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+    </parameter>
+  </method>
+  <method name="validateClassConstFetchExpression" start="62" end="84" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Validate a class constant fetch expression."/>
+      <throws description="if a class constant is not defined." type="object">
+        <type full="Psy\Exception\FatalErrorException" namespace="Psy\Exception" name="FatalErrorException"/>
+      </throws>
+      <param type="object" variable="$stmt">
+        <type full="PhpParser\Node\Expr\ClassConstFetch" namespace="PhpParser\Node\Expr" name="ClassConstFetch"/>
+      </param>
+    </docblock>
+    <parameter name="stmt" byreference="false" type="object">
+      <type full="PhpParser\Node\Expr\ClassConstFetch" namespace="PhpParser\Node\Expr" name="ClassConstFetch"/>
+    </parameter>
+    <inline>
+      <comment value="give the `class` pseudo-constant a pass" line="64"/>
+      <comment value="if class name is an expression, give it a pass for now" line="69"/>
+    </inline>
+  </method>
+</class>

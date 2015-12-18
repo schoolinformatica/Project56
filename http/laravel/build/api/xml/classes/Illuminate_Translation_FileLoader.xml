@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Translation\FileLoader" namespace="Illuminate\Translation" name="FileLoader" abstract="false" final="false" start="7" end="127">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Translation" file="FileLoader.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php" size="2962" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="0099a89f3a70ba99e26fb527abc198547141ccfa" relative="vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php"/>
+  <implements full="Illuminate\Translation\LoaderInterface" namespace="Illuminate\Translation" name="LoaderInterface"/>
+  <member name="files" visibility="protected" line="14">
+    <docblock>
+      <description compact="The filesystem instance."/>
+      <var type="object">
+        <type full="\Illuminate\Filesystem\Filesystem" namespace="\Illuminate\Filesystem" name="Filesystem"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="path" visibility="protected" line="21">
+    <docblock>
+      <description compact="The default path for the loader."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="hints" type="array" default="" visibility="protected" line="28">
+    <docblock>
+      <description compact="All of the namespace hints."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="37" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new file loader instance."/>
+      <param type="object" variable="$files">
+        <type full="\Illuminate\Filesystem\Filesystem" namespace="\Illuminate\Filesystem" name="Filesystem"/>
+      </param>
+      <param type="string" variable="$path"/>
+      <return type="object">
+        <type full="Illuminate\Translation\void" namespace="Illuminate\Translation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="files" byreference="false" type="object">
+      <type full="Illuminate\Filesystem\Filesystem" namespace="Illuminate\Filesystem" name="Filesystem"/>
+    </parameter>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="load" start="51" end="58" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Load the messages for the given locale."/>
+      <param type="string" variable="$locale"/>
+      <param type="string" variable="$group"/>
+      <param type="string" variable="$namespace"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="group" byreference="false" type="{unknown}"/>
+    <parameter name="namespace" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="loadNamespaced" start="68" end="77" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Load a namespaced translation group."/>
+      <param type="string" variable="$locale"/>
+      <param type="string" variable="$group"/>
+      <param type="string" variable="$namespace"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="group" byreference="false" type="{unknown}"/>
+    <parameter name="namespace" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="loadNamespaceOverrides" start="88" end="97" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Load a local namespaced translation group for overrides."/>
+      <param type="array" variable="$lines"/>
+      <param type="string" variable="$locale"/>
+      <param type="string" variable="$group"/>
+      <param type="string" variable="$namespace"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="lines" byreference="false" type="array"/>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="group" byreference="false" type="{unknown}"/>
+    <parameter name="namespace" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="loadPath" start="107" end="114" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Load a locale from a given path."/>
+      <param type="string" variable="$path"/>
+      <param type="string" variable="$locale"/>
+      <param type="string" variable="$group"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="group" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addNamespace" start="123" end="126" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a new namespace to the loader."/>
+      <param type="string" variable="$namespace"/>
+      <param type="string" variable="$hint"/>
+      <return type="object">
+        <type full="Illuminate\Translation\void" namespace="Illuminate\Translation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="namespace" byreference="false" type="{unknown}"/>
+    <parameter name="hint" byreference="false" type="{unknown}"/>
+  </method>
+</class>

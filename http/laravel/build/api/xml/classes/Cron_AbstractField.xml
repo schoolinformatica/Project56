@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Cron\AbstractField" namespace="Cron" name="AbstractField" abstract="true" final="false" start="8" end="104">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/mtdowling/cron-expression/src/Cron" file="AbstractField.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/mtdowling/cron-expression/src/Cron/AbstractField.php" size="2622" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="9ea8d9221c894a07ba43e2415317d3028dc02c27" relative="vendor/mtdowling/cron-expression/src/Cron/AbstractField.php"/>
+  <docblock>
+    <description compact="Abstract CRON expression field"/>
+  </docblock>
+  <implements full="Cron\FieldInterface" namespace="Cron" name="FieldInterface"/>
+  <method name="isSatisfied" start="18" end="27" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check to see if a field is satisfied by a value"/>
+      <param description="Date value to check" type="string" variable="$dateValue"/>
+      <param description="Value to test" type="string" variable="$value"/>
+      <return type="object">
+        <type full="Cron\bool" namespace="Cron" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="dateValue" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isRange" start="36" end="39" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check if a value is a range"/>
+      <param description="Value to test" type="string" variable="$value"/>
+      <return type="object">
+        <type full="Cron\bool" namespace="Cron" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isIncrementsOfRanges" start="48" end="51" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check if a value is an increments of ranges"/>
+      <param description="Value to test" type="string" variable="$value"/>
+      <return type="object">
+        <type full="Cron\bool" namespace="Cron" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isInRange" start="61" end="66" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Test if a value is within a range"/>
+      <param description="Set date value" type="string" variable="$dateValue"/>
+      <param description="Value to test" type="string" variable="$value"/>
+      <return type="object">
+        <type full="Cron\bool" namespace="Cron" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="dateValue" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isInIncrementsOfRanges" start="76" end="103" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Test if a value is within an increments of ranges (offset[-to]/step size)"/>
+      <param description="Set date value" type="string" variable="$dateValue"/>
+      <param description="Value to test" type="string" variable="$value"/>
+      <return type="object">
+        <type full="Cron\bool" namespace="Cron" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="dateValue" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Ensure that the date value is within the range" line="87"/>
+    </inline>
+  </method>
+</class>

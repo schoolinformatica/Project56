@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpFoundation\Session\Session" namespace="Symfony\Component\HttpFoundation\Session" name="Session" abstract="false" final="false" start="27" end="249">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/Session" file="Session.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/Session/Session.php" size="5420" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="f7217d9329f3624d28adf7953605a3a9dd62b750" relative="vendor/symfony/http-foundation/Session/Session.php"/>
+  <docblock>
+    <description compact="Session."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+    <author value="Drak &lt;drak@zikula.org&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\HttpFoundation\Session\SessionInterface" namespace="Symfony\Component\HttpFoundation\Session" name="SessionInterface"/>
+  <implements full="IteratorAggregate" namespace="" name="IteratorAggregate"/>
+  <implements full="Countable" namespace="" name="Countable"/>
+  <member name="storage" visibility="protected" line="34">
+    <docblock>
+      <description compact="Storage driver."/>
+      <var type="object">
+        <type full="Symfony\Component\HttpFoundation\Session\Storage\SessionStorageInterface" namespace="Symfony\Component\HttpFoundation\Session\Storage" name="SessionStorageInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="flashName" visibility="private" line="39">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="attributeName" visibility="private" line="44">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="53" end="64" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="A SessionStorageInterface instance." type="object" variable="$storage">
+        <type full="Symfony\Component\HttpFoundation\Session\Storage\SessionStorageInterface" namespace="Symfony\Component\HttpFoundation\Session\Storage" name="SessionStorageInterface"/>
+      </param>
+      <param description="An AttributeBagInterface instance, (defaults null for default AttributeBag)" type="object" variable="$attributes">
+        <type full="Symfony\Component\HttpFoundation\Session\Attribute\AttributeBagInterface" namespace="Symfony\Component\HttpFoundation\Session\Attribute" name="AttributeBagInterface"/>
+      </param>
+      <param description="A FlashBagInterface instance (defaults null for default FlashBag)" type="object" variable="$flashes">
+        <type full="Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface" namespace="Symfony\Component\HttpFoundation\Session\Flash" name="FlashBagInterface"/>
+      </param>
+    </docblock>
+    <parameter name="storage" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\HttpFoundation\Session\Storage\SessionStorageInterface" namespace="Symfony\Component\HttpFoundation\Session\Storage" name="SessionStorageInterface"/>
+    </parameter>
+    <parameter name="attributes" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\HttpFoundation\Session\Attribute\AttributeBagInterface" namespace="Symfony\Component\HttpFoundation\Session\Attribute" name="AttributeBagInterface"/>
+    </parameter>
+    <parameter name="flashes" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface" namespace="Symfony\Component\HttpFoundation\Session\Flash" name="FlashBagInterface"/>
+    </parameter>
+  </constructor>
+  <method name="start" start="69" end="72" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="has" start="77" end="80" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get" start="85" end="88" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="set" start="93" end="96" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="all" start="101" end="104" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="replace" start="109" end="112" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array"/>
+  </method>
+  <method name="remove" start="117" end="120" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="clear" start="125" end="128" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="isStarted" start="133" end="136" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="getIterator" start="143" end="146" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an iterator for attributes."/>
+      <return description="An \ArrayIterator instance" type="object">
+        <type full="\ArrayIterator" namespace="" name="ArrayIterator"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="count" start="153" end="156" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the number of attributes."/>
+      <return description="The number of attributes" type="int"/>
+    </docblock>
+  </method>
+  <method name="invalidate" start="161" end="166" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="lifetime" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="migrate" start="171" end="174" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="destroy" byreference="false" type="boolean" default="false"/>
+    <parameter name="lifetime" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="save" start="179" end="182" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="getId" start="187" end="190" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="setId" start="195" end="198" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getName" start="203" end="206" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="setName" start="211" end="214" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getMetadataBag" start="219" end="222" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="registerBag" start="227" end="230" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="bag" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Session\SessionBagInterface" namespace="Symfony\Component\HttpFoundation\Session" name="SessionBagInterface"/>
+    </parameter>
+  </method>
+  <method name="getBag" start="235" end="238" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getFlashBag" start="245" end="248" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the flashbag interface."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface" namespace="Symfony\Component\HttpFoundation\Session\Flash" name="FlashBagInterface"/>
+      </return>
+    </docblock>
+  </method>
+</class>

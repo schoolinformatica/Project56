@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_Transport_StreamBuffer" namespace="" name="Swift_Transport_StreamBuffer" abstract="false" final="false" start="16" end="321">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport" file="StreamBuffer.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/StreamBuffer.php" size="9488" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="62ea3b368ace615f5ee6c58706284d7de8e86921" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/StreamBuffer.php"/>
+  <docblock>
+    <description compact="A generic IoBuffer implementation supporting remote sockets and local processes."/>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <extends full="Swift_ByteStream_AbstractFilterableInputStream" namespace="" name="Swift_ByteStream_AbstractFilterableInputStream"/>
+  <implements full="Swift_Transport_IoBuffer" namespace="" name="Swift_Transport_IoBuffer"/>
+  <member name="_stream" visibility="private" line="19">
+    <docblock>
+      <description compact="A primary socket"/>
+    </docblock>
+  </member>
+  <member name="_in" visibility="private" line="22">
+    <docblock>
+      <description compact="The input stream"/>
+    </docblock>
+  </member>
+  <member name="_out" visibility="private" line="25">
+    <docblock>
+      <description compact="The output stream"/>
+    </docblock>
+  </member>
+  <member name="_params" type="array" default="" visibility="private" line="28">
+    <docblock>
+      <description compact="Buffer initialization parameters"/>
+    </docblock>
+  </member>
+  <member name="_replacementFactory" visibility="private" line="31">
+    <docblock>
+      <description compact="The ReplacementFilterFactory"/>
+    </docblock>
+  </member>
+  <member name="_translations" type="array" default="" visibility="private" line="34">
+    <docblock>
+      <description compact="Translations performed on data being streamed into the buffer"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="41" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new StreamBuffer using $replacementFactory for transformations."/>
+      <param type="object" variable="$replacementFactory">
+        <type full="Swift_ReplacementFilterFactory" namespace="" name="Swift_ReplacementFilterFactory"/>
+      </param>
+    </docblock>
+    <parameter name="replacementFactory" byreference="false" type="object">
+      <type full="Swift_ReplacementFilterFactory" namespace="" name="Swift_ReplacementFilterFactory"/>
+    </parameter>
+  </constructor>
+  <method name="initialize" start="53" end="65" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Perform any initialization needed, using the given $params.">Parameters will vary depending upon the type of IoBuffer used.</description>
+      <param type="array" variable="$params"/>
+    </docblock>
+    <parameter name="params" byreference="false" type="array"/>
+  </method>
+  <method name="setParam" start="73" end="91" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set an individual param on the buffer (e.g. switching to SSL)."/>
+      <param type="string" variable="$param"/>
+      <param type="mixed" variable="$value"/>
+    </docblock>
+    <parameter name="param" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="startTLS" start="93" end="96" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="terminate" start="101" end="119" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Perform any shutdown logic needed."/>
+    </docblock>
+  </method>
+  <method name="setWriteTranslations" start="129" end="146" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set an array of string replacements which should be made on data written to the buffer.">This could replace LF with CRLF for example.</description>
+      <param type="array" variable="$replacements" of="string"/>
+    </docblock>
+    <parameter name="replacements" byreference="false" type="array"/>
+  </method>
+  <method name="readLine" start="160" end="177" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a line of output (including any CRLF).">The $sequence number comes from any writes and may or may not be used
+depending upon the implementation.</description>
+      <param description="of last write to scan from" type="int" variable="$sequence"/>
+      <throws type="object">
+        <type full="Swift_IoException" namespace="" name="Swift_IoException"/>
+      </throws>
+      <return type="string"/>
+    </docblock>
+    <parameter name="sequence" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="read" start="192" end="209" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Reads $length bytes from the stream into a string and moves the pointer through the stream by $length.">If less bytes exist than are requested the remaining bytes are given instead.
+If no bytes are remaining at all, boolean false is returned.</description>
+      <param type="int" variable="$length"/>
+      <throws type="object">
+        <type full="Swift_IoException" namespace="" name="Swift_IoException"/>
+      </throws>
+      <return type="object">
+        <type full="string|bool" namespace="" name="string|bool"/>
+      </return>
+    </docblock>
+    <parameter name="length" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setReadPointer" start="212" end="214" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Not implemented"/>
+    </docblock>
+    <parameter name="byteOffset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_flush" start="217" end="222" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Flush the stream contents"/>
+    </docblock>
+  </method>
+  <method name="_commit" start="225" end="244" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Write this bytes to the stream"/>
+    </docblock>
+    <parameter name="bytes" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_establishSocketConnection" start="249" end="278" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Establishes a connection to a remote server."/>
+    </docblock>
+  </method>
+  <method name="_establishProcessConnection" start="283" end="300" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Opens a process for input/output."/>
+    </docblock>
+  </method>
+  <method name="_getReadConnectionDescription" start="302" end="320" abstract="false" final="false" static="false" visibility="private"/>
+</class>

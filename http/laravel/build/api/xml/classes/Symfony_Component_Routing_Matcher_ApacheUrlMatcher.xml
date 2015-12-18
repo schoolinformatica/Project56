@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Routing\Matcher\ApacheUrlMatcher" namespace="Symfony\Component\Routing\Matcher" name="ApacheUrlMatcher" abstract="false" final="false" start="28" end="124">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/routing/Matcher" file="ApacheUrlMatcher.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/routing/Matcher/ApacheUrlMatcher.php" size="3883" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="0b288824f47481b24ec9466d9378b95e8ab5da7c" relative="vendor/symfony/routing/Matcher/ApacheUrlMatcher.php"/>
+  <docblock>
+    <description compact="ApacheUrlMatcher matches URL based on Apache mod_rewrite matching (see ApacheMatcherDumper)."/>
+    <deprecated value="since version 2.5, to be removed in 3.0.">The performance gains are minimal and it's very hard to replicate
+            the behavior of PHP implementation.</deprecated>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+    <author value="Arnaud Le Blanc &lt;arnaud.lb@gmail.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\Routing\Matcher\UrlMatcher" namespace="Symfony\Component\Routing\Matcher" name="UrlMatcher"/>
+  <method name="match" start="41" end="99" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Tries to match a URL based on Apache mod_rewrite matching.">Returns false if no route matches the URL.</description>
+      <param description="The pathinfo to be parsed" type="string" variable="$pathinfo"/>
+      <return description="An array of parameters" type="array"/>
+      <throws description="If the current method is not allowed" type="object">
+        <type full="Symfony\Component\Routing\Exception\MethodNotAllowedException" namespace="Symfony\Component\Routing\Exception" name="MethodNotAllowedException"/>
+      </throws>
+    </docblock>
+    <parameter name="pathinfo" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="denormalizeValues" start="108" end="123" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Denormalizes an array of values."/>
+      <param type="array" variable="$values" of="object">
+        <type full="Symfony\Component\Routing\Matcher\string" namespace="Symfony\Component\Routing\Matcher" name="string"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="values" byreference="false" type="array"/>
+  </method>
+</class>

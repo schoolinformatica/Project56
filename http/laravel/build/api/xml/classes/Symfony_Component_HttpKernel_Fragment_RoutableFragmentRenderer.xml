@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\Fragment\RoutableFragmentRenderer" namespace="Symfony\Component\HttpKernel\Fragment" name="RoutableFragmentRenderer" abstract="true" final="false" start="23" end="90">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Fragment" file="RoutableFragmentRenderer.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Fragment/RoutableFragmentRenderer.php" size="3119" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="627f76e148bda8fa873dc80a0e4c0f2389ab96f2" relative="vendor/symfony/http-kernel/Fragment/RoutableFragmentRenderer.php"/>
+  <docblock>
+    <description compact="Adds the possibility to generate a fragment URI for a given Controller."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\HttpKernel\Fragment\FragmentRendererInterface" namespace="Symfony\Component\HttpKernel\Fragment" name="FragmentRendererInterface"/>
+  <member name="fragmentPath" type="string" default="'/_fragment'" visibility="private" line="25"/>
+  <method name="setFragmentPath" start="34" end="37" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the fragment path that triggers the fragment listener."/>
+      <param description="The path" type="string" variable="$path"/>
+      <see value="FragmentListener"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="generateFragmentUri" start="49" end="78" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Generates a fragment URI for a given controller."/>
+      <param description="A ControllerReference instance" type="object" variable="$reference">
+        <type full="Symfony\Component\HttpKernel\Controller\ControllerReference" namespace="Symfony\Component\HttpKernel\Controller" name="ControllerReference"/>
+      </param>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <param description="Whether to generate an absolute URL or not" type="object" variable="$absolute">
+        <type full="Symfony\Component\HttpKernel\Fragment\bool" namespace="Symfony\Component\HttpKernel\Fragment" name="bool"/>
+      </param>
+      <param description="Whether to allow non-scalar attributes or not" type="object" variable="$strict">
+        <type full="Symfony\Component\HttpKernel\Fragment\bool" namespace="Symfony\Component\HttpKernel\Fragment" name="bool"/>
+      </param>
+      <return description="A fragment URI" type="string"/>
+    </docblock>
+    <parameter name="reference" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\Controller\ControllerReference" namespace="Symfony\Component\HttpKernel\Controller" name="ControllerReference"/>
+    </parameter>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="absolute" byreference="false" type="boolean" default="false"/>
+    <parameter name="strict" byreference="false" type="boolean" default="true"/>
+    <inline>
+      <comment value="We need to forward the current _format and _locale values as we don't have" line="55"/>
+      <comment value="a proper routing pattern to do the job for us." line="56"/>
+      <comment value="This makes things inconsistent if you switch from rendering a controller" line="57"/>
+      <comment value="to rendering a route if the route pattern does not contain the special" line="58"/>
+      <comment value="_format and _locale placeholders." line="59"/>
+    </inline>
+  </method>
+  <method name="checkNonScalar" start="80" end="89" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="values" byreference="false" type="{unknown}"/>
+  </method>
+</class>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Yaml\Parser" namespace="Symfony\Component\Yaml" name="Parser" abstract="false" final="false" start="21" end="715">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/yaml" file="Parser.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/yaml/Parser.php" size="27630" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="bcd181d8e21e986a98fe32e0ac4c77839b57e116" relative="vendor/symfony/yaml/Parser.php"/>
+  <docblock>
+    <description compact="Parser parses YAML strings to convert them to PHP arrays."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <constant type="string" name="BLOCK_SCALAR_HEADER_PATTERN" value="'(?P&lt;separator&gt;\||&gt;)(?P&lt;modifiers&gt;\+|\-|\d+|\+\d+|\-\d+|\d+\+|\d+\-)?(?P&lt;comments&gt; +#.*)?'"/>
+  <member name="offset" type="integer" default="0" visibility="private" line="25"/>
+  <member name="lines" type="array" default="" visibility="private" line="26"/>
+  <member name="currentLineNb" type="integer" default="1" visibility="private" line="27"/>
+  <member name="currentLine" type="string" default="''" visibility="private" line="28"/>
+  <member name="refs" type="array" default="" visibility="private" line="29"/>
+  <constructor name="__construct" start="36" end="39" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="The offset of YAML document (used for line numbers in error messages)" type="int" variable="$offset"/>
+    </docblock>
+    <parameter name="offset" byreference="false" type="integer" default="0"/>
+  </constructor>
+  <method name="parse" start="53" end="305" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Parses a YAML string to a PHP value."/>
+      <param description="A YAML string" type="string" variable="$value"/>
+      <param description="true if an exception must be thrown on invalid types (a PHP resource or object), false otherwise" type="object" variable="$exceptionOnInvalidType">
+        <type full="Symfony\Component\Yaml\bool" namespace="Symfony\Component\Yaml" name="bool"/>
+      </param>
+      <param description="true if object support is enabled, false otherwise" type="object" variable="$objectSupport">
+        <type full="Symfony\Component\Yaml\bool" namespace="Symfony\Component\Yaml" name="bool"/>
+      </param>
+      <param description="true if maps should return a stdClass instead of array()" type="object" variable="$objectForMap">
+        <type full="Symfony\Component\Yaml\bool" namespace="Symfony\Component\Yaml" name="bool"/>
+      </param>
+      <return description="A PHP value" type="mixed"/>
+      <throws description="If the YAML is not valid" type="object">
+        <type full="Symfony\Component\Yaml\Exception\ParseException" namespace="Symfony\Component\Yaml\Exception" name="ParseException"/>
+      </throws>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="exceptionOnInvalidType" byreference="false" type="boolean" default="false"/>
+    <parameter name="objectSupport" byreference="false" type="boolean" default="false"/>
+    <parameter name="objectForMap" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="getRealCurrentLineNb" start="312" end="315" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Returns the current line number (takes the offset into account)."/>
+      <return description="The current line number" type="int"/>
+    </docblock>
+  </method>
+  <method name="getCurrentLineIndentation" start="322" end="325" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Returns the current line indentation."/>
+      <return description="The current line indentation" type="int"/>
+    </docblock>
+  </method>
+  <method name="getNextEmbedBlock" start="337" end="413" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Returns the next embed block of YAML."/>
+      <param description="The indent level at which the block is to be read, or null for default" type="int" variable="$indentation"/>
+      <param description="True if the enclosing data structure is a sequence" type="object" variable="$inSequence">
+        <type full="Symfony\Component\Yaml\bool" namespace="Symfony\Component\Yaml" name="bool"/>
+      </param>
+      <return description="A YAML string" type="string"/>
+      <throws description="When indentation problem are detected" type="object">
+        <type full="Symfony\Component\Yaml\Exception\ParseException" namespace="Symfony\Component\Yaml\Exception" name="ParseException"/>
+      </throws>
+    </docblock>
+    <parameter name="indentation" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="inSequence" byreference="false" type="boolean" default="false"/>
+    <inline>
+      <comment value="Comments must not be removed inside a block scalar" line="376"/>
+    </inline>
+  </method>
+  <method name="moveToNextLine" start="420" end="429" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Moves the parser to the next line."/>
+      <return type="object">
+        <type full="Symfony\Component\Yaml\bool" namespace="Symfony\Component\Yaml" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="moveToPreviousLine" start="434" end="437" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Moves the parser to the previous line."/>
+    </docblock>
+  </method>
+  <method name="parseValue" start="452" end="486" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Parses a YAML value."/>
+      <param description="A YAML value" type="string" variable="$value"/>
+      <param description="True if an exception must be thrown on invalid types false otherwise" type="object" variable="$exceptionOnInvalidType">
+        <type full="Symfony\Component\Yaml\bool" namespace="Symfony\Component\Yaml" name="bool"/>
+      </param>
+      <param description="True if object support is enabled, false otherwise" type="object" variable="$objectSupport">
+        <type full="Symfony\Component\Yaml\bool" namespace="Symfony\Component\Yaml" name="bool"/>
+      </param>
+      <param description="true if maps should return a stdClass instead of array()" type="object" variable="$objectForMap">
+        <type full="Symfony\Component\Yaml\bool" namespace="Symfony\Component\Yaml" name="bool"/>
+      </param>
+      <param description="The parser context (either sequence or mapping)" type="string" variable="$context"/>
+      <return description="A PHP value" type="mixed"/>
+      <throws description="When reference does not exist" type="object">
+        <type full="Symfony\Component\Yaml\Exception\ParseException" namespace="Symfony\Component\Yaml\Exception" name="ParseException"/>
+      </throws>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="exceptionOnInvalidType" byreference="false" type="{unknown}"/>
+    <parameter name="objectSupport" byreference="false" type="{unknown}"/>
+    <parameter name="objectForMap" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="parseBlockScalar" start="497" end="573" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Parses a block scalar."/>
+      <param description="The style indicator that was used to begin this block scalar (| or &gt;)" type="string" variable="$style"/>
+      <param description="The chomping indicator that was used to begin this block scalar (+ or -)" type="string" variable="$chomping"/>
+      <param description="The indentation indicator that was used to begin this block scalar" type="int" variable="$indentation"/>
+      <return description="The text value" type="string"/>
+    </docblock>
+    <parameter name="style" byreference="false" type="{unknown}"/>
+    <parameter name="chomping" byreference="false" type="string" default="''"/>
+    <parameter name="indentation" byreference="false" type="integer" default="0"/>
+    <inline>
+      <comment value="leading blank lines are consumed before determining indentation" line="507"/>
+      <comment value="determine indentation if not specified" line="516"/>
+      <comment value="folded style" line="552"/>
+      <comment value="deal with trailing newlines" line="565"/>
+    </inline>
+  </method>
+  <method name="isNextLineIndented" start="580" end="601" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Returns true if the next line is indented."/>
+      <return description="Returns true if the next line is indented, false otherwise" type="object">
+        <type full="Symfony\Component\Yaml\bool" namespace="Symfony\Component\Yaml" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isCurrentLineEmpty" start="608" end="611" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Returns true if the current line is blank or if it is a comment line."/>
+      <return description="Returns true if the current line is empty or if it is a comment line, false otherwise" type="object">
+        <type full="Symfony\Component\Yaml\bool" namespace="Symfony\Component\Yaml" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isCurrentLineBlank" start="618" end="621" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Returns true if the current line is blank."/>
+      <return description="Returns true if the current line is blank, false otherwise" type="object">
+        <type full="Symfony\Component\Yaml\bool" namespace="Symfony\Component\Yaml" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isCurrentLineComment" start="628" end="634" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Returns true if the current line is a comment line."/>
+      <return description="Returns true if the current line is a comment line, false otherwise" type="object">
+        <type full="Symfony\Component\Yaml\bool" namespace="Symfony\Component\Yaml" name="bool"/>
+      </return>
+    </docblock>
+    <inline>
+      <comment value="checking explicitly the first char of the trim is faster than loops or strpos" line="630"/>
+    </inline>
+  </method>
+  <method name="cleanup" start="643" end="672" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Cleanups a YAML string to be parsed."/>
+      <param description="The input YAML string" type="string" variable="$value"/>
+      <return description="A cleaned up YAML string" type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="strip YAML header" line="647"/>
+      <comment value="remove leading comments" line="652"/>
+      <comment value="remove start of the document marker (---)" line="660"/>
+    </inline>
+  </method>
+  <method name="isNextLineUnIndentedCollection" start="679" end="704" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Returns true if the next line starts unindented collection."/>
+      <return description="Returns true if the next line starts unindented collection, false otherwise" type="object">
+        <type full="Symfony\Component\Yaml\bool" namespace="Symfony\Component\Yaml" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isStringUnIndentedCollectionItem" start="711" end="714" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Returns true if the string is un-indented collection item."/>
+      <return description="Returns true if the string is un-indented collection item, false otherwise" type="object">
+        <type full="Symfony\Component\Yaml\bool" namespace="Symfony\Component\Yaml" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+</class>

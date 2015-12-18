@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Formatter\NormalizerFormatter" namespace="Monolog\Formatter" name="NormalizerFormatter" abstract="false" final="false" start="21" end="193">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Formatter" file="NormalizerFormatter.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Formatter/NormalizerFormatter.php" size="5681" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="f9645939c41858f4327d55dea22d056163543b6f" relative="vendor/monolog/monolog/src/Monolog/Formatter/NormalizerFormatter.php"/>
+  <docblock>
+    <description compact="Normalizes incoming records to remove objects/resources so it's easier to dump to various targets"/>
+    <author value="Jordi Boggiano &lt;j.boggiano@seld.be&gt;"/>
+  </docblock>
+  <implements full="Monolog\Formatter\FormatterInterface" namespace="Monolog\Formatter" name="FormatterInterface"/>
+  <constant type="string" name="SIMPLE_DATE" value="&quot;Y-m-d H:i:s&quot;"/>
+  <member name="dateFormat" visibility="protected" line="25"/>
+  <constructor name="__construct" start="30" end="36" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param description="The format of the timestamp: one supported by DateTime::format" type="string" variable="$dateFormat"/>
+    </docblock>
+    <parameter name="dateFormat" byreference="false" type="{unknown}" default="" constant="null"/>
+  </constructor>
+  <method name="format" start="41" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+  <method name="formatBatch" start="49" end="56" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="records" byreference="false" type="array"/>
+  </method>
+  <method name="normalize" start="58" end="113" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="normalizeException" start="115" end="139" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="e" byreference="false" type="object">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+  </method>
+  <method name="toJson" start="141" end="163" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="ignoreErrors" byreference="false" type="boolean" default="false"/>
+    <inline>
+      <comment value="suppress json_encode errors since it's twitchy with some inputs" line="143"/>
+    </inline>
+  </method>
+  <method name="throwEncodeError" start="172" end="192" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Throws an exception according to a given code with a customized message"/>
+      <param description="return code of json_last_error function" type="int" variable="$code"/>
+      <param description="data that was meant to be encoded" type="mixed" variable="$data"/>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="code" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+</class>

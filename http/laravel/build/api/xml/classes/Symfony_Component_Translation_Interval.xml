@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Translation\Interval" namespace="Symfony\Component\Translation" name="Interval" abstract="false" final="false" start="34" end="107">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation" file="Interval.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation/Interval.php" size="2794" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="a2e1e6e972a396efd2632db43b24f07e8fa6273b" relative="vendor/symfony/translation/Interval.php"/>
+  <docblock>
+    <description compact="Tests if a given number belongs to a given math interval.">An interval can represent a finite set of numbers:
+
+ {1,2,3,4}
+
+An interval can represent numbers between two numbers:
+
+ [1, +Inf]
+ ]-1,2[
+
+The left delimiter can be [ (inclusive) or ] (exclusive).
+The right delimiter can be [ (exclusive) or ] (inclusive).
+Beside numbers, you can use -Inf and +Inf for the infinite.</description>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+    <see value="http://en.wikipedia.org/wiki/Interval_%28mathematics%29#The_ISO_notation"/>
+  </docblock>
+  <method name="test" start="46" end="71" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Tests if the given number is in the math interval."/>
+      <param description="A number" type="int" variable="$number"/>
+      <param description="An interval" type="string" variable="$interval"/>
+      <return type="object">
+        <type full="Symfony\Component\Translation\bool" namespace="Symfony\Component\Translation" name="bool"/>
+      </return>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="number" byreference="false" type="{unknown}"/>
+    <parameter name="interval" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getIntervalRegexp" start="78" end="95" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns a Regexp that matches valid intervals."/>
+      <return description="A Regexp (without the delimiters)" type="string"/>
+    </docblock>
+  </method>
+  <method name="convertNumber" start="97" end="106" abstract="false" final="false" static="true" visibility="private">
+    <parameter name="number" byreference="false" type="{unknown}"/>
+  </method>
+</class>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Illuminate\Contracts\Container\Container" namespace="Illuminate\Contracts\Container" name="Container" abstract="false" final="false" start="7" end="144">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Contracts/Container" file="Container.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Contracts/Container/Container.php" size="3530" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="495b59af20f790179e9dc6b31704e3000550d5eb" relative="vendor/laravel/framework/src/Illuminate/Contracts/Container/Container.php"/>
+  <method name="bound" start="15" end="15" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the given abstract type has been bound."/>
+      <param type="string" variable="$abstract"/>
+      <return type="object">
+        <type full="Illuminate\Contracts\Container\bool" namespace="Illuminate\Contracts\Container" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="abstract" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="alias" start="24" end="24" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Alias a type to a different name."/>
+      <param type="string" variable="$abstract"/>
+      <param type="string" variable="$alias"/>
+      <return type="object">
+        <type full="Illuminate\Contracts\Container\void" namespace="Illuminate\Contracts\Container" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="abstract" byreference="false" type="{unknown}"/>
+    <parameter name="alias" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="tag" start="33" end="33" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Assign a set of tags to a given binding."/>
+      <param type="object" variable="$abstracts">
+        <type full="Illuminate\Contracts\Container\array|string" namespace="Illuminate\Contracts\Container" name="array|string"/>
+      </param>
+      <param type="object" variable="...$tags">
+        <type full="Illuminate\Contracts\Container\array|mixed" namespace="Illuminate\Contracts\Container" name="array|mixed"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Contracts\Container\void" namespace="Illuminate\Contracts\Container" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="abstracts" byreference="false" type="{unknown}"/>
+    <parameter name="tags" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="tagged" start="41" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Resolve all of the bindings for a given tag."/>
+      <param type="array" variable="$tag"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="tag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="bind" start="51" end="51" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a binding with the container."/>
+      <param type="object" variable="$abstract">
+        <type full="Illuminate\Contracts\Container\string|array" namespace="Illuminate\Contracts\Container" name="string|array"/>
+      </param>
+      <param type="object" variable="$concrete">
+        <type full="\Closure|string|null" namespace="" name="Closure|string|null"/>
+      </param>
+      <param type="object" variable="$shared">
+        <type full="Illuminate\Contracts\Container\bool" namespace="Illuminate\Contracts\Container" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Contracts\Container\void" namespace="Illuminate\Contracts\Container" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="abstract" byreference="false" type="{unknown}"/>
+    <parameter name="concrete" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="shared" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="bindIf" start="61" end="61" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a binding if it hasn't already been registered."/>
+      <param type="string" variable="$abstract"/>
+      <param type="object" variable="$concrete">
+        <type full="\Closure|string|null" namespace="" name="Closure|string|null"/>
+      </param>
+      <param type="object" variable="$shared">
+        <type full="Illuminate\Contracts\Container\bool" namespace="Illuminate\Contracts\Container" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Contracts\Container\void" namespace="Illuminate\Contracts\Container" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="abstract" byreference="false" type="{unknown}"/>
+    <parameter name="concrete" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="shared" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="singleton" start="70" end="70" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a shared binding in the container."/>
+      <param type="object" variable="$abstract">
+        <type full="Illuminate\Contracts\Container\string|array" namespace="Illuminate\Contracts\Container" name="string|array"/>
+      </param>
+      <param type="object" variable="$concrete">
+        <type full="\Closure|string|null" namespace="" name="Closure|string|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Contracts\Container\void" namespace="Illuminate\Contracts\Container" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="abstract" byreference="false" type="{unknown}"/>
+    <parameter name="concrete" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="extend" start="81" end="81" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="&quot;Extend&quot; an abstract type in the container."/>
+      <param type="string" variable="$abstract"/>
+      <param type="object" variable="$closure">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Contracts\Container\void" namespace="Illuminate\Contracts\Container" name="void"/>
+      </return>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="abstract" byreference="false" type="{unknown}"/>
+    <parameter name="closure" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="instance" start="90" end="90" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register an existing instance as shared in the container."/>
+      <param type="string" variable="$abstract"/>
+      <param type="mixed" variable="$instance"/>
+      <return type="object">
+        <type full="Illuminate\Contracts\Container\void" namespace="Illuminate\Contracts\Container" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="abstract" byreference="false" type="{unknown}"/>
+    <parameter name="instance" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="when" start="98" end="98" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Define a contextual binding."/>
+      <param type="string" variable="$concrete"/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Container\ContextualBindingBuilder" namespace="\Illuminate\Contracts\Container" name="ContextualBindingBuilder"/>
+      </return>
+    </docblock>
+    <parameter name="concrete" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="make" start="107" end="107" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Resolve the given type from the container."/>
+      <param type="string" variable="$abstract"/>
+      <param type="array" variable="$parameters"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="abstract" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="array" default=""/>
+  </method>
+  <method name="call" start="117" end="117" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Call the given Closure / class@method and inject its dependencies."/>
+      <param type="object" variable="$callback">
+        <type full="Illuminate\Contracts\Container\callable|string" namespace="Illuminate\Contracts\Container" name="callable|string"/>
+      </param>
+      <param type="array" variable="$parameters"/>
+      <param type="object" variable="$defaultMethod">
+        <type full="Illuminate\Contracts\Container\string|null" namespace="Illuminate\Contracts\Container" name="string|null"/>
+      </param>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="array" default=""/>
+    <parameter name="defaultMethod" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="resolved" start="125" end="125" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the given abstract type has been resolved."/>
+      <param type="string" variable="$abstract"/>
+      <return type="object">
+        <type full="Illuminate\Contracts\Container\bool" namespace="Illuminate\Contracts\Container" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="abstract" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="resolving" start="134" end="134" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a new resolving callback."/>
+      <param type="string" variable="$abstract"/>
+      <param type="object" variable="$callback">
+        <type full="\Closure|null" namespace="" name="Closure|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Contracts\Container\void" namespace="Illuminate\Contracts\Container" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="abstract" byreference="false" type="{unknown}"/>
+    <parameter name="callback" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="afterResolving" start="143" end="143" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a new after resolving callback."/>
+      <param type="string" variable="$abstract"/>
+      <param type="object" variable="$callback">
+        <type full="\Closure|null" namespace="" name="Closure|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Contracts\Container\void" namespace="Illuminate\Contracts\Container" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="abstract" byreference="false" type="{unknown}"/>
+    <parameter name="callback" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+</interface>

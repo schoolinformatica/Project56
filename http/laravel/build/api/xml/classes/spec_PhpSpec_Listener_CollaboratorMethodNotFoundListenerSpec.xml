@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="spec\PhpSpec\Listener\CollaboratorMethodNotFoundListenerSpec" namespace="spec\PhpSpec\Listener" name="CollaboratorMethodNotFoundListenerSpec" abstract="false" final="false" start="19" end="156">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/spec/PhpSpec/Listener" file="CollaboratorMethodNotFoundListenerSpec.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/spec/PhpSpec/Listener/CollaboratorMethodNotFoundListenerSpec.php" size="5848" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="f33736f0beed6a419fd070d43a8f3655c39ff1c6" relative="vendor/phpspec/phpspec/spec/PhpSpec/Listener/CollaboratorMethodNotFoundListenerSpec.php"/>
+  <extends full="PhpSpec\ObjectBehavior" namespace="PhpSpec" name="ObjectBehavior"/>
+  <method name="let" start="21" end="35" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="io" byreference="false" type="object">
+      <type full="PhpSpec\Console\IO" namespace="PhpSpec\Console" name="IO"/>
+    </parameter>
+    <parameter name="resources" byreference="false" type="object">
+      <type full="PhpSpec\Locator\ResourceManagerInterface" namespace="PhpSpec\Locator" name="ResourceManagerInterface"/>
+    </parameter>
+    <parameter name="event" byreference="false" type="object">
+      <type full="PhpSpec\Event\ExampleEvent" namespace="PhpSpec\Event" name="ExampleEvent"/>
+    </parameter>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="Prophecy\Exception\Doubler\MethodNotFoundException" namespace="Prophecy\Exception\Doubler" name="MethodNotFoundException"/>
+    </parameter>
+    <parameter name="resource" byreference="false" type="object">
+      <type full="PhpSpec\Locator\ResourceInterface" namespace="PhpSpec\Locator" name="ResourceInterface"/>
+    </parameter>
+    <parameter name="generator" byreference="false" type="object">
+      <type full="PhpSpec\CodeGenerator\GeneratorManager" namespace="PhpSpec\CodeGenerator" name="GeneratorManager"/>
+    </parameter>
+  </method>
+  <method name="it_is_an_event_subscriber" start="37" end="40" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="it_listens_to_afterexample_events" start="42" end="48" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="it_does_not_prompt_when_no_exception_is_thrown" start="50" end="58" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="io" byreference="false" type="object">
+      <type full="PhpSpec\Console\IO" namespace="PhpSpec\Console" name="IO"/>
+    </parameter>
+    <parameter name="event" byreference="false" type="object">
+      <type full="PhpSpec\Event\ExampleEvent" namespace="PhpSpec\Event" name="ExampleEvent"/>
+    </parameter>
+    <parameter name="suiteEvent" byreference="false" type="object">
+      <type full="PhpSpec\Event\SuiteEvent" namespace="PhpSpec\Event" name="SuiteEvent"/>
+    </parameter>
+  </method>
+  <method name="it_prompts_the_user_when_a_prophecy_method_exception_is_thrown" start="60" end="71" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="io" byreference="false" type="object">
+      <type full="PhpSpec\Console\IO" namespace="PhpSpec\Console" name="IO"/>
+    </parameter>
+    <parameter name="event" byreference="false" type="object">
+      <type full="PhpSpec\Event\ExampleEvent" namespace="PhpSpec\Event" name="ExampleEvent"/>
+    </parameter>
+    <parameter name="suiteEvent" byreference="false" type="object">
+      <type full="PhpSpec\Event\SuiteEvent" namespace="PhpSpec\Event" name="SuiteEvent"/>
+    </parameter>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="Prophecy\Exception\Doubler\MethodNotFoundException" namespace="Prophecy\Exception\Doubler" name="MethodNotFoundException"/>
+    </parameter>
+  </method>
+  <method name="it_does_not_prompt_when_wrong_exception_is_thrown" start="73" end="81" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="io" byreference="false" type="object">
+      <type full="PhpSpec\Console\IO" namespace="PhpSpec\Console" name="IO"/>
+    </parameter>
+    <parameter name="event" byreference="false" type="object">
+      <type full="PhpSpec\Event\ExampleEvent" namespace="PhpSpec\Event" name="ExampleEvent"/>
+    </parameter>
+    <parameter name="suiteEvent" byreference="false" type="object">
+      <type full="PhpSpec\Event\SuiteEvent" namespace="PhpSpec\Event" name="SuiteEvent"/>
+    </parameter>
+  </method>
+  <method name="it_does_not_prompt_when_collaborator_is_not_an_interface" start="83" end="94" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="io" byreference="false" type="object">
+      <type full="PhpSpec\Console\IO" namespace="PhpSpec\Console" name="IO"/>
+    </parameter>
+    <parameter name="event" byreference="false" type="object">
+      <type full="PhpSpec\Event\ExampleEvent" namespace="PhpSpec\Event" name="ExampleEvent"/>
+    </parameter>
+    <parameter name="suiteEvent" byreference="false" type="object">
+      <type full="PhpSpec\Event\SuiteEvent" namespace="PhpSpec\Event" name="SuiteEvent"/>
+    </parameter>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="Prophecy\Exception\Doubler\MethodNotFoundException" namespace="Prophecy\Exception\Doubler" name="MethodNotFoundException"/>
+    </parameter>
+  </method>
+  <method name="it_does_not_prompt_when_code_generation_is_disabled" start="96" end="109" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="io" byreference="false" type="object">
+      <type full="PhpSpec\Console\IO" namespace="PhpSpec\Console" name="IO"/>
+    </parameter>
+    <parameter name="event" byreference="false" type="object">
+      <type full="PhpSpec\Event\ExampleEvent" namespace="PhpSpec\Event" name="ExampleEvent"/>
+    </parameter>
+    <parameter name="suiteEvent" byreference="false" type="object">
+      <type full="PhpSpec\Event\SuiteEvent" namespace="PhpSpec\Event" name="SuiteEvent"/>
+    </parameter>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="Prophecy\Exception\Doubler\MethodNotFoundException" namespace="Prophecy\Exception\Doubler" name="MethodNotFoundException"/>
+    </parameter>
+  </method>
+  <method name="it_does_not_prompt_if_it_cannot_generate_the_resource" start="111" end="124" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="io" byreference="false" type="object">
+      <type full="PhpSpec\Console\IO" namespace="PhpSpec\Console" name="IO"/>
+    </parameter>
+    <parameter name="resources" byreference="false" type="object">
+      <type full="PhpSpec\Locator\ResourceManager" namespace="PhpSpec\Locator" name="ResourceManager"/>
+    </parameter>
+    <parameter name="event" byreference="false" type="object">
+      <type full="PhpSpec\Event\ExampleEvent" namespace="PhpSpec\Event" name="ExampleEvent"/>
+    </parameter>
+    <parameter name="suiteEvent" byreference="false" type="object">
+      <type full="PhpSpec\Event\SuiteEvent" namespace="PhpSpec\Event" name="SuiteEvent"/>
+    </parameter>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="Prophecy\Exception\Doubler\MethodNotFoundException" namespace="Prophecy\Exception\Doubler" name="MethodNotFoundException"/>
+    </parameter>
+  </method>
+  <method name="it_generates_the_method_signature_when_user_says_yes_at_prompt" start="126" end="140" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="io" byreference="false" type="object">
+      <type full="PhpSpec\Console\IO" namespace="PhpSpec\Console" name="IO"/>
+    </parameter>
+    <parameter name="event" byreference="false" type="object">
+      <type full="PhpSpec\Event\ExampleEvent" namespace="PhpSpec\Event" name="ExampleEvent"/>
+    </parameter>
+    <parameter name="suiteEvent" byreference="false" type="object">
+      <type full="PhpSpec\Event\SuiteEvent" namespace="PhpSpec\Event" name="SuiteEvent"/>
+    </parameter>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="Prophecy\Exception\Doubler\MethodNotFoundException" namespace="Prophecy\Exception\Doubler" name="MethodNotFoundException"/>
+    </parameter>
+    <parameter name="resource" byreference="false" type="object">
+      <type full="PhpSpec\Locator\ResourceInterface" namespace="PhpSpec\Locator" name="ResourceInterface"/>
+    </parameter>
+    <parameter name="generator" byreference="false" type="object">
+      <type full="PhpSpec\CodeGenerator\GeneratorManager" namespace="PhpSpec\CodeGenerator" name="GeneratorManager"/>
+    </parameter>
+  </method>
+  <method name="it_marks_the_suite_as_being_worth_rerunning_when_generation_happens" start="142" end="155" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="io" byreference="false" type="object">
+      <type full="PhpSpec\Console\IO" namespace="PhpSpec\Console" name="IO"/>
+    </parameter>
+    <parameter name="event" byreference="false" type="object">
+      <type full="PhpSpec\Event\ExampleEvent" namespace="PhpSpec\Event" name="ExampleEvent"/>
+    </parameter>
+    <parameter name="suiteEvent" byreference="false" type="object">
+      <type full="PhpSpec\Event\SuiteEvent" namespace="PhpSpec\Event" name="SuiteEvent"/>
+    </parameter>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="Prophecy\Exception\Doubler\MethodNotFoundException" namespace="Prophecy\Exception\Doubler" name="MethodNotFoundException"/>
+    </parameter>
+  </method>
+</class>

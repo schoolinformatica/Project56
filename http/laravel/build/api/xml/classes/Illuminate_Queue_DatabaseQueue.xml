@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Queue\DatabaseQueue" namespace="Illuminate\Queue" name="DatabaseQueue" abstract="false" final="false" start="12" end="323">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Queue" file="DatabaseQueue.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Queue/DatabaseQueue.php" size="8162" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="d82ec48039facc011115b57367d3cac91e6aa49c" relative="vendor/laravel/framework/src/Illuminate/Queue/DatabaseQueue.php"/>
+  <extends full="Illuminate\Queue\Queue" namespace="Illuminate\Queue" name="Queue"/>
+  <implements full="Illuminate\Contracts\Queue\Queue" namespace="Illuminate\Contracts\Queue" name="Queue"/>
+  <member name="database" visibility="protected" line="19">
+    <docblock>
+      <description compact="The database connection instance."/>
+      <var type="object">
+        <type full="\Illuminate\Database\Connection" namespace="\Illuminate\Database" name="Connection"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="table" visibility="protected" line="26">
+    <docblock>
+      <description compact="The database table that holds the jobs."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="default" visibility="protected" line="33">
+    <docblock>
+      <description compact="The name of the default queue."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="expire" type="integer" default="60" visibility="protected" line="40">
+    <docblock>
+      <description compact="The expiration time of a job."/>
+      <var type="object">
+        <type full="Illuminate\Queue\int|null" namespace="Illuminate\Queue" name="int|null"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="51" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new database queue instance."/>
+      <param type="object" variable="$database">
+        <type full="\Illuminate\Database\Connection" namespace="\Illuminate\Database" name="Connection"/>
+      </param>
+      <param type="string" variable="$table"/>
+      <param type="string" variable="$default"/>
+      <param type="int" variable="$expire"/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="database" byreference="false" type="object">
+      <type full="Illuminate\Database\Connection" namespace="Illuminate\Database" name="Connection"/>
+    </parameter>
+    <parameter name="table" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="string" default="'default'"/>
+    <parameter name="expire" byreference="false" type="integer" default="60"/>
+  </constructor>
+  <method name="push" start="67" end="70" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Push a new job onto the queue."/>
+      <param type="string" variable="$job"/>
+      <param type="mixed" variable="$data"/>
+      <param type="string" variable="$queue"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="job" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="string" default="''"/>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="pushRaw" start="80" end="83" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Push a raw payload onto the queue."/>
+      <param type="string" variable="$payload"/>
+      <param type="string" variable="$queue"/>
+      <param type="array" variable="$options"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="payload" byreference="false" type="{unknown}"/>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="options" byreference="false" type="array" default=""/>
+  </method>
+  <method name="later" start="94" end="97" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Push a new job onto the queue after a delay."/>
+      <param type="object" variable="$delay">
+        <type full="\DateTime|int" namespace="" name="DateTime|int"/>
+      </param>
+      <param type="string" variable="$job"/>
+      <param type="mixed" variable="$data"/>
+      <param type="string" variable="$queue"/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="delay" byreference="false" type="{unknown}"/>
+    <parameter name="job" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="string" default="''"/>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="bulk" start="107" end="120" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Push an array of jobs onto the queue."/>
+      <param type="array" variable="$jobs"/>
+      <param type="mixed" variable="$data"/>
+      <param type="string" variable="$queue"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="jobs" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="string" default="''"/>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="release" start="130" end="133" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Release a reserved job back onto the queue."/>
+      <param type="string" variable="$queue"/>
+      <param type="object" variable="$job">
+        <type full="\StdClass" namespace="" name="StdClass"/>
+      </param>
+      <param type="int" variable="$delay"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="queue" byreference="false" type="{unknown}"/>
+    <parameter name="job" byreference="false" type="{unknown}"/>
+    <parameter name="delay" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="pushToDatabase" start="144" end="151" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Push a raw payload to the database with a given delay."/>
+      <param type="object" variable="$delay">
+        <type full="\DateTime|int" namespace="" name="DateTime|int"/>
+      </param>
+      <param type="object" variable="$queue">
+        <type full="Illuminate\Queue\string|null" namespace="Illuminate\Queue" name="string|null"/>
+      </param>
+      <param type="string" variable="$payload"/>
+      <param type="int" variable="$attempts"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="delay" byreference="false" type="{unknown}"/>
+    <parameter name="queue" byreference="false" type="{unknown}"/>
+    <parameter name="payload" byreference="false" type="{unknown}"/>
+    <parameter name="attempts" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="pop" start="159" end="178" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Pop the next job off of the queue."/>
+      <param type="string" variable="$queue"/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Queue\Job|null" namespace="\Illuminate\Contracts\Queue" name="Job|null"/>
+      </return>
+    </docblock>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="releaseJobsThatHaveBeenReservedTooLong" start="186" end="199" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Release the jobs that have been reserved for too long."/>
+      <param type="string" variable="$queue"/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="queue" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getNextAvailableJob" start="207" end="220" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the next available job for the queue."/>
+      <param type="object" variable="$queue">
+        <type full="Illuminate\Queue\string|null" namespace="Illuminate\Queue" name="string|null"/>
+      </param>
+      <return type="object">
+        <type full="\StdClass|null" namespace="" name="StdClass|null"/>
+      </return>
+    </docblock>
+    <parameter name="queue" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="markJobAsReserved" start="228" end="233" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Mark the given job ID as reserved."/>
+      <param type="string" variable="$id"/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="deleteReserved" start="242" end="245" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Delete a reserved job from the queue."/>
+      <param type="string" variable="$queue"/>
+      <param type="string" variable="$id"/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="queue" byreference="false" type="{unknown}"/>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getAvailableAt" start="253" end="258" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the &quot;available at&quot; UNIX timestamp."/>
+      <param type="object" variable="$delay">
+        <type full="\DateTime|int" namespace="" name="DateTime|int"/>
+      </param>
+      <return type="int"/>
+    </docblock>
+    <parameter name="delay" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="buildDatabaseRecord" start="269" end="280" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create an array to insert for the given job."/>
+      <param type="object" variable="$queue">
+        <type full="Illuminate\Queue\string|null" namespace="Illuminate\Queue" name="string|null"/>
+      </param>
+      <param type="string" variable="$payload"/>
+      <param type="int" variable="$availableAt"/>
+      <param type="int" variable="$attempts"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="queue" byreference="false" type="{unknown}"/>
+    <parameter name="payload" byreference="false" type="{unknown}"/>
+    <parameter name="availableAt" byreference="false" type="{unknown}"/>
+    <parameter name="attempts" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="getQueue" start="288" end="291" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the queue or return the default."/>
+      <param type="object" variable="$queue">
+        <type full="Illuminate\Queue\string|null" namespace="Illuminate\Queue" name="string|null"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="queue" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getDatabase" start="298" end="301" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the underlying database instance."/>
+      <return type="object">
+        <type full="\Illuminate\Database\Connection" namespace="\Illuminate\Database" name="Connection"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getExpire" start="308" end="311" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the expiration time in seconds."/>
+      <return type="object">
+        <type full="Illuminate\Queue\int|null" namespace="Illuminate\Queue" name="int|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setExpire" start="319" end="322" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the expiration time in seconds."/>
+      <param type="object" variable="$seconds">
+        <type full="Illuminate\Queue\int|null" namespace="Illuminate\Queue" name="int|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="seconds" byreference="false" type="{unknown}"/>
+  </method>
+</class>

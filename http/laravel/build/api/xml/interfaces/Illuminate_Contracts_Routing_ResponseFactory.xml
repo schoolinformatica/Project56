@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Illuminate\Contracts\Routing\ResponseFactory" namespace="Illuminate\Contracts\Routing" name="ResponseFactory" abstract="false" final="false" start="5" end="126">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Contracts/Routing" file="ResponseFactory.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Contracts/Routing/ResponseFactory.php" size="3875" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="8feccfcac2c831205586cef839e37e66f5cc58a5" relative="vendor/laravel/framework/src/Illuminate/Contracts/Routing/ResponseFactory.php"/>
+  <method name="make" start="15" end="15" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return a new response from the application."/>
+      <param type="string" variable="$content"/>
+      <param type="int" variable="$status"/>
+      <param type="array" variable="$headers"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="content" byreference="false" type="string" default="''"/>
+    <parameter name="status" byreference="false" type="integer" default="200"/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="view" start="26" end="26" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return a new view response from the application."/>
+      <param type="string" variable="$view"/>
+      <param type="array" variable="$data"/>
+      <param type="int" variable="$status"/>
+      <param type="array" variable="$headers"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="view" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="array" default=""/>
+    <parameter name="status" byreference="false" type="integer" default="200"/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="json" start="37" end="37" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return a new JSON response from the application."/>
+      <param type="object" variable="$data">
+        <type full="Illuminate\Contracts\Routing\string|array" namespace="Illuminate\Contracts\Routing" name="string|array"/>
+      </param>
+      <param type="int" variable="$status"/>
+      <param type="array" variable="$headers"/>
+      <param type="int" variable="$options"/>
+      <return type="object">
+        <type full="\Illuminate\Http\JsonResponse" namespace="\Illuminate\Http" name="JsonResponse"/>
+      </return>
+    </docblock>
+    <parameter name="data" byreference="false" type="array" default=""/>
+    <parameter name="status" byreference="false" type="integer" default="200"/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+    <parameter name="options" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="jsonp" start="49" end="49" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return a new JSONP response from the application."/>
+      <param type="string" variable="$callback"/>
+      <param type="object" variable="$data">
+        <type full="Illuminate\Contracts\Routing\string|array" namespace="Illuminate\Contracts\Routing" name="string|array"/>
+      </param>
+      <param type="int" variable="$status"/>
+      <param type="array" variable="$headers"/>
+      <param type="int" variable="$options"/>
+      <return type="object">
+        <type full="\Illuminate\Http\JsonResponse" namespace="\Illuminate\Http" name="JsonResponse"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="array" default=""/>
+    <parameter name="status" byreference="false" type="integer" default="200"/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+    <parameter name="options" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="stream" start="59" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return a new streamed response from the application."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <param type="int" variable="$status"/>
+      <param type="array" variable="$headers"/>
+      <return type="object">
+        <type full="\Symfony\Component\HttpFoundation\StreamedResponse" namespace="\Symfony\Component\HttpFoundation" name="StreamedResponse"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+    <parameter name="status" byreference="false" type="integer" default="200"/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="download" start="70" end="70" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new file download response."/>
+      <param type="object" variable="$file">
+        <type full="\SplFileInfo|string" namespace="" name="SplFileInfo|string"/>
+      </param>
+      <param type="string" variable="$name"/>
+      <param type="array" variable="$headers"/>
+      <param type="object" variable="$disposition">
+        <type full="Illuminate\Contracts\Routing\string|null" namespace="Illuminate\Contracts\Routing" name="string|null"/>
+      </param>
+      <return type="object">
+        <type full="\Symfony\Component\HttpFoundation\BinaryFileResponse" namespace="\Symfony\Component\HttpFoundation" name="BinaryFileResponse"/>
+      </return>
+    </docblock>
+    <parameter name="file" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+    <parameter name="disposition" byreference="false" type="string" default="'attachment'"/>
+  </method>
+  <method name="redirectTo" start="81" end="81" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new redirect response to the given path."/>
+      <param type="string" variable="$path"/>
+      <param type="int" variable="$status"/>
+      <param type="array" variable="$headers"/>
+      <param type="object" variable="$secure">
+        <type full="Illuminate\Contracts\Routing\bool|null" namespace="Illuminate\Contracts\Routing" name="bool|null"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Http\RedirectResponse" namespace="\Illuminate\Http" name="RedirectResponse"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="status" byreference="false" type="integer" default="302"/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+    <parameter name="secure" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="redirectToRoute" start="92" end="92" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new redirect response to a named route."/>
+      <param type="string" variable="$route"/>
+      <param type="array" variable="$parameters"/>
+      <param type="int" variable="$status"/>
+      <param type="array" variable="$headers"/>
+      <return type="object">
+        <type full="\Illuminate\Http\RedirectResponse" namespace="\Illuminate\Http" name="RedirectResponse"/>
+      </return>
+    </docblock>
+    <parameter name="route" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="array" default=""/>
+    <parameter name="status" byreference="false" type="integer" default="302"/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="redirectToAction" start="103" end="103" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new redirect response to a controller action."/>
+      <param type="string" variable="$action"/>
+      <param type="array" variable="$parameters"/>
+      <param type="int" variable="$status"/>
+      <param type="array" variable="$headers"/>
+      <return type="object">
+        <type full="\Illuminate\Http\RedirectResponse" namespace="\Illuminate\Http" name="RedirectResponse"/>
+      </return>
+    </docblock>
+    <parameter name="action" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="array" default=""/>
+    <parameter name="status" byreference="false" type="integer" default="302"/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="redirectGuest" start="114" end="114" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new redirect response, while putting the current URL in the session."/>
+      <param type="string" variable="$path"/>
+      <param type="int" variable="$status"/>
+      <param type="array" variable="$headers"/>
+      <param type="object" variable="$secure">
+        <type full="Illuminate\Contracts\Routing\bool|null" namespace="Illuminate\Contracts\Routing" name="bool|null"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Http\RedirectResponse" namespace="\Illuminate\Http" name="RedirectResponse"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="status" byreference="false" type="integer" default="302"/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+    <parameter name="secure" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="redirectToIntended" start="125" end="125" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new redirect response to the previously intended location."/>
+      <param type="string" variable="$default"/>
+      <param type="int" variable="$status"/>
+      <param type="array" variable="$headers"/>
+      <param type="object" variable="$secure">
+        <type full="Illuminate\Contracts\Routing\bool|null" namespace="Illuminate\Contracts\Routing" name="bool|null"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Http\RedirectResponse" namespace="\Illuminate\Http" name="RedirectResponse"/>
+      </return>
+    </docblock>
+    <parameter name="default" byreference="false" type="string" default="'/'"/>
+    <parameter name="status" byreference="false" type="integer" default="302"/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+    <parameter name="secure" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+</interface>

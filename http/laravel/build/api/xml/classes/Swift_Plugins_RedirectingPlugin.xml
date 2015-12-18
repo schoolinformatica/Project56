@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_Plugins_RedirectingPlugin" namespace="" name="Swift_Plugins_RedirectingPlugin" abstract="false" final="false" start="16" end="213">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Plugins" file="RedirectingPlugin.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Plugins/RedirectingPlugin.php" size="5239" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="86b060d3a131d3c0303f99dad94b776401f350f5" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Plugins/RedirectingPlugin.php"/>
+  <docblock>
+    <description compact="Redirects all email to a single recipient."/>
+    <author value="Fabien Potencier"/>
+  </docblock>
+  <implements full="Swift_Events_SendListener" namespace="" name="Swift_Events_SendListener"/>
+  <member name="_recipient" visibility="private" line="23">
+    <docblock>
+      <description compact="The recipient who will receive all messages."/>
+      <var type="mixed"/>
+    </docblock>
+  </member>
+  <member name="_whitelist" type="array" default="" visibility="private" line="30">
+    <docblock>
+      <description compact="List of regular expression for recipient whitelisting."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="38" end="42" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new RedirectingPlugin."/>
+      <param type="mixed" variable="$recipient"/>
+      <param type="array" variable="$whitelist"/>
+    </docblock>
+    <parameter name="recipient" byreference="false" type="{unknown}"/>
+    <parameter name="whitelist" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="setRecipient" start="49" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the recipient of all messages."/>
+      <param type="mixed" variable="$recipient"/>
+    </docblock>
+    <parameter name="recipient" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getRecipient" start="59" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the recipient of all messages."/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+  <method name="setWhitelist" start="69" end="72" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set a list of regular expressions to whitelist certain recipients."/>
+      <param type="array" variable="$whitelist"/>
+    </docblock>
+    <parameter name="whitelist" byreference="false" type="array"/>
+  </method>
+  <method name="getWhitelist" start="79" end="82" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the whitelist."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="beforeSendPerformed" start="89" end="124" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Invoked immediately before the Message is sent."/>
+      <param type="object" variable="$evt">
+        <type full="Swift_Events_SendEvent" namespace="" name="Swift_Events_SendEvent"/>
+      </param>
+    </docblock>
+    <parameter name="evt" byreference="false" type="object">
+      <type full="Swift_Events_SendEvent" namespace="" name="Swift_Events_SendEvent"/>
+    </parameter>
+    <inline>
+      <comment value="conditionally save current recipients" line="94"/>
+      <comment value="Filter remaining headers against whitelist" line="108"/>
+      <comment value="Add each hard coded recipient" line="113"/>
+    </inline>
+  </method>
+  <method name="_filterHeaderSet" start="132" end="137" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Filter header set against a whitelist of regular expressions."/>
+      <param type="object" variable="$headerSet">
+        <type full="Swift_Mime_HeaderSet" namespace="" name="Swift_Mime_HeaderSet"/>
+      </param>
+      <param type="string" variable="$type"/>
+    </docblock>
+    <parameter name="headerSet" byreference="false" type="object">
+      <type full="Swift_Mime_HeaderSet" namespace="" name="Swift_Mime_HeaderSet"/>
+    </parameter>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_filterNameAddresses" start="146" end="157" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Filtered list of addresses =&gt; name pairs."/>
+      <param type="array" variable="$recipients"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="recipients" byreference="false" type="array"/>
+  </method>
+  <method name="_isWhitelisted" start="166" end="179" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Matches address against whitelist of regular expressions."/>
+      <param variable="$recipient"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="recipient" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="sendPerformed" start="186" end="189" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Invoked immediately after the Message is sent."/>
+      <param type="object" variable="$evt">
+        <type full="Swift_Events_SendEvent" namespace="" name="Swift_Events_SendEvent"/>
+      </param>
+    </docblock>
+    <parameter name="evt" byreference="false" type="object">
+      <type full="Swift_Events_SendEvent" namespace="" name="Swift_Events_SendEvent"/>
+    </parameter>
+  </method>
+  <method name="_restoreMessage" start="191" end="212" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="message" byreference="false" type="object">
+      <type full="Swift_Mime_Message" namespace="" name="Swift_Mime_Message"/>
+    </parameter>
+    <inline>
+      <comment value="restore original headers" line="193"/>
+    </inline>
+  </method>
+</class>

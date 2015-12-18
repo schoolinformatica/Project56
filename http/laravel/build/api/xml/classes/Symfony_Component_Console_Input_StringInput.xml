@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Console\Input\StringInput" namespace="Symfony\Component\Console\Input" name="StringInput" abstract="false" final="false" start="23" end="83">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Input" file="StringInput.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Input/StringInput.php" size="2930" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="bceee6cf426e99c4d58faf7caf76eece811821fb" relative="vendor/symfony/console/Input/StringInput.php"/>
+  <docblock>
+    <description compact="StringInput represents an input provided as a string.">Usage:
+
+    $input = new StringInput('foo --bar="foobar"');</description>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\Console\Input\ArgvInput" namespace="Symfony\Component\Console\Input" name="ArgvInput"/>
+  <constant type="string" name="REGEX_STRING" value="'([^\s]+?)(?:\s|(?&lt;!\\\\)&quot;|(?&lt;!\\\\)\'|$)'"/>
+  <constant type="string" name="REGEX_QUOTED_STRING" value="'(?:&quot;([^&quot;\\\\]*(?:\\\\.[^&quot;\\\\]*)*)&quot;|\'([^\'\\\\]*(?:\\\\.[^\'\\\\]*)*)\')'"/>
+  <constructor name="__construct" start="36" end="49" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="An array of parameters from the CLI (in the argv format)" type="string" variable="$input"/>
+      <param description="A InputDefinition instance" type="object" variable="$definition">
+        <type full="Symfony\Component\Console\Input\InputDefinition" namespace="Symfony\Component\Console\Input" name="InputDefinition"/>
+      </param>
+      <deprecated value="The second argument is deprecated as it does not work (will be removed in 3.0), use 'bind' method instead"/>
+    </docblock>
+    <parameter name="input" byreference="false" type="{unknown}"/>
+    <parameter name="definition" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\Console\Input\InputDefinition" namespace="Symfony\Component\Console\Input" name="InputDefinition"/>
+    </parameter>
+  </constructor>
+  <method name="tokenize" start="60" end="82" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Tokenizes a string."/>
+      <param description="The input to tokenize" type="string" variable="$input"/>
+      <return description="An array of tokens" type="array"/>
+      <throws description="When unable to parse input (should never happen)" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="input" byreference="false" type="{unknown}"/>
+  </method>
+</class>

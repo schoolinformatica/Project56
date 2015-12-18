@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Handler\PHPConsoleHandler" namespace="Monolog\Handler" name="PHPConsoleHandler" abstract="false" final="false" start="40" end="242">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler" file="PHPConsoleHandler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler/PHPConsoleHandler.php" size="9954" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="22fb10cc25d59ca3be700e8588fc7ff25f715faf" relative="vendor/monolog/monolog/src/Monolog/Handler/PHPConsoleHandler.php"/>
+  <docblock>
+    <description compact="Monolog handler for Google Chrome extension &quot;PHP Console&quot;">Display PHP error/debug log messages in Google Chrome console and notification popups, executes PHP code remotely
+
+Usage:
+1. Install Google Chrome extension https://chrome.google.com/webstore/detail/php-console/nfhmhhlpfleoednkpnnnkolmclajemef
+2. See overview https://github.com/barbushin/php-console#overview
+3. Install PHP Console library https://github.com/barbushin/php-console#installation
+4. Example (result will looks like http://i.hizliresim.com/vg3Pz4.png)
+
+     $logger = new \Monolog\Logger('all', array(new \Monolog\Handler\PHPConsoleHandler()));
+     \Monolog\ErrorHandler::register($logger);
+     echo $undefinedVar;
+     $logger-&gt;addDebug('SELECT * FROM users', array('db', 'time' =&gt; 0.012));
+     PC::debug($_SERVER); // PHP Console debugger for any type of vars</description>
+    <author value="Sergey Barbushin https://www.linkedin.com/in/barbushin"/>
+  </docblock>
+  <extends full="Monolog\Handler\AbstractProcessingHandler" namespace="Monolog\Handler" name="AbstractProcessingHandler"/>
+  <member name="options" type="array" default="" visibility="private" line="42"/>
+  <member name="connector" visibility="private" line="66">
+    <docblock>
+      <description compact="@var Connector"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="75" end="83" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param description="See \Monolog\Handler\PHPConsoleHandler::$options for more details" type="array" variable="$options"/>
+      <param description="Instance of \PhpConsole\Connector class (optional)" type="object" variable="$connector">
+        <type full="Monolog\Handler\Connector|null" namespace="Monolog\Handler" name="Connector|null"/>
+      </param>
+      <param type="int" variable="$level"/>
+      <param type="object" variable="$bubble">
+        <type full="Monolog\Handler\bool" namespace="Monolog\Handler" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="Exception" namespace="" name="Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="options" byreference="false" type="array" default=""/>
+    <parameter name="connector" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="PhpConsole\Connector" namespace="PhpConsole" name="Connector"/>
+    </parameter>
+    <parameter name="level" byreference="false" type="{unknown}" default="" constant="Logger::DEBUG"/>
+    <parameter name="bubble" byreference="false" type="boolean" default="true"/>
+  </constructor>
+  <method name="initOptions" start="85" end="93" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="options" byreference="false" type="array"/>
+  </method>
+  <method name="initConnector" start="95" end="148" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="connector" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="PhpConsole\Connector" namespace="PhpConsole" name="Connector"/>
+    </parameter>
+  </method>
+  <method name="getConnector" start="150" end="153" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getOptions" start="155" end="158" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="handle" start="160" end="167" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+  <method name="write" start="175" end="184" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Writes the record down to the log of the implementing handler"/>
+      <param type="array" variable="$record"/>
+      <return type="object">
+        <type full="Monolog\Handler\void" namespace="Monolog\Handler" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+  <method name="handleDebugRecord" start="186" end="194" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+  <method name="handleExceptionRecord" start="196" end="199" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+  <method name="handleErrorRecord" start="201" end="212" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+  <method name="getRecordTags" start="214" end="233" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="record" byreference="true" type="array"/>
+  </method>
+  <method name="getDefaultFormatter" start="238" end="241" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritDoc}"/>
+    </docblock>
+  </method>
+</class>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Illuminate\Contracts\Filesystem\Filesystem" namespace="Illuminate\Contracts\Filesystem" name="Filesystem" abstract="false" final="false" start="5" end="175">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Contracts/Filesystem" file="Filesystem.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Contracts/Filesystem/Filesystem.php" size="3653" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="6a3c4db8eb61a44af3020878c3f1a888bdbac8c4" relative="vendor/laravel/framework/src/Illuminate/Contracts/Filesystem/Filesystem.php"/>
+  <constant type="string" name="VISIBILITY_PUBLIC" value="'public'">
+    <docblock>
+      <description compact="The public visibility setting."/>
+      <var type="string"/>
+    </docblock>
+  </constant>
+  <constant type="string" name="VISIBILITY_PRIVATE" value="'private'">
+    <docblock>
+      <description compact="The private visibility setting."/>
+      <var type="string"/>
+    </docblock>
+  </constant>
+  <method name="exists" start="27" end="27" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if a file exists."/>
+      <param type="string" variable="$path"/>
+      <return type="object">
+        <type full="Illuminate\Contracts\Filesystem\bool" namespace="Illuminate\Contracts\Filesystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get" start="37" end="37" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the contents of a file."/>
+      <param type="string" variable="$path"/>
+      <return type="string"/>
+      <throws type="object">
+        <type full="\Illuminate\Contracts\Filesystem\FileNotFoundException" namespace="\Illuminate\Contracts\Filesystem" name="FileNotFoundException"/>
+      </throws>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="put" start="47" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Write the contents of a file."/>
+      <param type="string" variable="$path"/>
+      <param type="object" variable="$contents">
+        <type full="Illuminate\Contracts\Filesystem\string|resource" namespace="Illuminate\Contracts\Filesystem" name="string|resource"/>
+      </param>
+      <param type="string" variable="$visibility"/>
+      <return type="object">
+        <type full="Illuminate\Contracts\Filesystem\bool" namespace="Illuminate\Contracts\Filesystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="contents" byreference="false" type="{unknown}"/>
+    <parameter name="visibility" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getVisibility" start="55" end="55" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the visibility for the given path."/>
+      <param type="string" variable="$path"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setVisibility" start="64" end="64" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the visibility for the given path."/>
+      <param type="string" variable="$path"/>
+      <param type="string" variable="$visibility"/>
+      <return type="object">
+        <type full="Illuminate\Contracts\Filesystem\void" namespace="Illuminate\Contracts\Filesystem" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="visibility" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="prepend" start="73" end="73" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Prepend to a file."/>
+      <param type="string" variable="$path"/>
+      <param type="string" variable="$data"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="append" start="82" end="82" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Append to a file."/>
+      <param type="string" variable="$path"/>
+      <param type="string" variable="$data"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="delete" start="90" end="90" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Delete the file at a given path."/>
+      <param type="object" variable="$paths">
+        <type full="Illuminate\Contracts\Filesystem\string|array" namespace="Illuminate\Contracts\Filesystem" name="string|array"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Contracts\Filesystem\bool" namespace="Illuminate\Contracts\Filesystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="paths" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="copy" start="99" end="99" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Copy a file to a new location."/>
+      <param type="string" variable="$from"/>
+      <param type="string" variable="$to"/>
+      <return type="object">
+        <type full="Illuminate\Contracts\Filesystem\bool" namespace="Illuminate\Contracts\Filesystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="from" byreference="false" type="{unknown}"/>
+    <parameter name="to" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="move" start="108" end="108" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Move a file to a new location."/>
+      <param type="string" variable="$from"/>
+      <param type="string" variable="$to"/>
+      <return type="object">
+        <type full="Illuminate\Contracts\Filesystem\bool" namespace="Illuminate\Contracts\Filesystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="from" byreference="false" type="{unknown}"/>
+    <parameter name="to" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="size" start="116" end="116" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the file size of a given file."/>
+      <param type="string" variable="$path"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="lastModified" start="124" end="124" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the file's last modification time."/>
+      <param type="string" variable="$path"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="files" start="133" end="133" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get an array of all files in a directory."/>
+      <param type="object" variable="$directory">
+        <type full="Illuminate\Contracts\Filesystem\string|null" namespace="Illuminate\Contracts\Filesystem" name="string|null"/>
+      </param>
+      <param type="object" variable="$recursive">
+        <type full="Illuminate\Contracts\Filesystem\bool" namespace="Illuminate\Contracts\Filesystem" name="bool"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="directory" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="recursive" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="allFiles" start="141" end="141" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get all of the files from the given directory (recursive)."/>
+      <param type="object" variable="$directory">
+        <type full="Illuminate\Contracts\Filesystem\string|null" namespace="Illuminate\Contracts\Filesystem" name="string|null"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="directory" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="directories" start="150" end="150" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get all of the directories within a given directory."/>
+      <param type="object" variable="$directory">
+        <type full="Illuminate\Contracts\Filesystem\string|null" namespace="Illuminate\Contracts\Filesystem" name="string|null"/>
+      </param>
+      <param type="object" variable="$recursive">
+        <type full="Illuminate\Contracts\Filesystem\bool" namespace="Illuminate\Contracts\Filesystem" name="bool"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="directory" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="recursive" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="allDirectories" start="158" end="158" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get all (recursive) of the directories within a given directory."/>
+      <param type="object" variable="$directory">
+        <type full="Illuminate\Contracts\Filesystem\string|null" namespace="Illuminate\Contracts\Filesystem" name="string|null"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="directory" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="makeDirectory" start="166" end="166" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a directory."/>
+      <param type="string" variable="$path"/>
+      <return type="object">
+        <type full="Illuminate\Contracts\Filesystem\bool" namespace="Illuminate\Contracts\Filesystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="deleteDirectory" start="174" end="174" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Recursively delete a directory."/>
+      <param type="string" variable="$directory"/>
+      <return type="object">
+        <type full="Illuminate\Contracts\Filesystem\bool" namespace="Illuminate\Contracts\Filesystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="directory" byreference="false" type="{unknown}"/>
+  </method>
+</interface>

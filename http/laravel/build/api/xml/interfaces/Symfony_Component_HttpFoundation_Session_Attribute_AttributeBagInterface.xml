@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpFoundation\Session\Attribute\AttributeBagInterface" namespace="Symfony\Component\HttpFoundation\Session\Attribute" name="AttributeBagInterface" abstract="false" final="false" start="21" end="72">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/Session/Attribute" file="AttributeBagInterface.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/Session/Attribute/AttributeBagInterface.php" size="1544" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="ee81a00f01f16b3d693cfbff4fbe144b8582bc51" relative="vendor/symfony/http-foundation/Session/Attribute/AttributeBagInterface.php"/>
+  <docblock>
+    <description compact="Attributes store."/>
+    <author value="Drak &lt;drak@zikula.org&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\HttpFoundation\Session\SessionBagInterface" namespace="Symfony\Component\HttpFoundation\Session" name="SessionBagInterface"/>
+  <method name="has" start="30" end="30" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks if an attribute is defined."/>
+      <param description="The attribute name" type="string" variable="$name"/>
+      <return description="true if the attribute is defined, false otherwise" type="object">
+        <type full="Symfony\Component\HttpFoundation\Session\Attribute\bool" namespace="Symfony\Component\HttpFoundation\Session\Attribute" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get" start="40" end="40" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an attribute."/>
+      <param description="The attribute name" type="string" variable="$name"/>
+      <param description="The default value if not found" type="mixed" variable="$default"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="set" start="48" end="48" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets an attribute."/>
+      <param type="string" variable="$name"/>
+      <param type="mixed" variable="$value"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="all" start="55" end="55" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns attributes."/>
+      <return description="Attributes" type="array"/>
+    </docblock>
+  </method>
+  <method name="replace" start="62" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets attributes."/>
+      <param description="Attributes" type="array" variable="$attributes"/>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array"/>
+  </method>
+  <method name="remove" start="71" end="71" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Removes an attribute."/>
+      <param type="string" variable="$name"/>
+      <return description="The removed value or null when it does not exist" type="mixed"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+</interface>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Translation\TranslatorInterface" namespace="Symfony\Component\Translation" name="TranslatorInterface" abstract="false" final="false" start="19" end="65">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation" file="TranslatorInterface.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation/TranslatorInterface.php" size="2196" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="b8a62492860632970a80f26b7d75d67466895aab" relative="vendor/symfony/translation/TranslatorInterface.php"/>
+  <docblock>
+    <description compact="TranslatorInterface."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <method name="trans" start="33" end="33" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Translates the given message."/>
+      <param description="The message id (may also be an object that can be cast to string)" type="string" variable="$id"/>
+      <param description="An array of parameters for the message" type="array" variable="$parameters"/>
+      <param description="The domain for the message or null to use the default" type="object" variable="$domain">
+        <type full="Symfony\Component\Translation\string|null" namespace="Symfony\Component\Translation" name="string|null"/>
+      </param>
+      <param description="The locale or null to use the default" type="object" variable="$locale">
+        <type full="Symfony\Component\Translation\string|null" namespace="Symfony\Component\Translation" name="string|null"/>
+      </param>
+      <throws description="If the locale contains invalid characters" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <return description="The translated string" type="string"/>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="array" default=""/>
+    <parameter name="domain" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="locale" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="transChoice" start="48" end="48" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Translates the given choice message by choosing a translation according to a number."/>
+      <param description="The message id (may also be an object that can be cast to string)" type="string" variable="$id"/>
+      <param description="The number to use to find the indice of the message" type="int" variable="$number"/>
+      <param description="An array of parameters for the message" type="array" variable="$parameters"/>
+      <param description="The domain for the message or null to use the default" type="object" variable="$domain">
+        <type full="Symfony\Component\Translation\string|null" namespace="Symfony\Component\Translation" name="string|null"/>
+      </param>
+      <param description="The locale or null to use the default" type="object" variable="$locale">
+        <type full="Symfony\Component\Translation\string|null" namespace="Symfony\Component\Translation" name="string|null"/>
+      </param>
+      <throws description="If the locale contains invalid characters" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <return description="The translated string" type="string"/>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="number" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="array" default=""/>
+    <parameter name="domain" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="locale" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="setLocale" start="57" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the current locale."/>
+      <param description="The locale" type="string" variable="$locale"/>
+      <throws description="If the locale contains invalid characters" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getLocale" start="64" end="64" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the current locale."/>
+      <return description="The locale" type="string"/>
+    </docblock>
+  </method>
+</interface>

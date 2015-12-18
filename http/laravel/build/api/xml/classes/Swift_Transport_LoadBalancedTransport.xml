@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_Transport_LoadBalancedTransport" namespace="" name="Swift_Transport_LoadBalancedTransport" abstract="false" final="false" start="16" end="166">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport" file="LoadBalancedTransport.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/LoadBalancedTransport.php" size="4036" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="d712228d920c2f6a5a4d872f6129bd4af3ff4a78" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/LoadBalancedTransport.php"/>
+  <docblock>
+    <description compact="Redundantly and rotationally uses several Transports when sending."/>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <implements full="Swift_Transport" namespace="" name="Swift_Transport"/>
+  <member name="_deadTransports" type="array" default="" visibility="private" line="23">
+    <docblock>
+      <description compact="Transports which are deemed useless."/>
+      <var type="array" of="object">
+        <type full="Swift_Transport" namespace="" name="Swift_Transport"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="_transports" type="array" default="" visibility="protected" line="30">
+    <docblock>
+      <description compact="The Transports which are used in rotation."/>
+      <var type="array" of="object">
+        <type full="Swift_Transport" namespace="" name="Swift_Transport"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="35" end="37" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Creates a new LoadBalancedTransport."/>
+    </docblock>
+  </constructor>
+  <method name="setTransports" start="44" end="48" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set $transports to delegate to."/>
+      <param type="array" variable="$transports" of="object">
+        <type full="Swift_Transport" namespace="" name="Swift_Transport"/>
+      </param>
+    </docblock>
+    <parameter name="transports" byreference="false" type="array"/>
+  </method>
+  <method name="getTransports" start="55" end="58" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get $transports to delegate to."/>
+      <return type="array" of="object">
+        <type full="Swift_Transport" namespace="" name="Swift_Transport"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isStarted" start="65" end="68" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Test if this Transport mechanism has started."/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="start" start="73" end="76" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Start this Transport mechanism."/>
+    </docblock>
+  </method>
+  <method name="stop" start="81" end="86" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Stop this Transport mechanism."/>
+    </docblock>
+  </method>
+  <method name="send" start="99" end="125" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Send the given Message.">Recipient/sender data will be retrieved from the Message API.
+The return value is the number of recipients who were accepted for delivery.</description>
+      <param type="object" variable="$message">
+        <type full="Swift_Mime_Message" namespace="" name="Swift_Mime_Message"/>
+      </param>
+      <param description="An array of failures by-reference" type="array" variable="$failedRecipients" of="string"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="message" byreference="false" type="object">
+      <type full="Swift_Mime_Message" namespace="" name="Swift_Mime_Message"/>
+    </parameter>
+    <parameter name="failedRecipients" byreference="true" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="registerPlugin" start="132" end="137" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a plugin."/>
+      <param type="object" variable="$plugin">
+        <type full="Swift_Events_EventListener" namespace="" name="Swift_Events_EventListener"/>
+      </param>
+    </docblock>
+    <parameter name="plugin" byreference="false" type="object">
+      <type full="Swift_Events_EventListener" namespace="" name="Swift_Events_EventListener"/>
+    </parameter>
+  </method>
+  <method name="_getNextTransport" start="144" end="151" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Rotates the transport list around and returns the first instance."/>
+      <return type="object">
+        <type full="Swift_Transport" namespace="" name="Swift_Transport"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="_killCurrentTransport" start="156" end="165" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Tag the currently used (top of stack) transport as dead/useless."/>
+    </docblock>
+  </method>
+</class>

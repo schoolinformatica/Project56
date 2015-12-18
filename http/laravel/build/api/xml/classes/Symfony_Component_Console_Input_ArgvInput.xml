@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Console\Input\ArgvInput" namespace="Symfony\Component\Console\Input" name="ArgvInput" abstract="false" final="false" start="39" end="349">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Input" file="ArgvInput.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Input/ArgvInput.php" size="10632" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="39c475bf9ebf2be28ddebaa52873ed6f6c45badf" relative="vendor/symfony/console/Input/ArgvInput.php"/>
+  <docblock>
+    <description compact="ArgvInput represents an input coming from the CLI arguments.">Usage:
+
+    $input = new ArgvInput();
+
+By default, the `$_SERVER['argv']` array is used for the input values.
+
+This can be overridden by explicitly passing the input values in the constructor:
+
+    $input = new ArgvInput($_SERVER['argv']);
+
+If you pass it yourself, don't forget that the first element of the array
+is the name of the running application.
+
+When passing an argument to the constructor, be sure that it respects
+the same rules as the argv one. It's almost always better to use the
+`StringInput` when you want to provide your own input.</description>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+    <see value="http://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html"/>
+    <see value="http://www.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap12.html#tag_12_02"/>
+  </docblock>
+  <extends full="Symfony\Component\Console\Input\Input" namespace="Symfony\Component\Console\Input" name="Input"/>
+  <member name="tokens" visibility="private" line="41"/>
+  <member name="parsed" visibility="private" line="42"/>
+  <constructor name="__construct" start="50" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="An array of parameters from the CLI (in the argv format)" type="array" variable="$argv"/>
+      <param description="A InputDefinition instance" type="object" variable="$definition">
+        <type full="Symfony\Component\Console\Input\InputDefinition" namespace="Symfony\Component\Console\Input" name="InputDefinition"/>
+      </param>
+    </docblock>
+    <parameter name="argv" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="definition" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\Console\Input\InputDefinition" namespace="Symfony\Component\Console\Input" name="InputDefinition"/>
+    </parameter>
+    <inline>
+      <comment value="strip the application name" line="56"/>
+    </inline>
+  </constructor>
+  <method name="setTokens" start="64" end="67" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="tokens" byreference="false" type="array"/>
+  </method>
+  <method name="parse" start="72" end="89" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Processes command line arguments."/>
+    </docblock>
+  </method>
+  <method name="parseShortOption" start="96" end="110" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Parses a short option."/>
+      <param description="The current token." type="string" variable="$token"/>
+    </docblock>
+    <parameter name="token" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="parseShortOptionSet" start="119" end="136" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Parses a short option set."/>
+      <param description="The current token" type="string" variable="$name"/>
+      <throws description="When option given doesn't exist" type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="parseLongOption" start="143" end="152" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Parses a long option."/>
+      <param description="The current token" type="string" variable="$token"/>
+    </docblock>
+    <parameter name="token" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="parseArgument" start="161" end="179" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Parses an argument."/>
+      <param description="The current token" type="string" variable="$token"/>
+      <throws description="When too many arguments are given" type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="token" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="if input is expecting another argument, add it" line="165"/>
+    </inline>
+  </method>
+  <method name="addShortOption" start="189" end="196" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Adds a short option value."/>
+      <param description="The short option key" type="string" variable="$shortcut"/>
+      <param description="The value for the option" type="mixed" variable="$value"/>
+      <throws description="When option given doesn't exist" type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="shortcut" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addLongOption" start="206" end="251" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Adds a long option value."/>
+      <param description="The long option key" type="string" variable="$name"/>
+      <param description="The value for the option" type="mixed" variable="$value"/>
+      <throws description="When option given doesn't exist" type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Convert empty values to null" line="214"/>
+    </inline>
+  </method>
+  <method name="getFirstArgument" start="258" end="267" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the first argument from the raw parameters (not parsed)."/>
+      <return description="The value of the first argument or null otherwise" type="string"/>
+    </docblock>
+  </method>
+  <method name="hasParameterOption" start="279" end="292" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if the raw parameters (not parsed) contain a value.">This method is to be used to introspect the input parameters
+before they have been validated. It must be used carefully.</description>
+      <param description="The value(s) to look for in the raw parameters (can be an array)" type="object" variable="$values">
+        <type full="Symfony\Component\Console\Input\string|array" namespace="Symfony\Component\Console\Input" name="string|array"/>
+      </param>
+      <return description="true if the value is contained in the raw parameters" type="object">
+        <type full="Symfony\Component\Console\Input\bool" namespace="Symfony\Component\Console\Input" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="values" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getParameterOption" start="305" end="325" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the value of a raw option (not parsed).">This method is to be used to introspect the input parameters
+before they have been validated. It must be used carefully.</description>
+      <param description="The value(s) to look for in the raw parameters (can be an array)" type="object" variable="$values">
+        <type full="Symfony\Component\Console\Input\string|array" namespace="Symfony\Component\Console\Input" name="string|array"/>
+      </param>
+      <param description="The default value to return if no result is found" type="mixed" variable="$default"/>
+      <return description="The option value" type="mixed"/>
+    </docblock>
+    <parameter name="values" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="__toString" start="332" end="348" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a stringified representation of the args passed to the command."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+</class>

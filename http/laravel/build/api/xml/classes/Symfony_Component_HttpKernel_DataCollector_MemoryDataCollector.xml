@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\DataCollector\MemoryDataCollector" namespace="Symfony\Component\HttpKernel\DataCollector" name="MemoryDataCollector" abstract="false" final="false" start="22" end="109">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/DataCollector" file="MemoryDataCollector.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/DataCollector/MemoryDataCollector.php" size="2347" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="9786b61f3e7df5aee285be09ebcee852c0293c39" relative="vendor/symfony/http-kernel/DataCollector/MemoryDataCollector.php"/>
+  <docblock>
+    <description compact="MemoryDataCollector."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\HttpKernel\DataCollector\DataCollector" namespace="Symfony\Component\HttpKernel\DataCollector" name="DataCollector"/>
+  <implements full="Symfony\Component\HttpKernel\DataCollector\LateDataCollectorInterface" namespace="Symfony\Component\HttpKernel\DataCollector" name="LateDataCollectorInterface"/>
+  <constructor name="__construct" start="24" end="30" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="collect" start="35" end="38" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="response" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+    </parameter>
+    <parameter name="exception" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+  </method>
+  <method name="lateCollect" start="43" end="46" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="getMemory" start="53" end="56" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the memory."/>
+      <return description="The memory" type="int"/>
+    </docblock>
+  </method>
+  <method name="getMemoryLimit" start="63" end="66" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the PHP memory limit."/>
+      <return description="The memory limit" type="int"/>
+    </docblock>
+  </method>
+  <method name="updateMemoryUsage" start="71" end="74" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Updates the memory usage data."/>
+    </docblock>
+  </method>
+  <method name="getName" start="79" end="82" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="convertToBytes" start="84" end="108" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="memoryLimit" byreference="false" type="{unknown}"/>
+  </method>
+</class>

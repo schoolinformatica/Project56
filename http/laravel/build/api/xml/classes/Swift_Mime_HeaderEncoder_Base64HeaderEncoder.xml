@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_Mime_HeaderEncoder_Base64HeaderEncoder" namespace="" name="Swift_Mime_HeaderEncoder_Base64HeaderEncoder" abstract="false" final="false" start="16" end="55">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/HeaderEncoder" file="Base64HeaderEncoder.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/HeaderEncoder/Base64HeaderEncoder.php" size="1613" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="d9d9795fc447c5e063f188c984580ce8de99a20c" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/HeaderEncoder/Base64HeaderEncoder.php"/>
+  <docblock>
+    <description compact="Handles Base64 (B) Header Encoding in Swift Mailer."/>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <extends full="Swift_Encoder_Base64Encoder" namespace="" name="Swift_Encoder_Base64Encoder"/>
+  <implements full="Swift_Mime_HeaderEncoder" namespace="" name="Swift_Mime_HeaderEncoder"/>
+  <method name="getName" start="24" end="27" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the name of this encoding scheme.">Returns the string 'B'.</description>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="encodeString" start="42" end="54" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Takes an unencoded string and produces a Base64 encoded string from it.">If the charset is iso-2022-jp, it uses mb_encode_mimeheader instead of
+default encodeString, otherwise pass to the parent method.</description>
+      <param description="string to encode" type="string" variable="$string"/>
+      <param type="int" variable="$firstLineOffset"/>
+      <param description="optional, 0 indicates the default of 76 bytes" type="int" variable="$maxLineLength"/>
+      <param type="string" variable="$charset"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="string" byreference="false" type="{unknown}"/>
+    <parameter name="firstLineOffset" byreference="false" type="integer" default="0"/>
+    <parameter name="maxLineLength" byreference="false" type="integer" default="0"/>
+    <parameter name="charset" byreference="false" type="string" default="'utf-8'"/>
+  </method>
+</class>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\TabCompletion\Matcher\AbstractContextAwareMatcher" namespace="Psy\TabCompletion\Matcher" name="AbstractContextAwareMatcher" abstract="true" final="false" start="25" end="65">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/TabCompletion/Matcher" file="AbstractContextAwareMatcher.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/TabCompletion/Matcher/AbstractContextAwareMatcher.php" size="1317" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="9e0a3dfa29c9bbcc61e1931c57df096054cb76fa" relative="vendor/psy/psysh/src/Psy/TabCompletion/Matcher/AbstractContextAwareMatcher.php"/>
+  <docblock>
+    <description compact="An abstract tab completion Matcher which implements ContextAware.">The AutoCompleter service will inject a Context instance into all
+ContextAware Matchers.</description>
+    <author value="Marc Garcia &lt;markcial@gmail.com&gt;"/>
+  </docblock>
+  <extends full="Psy\TabCompletion\Matcher\AbstractMatcher" namespace="Psy\TabCompletion\Matcher" name="AbstractMatcher"/>
+  <implements full="Psy\ContextAware" namespace="Psy" name="ContextAware"/>
+  <member name="context" visibility="protected" line="32">
+    <docblock>
+      <description compact="Context instance (for ContextAware interface)."/>
+      <var type="object">
+        <type full="Psy\Context" namespace="Psy" name="Context"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="setContext" start="39" end="42" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="ContextAware interface."/>
+      <param type="object" variable="$context">
+        <type full="Psy\Context" namespace="Psy" name="Context"/>
+      </param>
+    </docblock>
+    <parameter name="context" byreference="false" type="object">
+      <type full="Psy\Context" namespace="Psy" name="Context"/>
+    </parameter>
+  </method>
+  <method name="getVariable" start="51" end="54" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get a Context variable by name."/>
+      <param description="name" variable="$var" type="object">
+        <type full="Psy\TabCompletion\Matcher\Variable" namespace="Psy\TabCompletion\Matcher" name="Variable"/>
+      </param>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="var" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getVariables" start="61" end="64" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get all variables in the current Context."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+</class>

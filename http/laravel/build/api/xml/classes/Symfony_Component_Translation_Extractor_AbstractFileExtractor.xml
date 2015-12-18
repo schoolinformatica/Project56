@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Translation\Extractor\AbstractFileExtractor" namespace="Symfony\Component\Translation\Extractor" name="AbstractFileExtractor" abstract="true" final="false" start="19" end="83">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation/Extractor" file="AbstractFileExtractor.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation/Extractor/AbstractFileExtractor.php" size="2059" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="4983ea421fd1900632a8fc85d4f66d9da7da9508" relative="vendor/symfony/translation/Extractor/AbstractFileExtractor.php"/>
+  <docblock>
+    <description compact="Base class used by classes that extract translation messages from files."/>
+    <author value="Marcos D. Sánchez &lt;marcosdsanchez@gmail.com&gt;"/>
+  </docblock>
+  <method name="extractFiles" start="26" end="42" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param description="files, a file or a directory" type="object" variable="$resource">
+        <type full="Symfony\Component\Translation\Extractor\string|array" namespace="Symfony\Component\Translation\Extractor" name="string|array"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="resource" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="toSplFileInfo" start="49" end="52" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$file"/>
+      <return type="object">
+        <type full="\SplFileInfo" namespace="" name="SplFileInfo"/>
+      </return>
+    </docblock>
+    <parameter name="file" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isFile" start="61" end="68" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$file"/>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <return type="object">
+        <type full="Symfony\Component\Translation\Extractor\bool" namespace="Symfony\Component\Translation\Extractor" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="file" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="canBeExtracted" start="75" end="75" abstract="true" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$file"/>
+      <return type="object">
+        <type full="Symfony\Component\Translation\Extractor\bool" namespace="Symfony\Component\Translation\Extractor" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="file" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="extractFromDirectory" start="82" end="82" abstract="true" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param description="files, a file or a directory" type="object" variable="$resource">
+        <type full="Symfony\Component\Translation\Extractor\string|array" namespace="Symfony\Component\Translation\Extractor" name="string|array"/>
+      </param>
+      <return description="files to be extracted" type="array"/>
+    </docblock>
+    <parameter name="resource" byreference="false" type="{unknown}"/>
+  </method>
+</class>

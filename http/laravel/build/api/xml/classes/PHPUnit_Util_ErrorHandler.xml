@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PHPUnit_Util_ErrorHandler" namespace="" name="PHPUnit_Util_ErrorHandler" abstract="false" final="false" start="24" end="117">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Util" file="ErrorHandler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Util/ErrorHandler.php" size="3463" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="5caafdcd778af295109b67c1be7a41d535292a1f" relative="vendor/phpunit/phpunit/src/Util/ErrorHandler.php"/>
+  <docblock>
+    <description compact="Error handler that converts PHP errors and warnings to exceptions."/>
+    <since value="Class available since Release 3.3.0"/>
+  </docblock>
+  <member name="errorStack" type="array" default="" visibility="protected" line="26"/>
+  <method name="getErrorStack" start="33" end="36" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns the error stack."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="handleError" start="46" end="86" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="int" variable="$errno"/>
+      <param type="string" variable="$errstr"/>
+      <param type="string" variable="$errfile"/>
+      <param type="int" variable="$errline"/>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Error" namespace="" name="PHPUnit_Framework_Error"/>
+      </throws>
+    </docblock>
+    <parameter name="errno" byreference="false" type="{unknown}"/>
+    <parameter name="errstr" byreference="false" type="{unknown}"/>
+    <parameter name="errfile" byreference="false" type="{unknown}"/>
+    <parameter name="errline" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="handleErrorOnce" start="96" end="116" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Registers an error handler and returns a function that will restore the previous handler when invoked"/>
+      <param description="PHP predefined error constant" type="int" variable="$severity"/>
+      <throws description="if event of specified severity is emitted" type="object">
+        <type full="Exception" namespace="" name="Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="severity" byreference="false" type="{unknown}" default="" constant="E_WARNING"/>
+  </method>
+</class>

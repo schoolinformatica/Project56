@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Translation\MessageCatalogueInterface" namespace="Symfony\Component\Translation" name="MessageCatalogueInterface" abstract="false" final="false" start="21" end="142">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation" file="MessageCatalogueInterface.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation/MessageCatalogueInterface.php" size="3968" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="83688245e1f2abbb22bf3f74ee54f3b046431099" relative="vendor/symfony/translation/MessageCatalogueInterface.php"/>
+  <docblock>
+    <description compact="MessageCatalogueInterface."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <method name="getLocale" start="28" end="28" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the catalogue locale."/>
+      <return description="The locale" type="string"/>
+    </docblock>
+  </method>
+  <method name="getDomains" start="35" end="35" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the domains."/>
+      <return description="An array of domains" type="array"/>
+    </docblock>
+  </method>
+  <method name="all" start="46" end="46" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the messages within a given domain.">If $domain is null, it returns all messages.</description>
+      <param description="The domain name" type="string" variable="$domain"/>
+      <return description="An array of messages" type="array"/>
+    </docblock>
+    <parameter name="domain" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="set" start="55" end="55" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets a message translation."/>
+      <param description="The message id" type="string" variable="$id"/>
+      <param description="The messages translation" type="string" variable="$translation"/>
+      <param description="The domain name" type="string" variable="$domain"/>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="translation" byreference="false" type="{unknown}"/>
+    <parameter name="domain" byreference="false" type="string" default="'messages'"/>
+  </method>
+  <method name="has" start="65" end="65" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks if a message has a translation."/>
+      <param description="The message id" type="string" variable="$id"/>
+      <param description="The domain name" type="string" variable="$domain"/>
+      <return description="true if the message has a translation, false otherwise" type="object">
+        <type full="Symfony\Component\Translation\bool" namespace="Symfony\Component\Translation" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="domain" byreference="false" type="string" default="'messages'"/>
+  </method>
+  <method name="defines" start="75" end="75" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks if a message has a translation (it does not take into account the fallback mechanism)."/>
+      <param description="The message id" type="string" variable="$id"/>
+      <param description="The domain name" type="string" variable="$domain"/>
+      <return description="true if the message has a translation, false otherwise" type="object">
+        <type full="Symfony\Component\Translation\bool" namespace="Symfony\Component\Translation" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="domain" byreference="false" type="string" default="'messages'"/>
+  </method>
+  <method name="get" start="85" end="85" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets a message translation."/>
+      <param description="The message id" type="string" variable="$id"/>
+      <param description="The domain name" type="string" variable="$domain"/>
+      <return description="The message translation" type="string"/>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="domain" byreference="false" type="string" default="'messages'"/>
+  </method>
+  <method name="replace" start="93" end="93" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets translations for a given domain."/>
+      <param description="An array of translations" type="array" variable="$messages"/>
+      <param description="The domain name" type="string" variable="$domain"/>
+    </docblock>
+    <parameter name="messages" byreference="false" type="{unknown}"/>
+    <parameter name="domain" byreference="false" type="string" default="'messages'"/>
+  </method>
+  <method name="add" start="101" end="101" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds translations for a given domain."/>
+      <param description="An array of translations" type="array" variable="$messages"/>
+      <param description="The domain name" type="string" variable="$domain"/>
+    </docblock>
+    <parameter name="messages" byreference="false" type="{unknown}"/>
+    <parameter name="domain" byreference="false" type="string" default="'messages'"/>
+  </method>
+  <method name="addCatalogue" start="110" end="110" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Merges translations from the given Catalogue into the current one.">The two catalogues must have the same locale.</description>
+      <param description="A MessageCatalogueInterface instance" type="object" variable="$catalogue">
+        <type full="Symfony\Component\Translation\MessageCatalogueInterface" namespace="Symfony\Component\Translation" name="MessageCatalogueInterface"/>
+      </param>
+    </docblock>
+    <parameter name="catalogue" byreference="false" type="object">
+      <type full="Symfony\Component\Translation\MessageCatalogueInterface" namespace="Symfony\Component\Translation" name="MessageCatalogueInterface"/>
+    </parameter>
+  </method>
+  <method name="addFallbackCatalogue" start="120" end="120" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Merges translations from the given Catalogue into the current one only when the translation does not exist.">This is used to provide default translations when they do not exist for the current locale.</description>
+      <param description="A MessageCatalogueInterface instance" type="object" variable="$catalogue">
+        <type full="Symfony\Component\Translation\MessageCatalogueInterface" namespace="Symfony\Component\Translation" name="MessageCatalogueInterface"/>
+      </param>
+    </docblock>
+    <parameter name="catalogue" byreference="false" type="object">
+      <type full="Symfony\Component\Translation\MessageCatalogueInterface" namespace="Symfony\Component\Translation" name="MessageCatalogueInterface"/>
+    </parameter>
+  </method>
+  <method name="getFallbackCatalogue" start="127" end="127" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the fallback catalogue."/>
+      <return description="A MessageCatalogueInterface instance or null when no fallback has been set" type="object">
+        <type full="Symfony\Component\Translation\MessageCatalogueInterface|null" namespace="Symfony\Component\Translation" name="MessageCatalogueInterface|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getResources" start="134" end="134" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an array of resources loaded to build this collection."/>
+      <return description="An array of resources" type="array" of="object">
+        <type full="Symfony\Component\Translation\ResourceInterface" namespace="Symfony\Component\Translation" name="ResourceInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="addResource" start="141" end="141" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a resource for this collection."/>
+      <param description="A resource instance" type="object" variable="$resource">
+        <type full="Symfony\Component\Config\Resource\ResourceInterface" namespace="Symfony\Component\Config\Resource" name="ResourceInterface"/>
+      </param>
+    </docblock>
+    <parameter name="resource" byreference="false" type="object">
+      <type full="Symfony\Component\Config\Resource\ResourceInterface" namespace="Symfony\Component\Config\Resource" name="ResourceInterface"/>
+    </parameter>
+  </method>
+</interface>

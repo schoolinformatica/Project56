@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\Readline\GNUReadline" namespace="Psy\Readline" name="GNUReadline" abstract="false" final="false" start="21" end="155">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Readline" file="GNUReadline.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Readline/GNUReadline.php" size="3659" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="0ed7aa38d9566378e0b110e6c953fe306f3ddebf" relative="vendor/psy/psysh/src/Psy/Readline/GNUReadline.php"/>
+  <docblock>
+    <description compact="A Readline interface implementation for GNU Readline.">This is by far the coolest way to do it, but it doesn't work with new PHP.
+
+Oh well.</description>
+  </docblock>
+  <implements full="Psy\Readline\Readline" namespace="Psy\Readline" name="Readline"/>
+  <member name="historyFile" visibility="protected" line="23"/>
+  <member name="historySize" visibility="protected" line="24"/>
+  <member name="eraseDups" visibility="protected" line="25"/>
+  <method name="isSupported" start="34" end="37" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="GNU Readline is supported iff `readline_list_history` is defined. PHP decided it would be awesome to swap out GNU Readline for Libedit, but they ended up shipping an incomplete implementation. So we've got this."/>
+      <return type="object">
+        <type full="Psy\Readline\bool" namespace="Psy\Readline" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <constructor name="__construct" start="42" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="GNU Readline constructor."/>
+    </docblock>
+    <parameter name="historyFile" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="historySize" byreference="false" type="integer" default="0"/>
+    <parameter name="eraseDups" byreference="false" type="boolean" default="false"/>
+  </constructor>
+  <method name="addHistory" start="52" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="line" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="clearHistory" start="64" end="71" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="listHistory" start="76" end="79" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="readHistory" start="84" end="99" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <inline>
+      <comment value="Workaround PHP bug #69054" line="86"/>
+      <comment value="If open_basedir is set, readline_read_history() segfaults. This will be fixed in 5.6.7:" line="88"/>
+      <comment value="https://github.com/php/php-src/blob/423a057023ef3c00d2ffc16a6b43ba01d0f71796/NEWS#L19-L21" line="90"/>
+      <todo value="add a PHP version check after next point release" line="92"/>
+    </inline>
+  </method>
+  <method name="readline" start="104" end="107" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="prompt" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="redisplay" start="112" end="115" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="writeHistory" start="120" end="154" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <inline>
+      <comment value="We have to write history first, since it is used" line="122"/>
+      <comment value="by Libedit to list history" line="123"/>
+    </inline>
+  </method>
+</class>

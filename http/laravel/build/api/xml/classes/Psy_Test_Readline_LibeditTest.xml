@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\Test\Readline\LibeditTest" namespace="Psy\Test\Readline" name="LibeditTest" abstract="false" final="false" start="16" end="128">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/test/Psy/Test/Readline" file="LibeditTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/test/Psy/Test/Readline/LibeditTest.php" size="4046" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="a7b261b3f29e7330b8963c8a0f475c51adf5d7a6" relative="vendor/psy/psysh/test/Psy/Test/Readline/LibeditTest.php"/>
+  <extends full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+  <member name="historyFile" visibility="private" line="18"/>
+  <method name="setUp" start="20" end="34" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="Calling readline_read_history before readline_clear_history" line="30"/>
+      <comment value="avoids segfault with PHP 5.5.7 &amp; libedit v3.1" line="31"/>
+    </inline>
+  </method>
+  <method name="tearDown" start="36" end="41" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testHistory" start="43" end="55" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testHistorySize" start="60" end="73" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <depends value="testHistory"/>
+    </docblock>
+  </method>
+  <method name="testHistoryEraseDups" start="78" end="92" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <depends value="testHistory"/>
+    </docblock>
+  </method>
+  <method name="testListHistory" start="94" end="107" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testLinebreaksSupport" start="113" end="127" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Libedit being a BSD library, it doesn't support non-unix line separators."/>
+    </docblock>
+  </method>
+</class>

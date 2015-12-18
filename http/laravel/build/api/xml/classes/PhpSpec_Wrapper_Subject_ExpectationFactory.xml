@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpSpec\Wrapper\Subject\ExpectationFactory" namespace="PhpSpec\Wrapper\Subject" name="ExpectationFactory" abstract="false" final="false" start="26" end="154">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Wrapper/Subject" file="ExpectationFactory.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Wrapper/Subject/ExpectationFactory.php" size="4681" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="f9412eba7c95711f1c096a499e3e1a66a941928a" relative="vendor/phpspec/phpspec/src/PhpSpec/Wrapper/Subject/ExpectationFactory.php"/>
+  <member name="example" visibility="private" line="31">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\Loader\Node\ExampleNode" namespace="PhpSpec\Loader\Node" name="ExampleNode"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="dispatcher" visibility="private" line="35">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\EventDispatcher\EventDispatcherInterface" namespace="Symfony\Component\EventDispatcher" name="EventDispatcherInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="matchers" visibility="private" line="39">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\Runner\MatcherManager" namespace="PhpSpec\Runner" name="MatcherManager"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="46" end="51" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$example">
+        <type full="PhpSpec\Loader\Node\ExampleNode" namespace="PhpSpec\Loader\Node" name="ExampleNode"/>
+      </param>
+      <param type="object" variable="$dispatcher">
+        <type full="Symfony\Component\EventDispatcher\EventDispatcherInterface" namespace="Symfony\Component\EventDispatcher" name="EventDispatcherInterface"/>
+      </param>
+      <param type="object" variable="$matchers">
+        <type full="PhpSpec\Runner\MatcherManager" namespace="PhpSpec\Runner" name="MatcherManager"/>
+      </param>
+    </docblock>
+    <parameter name="example" byreference="false" type="object">
+      <type full="PhpSpec\Loader\Node\ExampleNode" namespace="PhpSpec\Loader\Node" name="ExampleNode"/>
+    </parameter>
+    <parameter name="dispatcher" byreference="false" type="object">
+      <type full="Symfony\Component\EventDispatcher\EventDispatcherInterface" namespace="Symfony\Component\EventDispatcher" name="EventDispatcherInterface"/>
+    </parameter>
+    <parameter name="matchers" byreference="false" type="object">
+      <type full="PhpSpec\Runner\MatcherManager" namespace="PhpSpec\Runner" name="MatcherManager"/>
+    </parameter>
+  </constructor>
+  <method name="create" start="60" end="69" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$expectation"/>
+      <param type="mixed" variable="$subject"/>
+      <param type="array" variable="$arguments"/>
+      <return type="object">
+        <type full="PhpSpec\Wrapper\Subject\Expectation\ExpectationInterface" namespace="PhpSpec\Wrapper\Subject\Expectation" name="ExpectationInterface"/>
+      </return>
+    </docblock>
+    <parameter name="expectation" byreference="false" type="{unknown}"/>
+    <parameter name="subject" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="array" default=""/>
+  </method>
+  <method name="createPositive" start="78" end="85" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$name"/>
+      <param type="mixed" variable="$subject"/>
+      <param type="array" variable="$arguments"/>
+      <return type="object">
+        <type full="PhpSpec\Wrapper\Subject\Expectation\ExpectationInterface" namespace="PhpSpec\Wrapper\Subject\Expectation" name="ExpectationInterface"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="subject" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="array" default=""/>
+  </method>
+  <method name="createNegative" start="94" end="101" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$name"/>
+      <param type="mixed" variable="$subject"/>
+      <param type="array" variable="$arguments"/>
+      <return type="object">
+        <type full="PhpSpec\Wrapper\Subject\Expectation\ExpectationInterface" namespace="PhpSpec\Wrapper\Subject\Expectation" name="ExpectationInterface"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="subject" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="array" default=""/>
+  </method>
+  <method name="createDecoratedExpectation" start="111" end="123" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$expectation"/>
+      <param type="string" variable="$name"/>
+      <param type="mixed" variable="$subject"/>
+      <param type="array" variable="$arguments"/>
+      <return type="object">
+        <type full="PhpSpec\Wrapper\Subject\Expectation\ExpectationInterface" namespace="PhpSpec\Wrapper\Subject\Expectation" name="ExpectationInterface"/>
+      </return>
+    </docblock>
+    <parameter name="expectation" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="subject" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="array"/>
+  </method>
+  <method name="findMatcher" start="132" end="138" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$name"/>
+      <param type="mixed" variable="$subject"/>
+      <param type="array" variable="$arguments"/>
+      <return type="object">
+        <type full="PhpSpec\Matcher\MatcherInterface" namespace="PhpSpec\Matcher" name="MatcherInterface"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="subject" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="array" default=""/>
+  </method>
+  <method name="decoratedExpectation" start="146" end="153" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$expectation">
+        <type full="PhpSpec\Wrapper\Subject\Expectation\ExpectationInterface" namespace="PhpSpec\Wrapper\Subject\Expectation" name="ExpectationInterface"/>
+      </param>
+      <param type="object" variable="$matcher">
+        <type full="PhpSpec\Matcher\MatcherInterface" namespace="PhpSpec\Matcher" name="MatcherInterface"/>
+      </param>
+      <return type="object">
+        <type full="PhpSpec\Wrapper\Subject\Expectation\ConstructorDecorator" namespace="PhpSpec\Wrapper\Subject\Expectation" name="ConstructorDecorator"/>
+      </return>
+    </docblock>
+    <parameter name="expectation" byreference="false" type="object">
+      <type full="PhpSpec\Wrapper\Subject\Expectation\ExpectationInterface" namespace="PhpSpec\Wrapper\Subject\Expectation" name="ExpectationInterface"/>
+    </parameter>
+    <parameter name="matcher" byreference="false" type="object">
+      <type full="PhpSpec\Matcher\MatcherInterface" namespace="PhpSpec\Matcher" name="MatcherInterface"/>
+    </parameter>
+  </method>
+</class>

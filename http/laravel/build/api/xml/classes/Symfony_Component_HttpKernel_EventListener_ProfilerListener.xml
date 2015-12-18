@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\EventListener\ProfilerListener" namespace="Symfony\Component\HttpKernel\EventListener" name="ProfilerListener" abstract="false" final="false" start="29" end="165">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/EventListener" file="ProfilerListener.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/EventListener/ProfilerListener.php" size="6102" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="4f93a5e5dc9a071cc97cf898766248d8633bf9d7" relative="vendor/symfony/http-kernel/EventListener/ProfilerListener.php"/>
+  <docblock>
+    <description compact="ProfilerListener collects data for the current request by listening to the kernel events."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\EventDispatcher\EventSubscriberInterface" namespace="Symfony\Component\EventDispatcher" name="EventSubscriberInterface"/>
+  <member name="profiler" visibility="protected" line="31"/>
+  <member name="matcher" visibility="protected" line="32"/>
+  <member name="onlyException" visibility="protected" line="33"/>
+  <member name="onlyMasterRequests" visibility="protected" line="34"/>
+  <member name="exception" visibility="protected" line="35"/>
+  <member name="requests" type="array" default="" visibility="protected" line="36"/>
+  <member name="profiles" visibility="protected" line="37"/>
+  <member name="requestStack" visibility="protected" line="38"/>
+  <member name="parents" visibility="protected" line="39"/>
+  <constructor name="__construct" start="50" end="66" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="A Profiler instance" type="object" variable="$profiler">
+        <type full="Symfony\Component\HttpKernel\Profiler\Profiler" namespace="Symfony\Component\HttpKernel\Profiler" name="Profiler"/>
+      </param>
+      <param description="A RequestMatcher instance" type="object" variable="$matcher">
+        <type full="Symfony\Component\HttpKernel\EventListener\RequestMatcherInterface|null" namespace="Symfony\Component\HttpKernel\EventListener" name="RequestMatcherInterface|null"/>
+      </param>
+      <param description="true if the profiler only collects data when an exception occurs, false otherwise" type="object" variable="$onlyException">
+        <type full="Symfony\Component\HttpKernel\EventListener\bool" namespace="Symfony\Component\HttpKernel\EventListener" name="bool"/>
+      </param>
+      <param description="true if the profiler only collects data when the request is a master request, false otherwise" type="object" variable="$onlyMasterRequests">
+        <type full="Symfony\Component\HttpKernel\EventListener\bool" namespace="Symfony\Component\HttpKernel\EventListener" name="bool"/>
+      </param>
+      <param description="A RequestStack instance" type="object" variable="$requestStack">
+        <type full="Symfony\Component\HttpKernel\EventListener\RequestStack|null" namespace="Symfony\Component\HttpKernel\EventListener" name="RequestStack|null"/>
+      </param>
+    </docblock>
+    <parameter name="profiler" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\Profiler\Profiler" namespace="Symfony\Component\HttpKernel\Profiler" name="Profiler"/>
+    </parameter>
+    <parameter name="matcher" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\HttpFoundation\RequestMatcherInterface" namespace="Symfony\Component\HttpFoundation" name="RequestMatcherInterface"/>
+    </parameter>
+    <parameter name="onlyException" byreference="false" type="boolean" default="false"/>
+    <parameter name="onlyMasterRequests" byreference="false" type="boolean" default="false"/>
+    <parameter name="requestStack" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\HttpFoundation\RequestStack" namespace="Symfony\Component\HttpFoundation" name="RequestStack"/>
+    </parameter>
+  </constructor>
+  <method name="onKernelException" start="73" end="80" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Handles the onKernelException event."/>
+      <param description="A GetResponseForExceptionEvent instance" type="object" variable="$event">
+        <type full="Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent" namespace="Symfony\Component\HttpKernel\Event" name="GetResponseForExceptionEvent"/>
+      </param>
+    </docblock>
+    <parameter name="event" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent" namespace="Symfony\Component\HttpKernel\Event" name="GetResponseForExceptionEvent"/>
+    </parameter>
+  </method>
+  <method name="onKernelRequest" start="85" end="90" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <deprecated value="since version 2.4, to be removed in 3.0."/>
+    </docblock>
+    <parameter name="event" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\Event\GetResponseEvent" namespace="Symfony\Component\HttpKernel\Event" name="GetResponseEvent"/>
+    </parameter>
+  </method>
+  <method name="onKernelResponse" start="97" end="130" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Handles the onKernelResponse event."/>
+      <param description="A FilterResponseEvent instance" type="object" variable="$event">
+        <type full="Symfony\Component\HttpKernel\Event\FilterResponseEvent" namespace="Symfony\Component\HttpKernel\Event" name="FilterResponseEvent"/>
+      </param>
+    </docblock>
+    <parameter name="event" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\Event\FilterResponseEvent" namespace="Symfony\Component\HttpKernel\Event" name="FilterResponseEvent"/>
+    </parameter>
+  </method>
+  <method name="onKernelTerminate" start="132" end="152" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="event" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\Event\PostResponseEvent" namespace="Symfony\Component\HttpKernel\Event" name="PostResponseEvent"/>
+    </parameter>
+    <inline>
+      <comment value="attach children to parents" line="134"/>
+      <comment value="save profiles" line="144"/>
+    </inline>
+  </method>
+  <method name="getSubscribedEvents" start="154" end="164" abstract="false" final="false" static="true" visibility="public"/>
+</class>

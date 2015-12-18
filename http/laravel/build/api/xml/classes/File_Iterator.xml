@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="File_Iterator" namespace="" name="File_Iterator" abstract="false" final="false" start="17" end="158">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/php-file-iterator/src" file="Iterator.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/php-file-iterator/src/Iterator.php" size="3937" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="e75df4f89d414589d084c493b43b73a3c76949b0" relative="vendor/phpunit/php-file-iterator/src/Iterator.php"/>
+  <docblock>
+    <description compact="FilterIterator implementation that filters files based on prefix(es) and/or suffix(es). Hidden files and files from hidden directories are also filtered."/>
+    <since value="Class available since Release 1.0.0"/>
+  </docblock>
+  <extends full="FilterIterator" namespace="" name="FilterIterator"/>
+  <constant type="integer" name="PREFIX" value="0"/>
+  <constant type="integer" name="SUFFIX" value="1"/>
+  <member name="suffixes" type="array" default="" visibility="protected" line="25">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="prefixes" type="array" default="" visibility="protected" line="30">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="exclude" type="array" default="" visibility="protected" line="35">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="basepath" visibility="protected" line="40">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="49" end="71" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$iterator">
+        <type full="Iterator" namespace="" name="Iterator"/>
+      </param>
+      <param type="array" variable="$suffixes"/>
+      <param type="array" variable="$prefixes"/>
+      <param type="array" variable="$exclude"/>
+      <param type="string" variable="$basepath"/>
+    </docblock>
+    <parameter name="iterator" byreference="false" type="object">
+      <type full="Iterator" namespace="" name="Iterator"/>
+    </parameter>
+    <parameter name="suffixes" byreference="false" type="array" default=""/>
+    <parameter name="prefixes" byreference="false" type="array" default=""/>
+    <parameter name="exclude" byreference="false" type="array" default=""/>
+    <parameter name="basepath" byreference="false" type="{unknown}" default="" constant="NULL"/>
+  </constructor>
+  <method name="accept" start="76" end="94" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <inline>
+      <comment value="Filter files in hidden directories." line="86"/>
+    </inline>
+  </method>
+  <method name="acceptPath" start="101" end="110" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$path"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <since value="Method available since Release 1.1.0"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="acceptPrefix" start="117" end="120" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$filename"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <since value="Method available since Release 1.1.0"/>
+    </docblock>
+    <parameter name="filename" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="acceptSuffix" start="127" end="130" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$filename"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <since value="Method available since Release 1.1.0"/>
+    </docblock>
+    <parameter name="filename" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="acceptSubString" start="139" end="157" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$filename"/>
+      <param type="array" variable="$subString"/>
+      <param type="int" variable="$type"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <since value="Method available since Release 1.1.0"/>
+    </docblock>
+    <parameter name="filename" byreference="false" type="{unknown}"/>
+    <parameter name="subStrings" byreference="false" type="array"/>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+  </method>
+</class>

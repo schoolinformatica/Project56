@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Translation\Extractor\ChainExtractor" namespace="Symfony\Component\Translation\Extractor" name="ChainExtractor" abstract="false" final="false" start="21" end="60">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation/Extractor" file="ChainExtractor.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation/Extractor/ChainExtractor.php" size="1408" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="8d6eb43e48aefa1abb3becccdd017cc7d53690d8" relative="vendor/symfony/translation/Extractor/ChainExtractor.php"/>
+  <docblock>
+    <description compact="ChainExtractor extracts translation messages from template files."/>
+    <author value="Michel Salib &lt;michelsalib@hotmail.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\Translation\Extractor\ExtractorInterface" namespace="Symfony\Component\Translation\Extractor" name="ExtractorInterface"/>
+  <member name="extractors" type="array" default="" visibility="private" line="28">
+    <docblock>
+      <description compact="The extractors."/>
+      <var type="array" of="object">
+        <type full="Symfony\Component\Translation\Extractor\ExtractorInterface" namespace="Symfony\Component\Translation\Extractor" name="ExtractorInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="addExtractor" start="36" end="39" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a loader to the translation extractor."/>
+      <param description="The format of the loader" type="string" variable="$format"/>
+      <param description="The loader" type="object" variable="$extractor">
+        <type full="Symfony\Component\Translation\Extractor\ExtractorInterface" namespace="Symfony\Component\Translation\Extractor" name="ExtractorInterface"/>
+      </param>
+    </docblock>
+    <parameter name="format" byreference="false" type="{unknown}"/>
+    <parameter name="extractor" byreference="false" type="object">
+      <type full="Symfony\Component\Translation\Extractor\ExtractorInterface" namespace="Symfony\Component\Translation\Extractor" name="ExtractorInterface"/>
+    </parameter>
+  </method>
+  <method name="setPrefix" start="44" end="49" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="prefix" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="extract" start="54" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="directory" byreference="false" type="{unknown}"/>
+    <parameter name="catalogue" byreference="false" type="object">
+      <type full="Symfony\Component\Translation\MessageCatalogue" namespace="Symfony\Component\Translation" name="MessageCatalogue"/>
+    </parameter>
+  </method>
+</class>

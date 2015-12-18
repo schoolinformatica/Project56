@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpSpec\Formatter\Presenter\StringPresenter" namespace="PhpSpec\Formatter\Presenter" name="StringPresenter" abstract="false" final="false" start="30" end="492">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Formatter/Presenter" file="StringPresenter.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Formatter/Presenter/StringPresenter.php" size="14056" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="79787d5656acd492fa2deae863123895c373346b" relative="vendor/phpspec/phpspec/src/PhpSpec/Formatter/Presenter/StringPresenter.php"/>
+  <docblock>
+    <description/>
+    <deprecated value="Use PhpSpec\Formatter\Presenter\SimplePresenter instead"/>
+  </docblock>
+  <implements full="PhpSpec\Formatter\Presenter\PresenterInterface" namespace="PhpSpec\Formatter\Presenter" name="PresenterInterface"/>
+  <member name="differ" visibility="private" line="35">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\Formatter\Presenter\Differ\Differ" namespace="PhpSpec\Formatter\Presenter\Differ" name="Differ"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="phpspecPath" visibility="private" line="44">
+    <docblock>
+      <description compact="The PhpSpec base path.">This property is used as a constant but PHP does not support setting the value with dirname().</description>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="runnerPath" visibility="private" line="53">
+    <docblock>
+      <description compact="The PhpSpec Runner base path.">This property is used as a constant but PHP does not support setting the value with dirname().</description>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="58" end="64" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$differ">
+        <type full="PhpSpec\Formatter\Presenter\Differ\Differ" namespace="PhpSpec\Formatter\Presenter\Differ" name="Differ"/>
+      </param>
+    </docblock>
+    <parameter name="differ" byreference="false" type="object">
+      <type full="PhpSpec\Formatter\Presenter\Differ\Differ" namespace="PhpSpec\Formatter\Presenter\Differ" name="Differ"/>
+    </parameter>
+  </constructor>
+  <method name="presentValue" start="71" end="105" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="mixed" variable="$value"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="presentException" start="113" end="148" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$exception">
+        <type full="Exception" namespace="" name="Exception"/>
+      </param>
+      <param type="object" variable="$verbose">
+        <type full="PhpSpec\Formatter\Presenter\bool" namespace="PhpSpec\Formatter\Presenter" name="bool"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+    <parameter name="verbose" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="presentString" start="155" end="158" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$string"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="string" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="presentFileCode" start="167" end="187" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$file"/>
+      <param type="integer" variable="$lineno"/>
+      <param type="integer" variable="$context"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="file" byreference="false" type="{unknown}"/>
+    <parameter name="lineno" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="integer" default="6"/>
+  </method>
+  <method name="presentCodeLine" start="195" end="198" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="integer" variable="$number"/>
+      <param type="integer" variable="$line"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="number" byreference="false" type="{unknown}"/>
+    <parameter name="line" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="presentHighlight" start="205" end="208" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$line"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="line" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="presentExceptionDifference" start="215" end="218" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="object" variable="$exception">
+        <type full="PhpSpec\Exception\Example\NotEqualException" namespace="PhpSpec\Exception\Example" name="NotEqualException"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="PhpSpec\Exception\Example\NotEqualException" namespace="PhpSpec\Exception\Example" name="NotEqualException"/>
+    </parameter>
+  </method>
+  <method name="presentExceptionStackTrace" start="225" end="267" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="object" variable="$exception">
+        <type full="Exception" namespace="" name="Exception"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+  </method>
+  <method name="presentExceptionTraceHeader" start="274" end="277" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$header"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="header" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="presentExceptionTraceMethod" start="287" end="292" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$class"/>
+      <param type="string" variable="$type"/>
+      <param type="string" variable="$method"/>
+      <param type="array" variable="$args"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="args" byreference="false" type="array"/>
+  </method>
+  <method name="presentExceptionTraceFunction" start="300" end="305" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$function"/>
+      <param type="array" variable="$args"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="function" byreference="false" type="{unknown}"/>
+    <parameter name="args" byreference="false" type="array"/>
+  </method>
+  <method name="getExceptionExamplePosition" start="312" end="326" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="object" variable="$exception">
+        <type full="PhpSpec\Exception\Exception" namespace="PhpSpec\Exception" name="Exception"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="PhpSpec\Exception\Exception" namespace="PhpSpec\Exception" name="Exception"/>
+    </parameter>
+  </method>
+  <method name="presentExceptionTraceLocation" start="335" end="343" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="int" variable="$offset"/>
+      <param type="string" variable="$file"/>
+      <param type="int" variable="$line"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="offset" byreference="false" type="{unknown}"/>
+    <parameter name="file" byreference="false" type="{unknown}"/>
+    <parameter name="line" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="shouldStopTracePresentation" start="345" end="348" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="call" byreference="false" type="array"/>
+  </method>
+  <method name="shouldSkipTracePresentation" start="350" end="357" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="call" byreference="false" type="array"/>
+  </method>
+  <method name="presentCallable" start="364" end="380" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$value">
+        <type full="PhpSpec\Formatter\Presenter\callable" namespace="PhpSpec\Formatter\Presenter" name="callable"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="presentCallArgumentsDifference" start="387" end="412" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$exception">
+        <type full="Prophecy\Exception\Call\UnexpectedCallException" namespace="Prophecy\Exception\Call" name="UnexpectedCallException"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="Prophecy\Exception\Call\UnexpectedCallException" namespace="Prophecy\Exception\Call" name="UnexpectedCallException"/>
+    </parameter>
+  </method>
+  <method name="noMethodPropheciesForUnexpectedCall" start="414" end="417" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="methodProphecies" byreference="false" type="array"/>
+  </method>
+  <method name="findMethodProphecyOfFirstNotExpectedArgumentsCall" start="425" end="440" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="array" variable="$methodProphecies" of="object">
+        <type full="PhpSpec\Formatter\Presenter\MethodProphecy" namespace="PhpSpec\Formatter\Presenter" name="MethodProphecy"/>
+      </param>
+      <param type="object" variable="$exception">
+        <type full="Prophecy\Exception\Call\UnexpectedCallException" namespace="Prophecy\Exception\Call" name="UnexpectedCallException"/>
+      </param>
+      <return type="object">
+        <type full="Prophecy\Prophecy\MethodProphecy" namespace="Prophecy\Prophecy" name="MethodProphecy"/>
+      </return>
+    </docblock>
+    <parameter name="methodProphecies" byreference="false" type="array"/>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="Prophecy\Exception\Call\UnexpectedCallException" namespace="Prophecy\Exception\Call" name="UnexpectedCallException"/>
+    </parameter>
+  </method>
+  <method name="parametersCountMismatch" start="448" end="451" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="array" variable="$expectedTokens" of="object">
+        <type full="PhpSpec\Formatter\Presenter\TokenInterface" namespace="PhpSpec\Formatter\Presenter" name="TokenInterface"/>
+      </param>
+      <param type="array" variable="$actualArguments"/>
+      <return type="object">
+        <type full="PhpSpec\Formatter\Presenter\bool" namespace="PhpSpec\Formatter\Presenter" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="expectedTokens" byreference="false" type="array"/>
+    <parameter name="actualArguments" byreference="false" type="array"/>
+  </method>
+  <method name="convertArgumentTokensToDiffableValues" start="458" end="470" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="array" variable="$tokens" of="object">
+        <type full="PhpSpec\Formatter\Presenter\TokenInterface" namespace="PhpSpec\Formatter\Presenter" name="TokenInterface"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="tokens" byreference="false" type="array"/>
+  </method>
+  <method name="generateArgumentsDifferenceText" start="478" end="490" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="array" variable="$actualArguments"/>
+      <param type="array" variable="$expectedArguments"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="actualArguments" byreference="false" type="array"/>
+    <parameter name="expectedArguments" byreference="false" type="array"/>
+  </method>
+</class>

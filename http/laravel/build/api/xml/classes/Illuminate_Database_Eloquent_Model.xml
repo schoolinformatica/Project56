@@ -1,0 +1,2479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Database\Eloquent\Model" namespace="Illuminate\Database\Eloquent" name="Model" abstract="true" final="false" start="33" end="3518">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Eloquent" file="Model.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php" size="93420" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="34137581941a17495e4e3d078f2f7f0b69408ad2" relative="vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php"/>
+  <implements full="ArrayAccess" namespace="" name="ArrayAccess"/>
+  <implements full="Illuminate\Contracts\Support\Arrayable" namespace="Illuminate\Contracts\Support" name="Arrayable"/>
+  <implements full="Illuminate\Contracts\Support\Jsonable" namespace="Illuminate\Contracts\Support" name="Jsonable"/>
+  <implements full="JsonSerializable" namespace="" name="JsonSerializable"/>
+  <implements full="Illuminate\Contracts\Queue\QueueableEntity" namespace="Illuminate\Contracts\Queue" name="QueueableEntity"/>
+  <implements full="Illuminate\Contracts\Routing\UrlRoutable" namespace="Illuminate\Contracts\Routing" name="UrlRoutable"/>
+  <member name="connection" visibility="protected" line="40">
+    <docblock>
+      <description compact="The connection name for the model."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="table" visibility="protected" line="47">
+    <docblock>
+      <description compact="The table associated with the model."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="primaryKey" type="string" default="'id'" visibility="protected" line="54">
+    <docblock>
+      <description compact="The primary key for the model."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="perPage" type="integer" default="15" visibility="protected" line="61">
+    <docblock>
+      <description compact="The number of models to return for pagination."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="incrementing" type="boolean" default="true" visibility="public" line="68">
+    <docblock>
+      <description compact="Indicates if the IDs are auto-incrementing."/>
+      <var type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="timestamps" type="boolean" default="true" visibility="public" line="75">
+    <docblock>
+      <description compact="Indicates if the model should be timestamped."/>
+      <var type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="attributes" type="array" default="" visibility="protected" line="82">
+    <docblock>
+      <description compact="The model's attributes."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="original" type="array" default="" visibility="protected" line="89">
+    <docblock>
+      <description compact="The model attribute's original state."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="relations" type="array" default="" visibility="protected" line="96">
+    <docblock>
+      <description compact="The loaded relationships for the model."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="hidden" type="array" default="" visibility="protected" line="103">
+    <docblock>
+      <description compact="The attributes that should be hidden for arrays."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="visible" type="array" default="" visibility="protected" line="110">
+    <docblock>
+      <description compact="The attributes that should be visible in arrays."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="appends" type="array" default="" visibility="protected" line="117">
+    <docblock>
+      <description compact="The accessors to append to the model's array form."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="fillable" type="array" default="" visibility="protected" line="124">
+    <docblock>
+      <description compact="The attributes that are mass assignable."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="guarded" type="array" default="" visibility="protected" line="131">
+    <docblock>
+      <description compact="The attributes that aren't mass assignable."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="dates" type="array" default="" visibility="protected" line="138">
+    <docblock>
+      <description compact="The attributes that should be mutated to dates."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="dateFormat" visibility="protected" line="145">
+    <docblock>
+      <description compact="The storage format of the model's date columns."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="casts" type="array" default="" visibility="protected" line="152">
+    <docblock>
+      <description compact="The attributes that should be casted to native types."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="touches" type="array" default="" visibility="protected" line="159">
+    <docblock>
+      <description compact="The relationships that should be touched on save."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="observables" type="array" default="" visibility="protected" line="166">
+    <docblock>
+      <description compact="User exposed observable events."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="with" type="array" default="" visibility="protected" line="173">
+    <docblock>
+      <description compact="The relations to eager load on every query."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="morphClass" visibility="protected" line="180">
+    <docblock>
+      <description compact="The class name to be used in polymorphic relations."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="exists" type="boolean" default="false" visibility="public" line="187">
+    <docblock>
+      <description compact="Indicates if the model exists."/>
+      <var type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="wasRecentlyCreated" type="boolean" default="false" visibility="public" line="194">
+    <docblock>
+      <description compact="Indicates if the model was inserted during the current request lifecycle."/>
+      <var type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="snakeAttributes" type="boolean" default="true" visibility="public" line="201">
+    <docblock>
+      <description compact="Indicates whether attributes are snake cased on arrays."/>
+      <var type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="resolver" visibility="protected" line="208">
+    <docblock>
+      <description compact="The connection resolver instance."/>
+      <var type="object">
+        <type full="\Illuminate\Database\ConnectionResolverInterface" namespace="\Illuminate\Database" name="ConnectionResolverInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="dispatcher" visibility="protected" line="215">
+    <docblock>
+      <description compact="The event dispatcher instance."/>
+      <var type="object">
+        <type full="\Illuminate\Contracts\Events\Dispatcher" namespace="\Illuminate\Contracts\Events" name="Dispatcher"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="booted" type="array" default="" visibility="protected" line="222">
+    <docblock>
+      <description compact="The array of booted models."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="globalScopes" type="array" default="" visibility="protected" line="229">
+    <docblock>
+      <description compact="The array of global scopes on the model."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="unguarded" type="boolean" default="false" visibility="protected" line="236">
+    <docblock>
+      <description compact="Indicates if all mass assignment is enabled."/>
+      <var type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="mutatorCache" type="array" default="" visibility="protected" line="243">
+    <docblock>
+      <description compact="The cache of the mutated attributes for each class."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="manyMethods" type="array" default="" visibility="public" line="250">
+    <docblock>
+      <description compact="The many to many relationship methods."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constant type="string" name="CREATED_AT" value="'created_at'">
+    <docblock>
+      <description compact="The name of the &quot;created at&quot; column."/>
+      <var type="string"/>
+    </docblock>
+  </constant>
+  <constant type="string" name="UPDATED_AT" value="'updated_at'">
+    <docblock>
+      <description compact="The name of the &quot;updated at&quot; column."/>
+      <var type="string"/>
+    </docblock>
+  </constant>
+  <constructor name="__construct" start="272" end="279" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new Eloquent model instance."/>
+      <param type="array" variable="$attributes"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="bootIfNotBooted" start="286" end="299" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Check if the model needs to be booted and if so, do it."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="boot" start="306" end="309" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="The &quot;booting&quot; method of the model."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="bootTraits" start="316" end="323" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Boot all of the bootable traits on the model."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="clearBootedModels" start="330" end="333" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Clear the list of booted models so they will be re-booted."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="addGlobalScope" start="341" end="344" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Register a new global scope on the model."/>
+      <param type="object" variable="$scope">
+        <type full="\Illuminate\Database\Eloquent\ScopeInterface" namespace="\Illuminate\Database\Eloquent" name="ScopeInterface"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="scope" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\ScopeInterface" namespace="Illuminate\Database\Eloquent" name="ScopeInterface"/>
+    </parameter>
+  </method>
+  <method name="hasGlobalScope" start="352" end="355" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Determine if a model has a global scope."/>
+      <param type="object" variable="$scope">
+        <type full="\Illuminate\Database\Eloquent\ScopeInterface" namespace="\Illuminate\Database\Eloquent" name="ScopeInterface"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="scope" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getGlobalScope" start="363" end="368" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get a global scope registered with the model."/>
+      <param type="object" variable="$scope">
+        <type full="\Illuminate\Database\Eloquent\ScopeInterface" namespace="\Illuminate\Database\Eloquent" name="ScopeInterface"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\ScopeInterface|null" namespace="\Illuminate\Database\Eloquent" name="ScopeInterface|null"/>
+      </return>
+    </docblock>
+    <parameter name="scope" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getGlobalScopes" start="375" end="378" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the global scopes for this class instance."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="observe" start="387" end="401" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Register an observer with the Model."/>
+      <param type="object" variable="$class">
+        <type full="Illuminate\Database\Eloquent\object|string" namespace="Illuminate\Database\Eloquent" name="object|string"/>
+      </param>
+      <param type="int" variable="$priority"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="priority" byreference="false" type="integer" default="0"/>
+    <inline>
+      <comment value="When registering a model observer, we will spin through the possible events" line="393"/>
+      <comment value="and determine if this observer has that method. If it does, we will hook" line="394"/>
+      <comment value="it into the model's event system, making it convenient to watch these." line="395"/>
+    </inline>
+  </method>
+  <method name="fill" start="411" end="429" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Fill the model with an array of attributes."/>
+      <param type="array" variable="$attributes"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+      <throws type="object">
+        <type full="\Illuminate\Database\Eloquent\MassAssignmentException" namespace="\Illuminate\Database\Eloquent" name="MassAssignmentException"/>
+      </throws>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array"/>
+  </method>
+  <method name="forceFill" start="437" end="447" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Fill the model with an array of attributes. Force mass assignment."/>
+      <param type="array" variable="$attributes"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array"/>
+    <inline>
+      <comment value="Since some versions of PHP have a bug that prevents it from properly" line="439"/>
+      <comment value="binding the late static context in a closure, we will first store" line="440"/>
+      <comment value="the model in a variable, which we will then use in the closure." line="441"/>
+    </inline>
+  </method>
+  <method name="fillableFromArray" start="455" end="462" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the fillable attributes of a given array."/>
+      <param type="array" variable="$attributes"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array"/>
+  </method>
+  <method name="newInstance" start="471" end="481" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new instance of the given model."/>
+      <param type="array" variable="$attributes"/>
+      <param type="object" variable="$exists">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </param>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Database\Eloquent\Model" namespace="Illuminate\Database\Eloquent" name="Model"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array" default=""/>
+    <parameter name="exists" byreference="false" type="boolean" default="false"/>
+    <inline>
+      <comment value="This method just provides a convenient way for us to generate fresh model" line="473"/>
+      <comment value="instances of this current model. It is particularly useful during the" line="474"/>
+      <comment value="hydration of new objects via the Eloquent query builder instances." line="475"/>
+    </inline>
+  </method>
+  <method name="newFromBuilder" start="490" end="499" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new model instance that is existing."/>
+      <param type="array" variable="$attributes"/>
+      <param type="object" variable="$connection">
+        <type full="Illuminate\Database\Eloquent\string|null" namespace="Illuminate\Database\Eloquent" name="string|null"/>
+      </param>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Database\Eloquent\Model" namespace="Illuminate\Database\Eloquent" name="Model"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array" default=""/>
+    <parameter name="connection" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="hydrate" start="508" end="517" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Create a collection of models from plain arrays."/>
+      <param type="array" variable="$items"/>
+      <param type="object" variable="$connection">
+        <type full="Illuminate\Database\Eloquent\string|null" namespace="Illuminate\Database\Eloquent" name="string|null"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Collection" namespace="\Illuminate\Database\Eloquent" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="items" byreference="false" type="array"/>
+    <parameter name="connection" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="hydrateRaw" start="527" end="534" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Create a collection of models from a raw query."/>
+      <param type="string" variable="$query"/>
+      <param type="array" variable="$bindings"/>
+      <param type="object" variable="$connection">
+        <type full="Illuminate\Database\Eloquent\string|null" namespace="Illuminate\Database\Eloquent" name="string|null"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Collection" namespace="\Illuminate\Database\Eloquent" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}"/>
+    <parameter name="bindings" byreference="false" type="array" default=""/>
+    <parameter name="connection" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="create" start="542" end="549" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Save a new model and return the instance."/>
+      <param type="array" variable="$attributes"/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Database\Eloquent\Model" namespace="Illuminate\Database\Eloquent" name="Model"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array" default=""/>
+  </method>
+  <method name="forceCreate" start="557" end="567" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Save a new model and return the instance. Allow mass-assignment."/>
+      <param type="array" variable="$attributes"/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Database\Eloquent\Model" namespace="Illuminate\Database\Eloquent" name="Model"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array"/>
+    <inline>
+      <comment value="Since some versions of PHP have a bug that prevents it from properly" line="559"/>
+      <comment value="binding the late static context in a closure, we will first store" line="560"/>
+      <comment value="the model in a variable, which we will then use in the closure." line="561"/>
+    </inline>
+  </method>
+  <method name="firstOrCreate" start="575" end="582" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get the first record matching the attributes or create it."/>
+      <param type="array" variable="$attributes"/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Database\Eloquent\Model" namespace="Illuminate\Database\Eloquent" name="Model"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array"/>
+  </method>
+  <method name="firstOrNew" start="590" end="597" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get the first record matching the attributes or instantiate it."/>
+      <param type="array" variable="$attributes"/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Database\Eloquent\Model" namespace="Illuminate\Database\Eloquent" name="Model"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array"/>
+  </method>
+  <method name="updateOrCreate" start="606" end="613" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Create or update a record matching the attributes, and fill it with values."/>
+      <param type="array" variable="$attributes"/>
+      <param type="array" variable="$values"/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Database\Eloquent\Model" namespace="Illuminate\Database\Eloquent" name="Model"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array"/>
+    <parameter name="values" byreference="false" type="array" default=""/>
+  </method>
+  <method name="query" start="620" end="623" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Begin querying the model."/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="on" start="631" end="641" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Begin querying the model on a given connection."/>
+      <param type="object" variable="$connection">
+        <type full="Illuminate\Database\Eloquent\string|null" namespace="Illuminate\Database\Eloquent" name="string|null"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </return>
+    </docblock>
+    <parameter name="connection" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="First we will just create a fresh instance of this model, and then we can" line="633"/>
+      <comment value="set the connection on the model so that it is be used for the queries" line="634"/>
+      <comment value="we execute, as well as being set on each relationship we retrieve." line="635"/>
+    </inline>
+  </method>
+  <method name="onWriteConnection" start="648" end="653" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Begin querying the model on the write connection."/>
+      <return type="object">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="all" start="661" end="668" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get all of the models from the database."/>
+      <param type="object" variable="$columns">
+        <type full="Illuminate\Database\Eloquent\array|mixed" namespace="Illuminate\Database\Eloquent" name="array|mixed"/>
+      </param>
+      <return type="array" of="object">
+        <type full="\Illuminate\Database\Eloquent\Collection|static" namespace="\Illuminate\Database\Eloquent" name="Collection|static"/>
+      </return>
+    </docblock>
+    <parameter name="columns" byreference="false" type="array" default=""/>
+  </method>
+  <method name="findOrNew" start="677" end="684" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Find a model by its primary key or return new static."/>
+      <param type="mixed" variable="$id"/>
+      <param type="array" variable="$columns"/>
+      <return type="object">
+        <type full="\Illuminate\Support\Collection|static" namespace="\Illuminate\Support" name="Collection|static"/>
+      </return>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="columns" byreference="false" type="array" default=""/>
+  </method>
+  <method name="fresh" start="692" end="701" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Reload a fresh model instance from the database."/>
+      <param type="array" variable="$with"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this|null" namespace="Illuminate\Database\Eloquent" name="$this|null"/>
+      </return>
+    </docblock>
+    <parameter name="with" byreference="false" type="array" default=""/>
+  </method>
+  <method name="load" start="709" end="720" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Eager load relations on the model."/>
+      <param type="object" variable="$relations">
+        <type full="Illuminate\Database\Eloquent\array|string" namespace="Illuminate\Database\Eloquent" name="array|string"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="relations" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="with" start="728" end="737" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Begin querying a model with eager loading."/>
+      <param type="object" variable="$relations">
+        <type full="Illuminate\Database\Eloquent\array|string" namespace="Illuminate\Database\Eloquent" name="array|string"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Builder|static" namespace="\Illuminate\Database\Eloquent" name="Builder|static"/>
+      </return>
+    </docblock>
+    <parameter name="relations" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="append" start="745" end="756" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Append attributes to query when building a query."/>
+      <param type="object" variable="$attributes">
+        <type full="Illuminate\Database\Eloquent\array|string" namespace="Illuminate\Database\Eloquent" name="array|string"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasOne" start="766" end="775" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Define a one-to-one relationship."/>
+      <param type="string" variable="$related"/>
+      <param type="string" variable="$foreignKey"/>
+      <param type="string" variable="$localKey"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Relations\HasOne" namespace="\Illuminate\Database\Eloquent\Relations" name="HasOne"/>
+      </return>
+    </docblock>
+    <parameter name="related" byreference="false" type="{unknown}"/>
+    <parameter name="foreignKey" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="localKey" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="morphOne" start="787" end="798" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Define a polymorphic one-to-one relationship."/>
+      <param type="string" variable="$related"/>
+      <param type="string" variable="$name"/>
+      <param type="string" variable="$type"/>
+      <param type="string" variable="$id"/>
+      <param type="string" variable="$localKey"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Relations\MorphOne" namespace="\Illuminate\Database\Eloquent\Relations" name="MorphOne"/>
+      </return>
+    </docblock>
+    <parameter name="related" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="id" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="localKey" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="belongsTo" start="809" end="837" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Define an inverse one-to-one or many relationship."/>
+      <param type="string" variable="$related"/>
+      <param type="string" variable="$foreignKey"/>
+      <param type="string" variable="$otherKey"/>
+      <param type="string" variable="$relation"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Relations\BelongsTo" namespace="\Illuminate\Database\Eloquent\Relations" name="BelongsTo"/>
+      </return>
+    </docblock>
+    <parameter name="related" byreference="false" type="{unknown}"/>
+    <parameter name="foreignKey" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="otherKey" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="relation" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="If no relation name was given, we will use this debug backtrace to extract" line="811"/>
+      <comment value="the calling method's name and use that as the relationship name as most" line="812"/>
+      <comment value="of the time this will be what we desire to use for the relationships." line="813"/>
+      <comment value="If no foreign key was supplied, we can use a backtrace to guess the proper" line="820"/>
+      <comment value="foreign key name by using the name of the relationship function, which" line="821"/>
+      <comment value="when combined with an &quot;_id&quot; should conventionally match the columns." line="822"/>
+      <comment value="Once we have the foreign key names, we'll just create a new Eloquent query" line="829"/>
+      <comment value="for the related models and returns the relationship instance which will" line="830"/>
+      <comment value="actually be responsible for retrieving and hydrating every relations." line="831"/>
+    </inline>
+  </method>
+  <method name="morphTo" start="847" end="881" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Define a polymorphic, inverse one-to-one or many relationship."/>
+      <param type="string" variable="$name"/>
+      <param type="string" variable="$type"/>
+      <param type="string" variable="$id"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Relations\MorphTo" namespace="\Illuminate\Database\Eloquent\Relations" name="MorphTo"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="type" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="id" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="If no name is provided, we will use the backtrace to get the function name" line="849"/>
+      <comment value="since that is most likely the name of the polymorphic interface. We can" line="850"/>
+      <comment value="use that to get both the class and foreign key that will be utilized." line="851"/>
+      <comment value="If the type value is null it is probably safe to assume we're eager loading" line="860"/>
+      <comment value="the relationship. When that is the case we will pass in a dummy query as" line="861"/>
+      <comment value="there are multiple types in the morph and we can't use single queries." line="862"/>
+    </inline>
+  </method>
+  <method name="getActualClassNameForMorph" start="889" end="892" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieve the fully qualified class name from a slug."/>
+      <param type="string" variable="$class"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasMany" start="902" end="911" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Define a one-to-many relationship."/>
+      <param type="string" variable="$related"/>
+      <param type="string" variable="$foreignKey"/>
+      <param type="string" variable="$localKey"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Relations\HasMany" namespace="\Illuminate\Database\Eloquent\Relations" name="HasMany"/>
+      </return>
+    </docblock>
+    <parameter name="related" byreference="false" type="{unknown}"/>
+    <parameter name="foreignKey" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="localKey" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="hasManyThrough" start="923" end="934" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Define a has-many-through relationship."/>
+      <param type="string" variable="$related"/>
+      <param type="string" variable="$through"/>
+      <param type="object" variable="$firstKey">
+        <type full="Illuminate\Database\Eloquent\string|null" namespace="Illuminate\Database\Eloquent" name="string|null"/>
+      </param>
+      <param type="object" variable="$secondKey">
+        <type full="Illuminate\Database\Eloquent\string|null" namespace="Illuminate\Database\Eloquent" name="string|null"/>
+      </param>
+      <param type="object" variable="$localKey">
+        <type full="Illuminate\Database\Eloquent\string|null" namespace="Illuminate\Database\Eloquent" name="string|null"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Relations\HasManyThrough" namespace="\Illuminate\Database\Eloquent\Relations" name="HasManyThrough"/>
+      </return>
+    </docblock>
+    <parameter name="related" byreference="false" type="{unknown}"/>
+    <parameter name="through" byreference="false" type="{unknown}"/>
+    <parameter name="firstKey" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="secondKey" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="localKey" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="morphMany" start="946" end="960" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Define a polymorphic one-to-many relationship."/>
+      <param type="string" variable="$related"/>
+      <param type="string" variable="$name"/>
+      <param type="string" variable="$type"/>
+      <param type="string" variable="$id"/>
+      <param type="string" variable="$localKey"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Relations\MorphMany" namespace="\Illuminate\Database\Eloquent\Relations" name="MorphMany"/>
+      </return>
+    </docblock>
+    <parameter name="related" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="id" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="localKey" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="Here we will gather up the morph type and ID for the relationship so that we" line="950"/>
+      <comment value="can properly query the intermediate table of a relation. Finally, we will" line="951"/>
+      <comment value="get the table and create the relationship instances for the developers." line="952"/>
+    </inline>
+  </method>
+  <method name="belongsToMany" start="972" end="1003" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Define a many-to-many relationship."/>
+      <param type="string" variable="$related"/>
+      <param type="string" variable="$table"/>
+      <param type="string" variable="$foreignKey"/>
+      <param type="string" variable="$otherKey"/>
+      <param type="string" variable="$relation"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Relations\BelongsToMany" namespace="\Illuminate\Database\Eloquent\Relations" name="BelongsToMany"/>
+      </return>
+    </docblock>
+    <parameter name="related" byreference="false" type="{unknown}"/>
+    <parameter name="table" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="foreignKey" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="otherKey" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="relation" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="If no relationship name was passed, we will pull backtraces to get the" line="974"/>
+      <comment value="name of the calling function. We will use that function name as the" line="975"/>
+      <comment value="title of this relation since that is a great convention to apply." line="976"/>
+      <comment value="First, we'll need to determine the foreign key and &quot;other key&quot; for the" line="981"/>
+      <comment value="relationship. Once we have determined the keys we'll make the query" line="982"/>
+      <comment value="instances as well as the relationship instances we need for this." line="983"/>
+      <comment value="If no table name was provided, we can guess it by concatenating the two" line="990"/>
+      <comment value="models using underscores in alphabetical order. The two model names" line="991"/>
+      <comment value="are transformed to snake case from their default CamelCase also." line="992"/>
+      <comment value="Now we're ready to create a new query builder for the related model and" line="997"/>
+      <comment value="the relationship instances for the relation. The relations will set" line="998"/>
+      <comment value="appropriate query constraint and entirely manages the hydrations." line="999"/>
+    </inline>
+  </method>
+  <method name="morphToMany" start="1016" end="1040" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Define a polymorphic many-to-many relationship."/>
+      <param type="string" variable="$related"/>
+      <param type="string" variable="$name"/>
+      <param type="string" variable="$table"/>
+      <param type="string" variable="$foreignKey"/>
+      <param type="string" variable="$otherKey"/>
+      <param type="object" variable="$inverse">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Relations\MorphToMany" namespace="\Illuminate\Database\Eloquent\Relations" name="MorphToMany"/>
+      </return>
+    </docblock>
+    <parameter name="related" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="table" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="foreignKey" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="otherKey" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="inverse" byreference="false" type="boolean" default="false"/>
+    <inline>
+      <comment value="First, we will need to determine the foreign key and &quot;other key&quot; for the" line="1020"/>
+      <comment value="relationship. Once we have determined the keys we will make the query" line="1021"/>
+      <comment value="instances, as well as the relationship instances we need for these." line="1022"/>
+      <comment value="Now we're ready to create a new query builder for this related model and" line="1029"/>
+      <comment value="the relationship instances for this relation. This relations will set" line="1030"/>
+      <comment value="appropriate query constraints then entirely manages the hydrations." line="1031"/>
+    </inline>
+  </method>
+  <method name="morphedByMany" start="1052" end="1062" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Define a polymorphic, inverse many-to-many relationship."/>
+      <param type="string" variable="$related"/>
+      <param type="string" variable="$name"/>
+      <param type="string" variable="$table"/>
+      <param type="string" variable="$foreignKey"/>
+      <param type="string" variable="$otherKey"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Relations\MorphToMany" namespace="\Illuminate\Database\Eloquent\Relations" name="MorphToMany"/>
+      </return>
+    </docblock>
+    <parameter name="related" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="table" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="foreignKey" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="otherKey" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="For the inverse of the polymorphic many-to-many relations, we will change" line="1056"/>
+      <comment value="the way we determine the foreign and other keys, as it is the opposite" line="1057"/>
+      <comment value="of the morph-to-many method since we're figuring out these inverses." line="1058"/>
+    </inline>
+  </method>
+  <method name="getBelongsToManyCaller" start="1069" end="1080" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the relationship name of the belongs to many."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="joiningTable" start="1088" end="1105" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the joining table name for a many-to-many relation."/>
+      <param type="string" variable="$related"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="related" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="The joining table name, by convention, is simply the snake cased models" line="1090"/>
+      <comment value="sorted alphabetically and concatenated with an underscore, so we can" line="1091"/>
+      <comment value="just sort the models and join them together to get the table name." line="1092"/>
+      <comment value="Now that we have the model names in an array we can just sort them and" line="1099"/>
+      <comment value="use the implode function to join them together with an underscores," line="1100"/>
+      <comment value="which is typically used by convention within the database system." line="1101"/>
+    </inline>
+  </method>
+  <method name="destroy" start="1113" end="1136" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Destroy the models for the given IDs."/>
+      <param type="object" variable="$ids">
+        <type full="Illuminate\Database\Eloquent\array|int" namespace="Illuminate\Database\Eloquent" name="array|int"/>
+      </param>
+      <return type="int"/>
+    </docblock>
+    <parameter name="ids" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="We'll initialize a count here so we will return the total number of deletes" line="1115"/>
+      <comment value="for the operation. The developers can then check this number as a boolean" line="1116"/>
+      <comment value="type value or get this total count of records deleted for logging, etc." line="1117"/>
+      <comment value="We will actually pull the models from the database table and call delete on" line="1124"/>
+      <comment value="each of them individually so that their events get fired properly with a" line="1125"/>
+      <comment value="correct set of attributes in case the developers wants to check these." line="1126"/>
+    </inline>
+  </method>
+  <method name="delete" start="1145" end="1172" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Delete the model from the database."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool|null" namespace="Illuminate\Database\Eloquent" name="bool|null"/>
+      </return>
+      <throws type="object">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="forceDelete" start="1181" end="1184" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Force a hard delete on a soft deleted model.">This method protects developers from running forceDelete when trait is missing.</description>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool|null" namespace="Illuminate\Database\Eloquent" name="bool|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="performDeleteOnModel" start="1191" end="1194" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Perform the actual delete query on this model instance."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="saving" start="1203" end="1206" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Register a saving model event with the dispatcher."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure|string" namespace="" name="Closure|string"/>
+      </param>
+      <param type="int" variable="$priority"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+    <parameter name="priority" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="saved" start="1215" end="1218" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Register a saved model event with the dispatcher."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure|string" namespace="" name="Closure|string"/>
+      </param>
+      <param type="int" variable="$priority"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+    <parameter name="priority" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="updating" start="1227" end="1230" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Register an updating model event with the dispatcher."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure|string" namespace="" name="Closure|string"/>
+      </param>
+      <param type="int" variable="$priority"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+    <parameter name="priority" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="updated" start="1239" end="1242" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Register an updated model event with the dispatcher."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure|string" namespace="" name="Closure|string"/>
+      </param>
+      <param type="int" variable="$priority"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+    <parameter name="priority" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="creating" start="1251" end="1254" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Register a creating model event with the dispatcher."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure|string" namespace="" name="Closure|string"/>
+      </param>
+      <param type="int" variable="$priority"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+    <parameter name="priority" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="created" start="1263" end="1266" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Register a created model event with the dispatcher."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure|string" namespace="" name="Closure|string"/>
+      </param>
+      <param type="int" variable="$priority"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+    <parameter name="priority" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="deleting" start="1275" end="1278" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Register a deleting model event with the dispatcher."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure|string" namespace="" name="Closure|string"/>
+      </param>
+      <param type="int" variable="$priority"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+    <parameter name="priority" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="deleted" start="1287" end="1290" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Register a deleted model event with the dispatcher."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure|string" namespace="" name="Closure|string"/>
+      </param>
+      <param type="int" variable="$priority"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+    <parameter name="priority" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="flushEventListeners" start="1297" end="1308" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Remove all of the event listeners for the model."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="registerModelEvent" start="1318" end="1325" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Register a model event with the dispatcher."/>
+      <param type="string" variable="$event"/>
+      <param type="object" variable="$callback">
+        <type full="\Closure|string" namespace="" name="Closure|string"/>
+      </param>
+      <param type="int" variable="$priority"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="event" byreference="false" type="{unknown}"/>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+    <parameter name="priority" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="getObservableEvents" start="1332" end="1342" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the observable event names."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="setObservableEvents" start="1350" end="1355" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the observable event names."/>
+      <param type="array" variable="$observables"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="observables" byreference="false" type="array"/>
+  </method>
+  <method name="addObservableEvents" start="1363" end="1368" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add an observable event name."/>
+      <param type="object" variable="$observables">
+        <type full="Illuminate\Database\Eloquent\array|mixed" namespace="Illuminate\Database\Eloquent" name="array|mixed"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="observables" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="removeObservableEvents" start="1376" end="1381" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remove an observable event name."/>
+      <param type="object" variable="$observables">
+        <type full="Illuminate\Database\Eloquent\array|mixed" namespace="Illuminate\Database\Eloquent" name="array|mixed"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="observables" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="increment" start="1390" end="1393" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Increment a column's value by a given amount."/>
+      <param type="string" variable="$column"/>
+      <param type="int" variable="$amount"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="{unknown}"/>
+    <parameter name="amount" byreference="false" type="integer" default="1"/>
+  </method>
+  <method name="decrement" start="1402" end="1405" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Decrement a column's value by a given amount."/>
+      <param type="string" variable="$column"/>
+      <param type="int" variable="$amount"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="{unknown}"/>
+    <parameter name="amount" byreference="false" type="integer" default="1"/>
+  </method>
+  <method name="incrementOrDecrement" start="1415" end="1426" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Run the increment or decrement method on the model."/>
+      <param type="string" variable="$column"/>
+      <param type="int" variable="$amount"/>
+      <param type="string" variable="$method"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="{unknown}"/>
+    <parameter name="amount" byreference="false" type="{unknown}"/>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="incrementOrDecrementAttributeValue" start="1436" end="1441" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Increment the underlying attribute value and sync with original."/>
+      <param type="string" variable="$column"/>
+      <param type="int" variable="$amount"/>
+      <param type="string" variable="$method"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="column" byreference="false" type="{unknown}"/>
+    <parameter name="amount" byreference="false" type="{unknown}"/>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="update" start="1449" end="1456" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Update the model in the database."/>
+      <param type="array" variable="$attributes"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool|int" namespace="Illuminate\Database\Eloquent" name="bool|int"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array" default=""/>
+  </method>
+  <method name="push" start="1463" end="1484" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Save the model and all of its relationships."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+    <inline>
+      <comment value="To sync all of the relationships to the database, we will simply spin through" line="1469"/>
+      <comment value="the relationships and save each model via this &quot;push&quot; method, which allows" line="1470"/>
+      <comment value="us to recurse into all of these nested relations for the model instance." line="1471"/>
+    </inline>
+  </method>
+  <method name="save" start="1492" end="1522" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Save the model to the database."/>
+      <param type="array" variable="$options"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="options" byreference="false" type="array" default=""/>
+    <inline>
+      <comment value="If the &quot;saving&quot; event returns false we'll bail out of the save and return" line="1496"/>
+      <comment value="false, indicating that the save failed. This provides a chance for any" line="1497"/>
+      <comment value="listeners to cancel save operations if validations fail or whatever." line="1498"/>
+      <comment value="If the model already exists in the database we can just update our record" line="1503"/>
+      <comment value="that is already in this database using the current IDs in this &quot;where&quot;" line="1504"/>
+      <comment value="clause to only update this model. Otherwise, we'll just insert them." line="1505"/>
+    </inline>
+  </method>
+  <method name="finishSave" start="1530" end="1539" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Finish processing on a successful save operation."/>
+      <param type="array" variable="$options"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="options" byreference="false" type="array"/>
+  </method>
+  <method name="performUpdate" start="1548" end="1580" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Perform a model update operation."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </param>
+      <param type="array" variable="$options"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Builder" namespace="Illuminate\Database\Eloquent" name="Builder"/>
+    </parameter>
+    <parameter name="options" byreference="false" type="array" default=""/>
+  </method>
+  <method name="performInsert" start="1589" end="1628" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Perform a model insert operation."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </param>
+      <param type="array" variable="$options"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Builder" namespace="Illuminate\Database\Eloquent" name="Builder"/>
+    </parameter>
+    <parameter name="options" byreference="false" type="array" default=""/>
+    <inline>
+      <comment value="First we'll need to create a fresh query instance and touch the creation and" line="1595"/>
+      <comment value="update timestamps on this model, which are maintained by us for developer" line="1596"/>
+      <comment value="convenience. After, we will just continue saving these model instances." line="1597"/>
+      <comment value="If the model has an incrementing key, we can use the &quot;insertGetId&quot; method on" line="1602"/>
+      <comment value="the query builder, which will give us back the final inserted ID for this" line="1603"/>
+      <comment value="table from the database. Not all tables have to be incrementing though." line="1604"/>
+      <comment value="We will go ahead and set the exists property to true, so that it is set when" line="1618"/>
+      <comment value="the created event is fired, just in case the developer tries to update it" line="1619"/>
+      <comment value="during the event. This will allow them to do so and run an update here." line="1620"/>
+    </inline>
+  </method>
+  <method name="insertAndSetId" start="1637" end="1642" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Insert the given attributes and set the ID on the model."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </param>
+      <param type="array" variable="$attributes"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Builder" namespace="Illuminate\Database\Eloquent" name="Builder"/>
+    </parameter>
+    <parameter name="attributes" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="touchOwners" start="1649" end="1662" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Touch the owning relations of the model."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="touches" start="1670" end="1673" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the model touches a given relation."/>
+      <param type="string" variable="$relation"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="relation" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="fireModelEvent" start="1682" end="1696" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Fire the given event for the model."/>
+      <param type="string" variable="$event"/>
+      <param type="object" variable="$halt">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </param>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="event" byreference="false" type="{unknown}"/>
+    <parameter name="halt" byreference="false" type="boolean" default="true"/>
+    <inline>
+      <comment value="We will append the names of the class to the event to distinguish it from" line="1688"/>
+      <comment value="other model events that are fired, allowing us to listen on each model" line="1689"/>
+      <comment value="event set individually instead of catching event for all the models." line="1690"/>
+    </inline>
+  </method>
+  <method name="setKeysForSaveQuery" start="1704" end="1709" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Set the keys for a save update query."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </return>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Builder" namespace="Illuminate\Database\Eloquent" name="Builder"/>
+    </parameter>
+  </method>
+  <method name="getKeyForSaveQuery" start="1716" end="1723" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the primary key value for a save query."/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+  <method name="touch" start="1730" end="1739" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Update the model's update timestamp."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="updateTimestamps" start="1746" end="1757" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Update the creation and update timestamps."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setCreatedAt" start="1765" end="1770" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the value of the &quot;created at&quot; attribute."/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setUpdatedAt" start="1778" end="1783" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the value of the &quot;updated at&quot; attribute."/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getCreatedAtColumn" start="1790" end="1793" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the name of the &quot;created at&quot; column."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getUpdatedAtColumn" start="1800" end="1803" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the name of the &quot;updated at&quot; column."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="freshTimestamp" start="1810" end="1813" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a fresh timestamp for the model."/>
+      <return type="object">
+        <type full="\Carbon\Carbon" namespace="\Carbon" name="Carbon"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="freshTimestampString" start="1820" end="1823" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a fresh timestamp for the model."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="newQuery" start="1830" end="1835" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a new query builder for the model's table."/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="newQueryWithoutScope" start="1843" end="1848" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a new query instance without a given scope."/>
+      <param type="object" variable="$scope">
+        <type full="\Illuminate\Database\Eloquent\ScopeInterface" namespace="\Illuminate\Database\Eloquent" name="ScopeInterface"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </return>
+    </docblock>
+    <parameter name="scope" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="newQueryWithoutScopes" start="1855" end="1865" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a new query builder that doesn't have any global scopes."/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Builder|static" namespace="\Illuminate\Database\Eloquent" name="Builder|static"/>
+      </return>
+    </docblock>
+    <inline>
+      <comment value="Once we have the query builders, we will set the model instances so the" line="1861"/>
+      <comment value="builder can easily access any information it may need from the model" line="1862"/>
+      <comment value="while it is constructing and executing various queries against it." line="1863"/>
+    </inline>
+  </method>
+  <method name="applyGlobalScopes" start="1873" end="1880" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Apply all of the global scopes to an Eloquent builder."/>
+      <param type="object" variable="$builder">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </return>
+    </docblock>
+    <parameter name="builder" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="removeGlobalScopes" start="1888" end="1895" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remove all of the global scopes from an Eloquent builder."/>
+      <param type="object" variable="$builder">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </return>
+    </docblock>
+    <parameter name="builder" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="newEloquentBuilder" start="1903" end="1906" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new Eloquent query builder for the model."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Builder|static" namespace="\Illuminate\Database\Eloquent" name="Builder|static"/>
+      </return>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="newBaseQueryBuilder" start="1913" end="1920" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get a new query builder instance for the connection."/>
+      <return type="object">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="newCollection" start="1928" end="1931" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new Eloquent Collection instance."/>
+      <param type="array" variable="$models"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Collection" namespace="\Illuminate\Database\Eloquent" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="models" byreference="false" type="array" default=""/>
+  </method>
+  <method name="newPivot" start="1942" end="1945" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new pivot model instance."/>
+      <param type="object" variable="$parent">
+        <type full="\Illuminate\Database\Eloquent\Model" namespace="\Illuminate\Database\Eloquent" name="Model"/>
+      </param>
+      <param type="array" variable="$attributes"/>
+      <param type="string" variable="$table"/>
+      <param type="object" variable="$exists">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Relations\Pivot" namespace="\Illuminate\Database\Eloquent\Relations" name="Pivot"/>
+      </return>
+    </docblock>
+    <parameter name="parent" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Model" namespace="Illuminate\Database\Eloquent" name="Model"/>
+    </parameter>
+    <parameter name="attributes" byreference="false" type="array"/>
+    <parameter name="table" byreference="false" type="{unknown}"/>
+    <parameter name="exists" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getTable" start="1952" end="1959" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the table associated with the model."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setTable" start="1967" end="1972" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the table associated with the model."/>
+      <param type="string" variable="$table"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="table" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getKey" start="1979" end="1982" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the value of the model's primary key."/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+  <method name="getQueueableId" start="1989" end="1992" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the queueable identity for the entity."/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+  <method name="getKeyName" start="1999" end="2002" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the primary key for the model."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setKeyName" start="2010" end="2015" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the primary key for the model."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getQualifiedKeyName" start="2022" end="2025" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the table qualified key name."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getRouteKey" start="2032" end="2035" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the value of the model's route key."/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+  <method name="getRouteKeyName" start="2042" end="2045" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the route key for the model."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="usesTimestamps" start="2052" end="2055" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the model uses timestamps."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getMorphs" start="2065" end="2072" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the polymorphic relationship columns."/>
+      <param type="string" variable="$name"/>
+      <param type="string" variable="$type"/>
+      <param type="string" variable="$id"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getMorphClass" start="2079" end="2090" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the class name for polymorphic relations."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getPerPage" start="2097" end="2100" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the number of models to return per page."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="setPerPage" start="2108" end="2113" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the number of models to return per page."/>
+      <param type="int" variable="$perPage"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="perPage" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getForeignKey" start="2120" end="2123" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the default foreign key name for the model."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getHidden" start="2130" end="2133" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the hidden attributes for the model."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="setHidden" start="2141" end="2146" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the hidden attributes for the model."/>
+      <param type="array" variable="$hidden"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="hidden" byreference="false" type="array"/>
+  </method>
+  <method name="addHidden" start="2154" end="2159" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add hidden attributes for the model."/>
+      <param type="object" variable="$attributes">
+        <type full="Illuminate\Database\Eloquent\array|string|null" namespace="Illuminate\Database\Eloquent" name="array|string|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="withHidden" start="2167" end="2172" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Make the given, typically hidden, attributes visible."/>
+      <param type="object" variable="$attributes">
+        <type full="Illuminate\Database\Eloquent\array|string" namespace="Illuminate\Database\Eloquent" name="array|string"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getVisible" start="2179" end="2182" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the visible attributes for the model."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="setVisible" start="2190" end="2195" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the visible attributes for the model."/>
+      <param type="array" variable="$visible"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="visible" byreference="false" type="array"/>
+  </method>
+  <method name="addVisible" start="2203" end="2208" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add visible attributes for the model."/>
+      <param type="object" variable="$attributes">
+        <type full="Illuminate\Database\Eloquent\array|string|null" namespace="Illuminate\Database\Eloquent" name="array|string|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="setAppends" start="2216" end="2221" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the accessors to append to model arrays."/>
+      <param type="array" variable="$appends"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="appends" byreference="false" type="array"/>
+  </method>
+  <method name="getFillable" start="2228" end="2231" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the fillable attributes for the model."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="fillable" start="2239" end="2244" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the fillable attributes for the model."/>
+      <param type="array" variable="$fillable"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="fillable" byreference="false" type="array"/>
+  </method>
+  <method name="getGuarded" start="2251" end="2254" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the guarded attributes for the model."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="guard" start="2262" end="2267" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the guarded attributes for the model."/>
+      <param type="array" variable="$guarded"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="guarded" byreference="false" type="array"/>
+  </method>
+  <method name="unguard" start="2275" end="2278" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Disable all mass assignable restrictions."/>
+      <param type="object" variable="$state">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="state" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="reguard" start="2285" end="2288" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Enable the mass assignment restrictions."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isUnguarded" start="2295" end="2298" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Determine if current state is &quot;unguarded&quot;."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="unguarded" start="2306" end="2319" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Run the given callable while being unguarded."/>
+      <param type="object" variable="$callback">
+        <type full="Illuminate\Database\Eloquent\callable" namespace="Illuminate\Database\Eloquent" name="callable"/>
+      </param>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\callable" namespace="Illuminate\Database\Eloquent" name="callable"/>
+    </parameter>
+  </method>
+  <method name="isFillable" start="2327" end="2345" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the given attribute may be mass assigned."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="If the key is in the &quot;fillable&quot; array, we can of course assume that it's" line="2333"/>
+      <comment value="a fillable attribute. Otherwise, we will check the guarded array when" line="2334"/>
+      <comment value="we need to determine if the attribute is black-listed on the model." line="2335"/>
+    </inline>
+  </method>
+  <method name="isGuarded" start="2353" end="2356" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the given key is guarded."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="totallyGuarded" start="2363" end="2366" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the model is totally guarded."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="removeTableFromKey" start="2374" end="2381" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Remove the table name from a given key."/>
+      <param type="string" variable="$key"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getTouchedRelations" start="2388" end="2391" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the relationships that are touched on save."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="setTouchedRelations" start="2399" end="2404" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the relationships that are touched on save."/>
+      <param type="array" variable="$touches"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="touches" byreference="false" type="array"/>
+  </method>
+  <method name="getIncrementing" start="2411" end="2414" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the value indicating whether the IDs are incrementing."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setIncrementing" start="2422" end="2427" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set whether IDs are incrementing."/>
+      <param type="object" variable="$value">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="toJson" start="2435" end="2438" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Convert the model instance to JSON."/>
+      <param type="int" variable="$options"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="options" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="jsonSerialize" start="2445" end="2448" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Convert the object into something JSON serializable."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="toArray" start="2455" end="2460" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Convert the model instance to an array."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="attributesToArray" start="2467" end="2521" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Convert the model's attributes to an array."/>
+      <return type="array"/>
+    </docblock>
+    <inline>
+      <comment value="If an attribute is a date, we will cast it to a string after converting it" line="2471"/>
+      <comment value="to a DateTime / Carbon instance. This is so we will get some consistent" line="2472"/>
+      <comment value="formatting while accessing attributes vs. arraying / JSONing a model." line="2473"/>
+      <comment value="We want to spin through all the mutated attributes for this model and call" line="2486"/>
+      <comment value="the mutator for the attribute. We cache off every mutated attributes so" line="2487"/>
+      <comment value="we don't have to constantly check on attributes that actually change." line="2488"/>
+      <comment value="Next we will handle any casts that have been setup for this model and cast" line="2499"/>
+      <comment value="the values to their appropriate type. If the attribute has a mutator we" line="2500"/>
+      <comment value="will not perform the cast on those attributes to avoid any confusion." line="2501"/>
+      <comment value="Here we will grab all of the appended, calculated attributes to this model" line="2513"/>
+      <comment value="as these attributes are not really in the attributes array, but are run" line="2514"/>
+      <comment value="when we need to array or JSON the model for convenience to the coder." line="2515"/>
+    </inline>
+  </method>
+  <method name="getArrayableAttributes" start="2528" end="2531" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get an attribute array of all arrayable attributes."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getArrayableAppends" start="2538" end="2547" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get all of the appendable values that are arrayable."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="relationsToArray" start="2554" end="2591" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the model's relationships in array form."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getArrayableRelations" start="2598" end="2601" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get an attribute array of all arrayable relations."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getArrayableItems" start="2609" end="2616" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get an attribute array of all arrayable values."/>
+      <param type="array" variable="$values"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="values" byreference="false" type="array"/>
+  </method>
+  <method name="getAttribute" start="2624" end="2631" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get an attribute from the model."/>
+      <param type="string" variable="$key"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getAttributeValue" start="2639" end="2667" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a plain attribute (not a relationship)."/>
+      <param type="string" variable="$key"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="If the attribute has a get mutator, we will call that then return what" line="2643"/>
+      <comment value="it returns as the value, which is useful for transforming values on" line="2644"/>
+      <comment value="retrieval from the model to a form that is more useful for usage." line="2645"/>
+      <comment value="If the attribute exists within the cast array, we will convert it to" line="2650"/>
+      <comment value="an appropriate native PHP type dependant upon the associated value" line="2651"/>
+      <comment value="given with the key in the pair. Dayle made this comment line up." line="2652"/>
+    </inline>
+  </method>
+  <method name="getRelationValue" start="2675" end="2690" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a relationship."/>
+      <param type="string" variable="$key"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="If the key already exists in the relationships array, it just means the" line="2677"/>
+      <comment value="relationship has already been loaded, so we'll just return it out of" line="2678"/>
+      <comment value="here because there is no need to query within the relations twice." line="2679"/>
+      <comment value="If the &quot;attribute&quot; exists as a method on the model, we will just assume" line="2684"/>
+      <comment value="it is a relationship and will load and return results from the query" line="2685"/>
+      <comment value="and hydrate the relationship's value on the &quot;relationships&quot; array." line="2686"/>
+    </inline>
+  </method>
+  <method name="getAttributeFromArray" start="2698" end="2703" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get an attribute from the $attributes array."/>
+      <param type="string" variable="$key"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getRelationshipFromMethod" start="2713" end="2723" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get a relationship value from a method."/>
+      <param type="string" variable="$method"/>
+      <return type="mixed"/>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasGetMutator" start="2731" end="2734" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if a get mutator exists for an attribute."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="mutateAttribute" start="2743" end="2746" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the value of an attribute using its mutator."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="mutateAttributeForArray" start="2755" end="2760" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the value of an attribute using its mutator for array conversion."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasCast" start="2768" end="2771" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Determine whether an attribute should be casted to a native type."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isDateCastable" start="2779" end="2783" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Determine whether a value is Date / DateTime castable for inbound manipulation."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isJsonCastable" start="2791" end="2795" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Determine whether a value is JSON castable for inbound manipulation."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getCastType" start="2803" end="2806" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the type of cast for a model attribute."/>
+      <param type="string" variable="$key"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="castAttribute" start="2815" end="2847" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Cast an attribute to a native PHP type."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setAttribute" start="2856" end="2881" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set a given attribute on the model."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="First we will check for the presence of a mutator for the set operation" line="2858"/>
+      <comment value="which simply lets the developers tweak the attribute as it is set on" line="2859"/>
+      <comment value="the model, such as &quot;json_encoding&quot; an listing of data for storage." line="2860"/>
+    </inline>
+  </method>
+  <method name="hasSetMutator" start="2889" end="2892" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if a set mutator exists for an attribute."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getDates" start="2899" end="2904" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the attributes that should be converted to dates."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="fromDateTime" start="2912" end="2919" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Convert a DateTime to a storable string."/>
+      <param type="object" variable="$value">
+        <type full="\DateTime|int" namespace="" name="DateTime|int"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="asDateTime" start="2927" end="2961" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Return a timestamp as DateTime object."/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="\Carbon\Carbon" namespace="\Carbon" name="Carbon"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="If this value is already a Carbon instance, we shall just return it as is." line="2929"/>
+      <comment value="This prevents us having to reinstantiate a Carbon instance when we know" line="2930"/>
+      <comment value="it already is one, which wouldn't be fulfilled by the DateTime check." line="2931"/>
+      <comment value="If the value is already a DateTime instance, we will just skip the rest of" line="2936"/>
+      <comment value="these checks since they will be a waste of time, and hinder performance" line="2937"/>
+      <comment value="when checking the field. We will just return the DateTime right away." line="2938"/>
+      <comment value="If this value is an integer, we will assume it is a UNIX timestamp's value" line="2943"/>
+      <comment value="and format a Carbon object from this timestamp. This allows flexibility" line="2944"/>
+      <comment value="when defining your date fields as they might be UNIX timestamps here." line="2945"/>
+      <comment value="If the value is in simply year, month, day format, we will instantiate the" line="2950"/>
+      <comment value="Carbon instances from that format. Again, this provides for simple date" line="2951"/>
+      <comment value="fields on the database, while still supporting Carbonized conversion." line="2952"/>
+      <comment value="Finally, we will just assume this date is in the format used by default on" line="2957"/>
+      <comment value="the database connection and use that format to create the Carbon object" line="2958"/>
+      <comment value="that is returned back out to the developers after we convert it here." line="2959"/>
+    </inline>
+  </method>
+  <method name="serializeDate" start="2969" end="2972" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Prepare a date for array / JSON serialization."/>
+      <param type="object" variable="$date">
+        <type full="\DateTime" namespace="" name="DateTime"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="date" byreference="false" type="object">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+  </method>
+  <method name="getDateFormat" start="2979" end="2982" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the format for database stored dates."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setDateFormat" start="2990" end="2995" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the date format used by the model."/>
+      <param type="string" variable="$format"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="format" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="asJson" start="3003" end="3006" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Encode the given value as JSON."/>
+      <param type="mixed" variable="$value"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="fromJson" start="3015" end="3018" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Decode the given JSON back into an array or object."/>
+      <param type="string" variable="$value"/>
+      <param type="object" variable="$asObject">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </param>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="asObject" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="replicate" start="3026" end="3039" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Clone the model into a new, non-existing instance."/>
+      <param type="object" variable="$except">
+        <type full="Illuminate\Database\Eloquent\array|null" namespace="Illuminate\Database\Eloquent" name="array|null"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Model" namespace="\Illuminate\Database\Eloquent" name="Model"/>
+      </return>
+    </docblock>
+    <parameter name="except" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getAttributes" start="3046" end="3049" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get all of the current attributes on the model."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="setRawAttributes" start="3058" end="3067" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the array of model attributes. No checking is done."/>
+      <param type="array" variable="$attributes"/>
+      <param type="object" variable="$sync">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array"/>
+    <parameter name="sync" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="getOriginal" start="3076" end="3079" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the model's original attribute values."/>
+      <param type="object" variable="$key">
+        <type full="Illuminate\Database\Eloquent\string|null" namespace="Illuminate\Database\Eloquent" name="string|null"/>
+      </param>
+      <param type="mixed" variable="$default"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="syncOriginal" start="3086" end="3091" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sync the original attributes with the current."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="syncOriginalAttribute" start="3099" end="3104" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sync a single original attribute with its current value."/>
+      <param type="string" variable="$attribute"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="attribute" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isDirty" start="3112" end="3131" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the model or given attribute(s) have been modified."/>
+      <param type="object" variable="$attributes">
+        <type full="Illuminate\Database\Eloquent\array|string|null" namespace="Illuminate\Database\Eloquent" name="array|string|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getDirty" start="3138" end="3152" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the attributes that have been changed since last sync."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="originalIsNumericallyEquivalent" start="3160" end="3167" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Determine if the new and old values for a given key are numerically equivalent."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getRelations" start="3174" end="3177" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get all the loaded relations for the instance."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getRelation" start="3185" end="3188" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a specified relationship."/>
+      <param type="string" variable="$relation"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="relation" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="relationLoaded" start="3196" end="3199" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the given relation is loaded."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setRelation" start="3208" end="3213" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the specific relationship in the model."/>
+      <param type="string" variable="$relation"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="relation" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setRelations" start="3221" end="3226" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the entire relations array on the model."/>
+      <param type="array" variable="$relations"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="relations" byreference="false" type="array"/>
+  </method>
+  <method name="getConnection" start="3233" end="3236" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the database connection for the model."/>
+      <return type="object">
+        <type full="\Illuminate\Database\Connection" namespace="\Illuminate\Database" name="Connection"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getConnectionName" start="3243" end="3246" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the current connection name for the model."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setConnection" start="3254" end="3259" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the connection associated with the model."/>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="resolveConnection" start="3267" end="3270" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Resolve a connection instance."/>
+      <param type="object" variable="$connection">
+        <type full="Illuminate\Database\Eloquent\string|null" namespace="Illuminate\Database\Eloquent" name="string|null"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Connection" namespace="\Illuminate\Database" name="Connection"/>
+      </return>
+    </docblock>
+    <parameter name="connection" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getConnectionResolver" start="3277" end="3280" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get the connection resolver instance."/>
+      <return type="object">
+        <type full="\Illuminate\Database\ConnectionResolverInterface" namespace="\Illuminate\Database" name="ConnectionResolverInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setConnectionResolver" start="3288" end="3291" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set the connection resolver instance."/>
+      <param type="object" variable="$resolver">
+        <type full="\Illuminate\Database\ConnectionResolverInterface" namespace="\Illuminate\Database" name="ConnectionResolverInterface"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="resolver" byreference="false" type="object">
+      <type full="Illuminate\Database\ConnectionResolverInterface" namespace="Illuminate\Database" name="ConnectionResolverInterface"/>
+    </parameter>
+  </method>
+  <method name="unsetConnectionResolver" start="3298" end="3301" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Unset the connection resolver for models."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getEventDispatcher" start="3308" end="3311" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get the event dispatcher instance."/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Events\Dispatcher" namespace="\Illuminate\Contracts\Events" name="Dispatcher"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setEventDispatcher" start="3319" end="3322" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set the event dispatcher instance."/>
+      <param type="object" variable="$dispatcher">
+        <type full="\Illuminate\Contracts\Events\Dispatcher" namespace="\Illuminate\Contracts\Events" name="Dispatcher"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="dispatcher" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Events\Dispatcher" namespace="Illuminate\Contracts\Events" name="Dispatcher"/>
+    </parameter>
+  </method>
+  <method name="unsetEventDispatcher" start="3329" end="3332" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Unset the event dispatcher for models."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getMutatedAttributes" start="3339" end="3348" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the mutated attributes for a given instance."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="cacheMutatedAttributes" start="3356" end="3374" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Extract and cache all the mutated attributes of a class."/>
+      <param type="string" variable="$class"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Here we will extract all of the mutated attributes so that we can quickly" line="3360"/>
+      <comment value="spin through them after we export models to their array form, which we" line="3361"/>
+      <comment value="need to be fast. This'll let us know the attributes that can mutate." line="3362"/>
+    </inline>
+  </method>
+  <method name="__get" start="3382" end="3385" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Dynamically retrieve attributes on the model."/>
+      <param type="string" variable="$key"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__set" start="3394" end="3397" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Dynamically set attributes on the model."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetExists" start="3405" end="3408" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the given attribute exists."/>
+      <param type="mixed" variable="$offset"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="offset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetGet" start="3416" end="3419" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the value for a given offset."/>
+      <param type="mixed" variable="$offset"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="offset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetSet" start="3428" end="3431" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the value for a given offset."/>
+      <param type="mixed" variable="$offset"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="offset" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetUnset" start="3439" end="3442" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Unset the value for a given offset."/>
+      <param type="mixed" variable="$offset"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="offset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__isset" start="3450" end="3454" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if an attribute exists on the model."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__unset" start="3462" end="3465" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Unset an attribute on the model."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__call" start="3474" end="3483" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Handle dynamic method calls into the model."/>
+      <param type="string" variable="$method"/>
+      <param type="array" variable="$parameters"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__callStatic" start="3492" end="3497" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Handle dynamic static method calls into the method."/>
+      <param type="string" variable="$method"/>
+      <param type="array" variable="$parameters"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__toString" start="3504" end="3507" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Convert the model to its string representation."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="__wakeup" start="3514" end="3517" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="When a model is being unserialized, check if it needs to be booted."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\void" namespace="Illuminate\Database\Eloquent" name="void"/>
+      </return>
+    </docblock>
+  </method>
+</class>

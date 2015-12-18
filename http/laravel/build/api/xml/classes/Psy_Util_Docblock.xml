@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\Util\Docblock" namespace="Psy\Util" name="Docblock" abstract="false" final="false" start="24" end="241">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Util" file="Docblock.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Util/Docblock.php" size="6340" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="5ae508c6bcbc9fd104ac766ab2e6db3fd4fe77dd" relative="vendor/psy/psysh/src/Psy/Util/Docblock.php"/>
+  <docblock>
+    <description compact="A docblock representation.">Based on PHP-DocBlock-Parser by Paul Scott:
+
+{@link http://www.github.com/icio/PHP-DocBlock-Parser}</description>
+    <author value="Paul Scott &lt;paul@duedil.com&gt;"/>
+    <author value="Justin Hileman &lt;justin@justinhileman.info&gt;"/>
+  </docblock>
+  <member name="vectors" type="array" default="" visibility="public" line="33">
+    <docblock>
+      <description compact="Tags in the docblock that have a whitespace-delimited number of parameters (such as `@param type var desc` and `@return type desc`) and the names of those parameters."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="reflector" visibility="protected" line="39"/>
+  <member name="desc" visibility="public" line="46">
+    <docblock>
+      <description compact="The description of the symbol."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="tags" visibility="public" line="60">
+    <docblock>
+      <description compact="The tags defined in the docblock.">The array has keys which are the tag names (excluding the @) and values
+that are arrays, each of which is an entry for the tag.
+In the case where the tag name is defined in <see xmlns="http://xml.phpdox.net/src" value="DocBlock::$vectors"/> the
+value within the tag-value array is an array in itself with keys as
+described by <see xmlns="http://xml.phpdox.net/src" value="DocBlock::$vectors"/>.
+</description>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="comment" visibility="public" line="67">
+    <docblock>
+      <description compact="The entire DocBlock comment that was parsed."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="74" end="78" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Docblock constructor."/>
+      <param type="object" variable="$reflector">
+        <type full="\Reflector" namespace="" name="Reflector"/>
+      </param>
+    </docblock>
+    <parameter name="reflector" byreference="false" type="object">
+      <type full="Reflector" namespace="" name="Reflector"/>
+    </parameter>
+  </constructor>
+  <method name="setComment" start="85" end="92" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Set and parse the docblock comment."/>
+      <param description="The docblock" type="string" variable="$comment"/>
+    </docblock>
+    <parameter name="comment" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="prefixLength" start="101" end="123" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Find the length of the docblock prefix."/>
+      <param type="array" variable="$lines"/>
+      <return description="Prefix length" type="int"/>
+    </docblock>
+    <parameter name="lines" byreference="false" type="array"/>
+    <inline>
+      <comment value="find only lines with interesting things" line="103"/>
+      <comment value="if we sort the lines, we only have to compare two items" line="108"/>
+      <comment value="find the longest common substring" line="114"/>
+    </inline>
+  </method>
+  <method name="parseComment" start="130" end="190" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Parse the comment into the component parts and set the state of the object."/>
+      <param description="The docblock" type="string" variable="$comment"/>
+    </docblock>
+    <parameter name="comment" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Strip the opening and closing tags of the docblock" line="132"/>
+      <comment value="Split into arrays of lines" line="135"/>
+      <comment value="Trim asterisks and whitespace from the beginning and whitespace from the end of lines" line="138"/>
+      <comment value="Group the lines together by @tags" line="144"/>
+      <comment value="Parse the blocks" line="158"/>
+    </inline>
+  </method>
+  <method name="hasTag" start="199" end="202" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Whether or not a docblock contains a given @tag."/>
+      <param description="The name of the @tag to check for" type="string" variable="$tag"/>
+      <return type="object">
+        <type full="Psy\Util\bool" namespace="Psy\Util" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="tag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="tag" start="211" end="214" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="The value of a tag."/>
+      <param type="string" variable="$tag"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="tag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isTagged" start="223" end="226" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Whether or not a string begins with a @tag."/>
+      <param type="string" variable="$str"/>
+      <return type="object">
+        <type full="Psy\Util\bool" namespace="Psy\Util" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="strTag" start="235" end="240" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="The tag at the beginning of a string."/>
+      <param type="string" variable="$str"/>
+      <return type="object">
+        <type full="Psy\Util\string|null" namespace="Psy\Util" name="string|null"/>
+      </return>
+    </docblock>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+  </method>
+</class>

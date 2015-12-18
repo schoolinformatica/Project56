@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Database\Eloquent\Collection" namespace="Illuminate\Database\Eloquent" name="Collection" abstract="false" final="false" start="8" end="255">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Eloquent" file="Collection.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Collection.php" size="5736" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="5d498edfc094dfef6f15f9e80bc29e34b70d4f88" relative="vendor/laravel/framework/src/Illuminate/Database/Eloquent/Collection.php"/>
+  <extends full="Illuminate\Support\Collection" namespace="Illuminate\Support" name="Collection"/>
+  <method name="find" start="17" end="27" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Find a model in the collection by key."/>
+      <param type="mixed" variable="$key"/>
+      <param type="mixed" variable="$default"/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Model" namespace="\Illuminate\Database\Eloquent" name="Model"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="load" start="35" end="48" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Load a set of relationships onto the collection."/>
+      <param type="mixed" variable="$relations"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="relations" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="add" start="56" end="61" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add an item to the collection."/>
+      <param type="mixed" variable="$item"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="item" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="contains" start="70" end="85" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if a key exists in the collection."/>
+      <param type="mixed" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\bool" namespace="Illuminate\Database\Eloquent" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="fetch" start="95" end="98" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Fetch a nested element of the collection."/>
+      <param type="string" variable="$key"/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Database\Eloquent\Collection" namespace="Illuminate\Database\Eloquent" name="Collection"/>
+      </return>
+      <deprecated value="since version 5.1. Use pluck instead."/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="modelKeys" start="105" end="110" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the array of primary keys."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="merge" start="118" end="127" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Merge the collection with the given items."/>
+      <param type="object" variable="$items">
+        <type full="\ArrayAccess|array" namespace="" name="ArrayAccess|array"/>
+      </param>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Database\Eloquent\Collection" namespace="Illuminate\Database\Eloquent" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="items" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="diff" start="135" end="148" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Diff the collection with the given items."/>
+      <param type="object" variable="$items">
+        <type full="\ArrayAccess|array" namespace="" name="ArrayAccess|array"/>
+      </param>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Database\Eloquent\Collection" namespace="Illuminate\Database\Eloquent" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="items" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="intersect" start="156" end="169" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Intersect the collection with the given items."/>
+      <param type="object" variable="$items">
+        <type full="\ArrayAccess|array" namespace="" name="ArrayAccess|array"/>
+      </param>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Database\Eloquent\Collection" namespace="Illuminate\Database\Eloquent" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="items" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="unique" start="177" end="184" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return only unique items from the collection."/>
+      <param type="object" variable="$key">
+        <type full="Illuminate\Database\Eloquent\string|callable|null" namespace="Illuminate\Database\Eloquent" name="string|callable|null"/>
+      </param>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Database\Eloquent\Collection" namespace="Illuminate\Database\Eloquent" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="only" start="192" end="197" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns only the models from the collection with the specified keys."/>
+      <param type="mixed" variable="$keys"/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Database\Eloquent\Collection" namespace="Illuminate\Database\Eloquent" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="keys" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="except" start="205" end="210" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns all models in the collection except the models with specified keys."/>
+      <param type="mixed" variable="$keys"/>
+      <return resolution="static" type="object">
+        <type full="Illuminate\Database\Eloquent\Collection" namespace="Illuminate\Database\Eloquent" name="Collection"/>
+      </return>
+    </docblock>
+    <parameter name="keys" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="withHidden" start="218" end="225" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Make the given, typically hidden, attributes visible across the entire collection."/>
+      <param type="object" variable="$attributes">
+        <type full="Illuminate\Database\Eloquent\array|string" namespace="Illuminate\Database\Eloquent" name="array|string"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\$this" namespace="Illuminate\Database\Eloquent" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getDictionary" start="233" end="244" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a dictionary keyed by primary keys."/>
+      <param type="object" variable="$items">
+        <type full="\ArrayAccess|array" namespace="" name="ArrayAccess|array"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="items" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="toBase" start="251" end="254" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a base Support collection instance from this collection."/>
+      <return type="object">
+        <type full="\Illuminate\Support\Collection" namespace="\Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+  </method>
+</class>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\Command\ListCommand\TraitEnumerator" namespace="Psy\Command\ListCommand" name="TraitEnumerator" abstract="false" final="false" start="19" end="85">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Command/ListCommand" file="TraitEnumerator.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Command/ListCommand/TraitEnumerator.php" size="1950" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="6ce2fedf2e712d845c72e9b4b0e4531c0372d659" relative="vendor/psy/psysh/src/Psy/Command/ListCommand/TraitEnumerator.php"/>
+  <docblock>
+    <description compact="Trait Enumerator class."/>
+  </docblock>
+  <extends full="Psy\Command\ListCommand\Enumerator" namespace="Psy\Command\ListCommand" name="Enumerator"/>
+  <method name="listItems" start="24" end="57" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="input" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputInterface" namespace="Symfony\Component\Console\Input" name="InputInterface"/>
+    </parameter>
+    <parameter name="reflector" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Reflector" namespace="" name="Reflector"/>
+    </parameter>
+    <parameter name="target" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="bail early if current PHP doesn't know about traits." line="26"/>
+      <comment value="only list traits when no Reflector is present." line="31"/>
+      <todo value="make a NamespaceReflector and pass that in for commands like:" line="33"/>
+      <comment value="ls --traits Foo" line="35"/>
+      <comment value="... for listing traits in the Foo namespace" line="37"/>
+      <comment value="only list traits if we are specifically asked" line="43"/>
+    </inline>
+  </method>
+  <method name="prepareTraits" start="66" end="84" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Prepare formatted trait array."/>
+      <param type="array" variable="$traits"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="traits" byreference="false" type="array"/>
+    <inline>
+      <comment value="My kingdom for a generator." line="70"/>
+    </inline>
+  </method>
+</class>

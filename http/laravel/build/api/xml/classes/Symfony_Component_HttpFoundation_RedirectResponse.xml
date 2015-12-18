@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpFoundation\RedirectResponse" namespace="Symfony\Component\HttpFoundation" name="RedirectResponse" abstract="false" final="false" start="19" end="102">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation" file="RedirectResponse.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/RedirectResponse.php" size="2607" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="b06e41a72279ac688cf5b764c997182777f0c2b5" relative="vendor/symfony/http-foundation/RedirectResponse.php"/>
+  <docblock>
+    <description compact="RedirectResponse represents an HTTP response doing a redirect."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+  <member name="targetUrl" visibility="protected" line="21"/>
+  <constructor name="__construct" start="34" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Creates a redirect response so that it conforms to the rules defined for a redirect status code."/>
+      <param description="The URL to redirect to" type="string" variable="$url"/>
+      <param description="The status code (302 by default)" type="int" variable="$status"/>
+      <param description="The headers (Location is always set to the given URL)" type="array" variable="$headers"/>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <see value="http://tools.ietf.org/html/rfc2616#section-10.3"/>
+    </docblock>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+    <parameter name="status" byreference="false" type="integer" default="302"/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="create" start="52" end="55" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="url" byreference="false" type="string" default="''"/>
+    <parameter name="status" byreference="false" type="integer" default="302"/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="getTargetUrl" start="62" end="65" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the target URL."/>
+      <return description="target URL" type="string"/>
+    </docblock>
+  </method>
+  <method name="setTargetUrl" start="76" end="101" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the redirect target of this response."/>
+      <param description="The URL to redirect to" type="string" variable="$url"/>
+      <return description="The current response." type="object">
+        <type full="Symfony\Component\HttpFoundation\RedirectResponse" namespace="Symfony\Component\HttpFoundation" name="RedirectResponse"/>
+      </return>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+  </method>
+</class>

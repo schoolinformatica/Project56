@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpSpec\Formatter\JUnitFormatter" namespace="PhpSpec\Formatter" name="JUnitFormatter" abstract="false" final="false" start="28" end="224">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Formatter" file="JUnitFormatter.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Formatter/JUnitFormatter.php" size="6160" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="c224e973ba2eb7c912329bae83973c5f904da86b" relative="vendor/phpspec/phpspec/src/PhpSpec/Formatter/JUnitFormatter.php"/>
+  <docblock>
+    <description compact="The JUnit Formatter"/>
+    <author value="Gildas Quemener &lt;gildas.quemener@gmail.com&gt;"/>
+  </docblock>
+  <extends full="PhpSpec\Formatter\BasicFormatter" namespace="PhpSpec\Formatter" name="BasicFormatter"/>
+  <member name="testCaseNodes" type="array" default="" visibility="protected" line="31">
+    <docblock>
+      <description compact="@var array"/>
+    </docblock>
+  </member>
+  <member name="testSuiteNodes" type="array" default="" visibility="protected" line="34">
+    <docblock>
+      <description compact="@var array"/>
+    </docblock>
+  </member>
+  <member name="exampleStatusCounts" type="array" default="" visibility="protected" line="37">
+    <docblock>
+      <description compact="@var array"/>
+    </docblock>
+  </member>
+  <member name="jUnitStatuses" type="array" default="" visibility="protected" line="40">
+    <docblock>
+      <description compact="@var array"/>
+    </docblock>
+  </member>
+  <member name="resultTags" type="array" default="" visibility="protected" line="49">
+    <docblock>
+      <description compact="@var array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="55" end="60" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="presenter" byreference="false" type="object">
+      <type full="PhpSpec\Formatter\Presenter\PresenterInterface" namespace="PhpSpec\Formatter\Presenter" name="PresenterInterface"/>
+    </parameter>
+    <parameter name="io" byreference="false" type="object">
+      <type full="PhpSpec\IO\IOInterface" namespace="PhpSpec\IO" name="IOInterface"/>
+    </parameter>
+    <parameter name="stats" byreference="false" type="object">
+      <type full="PhpSpec\Listener\StatisticsCollector" namespace="PhpSpec\Listener" name="StatisticsCollector"/>
+    </parameter>
+  </constructor>
+  <method name="setTestCaseNodes" start="67" end="70" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set testcase nodes"/>
+      <param type="array" variable="$testCaseNodes"/>
+    </docblock>
+    <parameter name="testCaseNodes" byreference="false" type="array"/>
+  </method>
+  <method name="getTestCaseNodes" start="77" end="80" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get testcase nodes"/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="setTestSuiteNodes" start="87" end="90" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set testsuite nodes"/>
+      <param type="array" variable="$testSuiteNodes"/>
+    </docblock>
+    <parameter name="testSuiteNodes" byreference="false" type="array"/>
+  </method>
+  <method name="getTestSuiteNodes" start="97" end="100" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get testsuite nodes"/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="setExampleStatusCounts" start="107" end="110" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set example status counts"/>
+      <param type="array" variable="$exampleStatusCounts"/>
+    </docblock>
+    <parameter name="exampleStatusCounts" byreference="false" type="array"/>
+  </method>
+  <method name="getExampleStatusCounts" start="117" end="120" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get example status counts"/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="afterExample" start="125" end="165" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="event" byreference="false" type="object">
+      <type full="PhpSpec\Event\ExampleEvent" namespace="PhpSpec\Event" name="ExampleEvent"/>
+    </parameter>
+  </method>
+  <method name="afterSpecification" start="170" end="186" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="event" byreference="false" type="object">
+      <type full="PhpSpec\Event\SpecificationEvent" namespace="PhpSpec\Event" name="SpecificationEvent"/>
+    </parameter>
+  </method>
+  <method name="afterSuite" start="191" end="208" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="event" byreference="false" type="object">
+      <type full="PhpSpec\Event\SuiteEvent" namespace="PhpSpec\Event" name="SuiteEvent"/>
+    </parameter>
+  </method>
+  <method name="initTestCaseNodes" start="213" end="223" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Initialize test case nodes and example status counts"/>
+    </docblock>
+  </method>
+</class>

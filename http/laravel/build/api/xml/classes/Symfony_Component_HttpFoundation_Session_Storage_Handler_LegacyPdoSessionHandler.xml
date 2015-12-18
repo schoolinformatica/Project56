@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpFoundation\Session\Storage\Handler\LegacyPdoSessionHandler" namespace="Symfony\Component\HttpFoundation\Session\Storage\Handler" name="LegacyPdoSessionHandler" abstract="false" final="false" start="32" end="271">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/Session/Storage/Handler" file="LegacyPdoSessionHandler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/Session/Storage/Handler/LegacyPdoSessionHandler.php" size="10253" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="b49abb715e651f4d371dda32a408eae8b3b00e41" relative="vendor/symfony/http-foundation/Session/Storage/Handler/LegacyPdoSessionHandler.php"/>
+  <docblock>
+    <description compact="Session handler using a PDO connection to read and write data.">Session data is a binary string that can contain non-printable characters like the null byte.
+For this reason this handler base64 encodes the data to be able to save it in a character column.
+
+This version of the PdoSessionHandler does NOT implement locking. So concurrent requests to the
+same session can result in data loss due to race conditions.</description>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+    <author value="Michael Williams &lt;michael.williams@funsational.com&gt;"/>
+    <author value="Tobias Schultze &lt;http://tobion.de&gt;"/>
+    <deprecated value="since version 2.6, to be removed in 3.0. Use">{@link PdoSessionHandler} instead.</deprecated>
+  </docblock>
+  <implements full="SessionHandlerInterface" namespace="" name="SessionHandlerInterface"/>
+  <member name="pdo" visibility="private" line="37">
+    <docblock>
+      <description/>
+      <var description="PDO instance" type="object">
+        <type full="\PDO" namespace="" name="PDO"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="table" visibility="private" line="42">
+    <docblock>
+      <description/>
+      <var description="Table name" type="string"/>
+    </docblock>
+  </member>
+  <member name="idCol" visibility="private" line="47">
+    <docblock>
+      <description/>
+      <var description="Column for session id" type="string"/>
+    </docblock>
+  </member>
+  <member name="dataCol" visibility="private" line="52">
+    <docblock>
+      <description/>
+      <var description="Column for session data" type="string"/>
+    </docblock>
+  </member>
+  <member name="timeCol" visibility="private" line="57">
+    <docblock>
+      <description/>
+      <var description="Column for timestamp" type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="73" end="93" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor.">List of available options:
+ * db_table: The name of the table [required]
+ * db_id_col: The column where to store the session id [default: sess_id]
+ * db_data_col: The column where to store the session data [default: sess_data]
+ * db_time_col: The column where to store the timestamp [default: sess_time]</description>
+      <param description="A \PDO instance" type="object" variable="$pdo">
+        <type full="\PDO" namespace="" name="PDO"/>
+      </param>
+      <param description="An associative array of DB options" type="array" variable="$dbOptions"/>
+      <throws description="When &quot;db_table&quot; option is not provided" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="pdo" byreference="false" type="object">
+      <type full="PDO" namespace="" name="PDO"/>
+    </parameter>
+    <parameter name="dbOptions" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="open" start="98" end="101" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="savePath" byreference="false" type="{unknown}"/>
+    <parameter name="sessionName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="close" start="106" end="109" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="destroy" start="114" end="128" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="sessionId" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="delete the record associated with this id" line="116"/>
+    </inline>
+  </method>
+  <method name="gc" start="133" end="147" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="maxlifetime" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="delete the session records that have expired" line="135"/>
+    </inline>
+  </method>
+  <method name="read" start="152" end="172" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="sessionId" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="write" start="177" end="231" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="sessionId" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getMergeSql" start="238" end="260" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Returns a merge/upsert (i.e. insert or update) SQL query when supported by the database."/>
+      <return description="The SQL string or null when not supported" type="object">
+        <type full="Symfony\Component\HttpFoundation\Session\Storage\Handler\string|null" namespace="Symfony\Component\HttpFoundation\Session\Storage\Handler" name="string|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getConnection" start="267" end="270" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Return a PDO instance."/>
+      <return type="object">
+        <type full="\PDO" namespace="" name="PDO"/>
+      </return>
+    </docblock>
+  </method>
+</class>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Translation\DataCollectorTranslator" namespace="Symfony\Component\Translation" name="DataCollectorTranslator" abstract="false" final="false" start="17" end="148">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation" file="DataCollectorTranslator.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation/DataCollectorTranslator.php" size="3887" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="bdf6a6d48db2d6f07c43ead2c241f9f695994c3a" relative="vendor/symfony/translation/DataCollectorTranslator.php"/>
+  <docblock>
+    <description/>
+    <author value="Abdellatif Ait boudad &lt;a.aitboudad@gmail.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\Translation\TranslatorInterface" namespace="Symfony\Component\Translation" name="TranslatorInterface"/>
+  <implements full="Symfony\Component\Translation\TranslatorBagInterface" namespace="Symfony\Component\Translation" name="TranslatorBagInterface"/>
+  <constant type="integer" name="MESSAGE_DEFINED" value="0"/>
+  <constant type="integer" name="MESSAGE_MISSING" value="1"/>
+  <constant type="integer" name="MESSAGE_EQUALS_FALLBACK" value="2"/>
+  <member name="translator" visibility="private" line="26">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\Translation\TranslatorInterface|TranslatorBagInterface" namespace="Symfony\Component\Translation" name="TranslatorInterface|TranslatorBagInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="messages" type="array" default="" visibility="private" line="31">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="36" end="43" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param description="The translator must implement TranslatorBagInterface" type="object" variable="$translator">
+        <type full="Symfony\Component\Translation\TranslatorInterface" namespace="Symfony\Component\Translation" name="TranslatorInterface"/>
+      </param>
+    </docblock>
+    <parameter name="translator" byreference="false" type="object">
+      <type full="Symfony\Component\Translation\TranslatorInterface" namespace="Symfony\Component\Translation" name="TranslatorInterface"/>
+    </parameter>
+  </constructor>
+  <method name="trans" start="48" end="54" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="array" default=""/>
+    <parameter name="domain" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="locale" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="transChoice" start="59" end="65" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="number" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="array" default=""/>
+    <parameter name="domain" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="locale" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="setLocale" start="70" end="73" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getLocale" start="78" end="81" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="getCatalogue" start="86" end="89" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="__call" start="94" end="97" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Passes through all unknown calls onto the translator object."/>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="args" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getCollectedMessages" start="102" end="105" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="collectMessage" start="113" end="147" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$locale">
+        <type full="Symfony\Component\Translation\string|null" namespace="Symfony\Component\Translation" name="string|null"/>
+      </param>
+      <param type="object" variable="$domain">
+        <type full="Symfony\Component\Translation\string|null" namespace="Symfony\Component\Translation" name="string|null"/>
+      </param>
+      <param type="string" variable="$id"/>
+      <param type="string" variable="$trans"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="domain" byreference="false" type="{unknown}"/>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="translation" byreference="false" type="{unknown}"/>
+  </method>
+</class>

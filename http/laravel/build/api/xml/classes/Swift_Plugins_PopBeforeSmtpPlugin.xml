@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_Plugins_PopBeforeSmtpPlugin" namespace="" name="Swift_Plugins_PopBeforeSmtpPlugin" abstract="false" final="false" start="16" end="273">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Plugins" file="PopBeforeSmtpPlugin.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Plugins/PopBeforeSmtpPlugin.php" size="6969" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="61bd6b07cca9de7ed84694c5df13b2cdfbe237ba" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Plugins/PopBeforeSmtpPlugin.php"/>
+  <docblock>
+    <description compact="Makes sure a connection to a POP3 host has been established prior to connecting to SMTP."/>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <implements full="Swift_Events_TransportChangeListener" namespace="" name="Swift_Events_TransportChangeListener"/>
+  <implements full="Swift_Plugins_Pop_Pop3Connection" namespace="" name="Swift_Plugins_Pop_Pop3Connection"/>
+  <member name="_connection" visibility="private" line="19">
+    <docblock>
+      <description compact="A delegate connection to use (mostly a test hook)"/>
+    </docblock>
+  </member>
+  <member name="_host" visibility="private" line="22">
+    <docblock>
+      <description compact="Hostname of the POP3 server"/>
+    </docblock>
+  </member>
+  <member name="_port" visibility="private" line="25">
+    <docblock>
+      <description compact="Port number to connect on"/>
+    </docblock>
+  </member>
+  <member name="_crypto" visibility="private" line="28">
+    <docblock>
+      <description compact="Encryption type to use (if any)"/>
+    </docblock>
+  </member>
+  <member name="_username" visibility="private" line="31">
+    <docblock>
+      <description compact="Username to use (if any)"/>
+    </docblock>
+  </member>
+  <member name="_password" visibility="private" line="34">
+    <docblock>
+      <description compact="Password to use (if any)"/>
+    </docblock>
+  </member>
+  <member name="_socket" visibility="private" line="37">
+    <docblock>
+      <description compact="Established connection via TCP socket"/>
+    </docblock>
+  </member>
+  <member name="_timeout" type="integer" default="10" visibility="private" line="40">
+    <docblock>
+      <description compact="Connect timeout in seconds"/>
+    </docblock>
+  </member>
+  <member name="_transport" visibility="private" line="43">
+    <docblock>
+      <description compact="SMTP Transport to bind to"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="52" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new PopBeforeSmtpPlugin for $host and $port."/>
+      <param type="string" variable="$host"/>
+      <param type="int" variable="$port"/>
+      <param description="as &quot;tls&quot; or &quot;ssl&quot;" type="string" variable="$crypto"/>
+    </docblock>
+    <parameter name="host" byreference="false" type="{unknown}"/>
+    <parameter name="port" byreference="false" type="integer" default="110"/>
+    <parameter name="crypto" byreference="false" type="{unknown}" default="" constant="null"/>
+  </constructor>
+  <method name="newInstance" start="68" end="71" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Create a new PopBeforeSmtpPlugin for $host and $port."/>
+      <param type="string" variable="$host"/>
+      <param type="int" variable="$port"/>
+      <param description="as &quot;tls&quot; or &quot;ssl&quot;" type="string" variable="$crypto"/>
+      <return type="object">
+        <type full="Swift_Plugins_PopBeforeSmtpPlugin" namespace="" name="Swift_Plugins_PopBeforeSmtpPlugin"/>
+      </return>
+    </docblock>
+    <parameter name="host" byreference="false" type="{unknown}"/>
+    <parameter name="port" byreference="false" type="integer" default="110"/>
+    <parameter name="crypto" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="setConnection" start="80" end="85" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set a Pop3Connection to delegate to instead of connecting directly."/>
+      <param type="object" variable="$connection">
+        <type full="Swift_Plugins_Pop_Pop3Connection" namespace="" name="Swift_Plugins_Pop_Pop3Connection"/>
+      </param>
+      <return type="object">
+        <type full="Swift_Plugins_PopBeforeSmtpPlugin" namespace="" name="Swift_Plugins_PopBeforeSmtpPlugin"/>
+      </return>
+    </docblock>
+    <parameter name="connection" byreference="false" type="object">
+      <type full="Swift_Plugins_Pop_Pop3Connection" namespace="" name="Swift_Plugins_Pop_Pop3Connection"/>
+    </parameter>
+  </method>
+  <method name="bindSmtp" start="92" end="95" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Bind this plugin to a specific SMTP transport instance."/>
+      <param type="object">
+        <type full="Swift_Transport" namespace="" name="Swift_Transport"/>
+      </param>
+    </docblock>
+    <parameter name="smtp" byreference="false" type="object">
+      <type full="Swift_Transport" namespace="" name="Swift_Transport"/>
+    </parameter>
+  </method>
+  <method name="setTimeout" start="104" end="109" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the connection timeout in seconds (default 10)."/>
+      <param type="int" variable="$timeout"/>
+      <return type="object">
+        <type full="Swift_Plugins_PopBeforeSmtpPlugin" namespace="" name="Swift_Plugins_PopBeforeSmtpPlugin"/>
+      </return>
+    </docblock>
+    <parameter name="timeout" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setUsername" start="118" end="123" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the username to use when connecting (if needed)."/>
+      <param type="string" variable="$username"/>
+      <return type="object">
+        <type full="Swift_Plugins_PopBeforeSmtpPlugin" namespace="" name="Swift_Plugins_PopBeforeSmtpPlugin"/>
+      </return>
+    </docblock>
+    <parameter name="username" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setPassword" start="132" end="137" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the password to use when connecting (if needed)."/>
+      <param type="string" variable="$password"/>
+      <return type="object">
+        <type full="Swift_Plugins_PopBeforeSmtpPlugin" namespace="" name="Swift_Plugins_PopBeforeSmtpPlugin"/>
+      </return>
+    </docblock>
+    <parameter name="password" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="connect" start="144" end="172" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Connect to the POP3 host and authenticate."/>
+      <throws description="if connection fails" type="object">
+        <type full="Swift_Plugins_Pop_Pop3Exception" namespace="" name="Swift_Plugins_Pop_Pop3Exception"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="disconnect" start="177" end="190" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Disconnect from the POP3 host."/>
+    </docblock>
+  </method>
+  <method name="beforeTransportStarted" start="197" end="207" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Invoked just before a Transport is started."/>
+      <param type="object" variable="$evt">
+        <type full="Swift_Events_TransportChangeEvent" namespace="" name="Swift_Events_TransportChangeEvent"/>
+      </param>
+    </docblock>
+    <parameter name="evt" byreference="false" type="object">
+      <type full="Swift_Events_TransportChangeEvent" namespace="" name="Swift_Events_TransportChangeEvent"/>
+    </parameter>
+  </method>
+  <method name="transportStarted" start="212" end="214" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Not used."/>
+    </docblock>
+    <parameter name="evt" byreference="false" type="object">
+      <type full="Swift_Events_TransportChangeEvent" namespace="" name="Swift_Events_TransportChangeEvent"/>
+    </parameter>
+  </method>
+  <method name="beforeTransportStopped" start="219" end="221" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Not used."/>
+    </docblock>
+    <parameter name="evt" byreference="false" type="object">
+      <type full="Swift_Events_TransportChangeEvent" namespace="" name="Swift_Events_TransportChangeEvent"/>
+    </parameter>
+  </method>
+  <method name="transportStopped" start="226" end="228" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Not used."/>
+    </docblock>
+    <parameter name="evt" byreference="false" type="object">
+      <type full="Swift_Events_TransportChangeEvent" namespace="" name="Swift_Events_TransportChangeEvent"/>
+    </parameter>
+  </method>
+  <method name="_command" start="230" end="247" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="command" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_assertOk" start="249" end="256" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="response" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_getHostString" start="258" end="272" abstract="false" final="false" static="false" visibility="private"/>
+</class>

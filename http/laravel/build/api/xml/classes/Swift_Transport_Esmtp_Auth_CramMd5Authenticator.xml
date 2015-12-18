@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_Transport_Esmtp_Auth_CramMd5Authenticator" namespace="" name="Swift_Transport_Esmtp_Auth_CramMd5Authenticator" abstract="false" final="false" start="16" end="81">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/Esmtp/Auth" file="CramMd5Authenticator.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/Esmtp/Auth/CramMd5Authenticator.php" size="2178" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="6e91c60d96435fbe9c19ac9e8aa4113677360811" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/Esmtp/Auth/CramMd5Authenticator.php"/>
+  <docblock>
+    <description compact="Handles CRAM-MD5 authentication."/>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <implements full="Swift_Transport_Esmtp_Authenticator" namespace="" name="Swift_Transport_Esmtp_Authenticator"/>
+  <method name="getAuthKeyword" start="23" end="26" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the name of the AUTH mechanism this Authenticator handles."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="authenticate" start="37" end="53" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Try to authenticate the user with $username and $password."/>
+      <param type="object" variable="$agent">
+        <type full="Swift_Transport_SmtpAgent" namespace="" name="Swift_Transport_SmtpAgent"/>
+      </param>
+      <param type="string" variable="$username"/>
+      <param type="string" variable="$password"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="agent" byreference="false" type="object">
+      <type full="Swift_Transport_SmtpAgent" namespace="" name="Swift_Transport_SmtpAgent"/>
+    </parameter>
+    <parameter name="username" byreference="false" type="{unknown}"/>
+    <parameter name="password" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_getResponse" start="63" end="80" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Generate a CRAM-MD5 response from a server challenge."/>
+      <param type="string" variable="$secret"/>
+      <param type="string" variable="$challenge"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="secret" byreference="false" type="{unknown}"/>
+    <parameter name="challenge" byreference="false" type="{unknown}"/>
+  </method>
+</class>

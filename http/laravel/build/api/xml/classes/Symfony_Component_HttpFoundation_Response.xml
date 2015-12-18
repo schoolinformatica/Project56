@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response" abstract="false" final="false" start="19" end="1171">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation" file="Response.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/Response.php" size="35021" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="4d4e3386dc348188a69ec32859ef25e0e09c33df" relative="vendor/symfony/http-foundation/Response.php"/>
+  <docblock>
+    <description compact="Response represents an HTTP response."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <constant type="integer" name="HTTP_CONTINUE" value="100"/>
+  <constant type="integer" name="HTTP_SWITCHING_PROTOCOLS" value="101"/>
+  <constant type="integer" name="HTTP_PROCESSING" value="102"/>
+  <constant type="integer" name="HTTP_OK" value="200"/>
+  <constant type="integer" name="HTTP_CREATED" value="201"/>
+  <constant type="integer" name="HTTP_ACCEPTED" value="202"/>
+  <constant type="integer" name="HTTP_NON_AUTHORITATIVE_INFORMATION" value="203"/>
+  <constant type="integer" name="HTTP_NO_CONTENT" value="204"/>
+  <constant type="integer" name="HTTP_RESET_CONTENT" value="205"/>
+  <constant type="integer" name="HTTP_PARTIAL_CONTENT" value="206"/>
+  <constant type="integer" name="HTTP_MULTI_STATUS" value="207"/>
+  <constant type="integer" name="HTTP_ALREADY_REPORTED" value="208"/>
+  <constant type="integer" name="HTTP_IM_USED" value="226"/>
+  <constant type="integer" name="HTTP_MULTIPLE_CHOICES" value="300"/>
+  <constant type="integer" name="HTTP_MOVED_PERMANENTLY" value="301"/>
+  <constant type="integer" name="HTTP_FOUND" value="302"/>
+  <constant type="integer" name="HTTP_SEE_OTHER" value="303"/>
+  <constant type="integer" name="HTTP_NOT_MODIFIED" value="304"/>
+  <constant type="integer" name="HTTP_USE_PROXY" value="305"/>
+  <constant type="integer" name="HTTP_RESERVED" value="306"/>
+  <constant type="integer" name="HTTP_TEMPORARY_REDIRECT" value="307"/>
+  <constant type="integer" name="HTTP_PERMANENTLY_REDIRECT" value="308"/>
+  <constant type="integer" name="HTTP_BAD_REQUEST" value="400"/>
+  <constant type="integer" name="HTTP_UNAUTHORIZED" value="401"/>
+  <constant type="integer" name="HTTP_PAYMENT_REQUIRED" value="402"/>
+  <constant type="integer" name="HTTP_FORBIDDEN" value="403"/>
+  <constant type="integer" name="HTTP_NOT_FOUND" value="404"/>
+  <constant type="integer" name="HTTP_METHOD_NOT_ALLOWED" value="405"/>
+  <constant type="integer" name="HTTP_NOT_ACCEPTABLE" value="406"/>
+  <constant type="integer" name="HTTP_PROXY_AUTHENTICATION_REQUIRED" value="407"/>
+  <constant type="integer" name="HTTP_REQUEST_TIMEOUT" value="408"/>
+  <constant type="integer" name="HTTP_CONFLICT" value="409"/>
+  <constant type="integer" name="HTTP_GONE" value="410"/>
+  <constant type="integer" name="HTTP_LENGTH_REQUIRED" value="411"/>
+  <constant type="integer" name="HTTP_PRECONDITION_FAILED" value="412"/>
+  <constant type="integer" name="HTTP_REQUEST_ENTITY_TOO_LARGE" value="413"/>
+  <constant type="integer" name="HTTP_REQUEST_URI_TOO_LONG" value="414"/>
+  <constant type="integer" name="HTTP_UNSUPPORTED_MEDIA_TYPE" value="415"/>
+  <constant type="integer" name="HTTP_REQUESTED_RANGE_NOT_SATISFIABLE" value="416"/>
+  <constant type="integer" name="HTTP_EXPECTATION_FAILED" value="417"/>
+  <constant type="integer" name="HTTP_I_AM_A_TEAPOT" value="418"/>
+  <constant type="integer" name="HTTP_UNPROCESSABLE_ENTITY" value="422"/>
+  <constant type="integer" name="HTTP_LOCKED" value="423"/>
+  <constant type="integer" name="HTTP_FAILED_DEPENDENCY" value="424"/>
+  <constant type="integer" name="HTTP_RESERVED_FOR_WEBDAV_ADVANCED_COLLECTIONS_EXPIRED_PROPOSAL" value="425"/>
+  <constant type="integer" name="HTTP_UPGRADE_REQUIRED" value="426"/>
+  <constant type="integer" name="HTTP_PRECONDITION_REQUIRED" value="428"/>
+  <constant type="integer" name="HTTP_TOO_MANY_REQUESTS" value="429"/>
+  <constant type="integer" name="HTTP_REQUEST_HEADER_FIELDS_TOO_LARGE" value="431"/>
+  <constant type="integer" name="HTTP_INTERNAL_SERVER_ERROR" value="500"/>
+  <constant type="integer" name="HTTP_NOT_IMPLEMENTED" value="501"/>
+  <constant type="integer" name="HTTP_BAD_GATEWAY" value="502"/>
+  <constant type="integer" name="HTTP_SERVICE_UNAVAILABLE" value="503"/>
+  <constant type="integer" name="HTTP_GATEWAY_TIMEOUT" value="504"/>
+  <constant type="integer" name="HTTP_VERSION_NOT_SUPPORTED" value="505"/>
+  <constant type="integer" name="HTTP_VARIANT_ALSO_NEGOTIATES_EXPERIMENTAL" value="506"/>
+  <constant type="integer" name="HTTP_INSUFFICIENT_STORAGE" value="507"/>
+  <constant type="integer" name="HTTP_LOOP_DETECTED" value="508"/>
+  <constant type="integer" name="HTTP_NOT_EXTENDED" value="510"/>
+  <constant type="integer" name="HTTP_NETWORK_AUTHENTICATION_REQUIRED" value="511"/>
+  <member name="headers" visibility="public" line="85">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="\Symfony\Component\HttpFoundation\ResponseHeaderBag" namespace="\Symfony\Component\HttpFoundation" name="ResponseHeaderBag"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="content" visibility="protected" line="90">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="version" visibility="protected" line="95">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="statusCode" visibility="protected" line="100">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="statusText" visibility="protected" line="105">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="charset" visibility="protected" line="110">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="statusTexts" type="array" default="" visibility="public" line="123">
+    <docblock>
+      <description compact="Status codes translation table.">The list of codes is complete according to the
+{@link http://www.iana.org/assignments/http-status-codes/ Hypertext Transfer Protocol (HTTP) Status Code Registry}
+(last updated 2012-02-13).
+
+Unless otherwise noted, the status code is defined in RFC2616.</description>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="195" end="204" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="The response content, see setContent()" type="mixed" variable="$content"/>
+      <param description="The response status code" type="int" variable="$status"/>
+      <param description="An array of response headers" type="array" variable="$headers"/>
+      <throws description="When the HTTP status code is not valid" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="content" byreference="false" type="string" default="''"/>
+    <parameter name="status" byreference="false" type="integer" default="200"/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="create" start="220" end="223" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Factory method for chainability.">Example:
+
+    return Response::create($body, 200)
+        -&gt;setSharedMaxAge(300);</description>
+      <param description="The response content, see setContent()" type="mixed" variable="$content"/>
+      <param description="The response status code" type="int" variable="$status"/>
+      <param description="An array of response headers" type="array" variable="$headers"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="content" byreference="false" type="string" default="''"/>
+    <parameter name="status" byreference="false" type="integer" default="200"/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="__toString" start="236" end="242" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the Response as an HTTP string.">The string representation of the Response is the same as the
+one that will be sent to the client only if the prepare() method
+has been called before.</description>
+      <return description="The Response as an HTTP string" type="string"/>
+      <see value="prepare()"/>
+    </docblock>
+  </method>
+  <method name="__clone" start="247" end="250" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Clones the current Response instance."/>
+    </docblock>
+  </method>
+  <method name="prepare" start="263" end="318" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Prepares the Response before it is sent to the client.">This method tweaks the Response to ensure that it is
+compliant with RFC 2616. Most of the changes are based on
+the Request that is "associated" with this Response.</description>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <return description="The current response." type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <inline>
+      <comment value="Fix protocol" line="304"/>
+      <comment value="Check if we need to send extra expire info headers" line="309"/>
+    </inline>
+  </method>
+  <method name="sendHeaders" start="325" end="348" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sends HTTP headers."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+    <inline>
+      <comment value="headers have already been sent by the developer" line="327"/>
+      <comment value="status" line="332"/>
+      <comment value="headers" line="335"/>
+      <comment value="cookies" line="342"/>
+    </inline>
+  </method>
+  <method name="sendContent" start="355" end="360" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sends content for the current web response."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="send" start="367" end="379" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sends HTTP headers and content."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setContent" start="392" end="401" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the response content.">Valid types are strings, numbers, null, and objects that implement a __toString() method.</description>
+      <param description="Content that can be cast to string" type="mixed" variable="$content"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+      <throws type="object">
+        <type full="\UnexpectedValueException" namespace="" name="UnexpectedValueException"/>
+      </throws>
+    </docblock>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getContent" start="408" end="411" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the current response content."/>
+      <return description="Content" type="string"/>
+    </docblock>
+  </method>
+  <method name="setProtocolVersion" start="420" end="425" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the HTTP protocol version (1.0 or 1.1)."/>
+      <param description="The HTTP protocol version" type="string" variable="$version"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="version" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getProtocolVersion" start="432" end="435" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the HTTP protocol version."/>
+      <return description="The HTTP protocol version" type="string"/>
+    </docblock>
+  </method>
+  <method name="setStatusCode" start="450" end="472" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the response status code."/>
+      <param description="HTTP status code" type="int" variable="$code"/>
+      <param description="HTTP status text" type="mixed" variable="$text">If the status text is null it will be automatically populated for the known
+status codes and left empty otherwise.</param>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+      <throws description="When the HTTP status code is not valid" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="code" byreference="false" type="{unknown}"/>
+    <parameter name="text" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getStatusCode" start="479" end="482" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieves the status code for the current web response."/>
+      <return description="Status code" type="int"/>
+    </docblock>
+  </method>
+  <method name="setCharset" start="491" end="496" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the response charset."/>
+      <param description="Character set" type="string" variable="$charset"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="charset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getCharset" start="503" end="506" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieves the response charset."/>
+      <return description="Character set" type="string"/>
+    </docblock>
+  </method>
+  <method name="isCacheable" start="519" end="530" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if the response is worth caching under any circumstance.">Responses marked "private" with an explicit Cache-Control directive are
+considered uncacheable.
+
+Responses with neither a freshness lifetime (Expires, max-age) nor cache
+validator (Last-Modified, ETag) are considered uncacheable.</description>
+      <return description="true if the response is worth caching, false otherwise" type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isFresh" start="541" end="544" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if the response is &quot;fresh&quot;.">Fresh responses may be served from cache without any interaction with the
+origin. A response is considered fresh when it includes a Cache-Control/max-age
+indicator or Expires header and the calculated age is less than the freshness lifetime.</description>
+      <return description="true if the response is fresh, false otherwise" type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isValidateable" start="552" end="555" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if the response includes headers that can be used to validate the response with the origin server using a conditional GET request."/>
+      <return description="true if the response is validateable, false otherwise" type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setPrivate" start="564" end="570" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Marks the response as &quot;private&quot;.">It makes the response ineligible for serving other clients.</description>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setPublic" start="579" end="585" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Marks the response as &quot;public&quot;.">It makes the response eligible for serving other clients.</description>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="mustRevalidate" start="597" end="600" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if the response must be revalidated by caches.">This method indicates that the response must not be served stale by a
+cache in any circumstance without first revalidating with the origin.
+When present, the TTL of the response should not be overridden to be
+greater than the value provided by the origin.</description>
+      <return description="true if the response must be revalidated by a cache, false otherwise" type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getDate" start="609" end="612" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the Date header as a DateTime instance."/>
+      <return description="A \DateTime instance" type="object">
+        <type full="\DateTime" namespace="" name="DateTime"/>
+      </return>
+      <throws description="When the header is not parseable" type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="setDate" start="621" end="627" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the Date header."/>
+      <param description="A \DateTime instance" type="object" variable="$date">
+        <type full="\DateTime" namespace="" name="DateTime"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="date" byreference="false" type="object">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+  </method>
+  <method name="getAge" start="634" end="641" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the age of the response."/>
+      <return description="The age of the response in seconds" type="int"/>
+    </docblock>
+  </method>
+  <method name="expire" start="648" end="655" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Marks the response stale by setting the Age header to be equal to the maximum age of the response."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getExpires" start="662" end="670" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the value of the Expires header as a DateTime instance."/>
+      <return description="A DateTime instance or null if the header does not exist" type="object">
+        <type full="\DateTime|null" namespace="" name="DateTime|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setExpires" start="681" end="692" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the Expires HTTP header with a DateTime instance.">Passing null as value will remove the header.</description>
+      <param description="A \DateTime instance or null to remove the header" type="object" variable="$date">
+        <type full="\DateTime|null" namespace="" name="DateTime|null"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="date" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+  </method>
+  <method name="getMaxAge" start="703" end="716" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the number of seconds after the time specified in the response's Date header when the response should no longer be considered fresh.">First, it checks for a s-maxage directive, then a max-age directive, and then it falls
+back on an expires header. It returns null when no maximum age can be established.</description>
+      <return description="Number of seconds" type="object">
+        <type full="Symfony\Component\HttpFoundation\int|null" namespace="Symfony\Component\HttpFoundation" name="int|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setMaxAge" start="727" end="732" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the number of seconds after which the response should no longer be considered fresh.">This methods sets the Cache-Control max-age directive.</description>
+      <param description="Number of seconds" type="int" variable="$value"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setSharedMaxAge" start="743" end="749" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the number of seconds after which the response should no longer be considered fresh by shared caches.">This methods sets the Cache-Control s-maxage directive.</description>
+      <param description="Number of seconds" type="int" variable="$value"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getTtl" start="761" end="766" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the response's time-to-live in seconds.">It returns null when no freshness information is present in the response.
+
+When the responses TTL is &lt;= 0, the response may not be served from cache without first
+revalidating with the origin.</description>
+      <return description="The TTL in seconds" type="object">
+        <type full="Symfony\Component\HttpFoundation\int|null" namespace="Symfony\Component\HttpFoundation" name="int|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setTtl" start="777" end="782" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the response's time-to-live for shared caches.">This method adjusts the Cache-Control/s-maxage directive.</description>
+      <param description="Number of seconds" type="int" variable="$seconds"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="seconds" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setClientTtl" start="793" end="798" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the response's time-to-live for private/client caches.">This method adjusts the Cache-Control/max-age directive.</description>
+      <param description="Number of seconds" type="int" variable="$seconds"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="seconds" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getLastModified" start="807" end="810" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the Last-Modified HTTP header as a DateTime instance."/>
+      <return description="A DateTime instance or null if the header does not exist" type="object">
+        <type full="\DateTime|null" namespace="" name="DateTime|null"/>
+      </return>
+      <throws description="When the HTTP header is not parseable" type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="setLastModified" start="821" end="832" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the Last-Modified HTTP header with a DateTime instance.">Passing null as value will remove the header.</description>
+      <param description="A \DateTime instance or null to remove the header" type="object" variable="$date">
+        <type full="\DateTime|null" namespace="" name="DateTime|null"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="date" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+  </method>
+  <method name="getEtag" start="839" end="842" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the literal value of the ETag HTTP header."/>
+      <return description="The ETag HTTP header or null if it does not exist" type="object">
+        <type full="Symfony\Component\HttpFoundation\string|null" namespace="Symfony\Component\HttpFoundation" name="string|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setEtag" start="852" end="865" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the ETag value."/>
+      <param description="The ETag unique identifier or null to remove the header" type="object" variable="$etag">
+        <type full="Symfony\Component\HttpFoundation\string|null" namespace="Symfony\Component\HttpFoundation" name="string|null"/>
+      </param>
+      <param description="Whether you want a weak ETag or not" type="object" variable="$weak">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="etag" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="weak" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="setCache" start="878" end="917" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the response's cache headers (validation and/or expiration).">Available options are: etag, last_modified, max_age, s_maxage, private, and public.</description>
+      <param description="An array of cache options" type="array" variable="$options"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="options" byreference="false" type="array"/>
+  </method>
+  <method name="setNotModified" start="929" end="940" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Modifies the response so that it conforms to the rules defined for a 304 status code.">This sets the status, removes the body, and discards any headers
+that MUST NOT be included in 304 responses.</description>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+      <see value="http://tools.ietf.org/html/rfc2616#section-10.3.5"/>
+    </docblock>
+    <inline>
+      <comment value="remove headers that MUST NOT be included with 304 Not Modified responses" line="934"/>
+    </inline>
+  </method>
+  <method name="hasVary" start="947" end="950" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if the response includes a Vary header."/>
+      <return description="true if the response includes a Vary header, false otherwise" type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getVary" start="957" end="969" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an array of header names given in the Vary header."/>
+      <return description="An array of Vary names" type="array"/>
+    </docblock>
+  </method>
+  <method name="setVary" start="979" end="984" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the Vary header."/>
+      <param type="object" variable="$headers">
+        <type full="Symfony\Component\HttpFoundation\string|array" namespace="Symfony\Component\HttpFoundation" name="string|array"/>
+      </param>
+      <param description="Whether to replace the actual value of not (true by default)" type="object" variable="$replace">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="headers" byreference="false" type="{unknown}"/>
+    <parameter name="replace" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="isNotModified" start="997" end="1020" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determines if the Response validators (ETag, Last-Modified) match a conditional value specified in the Request.">If the Response is not modified, it sets the status code to 304 and
+removes the actual content by calling the setNotModified() method.</description>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <return description="true if the Response validators match the Request, false otherwise" type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+  </method>
+  <method name="isInvalid" start="1028" end="1031" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Is response invalid?"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isInformational" start="1038" end="1041" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Is response informative?"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isSuccessful" start="1048" end="1051" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Is response successful?"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isRedirection" start="1058" end="1061" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Is the response a redirect?"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isClientError" start="1068" end="1071" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Is there a client error?"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isServerError" start="1078" end="1081" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Was there a server side error?"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isOk" start="1088" end="1091" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Is the response OK?"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isForbidden" start="1098" end="1101" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Is the response forbidden?"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isNotFound" start="1108" end="1111" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Is the response a not found error?"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isRedirect" start="1120" end="1123" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Is the response a redirect of some form?"/>
+      <param type="string" variable="$location"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="location" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="isEmpty" start="1130" end="1133" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Is the response empty?"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="closeOutputBuffers" start="1143" end="1156" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Cleans or flushes output buffers up to target level.">Resulting level can be greater than target level if a non-removable buffer has been encountered.</description>
+      <param description="The target output buffering level" type="int" variable="$targetLevel"/>
+      <param description="Whether to flush or clean the buffers" type="object" variable="$flush">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="targetLevel" byreference="false" type="{unknown}"/>
+    <parameter name="flush" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="ensureIEOverSSLCompatibility" start="1163" end="1170" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Checks if we need to remove Cache-Control for SSL encrypted downloads when using IE &lt; 9."/>
+      <link value="http://support.microsoft.com/kb/323308"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+  </method>
+</class>

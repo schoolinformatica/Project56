@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\VarDumper\Cloner\Data" namespace="Symfony\Component\VarDumper\Cloner" name="Data" abstract="false" final="false" start="17" end="241">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/var-dumper/Cloner" file="Data.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/var-dumper/Cloner/Data.php" size="8411" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="5b79bfad2f7054665244615f6fdca556ea9bfbee" relative="vendor/symfony/var-dumper/Cloner/Data.php"/>
+  <docblock>
+    <description/>
+    <author value="Nicolas Grekas &lt;p@tchwork.com&gt;"/>
+  </docblock>
+  <member name="data" visibility="private" line="19"/>
+  <member name="maxDepth" type="integer" default="20" visibility="private" line="20"/>
+  <member name="maxItemsPerDepth" type="integer" default="1" visibility="private" line="21"/>
+  <member name="useRefHandles" type="integer" default="1" visibility="private" line="22"/>
+  <constructor name="__construct" start="27" end="30" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param description="A array as returned by ClonerInterface::cloneVar()." type="array" variable="$data"/>
+    </docblock>
+    <parameter name="data" byreference="false" type="array"/>
+  </constructor>
+  <method name="getRawData" start="35" end="38" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return description="The raw data structure." type="array"/>
+    </docblock>
+  </method>
+  <method name="withMaxDepth" start="47" end="53" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a depth limited clone of $this."/>
+      <param description="The max dumped depth level." type="int" variable="$maxDepth"/>
+      <return description="A clone of $this." resolution="self" type="object">
+        <type full="Symfony\Component\VarDumper\Cloner\Data" namespace="Symfony\Component\VarDumper\Cloner" name="Data"/>
+      </return>
+    </docblock>
+    <parameter name="maxDepth" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="withMaxItemsPerDepth" start="62" end="68" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Limits the numbers of elements per depth level."/>
+      <param description="The max number of items dumped per depth level." type="int" variable="$maxItemsPerDepth"/>
+      <return description="A clone of $this." resolution="self" type="object">
+        <type full="Symfony\Component\VarDumper\Cloner\Data" namespace="Symfony\Component\VarDumper\Cloner" name="Data"/>
+      </return>
+    </docblock>
+    <parameter name="maxItemsPerDepth" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="withRefHandles" start="77" end="83" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Enables/disables objects' identifiers tracking."/>
+      <param description="False to hide global ref. handles." type="object" variable="$useRefHandles">
+        <type full="Symfony\Component\VarDumper\Cloner\bool" namespace="Symfony\Component\VarDumper\Cloner" name="bool"/>
+      </param>
+      <return description="A clone of $this." resolution="self" type="object">
+        <type full="Symfony\Component\VarDumper\Cloner\Data" namespace="Symfony\Component\VarDumper\Cloner" name="Data"/>
+      </return>
+    </docblock>
+    <parameter name="useRefHandles" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getLimitedClone" start="96" end="106" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a depth limited clone of $this."/>
+      <param description="The max dumped depth level." type="int" variable="$maxDepth"/>
+      <param description="The max number of items dumped per depth level." type="int" variable="$maxItemsPerDepth"/>
+      <param description="False to hide ref. handles." type="object" variable="$useRefHandles">
+        <type full="Symfony\Component\VarDumper\Cloner\bool" namespace="Symfony\Component\VarDumper\Cloner" name="bool"/>
+      </param>
+      <return description="A depth limited clone of $this." resolution="self" type="object">
+        <type full="Symfony\Component\VarDumper\Cloner\Data" namespace="Symfony\Component\VarDumper\Cloner" name="Data"/>
+      </return>
+      <deprecated value="since Symfony 2.7, to be removed in 3.0. Use withMaxDepth, withMaxItemsPerDepth or withRefHandles instead."/>
+    </docblock>
+    <parameter name="maxDepth" byreference="false" type="{unknown}"/>
+    <parameter name="maxItemsPerDepth" byreference="false" type="{unknown}"/>
+    <parameter name="useRefHandles" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="dump" start="111" end="115" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Dumps data with a DumperInterface dumper."/>
+    </docblock>
+    <parameter name="dumper" byreference="false" type="object">
+      <type full="Symfony\Component\VarDumper\Cloner\DumperInterface" namespace="Symfony\Component\VarDumper\Cloner" name="DumperInterface"/>
+    </parameter>
+  </method>
+  <method name="dumpItem" start="125" end="206" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Depth-first dumping of items."/>
+      <param description="The dumper being used for dumping." type="object" variable="$dumper">
+        <type full="Symfony\Component\VarDumper\Cloner\DumperInterface" namespace="Symfony\Component\VarDumper\Cloner" name="DumperInterface"/>
+      </param>
+      <param description="A cursor used for tracking dumper state position." type="object" variable="$cursor">
+        <type full="Symfony\Component\VarDumper\Cloner\Cursor" namespace="Symfony\Component\VarDumper\Cloner" name="Cursor"/>
+      </param>
+      <param description="&amp;$refs A map of all references discovered while dumping." type="array"/>
+      <param description="A Stub object or the original value being dumped." type="mixed" variable="$item"/>
+    </docblock>
+    <parameter name="dumper" byreference="false" type="{unknown}"/>
+    <parameter name="cursor" byreference="false" type="{unknown}"/>
+    <parameter name="refs" byreference="true" type="{unknown}"/>
+    <parameter name="item" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="dumpChildren" start="220" end="240" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Dumps children of hash structures."/>
+      <param type="object" variable="$dumper">
+        <type full="Symfony\Component\VarDumper\Cloner\DumperInterface" namespace="Symfony\Component\VarDumper\Cloner" name="DumperInterface"/>
+      </param>
+      <param description="The cursor of the parent hash." type="object" variable="$parentCursor">
+        <type full="Symfony\Component\VarDumper\Cloner\Cursor" namespace="Symfony\Component\VarDumper\Cloner" name="Cursor"/>
+      </param>
+      <param description="&amp;$refs A map of all references discovered while dumping." type="array"/>
+      <param description="The children to dump." type="array" variable="$children"/>
+      <param description="The number of items removed from the original hash." type="int" variable="$hashCut"/>
+      <param description="A Cursor::HASH_* const." type="string" variable="$hashType"/>
+      <return description="The final number of removed items." type="int"/>
+    </docblock>
+    <parameter name="dumper" byreference="false" type="{unknown}"/>
+    <parameter name="parentCursor" byreference="false" type="{unknown}"/>
+    <parameter name="refs" byreference="true" type="{unknown}"/>
+    <parameter name="children" byreference="false" type="{unknown}"/>
+    <parameter name="hashCut" byreference="false" type="{unknown}"/>
+    <parameter name="hashType" byreference="false" type="{unknown}"/>
+  </method>
+</class>

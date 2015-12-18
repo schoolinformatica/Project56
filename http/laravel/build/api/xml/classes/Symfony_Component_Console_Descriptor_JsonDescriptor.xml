@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Console\Descriptor\JsonDescriptor" namespace="Symfony\Component\Console\Descriptor" name="JsonDescriptor" abstract="false" final="false" start="27" end="166">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Descriptor" file="JsonDescriptor.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Descriptor/JsonDescriptor.php" size="5001" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="ac072a051d38329d45a1c21e43f11d9829d891de" relative="vendor/symfony/console/Descriptor/JsonDescriptor.php"/>
+  <docblock>
+    <description compact="JSON descriptor."/>
+    <author value="Jean-François Simon &lt;contact@jfsimon.fr&gt;"/>
+    <internal/>
+  </docblock>
+  <extends full="Symfony\Component\Console\Descriptor\Descriptor" namespace="Symfony\Component\Console\Descriptor" name="Descriptor"/>
+  <method name="describeInputArgument" start="32" end="35" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="argument" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputArgument" namespace="Symfony\Component\Console\Input" name="InputArgument"/>
+    </parameter>
+    <parameter name="options" byreference="false" type="array" default=""/>
+  </method>
+  <method name="describeInputOption" start="40" end="43" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="option" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputOption" namespace="Symfony\Component\Console\Input" name="InputOption"/>
+    </parameter>
+    <parameter name="options" byreference="false" type="array" default=""/>
+  </method>
+  <method name="describeInputDefinition" start="48" end="51" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="definition" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputDefinition" namespace="Symfony\Component\Console\Input" name="InputDefinition"/>
+    </parameter>
+    <parameter name="options" byreference="false" type="array" default=""/>
+  </method>
+  <method name="describeCommand" start="56" end="59" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="command" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Command\Command" namespace="Symfony\Component\Console\Command" name="Command"/>
+    </parameter>
+    <parameter name="options" byreference="false" type="array" default=""/>
+  </method>
+  <method name="describeApplication" start="64" end="79" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="application" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Application" namespace="Symfony\Component\Console" name="Application"/>
+    </parameter>
+    <parameter name="options" byreference="false" type="array" default=""/>
+  </method>
+  <method name="writeData" start="89" end="92" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Writes data as json."/>
+      <param type="array" variable="$data"/>
+      <param type="array" variable="$options"/>
+      <return type="object">
+        <type full="Symfony\Component\Console\Descriptor\array|string" namespace="Symfony\Component\Console\Descriptor" name="array|string"/>
+      </return>
+    </docblock>
+    <parameter name="data" byreference="false" type="array"/>
+    <parameter name="options" byreference="false" type="array"/>
+  </method>
+  <method name="getInputArgumentData" start="99" end="108" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$argument">
+        <type full="Symfony\Component\Console\Input\InputArgument" namespace="Symfony\Component\Console\Input" name="InputArgument"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="argument" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputArgument" namespace="Symfony\Component\Console\Input" name="InputArgument"/>
+    </parameter>
+  </method>
+  <method name="getInputOptionData" start="115" end="126" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$option">
+        <type full="Symfony\Component\Console\Input\InputOption" namespace="Symfony\Component\Console\Input" name="InputOption"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="option" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputOption" namespace="Symfony\Component\Console\Input" name="InputOption"/>
+    </parameter>
+  </method>
+  <method name="getInputDefinitionData" start="133" end="146" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$definition">
+        <type full="Symfony\Component\Console\Input\InputDefinition" namespace="Symfony\Component\Console\Input" name="InputDefinition"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="definition" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputDefinition" namespace="Symfony\Component\Console\Input" name="InputDefinition"/>
+    </parameter>
+  </method>
+  <method name="getCommandData" start="153" end="165" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$command">
+        <type full="Symfony\Component\Console\Command\Command" namespace="Symfony\Component\Console\Command" name="Command"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="command" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Command\Command" namespace="Symfony\Component\Console\Command" name="Command"/>
+    </parameter>
+  </method>
+</class>

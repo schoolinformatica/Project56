@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_Mime_SimpleHeaderSet" namespace="" name="Swift_Mime_SimpleHeaderSet" abstract="false" final="false" start="16" end="396">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime" file="SimpleHeaderSet.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleHeaderSet.php" size="10193" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="c8e8f55f316c9f6bb1bfc6d558e864e46d6ba64d" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleHeaderSet.php"/>
+  <docblock>
+    <description compact="A collection of MIME headers."/>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <implements full="Swift_Mime_HeaderSet" namespace="" name="Swift_Mime_HeaderSet"/>
+  <member name="_factory" visibility="private" line="19">
+    <docblock>
+      <description compact="HeaderFactory"/>
+    </docblock>
+  </member>
+  <member name="_headers" type="array" default="" visibility="private" line="22">
+    <docblock>
+      <description compact="Collection of set Headers"/>
+    </docblock>
+  </member>
+  <member name="_order" type="array" default="" visibility="private" line="25">
+    <docblock>
+      <description compact="Field ordering details"/>
+    </docblock>
+  </member>
+  <member name="_required" type="array" default="" visibility="private" line="28">
+    <docblock>
+      <description compact="List of fields which are required to be displayed"/>
+    </docblock>
+  </member>
+  <member name="_charset" visibility="private" line="31">
+    <docblock>
+      <description compact="The charset used by Headers"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="39" end="45" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new SimpleHeaderSet with the given $factory."/>
+      <param type="object" variable="$factory">
+        <type full="Swift_Mime_HeaderFactory" namespace="" name="Swift_Mime_HeaderFactory"/>
+      </param>
+      <param type="string" variable="$charset"/>
+    </docblock>
+    <parameter name="factory" byreference="false" type="object">
+      <type full="Swift_Mime_HeaderFactory" namespace="" name="Swift_Mime_HeaderFactory"/>
+    </parameter>
+    <parameter name="charset" byreference="false" type="{unknown}" default="" constant="null"/>
+  </constructor>
+  <method name="setCharset" start="52" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the charset used by these headers."/>
+      <param type="string" variable="$charset"/>
+    </docblock>
+    <parameter name="charset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addMailboxHeader" start="65" end="69" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a new Mailbox Header with a list of $addresses."/>
+      <param type="string" variable="$name"/>
+      <param type="object" variable="$addresses">
+        <type full="array|string" namespace="" name="array|string"/>
+      </param>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="addresses" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="addDateHeader" start="77" end="81" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a new Date header using $timestamp (UNIX time)."/>
+      <param type="string" variable="$name"/>
+      <param type="int" variable="$timestamp"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="timestamp" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="addTextHeader" start="89" end="93" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a new basic text header with $name and $value."/>
+      <param type="string" variable="$name"/>
+      <param type="string" variable="$value"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="addParameterizedHeader" start="102" end="105" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a new ParameterizedHeader with $name, $value and $params."/>
+      <param type="string" variable="$name"/>
+      <param type="string" variable="$value"/>
+      <param type="array" variable="$params"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="params" byreference="false" type="array" default=""/>
+  </method>
+  <method name="addIdHeader" start="113" end="116" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a new ID header for Message-ID or Content-ID."/>
+      <param type="string" variable="$name"/>
+      <param type="object" variable="$ids">
+        <type full="string|array" namespace="" name="string|array"/>
+      </param>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="ids" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="addPathHeader" start="124" end="127" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a new Path header with an address (path) in it."/>
+      <param type="string" variable="$name"/>
+      <param type="string" variable="$path"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="path" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="has" start="139" end="144" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if at least one header with the given $name exists.">If multiple headers match, the actual one may be specified by $index.</description>
+      <param type="string" variable="$name"/>
+      <param type="int" variable="$index"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="index" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="set" start="158" end="161" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set a header in the HeaderSet.">The header may be a previously fetched header via <link xmlns="http://xml.phpdox.net/src" value="get()"/> or it may
+be one that has been created separately.
+If $index is specified, the header will be inserted into the set at this
+offset.
+</description>
+      <param type="object" variable="$header">
+        <type full="Swift_Mime_Header" namespace="" name="Swift_Mime_Header"/>
+      </param>
+      <param type="int" variable="$index"/>
+    </docblock>
+    <parameter name="header" byreference="false" type="object">
+      <type full="Swift_Mime_Header" namespace="" name="Swift_Mime_Header"/>
+    </parameter>
+    <parameter name="index" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="get" start="174" end="181" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the header with the given $name.">If multiple headers match, the actual one may be specified by $index.
+Returns NULL if none present.</description>
+      <param type="string" variable="$name"/>
+      <param type="int" variable="$index"/>
+      <return type="object">
+        <type full="Swift_Mime_Header" namespace="" name="Swift_Mime_Header"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="index" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="getAll" start="190" end="207" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get all headers with the given $name."/>
+      <param type="string" variable="$name"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="listAll" start="214" end="222" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the name of all Headers."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="remove" start="232" end="236" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remove the header with the given $name if it's set.">If multiple headers match, the actual one may be specified by $index.</description>
+      <param type="string" variable="$name"/>
+      <param type="int" variable="$index"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="index" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="removeAll" start="243" end="247" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remove all headers with the given $name."/>
+      <param type="string" variable="$name"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="newInstance" start="254" end="257" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new instance of this HeaderSet."/>
+      <return type="object">
+        <type full="Swift_Mime_HeaderSet" namespace="" name="Swift_Mime_HeaderSet"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="defineOrdering" start="266" end="269" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Define a list of Header names as an array in the correct order.">These Headers will be output in the given order where present.</description>
+      <param type="array" variable="$sequence"/>
+    </docblock>
+    <parameter name="sequence" byreference="false" type="array"/>
+  </method>
+  <method name="setAlwaysDisplayed" start="278" end="281" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set a list of header names which must always be displayed when set.">Usually headers without a field value won't be output unless set here.</description>
+      <param type="array" variable="$names"/>
+    </docblock>
+    <parameter name="names" byreference="false" type="array"/>
+  </method>
+  <method name="charsetChanged" start="288" end="291" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Notify this observer that the entity's charset has changed."/>
+      <param type="string" variable="$charset"/>
+    </docblock>
+    <parameter name="charset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="toString" start="298" end="314" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a string with a representation of all headers."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="__toString" start="323" end="326" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a string representation of this object."/>
+      <return type="string"/>
+      <see value="toString()"/>
+    </docblock>
+  </method>
+  <method name="_storeHeader" start="329" end="339" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Save a Header to the internal collection"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="header" byreference="false" type="object">
+      <type full="Swift_Mime_Header" namespace="" name="Swift_Mime_Header"/>
+    </parameter>
+    <parameter name="offset" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="_canSort" start="342" end="345" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Test if the headers can be sorted"/>
+    </docblock>
+  </method>
+  <method name="_sortHeaders" start="348" end="366" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="uksort() algorithm for Header ordering"/>
+    </docblock>
+    <parameter name="a" byreference="false" type="{unknown}"/>
+    <parameter name="b" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_isDisplayed" start="369" end="372" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Test if the given Header is always displayed"/>
+    </docblock>
+    <parameter name="header" byreference="false" type="object">
+      <type full="Swift_Mime_Header" namespace="" name="Swift_Mime_Header"/>
+    </parameter>
+  </method>
+  <method name="_notifyHeadersOfCharset" start="375" end="382" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Notify all Headers of the new charset"/>
+    </docblock>
+    <parameter name="charset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__clone" start="387" end="395" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Make a deep copy of object."/>
+    </docblock>
+  </method>
+</class>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Symfony\Component\VarDumper\Cloner\DumperInterface" namespace="Symfony\Component\VarDumper\Cloner" name="DumperInterface" abstract="false" final="false" start="19" end="60">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/var-dumper/Cloner" file="DumperInterface.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/var-dumper/Cloner/DumperInterface.php" size="2024" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="84b7f7f9d1edbd2db8bd9a6faf2a536259d5785f" relative="vendor/symfony/var-dumper/Cloner/DumperInterface.php"/>
+  <docblock>
+    <description compact="DumperInterface used by Data objects."/>
+    <author value="Nicolas Grekas &lt;p@tchwork.com&gt;"/>
+  </docblock>
+  <method name="dumpScalar" start="28" end="28" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Dumps a scalar value."/>
+      <param description="The Cursor position in the dump." type="object" variable="$cursor">
+        <type full="Symfony\Component\VarDumper\Cloner\Cursor" namespace="Symfony\Component\VarDumper\Cloner" name="Cursor"/>
+      </param>
+      <param description="The PHP type of the value being dumped." type="string" variable="$type"/>
+      <param description="The scalar value being dumped." type="object" variable="$value">
+        <type full="Symfony\Component\VarDumper\Cloner\scalar" namespace="Symfony\Component\VarDumper\Cloner" name="scalar"/>
+      </param>
+    </docblock>
+    <parameter name="cursor" byreference="false" type="object">
+      <type full="Symfony\Component\VarDumper\Cloner\Cursor" namespace="Symfony\Component\VarDumper\Cloner" name="Cursor"/>
+    </parameter>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="dumpString" start="38" end="38" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Dumps a string."/>
+      <param description="The Cursor position in the dump." type="object" variable="$cursor">
+        <type full="Symfony\Component\VarDumper\Cloner\Cursor" namespace="Symfony\Component\VarDumper\Cloner" name="Cursor"/>
+      </param>
+      <param description="The string being dumped." type="string" variable="$str"/>
+      <param description="Whether $str is UTF-8 or binary encoded." type="object" variable="$bin">
+        <type full="Symfony\Component\VarDumper\Cloner\bool" namespace="Symfony\Component\VarDumper\Cloner" name="bool"/>
+      </param>
+      <param description="The number of characters $str has been cut by." type="int" variable="$cut"/>
+    </docblock>
+    <parameter name="cursor" byreference="false" type="object">
+      <type full="Symfony\Component\VarDumper\Cloner\Cursor" namespace="Symfony\Component\VarDumper\Cloner" name="Cursor"/>
+    </parameter>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <parameter name="bin" byreference="false" type="{unknown}"/>
+    <parameter name="cut" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="enterHash" start="48" end="48" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Dumps while entering an hash."/>
+      <param description="The Cursor position in the dump." type="object" variable="$cursor">
+        <type full="Symfony\Component\VarDumper\Cloner\Cursor" namespace="Symfony\Component\VarDumper\Cloner" name="Cursor"/>
+      </param>
+      <param description="A Cursor::HASH_* const for the type of hash." type="int" variable="$type"/>
+      <param description="The object class, resource type or array count." type="string" variable="$class"/>
+      <param description="When the dump of the hash has child item." type="object" variable="$hasChild">
+        <type full="Symfony\Component\VarDumper\Cloner\bool" namespace="Symfony\Component\VarDumper\Cloner" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="cursor" byreference="false" type="object">
+      <type full="Symfony\Component\VarDumper\Cloner\Cursor" namespace="Symfony\Component\VarDumper\Cloner" name="Cursor"/>
+    </parameter>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="hasChild" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="leaveHash" start="59" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Dumps while leaving an hash."/>
+      <param description="The Cursor position in the dump." type="object" variable="$cursor">
+        <type full="Symfony\Component\VarDumper\Cloner\Cursor" namespace="Symfony\Component\VarDumper\Cloner" name="Cursor"/>
+      </param>
+      <param description="A Cursor::HASH_* const for the type of hash." type="int" variable="$type"/>
+      <param description="The object class, resource type or array count." type="string" variable="$class"/>
+      <param description="When the dump of the hash has child item." type="object" variable="$hasChild">
+        <type full="Symfony\Component\VarDumper\Cloner\bool" namespace="Symfony\Component\VarDumper\Cloner" name="bool"/>
+      </param>
+      <param description="The number of items the hash has been cut by." type="int" variable="$cut"/>
+    </docblock>
+    <parameter name="cursor" byreference="false" type="object">
+      <type full="Symfony\Component\VarDumper\Cloner\Cursor" namespace="Symfony\Component\VarDumper\Cloner" name="Cursor"/>
+    </parameter>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="hasChild" byreference="false" type="{unknown}"/>
+    <parameter name="cut" byreference="false" type="{unknown}"/>
+  </method>
+</interface>

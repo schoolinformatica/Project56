@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Prophecy\Doubler\ClassPatch\DisableConstructorPatch" namespace="Prophecy\Doubler\ClassPatch" name="DisableConstructorPatch" abstract="false" final="false" start="23" end="72">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Doubler/ClassPatch" file="DisableConstructorPatch.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Doubler/ClassPatch/DisableConstructorPatch.php" size="1682" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="dcf38c63bb710d2b77f12fba995aeb816ede250d" relative="vendor/phpspec/prophecy/src/Prophecy/Doubler/ClassPatch/DisableConstructorPatch.php"/>
+  <docblock>
+    <description compact="Disable constructor.">Makes all constructor arguments optional.</description>
+    <author value="Konstantin Kudryashov &lt;ever.zet@gmail.com&gt;"/>
+  </docblock>
+  <implements full="Prophecy\Doubler\ClassPatch\ClassPatchInterface" namespace="Prophecy\Doubler\ClassPatch" name="ClassPatchInterface"/>
+  <method name="supports" start="32" end="35" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks if class has `__construct` method."/>
+      <param type="object" variable="$node">
+        <type full="Prophecy\Doubler\Generator\Node\ClassNode" namespace="Prophecy\Doubler\Generator\Node" name="ClassNode"/>
+      </param>
+      <return type="object">
+        <type full="Prophecy\Doubler\ClassPatch\bool" namespace="Prophecy\Doubler\ClassPatch" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="Prophecy\Doubler\Generator\Node\ClassNode" namespace="Prophecy\Doubler\Generator\Node" name="ClassNode"/>
+    </parameter>
+  </method>
+  <method name="apply" start="42" end="61" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Makes all class constructor arguments optional."/>
+      <param type="object" variable="$node">
+        <type full="Prophecy\Doubler\Generator\Node\ClassNode" namespace="Prophecy\Doubler\Generator\Node" name="ClassNode"/>
+      </param>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="Prophecy\Doubler\Generator\Node\ClassNode" namespace="Prophecy\Doubler\Generator\Node" name="ClassNode"/>
+    </parameter>
+  </method>
+  <method name="getPriority" start="68" end="71" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns patch priority, which determines when patch will be applied."/>
+      <return description="Priority number (higher - earlier)" type="int"/>
+    </docblock>
+  </method>
+</class>

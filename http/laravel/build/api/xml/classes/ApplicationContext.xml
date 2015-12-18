@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="ApplicationContext" namespace="" name="ApplicationContext" abstract="false" final="false" start="19" end="327">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/features/bootstrap" file="ApplicationContext.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/features/bootstrap/ApplicationContext.php" size="8539" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="231b79cc3cbec6cd497d4a7b77052ab51b85e603" relative="vendor/phpspec/phpspec/features/bootstrap/ApplicationContext.php"/>
+  <docblock>
+    <description compact="Defines application features from the specific context."/>
+  </docblock>
+  <implements full="Behat\Behat\Context\Context" namespace="Behat\Behat\Context" name="Context"/>
+  <implements full="PhpSpec\Matcher\MatchersProviderInterface" namespace="PhpSpec\Matcher" name="MatchersProviderInterface"/>
+  <member name="application" visibility="private" line="24">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\Console\Application" namespace="PhpSpec\Console" name="Application"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="lastExitCode" visibility="private" line="29">
+    <docblock>
+      <description/>
+      <var type="integer"/>
+    </docblock>
+  </member>
+  <member name="tester" visibility="private" line="34">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\Console\Tester\ApplicationTester" namespace="Symfony\Component\Console\Tester" name="ApplicationTester"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="prompter" visibility="private" line="39">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Fake\Prompter" namespace="Fake" name="Prompter"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="reRunner" visibility="private" line="44">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Fake\ReRunner" namespace="Fake" name="ReRunner"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="setupApplication" start="49" end="60" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <beforescenario/>
+    </docblock>
+  </method>
+  <method name="setupPrompter" start="62" end="67" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="setupReRunner" start="69" end="73" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="iDescribeTheClass" start="79" end="87" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <given value="I have started describing the :class class"/>
+      <given value="I start describing the :class class"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="iRunPhpspec" start="98" end="112" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <when value="I run phpspec (non interactively)"/>
+      <when value="I run phpspec using the :formatter format"/>
+      <when value="I run phpspec with the :option option"/>
+      <when value="I run phpspec with :spec specs to run"/>
+      <when value="/I run phpspec with option (?P&lt;option&gt;.*)/"/>
+      <when value="/I run phpspec (?P&lt;interactive&gt;interactively)$/"/>
+      <when value="/I run phpspec (?P&lt;interactive&gt;interactively) with the (?P&lt;option&gt;.*) option/"/>
+    </docblock>
+    <parameter name="formatter" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="option" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="interactive" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="spec" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="iRunPhpspecAndAnswerWhenAskedIfIWantToGenerateTheCode" start="118" end="129" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <when value="I run phpspec and answer :answer when asked if I want to generate the code"/>
+      <when value="I run phpspec with the option :option and (I) answer :answer when asked if I want to generate the code"/>
+    </docblock>
+    <parameter name="answer" byreference="false" type="{unknown}"/>
+    <parameter name="option" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="iRunPhpspecAndAnswerToBothQuestions" start="134" end="144" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <when value="I run phpspec and answer :answer to both questions"/>
+    </docblock>
+    <parameter name="answer" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addOptionToArguments" start="150" end="159" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$option"/>
+      <param type="array" variable="$arguments"/>
+    </docblock>
+    <parameter name="option" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="true" type="array"/>
+  </method>
+  <method name="iShouldSee" start="165" end="168" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <then value="I should see :output"/>
+      <then value="I should see:"/>
+    </docblock>
+    <parameter name="output" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="iShouldBePromptedForCodeGeneration" start="173" end="176" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <then value="I should be prompted for code generation"/>
+    </docblock>
+  </method>
+  <method name="iShouldNotBePromptedForCodeGeneration" start="181" end="184" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <then value="I should not be prompted for code generation"/>
+    </docblock>
+  </method>
+  <method name="theSuiteShouldPass" start="189" end="192" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <then value="the suite should pass"/>
+    </docblock>
+  </method>
+  <method name="theSuiteShouldNotPass" start="197" end="200" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <then value="the suite should not pass"/>
+    </docblock>
+  </method>
+  <method name="exampleShouldHaveBeenSkipped" start="205" end="208" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <then value=":number example(s) should have been skipped"/>
+    </docblock>
+    <parameter name="number" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="examplesShouldHaveBeenRun" start="213" end="216" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <then value=":number example(s) should have been run"/>
+    </docblock>
+    <parameter name="number" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="theExitCodeShouldBe" start="221" end="224" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <then value="the exit code should be :code"/>
+    </docblock>
+    <parameter name="code" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="iShouldSeeValidJunitOutput" start="229" end="232" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <then value="I should see valid junit output"/>
+    </docblock>
+  </method>
+  <method name="theTestsShouldBeRerun" start="237" end="240" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <then value="the tests should be rerun"/>
+    </docblock>
+  </method>
+  <method name="theTestsShouldNotBeRerun" start="245" end="248" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <then value="the tests should not be rerun"/>
+    </docblock>
+  </method>
+  <method name="iShouldBePromptedWith" start="253" end="256" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <then value="I should be prompted with:"/>
+    </docblock>
+    <parameter name="question" byreference="false" type="object">
+      <type full="Behat\Gherkin\Node\PyStringNode" namespace="Behat\Gherkin\Node" name="PyStringNode"/>
+    </parameter>
+  </method>
+  <method name="iDescribeTheClassWithTheConfig" start="262" end="271" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <given value="I have started describing the :class class with the :config (custom) config"/>
+      <given value="I start describing the :class class with the :config (custom) config"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="config" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="iRunPhpspecWithConfigAndAnswerIfIWantToGenerateTheCode" start="276" end="286" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <when value="I run phpspec with the :config (custom) config and answer :answer when asked if I want to generate the code"/>
+    </docblock>
+    <parameter name="config" byreference="false" type="{unknown}"/>
+    <parameter name="answer" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getMatchers" start="293" end="299" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Custom matchers"/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="iRunPhpspecWithTheSpec" start="304" end="312" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <when value="I run phpspec with the spec :spec"/>
+    </docblock>
+    <parameter name="spec" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="iRunPhpspecWithTheSpecAndTheConfig" start="317" end="326" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <when value="I run phpspec with the spec :spec and the config :config"/>
+    </docblock>
+    <parameter name="spec" byreference="false" type="{unknown}"/>
+    <parameter name="config" byreference="false" type="{unknown}"/>
+  </method>
+</class>

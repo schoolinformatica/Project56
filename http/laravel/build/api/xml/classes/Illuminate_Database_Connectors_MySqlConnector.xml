@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Database\Connectors\MySqlConnector" namespace="Illuminate\Database\Connectors" name="MySqlConnector" abstract="false" final="false" start="5" end="112">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Connectors" file="MySqlConnector.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Connectors/MySqlConnector.php" size="3658" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="38916b4b19beb5e47519b6bfc44266f0868daf8a" relative="vendor/laravel/framework/src/Illuminate/Database/Connectors/MySqlConnector.php"/>
+  <extends full="Illuminate\Database\Connectors\Connector" namespace="Illuminate\Database\Connectors" name="Connector"/>
+  <implements full="Illuminate\Database\Connectors\ConnectorInterface" namespace="Illuminate\Database\Connectors" name="ConnectorInterface"/>
+  <method name="connect" start="13" end="61" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Establish a database connection."/>
+      <param type="array" variable="$config"/>
+      <return type="object">
+        <type full="\PDO" namespace="" name="PDO"/>
+      </return>
+    </docblock>
+    <parameter name="config" byreference="false" type="array"/>
+    <inline>
+      <comment value="We need to grab the PDO options that should be used while making the brand" line="19"/>
+      <comment value="new connection instance. The PDO options control various aspects of the" line="20"/>
+      <comment value="connection's behavior, and some might be specified by the developers." line="21"/>
+      <comment value="Next we will set the &quot;names&quot; and &quot;collation&quot; on the clients connections so" line="30"/>
+      <comment value="a correct character set will be used by this client. The collation also" line="31"/>
+      <comment value="is set on the server but needs to be set here on this client objects." line="32"/>
+      <comment value="Next, we will check to see if a timezone has been specified in this config" line="40"/>
+      <comment value="and if it has we will issue a statement to modify the timezone with the" line="41"/>
+      <comment value="database. Setting this DB timezone is an optional configuration item." line="42"/>
+      <comment value="If the &quot;strict&quot; option has been configured for the connection we will setup" line="49"/>
+      <comment value="strict mode for this session. Strict mode enforces some extra rules when" line="50"/>
+      <comment value="using the MySQL database system and is a quicker way to enforce them." line="51"/>
+    </inline>
+  </method>
+  <method name="getDsn" start="71" end="74" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create a DSN string from a configuration.">Chooses socket or host/port based on the 'unix_socket' config value.</description>
+      <param type="array" variable="$config"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="config" byreference="false" type="array"/>
+  </method>
+  <method name="configHasSocket" start="82" end="85" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Determine if the given configuration array has a UNIX socket value."/>
+      <param type="array" variable="$config"/>
+      <return type="object">
+        <type full="Illuminate\Database\Connectors\bool" namespace="Illuminate\Database\Connectors" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="config" byreference="false" type="array"/>
+  </method>
+  <method name="getSocketDsn" start="93" end="96" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the DSN string for a socket configuration."/>
+      <param type="array" variable="$config"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="config" byreference="false" type="array"/>
+  </method>
+  <method name="getHostDsn" start="104" end="111" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the DSN string for a host / port configuration."/>
+      <param type="array" variable="$config"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="config" byreference="false" type="array"/>
+  </method>
+</class>

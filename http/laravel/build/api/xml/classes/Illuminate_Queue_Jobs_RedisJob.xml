@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Queue\Jobs\RedisJob" namespace="Illuminate\Queue\Jobs" name="RedisJob" abstract="false" final="false" start="10" end="139">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Queue/Jobs" file="RedisJob.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Queue/Jobs/RedisJob.php" size="2730" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="5925827b8d19a54dcc1fe8e200cafaec31f7e79a" relative="vendor/laravel/framework/src/Illuminate/Queue/Jobs/RedisJob.php"/>
+  <extends full="Illuminate\Queue\Jobs\Job" namespace="Illuminate\Queue\Jobs" name="Job"/>
+  <implements full="Illuminate\Contracts\Queue\Job" namespace="Illuminate\Contracts\Queue" name="Job"/>
+  <member name="redis" visibility="protected" line="17">
+    <docblock>
+      <description compact="The Redis queue instance."/>
+      <var type="object">
+        <type full="\Illuminate\Queue\RedisQueue" namespace="\Illuminate\Queue" name="RedisQueue"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="job" visibility="protected" line="24">
+    <docblock>
+      <description compact="The Redis job payload."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="35" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new job instance."/>
+      <param type="object" variable="$container">
+        <type full="\Illuminate\Container\Container" namespace="\Illuminate\Container" name="Container"/>
+      </param>
+      <param type="object" variable="$redis">
+        <type full="\Illuminate\Queue\RedisQueue" namespace="\Illuminate\Queue" name="RedisQueue"/>
+      </param>
+      <param type="string" variable="$job"/>
+      <param type="string" variable="$queue"/>
+      <return type="object">
+        <type full="Illuminate\Queue\Jobs\void" namespace="Illuminate\Queue\Jobs" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="container" byreference="false" type="object">
+      <type full="Illuminate\Container\Container" namespace="Illuminate\Container" name="Container"/>
+    </parameter>
+    <parameter name="redis" byreference="false" type="object">
+      <type full="Illuminate\Queue\RedisQueue" namespace="Illuminate\Queue" name="RedisQueue"/>
+    </parameter>
+    <parameter name="job" byreference="false" type="{unknown}"/>
+    <parameter name="queue" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="fire" start="48" end="51" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Fire the job."/>
+      <return type="object">
+        <type full="Illuminate\Queue\Jobs\void" namespace="Illuminate\Queue\Jobs" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getRawBody" start="58" end="61" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the raw body string for the job."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="delete" start="68" end="73" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Delete the job from the queue."/>
+      <return type="object">
+        <type full="Illuminate\Queue\Jobs\void" namespace="Illuminate\Queue\Jobs" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="release" start="81" end="88" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Release the job back into the queue."/>
+      <param type="int" variable="$delay"/>
+      <return type="object">
+        <type full="Illuminate\Queue\Jobs\void" namespace="Illuminate\Queue\Jobs" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="delay" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="attempts" start="95" end="98" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the number of times the job has been attempted."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getJobId" start="105" end="108" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the job identifier."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getContainer" start="115" end="118" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the IoC container instance."/>
+      <return type="object">
+        <type full="\Illuminate\Container\Container" namespace="\Illuminate\Container" name="Container"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getRedisQueue" start="125" end="128" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the underlying queue driver instance."/>
+      <return type="object">
+        <type full="\Illuminate\Redis\Database" namespace="\Illuminate\Redis" name="Database"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getRedisJob" start="135" end="138" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the underlying Redis job."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+</class>

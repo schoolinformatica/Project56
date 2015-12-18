@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Faker\Provider\Lorem" namespace="Faker\Provider" name="Lorem" abstract="false" final="false" start="5" end="215">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/fzaninotto/faker/src/Faker/Provider" file="Lorem.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/fzaninotto/faker/src/Faker/Provider/Lorem.php" size="8694" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="6898f635e44111bbfe876eb9caec2e2eb4dc317e" relative="vendor/fzaninotto/faker/src/Faker/Provider/Lorem.php"/>
+  <extends full="Faker\Provider\Base" namespace="Faker\Provider" name="Base"/>
+  <member name="wordList" type="array" default="" visibility="protected" line="7"/>
+  <method name="word" start="51" end="54" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <example value="'Lorem'"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="words" start="64" end="72" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Generate an array of random words"/>
+      <example value="array('Lorem', 'ipsum', 'dolor')"/>
+      <param description="how many words to return" type="integer" variable="$nb"/>
+      <param description="if true the sentences are returned as one string" type="object" variable="$asText">
+        <type full="Faker\Provider\bool" namespace="Faker\Provider" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="Faker\Provider\array|string" namespace="Faker\Provider" name="array|string"/>
+      </return>
+    </docblock>
+    <parameter name="nb" byreference="false" type="integer" default="3"/>
+    <parameter name="asText" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="sentence" start="83" end="96" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Generate a random sentence"/>
+      <example value="'Lorem ipsum dolor sit amet.'"/>
+      <param description="around how many words the sentence should contain" type="integer" variable="$nbWords"/>
+      <param description="set to false if you want exactly $nbWords returned," type="boolean" variable="$variableNbWords">otherwise $nbWords may vary by +/-40% with a minimum of 1</param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="nbWords" byreference="false" type="integer" default="6"/>
+    <parameter name="variableNbWords" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="sentences" start="106" end="114" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Generate an array of sentences"/>
+      <example value="array('Lorem ipsum dolor sit amet.', 'Consectetur adipisicing eli.')"/>
+      <param description="how many sentences to return" type="integer" variable="$nb"/>
+      <param description="if true the sentences are returned as one string" type="object" variable="$asText">
+        <type full="Faker\Provider\bool" namespace="Faker\Provider" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="Faker\Provider\array|string" namespace="Faker\Provider" name="array|string"/>
+      </return>
+    </docblock>
+    <parameter name="nb" byreference="false" type="integer" default="3"/>
+    <parameter name="asText" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="paragraph" start="125" end="135" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Generate a single paragraph"/>
+      <example value="'Sapiente sunt omnis. Ut pariatur ad autem ducimus et. Voluptas rem voluptas sint modi dolorem amet.'"/>
+      <param description="around how many sentences the paragraph should contain" type="integer" variable="$nbSentences"/>
+      <param description="set to false if you want exactly $nbSentences returned," type="boolean" variable="$variableNbSentences">otherwise $nbSentences may vary by +/-40% with a minimum of 1</param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="nbSentences" byreference="false" type="integer" default="3"/>
+    <parameter name="variableNbSentences" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="paragraphs" start="145" end="153" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Generate an array of paragraphs"/>
+      <example value="array($paragraph1, $paragraph2, $paragraph3)"/>
+      <param description="how many paragraphs to return" type="integer" variable="$nb"/>
+      <param description="if true the paragraphs are returned as one string, separated by two newlines" type="object" variable="$asText">
+        <type full="Faker\Provider\bool" namespace="Faker\Provider" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="Faker\Provider\array|string" namespace="Faker\Provider" name="array|string"/>
+      </return>
+    </docblock>
+    <parameter name="nb" byreference="false" type="integer" default="3"/>
+    <parameter name="asText" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="text" start="163" end="209" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Generate a text string.">Depending on the $maxNbChars, returns a string made of words, sentences, or paragraphs.</description>
+      <example value="'Sapiente sunt omnis. Ut pariatur ad autem ducimus et. Voluptas rem voluptas sint modi dolorem amet.'"/>
+      <param description="Maximum number of characters the text should contain (minimum 5)" type="integer" variable="$maxNbChars"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="maxNbChars" byreference="false" type="integer" default="200"/>
+  </method>
+  <method name="randomizeNbElements" start="211" end="214" abstract="false" final="false" static="true" visibility="protected">
+    <parameter name="nbElements" byreference="false" type="{unknown}"/>
+  </method>
+</class>
