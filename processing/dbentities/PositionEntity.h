@@ -5,7 +5,6 @@
 #ifndef INPUT_PROCESS_POSITIONENTITY_H
 #define INPUT_PROCESS_POSITIONENTITY_H
 
-#include "dbEntity.h"
 #include "../pqcon/pgsqlcon.h"
 #include <sstream>
 #include <string>
@@ -13,7 +12,7 @@
 
 using namespace std;
 
-class PositionEntity : public dbEntity {
+class PositionEntity   {
 private:
     string date_time;
     string unit_id;

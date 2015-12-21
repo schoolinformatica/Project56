@@ -6,12 +6,11 @@
 #define INPUT_PROCESS_CONNECTIONENTITY_H
 
 #include "../pqcon/pgsqlcon.h"
-#include "dbEntity.h"
 #include <sstream>
 #include <string>
 #include <iostream>
 
-class ConnectionEntity : public dbEntity {
+class ConnectionEntity  {
 private:
     string date_time; // Time stamp
     string unit_id; // ID of the vehicle

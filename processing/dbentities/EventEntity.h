@@ -5,14 +5,13 @@
 #ifndef INPUT_PROCESS_EVENTENTITY_H
 #define INPUT_PROCESS_EVENTENTITY_H
 
-#include "dbEntity.h"
 #include "../pqcon/pgsqlcon.h"
 #include <sstream>
 #include <string>
 #include <iostream>
 
 
-class EventEntity : public dbEntity {
+class EventEntity    {
 private:
     string date_time;
     string unit_id;
