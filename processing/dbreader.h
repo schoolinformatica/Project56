@@ -15,7 +15,7 @@ using namespace std;
 using namespace pqxx;
 
 vector<MonitoringEntity> convert_to_monitor() {
-    cout << table << endl;
+    cout << "monitor" << endl;
     EntityManager manager;
     result result = manager.select("monitor", where);
     vector<MonitoringEntity> monitoringEntities;
@@ -34,7 +34,7 @@ vector<MonitoringEntity> convert_to_monitor() {
 }
 
 vector<EventEntity> convert_to_events() {
-    cout << table << endl;
+    cout << "events" << endl;
     EntityManager manager;
     result result = manager.select("events", where);
     vector<EventEntity> eventEntities;
@@ -51,7 +51,7 @@ vector<EventEntity> convert_to_events() {
 }
 
 vector<ConnectionEntity> convert_to_connections() {
-    cout << table << endl;
+    cout << "connections" << endl;
     EntityManager manager;
     result result = manager.select("connections", where);
     vector<ConnectionEntity> connectionEntities;
@@ -68,7 +68,7 @@ vector<ConnectionEntity> convert_to_connections() {
 }
 
 vector<PositionEntity> convert_to_positions() {
-    cout << table << endl;
+    cout << "positions" << endl;
     EntityManager manager;
     result result = manager.select("positions", where);
     vector<PositionEntity> positionsEntities;
