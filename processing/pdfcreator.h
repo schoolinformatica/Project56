@@ -147,12 +147,9 @@ static void createAndFillPDF(PDF &pdf, vector <string> list, string table) {
 
 }
 
-
 void FillPDFWithData(PDF &pdf){
 
 }
-
-
 
 /***********************************
  * FILL PDF WITH GRAPH
@@ -228,7 +225,8 @@ int sendDirToPHP(const char *directory, const char *email) {
     int s, error;
     struct sockaddr_in addr;
 
-    if ((s = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+    if ((s = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+    {
         cout << "Error 01: creating socket failed!\n";
         close(s);
         return 0;
@@ -241,7 +239,8 @@ int sendDirToPHP(const char *directory, const char *email) {
 
     //Try to connect to socket
     error = connect(s, (sockaddr * ) & addr, sizeof(addr));
-    if (error != 0) {
+    if (error != 0)
+    {
         cout << "Error 02: conecting to server failed!\n";
         close(s);
         return 0;

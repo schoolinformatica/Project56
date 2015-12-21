@@ -2,7 +2,9 @@
 //#include "pdfcreator.h"
 #include "helperfunc/helperfunc.h"
 #include "dbentities/DBEntityManager.h"
+#include "dbentities/ConnectionEntity.h"
 #include "dbreader.h"
+
 
 using namespace std;
 
@@ -10,6 +12,10 @@ using namespace std;
 int start(string file, string email){
 	cout << "ok " << endl;
 	vector <dbEntity> results = read_from_database(file, "nothing");
+	for(dbEntity d : results)
+	{
+		//ConnectionEntity c = (ConnectionEntity) d;
+	}
 	//generating a PDF with the list. The email that is given is used
 	//to send the PDF to the user.
 	//pdfcreator(results, email);
@@ -45,7 +51,6 @@ int main(int argc, char *argv[]) {
 		cout << "No input found." << endl;
 		return -1;
 	}
-
 }
 
 
