@@ -1,6 +1,6 @@
 #include <iostream>
 
-//#include "pdfcreator.h"
+#include "pdfcreator.h"
 #include "helperfunc/helperfunc.h"
 #include "dbentities/DBEntityManager.h"
 #include "dbentities/ConnectionEntity.h"
@@ -17,26 +17,35 @@ int start(string file, string email) {
     vector<ConnectionEntity> vectorConnections;
     vector<EventEntity> vectorEvents;
 
-    if (equals(file, "positions")) {
+    if (equals(file, "positions"))
+    {
          vectorPositions = convert_to_positions("nothing");
-    } else if (equals(file, "monitoring")) {
-         vectorMonitoring = convert_to_monitor("nothing");
-    } else if (equals(file, "connections")) {
-         vectorConnections = convert_to_connections("nothing");
-    } else if (equals(file, "events")) {
-         vectorEvents = convert_to_events("nothing");
+         positions_to_pdf(vectorPositions);
     }
-    //vector<dbEntity> results = read_from_database(file, "nothing");
+    else if (equals(file, "monitoring"))
+    {
+         vectorMonitoring = convert_to_monitor("nothing");
+         monitor_to_pdf(vectorMonitoring);
+    }
+    else if (equals(file, "connections"))
+    {
+         vectorConnections = convert_to_connections("nothing");
+         connections_to_pdf(vectorConnections);
+    }
+    else if (equals(file, "events"))
+    {
+         vectorEvents = convert_to_events("nothing");
+         events_to_pdf(vectorEvents);
+    }
+
     cout << vectorConnections.size();
-    for( ConnectionEntity connectionEntity : vectorConnections){
+    for( ConnectionEntity connectionEntity : vectorConnections)
+    {
         cout << connectionEntity.get_date_time() << " " << connectionEntity.get_port() << " " <<
                 connectionEntity.get_unit_id() << connectionEntity.get_value() << endl;
     }
-//generating a PDF with the list. The email that is given is used
-//to send the PDF to the user.
-    //pdfcreator(results, email);
-    cout << "Done" <<
-    endl;
+
+    cout << "Done" << endl;
     return 0;
 }
 

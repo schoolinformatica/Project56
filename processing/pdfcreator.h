@@ -294,6 +294,18 @@ void positions_to_pdf(vector<PositionEntity> positionsEntities){
 void connections_to_pdf(vector<ConnectionEntity> connectionEntities){
     PDF pdf;
 
+    vector<bool> allTruePortValues;
+    for(ConnectionEntity c : connectionEntities)
+    {
+        if(c.get_value() == true)
+        allTrueValues.push_back(c.get_value());
+    }
+
+    int averageUpTimePercentage = (allTrueValues.size() / connectionEntities.size()) * 100;
+
+    pdf.setFont(PDF::Font(2), 10);
+    pdf.showTextXY(averageUpTimePercentage, 100, 100);
+
     pdf_writer(pdf);
 }
 
