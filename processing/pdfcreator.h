@@ -297,8 +297,8 @@ void positions_to_pdf(vector<PositionEntity> positionsEntities){
 
 void connections_to_pdf(vector<ConnectionEntity> connectionEntities){
     PDF pdf;
+    //this returns 0, though it shouldnt
 
-    cout << "(testing:) connectionEntities is of size :" << connectionEntities.size() << endl;
     vector<bool> allTruePortValues;
     for(ConnectionEntity c : connectionEntities)
     {
@@ -306,8 +306,8 @@ void connections_to_pdf(vector<ConnectionEntity> connectionEntities){
         allTruePortValues.push_back(c.get_value());
     }
 
-    int averageUpTimePercentage = (allTruePortValues.size() / connectionEntities.size()) * 100;
-
+    int averageUpTimePercentage = allTruePortValues.size()/connectionEntities.size();
+    cout << averageUpTimePercentage << endl;
     pdf.setFont(PDF::Font(2), 10);
     pdf.showTextXY(std::to_string(averageUpTimePercentage), 100, 100);
 

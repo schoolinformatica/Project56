@@ -38,14 +38,7 @@ int start(string file, string email) {
          events_to_pdf(vectorEvents);
     }
 
-    cout << vectorConnections.size();
-    for( ConnectionEntity connectionEntity : vectorConnections)
-    {
-        cout << connectionEntity.get_date_time() << " " << connectionEntity.get_port() << " " <<
-                connectionEntity.get_unit_id() << connectionEntity.get_value() << endl;
-    }
-
-    cout << "Done" << endl;
+    cout << "Done!" << endl;
     return 0;
 }
 
