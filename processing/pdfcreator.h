@@ -17,7 +17,10 @@
 #include <arpa/inet.h>
 #include <time.h>
 #include <unistd.h>
+#include "dbentities/PositionEntity.h"
+#include "dbentities/EventEntity.h"
 #include "dbentities/ConnectionEntity.h"
+#include "dbentities/MonitoringEntity.h"
 
 
 
@@ -269,6 +272,119 @@ int sendDirToPHP(const char *directory, const char *email) {
 /**************************
  * Main
  **************************/
+
+void monitor_to_pdf(vector <MonitoringEntity> monitoringEntities){
+    PDF pdf;
+    pdf_writer(pdf);
+
+}
+
+void events_to_pdf(vector<EventEntity> eventEntities){
+    PDF pdf;
+
+    pdf_writer(pdf);
+}
+
+void positions_to_pdf(vector<PositionEntity> positionsEntities){
+    PDF pdf;
+
+    pdf_writer(pdf);
+}
+
+void connections_to_pdf(vector<ConnectionEntity> connectionEntities){
+    PDF pdf;
+
+    pdf_writer(pdf);
+}
+
+bool pdf_writer(PDF *pdf){
+    //Create time_t object as param for Ctime, set filename to Ctime
+    time_t rawtime;
+    time(&rawtime);
+    string filename = ctime(&rawtime);
+    filename = filename + ".pdf";
+    replace(filename.begin(), filename.end(), ' ', '_');
+    filename.erase(remove(filename.begin(), filename.end(), '\n'), filename.end());
+
+    //Remove underscores from filename and concat it with the server download dir
+    string dir = "http://145.24.222.182:8000/downloads/" + filename;
+    const char *dirchar = dir.c_str();
+    const char *emailchar = email.c_str();
+
+    //writing the PDF to a location on the disk
+    if (!pdf.writeToFile(filename, errMsg)) {
+        cout << errMsg << endl;
+        return false;
+    }
+    else {
+        cout << "PDF File Successfully Written" << endl;
+        //edit this next line when deploying on server
+        sendDirToPHP(dirchar, emailchar);
+        cout << "Your report can be found at: <a target='_blank' href='" << dirchar << "'> " << dirchar << "</a> " <<
+        endl;
+        return true;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 int pdfcreator(vector <string> list, string email, string table) {
     cout << "PDFCreator called" << endl;
