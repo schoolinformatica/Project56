@@ -22,7 +22,11 @@ int start(string file, string email) {
         vector<EventEntity> vectorEvents = convert_to_events("nothing");
     }
     //vector<dbEntity> results = read_from_database(file, "nothing");
-
+    cout << vectorConnections.size();
+    for( ConnectionEntity connectionEntity : vectorConnections){
+        cout << connectionEntity.get_date_time() << " " << connectionEntity.get_port() << " " <<
+                connectionEntity.get_unit_id() << connectionEntity.get_value() << endl;
+    }
 //generating a PDF with the list. The email that is given is used
 //to send the PDF to the user.
     //pdfcreator(results, email);
