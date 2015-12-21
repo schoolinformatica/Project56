@@ -14,74 +14,72 @@
 using namespace std;
 using namespace pqxx;
 
-vector <dbEntity> convert_to_entity(result result, string table) {
-
-    if (equals(table, "positions")) {
-        cout << table << endl;
-        vector <dbEntity> positionsEntities;
-        for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
-            PositionEntity positionEntity;
-            positionEntity.set_date_time(c[0].as<string>());
-            positionEntity.set_unit_id(c[1].as<string>());
-            positionEntity.set_rdx(c[2].as<int>());
-            positionEntity.set_rdy(c[3].as<int>());
-            positionEntity.set_speed(c[4].as<int>());
-            positionEntity.set_course(c[5].as<int>());
-            positionEntity.set_num_satelites(c[6].as<int>());
-            positionEntity.set_hdop(c[7].as<int>());
-            positionEntity.set_quality(c[8].as<string>());
-            positionsEntities.push_back(positionEntity);
-        }
-        return positionsEntities;
-
+vector <MonitoringEntity> convert_to_monitor(result result) {
+    cout << table << endl;
+    vector <dbEntity> monitoringEntities;
+    for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
+        MonitoringEntity monitoringEntity;
+        monitoringEntity.set_unit_id(c[0].as<string>());
+        monitoringEntity.set_begin_time(c[1].as<string>());
+        monitoringEntity.set_end_time(c[2].as<string>());
+        monitoringEntity.set_type(c[3].as<string>());
+        monitoringEntity.set_min(c[4].as<float>());
+        monitoringEntity.set_max(c[5].as<float>());
+        monitoringEntity.set_sum(c[6].as<float>());
+        monitoringEntities.push_back(monitoringEntity);
     }
-    else if (equals(table, "monitoring")) {
-        cout << table << endl;
-        vector <dbEntity> monitoringEntities;
-        for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
-            MonitoringEntity monitoringEntity;
-            monitoringEntity.set_unit_id(c[0].as<string>());
-            monitoringEntity.set_begin_time(c[1].as<string>());
-            monitoringEntity.set_end_time(c[2].as<string>());
-            monitoringEntity.set_type(c[3].as<string>());
-            monitoringEntity.set_min(c[4].as<float>());
-            monitoringEntity.set_max(c[5].as<float>());
-            monitoringEntity.set_sum(c[6].as<float>());
-            monitoringEntities.push_back(monitoringEntity);
-        }
-        return monitoringEntities;
-    }
-    else if (equals(table, "connections")) {
-        cout << table << endl;
-        vector <dbEntity> connectionEntities;
-
-        for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
-            ConnectionEntity connectionEntity;
-            connectionEntity.set_date_time(c[0].as<string>());
-            connectionEntity.set_unit_id(c[1].as<string>());
-            connectionEntity.set_port(c[2].as<string>());
-            connectionEntity.set_value(c[3].as<bool>());
-            connectionEntities.push_back(connectionEntity);
-        }
-
-        return connectionEntities;
-
-    }
-    else { //EVENTS
-        cout << table << endl;
-        vector <dbEntity> eventEntities;
-        for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
-            EventEntity eventEntity;
-            eventEntity.set_date_time(c[0].as<string>());
-            eventEntity.set_unit_id(c[1].as<string>());
-            eventEntity.set_port(c[2].as<string>());
-            eventEntity.set_value(c[3].as<bool>());
-
-            eventEntities.push_back(eventEntity);
-        }
-        return eventEntities;
-    }
+    return monitoringEntities;
 }
+
+vector <MonitoringEntity> convert_to_events(result result) {
+    cout << table << endl;
+    vector <EventEntity> eventEntities;
+    for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
+        EventEntity eventEntity;
+        eventEntity.set_date_time(c[0].as<string>());
+        eventEntity.set_unit_id(c[1].as<string>());
+        eventEntity.set_port(c[2].as<string>());
+        eventEntity.set_value(c[3].as<bool>());
+
+        eventEntities.push_back(eventEntity);
+    }
+    return eventEntities;
+}
+
+vector <MonitoringEntity> convert_to_connections(result result) {
+    cout << table << endl;
+    vector <ConnectionEntity> connectionEntities;
+
+    for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
+        ConnectionEntity connectionEntity;
+        connectionEntity.set_date_time(c[0].as<string>());
+        connectionEntity.set_unit_id(c[1].as<string>());
+        connectionEntity.set_port(c[2].as<string>());
+        connectionEntity.set_value(c[3].as<bool>());
+        connectionEntities.push_back(connectionEntity);
+    }
+    return connectionEntities;
+}
+
+vector <MonitoringEntity> convert_to_positions(result result) {
+    cout << table << endl;
+    vector <PositionEntity> positionsEntities;
+    for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
+        PositionEntity positionEntity;
+        positionEntity.set_date_time(c[0].as<string>());
+        positionEntity.set_unit_id(c[1].as<string>());
+        positionEntity.set_rdx(c[2].as<int>());
+        positionEntity.set_rdy(c[3].as<int>());
+        positionEntity.set_speed(c[4].as<int>());
+        positionEntity.set_course(c[5].as<int>());
+        positionEntity.set_num_satelites(c[6].as<int>());
+        positionEntity.set_hdop(c[7].as<int>());
+        positionEntity.set_quality(c[8].as<string>());
+        positionsEntities.push_back(positionEntity);
+    }
+    return positionsEntities;
+}
+
 
 vector <dbEntity> read_from_database(string table, string where) {
     EntityManager manager;
