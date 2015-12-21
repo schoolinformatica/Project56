@@ -3,7 +3,6 @@
 
 #include "pqcon/pgsqlcon.h"
 #include "helperfunc/helperfunc.h"
-#include "dbentities/dbEntity.h"
 #include "dbentities/PositionEntity.h"
 #include "dbentities/EventEntity.h"
 #include "dbentities/ConnectionEntity.h"
