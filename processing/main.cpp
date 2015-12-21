@@ -12,14 +12,19 @@ using namespace std;
 //method start for making pdf 
 int start(string file, string email) {
     cout << "ok " << endl;
+    vector<PositionEntity> vectorPositions;
+    vector<MonitoringEntity> vectorMonitoring;
+    vector<ConnectionEntity> vectorConnections;
+    vector<EventEntity> vectorEvents;
+
     if (equals(file, "positions")) {
-        vector<PositionEntity> vectorPositions = convert_to_positions("nothing");
+         vectorPositions = convert_to_positions("nothing");
     } else if (equals(file, "monitoring")) {
-        vector<MonitoringEntity> vectorMonitoring = convert_to_monitor("nothing");
+         vectorMonitoring = convert_to_monitor("nothing");
     } else if (equals(file, "connections")) {
-        vector<ConnectionEntity> vectorConnections = convert_to_connections("nothing");
+         vectorConnections = convert_to_connections("nothing");
     } else if (equals(file, "events")) {
-        vector<EventEntity> vectorEvents = convert_to_events("nothing");
+         vectorEvents = convert_to_events("nothing");
     }
     //vector<dbEntity> results = read_from_database(file, "nothing");
     cout << vectorConnections.size();
