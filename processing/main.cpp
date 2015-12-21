@@ -13,13 +13,13 @@ using namespace std;
 int start(string file, string email) {
     cout << "ok " << endl;
     if (equals(file, "positions")) {
-        vector<PositionEntity> vectorPositions = convert_to_positions();
+        vector<PositionEntity> vectorPositions = convert_to_positions("nothing");
     } else if (equals(file, "monitoring")) {
-        vector<MonitoringEntity> vectorMonitoring = convert_to_monitor();
+        vector<MonitoringEntity> vectorMonitoring = convert_to_monitor("nothing");
     } else if (equals(file, "connections")) {
-        vector<ConnectionEntity> vectorConnections = convert_to_connections();
+        vector<ConnectionEntity> vectorConnections = convert_to_connections("nothing");
     } else if (equals(file, "events")) {
-        vector<EventEntity> vectorEvents = convert_to_events();
+        vector<EventEntity> vectorEvents = convert_to_events("nothing");
     }
     //vector<dbEntity> results = read_from_database(file, "nothing");
 
