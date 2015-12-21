@@ -25,7 +25,7 @@ int start(string file, string email) {
 
 //generating a PDF with the list. The email that is given is used
 //to send the PDF to the user.
-//pdfcreator(results, email);
+    //pdfcreator(results, email);
     cout << "Done" <<
     endl;
     return 0;
