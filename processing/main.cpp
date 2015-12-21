@@ -20,8 +20,8 @@ int start(string file, string email){
 
 //main method. 
 int main(int argc, char *argv[]) {
-	if (argv > 1) {
-		cout << "test" << endl;
+	if (argv[1] != NULL && argv[2] != NULL)
+	{
 		//creating 2 string variables for the email and file
 		string file1, email1;
 		//getting email and file from the arguments of the main method.
@@ -29,17 +29,20 @@ int main(int argc, char *argv[]) {
 		file1 = argv[1];
 
 		if (equals(file1, "positions") || equals(file1, "monitoring") || equals(file1, "connections") ||
-			equals(file1, "events")) {
+			equals(file1, "events"))
+		{
 			//calling method start
 			start(file1, email1);
 			return 0;
 		}
-		else{
+		else
+		{
 			return -1;
 		}
 	}
-	else {
-		cout << "INPUT!" << endl;
+	else
+	{
+		cout << "No input found." << endl;
 		return -1;
 	}
 
