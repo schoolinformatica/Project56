@@ -14,9 +14,11 @@
 using namespace std;
 using namespace pqxx;
 
-vector <MonitoringEntity> convert_to_monitor(result result) {
+vector<MonitoringEntity> convert_to_monitor() {
     cout << table << endl;
-    vector <dbEntity> monitoringEntities;
+    EntityManager manager;
+    result result = manager.select("monitor", where);
+    vector<MonitoringEntity> monitoringEntities;
     for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
         MonitoringEntity monitoringEntity;
         monitoringEntity.set_unit_id(c[0].as<string>());
@@ -31,9 +33,11 @@ vector <MonitoringEntity> convert_to_monitor(result result) {
     return monitoringEntities;
 }
 
-vector <MonitoringEntity> convert_to_events(result result) {
+vector<EventEntity> convert_to_events() {
     cout << table << endl;
-    vector <EventEntity> eventEntities;
+    EntityManager manager;
+    result result = manager.select("events", where);
+    vector<EventEntity> eventEntities;
     for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
         EventEntity eventEntity;
         eventEntity.set_date_time(c[0].as<string>());
@@ -46,9 +50,11 @@ vector <MonitoringEntity> convert_to_events(result result) {
     return eventEntities;
 }
 
-vector <MonitoringEntity> convert_to_connections(result result) {
+vector<ConnectionEntity> convert_to_connections() {
     cout << table << endl;
-    vector <ConnectionEntity> connectionEntities;
+    EntityManager manager;
+    result result = manager.select("connections", where);
+    vector<ConnectionEntity> connectionEntities;
 
     for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
         ConnectionEntity connectionEntity;
@@ -61,9 +67,11 @@ vector <MonitoringEntity> convert_to_connections(result result) {
     return connectionEntities;
 }
 
-vector <MonitoringEntity> convert_to_positions(result result) {
+vector<PositionEntity> convert_to_positions() {
     cout << table << endl;
-    vector <PositionEntity> positionsEntities;
+    EntityManager manager;
+    result result = manager.select("positions", where);
+    vector<PositionEntity> positionsEntities;
     for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
         PositionEntity positionEntity;
         positionEntity.set_date_time(c[0].as<string>());
@@ -78,14 +86,6 @@ vector <MonitoringEntity> convert_to_positions(result result) {
         positionsEntities.push_back(positionEntity);
     }
     return positionsEntities;
-}
-
-
-vector <dbEntity> read_from_database(string table, string where) {
-    EntityManager manager;
-    result result = manager.select(table, where);
-
-    return convert_to_entity(result, table);
 }
 
 #endif
