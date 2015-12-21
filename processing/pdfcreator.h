@@ -51,7 +51,7 @@ static double degreesToRadians(int degrees) {
 
 static bool getLines(
         const string &fileName,
-        vector <string> &lines,
+        vector<string> &lines,
         string &errMsg
 ) {
     ifstream in;
@@ -122,13 +122,13 @@ static void drawBoundedText(
 
 
 
-static void createAndFillPDF(PDF &pdf, vector <string> list, string table) {
+static void createAndFillPDF(PDF &pdf, vector<string> list, string table) {
 
     //setting up some settings for the PDF
     pdf.setLineColor(0, 5, 150);
     pdf.setFont(PDF::COURIER, 12);
 
-    vector <string> headers = get_table(table);
+    vector<string> headers = get_table(table);
 
     int sizePDF = 0;
     int horizontalPosition = 0;
@@ -150,7 +150,7 @@ static void createAndFillPDF(PDF &pdf, vector <string> list, string table) {
 
 }
 
-void FillPDFWithData(PDF &pdf){
+void FillPDFWithData(PDF &pdf) {
 
 }
 
@@ -228,8 +228,7 @@ int sendDirToPHP(const char *directory, const char *email) {
     int s, error;
     struct sockaddr_in addr;
 
-    if ((s = socket(AF_INET, SOCK_STREAM, 0)) < 0)
-    {
+    if ((s = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
         cout << "Error 01: creating socket failed!\n";
         close(s);
         return 0;
@@ -241,9 +240,8 @@ int sendDirToPHP(const char *directory, const char *email) {
     inet_aton("145.24.222.182", &addr.sin_addr);
 
     //Try to connect to socket
-    error = connect(s, (sockaddr * ) & addr, sizeof(addr));
-    if (error != 0)
-    {
+    error = connect(s, (sockaddr *) &addr, sizeof(addr));
+    if (error != 0) {
         cout << "Error 02: conecting to server failed!\n";
         close(s);
         return 0;
@@ -273,31 +271,31 @@ int sendDirToPHP(const char *directory, const char *email) {
  * Main
  **************************/
 
-void monitor_to_pdf(vector <MonitoringEntity> monitoringEntities){
-    PDF pdf;
-    pdf_writer(pdf);
-
-}
-
-void events_to_pdf(vector<EventEntity> eventEntities){
+void monitor_to_pdf(vector<MonitoringEntity> monitoringEntities) {
     PDF pdf;
 
     pdf_writer(pdf);
 }
 
-void positions_to_pdf(vector<PositionEntity> positionsEntities){
+void events_to_pdf(vector<EventEntity> eventEntities) {
     PDF pdf;
 
     pdf_writer(pdf);
 }
 
-void connections_to_pdf(vector<ConnectionEntity> connectionEntities){
+void positions_to_pdf(vector<PositionEntity> positionsEntities) {
     PDF pdf;
 
     pdf_writer(pdf);
 }
 
-bool pdf_writer(PDF *pdf){
+void connections_to_pdf(vector<ConnectionEntity> connectionEntities) {
+    PDF pdf;
+
+    pdf_writer(pdf);
+}
+
+bool pdf_writer(PDF *pdf) {
     //Create time_t object as param for Ctime, set filename to Ctime
     time_t rawtime;
     time(&rawtime);
@@ -327,66 +325,7 @@ bool pdf_writer(PDF *pdf){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-int pdfcreator(vector <string> list, string email, string table) {
+int pdfcreator(vector<string> list, string email, string table) {
     cout << "PDFCreator called" << endl;
 
     //TODO: Convert vector<string> to int, and find way to use dates on x axis
