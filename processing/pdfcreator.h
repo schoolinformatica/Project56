@@ -17,7 +17,10 @@
 #include <arpa/inet.h>
 #include <time.h>
 #include <unistd.h>
+#include "dbentities/PositionEntity.h"
+#include "dbentities/EventEntity.h"
 #include "dbentities/ConnectionEntity.h"
+#include "dbentities/MonitoringEntity.h"
 
 
 
@@ -269,6 +272,22 @@ int sendDirToPHP(const char *directory, const char *email) {
 /**************************
  * Main
  **************************/
+
+void monitor_to_pdf(vector <MonitoringEntity> monitoringEntities){
+
+}
+
+void events_to_pdf(vector<EventEntity> eventEntities){
+
+}
+
+void positions_to_pdf(vector<PositionEntity> positionsEntities){
+
+}
+
+void connections_to_pdf(vector<ConnectionEntity> connectionEntities){
+
+}
 
 int pdfcreator(vector <string> list, string email, string table) {
     cout << "PDFCreator called" << endl;
