@@ -277,7 +277,7 @@ PDF writePdfFrontPage()
     string name = getCurrentDateTime();
     name.substr(0, name.find(".pdf"));
 
-    pdf.showTextXY("CityGis Datacollection Report: ", 70, 650);
+    pdf.showTextXY("CityGis Connection-Data Report: ", 70, 650);
     pdf.showTextXY(name, 70, 600);
 
     pdf.setFont(PDF::Font(6), 12);
@@ -386,7 +386,10 @@ string getCarWithWorstConnectionUptime(vector<ConnectionEntity> connectionEntiti
         //car does exist, so just enter new value into the cars list of values
         else
         {
-            uniqueCarsAndPorts[i][connectionEntities[i].get_unit_id()].push_back(false);
+            //fid the position of that car in the vector, and update that elements map
+            int pos = find(uniqueCarsAndPorts.begin(), uniqueCarsAndPorts.end(), connectionEntities[i].get_unit_id()) - uniqueCarsAndPorts.begin();
+
+            //uniqueCarsAndPorts[i][connectionEntities[i].get_unit_id()].push_back(false);
         }
 
     }
