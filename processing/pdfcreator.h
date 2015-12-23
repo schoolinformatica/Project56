@@ -241,6 +241,50 @@ int sendDirToPHP(const char *directory, const char *email) {
     return 1;
 }
 
+/*********************************
+ * AUXILIARY METHODS
+ * *******************************
+ */
+
+string createFileName()
+{
+    //Use Current time and date, with spaces replaced by underscores as filename.
+    time_t rawtime;
+    time(&rawtime);
+
+    string filename = ctime(&rawtime);
+    filename = filename + ".pdf";
+    replace(filename.begin(), filename.end(), ' ', '_');
+    filename.erase(remove(filename.begin(), filename.end(), '\n'), filename.end());
+
+    return filename;
+}
+
+string getCurrentDateTime()
+{
+    //Use Current time and date, without spaces replaced by underscores as in filename.
+    time_t rawtime;
+    time(&rawtime);
+    string filename = ctime(&rawtime);
+
+    return filename;
+}
+
+PDF writePdfFrontPage()
+{
+    PDF pdf;
+    pdf.setFont(PDF::Font(6), 27);
+    string name = getCurrentDateTime();
+    name.substr(0, name.find(".pdf"));
+
+    pdf.showTextXY("CityGis Datacollection Report: ", 70, 650);
+    pdf.showTextXY(name, 70, 600);
+
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Provided by your friends at 'Cooperatio'!", 70, 80);
+
+    return pdf;
+}
 
 /**************************
  * Main
@@ -248,14 +292,7 @@ int sendDirToPHP(const char *directory, const char *email) {
 
 
 bool pdf_writer(PDF pdf, string email){
-    //Create time_t object as param for Ctime, set filename to Ctime
-    time_t rawtime;
-    time(&rawtime);
-    string errMsg;
-    string filename = ctime(&rawtime);
-    filename = filename + ".pdf";
-    replace(filename.begin(), filename.end(), ' ', '_');
-    filename.erase(remove(filename.begin(), filename.end(), '\n'), filename.end());
+    string filename = createFileName();
 
     //Remove underscores from filename and concat it with the server download dir
     string dir = "http://145.24.222.182:8000/downloads/" + filename;
@@ -263,19 +300,33 @@ bool pdf_writer(PDF pdf, string email){
     const char *emailchar = email.c_str();
 
     //writing the PDF to a location on the disk
-    if (!pdf.writeToFile(filename, errMsg)) {
-        cout << errMsg << endl;
+    string errMsg;
+    if (!pdf.writeToFile(filename, errMsg))
+    {
+        cout << "Error writing PDF file!" << errMsg << endl;
         return false;
     }
-    else {
+    else
+    {
         cout << "PDF File Successfully Written" << endl;
         //edit this next line when deploying on server
-        sendDirToPHP(dirchar, emailchar);
-        cout << "Your report can be found at: <a target='_blank' href='" << dirchar << "'> " << dirchar << "</a> " <<
-        endl;
-        return true;
+        if(sendDirToPHP(dirchar, emailchar) != 0)
+        {
+            cout << "Your report can be found at: <a target='_blank' href='" << dirchar << "'> " << dirchar << "</a> " << endl;
+            return true;
+        }
+        else
+        {
+            cout << "Error in sendDirToPHP() ocurred." << endl;
+            return false;
+        }
     }
 }
+
+/*********************************
+ * VARIOUS KINDS OF PDF CREATIONS
+ * *******************************
+ */
 
 
 void monitor_to_pdf(vector <MonitoringEntity> monitoringEntities){
@@ -295,22 +346,56 @@ void positions_to_pdf(vector<PositionEntity> positionsEntities){
 
 }
 
-void connections_to_pdf(vector<ConnectionEntity> connectionEntities){
-    PDF pdf;
-    //this returns 0, though it shouldnt
+/*********************************
+ * CONNECTIONS
+ * *******************************
+ */
 
+double getAverageConnectionUptime(vector<ConnectionEntity> connectionEntities)
+{
     vector<bool> allTruePortValues;
     for(ConnectionEntity c : connectionEntities)
     {
         if(c.get_value() == true)
-        allTruePortValues.push_back(c.get_value());
+            allTruePortValues.push_back(c.get_value());
     }
 
-    int averageUpTimePercentage = allTruePortValues.size()/connectionEntities.size();
-    cout << averageUpTimePercentage << endl;
-    pdf.setFont(PDF::Font(2), 10);
-    pdf.showTextXY(std::to_string(averageUpTimePercentage), 100, 100);
+    //fabs returns an absolute, non-rounded value (IE. 0.5463 instead of 0.)
+    double averageUpTimePercentage = fabs((double) allTruePortValues.size() / (double) connectionEntities.size()) * 100;
+}
 
+string getCarWithWorstConnectionUptime(vector<ConnectionEntity> connectionEntities)
+{
+    vector<map<string, bool>> uniqueCarsAndPorts;
+
+    for(int i = 0; i < connectionEntities.size(); i++)
+    {
+        if(connectionEntities[i].get_value() ==  false && uniqueCarsAndPorts[i].at(connectionEntities[i].get_unit_id()) == false)
+        {
+            map<string, bool> currentCombination;
+            currentCombination.insert(connectionEntities[i].get_unit_id(), connectionEntities[i].get_value());
+            uniqueCarsAndPorts.push_back(currentCombination);
+        }
+    }
+
+}
+
+
+void connections_to_pdf(vector<ConnectionEntity> connectionEntities)
+{
+    PDF pdf = writePdfFrontPage();
+
+    double averageUpTimePercentage = getAverageConnectionUptime(connectionEntities);
+
+    pdf.newPage();
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Connection-data: ", 70, 720);
+    pdf.drawLine(70, 710, 300, 710);
+
+    pdf.setFont(PDF::Font(7), 12);
+    pdf.showTextXY("Average connection-uptime percentage: " + std::to_string(averageUpTimePercentage) + "%.", 70, 680);
+
+    //Todo: make the emailadress variable once more
     pdf_writer(pdf, "0890289@hr.nl");
 }
 #endif
