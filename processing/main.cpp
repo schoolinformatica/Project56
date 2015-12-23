@@ -20,22 +20,22 @@ int start(string file, string email) {
     if (equals(file, "positions"))
     {
          vectorPositions = convert_to_positions("nothing");
-         positions_to_pdf(vectorPositions);
+         positions_to_pdf(vectorPositions, email);
     }
     else if (equals(file, "monitoring"))
     {
          vectorMonitoring = convert_to_monitor("nothing");
-         monitor_to_pdf(vectorMonitoring);
+         monitor_to_pdf(vectorMonitoring, email);
     }
     else if (equals(file, "connections"))
     {
          vectorConnections = convert_to_connections("nothing");
-         connections_to_pdf(vectorConnections);
+         connections_to_pdf(vectorConnections, email);
     }
     else if (equals(file, "events"))
     {
          vectorEvents = convert_to_events("nothing");
-         events_to_pdf(vectorEvents);
+         events_to_pdf(vectorEvents, email);
     }
 
     cout << "Done!" << endl;

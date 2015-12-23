@@ -329,19 +329,19 @@ bool pdf_writer(PDF pdf, string email){
  */
 
 
-void monitor_to_pdf(vector <MonitoringEntity> monitoringEntities){
+void monitor_to_pdf(vector <MonitoringEntity> monitoringEntities, string email){
     PDF pdf;
 
 
 }
 
-void events_to_pdf(vector<EventEntity> eventEntities){
+void events_to_pdf(vector<EventEntity> eventEntities, string email){
     PDF pdf;
 
 
 }
 
-void positions_to_pdf(vector<PositionEntity> positionsEntities){
+void positions_to_pdf(vector<PositionEntity> positionsEntities, string email){
     PDF pdf;
 
 }
@@ -366,22 +366,20 @@ double getAverageConnectionUptime(vector<ConnectionEntity> connectionEntities)
 
 string getCarWithWorstConnectionUptime(vector<ConnectionEntity> connectionEntities)
 {
-    vector<map<string, bool>> uniqueCarsAndPorts;
+    vector<map<string, vector<bool> > > uniqueCarsAndPorts;
 
     for(int i = 0; i < connectionEntities.size(); i++)
     {
-        if(connectionEntities[i].get_value() ==  false && uniqueCarsAndPorts[i].at(connectionEntities[i].get_unit_id()) == false)
+        if(connectionEntities[i].get_value() ==  false && )
         {
-            map<string, bool> currentCombination;
-            currentCombination.insert(connectionEntities[i].get_unit_id(), connectionEntities[i].get_value());
-            uniqueCarsAndPorts.push_back(currentCombination);
+            
         }
     }
 
 }
 
 
-void connections_to_pdf(vector<ConnectionEntity> connectionEntities)
+void connections_to_pdf(vector<ConnectionEntity> connectionEntities, string email)
 {
     PDF pdf = writePdfFrontPage();
 
@@ -395,7 +393,6 @@ void connections_to_pdf(vector<ConnectionEntity> connectionEntities)
     pdf.setFont(PDF::Font(7), 12);
     pdf.showTextXY("Average connection-uptime percentage: " + std::to_string(averageUpTimePercentage) + "%.", 70, 680);
 
-    //Todo: make the emailadress variable once more
-    pdf_writer(pdf, "0890289@hr.nl");
+    pdf_writer(pdf, email);
 }
 #endif
