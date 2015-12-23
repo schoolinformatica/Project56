@@ -367,16 +367,21 @@ double getAverageConnectionUptime(vector<ConnectionEntity> connectionEntities)
 string getCarWithWorstConnectionUptime(vector<ConnectionEntity> connectionEntities)
 {
     vector<map<string, vector<bool> > > uniqueCarsAndPorts;
-
+    cout << "0" << endl;
     for(int i = 0; i < connectionEntities.size(); i++)
     {
         //car doesnt exist yet at all, insert new map
-        if(connectionEntities[i].get_value() ==  false && uniqueCarsAndPorts[i].empty() == true)
+        if(connectionEntities[i].get_value() ==  false && uniqueCarsAndPorts.empty() == true || uniqueCarsAndPorts[i].empty() == true)
         {
+            cout << "1" << endl;
             map<string, vector<bool>> maptToBeInserted;
+            cout << "2" << endl;
             vector<bool> vectorToBeInsertedIntoMap;
+            cout << "3" << endl;
             maptToBeInserted.emplace(connectionEntities[i].get_unit_id(), vectorToBeInsertedIntoMap);
+            cout << "4" << endl;
             uniqueCarsAndPorts.push_back(maptToBeInserted);
+            cout << "5" << endl;
         }
         //car does exist, so just enter new value into the cars list of values
         else
@@ -385,6 +390,7 @@ string getCarWithWorstConnectionUptime(vector<ConnectionEntity> connectionEntiti
         }
 
     }
+    //return the worst car
 
 }
 
@@ -402,6 +408,8 @@ void connections_to_pdf(vector<ConnectionEntity> connectionEntities, string emai
 
     pdf.setFont(PDF::Font(7), 12);
     pdf.showTextXY("Average connection-uptime percentage: " + std::to_string(averageUpTimePercentage) + "%.", 70, 680);
+
+    pdf.showTextXY(getCarWithWorstConnectionUptime(connectionEntities), 70, 700);
 
     pdf_writer(pdf, email);
 }
