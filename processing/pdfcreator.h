@@ -370,10 +370,17 @@ string getCarWithWorstConnectionUptime(vector<ConnectionEntity> connectionEntiti
 
     for(int i = 0; i < connectionEntities.size(); i++)
     {
-        if(connectionEntities[i].get_value() ==  false && )
+        //car doesnt exist yet at all, insert new map
+        if(connectionEntities[i].get_value() ==  false && uniqueCarsAndPorts[i].at(connectionEntities[i].get_unit_id()) == false)
         {
-            
+            uniqueCarsAndPorts.push_back(map<connectionEntities[i].get_unit_id(), vector<bool>>);
         }
+        //car does exist, so just enter new value into the cars list of values
+        else
+        {
+            uniqueCarsAndPorts[i][connectionEntities[i].get_unit_id()].push_back(false);
+        }
+
     }
 
 }
