@@ -149,6 +149,47 @@ static void createAndFillPDF(PDF &pdf, vector<string> list, string table) {
 
 }
 
+void monitoing_show_ports_by_date(PDF &pdf) {
+    EntityManager em;
+
+    vector<EventEntity> eventsEntities = convert_to_events(em.port());
+    vector<int> ports;
+    vector<string> datums;
+
+    for (EventEntity e : eventsEntities) {
+        ports.push_back(atoi(e.get_port().c_str()));
+        datums.push_back(e.get_date_time());
+    }
+
+
+    int scale = 10;
+
+    string errMsg;
+    pdf.setFont(PDF::Font(2), 10);
+
+    for (int z = 0; z < ports.size(); z++) {
+        //first x of first dot, first y of first dot, then same for second dot.
+        pdf.setLineWidth(1);
+        //0-values are not taken, only in the values to the side of the graph below.
+        //pdf.drawLine(ports[z] + 100, z + 100, ports[z + 1] + 100, z + 1 + 100);
+        pdf.drawLine(z+100, ports[z] + 100, z + 1 + 100, ports[z + 1] + 100 );
+    }
+
+    // We draw every hundred number on the x axis
+    for (int xas = 0; xas < datums.size(); xas++) {
+        // The +95 makes sure the line isnt drawn directly in the corner of the pdf.
+        pdf.showTextXY(datums[xas * scale], datums[xas] + 95, 95);
+    }
+
+
+    for (int yas = 0; yas < ports.size(); yas++) {
+        // The +95 makes sure the line isnt drawn directly in the corner of the pdf.
+        pdf.showTextXY(std::to_string(ports[yas] * scaler), 95, ports[yas] + 95);
+
+    }
+
+}
+
 
 
 /***********************************
@@ -365,6 +406,10 @@ bool pdf_writer(PDF &pdf, string email) {
 
 void monitor_to_pdf(vector<MonitoringEntity> monitoringEntities, string email) {
     PDF pdf;
+
+    monitoing_show_ports_by_date(pdf);
+
+    
 
 
 }
