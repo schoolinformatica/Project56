@@ -54,7 +54,7 @@ vector<EventEntity> convert_to_events(string where) {
 vector<EventEntity> convert_to_events(result result1) {
     cout << "events" << endl;
     vector<EventEntity> eventEntities;
-    for (result1::const_iterator c = result1.begin(); c != result1.end(); ++c) {
+    for (result::const_iterator c = result1.begin(); c != result1.end(); ++c) {
         EventEntity eventEntity;
         eventEntity.set_date_time(c[0].as<string>());
         eventEntity.set_unit_id(c[1].as<string>());
