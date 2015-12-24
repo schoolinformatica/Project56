@@ -121,8 +121,6 @@ static void drawBoundedText(
 *************************************
 */
 
-
-
 static void createAndFillPDF(PDF &pdf, vector<string> list, string table) {
 
     //setting up some settings for the PDF
@@ -268,7 +266,6 @@ string getCurrentDateTime() {
     return filename;
 }
 
-
 void positions_to_pdf(vector<PositionEntity> positionsEntities) { }
 
 PDF writePdfFrontPage() {
@@ -319,13 +316,12 @@ bool doesVectorOfMapsContainElement(vector<map<string, vector<bool>>> theMapVect
         return false;
     }
 }
-
 /**************************
  * Main
  **************************/
 
 
-bool pdf_writer(PDF *pdf) {
+bool pdf_writer(PDF &pdf, string email) {
     //Create time_t object as param for Ctime, set filename to Ctime
     time_t rawtime;
     time(&rawtime);
@@ -389,7 +385,13 @@ void positions_to_pdf(vector<PositionEntity> positionsEntities, string email) {
  * *******************************
  */
 
-double getAverageConnectionUptime(vector<ConnectionEntity> connectionEntities) {
+vector<string> getCarsAndTheirDownTimes()
+{
+    
+}
+
+double getAverageConnectionUptime(vector<ConnectionEntity> connectionEntities)
+{
     vector<bool> allTruePortValues;
     for (ConnectionEntity c : connectionEntities) {
         if (c.get_value() == true)
@@ -479,11 +481,13 @@ void connections_to_pdf(vector<ConnectionEntity> connectionEntities, string emai
 
     pdf.showTextXY("Amount of connection failure for each car: ", 70, 700);
 
+    /*
     vector<string> carsAndTheirDowntimes = getCarsWithTheirConnectionDowntime(connectionEntities);
     int y = 700;
     for (string s : carsAndTheirDowntimes) {
         pdf.showTextXY(s, 70, y + 20);
     }
+    */
 
     pdf_writer(pdf, email);
 }
