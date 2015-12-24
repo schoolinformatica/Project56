@@ -121,8 +121,6 @@ static void drawBoundedText(
 *************************************
 */
 
-
-
 static void createAndFillPDF(PDF &pdf, vector<string> list, string table) {
 
     //setting up some settings for the PDF
@@ -270,8 +268,6 @@ string getCurrentDateTime()
     return filename;
 }
 
-
-void positions_to_pdf(vector<PositionEntity> positionsEntities) {}
 PDF writePdfFrontPage()
 {
     PDF pdf;
@@ -336,7 +332,7 @@ bool doesVectorOfMapsContainElement(vector<map<string, vector<bool>>> theMapVect
  **************************/
 
 
-bool pdf_writer(PDF *pdf) {
+bool pdf_writer(PDF &pdf, string email) {
     //Create time_t object as param for Ctime, set filename to Ctime
     time_t rawtime;
     time(&rawtime);
@@ -425,9 +421,10 @@ vector<map<string, vector<bool>>> getUniqueCars(vector<ConnectionEntity> connect
     for(int i = 0; i < connectionEntities.size(); i++)
     {
         //car doesnt exist yet at all, insert new
-        //Left hand side of check is wrong; always evaluates to true so else is always chosen.
+        //else is always chosen.
         if(connectionEntities[i].get_value() == 0 && doesVectorOfMapsContainElement(uniqueCarsAndPorts, connectionEntities[i].get_unit_id()) == false)
         {
+            cout << "if" << endl;
             map<string, vector<bool>> mapToBeInserted;
             vector<bool> vectorToBeInsertedIntoMap;
 
@@ -437,10 +434,9 @@ vector<map<string, vector<bool>>> getUniqueCars(vector<ConnectionEntity> connect
         //car does exist, so just enter new boolean value (representing the ports value in the csv) into the cars list of values
         else
         {
-            cout << "Else reached" << endl;
+            //cout << "else" << endl;
             //get the position of the already existing car and insert a new "false" at its vector of booleans.
             int carPosition = getElementPositionInVector(connectionEntities[i].get_unit_id(), uniqueCarsAndPorts);
-            //DIS ONE
             uniqueCarsAndPorts[carPosition][connectionEntities[i].get_unit_id()].push_back(false);
         }
     }
