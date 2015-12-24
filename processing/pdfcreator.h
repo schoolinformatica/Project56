@@ -178,13 +178,13 @@ void monitoing_show_ports_by_date(PDF &pdf) {
     // We draw every hundred number on the x axis
     for (int xas = 0; xas < datums.size(); xas++) {
         // The +95 makes sure the line isnt drawn directly in the corner of the pdf.
-        pdf.showTextXY(datums[xas * scale], datums[xas] + 95, 95);
+        pdf.showTextXY(datums[xas * scale], xas + 95, 95);
     }
 
 
     for (int yas = 0; yas < ports.size(); yas++) {
         // The +95 makes sure the line isnt drawn directly in the corner of the pdf.
-        pdf.showTextXY(std::to_string(ports[yas] * scaler), 95, ports[yas] + 95);
+        pdf.showTextXY(std::to_string(ports[yas] * scale), 95, yas + 95);
 
     }
 
@@ -409,7 +409,7 @@ void monitor_to_pdf(vector<MonitoringEntity> monitoringEntities, string email) {
 
     monitoing_show_ports_by_date(pdf);
 
-    
+
 
 
 }
