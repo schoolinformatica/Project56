@@ -71,7 +71,7 @@ int listener(string path) {
                     {
                         string input = path + event->name;
                         thread t1(push_list_to_database, strToLower(input));
-                        t1.join();
+                        t1.detach();
                     }
                     else
                     {
@@ -93,7 +93,7 @@ int listener(string path) {
                     {
                         string input = path + event->name;
                         thread t1(push_list_to_database, strToLower(input));
-                        t1.join();
+                        t1.detach();
                     }
                     else
                     {
@@ -115,7 +115,7 @@ int listener(string path) {
                     {
                         string input = path + event->name;
                         thread t1(push_list_to_database, strToLower(input));
-                        t1.join();
+                        t1.detach();
                     }
                     else
                     {
@@ -138,7 +138,7 @@ int listener(string path) {
                     {
                         string input = path + event->name;
                         thread t1(push_list_to_database, strToLower(input));
-                        t1.join();
+                        t1.detach();
                     }
                     else
                     {

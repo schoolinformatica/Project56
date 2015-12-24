@@ -117,52 +117,21 @@ static void drawBoundedText(
     p.drawRect(x, y - offset, width, fontSize + offset);
 }
 
-/*
-**************************************
-* CREATE AND FILL PDF WITH ALL VALUES
-*************************************
-*/
-
-static void createAndFillPDF(PDF &pdf, vector<string> list, string table) {
-
-    //setting up some settings for the PDF
-    pdf.setLineColor(0, 5, 150);
-    pdf.setFont(PDF::COURIER, 12);
-
-    //vector <string> headers = get_table(table);
-
-    int sizePDF = 0;
-    int horizontalPosition = 0;
-    for (int i = 0; i < list.size(); i++) {
-        //we create a new page if it reaches the end of the page
-        if (horizontalPosition < 2) {
-            if (sizePDF % 45 == 0 && sizePDF > 2) {
-                sizePDF = 0;
-                pdf.newPage();
-                pdf.setLineColor(0, 5, 150);
-                pdf.setFont(PDF::COURIER, 12);
-            }
-            //we show text in the pdf
-            pdf.showTextXY(list.at(i), 50 + 200 * horizontalPosition, 745 - 15 * sizePDF);
-            horizontalPosition++;
-        }
-        sizePDF++;
-    }
-
-}
+/*********************
+ * GRAPH CREATION
+ * ******************/
 
 void events_show_ports_by_date(PDF &pdf) {
     EntityManager em;
 
     vector<EventEntity> eventsEntities = convert_to_events(em.port());
     vector<int> ports;
-    vector<string> datums;
+    vector<string> dates;
 
     for (EventEntity e : eventsEntities) {
         ports.push_back(atoi(e.get_port().c_str()));
-        datums.push_back(e.get_date_time());
+        dates.push_back(e.get_date_time());
     }
-
 
     int scale = 10;
 
@@ -178,58 +147,14 @@ void events_show_ports_by_date(PDF &pdf) {
     }
 
     // We draw every hundred number on the x axis
-    for (int xas = 0; xas < datums.size(); xas++) {
+    for (int xas = 0; xas < dates.size(); xas++) {
         // The +95 makes sure the line isnt drawn directly in the corner of the pdf.
-        pdf.showTextXY(datums[xas * scale], xas + 95, 95);
+        pdf.showTextXY(dates[xas * scale], xas + 95, 95);
     }
-
 
     for (int yas = 0; yas < ports.size(); yas++) {
         // The +95 makes sure the line isnt drawn directly in the corner of the pdf.
         pdf.showTextXY(std::to_string(ports[yas] * scale), 95, yas + 95);
-
-    }
-
-}
-
-
-
-/***********************************
- * FILL PDF WITH GRAPH
- ***********************************/
-
-//pointer to pdf as param: We want an actual pdf, not a new one
-void createGraph(PDF &pdf, int scale, vector<int> y, vector<int> x) {
-    //IMPORTANT: This int determines the scale/interval at which the line graph will be drawn. Set it to a whole number.
-    int scaler;
-    if (scale > 0) {
-        scaler = scale;
-    }
-    else {
-        cout << "Scaler not set or invalid!" << endl;
-    }
-    string errMsg;
-    pdf.setFont(PDF::Font(2), 10);
-
-    for (int z = 0; z < x.size(); z++) {
-        //first x of first dot, first y of first dot, then same for second dot.
-        pdf.setLineWidth(1);
-        //0-values are not taken, only in the values to the side of the graph below.
-        pdf.drawLine(x[z] + 100, y[z] + 100, x[z + 1] + 100, y[z + 1] + 100);
-    }
-
-    // We draw every hundred number on the x axis
-    for (int xas = 0; xas < x.size(); xas++) {
-        // The +95 makes sure the line isnt drawn directly in the corner of the pdf.
-        pdf.showTextXY(std::to_string(x[xas] * scaler), x[xas] + 95, 95);
-    }
-    //We draw every hundred number on the y axis.
-    //NOTE: We add 0 manually so we can draw the line normally whilst still displaying 0. We only add it to one of the lists, else there would be 2 0's.
-    vector<int>::iterator it = y.begin();
-    y.insert(it, 0);
-    for (int yas = 0; yas < y.size(); yas++) {
-        // The +95 makes sure the line isnt drawn directly in the corner of the pdf.
-        pdf.showTextXY(std::to_string(y[yas] * scaler), 95, y[yas] + 95);
     }
 }
 
@@ -373,37 +298,23 @@ bool pdf_writer(PDF &pdf, string email) {
  * *******************************
  */
 
-
 void monitor_to_pdf(vector<MonitoringEntity> monitoringEntities, string email) {
     PDF pdf;
-
-
-
-
-
 }
 
 void events_to_pdf(vector<EventEntity> eventEntities, string email) {
     PDF pdf;
     events_show_ports_by_date(pdf);
-
-
 }
 
 void positions_to_pdf(vector<PositionEntity> positionsEntities, string email) {
     PDF pdf;
-
 }
 
 /*********************************
  * CONNECTIONS
  * *******************************
  */
-
-vector<string> getCarsAndTheirDownTimes()
-{
-    
-}
 
 double getAverageConnectionUptime(vector<ConnectionEntity> connectionEntities)
 {
@@ -432,14 +343,6 @@ void connections_to_pdf(vector<ConnectionEntity> connectionEntities, string emai
     pdf.showTextXY("Average connection-uptime percentage: " + std::to_string(averageUpTimePercentage) + "%.", 70, 680);
 
     pdf.showTextXY("Amount of connection failure for each car: ", 70, 700);
-
-    /*
-    vector<string> carsAndTheirDowntimes = getCarsWithTheirConnectionDowntime(connectionEntities);
-    int y = 700;
-    for (string s : carsAndTheirDowntimes) {
-        pdf.showTextXY(s, 70, y + 20);
-    }
-    */
 
     pdf_writer(pdf, email);
 }
