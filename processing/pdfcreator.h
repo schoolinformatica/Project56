@@ -22,7 +22,7 @@
 #include "dbentities/EventEntity.h"
 #include "dbentities/ConnectionEntity.h"
 #include "dbentities/MonitoringEntity.h"
-#include "dbentities/EventEntity.h"
+#include "dbentities/DBEntityManager.h"
 
 
 
