@@ -52,7 +52,7 @@ static double degreesToRadians(int degrees) {
 
 static bool getLines(
         const string &fileName,
-        vector <string> &lines,
+        vector<string> &lines,
         string &errMsg
 ) {
     ifstream in;
@@ -123,7 +123,7 @@ static void drawBoundedText(
 
 
 
-static void createAndFillPDF(PDF &pdf, vector <string> list, string table) {
+static void createAndFillPDF(PDF &pdf, vector<string> list, string table) {
 
     //setting up some settings for the PDF
     pdf.setLineColor(0, 5, 150);
@@ -150,6 +150,7 @@ static void createAndFillPDF(PDF &pdf, vector <string> list, string table) {
     }
 
 }
+
 
 
 /***********************************
@@ -201,8 +202,7 @@ int sendDirToPHP(const char *directory, const char *email) {
     int s, error;
     struct sockaddr_in addr;
 
-    if ((s = socket(AF_INET, SOCK_STREAM, 0)) < 0)
-    {
+    if ((s = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
         cout << "Error 01: creating socket failed!\n";
         close(s);
         return 0;
@@ -214,9 +214,8 @@ int sendDirToPHP(const char *directory, const char *email) {
     inet_aton("145.24.222.182", &addr.sin_addr);
 
     //Try to connect to socket
-    error = connect(s, (sockaddr * ) & addr, sizeof(addr));
-    if (error != 0)
-    {
+    error = connect(s, (sockaddr *) &addr, sizeof(addr));
+    if (error != 0) {
         cout << "Error 02: conecting to server failed!\n";
         close(s);
         return 0;
@@ -252,6 +251,7 @@ string createPdfFileName()
     time_t rawtime;
     time(&rawtime);
 
+
     string filename = ctime(&rawtime);
     filename = filename + ".pdf";
     replace(filename.begin(), filename.end(), ' ', '_');
@@ -270,6 +270,8 @@ string getCurrentDateTime()
     return filename;
 }
 
+
+void positions_to_pdf(vector<PositionEntity> positionsEntities) {}
 PDF writePdfFrontPage()
 {
     PDF pdf;
@@ -334,8 +336,15 @@ bool doesVectorOfMapsContainElement(vector<map<string, vector<bool>>> theMapVect
  **************************/
 
 
-bool pdf_writer(PDF pdf, string email){
-    string filename = createPdfFileName();
+bool pdf_writer(PDF *pdf) {
+    //Create time_t object as param for Ctime, set filename to Ctime
+    time_t rawtime;
+    time(&rawtime);
+    string filename = ctime(&rawtime);
+    filename = filename + ".pdf";
+    replace(filename.begin(), filename.end(), ' ', '_');
+    filename.erase(remove(filename.begin(), filename.end(), '\n'), filename.end());
+
 
     //Remove underscores from filename and concat it with the server download dir
     string dir = "http://145.24.222.182:8000/downloads/" + filename;
