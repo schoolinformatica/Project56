@@ -14,12 +14,21 @@
 #include <sys/inotify.h>
 #include <unistd.h>
 #include "dbpusher/dbpusher.h"
-
+#include <locale>
 
 #define EVENT_SIZE  ( sizeof (struct inotify_event) )
 #define BUF_LEN     ( 1024 * ( EVENT_SIZE + 16 ) )
 
 using namespace std;
+
+string strToLower(string str)
+{
+    locale loc;
+    for (string::size_type i=0; i<str.length(); ++i)
+        tolower(str[i],loc);
+    return str;
+}
+
 
 int listener(string path) {
 
@@ -61,7 +70,7 @@ int listener(string path) {
                     if (strstr(event->name, ".csv") != NULL)
                     {
                         string input = path + event->name;
-                        thread t1(push_list_to_database, tolower(input));
+                        thread t1(push_list_to_database, strToLower(input));
                         t1.join();
                     }
                     else
@@ -83,7 +92,7 @@ int listener(string path) {
                     if (strstr(event->name, ".csv") != NULL)
                     {
                         string input = path + event->name;
-                        thread t1(push_list_to_database, tolower(input));
+                        thread t1(push_list_to_database, strToLower(input));
                         t1.join();
                     }
                     else
@@ -105,7 +114,7 @@ int listener(string path) {
                     if (strstr(event->name, ".csv") != NULL)
                     {
                         string input = path + event->name;
-                        thread t1(push_list_to_database, tolower(input));
+                        thread t1(push_list_to_database, strToLower(input));
                         t1.join();
                     }
                     else
@@ -128,7 +137,7 @@ int listener(string path) {
                     if (strstr(event->name, ".csv") != NULL)
                     {
                         string input = path + event->name;
-                        thread t1(push_list_to_database, tolower(input));
+                        thread t1(push_list_to_database, strToLower(input));
                         t1.join();
                     }
                     else
