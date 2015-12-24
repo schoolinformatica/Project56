@@ -314,9 +314,19 @@ vector<string> getAllMapKeyValues(vector<map<string, vector<bool>>> theMapVector
     return resultList;
 }
 
-bool doesVectorContainElement(vector<map<string, vector<bool>>> theMapVector)
+bool doesVectorOfMapsContainElement(vector<map<string, vector<bool>>> theMapVector, string value)
 {
-    
+    vector<string> allMapKeyValues = getAllMapKeyValues(theMapVector);
+    //check if the given key is already present in a map of TheMapVector or not.
+    if(binary_search(allMapKeyValues.begin(), allMapKeyValues.end(), value) == true)
+    {
+        return true;
+    }
+    else
+    {
+        cout << "Key not present." << endl;
+        return false;
+    }
 }
 
 /**************************
@@ -392,10 +402,12 @@ double getAverageConnectionUptime(vector<ConnectionEntity> connectionEntities)
         if(c.get_value() == true)
             allTruePortValues.push_back(c.get_value());
     }
-
     //fabs returns an absolute, non-rounded value (IE. 0.5463 instead of 0.)
     double averageUpTimePercentage = fabs((double) allTruePortValues.size() / (double) connectionEntities.size()) * 100;
 }
+
+
+
 
 //Returns a vector of maps of containing no duplicate unit_ids.
 vector<map<string, vector<bool>>> getUniqueCars(vector<ConnectionEntity> connectionEntities)
@@ -403,9 +415,9 @@ vector<map<string, vector<bool>>> getUniqueCars(vector<ConnectionEntity> connect
     vector<map<string, vector<bool> > > uniqueCarsAndPorts;
     for(int i = 0; i < connectionEntities.size(); i++)
     {
-        //car doesnt exist yet at all, insert new map
-        //TODO: This check is faulty and lets double values through.
-        if(connectionEntities[i].get_value() ==  false &&)
+        //car doesnt exist yet at all, insert new
+        //Left hand side of check is wrong; always evaluates to true so else is always chosen.
+        if(connectionEntities[i].get_value() == 0 && doesVectorOfMapsContainElement(uniqueCarsAndPorts, connectionEntities[i].get_unit_id()) == false)
         {
             map<string, vector<bool>> mapToBeInserted;
             vector<bool> vectorToBeInsertedIntoMap;
@@ -416,13 +428,17 @@ vector<map<string, vector<bool>>> getUniqueCars(vector<ConnectionEntity> connect
         //car does exist, so just enter new boolean value (representing the ports value in the csv) into the cars list of values
         else
         {
+            cout << "Else reached" << endl;
             //get the position of the already existing car and insert a new "false" at its vector of booleans.
             int carPosition = getElementPositionInVector(connectionEntities[i].get_unit_id(), uniqueCarsAndPorts);
+            //DIS ONE
             uniqueCarsAndPorts[carPosition][connectionEntities[i].get_unit_id()].push_back(false);
         }
     }
     return uniqueCarsAndPorts;
 }
+
+
 
 //Returns a list of all the cars and their total downtimes, IE: "Car no.: 01345 650 times connection was lost. "
 vector<string> getCarsWithTheirConnectionDowntime(vector<ConnectionEntity> connectionEntities)
@@ -461,6 +477,9 @@ vector<string> getCarsWithTheirConnectionDowntime(vector<ConnectionEntity> conne
     }
     return resultStrings;
 }
+
+
+
 
 //Does the actual work of drawing everything connection.csv related to the pdf.
 void connections_to_pdf(vector<ConnectionEntity> connectionEntities, string email)
