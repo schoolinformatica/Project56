@@ -284,48 +284,6 @@ PDF writePdfFrontPage()
     return pdf;
 }
 
-int getElementPositionInVector(string keyValue, vector<map<string,vector<bool>>> v)
-{
-    //Loop through each map in the vector, making sure it actually contains something for the given keyvalue. Then,return that maps position in the vector!
-    for(int i = 0; i < v.size(); i++)
-    {
-        map<string, vector<bool>> currentMap = v[i];
-        if(currentMap[keyValue].empty() == false)
-        {
-            return i;
-        }
-    }
-}
-
-vector<string> getAllMapKeyValues(vector<map<string, vector<bool>>> theMapVector)
-{
-    vector<string> resultList;
-    //Loop through all maps in theMapVector
-    for(map<string, vector<bool>> m : theMapVector)
-    {
-        //push all the (unique) map keys to the resultlist
-        for(map<string,vector<bool>>::iterator it = m.begin(); it != m.end(); ++it)
-        {
-            resultList.push_back(it->first);
-        }
-    }
-    return resultList;
-}
-
-bool doesVectorOfMapsContainElement(vector<map<string, vector<bool>>> theMapVector, string value)
-{
-    vector<string> allMapKeyValues = getAllMapKeyValues(theMapVector);
-    //check if the given key is already present in a map of TheMapVector or not.
-    if(binary_search(allMapKeyValues.begin(), allMapKeyValues.end(), value) == true)
-    {
-        return true;
-    }
-    else
-    {
-        cout << "Key not present." << endl;
-        return false;
-    }
-}
 
 /**************************
  * Main
@@ -399,6 +357,11 @@ void positions_to_pdf(vector<PositionEntity> positionsEntities, string email){
  * *******************************
  */
 
+vector<string> getCarsAndTheirDownTimes()
+{
+    
+}
+
 double getAverageConnectionUptime(vector<ConnectionEntity> connectionEntities)
 {
     vector<bool> allTruePortValues;
@@ -410,80 +373,6 @@ double getAverageConnectionUptime(vector<ConnectionEntity> connectionEntities)
     //fabs returns an absolute, non-rounded value (IE. 0.5463 instead of 0.)
     double averageUpTimePercentage = fabs((double) allTruePortValues.size() / (double) connectionEntities.size()) * 100;
 }
-
-
-
-
-//Returns a vector of maps of containing no duplicate unit_ids.
-vector<map<string, vector<bool>>> getUniqueCars(vector<ConnectionEntity> connectionEntities)
-{
-    vector<map<string, vector<bool> > > uniqueCarsAndPorts;
-    for(int i = 0; i < connectionEntities.size(); i++)
-    {
-        //car doesnt exist yet at all, insert new
-        //else is always chosen.
-        if(connectionEntities[i].get_value() == 0 && doesVectorOfMapsContainElement(uniqueCarsAndPorts, connectionEntities[i].get_unit_id()) == false)
-        {
-            cout << "if" << endl;
-            map<string, vector<bool>> mapToBeInserted;
-            vector<bool> vectorToBeInsertedIntoMap;
-
-            mapToBeInserted.emplace(connectionEntities[i].get_unit_id(), vectorToBeInsertedIntoMap);
-            uniqueCarsAndPorts.push_back(mapToBeInserted);
-        }
-        //car does exist, so just enter new boolean value (representing the ports value in the csv) into the cars list of values
-        else
-        {
-            //cout << "else" << endl;
-            //get the position of the already existing car and insert a new "false" at its vector of booleans.
-            int carPosition = getElementPositionInVector(connectionEntities[i].get_unit_id(), uniqueCarsAndPorts);
-            uniqueCarsAndPorts[carPosition][connectionEntities[i].get_unit_id()].push_back(false);
-        }
-    }
-    return uniqueCarsAndPorts;
-}
-
-
-
-//Returns a list of all the cars and their total downtimes, IE: "Car no.: 01345 650 times connection was lost. "
-vector<string> getCarsWithTheirConnectionDowntime(vector<ConnectionEntity> connectionEntities)
-{
-    vector<map<string, vector<bool>>> mapsOfCars = getUniqueCars(connectionEntities);
-
-    //This (new) map is going to contain the amount of falses for each UnitId.
-    map<string, int> resultMap;
-    vector<string> allUniqueKeys = getAllMapKeyValues(mapsOfCars);
-
-    for(int j = 0; j < mapsOfCars.size(); j++)
-    {
-        map<string, vector<bool>> currentMap = mapsOfCars[j];
-        //Get the currentMap's vector of bools.
-
-        /*
-        * Todo: The problem here is that connectionEntities also contains duplicates, which the currentMap doesnt!!
-        *Fix it by getting a list of all the unique key values in map and working through those. IE:
-        *vector<string> allUniqueKeys;
-        *vector<bool> currentBoolVector = currentMap.at(allUniqueKeys[j]);
-        *Since J is the size of MapsOfCars (which only contains unique keys as well) this is possible!
-        */
-
-        vector<bool> currentBoolVector = currentMap.at(allUniqueKeys[j]);
-        //Place the vector<bool> size into the resultMap together with the parents-map unit_id.
-        resultMap.emplace(allUniqueKeys[j], currentBoolVector.size());
-    }
-
-    vector<string> resultStrings;
-    map<string, int>::iterator it;
-
-    for (it = resultMap.begin(); it != resultMap.end(); it++)
-    {
-        //push the combination of key(unitId) and value(amount of falses) into the vector!
-        resultStrings.push_back("Car no.: " + it->first + " lost connection " + to_string(it->second) + " times.");
-    }
-    return resultStrings;
-}
-
-
 
 
 //Does the actual work of drawing everything connection.csv related to the pdf.
@@ -503,12 +392,14 @@ void connections_to_pdf(vector<ConnectionEntity> connectionEntities, string emai
 
     pdf.showTextXY("Amount of connection failure for each car: ", 70, 700);
 
+    /*
     vector<string> carsAndTheirDowntimes = getCarsWithTheirConnectionDowntime(connectionEntities);
     int y = 700;
     for(string s : carsAndTheirDowntimes)
     {
         pdf.showTextXY(s, 70 , y + 20);
     }
+    */
 
     pdf_writer(pdf, email);
 }
