@@ -12,6 +12,7 @@
 #include <fstream>
 #include <complex>
 #include "pdf.cpp"
+#include "pdf.h"
 #include <sys/socket.h>
 #include <resolv.h>
 #include <arpa/inet.h>
@@ -128,7 +129,7 @@ static void createAndFillPDF(PDF &pdf, vector<string> list, string table) {
     pdf.setLineColor(0, 5, 150);
     pdf.setFont(PDF::COURIER, 12);
 
-    vector<string> headers = get_table(table);
+    //vector <string> headers = get_table(table);
 
     int sizePDF = 0;
     int horizontalPosition = 0;
@@ -150,9 +151,7 @@ static void createAndFillPDF(PDF &pdf, vector<string> list, string table) {
 
 }
 
-void FillPDFWithData(PDF &pdf) {
 
-}
 
 /***********************************
  * FILL PDF WITH GRAPH
@@ -171,50 +170,25 @@ void createGraph(PDF &pdf, int scale, vector<int> y, vector<int> x) {
     string errMsg;
     pdf.setFont(PDF::Font(2), 10);
 
-    //Als we met events/connections van doen hebben moeten we een percentage van TRUEs per dag krijgen
-    //Dit moet @fdb gebeuren
-
-    /*
-    //Sequential values for the Y part of the graph, these represent the values in our CSV.
-    vector<int> seqYVector;
-    for(int y = 0; y < y.size(); y++)
-    {
-        //we save every 100 values, including 0; 0 however do not get scaled to / scaler.
-        if(y % 100 == 0 && y != 0) {
-            seqYVector.push_back(y / scaler);
-        }
-    }
-
-    //sequential values for the X part of the graph, these represent Date/Time
-    vector<int> seqXVector;
-    for(int x = 0; x < x.size(); x++)
-    {
-        //we save every 100 values, including 0; 0 however do not get scaled to / scaler.
-        if(x % 100 == 0 && x != 0) {
-            seqXVector.push_back(x / scaler);
-        }
-    }
-    */
-
-    for (int z = 0; z < seqXVector.size(); z++) {
+    for (int z = 0; z < x.size(); z++) {
         //first x of first dot, first y of first dot, then same for second dot.
         pdf.setLineWidth(1);
         //0-values are not taken, only in the values to the side of the graph below.
-        pdf.drawLine(seqXVector[z] + 100, seqYVector[z] + 100, seqXVector[z + 1] + 100, seqYVector[z + 1] + 100);
+        pdf.drawLine(x[z] + 100, y[z] + 100, x[z + 1] + 100, y[z + 1] + 100);
     }
 
     // We draw every hundred number on the x axis
-    for (int xas = 0; xas < seqXVector.size(); xas++) {
+    for (int xas = 0; xas < x.size(); xas++) {
         // The +95 makes sure the line isnt drawn directly in the corner of the pdf.
-        pdf.showTextXY(std::to_string(seqXVector[xas] * scaler), seqXVector[xas] + 95, 95);
+        pdf.showTextXY(std::to_string(x[xas] * scaler), x[xas] + 95, 95);
     }
     //We draw every hundred number on the y axis.
     //NOTE: We add 0 manually so we can draw the line normally whilst still displaying 0. We only add it to one of the lists, else there would be 2 0's.
-    vector<int>::iterator it = seqYVector.begin();
-    seqYVector.insert(it, 0);
-    for (int yas = 0; yas < seqYVector.size(); yas++) {
+    vector<int>::iterator it = y.begin();
+    y.insert(it, 0);
+    for (int yas = 0; yas < y.size(); yas++) {
         // The +95 makes sure the line isnt drawn directly in the corner of the pdf.
-        pdf.showTextXY(std::to_string(seqYVector[yas] * scaler), 95, seqYVector[yas] + 95);
+        pdf.showTextXY(std::to_string(y[yas] * scaler), 95, y[yas] + 95);
     }
 }
 
@@ -266,46 +240,91 @@ int sendDirToPHP(const char *directory, const char *email) {
     return 1;
 }
 
+/*********************************
+ * AUXILIARY METHODS
+ * *******************************
+ */
+
+string createPdfFileName()
+{
+    //Use Current time and date, with spaces replaced by underscores as filename.
+    time_t rawtime;
+    time(&rawtime);
+
+
+    string filename = ctime(&rawtime);
+    filename = filename + ".pdf";
+    replace(filename.begin(), filename.end(), ' ', '_');
+    filename.erase(remove(filename.begin(), filename.end(), '\n'), filename.end());
+
+    return filename;
+}
+
+string getCurrentDateTime()
+{
+    //Use Current time and date, without spaces replaced by underscores as in filename.
+    time_t rawtime;
+    time(&rawtime);
+    string filename = ctime(&rawtime);
+
+    return filename;
+}
+
+
+void positions_to_pdf(vector<PositionEntity> positionsEntities) {}
+PDF writePdfFrontPage()
+{
+    PDF pdf;
+    pdf.setFont(PDF::Font(6), 27);
+    string name = getCurrentDateTime();
+    name.substr(0, name.find(".pdf"));
+
+    pdf.showTextXY("CityGis Connection-Data Report: ", 70, 650);
+    pdf.showTextXY(name, 70, 600);
+
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Provided by your friends at 'Cooperatio'!", 70, 80);
+
+    return pdf;
+}
+
+int getElementPositionInVector(string keyValue, vector<map<string,vector<bool>>> v)
+{
+    //Loop through each map in the vector, making sure it actually contains something for the given keyvalue. Then,return that maps position in the vector!
+    for(int i = 0; i < v.size(); i++)
+    {
+        map<string, vector<bool>> currentMap = v[i];
+        if(currentMap[keyValue].empty() == false)
+        {
+            return i;
+        }
+    }
+}
+
+vector<string> getAllMapKeyValues(vector<map<string, vector<bool>>> theMapVector)
+{
+    vector<string> resultList;
+    //Loop through all maps in theMapVector
+    for(map<string, vector<bool>> m : theMapVector)
+    {
+        //push all the (unique) map keys to the resultlist
+        for(map<string,vector<bool>>::iterator it = m.begin(); it != m.end(); ++it)
+        {
+            resultList.push_back(it->first);
+        }
+    }
+    return resultList;
+}
+
+bool doesVectorContainElement(vector<map<string, vector<bool>>> theMapVector)
+{
+    
+}
 
 /**************************
  * Main
  **************************/
 
-void monitor_to_pdf(vector<MonitoringEntity> monitoringEntities) {
-    PDF pdf;
-
-    pdf_writer(pdf);
-}
-
-void events_to_pdf(vector<EventEntity> eventEntities) {
-    PDF pdf;
-
-    pdf_writer(pdf);
-}
-
-void positions_to_pdf(vector<PositionEntity> positionsEntities) {
-    PDF pdf;
-
-    pdf_writer(pdf);
-}
-
-void connections_to_pdf(vector<ConnectionEntity> connectionEntities) {
-    PDF pdf;
-
-    vector<bool> allTruePortValues;
-    for(ConnectionEntity c : connectionEntities)
-    {
-        if(c.get_value() == true)
-        allTrueValues.push_back(c.get_value());
-    }
-
-    int averageUpTimePercentage = (allTrueValues.size() / connectionEntities.size()) * 100;
-
-    pdf.setFont(PDF::Font(2), 10);
-    pdf.showTextXY(averageUpTimePercentage, 100, 100);
-
-    pdf_writer(pdf);
-}
 
 bool pdf_writer(PDF *pdf) {
     //Create time_t object as param for Ctime, set filename to Ctime
@@ -316,61 +335,166 @@ bool pdf_writer(PDF *pdf) {
     replace(filename.begin(), filename.end(), ' ', '_');
     filename.erase(remove(filename.begin(), filename.end(), '\n'), filename.end());
 
+
     //Remove underscores from filename and concat it with the server download dir
     string dir = "http://145.24.222.182:8000/downloads/" + filename;
     const char *dirchar = dir.c_str();
     const char *emailchar = email.c_str();
 
     //writing the PDF to a location on the disk
-    if (!pdf.writeToFile(filename, errMsg)) {
-        cout << errMsg << endl;
+    string errMsg;
+    if (!pdf.writeToFile(filename, errMsg))
+    {
+        cout << "Error writing PDF file!" << errMsg << endl;
         return false;
     }
-    else {
+    else
+    {
         cout << "PDF File Successfully Written" << endl;
         //edit this next line when deploying on server
-        sendDirToPHP(dirchar, emailchar);
-        cout << "Your report can be found at: <a target='_blank' href='" << dirchar << "'> " << dirchar << "</a> " <<
-        endl;
-        return true;
+        if(sendDirToPHP(dirchar, emailchar) != 0)
+        {
+            cout << "Your report can be found at: <a target='_blank' href='" << dirchar << "'> " << dirchar << "</a> " << endl;
+            return true;
+        }
+        else
+        {
+            cout << "Error in sendDirToPHP() ocurred." << endl;
+            return false;
+        }
     }
 }
 
+/*********************************
+ * VARIOUS KINDS OF PDF CREATIONS
+ * *******************************
+ */
 
-int pdfcreator(vector<string> list, string email, string table) {
-    cout << "PDFCreator called" << endl;
 
-    //TODO: Convert vector<string> to int, and find way to use dates on x axis
+void monitor_to_pdf(vector <MonitoringEntity> monitoringEntities, string email){
     PDF pdf;
-    //createGraph(pdf, list, );
 
-    string errMsg;
 
-    //Create time_t object as param for Ctime, set filename to Ctime
-    time_t rawtime;
-    time(&rawtime);
-    string filename = ctime(&rawtime);
-    filename = filename + ".pdf";
-    replace(filename.begin(), filename.end(), ' ', '_');
-    filename.erase(remove(filename.begin(), filename.end(), '\n'), filename.end());
-
-    //Remove underscores from filename and concat it with the server download dir
-    string dir = "http://145.24.222.182:8000/downloads/" + filename;
-    const char *dirchar = dir.c_str();
-    const char *emailchar = email.c_str();
-
-    //writing the PDF to a location on the disk
-    if (!pdf.writeToFile(filename, errMsg)) {
-        cout << errMsg << endl;
-    }
-    else {
-        cout << "PDF File Successfully Written" << endl;
-        //edit this next line when deploying on server
-        sendDirToPHP(dirchar, emailchar);
-        cout << "Your report can be found at: <a target='_blank' href='" << dirchar << "'> " << dirchar << "</a> " <<
-        endl;
-    }
-    return 1;
 }
 
+void events_to_pdf(vector<EventEntity> eventEntities, string email){
+    PDF pdf;
+
+
+}
+
+void positions_to_pdf(vector<PositionEntity> positionsEntities, string email){
+    PDF pdf;
+
+}
+
+/*********************************
+ * CONNECTIONS
+ * *******************************
+ */
+
+double getAverageConnectionUptime(vector<ConnectionEntity> connectionEntities)
+{
+    vector<bool> allTruePortValues;
+    for(ConnectionEntity c : connectionEntities)
+    {
+        if(c.get_value() == true)
+            allTruePortValues.push_back(c.get_value());
+    }
+
+    //fabs returns an absolute, non-rounded value (IE. 0.5463 instead of 0.)
+    double averageUpTimePercentage = fabs((double) allTruePortValues.size() / (double) connectionEntities.size()) * 100;
+}
+
+//Returns a vector of maps of containing no duplicate unit_ids.
+vector<map<string, vector<bool>>> getUniqueCars(vector<ConnectionEntity> connectionEntities)
+{
+    vector<map<string, vector<bool> > > uniqueCarsAndPorts;
+    for(int i = 0; i < connectionEntities.size(); i++)
+    {
+        //car doesnt exist yet at all, insert new map
+        //TODO: This check is faulty and lets double values through.
+        if(connectionEntities[i].get_value() ==  false &&)
+        {
+            map<string, vector<bool>> mapToBeInserted;
+            vector<bool> vectorToBeInsertedIntoMap;
+
+            mapToBeInserted.emplace(connectionEntities[i].get_unit_id(), vectorToBeInsertedIntoMap);
+            uniqueCarsAndPorts.push_back(mapToBeInserted);
+        }
+        //car does exist, so just enter new boolean value (representing the ports value in the csv) into the cars list of values
+        else
+        {
+            //get the position of the already existing car and insert a new "false" at its vector of booleans.
+            int carPosition = getElementPositionInVector(connectionEntities[i].get_unit_id(), uniqueCarsAndPorts);
+            uniqueCarsAndPorts[carPosition][connectionEntities[i].get_unit_id()].push_back(false);
+        }
+    }
+    return uniqueCarsAndPorts;
+}
+
+//Returns a list of all the cars and their total downtimes, IE: "Car no.: 01345 650 times connection was lost. "
+vector<string> getCarsWithTheirConnectionDowntime(vector<ConnectionEntity> connectionEntities)
+{
+    vector<map<string, vector<bool>>> mapsOfCars = getUniqueCars(connectionEntities);
+
+    //This (new) map is going to contain the amount of falses for each UnitId.
+    map<string, int> resultMap;
+    vector<string> allUniqueKeys = getAllMapKeyValues(mapsOfCars);
+
+    for(int j = 0; j < mapsOfCars.size(); j++)
+    {
+        map<string, vector<bool>> currentMap = mapsOfCars[j];
+        //Get the currentMap's vector of bools.
+
+        /*
+        * Todo: The problem here is that connectionEntities also contains duplicates, which the currentMap doesnt!!
+        *Fix it by getting a list of all the unique key values in map and working through those. IE:
+        *vector<string> allUniqueKeys;
+        *vector<bool> currentBoolVector = currentMap.at(allUniqueKeys[j]);
+        *Since J is the size of MapsOfCars (which only contains unique keys as well) this is possible!
+        */
+
+        vector<bool> currentBoolVector = currentMap.at(allUniqueKeys[j]);
+        //Place the vector<bool> size into the resultMap together with the parents-map unit_id.
+        resultMap.emplace(allUniqueKeys[j], currentBoolVector.size());
+    }
+
+    vector<string> resultStrings;
+    map<string, int>::iterator it;
+
+    for (it = resultMap.begin(); it != resultMap.end(); it++)
+    {
+        //push the combination of key(unitId) and value(amount of falses) into the vector!
+        resultStrings.push_back("Car no.: " + it->first + " lost connection " + to_string(it->second) + " times.");
+    }
+    return resultStrings;
+}
+
+//Does the actual work of drawing everything connection.csv related to the pdf.
+void connections_to_pdf(vector<ConnectionEntity> connectionEntities, string email)
+{
+    PDF pdf = writePdfFrontPage();
+
+    double averageUpTimePercentage = getAverageConnectionUptime(connectionEntities);
+
+    pdf.newPage();
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Connection-data: ", 70, 720);
+    pdf.drawLine(70, 710, 300, 710);
+
+    pdf.setFont(PDF::Font(7), 12);
+    pdf.showTextXY("Average connection-uptime percentage: " + std::to_string(averageUpTimePercentage) + "%.", 70, 680);
+
+    pdf.showTextXY("Amount of connection failure for each car: ", 70, 700);
+
+    vector<string> carsAndTheirDowntimes = getCarsWithTheirConnectionDowntime(connectionEntities);
+    int y = 700;
+    for(string s : carsAndTheirDowntimes)
+    {
+        pdf.showTextXY(s, 70 , y + 20);
+    }
+
+    pdf_writer(pdf, email);
+}
 #endif
