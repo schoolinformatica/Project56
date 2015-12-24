@@ -15,9 +15,19 @@ using namespace std;
 
 class EntityManager {
 public:
+    result port();
     result select(string table,  string where);
 };
 
+result EntityManager::port() {
+    ostringstream os;
+    os << "SELECT * FROM events WHERE Port = 'Ignition'";
+
+    string query = os.str();
+    cout << query << endl;
+    Pgsqlcon pgsqlcon;
+    return pgsqlcon.exec_none_transaction(query);
+}
 result EntityManager::select(string table, string where) {
     ostringstream os;
 

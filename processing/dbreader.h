@@ -49,6 +49,21 @@ vector<EventEntity> convert_to_events(string where) {
     return eventEntities;
 }
 
+vector<EventEntity> convert_to_events(result result1){
+    cout << "events" << endl;
+    vector<EventEntity> eventEntities;
+    for (result1::const_iterator c = result1.begin(); c != result1.end(); ++c) {
+        EventEntity eventEntity;
+        eventEntity.set_date_time(c[0].as<string>());
+        eventEntity.set_unit_id(c[1].as<string>());
+        eventEntity.set_port(c[2].as<string>());
+        eventEntity.set_value(c[3].as<bool>());
+
+        eventEntities.push_back(eventEntity);
+    }
+    return eventEntities;
+}
+
 vector<ConnectionEntity> convert_to_connections(string where) {
     cout << "connections" << endl;
     EntityManager manager;
