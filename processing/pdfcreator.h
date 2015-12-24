@@ -151,7 +151,7 @@ static void createAndFillPDF(PDF &pdf, vector<string> list, string table) {
 
 }
 
-void monitoing_show_ports_by_date(PDF &pdf) {
+void events_show_ports_by_date(PDF &pdf) {
     EntityManager em;
 
     vector<EventEntity> eventsEntities = convert_to_events(em.port());
@@ -409,7 +409,6 @@ bool pdf_writer(PDF &pdf, string email) {
 void monitor_to_pdf(vector<MonitoringEntity> monitoringEntities, string email) {
     PDF pdf;
 
-    monitoing_show_ports_by_date(pdf);
 
 
 
@@ -418,6 +417,7 @@ void monitor_to_pdf(vector<MonitoringEntity> monitoringEntities, string email) {
 
 void events_to_pdf(vector<EventEntity> eventEntities, string email) {
     PDF pdf;
+    events_show_ports_by_date(pdf);
 
 
 }

@@ -18,7 +18,7 @@ using namespace pqxx;
 vector<MonitoringEntity> convert_to_monitor(string where) {
     cout << "monitor" << endl;
     EntityManager manager;
-    result result = manager.select("monitor", where);
+    result result = manager.select("monitoring", where);
     vector<MonitoringEntity> monitoringEntities;
     for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
         MonitoringEntity monitoringEntity;
