@@ -9,6 +9,8 @@
 #include "dbentities/MonitoringEntity.h"
 #include "dbentities/DBEntityManager.h"
 #include "pqxx/pqxx"
+#include "pdf.h"
+#include "pdfcreator.h"
 
 using namespace std;
 using namespace pqxx;
@@ -48,6 +50,62 @@ vector<EventEntity> convert_to_events(string where) {
     }
     return eventEntities;
 }
+
+vector<EventEntity> convert_to_events(result result1) {
+    cout << "events" << endl;
+    vector<EventEntity> eventEntities;
+    for (result1::const_iterator c = result1.begin(); c != result1.end(); ++c) {
+        EventEntity eventEntity;
+        eventEntity.set_date_time(c[0].as<string>());
+        eventEntity.set_unit_id(c[1].as<string>());
+        eventEntity.set_port(c[2].as<string>());
+        eventEntity.set_value(c[3].as<bool>());
+
+        eventEntities.push_back(eventEntity);
+    }
+    return eventEntities;
+}
+
+void x(PDF &pdf) {
+    EntityManager em;
+    vector<EventEntity> eventsEntities = convert_to_events(em.port());
+    vector<int> ports;
+    vector<string> datums;
+
+    for (EventEntity e : eventsEntities) {
+        ports.push_back(atoi(e.get_port().c_str()));
+        datums.push_back(e.get_date_time());
+    }
+
+
+    int scale = 10;
+
+    string errMsg;
+    pdf.setFont(PDF::Font(2), 10);
+
+    for (int z = 0; z < ports.size(); z++) {
+        //first x of first dot, first y of first dot, then same for second dot.
+        pdf.setLineWidth(1);
+        //0-values are not taken, only in the values to the side of the graph below.
+        //pdf.drawLine(ports[z] + 100, z + 100, ports[z + 1] + 100, z + 1 + 100);
+        pdf.drawLine(z+100, ports[z] + 100, z + 1 + 100, ports[z + 1] + 100 );
+    }
+
+    // We draw every hundred number on the x axis
+    for (int xas = 0; xas < datums.size(); xas++) {
+        // The +95 makes sure the line isnt drawn directly in the corner of the pdf.
+        pdf.showTextXY(datums[xas * scale], datums[xas] + 95, 95);
+    }
+
+
+    for (int yas = 0; yas < ports.size(); yas++) {
+        // The +95 makes sure the line isnt drawn directly in the corner of the pdf.
+        pdf.showTextXY(std::to_string(ports[yas] * scaler), 95, ports[yas] + 95);
+
+    }
+
+}
+
 
 vector<ConnectionEntity> convert_to_connections(string where) {
     cout << "connections" << endl;
