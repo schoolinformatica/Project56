@@ -23,6 +23,7 @@
 #include "dbentities/ConnectionEntity.h"
 #include "dbentities/MonitoringEntity.h"
 #include "dbentities/DBEntityManager.h"
+#include "dbreader.h"
 
 
 
