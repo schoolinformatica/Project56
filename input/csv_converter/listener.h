@@ -71,8 +71,9 @@ int listener(string path) {
 
                     if (strstr(event->name, ".csv") != NULL)
                     {
-                        string input = path + event->name;
-                        thread t1(push_list_to_database, strToLower(input));
+                        string goodEventName = strToLower(event->name);
+                        string input = path + goodEventName;
+                        thread t1(push_list_to_database, input);
                         t1.detach();
                     }
                     else
@@ -94,8 +95,9 @@ int listener(string path) {
 
                     if (strstr(event->name, ".csv") != NULL)
                     {
-                        string input = path + event->name;
-                        thread t1(push_list_to_database, strToLower(input));
+                        string goodEventName = strToLower(event->name);
+                        string input = path + goodEventName;
+                        thread t1(push_list_to_database, input);
                         t1.detach();
                     }
                     else
@@ -117,8 +119,9 @@ int listener(string path) {
 
                     if (strstr(event->name, ".csv") != NULL)
                     {
-                        string input = path + event->name;
-                        thread t1(push_list_to_database, strToLower(input));
+                        string goodEventName = strToLower(event->name);
+                        string input = path + goodEventName;
+                        thread t1(push_list_to_database, input);
                         t1.detach();
                     }
                     else
@@ -140,8 +143,9 @@ int listener(string path) {
 
                     if (strstr(event->name, ".csv") != NULL)
                     {
-                        string input = path + event->name;
-                        thread t1(push_list_to_database, strToLower(input));
+                        string goodEventName = strToLower(event->name);
+                        string input = path + goodEventName;
+                        thread t1(push_list_to_database, input);
                         t1.detach();
                     }
                     else
