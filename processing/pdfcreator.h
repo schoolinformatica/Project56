@@ -260,15 +260,17 @@ void events_show_ports_by_date(string email) {
     string errMsg;
     pdf.setFont(PDF::Font(2), 10);
 
-    pdf.showTextXY("Amount of ignitions for each car: ", 100, 100);
-    
+    /*
+     * Segmentation fault caused by Z+1 and xas*scale: They both reference
+     * to indexes that do not yet exist.
+     */
+
     for (int z = 0; z < ports.size(); z++) {
         //first x of first dot, first y of first dot, then same for second dot.
         pdf.setLineWidth(1);
         //0-values are not taken, only in the values to the side of the graph below.
         //pdf.drawLine(ports[z] + 100, z + 100, ports[z + 1] + 100, z + 1 + 100);
         pdf.drawLine(z+100, ports[z] + 100, z + 1 + 100, ports[z + 1] + 100 );
-
     }
 
     // We draw every hundred number on the x axis
@@ -279,7 +281,8 @@ void events_show_ports_by_date(string email) {
 
     for (int yas = 0; yas < ports.size(); yas++) {
         // The +95 makes sure the line isnt drawn directly in the corner of the pdf.
-        pdf.showTextXY(std::to_string(ports[yas] * scale), 95, yas + 95);
+        //pdf.showTextXY(std::to_string(ports[yas] * scale), 95, yas + 95);
+        pdf.showTextXY("derp", 95, yas + 95);
     }
 
     pdf_writer(pdf, email);
