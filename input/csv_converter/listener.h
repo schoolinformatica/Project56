@@ -55,8 +55,10 @@ int listener(string path) {
     while (i < length)
     {
         struct inotify_event *event = (struct inotify_event *) &buffer[i];
+
         if (event->len)
         {
+
             if (event->mask & IN_CREATE)
             {
                 if (event->mask & IN_ISDIR)
@@ -79,6 +81,7 @@ int listener(string path) {
                     }
                 }
             }
+
             else if (event->mask & IN_MODIFY)
             {
                 if (event->mask & IN_ISDIR)
@@ -101,6 +104,7 @@ int listener(string path) {
                     }
                 }
             }
+
             else if (event->mask & IN_MOVE)
             {
                 if (event->mask & IN_ISDIR)
@@ -147,6 +151,7 @@ int listener(string path) {
                 }
 
             }
+
         }
         i += EVENT_SIZE + event->len;
     }
