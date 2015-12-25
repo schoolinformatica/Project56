@@ -21,6 +21,7 @@ public:
 
 result EntityManager::port() {
     ostringstream os;
+    //Remember to wrap the column you are referencing in single quotes!
     os << "SELECT * FROM events WHERE 'Port' = 'Ignition'";
 
     string query = os.str();
