@@ -239,14 +239,13 @@ void positions_to_pdf(vector<PositionEntity> positionsEntities, string email) {
  */
 
 void events_show_ports_by_date(string email) {
-
     //IMPORTANT: Create the front page first!:)
     PDF pdf = writePdfFrontPage("Events");
     pdf.newPage();
 
     EntityManager em;
 
-    vector<EventEntity> eventsEntities = convert_to_events(em.port());
+    vector<EventEntity> eventsEntities = convert_to_events(em.getAllWithIgnitedPort());
     vector<int> ports;
     vector<string> dates;
 
@@ -261,18 +260,24 @@ void events_show_ports_by_date(string email) {
     pdf.setFont(PDF::Font(2), 10);
 
     /*
-     * Segmentation fault caused by Z+1 and xas*scale: They both reference
-     * to indexes that do not yet exist.
-     */
+    * Segmentation fault caused by Z+1 and xas*scale: They both reference
+    * to indexes that do not yet exist.
+    * Todo: Draw X and Y points and their values: 3 for-loops in total.
+     *
+     *
+     * val        X
+     * val   X
+     * val   X
+     * val X
+     * date date date date
+    */
 
     for (int z = 0; z < ports.size(); z++) {
         //first x of first dot, first y of first dot, then same for second dot.
         pdf.setLineWidth(1);
-        //0-values are not taken, only in the values to the side of the graph below.
-        //pdf.drawLine(ports[z] + 100, z + 100, ports[z + 1] + 100, z + 1 + 100);
         pdf.drawLine(z+100, ports[z] + 100, z + 1 + 100, ports[z + 1] + 100 );
     }
-
+/*
     // We draw every hundred number on the x axis
     for (int xas = 0; xas < dates.size(); xas++) {
         // The +95 makes sure the line isnt drawn directly in the corner of the pdf.
@@ -284,7 +289,7 @@ void events_show_ports_by_date(string email) {
         //pdf.showTextXY(std::to_string(ports[yas] * scale), 95, yas + 95);
         pdf.showTextXY("derp", 95, yas + 95);
     }
-
+*/
     pdf_writer(pdf, email);
 }
 
@@ -313,6 +318,21 @@ double getAverageConnectionUptime(vector<ConnectionEntity> connectionEntities)
 }
 
 
+vector<string> getCarsAndConnectionDowntimes()
+{
+    EntityManager em;
+    vector<ConnectionEntity> connectionEntities = convert_to_connections(em.getAllWithIgnitedPort());
+    vector<string> carsAndDownTimes;
+
+    for(ConnectionEntity c : connectionEntities)
+    {
+        carsAndDownTimes.push_back(c.get_unit_id(), c.get_value());
+    }
+    return carsAndDownTimes;
+}
+
+
+
 //Does the actual work of drawing everything connection.csv related to the pdf.
 void connections_to_pdf(vector<ConnectionEntity> connectionEntities, string email) {
     PDF pdf = writePdfFrontPage("Connections");
@@ -327,8 +347,12 @@ void connections_to_pdf(vector<ConnectionEntity> connectionEntities, string emai
     pdf.setFont(PDF::Font(7), 12);
     pdf.showTextXY("Average connection-uptime percentage: " + std::to_string(averageUpTimePercentage) + "%.", 70, 680);
 
-    //Todo
+    //DOING
     pdf.showTextXY("Amount of connection failure for each car: ", 70, 700);
+    for(int i = 0)
+
+
+    //Todo: Worst car
 
     pdf_writer(pdf, email);
 }

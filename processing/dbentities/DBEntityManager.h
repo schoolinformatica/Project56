@@ -15,11 +15,16 @@ using namespace std;
 
 class EntityManager {
 public:
-    result port();
+    result getAllWithIgnitedPort();
     result select(string table,  string where);
 };
 
-result EntityManager::port() {
+/**************************
+ * SPECIAL DIRECT QUERIES
+ **************************
+ */
+
+result EntityManager::getAllWithIgnitedPort() {
     ostringstream os;
     //Remember to wrap the column you are referencing in double escaped quotes!
     os << "SELECT * FROM events WHERE \"Port\" = 'Ignition'";
@@ -29,6 +34,25 @@ result EntityManager::port() {
     Pgsqlcon pgsqlcon;
     return pgsqlcon.exec_none_transaction(query);
 }
+
+result EntityManager::getConnectionFailuresPerCar()
+{
+    ostringstream os;
+    //Remember to wrap the column you are referencing in double escaped quotes!
+    os << "SELECT DISTINCT \"UnitId\", COUNT(\"Value\")
+    << "FROM connections"
+    << "GROUP BY \"UnitId\";";
+
+    string query = os.str();
+    cout << query << endl;
+    Pgsqlcon pgsqlcon;
+    return pgsqlcon.exec_none_transaction(query);
+}
+
+/**************************
+ * STANDARD QUERIES
+ **************************
+ */
 
 result EntityManager::select(string table, string where) {
     ostringstream os;

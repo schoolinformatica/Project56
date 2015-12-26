@@ -15,7 +15,7 @@ private:
     string date_time; // Time stamp
     string unit_id; // ID of the vehicle
     string port; // Port type
-    int value; // Value of port type
+    int value; // Value of getAllWithIgnitedPort type
 
 public:
 
