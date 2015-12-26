@@ -15,7 +15,8 @@ private:
     string date_time; // Time stamp
     string unit_id; // ID of the vehicle
     string port; // Port type
-    int value; // Value of getAllWithIgnitedPort type
+    bool value; // Value of port type
+    int countOfValue; //Holder for the result of COUNT(Value).
 
 public:
 
@@ -31,6 +32,8 @@ public:
 
     void set_value(bool);
 
+    void set_countOfValue(int);
+
     // Getters
     string get_date_time();
 
@@ -39,6 +42,9 @@ public:
     string get_port();
 
     bool get_value();
+
+    int get_countOfValue();
+
 };
 
 // Database management functions
@@ -66,6 +72,8 @@ void ConnectionEntity::set_port(string Port) { port = Port; }
 
 void ConnectionEntity::set_value(bool Value) { value = Value; }
 
+void ConnectionEntity::set_countOfValue(int countValue) { countOfValue = countValue; }
+
 // Getters
 string ConnectionEntity::get_date_time() { return date_time; }
 
@@ -75,4 +83,5 @@ string ConnectionEntity::get_port() { return port; }
 
 bool ConnectionEntity::get_value() { return value; }
 
+int ConnectionEntity::get_countOfValue() { return countOfValue; }
 #endif //INPUT_PROCESS_CONNECTIONENTITY_H

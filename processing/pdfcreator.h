@@ -18,6 +18,7 @@
 #include <arpa/inet.h>
 #include <time.h>
 #include <unistd.h>
+#include <utility>
 #include "dbentities/PositionEntity.h"
 #include "dbentities/EventEntity.h"
 #include "dbentities/ConnectionEntity.h"
@@ -245,7 +246,7 @@ void events_show_ports_by_date(string email) {
 
     EntityManager em;
 
-    vector<EventEntity> eventsEntities = convert_to_events(em.getAllWithIgnitedPort());
+    vector<EventEntity> eventsEntities = convert_to_events(em.port());
     vector<int> ports;
     vector<string> dates;
 
@@ -305,30 +306,68 @@ void events_to_pdf(vector<EventEntity> eventEntities, string email) {
  * *******************************
  */
 
-double getAverageConnectionUptime(vector<ConnectionEntity> connectionEntities)
+//Average loss and gain of connection in percentage
+pair<double, double> getAverageConnectionTimes(vector<ConnectionEntity> connectionEntities)
 {
     vector<bool> allTruePortValues;
+    vector<bool> allFalsePortValues;
+
     for (ConnectionEntity c : connectionEntities) {
         if (c.get_value() == true)
             allTruePortValues.push_back(c.get_value());
+        else
+            allFalsePortValues.push_back(c.get_value());
     }
     //fabs returns an absolute, non-rounded value (IE. 0.5463 instead of 0.)
     double averageUpTimePercentage = fabs((double) allTruePortValues.size() / (double) connectionEntities.size()) * 100;
-    cout << averageUpTimePercentage << " is the average uptime. " << endl;
+    double averageDownTimePercentage = fabs((double) allFalsePortValues.size() / (double) connectionEntities.size()) * 100;
+
+    return make_pair(averageUpTimePercentage, averageDownTimePercentage);
 }
 
-
+//All downtimes for each car
 vector<string> getCarsAndConnectionDowntimes()
 {
     EntityManager em;
-    vector<ConnectionEntity> connectionEntities = convert_to_connections(em.getAllWithIgnitedPort());
+    //Note! We do not use the standard converting method, because our query does not return all columns!
+    vector<ConnectionEntity> connectionEntities = convert_to_connectionsLite(em.getConnectionFailuresPerCar());
     vector<string> carsAndDownTimes;
 
     for(ConnectionEntity c : connectionEntities)
     {
-        carsAndDownTimes.push_back(c.get_unit_id(), c.get_value());
+        //We get the Distinct unitIds and the amount of 0 values for each unitID. (see dbreader.h and EntityManager.h for more details)
+        carsAndDownTimes.push_back("Car no. : " + c.get_unit_id() + " has lost connection " + to_string(c.get_countOfValue()) + " times.");
     }
     return carsAndDownTimes;
+}
+
+//Car with biggest connection loss number
+string getCarWithBestOrWorstConnectionLoss(bool searchForWorst)
+{
+    EntityManager em;
+    //Note! We do not use the standard converting method, because our query does not return all columns!
+    vector<ConnectionEntity> connectionEntities = convert_to_connectionsLite(em.getConnectionFailuresPerCar());
+
+    vector<string> carsAndDownTimes;
+    vector<int> valuesOnly;
+
+    for(ConnectionEntity c : connectionEntities)
+    {
+        //We get the Distinct unitIds and the amount of 0 values for each unitID. (see dbreader.h and EntityManager.h for more details)
+        carsAndDownTimes.push_back("Car no. : " + c.get_unit_id() + " has lost connection " + to_string(c.get_countOfValue()) + " times.");
+        valuesOnly.push_back(c.get_countOfValue());
+    }
+
+    int index;
+    //Return the index in valuesOnly (which has the same length as carsAndDownTimes so it can be used directly)
+    //For the biggest or smallest value.
+    if(searchForWorst == true)
+        //Measure the distance between the beginning of the array and the location of the biggest or smallest element.
+        index = distance(valuesOnly.begin(), max_element(valuesOnly.begin(), valuesOnly.end()));
+    else
+        index = distance(valuesOnly.begin(), min_element(valuesOnly.begin(), valuesOnly.end()));
+
+    return carsAndDownTimes[index];
 }
 
 
@@ -337,23 +376,57 @@ vector<string> getCarsAndConnectionDowntimes()
 void connections_to_pdf(vector<ConnectionEntity> connectionEntities, string email) {
     PDF pdf = writePdfFrontPage("Connections");
 
-    double averageUpTimePercentage = getAverageConnectionUptime(connectionEntities);
+    pair<double, double> TimePercentages = getAverageConnectionTimes(connectionEntities);
 
     pdf.newPage();
     pdf.setFont(PDF::Font(6), 12);
-    pdf.showTextXY("Connection-data: ", 70, 720);
+    pdf.showTextXY("Averages: ", 70, 720);
     pdf.drawLine(70, 710, 300, 710);
 
-    pdf.setFont(PDF::Font(7), 12);
-    pdf.showTextXY("Average connection-uptime percentage: " + std::to_string(averageUpTimePercentage) + "%.", 70, 680);
+    //Uptime averages
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Average connection-uptime percentage: " , 70, 690);
+    pdf.setFont(PDF::Font(5), 12);
+    pdf.showTextXY(std::to_string(get<0>(TimePercentages)) + "%.", 70, 670);
 
-    //DOING
-    pdf.showTextXY("Amount of connection failure for each car: ", 70, 700);
-    for(int i = 0)
+    //Downtime averages
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Average connection-downtime percentage: " , 70, 650);
+    pdf.setFont(PDF::Font(5), 12);
+    pdf.showTextXY(std::to_string(get<1>(TimePercentages)) + "%.", 70, 630);
 
+
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Car performances: ", 70, 600);
+    pdf.drawLine(70, 590, 300, 590);
+
+
+    //Worst car
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Car with most loss of connection: ", 70, 575);
+    pdf.setFont(PDF::Font(5), 12);
+    pdf.showTextXY(getCarWithBestOrWorstConnectionLoss(true), 70 ,560);
+
+    //Best car
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Car with smallest loss of connection: ", 70, 545);
+    pdf.setFont(PDF::Font(5), 12);
+    pdf.showTextXY(getCarWithBestOrWorstConnectionLoss(false), 70 ,530);
+
+
+    //List of cars and failures
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Amount of connection failures for each car: ", 70, 510);
+    pdf.setFont(PDF::Font(5), 12);
+    vector<string> carsAndDowns = getCarsAndConnectionDowntimes();
+    int YCounter = 510;
+    for(int i = 0; i < carsAndDowns.size(); i++)
+    {
+        YCounter -= 15;
+        pdf.showTextXY(carsAndDowns[i], 70, YCounter);
+    }
 
     //Todo: Worst car
-
     pdf_writer(pdf, email);
 }
 

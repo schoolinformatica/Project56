@@ -15,7 +15,7 @@ using namespace pqxx;
 static map<string, string> credentials = read_config_file();
 static string connection_string = "dbname=" + credentials[DATABASE] + " user=" + credentials[USER] +
                                   " password=" + credentials[PASSWORD] + " hostaddr=" + credentials[HOST] +
-                                  " getAllWithIgnitedPort=" + credentials[PORT];
+                                  " port=" + credentials[PORT];
 
 /*
  * Class Pgsqlcon

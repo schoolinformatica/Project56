@@ -15,7 +15,8 @@ using namespace std;
 
 class EntityManager {
 public:
-    result getAllWithIgnitedPort();
+    result port();
+    result getConnectionFailuresPerCar();
     result select(string table,  string where);
 };
 
@@ -24,7 +25,7 @@ public:
  **************************
  */
 
-result EntityManager::getAllWithIgnitedPort() {
+result EntityManager::port() {
     ostringstream os;
     //Remember to wrap the column you are referencing in double escaped quotes!
     os << "SELECT * FROM events WHERE \"Port\" = 'Ignition'";
@@ -39,9 +40,10 @@ result EntityManager::getConnectionFailuresPerCar()
 {
     ostringstream os;
     //Remember to wrap the column you are referencing in double escaped quotes!
-    os << "SELECT DISTINCT \"UnitId\", COUNT(\"Value\")
-    << "FROM connections"
-    << "GROUP BY \"UnitId\";";
+    os << "SELECT DISTINCT \"UnitId\", COUNT(\"Value\")"
+    << " FROM connections"
+    << " WHERE \"Value\" = 0"
+    << " GROUP BY \"UnitId\";";
 
     string query = os.str();
     cout << query << endl;

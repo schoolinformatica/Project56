@@ -34,6 +34,10 @@ vector<MonitoringEntity> convert_to_monitor(string where) {
     return monitoringEntities;
 }
 
+/*********************
+ * EVENTS
+ *********************/
+
 vector<EventEntity> convert_to_events(string where) {
     cout << "events" << endl;
     EntityManager manager;
@@ -66,8 +70,39 @@ vector<EventEntity> convert_to_events(result result1) {
     return eventEntities;
 }
 
+/*********************
+ * CONNECTIONS
+ *********************/
+
+vector<ConnectionEntity> convert_to_connectionsLite(result result1) {
+    cout << "connections" << endl;
+    vector<ConnectionEntity> connectionEntities;
+
+    //The query that uses this metod only returns two columns: Distinct UnitIDs and Counts of
+    for (result::const_iterator c = result1.begin(); c != result1.end(); ++c) {
+        ConnectionEntity connectionEntity;
+        connectionEntity.set_unit_id(c[0].as<string>());
+        connectionEntity.set_countOfValue(c[1].as<int>());
+        connectionEntities.push_back(connectionEntity);
+    }
+    return connectionEntities;
+}
 
 
+vector<ConnectionEntity> convert_to_connections(result result1) {
+    cout << "connections" << endl;
+    vector<ConnectionEntity> connectionEntities;
+
+    for (result::const_iterator c = result1.begin(); c != result1.end(); ++c) {
+        ConnectionEntity connectionEntity;
+        connectionEntity.set_date_time(c[0].as<string>());
+        connectionEntity.set_unit_id(c[1].as<string>());
+        connectionEntity.set_port(c[2].as<string>());
+        connectionEntity.set_value(c[3].as<bool>());
+        connectionEntities.push_back(connectionEntity);
+    }
+    return connectionEntities;
+}
 
 vector<ConnectionEntity> convert_to_connections(string where) {
     cout << "connections" << endl;
@@ -85,6 +120,10 @@ vector<ConnectionEntity> convert_to_connections(string where) {
     }
     return connectionEntities;
 }
+
+/*********************
+ * POSITIONS
+ *********************/
 
 vector<PositionEntity> convert_to_positions(string where) {
     cout << "positions" << endl;
