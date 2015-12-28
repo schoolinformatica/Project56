@@ -11,12 +11,13 @@
 #include <iostream>
 
 
-class EventEntity    {
+class EventEntity{
 private:
     string date_time;
     string unit_id;
     string port;
     int value;
+    int countOfValue;
 
 public:
     // Database management functions
@@ -31,6 +32,8 @@ public:
 
     void set_value(int);
 
+    void set_countOfValue(int);
+
     //Getters
     string get_date_time();
 
@@ -39,6 +42,9 @@ public:
     string get_port();
 
     int get_value();
+
+    int get_countOfValue();
+
 };
 
 // Database management functions
@@ -67,14 +73,18 @@ void EventEntity::set_unit_id(string Unit_id) { unit_id = Unit_id; }
 
 void EventEntity::set_value(int Value) { value = Value; }
 
-//Getters
-string EventEntity::get_date_time() { return date_time; }
+void EventEntity::set_countOfValue(int countValue) { countOfValue = countValue; }
 
-string EventEntity::get_port() { return port; }
+// Getters
+string EventEntity::get_date_time() { return date_time; }
 
 string EventEntity::get_unit_id() { return unit_id; }
 
+string EventEntity::get_port() { return port; }
+
 int EventEntity::get_value() { return value; }
+
+int EventEntity::get_countOfValue() { return countOfValue; }
 
 
 

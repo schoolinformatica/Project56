@@ -12,7 +12,7 @@
 
 using namespace std;
 
-class PositionEntity   {
+class PositionEntity{
 private:
     string date_time;
     string unit_id;

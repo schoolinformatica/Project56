@@ -10,7 +10,7 @@
 #include <string>
 #include <iostream>
 
-class ConnectionEntity  {
+class ConnectionEntity {
 private:
     string date_time; // Time stamp
     string unit_id; // ID of the vehicle

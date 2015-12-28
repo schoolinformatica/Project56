@@ -11,7 +11,7 @@
 #include <string>
 #include <iostream>
 
-class MonitoringEntity  {
+class MonitoringEntity{
 private:
     string unit_id;
     string begin_time;

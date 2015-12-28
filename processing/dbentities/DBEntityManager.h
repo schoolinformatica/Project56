@@ -17,6 +17,7 @@ class EntityManager {
 public:
     result port();
     result getConnectionFailuresPerCar();
+    result getIgnitionFailuresPerCar();
     result select(string table,  string where);
 };
 
@@ -43,7 +44,26 @@ result EntityManager::getConnectionFailuresPerCar()
     os << "SELECT DISTINCT \"UnitId\", COUNT(\"Value\")"
     << " FROM connections"
     << " WHERE \"Value\" = 0"
-    << " GROUP BY \"UnitId\";";
+    << " GROUP BY \"UnitId\""
+    << " ORDER BY COUNT(\"Value\") ASC"
+    << ";";
+
+    string query = os.str();
+    cout << query << endl;
+    Pgsqlcon pgsqlcon;
+    return pgsqlcon.exec_none_transaction(query);
+}
+
+result EntityManager::getIgnitionFailuresPerCar()
+{
+    ostringstream os;
+    //Remember to wrap the column you are referencing in double escaped quotes!
+    os << "SELECT DISTINCT \"UnitId\", COUNT(\"Value\")"
+    << " FROM events"
+    << " WHERE \"Value\" = 0"
+    << " GROUP BY \"UnitId\""
+    << " ORDER BY COUNT(\"Value\") ASC"
+    << ";";
 
     string query = os.str();
     cout << query << endl;

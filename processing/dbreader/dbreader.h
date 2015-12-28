@@ -70,12 +70,26 @@ vector<EventEntity> convert_to_events(result result1) {
     return eventEntities;
 }
 
+vector<EventEntity> convert_to_eventsLite(result result1) {
+    cout << "eventsLite" << endl;
+    vector<EventEntity> eventEntities;
+
+    //The query that uses this metod only returns two columns: Distinct UnitIDs and Counts of
+    for (result::const_iterator e = result1.begin(); e != result1.end(); ++e) {
+        EventEntity EventEntity;
+        EventEntity.set_unit_id(e[0].as<string>());
+        EventEntity.set_countOfValue(e[1].as<int>());
+        eventEntities.push_back(EventEntity);
+    }
+    return eventEntities;
+}
+
 /*********************
  * CONNECTIONS
  *********************/
 
 vector<ConnectionEntity> convert_to_connectionsLite(result result1) {
-    cout << "connections" << endl;
+    cout << "connectionsLite" << endl;
     vector<ConnectionEntity> connectionEntities;
 
     //The query that uses this metod only returns two columns: Distinct UnitIDs and Counts of

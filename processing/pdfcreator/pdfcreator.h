@@ -100,115 +100,120 @@ void positions_to_pdf(vector<PositionEntity> positionsEntities, string email) {
     PDF pdf;
 }
 
-/*********************************
- * EVENTS
- * *******************************
- */
-
-void events_show_ports_by_date(string email) {
-    //IMPORTANT: Create the front page first!:)
-    PDF pdf = writePdfFrontPage("Events");
-    pdf.newPage();
-
-    EntityManager em;
-
-    vector<EventEntity> eventsEntities = convert_to_events(em.port());
-    vector<int> ports;
-    vector<string> dates;
-
-    for (EventEntity e : eventsEntities) {
-        ports.push_back(atoi(e.get_port().c_str()));
-        dates.push_back(e.get_date_time());
-    }
-
-    int scale = 10;
-
-    string errMsg;
-    pdf.setFont(PDF::Font(2), 10);
-
-    /*
-    * Segmentation fault caused by Z+1 and xas*scale: They both reference
-    * to indexes that do not yet exist.
-    * Todo: Draw X and Y points and their values: 3 for-loops in total.
-     *
-     *
-     * val        X
-     * val   X
-     * val   X
-     * val X
-     * date date date date
-    */
-
-    for (int z = 0; z < ports.size(); z++) {
-        //first x of first dot, first y of first dot, then same for second dot.
-        pdf.setLineWidth(1);
-        pdf.drawLine(z+100, ports[z] + 100, z + 1 + 100, ports[z + 1] + 100 );
-    }
-    pdf_writer(pdf, email);
-}
-
-//Note: This method is the "receiver" from main.cpp.
-void events_to_pdf(vector<EventEntity> eventEntities, string email) {
-    //events_show_ports etc creates a written-on Pdf object, that is further processed by the pdf_writer.
-    events_show_ports_by_date(email);
-}
-
 
 /*********************************
  * CONNECTIONS
  * *******************************
  */
 
-//Average loss and gain of connection in percentage
-pair<double, double> getAverageConnectionTimes(vector<ConnectionEntity> connectionEntities)
+//GENERIFIED FOR USE IN BOTH CONNECTIONS AND EVENTS
+//Average loss and gain of T in percentage
+template <typename T>
+pair<double,double> getAverages(vector<T> listOfEntities)
 {
     vector<bool> allTruePortValues;
     vector<bool> allFalsePortValues;
 
-    for (ConnectionEntity c : connectionEntities) {
-        if (c.get_value() == true)
-            allTruePortValues.push_back(c.get_value());
-        else
-            allFalsePortValues.push_back(c.get_value());
+    string typeOfVector = typeid(listOfEntities[0]).name();
+    typeOfVector.erase(typeOfVector.begin(), typeOfVector.begin() + 2);
+
+    if(typeOfVector.compare("ConnectionEntity") == 0 || typeOfVector.compare("EventEntity") == 0)
+    {
+        for (T e : listOfEntities)
+        {
+            if (e.get_value() == true)
+                allTruePortValues.push_back(e.get_value());
+            else
+                allFalsePortValues.push_back(e.get_value());
+        }
     }
+    else
+    {
+        cout << "Not a valid entitytype." << endl;
+        return make_pair(0.0, 0.0);
+    }
+
     //fabs returns an absolute, non-rounded value (IE. 0.5463 instead of 0.)
-    double averageUpTimePercentage = fabs((double) allTruePortValues.size() / (double) connectionEntities.size()) * 100;
-    double averageDownTimePercentage = fabs((double) allFalsePortValues.size() / (double) connectionEntities.size()) * 100;
+    double averageUpTimePercentage = fabs((double) allTruePortValues.size() / (double) listOfEntities.size()) * 100;
+    double averageDownTimePercentage = fabs((double) allFalsePortValues.size() / (double)listOfEntities.size()) * 100;
 
     return make_pair(averageUpTimePercentage, averageDownTimePercentage);
 }
 
+//GENERIFIED FOR USE IN BOTH CONNECTIONS AND EVENTS
 //All downtimes for each car
-vector<string> getCarsAndConnectionDowntimes()
+vector<string> getCarsAndDowntimes(string typeOfCsv)
 {
-    EntityManager em;
-    //Note! We do not use the standard converting method, because our query does not return all columns!
-    vector<ConnectionEntity> connectionEntities = convert_to_connectionsLite(em.getConnectionFailuresPerCar());
-    vector<string> carsAndDownTimes;
-
-    for(ConnectionEntity c : connectionEntities)
+    if(typeOfCsv.compare("connections") == 0)
     {
-        //We get the Distinct unitIds and the amount of 0 values for each unitID. (see dbreader.h and EntityManager.h for more details)
-        carsAndDownTimes.push_back("Car no. : " + c.get_unit_id() + " has lost connection " + to_string(c.get_countOfValue()) + " times.");
+        EntityManager em;
+        //Note! We do not use the standard converting method, because our query does not return all columns!
+        vector<ConnectionEntity> connectionEntities = convert_to_connectionsLite(em.getConnectionFailuresPerCar());
+        vector<string> carsAndDownTimes;
+
+        for(ConnectionEntity c : connectionEntities)
+        {
+            //We get the Distinct unitIds and the amount of 0 values for each unitID. (see dbreader.h and EntityManager.h for more details)
+            carsAndDownTimes.push_back("Car no. : " + c.get_unit_id() + " has lost connection " + to_string(c.get_countOfValue()) + " times.");
+        }
+        return carsAndDownTimes;
     }
-    return carsAndDownTimes;
+    else if(typeOfCsv.compare("events") == 0)
+    {
+        EntityManager em;
+        //Note! We do not use the standard converting method, because our query does not return all columns!
+        vector<EventEntity> eventEntities = convert_to_eventsLite(em.getIgnitionFailuresPerCar());
+        vector<string> carsAndDownTimes;
+
+        for(EventEntity e : eventEntities)
+        {
+            //We get the Distinct unitIds and the amount of 0 values for each unitID. (see dbreader.h and EntityManager.h for more details)
+            carsAndDownTimes.push_back("Car no. : " + e.get_unit_id() + " has stopped " + to_string(e.get_countOfValue()) + " times.");
+        }
+        return carsAndDownTimes;
+    }
 }
 
-//Car with biggest connection loss number
-string getCarWithBestOrWorstConnectionLoss(bool searchForWorst)
+//GENERIFIED FOR USE IN BOTH CONNECTIONS AND EVENTS
+//Car with biggest/smallest connection/ignition loss number
+string getCarWithBestOrWorstDataLoss(bool searchForWorst, string typeOfCsv)
 {
-    EntityManager em;
-    //Note! We do not use the standard converting method, because our query does not return all columns!
-    vector<ConnectionEntity> connectionEntities = convert_to_connectionsLite(em.getConnectionFailuresPerCar());
-
+    cout << "Type ofcsv is: " << typeOfCsv << endl;
     vector<string> carsAndDownTimes;
     vector<int> valuesOnly;
 
-    for(ConnectionEntity c : connectionEntities)
+    if(typeOfCsv.compare("connections") == 0)
     {
-        //We get the Distinct unitIds and the amount of 0 values for each unitID. (see dbreader.h and EntityManager.h for more details)
-        carsAndDownTimes.push_back("Car no. : " + c.get_unit_id() + " has lost connection " + to_string(c.get_countOfValue()) + " times.");
-        valuesOnly.push_back(c.get_countOfValue());
+        EntityManager em;
+
+        //Note! We do not use the standard converting method, because our query does not return all columns!
+        vector<ConnectionEntity> connectionEntities = convert_to_connectionsLite(em.getConnectionFailuresPerCar());
+
+        for(ConnectionEntity c : connectionEntities)
+        {
+            //We get the Distinct unitIds and the amount of 0 values for each unitID. (see dbreader.h and EntityManager.h for more details)
+            carsAndDownTimes.push_back("Car no. : " + c.get_unit_id() + " has lost connection " + to_string(c.get_countOfValue()) + " times.");
+            valuesOnly.push_back(c.get_countOfValue());
+        }
+    }
+    //Bit of duplication to make the code less complicated.
+    else if(typeOfCsv.compare("events") == 0)
+    {
+        EntityManager em;
+
+        //Note! We do not use the standard converting method, because our query does not return all columns!
+        vector<EventEntity> eventEntities = convert_to_eventsLite(em.getIgnitionFailuresPerCar());
+
+        for(EventEntity e : eventEntities)
+        {
+            //We get the Distinct unitIds and the amount of 0 values for each unitID. (see dbreader.h and EntityManager.h for more details)
+            carsAndDownTimes.push_back("Car no. : " + e.get_unit_id() + " has stopped " + to_string(e.get_countOfValue()) + " times.");
+            valuesOnly.push_back(e.get_countOfValue());
+        }
+    }
+    else
+    {
+        cout << "Unknown CSV file." << endl;
     }
 
     int index;
@@ -219,17 +224,16 @@ string getCarWithBestOrWorstConnectionLoss(bool searchForWorst)
         index = distance(valuesOnly.begin(), max_element(valuesOnly.begin(), valuesOnly.end()));
     else
         index = distance(valuesOnly.begin(), min_element(valuesOnly.begin(), valuesOnly.end()));
-
+    cout << carsAndDownTimes[index] << endl;
     return carsAndDownTimes[index];
 }
-
 
 
 //Does the actual work of drawing everything connection.csv related to the pdf.
 void connections_to_pdf(vector<ConnectionEntity> connectionEntities, string email) {
     PDF pdf = writePdfFrontPage("Connections");
 
-    pair<double, double> TimePercentages = getAverageConnectionTimes(connectionEntities);
+    pair<double, double> TimePercentages = getAverages(connectionEntities);
 
     pdf.newPage();
     pdf.setFont(PDF::Font(6), 12);
@@ -253,25 +257,24 @@ void connections_to_pdf(vector<ConnectionEntity> connectionEntities, string emai
     pdf.showTextXY("Car performances: ", 70, 600);
     pdf.drawLine(70, 590, 300, 590);
 
-
     //Worst car
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Car with most loss of connection: ", 70, 575);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(getCarWithBestOrWorstConnectionLoss(true), 70 ,560);
+    pdf.showTextXY(getCarWithBestOrWorstDataLoss(true, "connections"), 70 ,560);
 
     //Best car
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Car with smallest loss of connection: ", 70, 545);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(getCarWithBestOrWorstConnectionLoss(false), 70 ,530);
+    pdf.showTextXY(getCarWithBestOrWorstDataLoss(false, "connections"), 70 ,530);
 
 
     //List of cars and failures
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Amount of connection failures for each car: ", 70, 510);
     pdf.setFont(PDF::Font(5), 12);
-    vector<string> carsAndDowns = getCarsAndConnectionDowntimes();
+    vector<string> carsAndDowns = getCarsAndDowntimes("connections");
     int YCounter = 510;
     for(int i = 0; i < carsAndDowns.size(); i++)
     {
@@ -279,7 +282,67 @@ void connections_to_pdf(vector<ConnectionEntity> connectionEntities, string emai
         pdf.showTextXY(carsAndDowns[i], 70, YCounter);
     }
 
-    //Todo: Worst car
+    pdf_writer(pdf, email);
+}
+
+/*********************************
+ * EVENTS
+ * *******************************
+ */
+
+//Note: This method is the "receiver" from main.cpp.
+void events_to_pdf(vector<EventEntity> eventEntities, string email) {
+
+    PDF pdf = writePdfFrontPage("Events");
+
+    pair<double, double> TimePercentages = getAverages(eventEntities);
+
+    pdf.newPage();
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Averages: ", 70, 720);
+    pdf.drawLine(70, 710, 300, 710);
+
+    //Uptime averages
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Average ignited engine percentage: " , 70, 690);
+    pdf.setFont(PDF::Font(5), 12);
+    pdf.showTextXY(std::to_string(get<0>(TimePercentages)) + "%.", 70, 670);
+
+    //Downtime averages
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Average stopped engine percentage: " , 70, 650);
+    pdf.setFont(PDF::Font(5), 12);
+    pdf.showTextXY(std::to_string(get<1>(TimePercentages)) + "%.", 70, 630);
+
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Car performances: ", 70, 600);
+    pdf.drawLine(70, 590, 300, 590);
+
+    //Worst car
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Car with most stops: ", 70, 575);
+    pdf.setFont(PDF::Font(5), 12);
+    pdf.showTextXY(getCarWithBestOrWorstDataLoss(true, "events"), 70 ,560);
+
+    //Best car
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Car with least stops: ", 70, 545);
+    pdf.setFont(PDF::Font(5), 12);
+    pdf.showTextXY(getCarWithBestOrWorstDataLoss(false, "events"), 70 ,530);
+
+
+    //List of cars and failures
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Amount of engine stops for each car: ", 70, 510);
+    pdf.setFont(PDF::Font(5), 12);
+    vector<string> carsAndDowns = getCarsAndDowntimes("events");
+    int YCounter = 510;
+    for(int i = 0; i < carsAndDowns.size(); i++)
+    {
+        YCounter -= 15;
+        pdf.showTextXY(carsAndDowns[i], 70, YCounter);
+    }
+
     pdf_writer(pdf, email);
 }
 
