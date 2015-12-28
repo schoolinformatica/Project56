@@ -122,11 +122,7 @@
                     </li>-->
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    @if(Auth::check())
-                    <li><a href="/auth/login/">Logout</a></li>
-                    @else
-                    <li><a href="/auth/login/">Login</a></li>
-                    @endif
+                    <li><a href="/login/">Login</a></li>
                 </ul>
             </div>
 
