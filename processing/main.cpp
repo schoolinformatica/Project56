@@ -1,10 +1,10 @@
 #include <iostream>
 
-#include "pdfcreator.h"
+#include "pdfcreator/pdfcreator.h"
 #include "helperfunc/helperfunc.h"
 #include "dbentities/DBEntityManager.h"
 #include "dbentities/ConnectionEntity.h"
-#include "dbreader.h"
+#include "dbreader/dbreader.h"
 
 
 using namespace std;
