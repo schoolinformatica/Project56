@@ -108,7 +108,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="/">Home</a></li>
                     <li><a href="/about/">About Us</a></li>
-                    <li><a href="/uploadPage/">Upload files</a></li>
+                    <li><a  style="color:white" href="/uploadPage/">Upload files</a></li>
                     <li><a href="/download/">Download files</a></li>
                     <!--<li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">Messages <b class="caret"></b></a>
@@ -122,11 +122,7 @@
                     </li>-->
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    @if(Auth::check())
-                    <li><a href="/auth/login/">Logout</a></li>
-                    @else
-                    <li><a style="color:white"  href="/auth/login/">Login</a></li>
-                    @endif
+                    <li><a href="/login/">Login</a></li>
                 </ul>
             </div>
 
@@ -184,7 +180,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-    	                            Register
+                	                Register
                                 </button>
                             </div>
                         </div>
