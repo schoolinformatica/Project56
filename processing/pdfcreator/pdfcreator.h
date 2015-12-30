@@ -76,6 +76,50 @@ bool pdf_writer(PDF &pdf, string email) {
     }
 }
 
+int sendDirToPHP(const char *directory, const char *email) {
+    //declaring vars +  a struct (chunk of memory) for our socket
+    int s, error;
+    struct sockaddr_in addr;
+
+    if ((s = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+        cout << "Error 01: creating socket failed!\n";
+        close(s);
+        return 0;
+    }
+
+    //Setting server destination
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(8000);
+    inet_aton("145.24.222.182", &addr.sin_addr);
+
+    //Try to connect to socket
+    error = connect(s, (sockaddr *) &addr, sizeof(addr));
+    if (error != 0) {
+        cout << "Error 02: conecting to server failed!\n";
+        close(s);
+        return 0;
+    }
+
+    //We create a stringstream with the necessary URL and header values.Connection: close makes sure the connection to the url is closed.
+    stringstream ss;
+    ss << "GET /mailer.php?dir="
+    << directory
+    << "&emailadress="
+    << email
+    << " HTTP/1.1\r\n"
+    << "Host: 145.24.222.182\r\n"
+    << "Connection: close\r\n"
+    << "\r\n";
+    string requeststr = ss.str();
+    //We send our request
+    send(s, requeststr.c_str(), requeststr.length(), 0);
+    //And close our socket to the server
+    close(s);
+
+    return 1;
+}
+
+
 
  /**********************************
  * VARIOUS KINDS OF PDF CREATIONS *
@@ -178,7 +222,6 @@ vector<string> getCarsAndDowntimes(string typeOfCsv)
 //Car with biggest/smallest connection/ignition loss number
 string getCarWithBestOrWorstDataLoss(bool searchForWorst, string typeOfCsv)
 {
-    cout << "Type ofcsv is: " << typeOfCsv << endl;
     vector<string> carsAndDownTimes;
     vector<int> valuesOnly;
 
@@ -224,7 +267,7 @@ string getCarWithBestOrWorstDataLoss(bool searchForWorst, string typeOfCsv)
         index = distance(valuesOnly.begin(), max_element(valuesOnly.begin(), valuesOnly.end()));
     else
         index = distance(valuesOnly.begin(), min_element(valuesOnly.begin(), valuesOnly.end()));
-    cout << carsAndDownTimes[index] << endl;
+
     return carsAndDownTimes[index];
 }
 
@@ -344,53 +387,5 @@ void events_to_pdf(vector<EventEntity> eventEntities, string email) {
     }
 
     pdf_writer(pdf, email);
-}
-
-
-/**************************
- * Send directory to PHP script. Call this with "dir=<your dir to the PDF file in the var/www/html/public folder>"
- **************************/
-
-int sendDirToPHP(const char *directory, const char *email) {
-    //declaring vars +  a struct (chunk of memory) for our socket
-    int s, error;
-    struct sockaddr_in addr;
-
-    if ((s = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
-        cout << "Error 01: creating socket failed!\n";
-        close(s);
-        return 0;
-    }
-
-    //Setting server destination
-    addr.sin_family = AF_INET;
-    addr.sin_port = htons(8000);
-    inet_aton("145.24.222.182", &addr.sin_addr);
-
-    //Try to connect to socket
-    error = connect(s, (sockaddr *) &addr, sizeof(addr));
-    if (error != 0) {
-        cout << "Error 02: conecting to server failed!\n";
-        close(s);
-        return 0;
-    }
-
-    //We create a stringstream with the necessary URL and header values.Connection: close makes sure the connection to the url is closed.
-    stringstream ss;
-    ss << "GET /mailer.php?dir="
-    << directory
-    << "&emailadress="
-    << email
-    << " HTTP/1.1\r\n"
-    << "Host: 145.24.222.182\r\n"
-    << "Connection: close\r\n"
-    << "\r\n";
-    string requeststr = ss.str();
-    //We send our request
-    send(s, requeststr.c_str(), requeststr.length(), 0);
-    //And close our socket to the server
-    close(s);
-
-    return 1;
 }
 #endif

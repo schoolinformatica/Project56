@@ -18,6 +18,7 @@ public:
     result port();
     result getConnectionFailuresPerCar();
     result getIgnitionFailuresPerCar();
+    result getStopsPerCoordinate();
     result select(string table,  string where);
 };
 
@@ -63,6 +64,22 @@ result EntityManager::getIgnitionFailuresPerCar()
     << " WHERE \"Value\" = 0"
     << " GROUP BY \"UnitId\""
     << " ORDER BY COUNT(\"Value\") ASC"
+    << ";";
+
+    string query = os.str();
+    cout << query << endl;
+    Pgsqlcon pgsqlcon;
+    return pgsqlcon.exec_none_transaction(query);
+}
+
+result EntityManager::getStopsPerCoordinate()
+{
+    ostringstream os;
+    //Remember to wrap the column you are referencing in double escaped quotes!
+    os << "SELECT DISTINCT \"Rdx\", \"Rdy\", COUNT(\"Speed\")"
+    << "FROM positions"
+    << "WHERE \"Speed\" = 0"
+    << "GROUP BY \"Rdx\", \"Rdy\""
     << ";";
 
     string query = os.str();
