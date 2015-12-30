@@ -29,6 +29,11 @@ class PagesController extends Controller
         return view('pages.upload');
     }
 
+    public function uploadFinished()
+    {
+        return view('pages.uploaded');
+    }
+
     public function download()
     {
         return view('pages.login');

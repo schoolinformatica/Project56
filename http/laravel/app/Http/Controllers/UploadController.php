@@ -44,14 +44,14 @@ class UploadController extends Controller {
             }
             if($uploadcount == $file_count){
                 Session::flash('success', 'Upload successfully');
-                return redirect('pages.upload');
+                return redirect('uploaded');
             }
             else //If the upload failed (partially or completely)
             {
                 //returns back to the page and shows an error message to the user
                 $message = "Somehow the upload process has been interrupted. ";
                 echo "<script type='text/javascript'>alert('$message');</script>";
-                return redirect('pages.upload');
+                return redirect('upload');
             }
         }
         else //If internetconnection is slow or not established
