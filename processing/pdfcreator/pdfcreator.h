@@ -140,11 +140,53 @@ void monitor_to_pdf(vector<MonitoringEntity> monitoringEntities, string email) {
  * *******************************
  */
 
-string getCarWithMostStoppage()
+string getCarWithBestHDOP(bool searchForWorst)
 {
     EntityManager em;
     //Note! We do not use the standard converting method, because our query does not return all columns!
-    vector<PositionEntity> positionsEntities = convert_to_positionsLite(em.getStopsPerCoordinate());
+    vector<PositionEntity> positionsEntities = convert_to_positionsHDOP(em.getHDOPPerCar());
+
+    vector<string> unitIDs;
+    vector<int> totalHDOPValue;
+    vector<int> totalCarCount;
+    ostringstream returnvalue;
+
+    for(PositionEntity p : positionsEntities)
+    {
+        unitIDs.push_back(p.get_unit_id());
+        totalHDOPValue.push_back(p.get_hdop());
+        totalCarCount.push_back(p.get_countOfUnitID());
+    }
+
+    if(searchForWorst == true)
+    {
+        //get index for biggest HDOP sum-value (big is bad)
+        int index;
+        index = distance(totalHDOPValue.begin(), max_element(totalHDOPValue.begin(), totalHDOPValue.end()));
+        double averageHDOPValue = fabs((double) totalHDOPValue[index] / (double) totalCarCount[index] * 100);
+
+        returnvalue << "Car no. " + unitIDs[index]
+        << " has an average HDOP value of " + to_string(averageHDOPValue);
+        return returnvalue.str();
+    }
+    else
+    {
+        //get index for smallest HDOP sum-value (small is bad)
+        int index;
+        index = distance(totalHDOPValue.begin(), min_element(totalHDOPValue.begin(), totalHDOPValue.end()));
+        double averageHDOPValue = fabs((double) totalHDOPValue[index] / (double) totalCarCount[index] * 100);
+
+        returnvalue << "Car no. " + unitIDs[index]
+        << " has an average HDOP value of " + to_string(averageHDOPValue);
+        return returnvalue.str();
+    }
+}
+
+string getCarWithMostStoppage(bool searchForWorstCar)
+{
+    EntityManager em;
+    //Note! We do not use the standard converting method, because our query does not return all columns!
+    vector<PositionEntity> positionsEntities = convert_to_positionsStops(em.getStopsPerCoordinate());
     vector<string> coordinatesAndStops;
     vector<string> stopsCount;
 
@@ -156,17 +198,21 @@ string getCarWithMostStoppage()
         stopsCount.push_back(to_string(p.get_speed()));
     }
     //Get the index of the biggest element, return the element at that index in the coordinatesAndStops-vector.
-    int index = distance(stopsCount.begin(), max_element(stopsCount.begin(), stopsCount.end()));
+    int index;
+    if(searchForWorstCar == true)
+        index = distance(stopsCount.begin(), max_element(stopsCount.begin(), stopsCount.end()));
+    else
+        index = distance(stopsCount.begin(), min_element(stopsCount.begin(), stopsCount.end()));
+
     return coordinatesAndStops[index];
 }
 
-//Todo: get cars with worst HDOP.
-//Todo: Convert coordinates to places/provinces using range search.
+
 vector<string> getCoordinatesWithMostStoppage()
 {
     EntityManager em;
     //Note! We do not use the standard converting method, because our query does not return all columns!
-    vector<PositionEntity> positionsEntities = convert_to_positionsLite(em.getStopsPerCoordinate());
+    vector<PositionEntity> positionsEntities = convert_to_positionsStops(em.getStopsPerCoordinate());
     vector<string> coordinatesAndStops;
 
     for(PositionEntity p : positionsEntities)
@@ -184,37 +230,35 @@ void positions_to_pdf(vector<PositionEntity> positionsEntities, string email) {
 
     pdf.newPage();
     pdf.setFont(PDF::Font(6), 12);
-    pdf.showTextXY("Averages: ", 70, 720);
+    pdf.showTextXY("Satellite-connection performance: ", 70, 720);
     pdf.drawLine(70, 710, 300, 710);
 
+    //Good HDOP
     pdf.setFont(PDF::Font(6), 12);
-    pdf.showTextXY("Car performances: ", 70, 600);
-    pdf.drawLine(70, 590, 300, 590);
+    pdf.showTextXY("Worst HDOP performance (Bigger is worse) " , 70, 690);
+    pdf.setFont(PDF::Font(5), 12);
+    pdf.showTextXY(getCarWithBestHDOP(true), 70, 670);
+
+    //Bad HDOP
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Best HDOP performance (Smaller is bester) " , 70, 650);
+    pdf.setFont(PDF::Font(5), 12);
+    pdf.showTextXY(getCarWithBestHDOP(false), 70, 630);
+
+    //TODO: NumSats
+    //Todo: Convert coordinates to places/provinces using range search.
 
     //Worst car
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Car with most stoppage: ", 70, 575);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(getCarWithMostStoppage(), 70 ,560);
+    pdf.showTextXY(getCarWithMostStoppage(true), 70 ,560);
 
-    //List coordinates and car stoppages
+    //Best car
     pdf.setFont(PDF::Font(6), 12);
-    pdf.showTextXY("Amount of car stoppages: ", 70, 510);
+    pdf.showTextXY("Car with least stoppage: ", 70, 545);
     pdf.setFont(PDF::Font(5), 12);
-    vector<string> coordinatesAndStops = getCoordinatesWithMostStoppage();
-
-    int YCounter = 510;
-    for(int i = 0; i < listToWrite.size(); i++)
-    {
-        if(YCounter == 60)
-        {
-            pdf.newPage();
-            YCounter = 600;
-        }
-
-        YCounter -= 15;
-        pdf.showTextXY(listToWrite[i], 70, YCounter);
-    }
+    pdf.showTextXY(getCarWithMostStoppage(false), 70 ,530);
 
     pdf_writer(pdf, email);
 }

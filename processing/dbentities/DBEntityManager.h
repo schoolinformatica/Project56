@@ -19,6 +19,7 @@ public:
     result getConnectionFailuresPerCar();
     result getIgnitionFailuresPerCar();
     result getStopsPerCoordinate();
+    result getHDOPPerCar();
     result select(string table,  string where);
 };
 
@@ -81,9 +82,22 @@ result EntityManager::getStopsPerCoordinate()
     << " WHERE \"Speed\" = 0"
     << " GROUP BY \"UnitId\", \"Rdx\", \"Rdy\""
     << " ORDER BY COUNT(\"Speed\") DESC"
-    << " LIMIT 100"
     << ";";
 
+    string query = os.str();
+    cout << query << endl;
+    Pgsqlcon pgsqlcon;
+    return pgsqlcon.exec_none_transaction(query);
+}
+
+result EntityManager::getHDOPPerCar()
+{
+    ostringstream os;
+    //Remember to wrap the column you are referencing in double escaped quotes!
+    os << "SELECT \"UnitId\", SUM(\"HDOP\"), COUNT(\"UnitId\")"
+    << " GROUP BY \"UnitId\", \"HDOP\""
+    << " FROM positions"
+    << ";";
     string query = os.str();
     cout << query << endl;
     Pgsqlcon pgsqlcon;

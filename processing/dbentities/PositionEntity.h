@@ -22,6 +22,7 @@ private:
     int course;
     int num_satelites;
     int hdop;
+    int countOfUnitID;
     string quality;
 
 public:
@@ -47,6 +48,8 @@ public:
 
     void set_quality(string);
 
+    void set_countOfUnitID(int);
+
     // Getters
     string get_date_time();
 
@@ -65,6 +68,8 @@ public:
     int get_hdop();
 
     string get_quality();
+
+    int get_countOfUnitID();
 
 };
 
@@ -108,6 +113,8 @@ void PositionEntity::set_hdop(int Hdop) { hdop = Hdop; }
 
 void PositionEntity::set_quality(string Quality) { quality = Quality; }
 
+void PositionEntity::set_countOfUnitID(int count) { countOfUnitID = count; }
+
 // Getters
 string PositionEntity::get_date_time() { return date_time; }
 
@@ -127,5 +134,6 @@ int PositionEntity::get_hdop() { return hdop; }
 
 string PositionEntity::get_quality() { return quality; }
 
+int PositionEntity::set_countOfUnitID() { return countOfUnitID; }
 
 #endif //INPUT_PROCESS_POSITIONENTITY_H

@@ -181,8 +181,9 @@ vector<PositionEntity> convert_to_positions(result result1) {
     return positionsEntities;
 }
 
-vector<PositionEntity> convert_to_positionsLite(result result1) {
-    cout << "positionsLite" << endl;
+//This method is used for calculating the amount of 0-speeds at each coordinate
+vector<PositionEntity> convert_to_positionsStops(result result1) {
+    cout << "positions stops" << endl;
     vector<PositionEntity> positionsEntities;
     for (result::const_iterator c = result1.begin(); c != result1.end(); ++c) {
         PositionEntity positionEntity;
@@ -190,6 +191,20 @@ vector<PositionEntity> convert_to_positionsLite(result result1) {
         positionEntity.set_rdx(c[1].as<double>());
         positionEntity.set_rdy(c[2].as<double>());
         positionEntity.set_speed(c[3].as<int>());
+        positionsEntities.push_back(positionEntity);
+    }
+    return positionsEntities;
+}
+
+//This method is used for calculating the amount of HDOP per UnitId
+vector<PositionEntity> convert_to_positionsHDOP(result result1) {
+    cout << "positions HDOP" << endl;
+    vector<PositionEntity> positionsEntities;
+    for (result::const_iterator c = result1.begin(); c != result1.end(); ++c) {
+        PositionEntity positionEntity;
+        positionEntity.set_unit_id(c[0].as<string>());
+        positionEntity.set_hdop(c[1].as<int>());
+        positionEntity.set_countOfUnitID(c[2].as<int>());
         positionsEntities.push_back(positionEntity);
     }
     return positionsEntities;
