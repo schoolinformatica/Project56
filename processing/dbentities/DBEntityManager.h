@@ -95,8 +95,8 @@ result EntityManager::getHDOPPerCar()
     ostringstream os;
     //Remember to wrap the column you are referencing in double escaped quotes!
     os << "SELECT \"UnitId\", SUM(\"HDOP\"), COUNT(\"UnitId\")"
-    << " GROUP BY \"UnitId\", \"HDOP\""
     << " FROM positions"
+    << " GROUP BY \"UnitId\", \"HDOP\""
     << ";";
     string query = os.str();
     cout << query << endl;

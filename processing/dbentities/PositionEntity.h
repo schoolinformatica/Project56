@@ -134,6 +134,6 @@ int PositionEntity::get_hdop() { return hdop; }
 
 string PositionEntity::get_quality() { return quality; }
 
-int PositionEntity::set_countOfUnitID() { return countOfUnitID; }
+int PositionEntity::get_countOfUnitID() { return countOfUnitID; }
 
 #endif //INPUT_PROCESS_POSITIONENTITY_H
