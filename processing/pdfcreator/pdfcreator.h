@@ -140,8 +140,83 @@ void monitor_to_pdf(vector<MonitoringEntity> monitoringEntities, string email) {
  * *******************************
  */
 
+string getCarWithMostStoppage()
+{
+    EntityManager em;
+    //Note! We do not use the standard converting method, because our query does not return all columns!
+    vector<PositionEntity> positionsEntities = convert_to_positionsLite(em.getStopsPerCoordinate());
+    vector<string> coordinatesAndStops;
+    vector<string> stopsCount;
+
+    for(PositionEntity p : positionsEntities)
+    {
+        coordinatesAndStops.push_back
+                ("At coordinates " + to_string(p.get_rdx()) + ", "
+                 + to_string(p.get_rdy()) +  " Car no." + to_string(p.get_unit_id()) + " was stopped " + to_string(p.get_speed()) + " times.");
+        stopsCount.push_back(to_string(p.get_speed()));
+    }
+    //Get the index of the biggest element, return the element at that index in the coordinatesAndStops-vector.
+    int index = distance(stopsCount.begin(), max_element(stopsCount.begin(), stopsCount.end()));
+    return coordinatesAndStops[index];
+}
+
+//Todo: get cars with worst HDOP.
+//Todo: Convert coordinates to places/provinces using range search.
+vector<string> getCoordinatesWithMostStoppage()
+{
+    EntityManager em;
+    //Note! We do not use the standard converting method, because our query does not return all columns!
+    vector<PositionEntity> positionsEntities = convert_to_positionsLite(em.getStopsPerCoordinate());
+    vector<string> coordinatesAndStops;
+
+    for(PositionEntity p : positionsEntities)
+    {
+        coordinatesAndStops.push_back
+                ("At coordinates " + to_string(p.get_rdx()) + ", "
+                 + to_string(p.get_rdy()) + " cars were stopped " + to_string(p.get_speed()) + " times.");
+    }
+    return coordinatesAndStops;
+}
+
+
 void positions_to_pdf(vector<PositionEntity> positionsEntities, string email) {
-    PDF pdf;
+    PDF pdf = writePdfFrontPage("Positions");
+
+    pdf.newPage();
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Averages: ", 70, 720);
+    pdf.drawLine(70, 710, 300, 710);
+
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Car performances: ", 70, 600);
+    pdf.drawLine(70, 590, 300, 590);
+
+    //Worst car
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Car with most stoppage: ", 70, 575);
+    pdf.setFont(PDF::Font(5), 12);
+    pdf.showTextXY(getCarWithMostStoppage(), 70 ,560);
+
+    //List coordinates and car stoppages
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Amount of car stoppages: ", 70, 510);
+    pdf.setFont(PDF::Font(5), 12);
+    vector<string> coordinatesAndStops = getCoordinatesWithMostStoppage();
+
+    int YCounter = 510;
+    for(int i = 0; i < listToWrite.size(); i++)
+    {
+        if(YCounter == 60)
+        {
+            pdf.newPage();
+            YCounter = 600;
+        }
+
+        YCounter -= 15;
+        pdf.showTextXY(listToWrite[i], 70, YCounter);
+    }
+
+    pdf_writer(pdf, email);
 }
 
 
@@ -152,6 +227,7 @@ void positions_to_pdf(vector<PositionEntity> positionsEntities, string email) {
 
 //GENERIFIED FOR USE IN BOTH CONNECTIONS AND EVENTS
 //Average loss and gain of T in percentage
+
 template <typename T>
 pair<double,double> getAverages(vector<T> listOfEntities)
 {

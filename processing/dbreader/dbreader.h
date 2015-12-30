@@ -144,10 +144,13 @@ vector<PositionEntity> convert_to_positions(string where) {
     EntityManager manager;
     result result = manager.select("positions", where);
     vector<PositionEntity> positionsEntities;
+
     for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
         PositionEntity positionEntity;
-        positionEntity.set_rdx(c[2].as<int>());
-        positionEntity.set_rdy(c[3].as<int>());
+        positionEntity.set_date_time(c[0].as<string>());
+        positionEntity.set_unit_id(c[1].as<string>());
+        positionEntity.set_rdx(c[2].as<double>());
+        positionEntity.set_rdy(c[3].as<double>());
         positionEntity.set_speed(c[4].as<int>());
         positionEntity.set_course(c[5].as<int>());
         positionEntity.set_num_satelites(c[6].as<int>());
@@ -162,10 +165,12 @@ vector<PositionEntity> convert_to_positions(result result1) {
     cout << "positions" << endl;
     vector<PositionEntity> positionsEntities;
 
-    for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
+    for (result::const_iterator c = result1.begin(); c != result1.end(); ++c) {
         PositionEntity positionEntity;
-        positionEntity.set_rdx(c[2].as<int>());
-        positionEntity.set_rdy(c[3].as<int>());
+        positionEntity.set_date_time(c[0].as<string>());
+        positionEntity.set_unit_id(c[1].as<string>());
+        positionEntity.set_rdx(c[2].as<double>());
+        positionEntity.set_rdy(c[3].as<double>());
         positionEntity.set_speed(c[4].as<int>());
         positionEntity.set_course(c[5].as<int>());
         positionEntity.set_num_satelites(c[6].as<int>());
@@ -179,11 +184,12 @@ vector<PositionEntity> convert_to_positions(result result1) {
 vector<PositionEntity> convert_to_positionsLite(result result1) {
     cout << "positionsLite" << endl;
     vector<PositionEntity> positionsEntities;
-    for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
+    for (result::const_iterator c = result1.begin(); c != result1.end(); ++c) {
         PositionEntity positionEntity;
-        positionEntity.set_rdx(c[0].as<double>());
-        positionEntity.set_rdy(c[1].as<double>());
-        positionEntity.set_speed(c[2].as<int>());
+        positionEntity.set_unit_id(c[0].as<string>());
+        positionEntity.set_rdx(c[1].as<double>());
+        positionEntity.set_rdy(c[2].as<double>());
+        positionEntity.set_speed(c[3].as<int>());
         positionsEntities.push_back(positionEntity);
     }
     return positionsEntities;

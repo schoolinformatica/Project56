@@ -76,10 +76,12 @@ result EntityManager::getStopsPerCoordinate()
 {
     ostringstream os;
     //Remember to wrap the column you are referencing in double escaped quotes!
-    os << "SELECT DISTINCT \"Rdx\", \"Rdy\", COUNT(\"Speed\")"
-    << "FROM positions"
-    << "WHERE \"Speed\" = 0"
-    << "GROUP BY \"Rdx\", \"Rdy\""
+    os << "SELECT DISTINCT \"UnitId\", \"Rdx\", \"Rdy\", COUNT(\"Speed\")"
+    << " FROM positions"
+    << " WHERE \"Speed\" = 0"
+    << " GROUP BY \"UnitId\", \"Rdx\", \"Rdy\""
+    << " ORDER BY COUNT(\"Speed\") DESC"
+    << " LIMIT 100"
     << ";";
 
     string query = os.str();
