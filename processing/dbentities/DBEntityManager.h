@@ -20,6 +20,8 @@ public:
     result getIgnitionFailuresPerCar();
     result getStopsPerCoordinate();
     result getHDOPPerCar();
+    result getNumSatellitesPerCar();
+    result getQualityPerCar();
     result select(string table,  string where);
 };
 
@@ -94,7 +96,7 @@ result EntityManager::getHDOPPerCar()
 {
     ostringstream os;
     //Remember to wrap the column you are referencing in double escaped quotes!
-    os << "SELECT \"UnitId\", SUM(\"HDOP\"), COUNT(\"UnitId\")"
+    os << "SELECT DISTINCT \"UnitId\", SUM(\"HDOP\"), COUNT(\"UnitId\")"
     << " FROM positions"
     << " GROUP BY \"UnitId\", \"HDOP\""
     << ";";
@@ -103,6 +105,37 @@ result EntityManager::getHDOPPerCar()
     Pgsqlcon pgsqlcon;
     return pgsqlcon.exec_none_transaction(query);
 }
+
+result EntityManager::getNumSatellitesPerCar()
+{
+    ostringstream os;
+    //Remember to wrap the column you are referencing in double escaped quotes!
+    os << "SELECT DISTINCT \"UnitId\", SUM(\"NumSatellites\"), COUNT(\"UnitId\")"
+    << " FROM positions"
+    << " GROUP BY \"UnitId\", \"NumSatellites\""
+    << ";";
+    string query = os.str();
+    cout << query << endl;
+    Pgsqlcon pgsqlcon;
+    return pgsqlcon.exec_none_transaction(query);
+}
+
+
+result EntityManager::getQualityPerCar()
+{
+    ostringstream os;
+    //Remember to wrap the column you are referencing in double escaped quotes!
+    os << "SELECT DISTINCT \"UnitId\", COUNT(\"Quality\"), COUNT(\"UnitId\")"
+    << " FROM positions"
+    << " WHERE \"Quality\" LIKE \'%DGPS%\'"
+    << " GROUP BY \"UnitId\", \"Quality\""
+    << ";";
+    string query = os.str();
+    cout << query << endl;
+    Pgsqlcon pgsqlcon;
+    return pgsqlcon.exec_none_transaction(query);
+}
+
 
 /**************************
  * STANDARD QUERIES

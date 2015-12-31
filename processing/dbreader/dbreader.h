@@ -210,4 +210,31 @@ vector<PositionEntity> convert_to_positionsHDOP(result result1) {
     return positionsEntities;
 }
 
+//This method is used for calculating the amount of HDOP per UnitId
+vector<PositionEntity> convert_to_positionsSats(result result1) {
+    cout << "positions Satellites" << endl;
+    vector<PositionEntity> positionsEntities;
+    for (result::const_iterator c = result1.begin(); c != result1.end(); ++c) {
+        PositionEntity positionEntity;
+        positionEntity.set_unit_id(c[0].as<string>());
+        positionEntity.set_num_satelites(c[1].as<int>());
+        positionEntity.set_countOfUnitID(c[2].as<int>());
+        positionsEntities.push_back(positionEntity);
+    }
+    return positionsEntities;
+}
+
+//This method is used for calculating the amount of HDOP per UnitId
+vector<PositionEntity> convert_to_positionsQuality(result result1) {
+    cout << "positions Quality" << endl;
+    vector<PositionEntity> positionsEntities;
+    for (result::const_iterator c = result1.begin(); c != result1.end(); ++c) {
+        PositionEntity positionEntity;
+        positionEntity.set_unit_id(c[0].as<string>());
+        positionEntity.set_qualityCount(c[1].as<int>());
+        positionEntity.set_countOfUnitID(c[2].as<int>());
+        positionsEntities.push_back(positionEntity);
+    }
+    return positionsEntities;
+}
 #endif

@@ -51,7 +51,7 @@ bool pdf_writer(PDF &pdf, string email) {
     filename.erase(remove(filename.begin(), filename.end(), '\n'), filename.end());
 
     //Remove underscores from filename and concat it with the server download dir
-    string dir = "http://145.24.222.182:8000/downloads/" + filename;
+    string dir = "http://145.24.222.182/downloads/" + filename;
     const char *dirchar = dir.c_str();
     const char *emailchar = email.c_str();
 
@@ -140,45 +140,130 @@ void monitor_to_pdf(vector<MonitoringEntity> monitoringEntities, string email) {
  * *******************************
  */
 
-string getCarWithBestHDOP(bool searchForWorst)
+//GENERIFIED FOR USE WITH BOTH HDOP AND NUMOFSATELLITES
+string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
 {
     EntityManager em;
     //Note! We do not use the standard converting method, because our query does not return all columns!
-    vector<PositionEntity> positionsEntities = convert_to_positionsHDOP(em.getHDOPPerCar());
 
-    vector<string> unitIDs;
-    vector<int> totalHDOPValue;
-    vector<int> totalCarCount;
-    ostringstream returnvalue;
-
-    for(PositionEntity p : positionsEntities)
+    if (typeOfSearch.compare("HDOP") == 0)
     {
-        unitIDs.push_back(p.get_unit_id());
-        totalHDOPValue.push_back(p.get_hdop());
-        totalCarCount.push_back(p.get_countOfUnitID());
+        vector<PositionEntity> positionsEntities = convert_to_positionsHDOP(em.getHDOPPerCar());
+        vector<string> unitIDs;
+        vector<int> totalHDOPValue;
+        vector<int> totalCarCount;
+        ostringstream returnvalue;
+
+        for(PositionEntity p : positionsEntities)
+        {
+            unitIDs.push_back(p.get_unit_id());
+            totalHDOPValue.push_back(p.get_hdop());
+            totalCarCount.push_back(p.get_countOfUnitID());
+        }
+
+        if(searchForWorst == true)
+        {
+            //get index for biggest HDOP sum-value (big is bad)
+            int index;
+            index = distance(totalHDOPValue.begin(), max_element(totalHDOPValue.begin(), totalHDOPValue.end()));
+            int averageHDOPValue = fabs((int) totalHDOPValue[index] / (int) totalCarCount[index]);
+
+            returnvalue << "Car no. " + unitIDs[index]
+            << " has an average HDOP value of " + to_string(averageHDOPValue);
+            return returnvalue.str();
+        }
+        else
+        {
+            //get index for smallest HDOP sum-value (small is bad)
+            int index;
+            index = distance(totalHDOPValue.begin(), min_element(totalHDOPValue.begin(), totalHDOPValue.end()));
+            int averageHDOPValue = fabs((int) totalHDOPValue[index] / (int) totalCarCount[index]);
+
+            returnvalue << "Car no. " + unitIDs[index]
+            << " has an average HDOP value of " + to_string(averageHDOPValue);
+            return returnvalue.str();
+        }
     }
-
-    if(searchForWorst == true)
+    else if (typeOfSearch.compare("Satellites") == 0)
     {
-        //get index for biggest HDOP sum-value (big is bad)
-        int index;
-        index = distance(totalHDOPValue.begin(), max_element(totalHDOPValue.begin(), totalHDOPValue.end()));
-        double averageHDOPValue = fabs((double) totalHDOPValue[index] / (double) totalCarCount[index] * 100);
+        vector<PositionEntity> positionsEntities = convert_to_positionsSats(em.getNumSatellitesPerCar());
+        vector<string> unitIDs;
+        vector<int> totalSatsValue;
+        vector<int> totalCarCount;
+        ostringstream returnvalue;
 
-        returnvalue << "Car no. " + unitIDs[index]
-        << " has an average HDOP value of " + to_string(averageHDOPValue);
-        return returnvalue.str();
+        for(PositionEntity p : positionsEntities)
+        {
+            unitIDs.push_back(p.get_unit_id());
+            totalSatsValue.push_back(p.get_num_satelites());
+            totalCarCount.push_back(p.get_countOfUnitID());
+        }
+
+        if(searchForWorst == true)
+        {
+            //get index for smallest amount of satellite connections
+            int index;
+            index = distance(totalSatsValue.begin(), min_element(totalSatsValue.begin(), totalSatsValue.end()));
+            int averageSatValue = fabs((int) totalSatsValue[index] / (int) totalCarCount[index]);
+
+            returnvalue << "Car no. " + unitIDs[index]
+            << " was connected to an average of " + to_string(averageSatValue) + " Satellites at any given time.";
+            return returnvalue.str();
+        }
+        else
+        {
+            //get index for biggest amount of satellite connections
+            int index;
+            index = distance(totalSatsValue.begin(), max_element(totalSatsValue.begin(), totalSatsValue.end()));
+            int averageSatsValue = fabs((int) totalSatsValue[index] / (int) totalCarCount[index]);
+
+            returnvalue << "Car no. " + unitIDs[index]
+            << " was connected to an average of " + to_string(averageSatsValue) + " at any given time.";
+            return returnvalue.str();
+        }
+    }
+    else if (typeOfSearch.compare("Quality") == 0)
+    {
+        vector<PositionEntity> positionsEntities = convert_to_positionsSats(em.getQualityPerCar());
+        vector<string> unitIDs;
+        vector<int> totalQualityValue;
+        vector<int> totalCarCount;
+        ostringstream returnvalue;
+
+        for(PositionEntity p : positionsEntities)
+        {
+            unitIDs.push_back(p.get_unit_id());
+            totalQualityValue.push_back(p.get_qualityCount());
+            totalCarCount.push_back(p.get_countOfUnitID());
+        }
+
+        if(searchForWorst == true)
+        {
+            //get index for smallest count of dGPS quality values
+            int index;
+            index = distance(totalQualityValue.begin(), min_element(totalQualityValue.begin(), totalQualityValue.end()));
+            int averageQualityValue = fabs((int) totalQualityValue[index] / (int) totalCarCount[index]);
+
+            returnvalue << "Car no. " + unitIDs[index]
+            << " had a GPS quality value of dGPS an average of " + to_string(averageQualityValue) + " times.";
+            return returnvalue.str();
+        }
+        else
+        {
+            //get index for smallest count of dGPS quality values
+            int index;
+            index = distance(totalQualityValue.begin(), max_element(totalQualityValue.begin(), totalQualityValue.end()));
+            int averageQualityValue = fabs((int) totalQualityValue[index] / (int) totalCarCount[index]);
+
+            returnvalue << "Car no. " + unitIDs[index]
+            << " had a GPS quality value of dGPS an average of " + to_string(averageQualityValue) + " times.";
+            return returnvalue.str();
+        }
     }
     else
     {
-        //get index for smallest HDOP sum-value (small is bad)
-        int index;
-        index = distance(totalHDOPValue.begin(), min_element(totalHDOPValue.begin(), totalHDOPValue.end()));
-        double averageHDOPValue = fabs((double) totalHDOPValue[index] / (double) totalCarCount[index] * 100);
-
-        returnvalue << "Car no. " + unitIDs[index]
-        << " has an average HDOP value of " + to_string(averageHDOPValue);
-        return returnvalue.str();
+        cout << "Type of query not recognized!" << endl;
+        return "unknown";
     }
 }
 
@@ -228,37 +313,67 @@ vector<string> getCoordinatesWithMostStoppage()
 void positions_to_pdf(vector<PositionEntity> positionsEntities, string email) {
     PDF pdf = writePdfFrontPage("Positions");
 
+    //DIVIDING LINE
     pdf.newPage();
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Satellite-connection performance: ", 70, 720);
     pdf.drawLine(70, 710, 300, 710);
 
-    //Good HDOP
+    //bad HDOP
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Worst HDOP performance (Bigger is worse) " , 70, 690);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(getCarWithBestHDOP(true), 70, 670);
+    pdf.showTextXY(getCarConnectionDataAverage(true, "HDOP"), 70, 670);
 
-    //Bad HDOP
+    //good HDOP
     pdf.setFont(PDF::Font(6), 12);
-    pdf.showTextXY("Best HDOP performance (Smaller is bester) " , 70, 650);
+    pdf.showTextXY("Best HDOP performance (Smaller is better) " , 70, 650);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(getCarWithBestHDOP(false), 70, 630);
+    pdf.showTextXY(getCarConnectionDataAverage(false, "HDOP"), 70, 630);
 
-    //TODO: NumSats
+    //bad quality
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Worst average satellite-connection quality: " , 70, 610);
+    pdf.setFont(PDF::Font(5), 12);
+    pdf.showTextXY(getCarConnectionDataAverage(true, "Quality"), 70, 590);
+
+    //good quality
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Best average satellite-connection quality: " , 70, 570);
+    pdf.setFont(PDF::Font(5), 12);
+    pdf.showTextXY(getCarConnectionDataAverage(false, "Quality"), 70, 550);
+
+    //Bad Sats
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Worst Satellite-connection amount (Smaller is worse) " , 70, 530);
+    pdf.setFont(PDF::Font(5), 12);
+    pdf.showTextXY(getCarConnectionDataAverage(true, "Satellites"), 70, 510);
+
+    //good Sats
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Best Satellite-connection amount (Bigger is better) " , 70, 480);
+    pdf.setFont(PDF::Font(5), 12);
+    pdf.showTextXY(getCarConnectionDataAverage(false, "Satellites"), 70, 460);
+
+
     //Todo: Convert coordinates to places/provinces using range search.
+
+    //DIVIDING LINE
+    pdf.setFont(PDF::Font(6), 12);
+    pdf.showTextXY("Stoppage analysis: ", 70, 430);
+    pdf.drawLine(70, 710, 300, 410);
 
     //Worst car
     pdf.setFont(PDF::Font(6), 12);
-    pdf.showTextXY("Car with most stoppage: ", 70, 575);
+    pdf.showTextXY("Car with most stoppage: ", 70, 390);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(getCarWithMostStoppage(true), 70 ,560);
+    pdf.showTextXY(getCarWithMostStoppage(true), 70 ,370);
 
     //Best car
     pdf.setFont(PDF::Font(6), 12);
-    pdf.showTextXY("Car with least stoppage: ", 70, 545);
+    pdf.showTextXY("Car with least stoppage: ", 70, 350);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(getCarWithMostStoppage(false), 70 ,530);
+    pdf.showTextXY(getCarWithMostStoppage(false), 70 ,330);
 
     pdf_writer(pdf, email);
 }

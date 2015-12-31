@@ -24,6 +24,7 @@ private:
     int hdop;
     int countOfUnitID;
     string quality;
+    int qualityInt;
 
 public:
     // Database management functions
@@ -50,6 +51,9 @@ public:
 
     void set_countOfUnitID(int);
 
+    void set_qualityCount(int);
+
+
     // Getters
     string get_date_time();
 
@@ -70,6 +74,8 @@ public:
     string get_quality();
 
     int get_countOfUnitID();
+
+    int get_qualityCount();
 
 };
 
@@ -115,6 +121,8 @@ void PositionEntity::set_quality(string Quality) { quality = Quality; }
 
 void PositionEntity::set_countOfUnitID(int count) { countOfUnitID = count; }
 
+void PositionEntity::set_qualityCount(int count) { qualityCount = count; }
+
 // Getters
 string PositionEntity::get_date_time() { return date_time; }
 
@@ -135,5 +143,7 @@ int PositionEntity::get_hdop() { return hdop; }
 string PositionEntity::get_quality() { return quality; }
 
 int PositionEntity::get_countOfUnitID() { return countOfUnitID; }
+
+int PositionEntity::set_qualityCount() { return qualityCount; }
 
 #endif //INPUT_PROCESS_POSITIONENTITY_H
