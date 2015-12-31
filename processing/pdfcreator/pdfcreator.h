@@ -89,7 +89,7 @@ int sendDirToPHP(const char *directory, const char *email) {
 
     //Setting server destination
     addr.sin_family = AF_INET;
-    addr.sin_port = htons(8000);
+    addr.sin_port = htons(80);
     inet_aton("145.24.222.182", &addr.sin_addr);
 
     //Try to connect to socket
