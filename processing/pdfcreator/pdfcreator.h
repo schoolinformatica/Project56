@@ -243,20 +243,22 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
             int index;
             index = distance(totalQualityValue.begin(), min_element(totalQualityValue.begin(), totalQualityValue.end()));
             int averageQualityValue = fabs((int) totalQualityValue[index] / (int) totalCarCount[index]);
+            cout << averageQualityValue << endl;
 
             returnvalue << "Car no. " + unitIDs[index]
-            << " had a GPS quality value of dGPS an average of " + to_string(averageQualityValue) + " times.";
+            << " had a GPS quality value of 'dGPS' an average of " + to_string(averageQualityValue) + " times.";
             return returnvalue.str();
         }
         else
         {
-            //get index for smallest count of dGPS quality values
+            //get index for biggest count of dGPS quality values
             int index;
             index = distance(totalQualityValue.begin(), max_element(totalQualityValue.begin(), totalQualityValue.end()));
             int averageQualityValue = fabs((int) totalQualityValue[index] / (int) totalCarCount[index]);
+            cout << averageQualityValue << endl;
 
             returnvalue << "Car no. " + unitIDs[index]
-            << " had a GPS quality value of dGPS an average of " + to_string(averageQualityValue) + " times.";
+            << " had a GPS quality value of 'dGPS' an average of " + to_string(averageQualityValue) + " times.";
             return returnvalue.str();
         }
     }
@@ -361,7 +363,7 @@ void positions_to_pdf(vector<PositionEntity> positionsEntities, string email) {
     //DIVIDING LINE
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Stoppage analysis: ", 70, 430);
-    pdf.drawLine(70, 710, 300, 410);
+    pdf.drawLine(70, 410, 300, 400);
 
     //Worst car
     pdf.setFont(PDF::Font(6), 12);

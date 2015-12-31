@@ -24,7 +24,7 @@ private:
     int hdop;
     int countOfUnitID;
     string quality;
-    int qualityInt;
+    int qualityCount;
 
 public:
     // Database management functions
@@ -144,6 +144,6 @@ string PositionEntity::get_quality() { return quality; }
 
 int PositionEntity::get_countOfUnitID() { return countOfUnitID; }
 
-int PositionEntity::set_qualityCount() { return qualityCount; }
+int PositionEntity::get_qualityCount() { return qualityCount; }
 
 #endif //INPUT_PROCESS_POSITIONENTITY_H
