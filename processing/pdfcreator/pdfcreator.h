@@ -111,6 +111,7 @@ int sendDirToPHP(const char *directory, const char *email) {
     << "Connection: close\r\n"
     << "\r\n";
     string requeststr = ss.str();
+    cout << requeststr << endl;
     //We send our request
     send(s, requeststr.c_str(), requeststr.length(), 0);
     //And close our socket to the server
