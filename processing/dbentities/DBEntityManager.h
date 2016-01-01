@@ -125,7 +125,7 @@ result EntityManager::getQualityPerCar()
 {
     ostringstream os;
     //Remember to wrap the column you are referencing in double escaped quotes!
-    os << "SELECT DISTINCT \"UnitId\", COUNT(\"Quality\"), COUNT(\"UnitId\")"
+    os << "SELECT DISTINCT \"UnitId\", COUNT(\"Quality\")"
     << " FROM positions"
     << " WHERE \"Quality\" LIKE \'%DGPS%\'"
     << " GROUP BY \"UnitId\", \"Quality\""

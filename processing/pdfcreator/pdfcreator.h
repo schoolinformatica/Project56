@@ -169,7 +169,7 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
             int averageHDOPValue = fabs((int) totalHDOPValue[index] / (int) totalCarCount[index]);
 
             returnvalue << "Car no. " + unitIDs[index]
-            << " has an average HDOP value of " + to_string(averageHDOPValue);
+            << " had an average HDOP value of " + to_string(averageHDOPValue);
             return returnvalue.str();
         }
         else
@@ -180,7 +180,7 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
             int averageHDOPValue = fabs((int) totalHDOPValue[index] / (int) totalCarCount[index]);
 
             returnvalue << "Car no. " + unitIDs[index]
-            << " has an average HDOP value of " + to_string(averageHDOPValue);
+            << " had an average HDOP value of " + to_string(averageHDOPValue);
             return returnvalue.str();
         }
     }
@@ -207,7 +207,7 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
             int averageSatValue = fabs((int) totalSatsValue[index] / (int) totalCarCount[index]);
 
             returnvalue << "Car no. " + unitIDs[index]
-            << " was connected to an average of " + to_string(averageSatValue) + " Satellites at any given time.";
+            << " was connected to an average of " + to_string(averageSatValue) + " satellites at any given time.";
             return returnvalue.str();
         }
         else
@@ -218,23 +218,21 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
             int averageSatsValue = fabs((int) totalSatsValue[index] / (int) totalCarCount[index]);
 
             returnvalue << "Car no. " + unitIDs[index]
-            << " was connected to an average of " + to_string(averageSatsValue) + " at any given time.";
+            << " was connected to an average of " + to_string(averageSatsValue) + " satellites at any given time.";
             return returnvalue.str();
         }
     }
     else if (typeOfSearch.compare("Quality") == 0)
     {
-        vector<PositionEntity> positionsEntities = convert_to_positionsSats(em.getQualityPerCar());
+        vector<PositionEntity> positionsEntities = convert_to_positionsQuality(em.getQualityPerCar());
         vector<string> unitIDs;
         vector<int> totalQualityValue;
-        vector<int> totalCarCount;
         ostringstream returnvalue;
 
         for(PositionEntity p : positionsEntities)
         {
             unitIDs.push_back(p.get_unit_id());
             totalQualityValue.push_back(p.get_qualityCount());
-            totalCarCount.push_back(p.get_countOfUnitID());
         }
 
         if(searchForWorst == true)
@@ -242,11 +240,9 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
             //get index for smallest count of dGPS quality values
             int index;
             index = distance(totalQualityValue.begin(), min_element(totalQualityValue.begin(), totalQualityValue.end()));
-            int averageQualityValue = fabs((int) totalQualityValue[index] / (int) totalCarCount[index]);
-            cout << averageQualityValue << endl;
-
             returnvalue << "Car no. " + unitIDs[index]
-            << " had a GPS quality value of 'dGPS' an average of " + to_string(averageQualityValue) + " times.";
+            << " had a GPS quality value of 'dGPS' a total of " + to_string(totalQualityValue[index]) + " times.";
+
             return returnvalue.str();
         }
         else
@@ -254,11 +250,9 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
             //get index for biggest count of dGPS quality values
             int index;
             index = distance(totalQualityValue.begin(), max_element(totalQualityValue.begin(), totalQualityValue.end()));
-            int averageQualityValue = fabs((int) totalQualityValue[index] / (int) totalCarCount[index]);
-            cout << averageQualityValue << endl;
-
             returnvalue << "Car no. " + unitIDs[index]
-            << " had a GPS quality value of 'dGPS' an average of " + to_string(averageQualityValue) + " times.";
+            << " had a GPS quality value of 'dGPS' a total of " + to_string(totalQualityValue[index]) + " times.";
+
             return returnvalue.str();
         }
     }
@@ -281,7 +275,7 @@ string getCarWithMostStoppage(bool searchForWorstCar)
     {
         coordinatesAndStops.push_back
                 ("At coordinates " + to_string(p.get_rdx()) + ", "
-                 + to_string(p.get_rdy()) +  " Car no." + to_string(p.get_unit_id()) + " was stopped " + to_string(p.get_speed()) + " times.");
+                 + to_string(p.get_rdy()) +  " Car no. " + to_string(p.get_unit_id()) + " was stopped " + to_string(p.get_speed()) + " times.");
         stopsCount.push_back(to_string(p.get_speed()));
     }
     //Get the index of the biggest element, return the element at that index in the coordinatesAndStops-vector.
@@ -353,17 +347,15 @@ void positions_to_pdf(vector<PositionEntity> positionsEntities, string email) {
 
     //good Sats
     pdf.setFont(PDF::Font(6), 12);
-    pdf.showTextXY("Best Satellite-connection amount (Bigger is better) " , 70, 480);
+    pdf.showTextXY("Best Satellite-connection amount (Bigger is better) " , 70, 490);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(getCarConnectionDataAverage(false, "Satellites"), 70, 460);
-
-
-    //Todo: Convert coordinates to places/provinces using range search.
+    pdf.showTextXY(getCarConnectionDataAverage(false, "Satellites"), 70, 470);
 
     //DIVIDING LINE
     pdf.setFont(PDF::Font(6), 12);
+    pdf.drawLine(70, 440, 300, 440);
     pdf.showTextXY("Stoppage analysis: ", 70, 430);
-    pdf.drawLine(70, 410, 300, 400);
+    pdf.drawLine(70, 410, 300, 410);
 
     //Worst car
     pdf.setFont(PDF::Font(6), 12);

@@ -232,7 +232,6 @@ vector<PositionEntity> convert_to_positionsQuality(result result1) {
         PositionEntity positionEntity;
         positionEntity.set_unit_id(c[0].as<string>());
         positionEntity.set_qualityCount(c[1].as<int>());
-        positionEntity.set_countOfUnitID(c[2].as<int>());
         positionsEntities.push_back(positionEntity);
     }
     return positionsEntities;
