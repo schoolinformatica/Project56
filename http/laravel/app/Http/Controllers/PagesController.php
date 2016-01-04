@@ -36,7 +36,7 @@ class PagesController extends Controller
 
     public function download()
     {
-        return view('pages.login');
+        return view('pages.download');
     }
 
 }
