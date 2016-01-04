@@ -1,5 +1,26 @@
 @extends("template")
 @section("content")
+
+    <style type="text/css">
+
+    .row {
+        margin-bottom:50px;
+        padding:20px;
+        background-color:#eeeeee;
+    }
+    .content {
+        margin:auto;
+        padding-top:20px;
+        float:initial;
+        max-width:800px;
+        height:100%;
+    }
+    .container {
+        width:100%;
+        margin-top:60px;
+    }
+    </style>
+
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">

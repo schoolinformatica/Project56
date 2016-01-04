@@ -1,77 +1,47 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>About us</title>
+    <head>
+        <title>About us</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    <style type="text/css">
+        <style type="text/css">
 
 
-        body {
-            padding-top: 0px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
-        }
-
-        .container {
-            //width:100%;
-            margin-top:60px;
-        }
-
-        .row {
-            margin-bottom:50px;
-            //background-color:#eeeeee;
-        }
-
-        .row div {
-            margin:auto;
-            //padding-top:20px;
-            //float:initial;
-            max-width:800px;
-            height:100%;;
-        }
-
-        .leadh1 {
-            margin-top:0px;
-        }
-
-        .navbar-inverse {
-            border-radius:0px;
-        }
-
-        .navbar-fixed-top .nav {
-            padding: 15px 0;
-        }
-
-        .navbar-fixed-top .navbar-brand {
-            padding: 0 15px;
-        }
-
-        footer {
-            padding-top: 50px;
-            margin:0px,0px,0px,10px;
-        }
-        #footer {
-            padding-top:0px;
-            margin-left:10px;
-            width:100%;
-        }
-
-        @media(min-width:768px) {
             body {
                 padding-top: 0px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
             }
 
             .navbar-fixed-top .navbar-brand {
-                padding: 15px 0;
+                padding: 0 15px;
             }
-        }
-    </style>
-</head>
+
+            footer {
+                padding-top: 50px;
+                margin:0px,0px,0px,10px;
+            }
+            #footer {
+                padding-top:0px;
+                margin-left:10px;
+                width:100%;
+            }
+
+            @media(min-width:768px) {
+                body {
+                    padding-top: 0px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+                }
+
+                .navbar-fixed-top .navbar-brand {
+                    padding: 15px 0;
+                }
+            }
+        </style>
+    </head>
 <body>
 
 <nav role="navigation" class="navbar navbar-inverse">
@@ -107,7 +77,7 @@
 
         <ul class="nav navbar-nav navbar-right">
             @if(Auth::check())
-                <li><a href="/auth/login/">Logout</a></li>
+                <li><a href="/auth/logout/">Logout</a></li>
             @else
                 <li><a href="/auth/login/">Login</a></li>
             @endif
