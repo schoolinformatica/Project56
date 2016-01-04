@@ -21,9 +21,11 @@ Route::get('welcome', 'PagesController@home');
 Route::get('about','PagesController@about');
 Route::get('login', 'PagesController@login');
 Route::get('download', ['middleware' => 'auth', 'uses' => 'PagesController@download']);
+Route::get('uploaded', ['middleware' => 'auth', 'uses' => 'PagesController@uploadFinished']);
+Route::get('vehicles', ['middleware' => 'auth', 'uses' => 'PagesController@vehicles']);
 
 //Routes for the uploadpage and the post request for uploading files
-Route::get('uploadPage', ['middleware' => 'auth', 'uses' => 'UploadController@upload']);
+Route::get('uploadPage',  'UploadController@upload');
 Route::post('uploadMultiple', 'UploadController@multiple_upload');
 
 // Authentication routes...

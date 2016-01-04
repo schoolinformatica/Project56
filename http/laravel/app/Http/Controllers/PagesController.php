@@ -28,10 +28,21 @@ class PagesController extends Controller
     {
         return view('pages.upload');
     }
+	
+	 public function uploadFinished()
+    {
+        return view('pages.uploaded');
+    }
 
     public function download()
     {
-        return view('pages.login');
+        return view('pages.download');
+    }
+	
+
+    public function vehicles()
+    {
+        return view('pages.vehicles');
     }
 
 }

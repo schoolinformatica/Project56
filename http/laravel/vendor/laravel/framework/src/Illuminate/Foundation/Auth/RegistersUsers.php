@@ -29,11 +29,11 @@ trait RegistersUsers
     {
         $validator = $this->validator($request->all());
 
-        if ($validator->fails()) {
-            $this->throwValidationException(
-                $request, $validator
-            );
-        }
+//        if ($validator->fails()) {
+//            $this->throwValidationException(
+//                $request, $validator
+//            );
+//        }
 
         Auth::login($this->create($request->all()));
 

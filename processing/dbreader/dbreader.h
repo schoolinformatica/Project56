@@ -144,12 +144,13 @@ vector<PositionEntity> convert_to_positions(string where) {
     EntityManager manager;
     result result = manager.select("positions", where);
     vector<PositionEntity> positionsEntities;
+
     for (result::const_iterator c = result.begin(); c != result.end(); ++c) {
         PositionEntity positionEntity;
         positionEntity.set_date_time(c[0].as<string>());
         positionEntity.set_unit_id(c[1].as<string>());
-        positionEntity.set_rdx(c[2].as<int>());
-        positionEntity.set_rdy(c[3].as<int>());
+        positionEntity.set_rdx(c[2].as<double>());
+        positionEntity.set_rdy(c[3].as<double>());
         positionEntity.set_speed(c[4].as<int>());
         positionEntity.set_course(c[5].as<int>());
         positionEntity.set_num_satelites(c[6].as<int>());
@@ -160,4 +161,79 @@ vector<PositionEntity> convert_to_positions(string where) {
     return positionsEntities;
 }
 
+vector<PositionEntity> convert_to_positions(result result1) {
+    cout << "positions" << endl;
+    vector<PositionEntity> positionsEntities;
+
+    for (result::const_iterator c = result1.begin(); c != result1.end(); ++c) {
+        PositionEntity positionEntity;
+        positionEntity.set_date_time(c[0].as<string>());
+        positionEntity.set_unit_id(c[1].as<string>());
+        positionEntity.set_rdx(c[2].as<double>());
+        positionEntity.set_rdy(c[3].as<double>());
+        positionEntity.set_speed(c[4].as<int>());
+        positionEntity.set_course(c[5].as<int>());
+        positionEntity.set_num_satelites(c[6].as<int>());
+        positionEntity.set_hdop(c[7].as<int>());
+        positionEntity.set_quality(c[8].as<string>());
+        positionsEntities.push_back(positionEntity);
+    }
+    return positionsEntities;
+}
+
+//This method is used for calculating the amount of 0-speeds at each coordinate
+vector<PositionEntity> convert_to_positionsStops(result result1) {
+    cout << "positions stops" << endl;
+    vector<PositionEntity> positionsEntities;
+    for (result::const_iterator c = result1.begin(); c != result1.end(); ++c) {
+        PositionEntity positionEntity;
+        positionEntity.set_unit_id(c[0].as<string>());
+        positionEntity.set_rdx(c[1].as<double>());
+        positionEntity.set_rdy(c[2].as<double>());
+        positionEntity.set_speed(c[3].as<int>());
+        positionsEntities.push_back(positionEntity);
+    }
+    return positionsEntities;
+}
+
+//This method is used for calculating the amount of HDOP per UnitId
+vector<PositionEntity> convert_to_positionsHDOP(result result1) {
+    cout << "positions HDOP" << endl;
+    vector<PositionEntity> positionsEntities;
+    for (result::const_iterator c = result1.begin(); c != result1.end(); ++c) {
+        PositionEntity positionEntity;
+        positionEntity.set_unit_id(c[0].as<string>());
+        positionEntity.set_hdop(c[1].as<int>());
+        positionEntity.set_countOfUnitID(c[2].as<int>());
+        positionsEntities.push_back(positionEntity);
+    }
+    return positionsEntities;
+}
+
+//This method is used for calculating the amount of HDOP per UnitId
+vector<PositionEntity> convert_to_positionsSats(result result1) {
+    cout << "positions Satellites" << endl;
+    vector<PositionEntity> positionsEntities;
+    for (result::const_iterator c = result1.begin(); c != result1.end(); ++c) {
+        PositionEntity positionEntity;
+        positionEntity.set_unit_id(c[0].as<string>());
+        positionEntity.set_num_satelites(c[1].as<int>());
+        positionEntity.set_countOfUnitID(c[2].as<int>());
+        positionsEntities.push_back(positionEntity);
+    }
+    return positionsEntities;
+}
+
+//This method is used for calculating the amount of HDOP per UnitId
+vector<PositionEntity> convert_to_positionsQuality(result result1) {
+    cout << "positions Quality" << endl;
+    vector<PositionEntity> positionsEntities;
+    for (result::const_iterator c = result1.begin(); c != result1.end(); ++c) {
+        PositionEntity positionEntity;
+        positionEntity.set_unit_id(c[0].as<string>());
+        positionEntity.set_qualityCount(c[1].as<int>());
+        positionsEntities.push_back(positionEntity);
+    }
+    return positionsEntities;
+}
 #endif
