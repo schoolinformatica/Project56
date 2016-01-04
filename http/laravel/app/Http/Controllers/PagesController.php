@@ -38,7 +38,7 @@ class PagesController extends Controller
     {
         return view('pages.download');
     }
-	
+
 
     public function vehicles()
     {

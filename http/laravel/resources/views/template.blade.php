@@ -18,19 +18,19 @@
         }
 
         .container {
-            width:100%;
+            //width:100%;
             margin-top:60px;
         }
 
         .row {
             margin-bottom:50px;
-            background-color:#eeeeee;
+            //background-color:#eeeeee;
         }
 
         .row div {
             margin:auto;
-            padding-top:20px;
-            float:initial;
+            //padding-top:20px;
+            //float:initial;
             max-width:800px;
             height:100%;;
         }
