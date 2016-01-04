@@ -175,7 +175,7 @@
 							<div class="col-md-6 col-md-offset-4">
 								<button type="submit" class="btn btn-primary">Login</button>
 
-								<a class="btn btn-link" href="{{ url('/auth/register') }}">Don`t have an ccount yet?</a>
+								<a class="btn btn-link" href="{{ url('/auth/register') }}">Don`t have an account yet? Register here!</a>
 							</div>
 						</div>
 					</form>

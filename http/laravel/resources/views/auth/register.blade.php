@@ -182,6 +182,8 @@
                                 <button type="submit" class="btn btn-primary">
                 	                Register
                                 </button>
+
+								<a class="btn btn-link" href="{{ url('/auth/login') }}">Already have an account? Login!</a>
                             </div>
                         </div>
                     </form>
