@@ -192,7 +192,7 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
             totalCarCount.push_back(p.get_countOfUnitID());
         }
 
-        if(searchForWorst == true)
+        if(searchForWorst == true && totalHDOPValue.size() > 0)
         {
             //get index for biggest HDOP sum-value (big is bad)
             int index;
@@ -203,7 +203,7 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
             << " had an average HDOP value of " + to_string(averageHDOPValue);
             return returnvalue.str();
         }
-        else
+        else if (searchForWorst == false && totalHDOPValue.size() > 0)
         {
             //get index for smallest HDOP sum-value (small is bad)
             int index;
@@ -214,6 +214,8 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
             << " had an average HDOP value of " + to_string(averageHDOPValue);
             return returnvalue.str();
         }
+        else
+            return "Error: Data did not contain any matching HDOP values!";
     }
     else if (typeOfSearch.compare("Satellites") == 0)
     {
@@ -230,7 +232,7 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
             totalCarCount.push_back(p.get_countOfUnitID());
         }
 
-        if(searchForWorst == true)
+        if(searchForWorst == true && totalSatsValue.size() > 0)
         {
             //get index for smallest amount of satellite connections
             int index;
@@ -241,7 +243,7 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
             << " was connected to an average of " + to_string(averageSatValue) + " satellites at any given time.";
             return returnvalue.str();
         }
-        else
+        else if (searchForWorst == false && totalSatsValue.size() > 0)
         {
             //get index for biggest amount of satellite connections
             int index;
@@ -252,6 +254,8 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
             << " was connected to an average of " + to_string(averageSatsValue) + " satellites at any given time.";
             return returnvalue.str();
         }
+        else
+            return "Error: Data did not contain any matching satellite values!";
     }
     else if (typeOfSearch.compare("Quality") == 0)
     {
@@ -266,7 +270,7 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
             totalQualityValue.push_back(p.get_qualityCount());
         }
 
-        if(searchForWorst == true)
+        if(searchForWorst == true && totalQualityValue.size() > 0)
         {
             //get index for smallest count of dGPS quality values
             int index;
@@ -276,7 +280,7 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
 
             return returnvalue.str();
         }
-        else
+        else if(searchForWorst == false && totalQualityValue.size() > 0)
         {
             //get index for biggest count of dGPS quality values
             int index;
@@ -286,6 +290,8 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
 
             return returnvalue.str();
         }
+        else
+            return "Error: Data did not contain any matching satellite values!";
     }
     else
     {
