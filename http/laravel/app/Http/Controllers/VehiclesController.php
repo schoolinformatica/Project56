@@ -19,6 +19,7 @@ class VehiclesController extends Controller
             ->groupBy("UnitId")
             ->get();
 
+
         $cars_off = Events::select(["UnitId", DB::raw('count("Value")')])
             ->where("Port", 'Ignition')
             ->where("Value", 0)
@@ -26,7 +27,16 @@ class VehiclesController extends Controller
             ->get();
 
 
-        return view('pages.vehicles')->with('cars_on', $cars_on)->with('cars_off', $cars_off);
+        foreach ($cars_on as $car_on) {
+            foreach ($cars_off as $car_off) {
+                if($car_on->UnitId == $car_off->UnitId) {
+                    $car_on->count_two = $car_off->count;
+                    continue;
+                }
+            }
+        }
+
+        return view('pages.vehicles')->with('cars', $cars_on);
     }
 
 }
