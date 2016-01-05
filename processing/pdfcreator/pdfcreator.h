@@ -34,6 +34,7 @@
 
 using namespace std;
 int sendDirToPHP(const char *directory, const char *email);
+int connectPDFToUser(string email, string filename);
 
 
 /**************************
@@ -67,7 +68,7 @@ bool pdf_writer(PDF &pdf, string email) {
         cout << "PDF File Successfully Written" << endl;
 
         //call function that connects the created pdf to the user-email
-        connectPDFToUser(filename, email);
+        connectPDFToUser(email,filename);
 
         //edit this next line when deploying on server
         if (sendDirToPHP(dirchar, emailchar) != 0) {
@@ -127,9 +128,14 @@ int sendDirToPHP(const char *directory, const char *email) {
 }
 
 int connectPDFToUser(string email, string filename){
+    /*
+     * CREATE TABLE SCRIPT
+     * CREATE TABLE userhaspdf (filename varchar(40), email varchar(40));
+     */
+
     Pgsqlcon pgsqlcon;
 
-    string insert_query = "INSERT INTO userHasPDF (filename, email) VALUES ('" + email + "' , '" + filename + "');";
+    string insert_query = "INSERT INTO userhaspdf (filename, email) VALUES ('" + email + "' , '" + filename + "');";
     vector<string> queries;
 
     queries.push_back(insert_query);
