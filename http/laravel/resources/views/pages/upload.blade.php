@@ -1,5 +1,7 @@
 @extends("template")
-
+@section("title")
+    upload
+@stop
 @section("content")
     <style type="text/css">
 

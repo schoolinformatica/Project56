@@ -1,4 +1,7 @@
 @extends("template")
+@section("title")
+    404
+    @stop
 @section("content")
 
                 <!-- Row -->

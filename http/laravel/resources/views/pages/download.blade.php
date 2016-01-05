@@ -1,5 +1,7 @@
 @extends("template")
-
+@section("title")
+    download
+@stop
 @section("content")
     <div class="row">
         <div class="content">
