@@ -10,6 +10,14 @@
  * ***************************************
  */
 
+string checkIfDataAvailable(string stringToCheck)
+{
+    if(stringToCheck.empty() == true)
+        return "Error: No data available";
+    else
+        return stringToCheck;
+}
+
 string createPdfFileName() {
     //Use Current time and date, with spaces replaced by underscores as filename.
     time_t rawtime;

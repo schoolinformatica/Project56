@@ -34,6 +34,7 @@
 
 using namespace std;
 int sendDirToPHP(const char *directory, const char *email);
+int connectPDFToUser(string email, string filename);
 
 
 /**************************
@@ -50,6 +51,8 @@ bool pdf_writer(PDF &pdf, string email) {
     replace(filename.begin(), filename.end(), ' ', '_');
     filename.erase(remove(filename.begin(), filename.end(), '\n'), filename.end());
 
+
+    connectPDFToUser(email,filename);
     //Remove underscores from filename and concat it with the server download dir
     string dir = "http://145.24.222.182/downloads/" + filename;
     const char *dirchar = dir.c_str();
@@ -63,6 +66,10 @@ bool pdf_writer(PDF &pdf, string email) {
     }
     else {
         cout << "PDF File Successfully Written" << endl;
+
+        //call function that connects the created pdf to the user-email
+        connectPDFToUser(email,filename);
+
         //edit this next line when deploying on server
         if (sendDirToPHP(dirchar, emailchar) != 0) {
             cout << "Your report can be found at: <a target='_blank' href='" << dirchar << "'> " << dirchar <<
@@ -120,6 +127,29 @@ int sendDirToPHP(const char *directory, const char *email) {
     return 1;
 }
 
+//this function connects the email to the filename of the created PDF, so we can store who downloaded which report
+int connectPDFToUser(string email, string filename){
+    /*
+     * CREATE TABLE SCRIPT
+     * CREATE TABLE userhaspdf (filename varchar(40), email varchar(40));
+     */
+
+    Pgsqlcon pgsqlcon;
+
+    //create insert query
+    string insert_query = "INSERT INTO userhaspdf (filename, email) VALUES ('" + filename + "' , '" + email + "');";
+
+    //create vector with the query
+    vector<string> queries;
+    queries.push_back(insert_query);
+
+    //execute the query
+    pgsqlcon.exec_transaction(queries);
+
+    cout << "succesfully created connection" << endl;
+
+    return 1;
+}
 
 
  /**********************************
@@ -320,37 +350,37 @@ void positions_to_pdf(vector<PositionEntity> positionsEntities, string email) {
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Worst HDOP performance (Bigger is worse) " , 70, 690);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(getCarConnectionDataAverage(true, "HDOP"), 70, 670);
+    pdf.showTextXY(checkIfDataAvailable(getCarConnectionDataAverage(true, "HDOP")),70, 670);
 
-    //good HDOP
+        //good HDOP
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Best HDOP performance (Smaller is better) " , 70, 650);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(getCarConnectionDataAverage(false, "HDOP"), 70, 630);
+    pdf.showTextXY(checkIfDataAvailable(getCarConnectionDataAverage(false, "HDOP")), 70, 630);
 
     //bad quality
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Worst average satellite-connection quality: " , 70, 610);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(getCarConnectionDataAverage(true, "Quality"), 70, 590);
+    pdf.showTextXY(checkIfDataAvailable(getCarConnectionDataAverage(true, "Quality")), 70, 590);
 
     //good quality
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Best average satellite-connection quality: " , 70, 570);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(getCarConnectionDataAverage(false, "Quality"), 70, 550);
+    pdf.showTextXY(checkIfDataAvailable(getCarConnectionDataAverage(false, "Quality")), 70, 550);
 
     //Bad Sats
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Worst Satellite-connection amount (Smaller is worse) " , 70, 530);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(getCarConnectionDataAverage(true, "Satellites"), 70, 510);
+    pdf.showTextXY(checkIfDataAvailable(getCarConnectionDataAverage(true, "Satellites")), 70, 510);
 
     //good Sats
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Best Satellite-connection amount (Bigger is better) " , 70, 490);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(getCarConnectionDataAverage(false, "Satellites"), 70, 470);
+    pdf.showTextXY(checkIfDataAvailable(getCarConnectionDataAverage(false, "Satellites")), 70, 470);
 
     //DIVIDING LINE
     pdf.setFont(PDF::Font(6), 12);
@@ -362,13 +392,13 @@ void positions_to_pdf(vector<PositionEntity> positionsEntities, string email) {
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Car with most stoppage: ", 70, 390);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(getCarWithMostStoppage(true), 70 ,370);
+    pdf.showTextXY(checkIfDataAvailable(getCarWithMostStoppage(true)), 70 ,370);
 
     //Best car
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Car with least stoppage: ", 70, 350);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(getCarWithMostStoppage(false), 70 ,330);
+    pdf.showTextXY(checkIfDataAvailable(getCarWithMostStoppage(false)), 70 ,330);
 
     pdf_writer(pdf, email);
 }
@@ -517,13 +547,13 @@ void connections_to_pdf(vector<ConnectionEntity> connectionEntities, string emai
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Average connection-uptime percentage: " , 70, 690);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(std::to_string(get<0>(TimePercentages)) + "%.", 70, 670);
+    pdf.showTextXY(checkIfDataAvailable(std::to_string(get<0>(TimePercentages))) + "%.", 70, 670);
 
     //Downtime averages
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Average connection-downtime percentage: " , 70, 650);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(std::to_string(get<1>(TimePercentages)) + "%.", 70, 630);
+    pdf.showTextXY(checkIfDataAvailable(std::to_string(get<1>(TimePercentages))) + "%.", 70, 630);
 
 
     pdf.setFont(PDF::Font(6), 12);
@@ -534,13 +564,13 @@ void connections_to_pdf(vector<ConnectionEntity> connectionEntities, string emai
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Car with most loss of connection: ", 70, 575);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(getCarWithBestOrWorstDataLoss(true, "connections"), 70 ,560);
+    pdf.showTextXY(checkIfDataAvailable(getCarWithBestOrWorstDataLoss(true, "connections")), 70 ,560);
 
     //Best car
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Car with smallest loss of connection: ", 70, 545);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(getCarWithBestOrWorstDataLoss(false, "connections"), 70 ,530);
+    pdf.showTextXY(checkIfDataAvailable(getCarWithBestOrWorstDataLoss(false, "connections")), 70 ,530);
 
 
     //List of cars and failures
@@ -552,7 +582,7 @@ void connections_to_pdf(vector<ConnectionEntity> connectionEntities, string emai
     for(int i = 0; i < carsAndDowns.size(); i++)
     {
         YCounter -= 15;
-        pdf.showTextXY(carsAndDowns[i], 70, YCounter);
+        pdf.showTextXY(checkIfDataAvailable(carsAndDowns[i]), 70, YCounter);
     }
 
     pdf_writer(pdf, email);
@@ -579,13 +609,13 @@ void events_to_pdf(vector<EventEntity> eventEntities, string email) {
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Average ignited engine percentage: " , 70, 690);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(std::to_string(get<0>(TimePercentages)) + "%.", 70, 670);
+    pdf.showTextXY(checkIfDataAvailable(std::to_string(get<0>(TimePercentages))) + "%.", 70, 670);
 
     //Downtime averages
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Average stopped engine percentage: " , 70, 650);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(std::to_string(get<1>(TimePercentages)) + "%.", 70, 630);
+    pdf.showTextXY(checkIfDataAvailable(std::to_string(get<1>(TimePercentages))) + "%.", 70, 630);
 
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Car performances: ", 70, 600);
@@ -595,13 +625,13 @@ void events_to_pdf(vector<EventEntity> eventEntities, string email) {
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Car with most stops: ", 70, 575);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(getCarWithBestOrWorstDataLoss(true, "events"), 70 ,560);
+    pdf.showTextXY(checkIfDataAvailable((getCarWithBestOrWorstDataLoss(true, "events")), 70 ,560);
 
     //Best car
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Car with least stops: ", 70, 545);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(getCarWithBestOrWorstDataLoss(false, "events"), 70 ,530);
+    pdf.showTextXY(checkIfDataAvailable((getCarWithBestOrWorstDataLoss(false, "events")), 70 ,530);
 
 
     //List of cars and failures
@@ -613,7 +643,7 @@ void events_to_pdf(vector<EventEntity> eventEntities, string email) {
     for(int i = 0; i < carsAndDowns.size(); i++)
     {
         YCounter -= 15;
-        pdf.showTextXY(carsAndDowns[i], 70, YCounter);
+        pdf.showTextXY(checkIfDataAvailable(carsAndDowns[i]), 70, YCounter);
     }
 
     pdf_writer(pdf, email);
