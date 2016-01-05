@@ -232,7 +232,7 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
             totalCarCount.push_back(p.get_countOfUnitID());
         }
 
-        if(searchForWorst == true && totalSatsValue > 0)
+        if(searchForWorst == true && totalSatsValue.size() > 0)
         {
             //get index for smallest amount of satellite connections
             int index;
@@ -243,7 +243,7 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
             << " was connected to an average of " + to_string(averageSatValue) + " satellites at any given time.";
             return returnvalue.str();
         }
-        else if (searchForWorst == false && totalSatsValue > 0)
+        else if (searchForWorst == false && totalSatsValue.size() > 0)
         {
             //get index for biggest amount of satellite connections
             int index;
@@ -270,7 +270,7 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
             totalQualityValue.push_back(p.get_qualityCount());
         }
 
-        if(searchForWorst == true && totalQualityValue >)
+        if(searchForWorst == true && totalQualityValue.size() > 0)
         {
             //get index for smallest count of dGPS quality values
             int index;
@@ -280,7 +280,7 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
 
             return returnvalue.str();
         }
-        else if(searchForWorst == false && totalQualityValue > 0)
+        else if(searchForWorst == false && totalQualityValue.size() > 0)
         {
             //get index for biggest count of dGPS quality values
             int index;
