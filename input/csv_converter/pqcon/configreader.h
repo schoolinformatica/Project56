@@ -8,7 +8,8 @@
 
 using namespace std;
 
-#define PATH_TO_CONFIG_FILE "/home/robert/Desktop/Hogeschool/Project56/project56/input/csv_converter/credentials.pgconf"
+
+#define PATH_TO_CONFIG_FILE "/var/www/laravel/public/PDFMaker/processing/credentials.pgconf"
 #define HOST "hostip"
 #define PORT "port"
 #define DATABASE "database"
