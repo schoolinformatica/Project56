@@ -625,13 +625,13 @@ void events_to_pdf(vector<EventEntity> eventEntities, string email) {
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Car with most stops: ", 70, 575);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(checkIfDataAvailable((getCarWithBestOrWorstDataLoss(true, "events")), 70 ,560);
+    pdf.showTextXY(checkIfDataAvailable(getCarWithBestOrWorstDataLoss(true, "events")), 70 ,560);
 
     //Best car
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Car with least stops: ", 70, 545);
     pdf.setFont(PDF::Font(5), 12);
-    pdf.showTextXY(checkIfDataAvailable((getCarWithBestOrWorstDataLoss(false, "events")), 70 ,530);
+    pdf.showTextXY(checkIfDataAvailable(getCarWithBestOrWorstDataLoss(false, "events")), 70 ,530);
 
 
     //List of cars and failures
