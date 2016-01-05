@@ -127,7 +127,7 @@ int sendDirToPHP(const char *directory, const char *email) {
     return 1;
 }
 
-//this function connects the email to the filename of the created PDF
+//this function connects the email to the filename of the created PDF, so we can store who downloaded which report
 int connectPDFToUser(string email, string filename){
     /*
      * CREATE TABLE SCRIPT
@@ -137,7 +137,7 @@ int connectPDFToUser(string email, string filename){
     Pgsqlcon pgsqlcon;
 
     //create insert query
-    string insert_query = "INSERT INTO userhaspdf (filename, email) VALUES ('" + email + "' , '" + filename + "');";
+    string insert_query = "INSERT INTO userhaspdf (filename, email) VALUES ('" + filename + "' , '" + email + "');";
 
     //create vector with the query
     vector<string> queries;
