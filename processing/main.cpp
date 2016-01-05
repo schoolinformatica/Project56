@@ -11,7 +11,7 @@ using namespace std;
 
 //method start for making pdf 
 int start(string file, string email) {
-    cout << "ok " << endl;
+
     vector<PositionEntity> vectorPositions;
     vector<MonitoringEntity> vectorMonitoring;
     vector<ConnectionEntity> vectorConnections;

@@ -50,6 +50,8 @@ bool pdf_writer(PDF &pdf, string email) {
     replace(filename.begin(), filename.end(), ' ', '_');
     filename.erase(remove(filename.begin(), filename.end(), '\n'), filename.end());
 
+
+
     //Remove underscores from filename and concat it with the server download dir
     string dir = "http://145.24.222.182/downloads/" + filename;
     const char *dirchar = dir.c_str();
@@ -63,6 +65,10 @@ bool pdf_writer(PDF &pdf, string email) {
     }
     else {
         cout << "PDF File Successfully Written" << endl;
+
+        //call function that connects the created pdf to the user-email
+        connectPDFToUser(filename, email);
+
         //edit this next line when deploying on server
         if (sendDirToPHP(dirchar, emailchar) != 0) {
             cout << "Your report can be found at: <a target='_blank' href='" << dirchar << "'> " << dirchar <<
@@ -120,6 +126,17 @@ int sendDirToPHP(const char *directory, const char *email) {
     return 1;
 }
 
+int connectPDFToUser(string email, string filename){
+    Pgsqlcon pgsqlcon;
+
+    string insert_query = "INSERT INTO userHasPDF (filename, email) VALUES ('" + email + "' , '" + filename + "');";
+    vector<string> queries;
+
+    queries.push_back(insert_query);
+    pgsqlcon.exec_transaction(queries);
+
+    return 1;
+}
 
 
  /**********************************
