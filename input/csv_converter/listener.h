@@ -71,9 +71,13 @@ int listener(string path) {
 
                     if (strstr(event->name, ".csv") != NULL)
                     {
-                        string goodEventName = strToLower(event->name);
-                        string input = path + goodEventName;
-                        thread t1(push_list_to_database, input);
+                        string normalPath = path + event->name;
+                        string lowerCasePath =  path + strToLower(event->name);
+                        if(rename(normalPath.c_str(),lowerCasePath.c_str()) == 0)
+                            cout << "Rename succesfull" << endl;
+                        else
+                            cout << "Rename failure" << endl;
+                        thread t1(push_list_to_database, lowerCasePath);
                         t1.detach();
                     }
                     else
@@ -95,9 +99,13 @@ int listener(string path) {
 
                     if (strstr(event->name, ".csv") != NULL)
                     {
-                        string goodEventName = strToLower(event->name);
-                        string input = path + goodEventName;
-                        thread t1(push_list_to_database, input);
+                        string normalPath = path + event->name;
+                        string lowerCasePath =  path + strToLower(event->name);
+                        if(rename(normalPath.c_str(),lowerCasePath.c_str()) == 0)
+                            cout << "Rename succesfull" << endl;
+                        else
+                            cout << "Rename failure" << endl;
+                        thread t1(push_list_to_database, lowerCasePath);
                         t1.detach();
                     }
                     else
@@ -119,9 +127,13 @@ int listener(string path) {
 
                     if (strstr(event->name, ".csv") != NULL)
                     {
-                        string goodEventName = strToLower(event->name);
-                        string input = path + goodEventName;
-                        thread t1(push_list_to_database, input);
+                        string normalPath = path + event->name;
+                        string lowerCasePath =  path + strToLower(event->name);
+                        if(rename(normalPath.c_str(),lowerCasePath.c_str()) == 0)
+                            cout << "Rename succesfull" << endl;
+                        else
+                            cout << "Rename failure" << endl;
+                        thread t1(push_list_to_database, lowerCasePath);
                         t1.detach();
                     }
                     else
@@ -143,9 +155,13 @@ int listener(string path) {
 
                     if (strstr(event->name, ".csv") != NULL)
                     {
-                        string goodEventName = strToLower(event->name);
-                        string input = path + goodEventName;
-                        thread t1(push_list_to_database, input);
+                        string normalPath = path + event->name;
+                        string lowerCasePath =  path + strToLower(event->name);
+                        if(rename(normalPath.c_str(),lowerCasePath.c_str()) == 0)
+                            cout << "Rename succesfull" << endl;
+                        else
+                            cout << "Rename failure" << endl;
+                        thread t1(push_list_to_database, lowerCasePath);
                         t1.detach();
                     }
                     else
