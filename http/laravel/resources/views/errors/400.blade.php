@@ -1,12 +1,12 @@
 @extends("template")
 @section("title")
-    403
+    400
     @stop
 @section("content")
 
                 <!-- Row -->
                 <div class="row">
-                    <div class="title">Verboden toegang!</div>
+                    <div class="title">Foute aanvraag!</div>
                 </div>
                 <!-- /.row -->
 
