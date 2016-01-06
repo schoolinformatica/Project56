@@ -6,26 +6,29 @@
     <style type="text/css">
 
         .row {
-            margin-bottom:50px;
-            padding:20px;
-            background-color:#eeeeee ;
+            margin-bottom: 50px;
+            padding: 20px;
+            background-color: #eeeeee;
         }
+
         .content {
-            margin:auto;
-            padding-top:20px;
-            float:initial;
-            max-width:800px;
-            height:100%;
+            margin: auto;
+            padding-top: 20px;
+            float: initial;
+            max-width: 800px;
+            height: 100%;
         }
+
         .container {
-            width:100%;
-            margin-top:60px;
+            width: 100%;
+            margin-top: 60px;
         }
 
         .btn-file {
             position: relative;
             overflow: hidden;
         }
+
         .btn-file input[type=file] {
             position: absolute;
             top: 0;
@@ -40,18 +43,18 @@
             cursor: inherit;
             display: block;
         }
+
         input[readonly] {
             background-color: white !important;
             cursor: text !important;
         }
-
 
         body {
             padding-top: 0px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
         }
 
         .navbar-inverse {
-            border-radius:0px;
+            border-radius: 0px;
         }
 
         .navbar-fixed-top .nav {
@@ -64,15 +67,16 @@
 
         footer {
             padding-top: 50px;
-            margin:0px,0px,0px,10px;
-        }
-        #footer {
-            padding-top:0px;
-            margin-left:10px;
-            width:100%;
+            margin: 0px, 0px, 0px, 10px;
         }
 
-        @media(min-width:768px) {
+        #footer {
+            padding-top: 0px;
+            margin-left: 10px;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
             body {
                 padding-top: 0px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
             }
@@ -90,8 +94,8 @@
 
                 <p class="lead">
                     Dear User, on this page you can upload files to our servers. Our servers will process the file and
-                        create reports of it.
-                        For inserting only .CSV files are allowed.
+                    create reports of it.
+                    For inserting only .CSV files are allowed.
                 </p>
             </div>
         </div>
@@ -99,13 +103,16 @@
 
     <div class="row">
         <div class="content">
-            <form class="fileUploadForm" action="/uploadMultiple/" method="post" enctype="multipart/form-data" files=true>
+            <form class="fileUploadForm" action="/uploadMultiple/" method="post" enctype="multipart/form-data"
+                  files=true>
                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                 <label for="exampleInputFile">File input</label>
+
                 <div class="form-group">
 
                            <span class="btn btn-primary btn-file">
-                               Browse&hellip; <input type="file" id="exampleInputFile" multiple="multiple" name="images[]" multiple>
+                               Browse&hellip; <input type="file" id="exampleInputFile" multiple="multiple"
+                                                     name="images[]" multiple>
                            </span>
                 </div>
                 <div class="form-group">
@@ -117,28 +124,70 @@
         </div>
     </div>
 
+    <div class="progress">
+        <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"
+             aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+            <p class="percent">
+                0%
+            </p>
+        </div>
+    </div>
+    <div id="status"></div>
 
-        <script> //Script to let the file feedback work (the readonly textblock which shows the chosen file)
-            $(document).on('change', '.btn-file :file', function () {
-                var input = $(this),
-                        numFiles = input.get(0).files ? input.get(0).files.length : 1,
-                        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-                input.trigger('fileselect', [numFiles, label]);
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+    <script>
+        (function () {
+
+            var bar = $('.progress-bar');
+            var percent = $('.percent');
+            var status = $('#status');
+
+            $('form').ajaxForm({
+                beforeSend: function () {
+                    status.empty();
+                    var percentVal = '0%';
+                    bar.width(percentVal)
+                    percent.html(percentVal);
+                },
+                uploadProgress: function (event, position, total, percentComplete) {
+                    var percentVal = percentComplete + '%';
+                    bar.width(percentVal)
+                    percent.html(percentVal);
+                },
+                success: function () {
+                    var percentVal = '100%';
+                    bar.width(percentVal)
+                    percent.html(percentVal);
+                },
+                complete: function (xhr) {
+                    status.html(xhr.responseText);
+                }
             });
 
-            $(document).ready(function () {
-                $('.btn-file :file').on('fileselect', function (event, numFiles, label) {
+        })();
+    </script>
 
-                    var input = $(this).parents('.fileUploadForm').find(':text'),
-                            log = numFiles > 1 ? numFiles + ' files selected' : label;
+    <script> //Script to let the file feedback work (the readonly textblock which shows the chosen file)
+        $(document).on('change', '.btn-file :file', function () {
+            var input = $(this),
+                    numFiles = input.get(0).files ? input.get(0).files.length : 1,
+                    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+            input.trigger('fileselect', [numFiles, label]);
+        });
 
-                    if (input.length) {
-                        input.val(log);
-                    } else {
-                        if (log) alert(log);
-                    }
+        $(document).ready(function () {
+            $('.btn-file :file').on('fileselect', function (event, numFiles, label) {
 
-                });
+                var input = $(this).parents('.fileUploadForm').find(':text'),
+                        log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+                if (input.length) {
+                    input.val(log);
+                } else {
+                    if (log) alert(log);
+                }
+
             });
-        </script>
+        });
+    </script>
 @stop
