@@ -17,35 +17,48 @@
                 </tr>
                 </thead>
                 <tbody>
+		<form action="http://145.24.222.182/PDFMaker/processing/downloadFormHandler.php" method="get">
                 <tr>
                     <td>1</td>
                     <td>Connections.csv</td>
                     <td align='left'>
-                        <form><input type=submit value="Download" style="width:30%"></form>
+                        <input type="Radio" name="csv" value="connections" style='width:30%">
                     </td>
                 </tr>
                 <tr>
                     <td>2</td>
                     <td>Positions.csv</td>
                     <td align='left'>
-                        <form><input type=submit value="Download" style="width:30%"></form>
+                        <input type="Radio" name="csv" value="positions" style='width:30%">
                     </td>
                 </tr>
                 <tr>
                     <td>3</td>
                     <td>Events.csv</td>
                     <td align='left'>
-                        <form><input type=submit value="Download" style="width:30%"></form>
+                        <input type="Radio" name="csv" value="events" style='width:30%">
                     </td>
                 </tr>
                 <tr>
-                    td>4</td>
+                    <td>4</td>
                     <td>Monitoring.csv</td>
                     <td align='left'>
-                        <form><input type=submit value="Download" style="width:30%"></form>
+                        <input type="Radio" name="csv" value="monitoring" style='width:30%"> 
                     </td>
                 </tr>
+		<tr>
+		    <td>Uw emailadres: </td>
+		    <td align='left'>
+			<input type="text" name="email" style='width:30%">
+		    </td>
+		</tr>
+		<tr>
+		    <td align='left'>
+			<input type="Submit" name="submit" style='width:30%">
+		    </td>
+		</tr>
                 </tbody>
+		</form>
             </table>
         </div>
     </div>

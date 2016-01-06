@@ -26,9 +26,9 @@ string extractCsvFileName(string fullPathToCsvFile)
 int push_list_to_database(string pathToFile)
 {
     Pgsqlcon p;
-
+    
     string csvName = extractCsvFileName(pathToFile);
-
+    
     if (csvName.compare("") != 0)
     {
         //0 == strings are equal

@@ -1,10 +1,14 @@
 @extends("template")
-        @section("content")
+@section("title")
+    503
+    @stop
 
-                <!-- Row -->
-                <div class="row">
-                    <div class="title">Dienst momenteel niet beschikbaar!</div>
-                </div>
-                <!-- /.row -->
+    @section("content")
+
+            <!-- Row -->
+    <div class="row">
+        <div class="title">Dienst momenteel niet beschikbaar!</div>
+    </div>
+    <!-- /.row -->
 
 @stop
