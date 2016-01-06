@@ -30,28 +30,37 @@ class UploadController extends Controller {
             $files = Input::file('images');
             // Making counting of uploaded images
             $file_count = count($files);
-            // start count how many uploaded
-            $uploadcount = 0;
-            foreach($files as $file) {
-                $rules = array('file' => 'required'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
-                $validator = Validator::make(array('file'=> $file), $rules);
-                if($validator->passes()){
-                    $destinationPath = storage_path() . '/uploads';
-                    $filename = $file->getClientOriginalName();
-                    $upload_success = $file->move($destinationPath, $filename);
-                    $uploadcount ++;
+            if($file_count <= 10)
+            {
+                // start count how many uploaded
+                $uploadcount = 0;
+                foreach($files as $file) {
+                    $rules = array('file' => 'required'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
+                    $validator = Validator::make(array('file'=> $file), $rules);
+                    if($validator->passes()){
+                        $destinationPath = storage_path() . '/uploads';
+                        $filename = $file->getClientOriginalName();
+                        $upload_success = $file->move($destinationPath, $filename);
+                        $uploadcount ++;
+                    }
+                }
+                if($uploadcount == $file_count){
+                    Session::flash('success', 'Upload successfully');
+                    return redirect('uploaded');
+                }
+                else //If the upload failed (partially or completely)
+                {
+                    //returns back to the page and shows an error message to the user
+                    $message = "Somehow the upload process has been interrupted. ";
+                    echo "<script type='text/javascript'>alert('$message');</script>";
+                    return redirect('uploadPage');
                 }
             }
-            if($uploadcount == $file_count){
-                Session::flash('success', 'Upload successfully');
-                return redirect('uploaded');
-            }
-            else //If the upload failed (partially or completely)
+            else
             {
-                //returns back to the page and shows an error message to the user
-                $message = "Somehow the upload process has been interrupted. ";
+                $message = "ERROR! Uploading more than 10 files is not allowed. Try again!";
                 echo "<script type='text/javascript'>alert('$message');</script>";
-                return redirect('upload');
+                return redirect('uploadPage');
             }
         }
         else //If internetconnection is slow or not established
