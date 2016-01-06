@@ -142,7 +142,7 @@
                     <div class="col-md-4">
                         <h2>Log in</h2>
                         <p>Log in or create an account to get access to our services. As a member you get access to upload data and download created reports. These reports are based on the data which is uploaded in you uploaded files.</p>
-                        <a class="btn btn-default" href="/login/">More Info</a>
+                        <a class="btn btn-default" href="/auth/login/">More Info</a>
                     </div>
                     <!-- /.col-md-4 -->
                 </div>

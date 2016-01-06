@@ -17,6 +17,24 @@
             padding-top: 0px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
         }
 
+//        .container {
+//            width:100%;
+//            margin-top:60px;
+//        }
+//
+//        .row {
+//            margin-bottom:50px;
+//            background-color:#eeeeee;
+//        }
+//
+//        .row div {
+//            margin:auto;
+//            padding-top:20px;
+//            float:initial;
+//            max-width:800px;
+//            height:100%;;
+//        }
+
         .container {
             //width:100%;
             margin-top:60px;
