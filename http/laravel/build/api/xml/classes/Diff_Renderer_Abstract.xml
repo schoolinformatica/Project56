@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Diff_Renderer_Abstract" namespace="" name="Diff_Renderer_Abstract" abstract="true" final="false" start="43" end="82">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/php-diff/lib/Diff/Renderer" file="Abstract.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/php-diff/lib/Diff/Renderer/Abstract.php" size="3050" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="7b35a4e71789276b8c9d2e58efbef91a34000c34" relative="vendor/phpspec/php-diff/lib/Diff/Renderer/Abstract.php"/>
+  <docblock>
+    <description compact="Abstract class for diff renderers in PHP DiffLib.">PHP version 5
+
+Copyright (c) 2009 Chris Boulton &lt;chris.boulton@interspire.com&gt;
+
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+ - Redistributions of source code must retain the above copyright notice,
+   this list of conditions and the following disclaimer.
+ - Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+ - Neither the name of the Chris Boulton nor the names of its contributors
+   may be used to endorse or promote products derived from this software
+   without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.</description>
+    <package value="DiffLib"/>
+    <author value="Chris Boulton &lt;chris.boulton@interspire.com&gt;"/>
+    <copyright value="(c) 2009 Chris Boulton"/>
+    <license name="New BSD License http://www.opensource.org/licenses/bsd-license.php"/>
+    <version value="1.1"/>
+    <link value="http://github.com/chrisboulton/php-diff"/>
+  </docblock>
+  <member name="diff" visibility="public" line="48">
+    <docblock>
+      <description/>
+      <var description="Instance of the diff class that this renderer is generating the rendered diff for." type="object"/>
+    </docblock>
+  </member>
+  <member name="defaultOptions" type="array" default="" visibility="protected" line="53">
+    <docblock>
+      <description/>
+      <var description="Array of the default options that apply to this renderer." type="array"/>
+    </docblock>
+  </member>
+  <member name="options" type="array" default="" visibility="protected" line="58">
+    <docblock>
+      <description/>
+      <var description="Array containing the user applied and merged default options for the renderer." type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="66" end="69" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="The constructor. Instantiates the rendering engine and if options are passed, sets the options for the renderer."/>
+      <param description="Optionally, an array of the options for the renderer." type="array" variable="$options"/>
+    </docblock>
+    <parameter name="options" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="setOptions" start="78" end="81" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the options of the renderer to those supplied in the passed in array.">Options are merged with the default to ensure that there aren't any missing
+options.</description>
+      <param description="Array of options to set." type="array" variable="$options"/>
+    </docblock>
+    <parameter name="options" byreference="false" type="array"/>
+  </method>
+</class>

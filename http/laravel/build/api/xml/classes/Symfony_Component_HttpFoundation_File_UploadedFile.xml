@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpFoundation\File\UploadedFile" namespace="Symfony\Component\HttpFoundation\File" name="UploadedFile" abstract="false" final="false" start="25" end="293">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/File" file="UploadedFile.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/File/UploadedFile.php" size="9016" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="636ee92e45484875e9a66a4f11bcd08c64e118d9" relative="vendor/symfony/http-foundation/File/UploadedFile.php"/>
+  <docblock>
+    <description compact="A file uploaded through a form."/>
+    <author value="Bernhard Schussek &lt;bschussek@gmail.com&gt;"/>
+    <author value="Florian Eckerstorfer &lt;florian@eckerstorfer.org&gt;"/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\HttpFoundation\File\File" namespace="Symfony\Component\HttpFoundation\File" name="File"/>
+  <member name="test" type="boolean" default="false" visibility="private" line="34">
+    <docblock>
+      <description compact="Whether the test mode is activated.">Local files are used in test mode hence the code should not enforce HTTP uploads.</description>
+      <var type="object">
+        <type full="Symfony\Component\HttpFoundation\File\bool" namespace="Symfony\Component\HttpFoundation\File" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="originalName" visibility="private" line="41">
+    <docblock>
+      <description compact="The original name of the uploaded file."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="mimeType" visibility="private" line="48">
+    <docblock>
+      <description compact="The mime type provided by the uploader."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="size" visibility="private" line="55">
+    <docblock>
+      <description compact="The file size provided by the uploader."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="error" visibility="private" line="62">
+    <docblock>
+      <description compact="The UPLOAD_ERR_XXX constant provided by the uploader."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="88" end="97" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accepts the information of the uploaded file as provided by the PHP global $_FILES.">The file object is only created when the uploaded file is valid (i.e. when the
+isValid() method returns true). Otherwise the only methods that could be called
+on an UploadedFile instance are:
+
+  * getClientOriginalName,
+  * getClientMimeType,
+  * isValid,
+  * getError.
+
+Calling any other method on an non-valid instance will cause an unpredictable result.</description>
+      <param description="The full temporary path to the file" type="string" variable="$path"/>
+      <param description="The original file name" type="string" variable="$originalName"/>
+      <param description="The type of the file as provided by PHP" type="string" variable="$mimeType"/>
+      <param description="The file size" type="int" variable="$size"/>
+      <param description="The error constant of the upload (one of PHP's UPLOAD_ERR_XXX constants)" type="int" variable="$error"/>
+      <param description="Whether the test mode is active" type="object" variable="$test">
+        <type full="Symfony\Component\HttpFoundation\File\bool" namespace="Symfony\Component\HttpFoundation\File" name="bool"/>
+      </param>
+      <throws description="If file_uploads is disabled" type="object">
+        <type full="Symfony\Component\HttpFoundation\File\Exception\FileException" namespace="Symfony\Component\HttpFoundation\File\Exception" name="FileException"/>
+      </throws>
+      <throws description="If the file does not exist" type="object">
+        <type full="Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException" namespace="Symfony\Component\HttpFoundation\File\Exception" name="FileNotFoundException"/>
+      </throws>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="originalName" byreference="false" type="{unknown}"/>
+    <parameter name="mimeType" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="size" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="error" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="test" byreference="false" type="boolean" default="false"/>
+  </constructor>
+  <method name="getClientOriginalName" start="107" end="110" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the original file name.">It is extracted from the request from which the file has been uploaded.
+Then it should not be considered as a safe value.</description>
+      <return description="The original name" type="object">
+        <type full="Symfony\Component\HttpFoundation\File\string|null" namespace="Symfony\Component\HttpFoundation\File" name="string|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getClientOriginalExtension" start="120" end="123" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the original file extension.">It is extracted from the original file name that was uploaded.
+Then it should not be considered as a safe value.</description>
+      <return description="The extension" type="string"/>
+    </docblock>
+  </method>
+  <method name="getClientMimeType" start="138" end="141" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the file mime type.">The client mime type is extracted from the request from which the file
+was uploaded, so it should not be considered as a safe value.
+
+For a trusted mime type, use getMimeType() instead (which guesses the mime
+type based on the file content).</description>
+      <return description="The mime type" type="object">
+        <type full="Symfony\Component\HttpFoundation\File\string|null" namespace="Symfony\Component\HttpFoundation\File" name="string|null"/>
+      </return>
+      <see value="getMimeType()"/>
+    </docblock>
+  </method>
+  <method name="guessClientExtension" start="160" end="166" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the extension based on the client mime type.">If the mime type is unknown, returns null.
+
+This method uses the mime type as guessed by getClientMimeType()
+to guess the file extension. As such, the extension returned
+by this method cannot be trusted.
+
+For a trusted extension, use guessExtension() instead (which guesses
+the extension based on the guessed mime type for the file).</description>
+      <return description="The guessed extension or null if it cannot be guessed" type="object">
+        <type full="Symfony\Component\HttpFoundation\File\string|null" namespace="Symfony\Component\HttpFoundation\File" name="string|null"/>
+      </return>
+      <see value="guessExtension()"/>
+      <see value="getClientMimeType()"/>
+    </docblock>
+  </method>
+  <method name="getClientSize" start="176" end="179" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the file size.">It is extracted from the request from which the file has been uploaded.
+Then it should not be considered as a safe value.</description>
+      <return description="The file size" type="object">
+        <type full="Symfony\Component\HttpFoundation\File\int|null" namespace="Symfony\Component\HttpFoundation\File" name="int|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getError" start="189" end="192" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the upload error.">If the upload was successful, the constant UPLOAD_ERR_OK is returned.
+Otherwise one of the other UPLOAD_ERR_XXX constants is returned.</description>
+      <return description="The upload error" type="int"/>
+    </docblock>
+  </method>
+  <method name="isValid" start="199" end="204" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns whether the file was uploaded successfully."/>
+      <return description="True if the file has been uploaded with HTTP and no error occurred." type="object">
+        <type full="Symfony\Component\HttpFoundation\File\bool" namespace="Symfony\Component\HttpFoundation\File" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="move" start="216" end="236" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Moves the file to a new location."/>
+      <param description="The destination folder" type="string" variable="$directory"/>
+      <param description="The new file name" type="string" variable="$name"/>
+      <return description="A File object representing the new file" type="object">
+        <type full="Symfony\Component\HttpFoundation\File\File" namespace="Symfony\Component\HttpFoundation\File" name="File"/>
+      </return>
+      <throws description="if, for any reason, the file could not have been moved" type="object">
+        <type full="Symfony\Component\HttpFoundation\File\Exception\FileException" namespace="Symfony\Component\HttpFoundation\File\Exception" name="FileException"/>
+      </throws>
+    </docblock>
+    <parameter name="directory" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getMaxFilesize" start="243" end="268" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns the maximum size of an uploaded file as configured in php.ini."/>
+      <return description="The maximum size of an uploaded file in bytes" type="int"/>
+    </docblock>
+  </method>
+  <method name="getErrorMessage" start="275" end="292" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an informative upload error message."/>
+      <return description="The error message regarding the specified error code" type="string"/>
+    </docblock>
+  </method>
+</class>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Support\Manager" namespace="Illuminate\Support" name="Manager" abstract="true" final="false" start="8" end="139">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Support" file="Manager.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Support/Manager.php" size="3272" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="8235ef33df611f7371918903521cfb6538233a7d" relative="vendor/laravel/framework/src/Illuminate/Support/Manager.php"/>
+  <member name="app" visibility="protected" line="15">
+    <docblock>
+      <description compact="The application instance."/>
+      <var type="object">
+        <type full="\Illuminate\Foundation\Application" namespace="\Illuminate\Foundation" name="Application"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="customCreators" type="array" default="" visibility="protected" line="22">
+    <docblock>
+      <description compact="The registered custom driver creators."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="drivers" type="array" default="" visibility="protected" line="29">
+    <docblock>
+      <description compact="The array of created &quot;drivers&quot;."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="37" end="40" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new manager instance."/>
+      <param type="object" variable="$app">
+        <type full="\Illuminate\Foundation\Application" namespace="\Illuminate\Foundation" name="Application"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Support\void" namespace="Illuminate\Support" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="app" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="getDefaultDriver" start="47" end="47" abstract="true" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the default driver name."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="driver" start="55" end="67" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a driver instance."/>
+      <param type="string" variable="$driver"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="driver" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="If the given driver has not been created before, we will create the instances" line="59"/>
+      <comment value="here and cache it so we can return it next time very quickly. If there is" line="60"/>
+      <comment value="already a driver created by this name, we'll just return that instance." line="61"/>
+    </inline>
+  </method>
+  <method name="createDriver" start="77" end="91" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create a new driver instance."/>
+      <param type="string" variable="$driver"/>
+      <return type="mixed"/>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="driver" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="We'll check to see if a creator method exists for the given driver. If not we" line="81"/>
+      <comment value="will check for a custom driver creator, which allows developers to create" line="82"/>
+      <comment value="drivers using their own customized driver creator Closure to create it." line="83"/>
+    </inline>
+  </method>
+  <method name="callCustomCreator" start="99" end="102" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Call a custom driver creator."/>
+      <param type="string" variable="$driver"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="driver" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="extend" start="111" end="116" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a custom driver creator Closure."/>
+      <param type="string" variable="$driver"/>
+      <param type="object" variable="$callback">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Support\$this" namespace="Illuminate\Support" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="driver" byreference="false" type="{unknown}"/>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="getDrivers" start="123" end="126" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get all of the created &quot;drivers&quot;."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="__call" start="135" end="138" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Dynamically call the default driver instance."/>
+      <param type="string" variable="$method"/>
+      <param type="array" variable="$parameters"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="{unknown}"/>
+  </method>
+</class>

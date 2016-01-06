@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PHPUnit_Framework_Constraint" namespace="" name="PHPUnit_Framework_Constraint" abstract="true" final="false" start="18" end="153">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Framework" file="Constraint.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Framework/Constraint.php" size="4410" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="2b9ae56feb04f3339cb96133fb221f182c070a6f" relative="vendor/phpunit/phpunit/src/Framework/Constraint.php"/>
+  <docblock>
+    <description compact="Abstract base class for constraints. which are placed upon any value."/>
+    <since value="Interface available since Release 3.0.0"/>
+  </docblock>
+  <implements full="Countable" namespace="" name="Countable"/>
+  <implements full="PHPUnit_Framework_SelfDescribing" namespace="" name="PHPUnit_Framework_SelfDescribing"/>
+  <member name="exporter" visibility="protected" line="20"/>
+  <constructor name="__construct" start="22" end="25" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="evaluate" start="45" end="60" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Evaluates the constraint for parameter $other">If $returnResult is set to false (the default), an exception is thrown
+in case of a failure. null is returned otherwise.
+
+If $returnResult is true, the result of the evaluation is returned as
+a boolean value instead: true in case of success, false in case of a
+failure.</description>
+      <param description="Value or object to evaluate." type="mixed" variable="$other"/>
+      <param description="Additional information about the test" type="string" variable="$description"/>
+      <param description="Whether to return a result or throw an exception" type="object" variable="$returnResult">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="mixed"/>
+      <throws type="object">
+        <type full="PHPUnit_Framework_ExpectationFailedException" namespace="" name="PHPUnit_Framework_ExpectationFailedException"/>
+      </throws>
+    </docblock>
+    <parameter name="other" byreference="false" type="{unknown}"/>
+    <parameter name="description" byreference="false" type="string" default="''"/>
+    <parameter name="returnResult" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="matches" start="72" end="75" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Evaluates the constraint for parameter $other. Returns true if the constraint is met, false otherwise.">This method can be overridden to implement the evaluation algorithm.</description>
+      <param description="Value or object to evaluate." type="mixed" variable="$other"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="other" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="count" start="84" end="87" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Counts the number of constraint elements."/>
+      <return type="int"/>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+  </method>
+  <method name="fail" start="98" end="119" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Throws an exception for the given compared value and test description"/>
+      <param description="Evaluated value or object." type="mixed" variable="$other"/>
+      <param description="Additional information about the test" type="string" variable="$description"/>
+      <param type="object" variable="$comparisonFailure">
+        <type full="SebastianBergmann\Comparator\ComparisonFailure" namespace="SebastianBergmann\Comparator" name="ComparisonFailure"/>
+      </param>
+      <throws type="object">
+        <type full="PHPUnit_Framework_ExpectationFailedException" namespace="" name="PHPUnit_Framework_ExpectationFailedException"/>
+      </throws>
+    </docblock>
+    <parameter name="other" byreference="false" type="{unknown}"/>
+    <parameter name="description" byreference="false" type="{unknown}"/>
+    <parameter name="comparisonFailure" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="SebastianBergmann\Comparator\ComparisonFailure" namespace="SebastianBergmann\Comparator" name="ComparisonFailure"/>
+    </parameter>
+  </method>
+  <method name="additionalFailureDescription" start="131" end="134" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Return additional failure description where needed">The function can be overridden to provide additional failure
+information like a diff</description>
+      <param description="Evaluated value or object." type="mixed" variable="$other"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="other" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="failureDescription" start="149" end="152" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Returns the description of the failure">The beginning of failure messages is "Failed asserting that" in most
+cases. This method should return the second part of that sentence.
+
+To provide additional failure information additionalFailureDescription
+can be used.</description>
+      <param description="Evaluated value or object." type="mixed" variable="$other"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="other" byreference="false" type="{unknown}"/>
+  </method>
+</class>

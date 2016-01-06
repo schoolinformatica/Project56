@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SebastianBergmann\Comparator\ArrayComparator" namespace="SebastianBergmann\Comparator" name="ArrayComparator" abstract="false" final="false" start="16" end="136">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/sebastian/comparator/src" file="ArrayComparator.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/sebastian/comparator/src/ArrayComparator.php" size="4585" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="28f23d96441ee46571d634ff25172f516aa24138" relative="vendor/sebastian/comparator/src/ArrayComparator.php"/>
+  <docblock>
+    <description compact="Compares arrays for equality."/>
+  </docblock>
+  <extends full="SebastianBergmann\Comparator\Comparator" namespace="SebastianBergmann\Comparator" name="Comparator"/>
+  <method name="accepts" start="25" end="28" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns whether the comparator can compare two values."/>
+      <param description="The first value to compare" type="mixed" variable="$expected"/>
+      <param description="The second value to compare" type="mixed" variable="$actual"/>
+      <return type="object">
+        <type full="SebastianBergmann\Comparator\bool" namespace="SebastianBergmann\Comparator" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="actual" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="assertEquals" start="46" end="130" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Asserts that two values are equal."/>
+      <param description="The first value to compare" type="mixed" variable="$expected"/>
+      <param description="The second value to compare" type="mixed" variable="$actual"/>
+      <param description="The allowed numerical distance between two values to" type="float" variable="$delta">consider them equal</param>
+      <param description="If set to TRUE, arrays are sorted before" type="object" variable="$canonicalize">comparison<type full="SebastianBergmann\Comparator\bool" namespace="SebastianBergmann\Comparator" name="bool"/></param>
+      <param description="If set to TRUE, upper- and lowercasing is" type="object" variable="$ignoreCase">ignored when comparing string values<type full="SebastianBergmann\Comparator\bool" namespace="SebastianBergmann\Comparator" name="bool"/></param>
+      <param type="array" variable="$processed"/>
+      <throws description="Thrown when the comparison" type="object">fails. Contains information about the
+                                       specific errors that lead to the failure.<type full="SebastianBergmann\Comparator\ComparisonFailure" namespace="SebastianBergmann\Comparator" name="ComparisonFailure"/></throws>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="actual" byreference="false" type="{unknown}"/>
+    <parameter name="delta" byreference="false" type="float" default="0.0"/>
+    <parameter name="canonicalize" byreference="false" type="boolean" default="false"/>
+    <parameter name="ignoreCase" byreference="false" type="boolean" default="false"/>
+    <parameter name="processed" byreference="true" type="array" default=""/>
+  </method>
+  <method name="indent" start="132" end="135" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="lines" byreference="false" type="{unknown}"/>
+  </method>
+</class>

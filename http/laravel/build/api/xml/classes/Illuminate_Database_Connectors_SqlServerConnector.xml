@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Database\Connectors\SqlServerConnector" namespace="Illuminate\Database\Connectors" name="SqlServerConnector" abstract="false" final="false" start="8" end="137">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Connectors" file="SqlServerConnector.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Connectors/SqlServerConnector.php" size="3511" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="4438208b2e515a1ab2b3f83726184e018be76b97" relative="vendor/laravel/framework/src/Illuminate/Database/Connectors/SqlServerConnector.php"/>
+  <extends full="Illuminate\Database\Connectors\Connector" namespace="Illuminate\Database\Connectors" name="Connector"/>
+  <implements full="Illuminate\Database\Connectors\ConnectorInterface" namespace="Illuminate\Database\Connectors" name="ConnectorInterface"/>
+  <member name="options" type="array" default="" visibility="protected" line="15">
+    <docblock>
+      <description compact="The PDO connection options."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="connect" start="28" end="33" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Establish a database connection."/>
+      <param type="array" variable="$config"/>
+      <return type="object">
+        <type full="\PDO" namespace="" name="PDO"/>
+      </return>
+    </docblock>
+    <parameter name="config" byreference="false" type="array"/>
+  </method>
+  <method name="getDsn" start="41" end="51" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create a DSN string from a configuration."/>
+      <param type="array" variable="$config"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="config" byreference="false" type="array"/>
+    <inline>
+      <comment value="First we will create the basic DSN setup as well as the port if it is in" line="43"/>
+      <comment value="in the configuration options. This will give us the basic DSN we will" line="44"/>
+      <comment value="need to establish the PDO connections and return them back for use." line="45"/>
+    </inline>
+  </method>
+  <method name="getDblibDsn" start="59" end="71" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the DSN string for a DbLib connection."/>
+      <param type="array" variable="$config"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="config" byreference="false" type="array"/>
+  </method>
+  <method name="getSqlSrvDsn" start="79" end="94" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the DSN string for a SqlSrv connection."/>
+      <param type="array" variable="$config"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="config" byreference="false" type="array"/>
+  </method>
+  <method name="buildConnectString" start="103" end="110" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Build a connection string from the given arguments."/>
+      <param type="string" variable="$driver"/>
+      <param type="array" variable="$arguments"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="driver" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="array"/>
+  </method>
+  <method name="buildHostString" start="119" end="126" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Build a host string from the given configuration."/>
+      <param type="array" variable="$config"/>
+      <param type="string" variable="$separator"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="config" byreference="false" type="array"/>
+    <parameter name="separator" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getAvailableDrivers" start="133" end="136" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the available PDO drivers."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+</class>

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Console\Helper\ProgressHelper" namespace="Symfony\Component\Console\Helper" name="ProgressHelper" abstract="false" final="false" start="26" end="465">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Helper" file="ProgressHelper.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Helper/ProgressHelper.php" size="12428" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="9cd2706372bdf10722100142cbfd76add0e49295" relative="vendor/symfony/console/Helper/ProgressHelper.php"/>
+  <docblock>
+    <description compact="The Progress class provides helpers to display progress output."/>
+    <author value="Chris Jones &lt;leeked@gmail.com&gt;"/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+    <deprecated value="since version 2.5, to be removed in 3.0">Use <link xmlns="http://xml.phpdox.net/src" value="ProgressBar"/> instead.
+</deprecated>
+  </docblock>
+  <extends full="Symfony\Component\Console\Helper\Helper" namespace="Symfony\Component\Console\Helper" name="Helper"/>
+  <constant type="string" name="FORMAT_QUIET" value="' %percent%%'"/>
+  <constant type="string" name="FORMAT_NORMAL" value="' %current%/%max% [%bar%] %percent%%'"/>
+  <constant type="string" name="FORMAT_VERBOSE" value="' %current%/%max% [%bar%] %percent%% Elapsed: %elapsed%'"/>
+  <constant type="string" name="FORMAT_QUIET_NOMAX" value="' %current%'"/>
+  <constant type="string" name="FORMAT_NORMAL_NOMAX" value="' %current% [%bar%]'"/>
+  <constant type="string" name="FORMAT_VERBOSE_NOMAX" value="' %current% [%bar%] Elapsed: %elapsed%'"/>
+  <member name="barWidth" type="integer" default="28" visibility="private" line="36"/>
+  <member name="barChar" type="string" default="'='" visibility="private" line="37"/>
+  <member name="emptyBarChar" type="string" default="'-'" visibility="private" line="38"/>
+  <member name="progressChar" type="string" default="'&gt;'" visibility="private" line="39"/>
+  <member name="format" type="{unknown}" default="" constant="null" visibility="private" line="40"/>
+  <member name="redrawFreq" type="integer" default="1" visibility="private" line="41"/>
+  <member name="lastMessagesLength" visibility="private" line="43"/>
+  <member name="barCharOriginal" visibility="private" line="44"/>
+  <member name="output" visibility="private" line="49">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="current" visibility="private" line="56">
+    <docblock>
+      <description compact="Current step."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="max" visibility="private" line="63">
+    <docblock>
+      <description compact="Maximum number of steps."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="startTime" visibility="private" line="70">
+    <docblock>
+      <description compact="Start time of the progress bar."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="defaultFormatVars" type="array" default="" visibility="private" line="77">
+    <docblock>
+      <description compact="List of formatting variables."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="formatVars" visibility="private" line="90">
+    <docblock>
+      <description compact="Available formatting variables."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="widths" type="array" default="" visibility="private" line="97">
+    <docblock>
+      <description compact="Stored format part widths (used for padding)."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="timeFormats" type="array" default="" visibility="private" line="109">
+    <docblock>
+      <description compact="Various time formats."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="121" end="126" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="triggerDeprecationError" byreference="false" type="boolean" default="true"/>
+  </constructor>
+  <method name="setBarWidth" start="133" end="136" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the progress bar width."/>
+      <param description="The progress bar size" type="int" variable="$size"/>
+    </docblock>
+    <parameter name="size" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setBarCharacter" start="143" end="146" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the bar character."/>
+      <param description="A character" type="string" variable="$char"/>
+    </docblock>
+    <parameter name="char" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setEmptyBarCharacter" start="153" end="156" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the empty bar character."/>
+      <param description="A character" type="string" variable="$char"/>
+    </docblock>
+    <parameter name="char" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setProgressCharacter" start="163" end="166" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the progress bar character."/>
+      <param description="A character" type="string" variable="$char"/>
+    </docblock>
+    <parameter name="char" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setFormat" start="173" end="176" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the progress bar format."/>
+      <param description="The format" type="string" variable="$format"/>
+    </docblock>
+    <parameter name="format" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setRedrawFrequency" start="183" end="186" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the redraw frequency."/>
+      <param description="The frequency in steps" type="int" variable="$freq"/>
+    </docblock>
+    <parameter name="freq" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="start" start="194" end="231" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Starts the progress output."/>
+      <param description="An Output instance" type="object" variable="$output">
+        <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+      </param>
+      <param description="Maximum steps" type="object" variable="$max">
+        <type full="Symfony\Component\Console\Helper\int|null" namespace="Symfony\Component\Console\Helper" name="int|null"/>
+      </param>
+    </docblock>
+    <parameter name="output" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+    </parameter>
+    <parameter name="max" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="Disabling output when it does not support ANSI codes as it would result in a broken display anyway." line="200"/>
+    </inline>
+  </method>
+  <method name="advance" start="241" end="244" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Advances the progress output X steps."/>
+      <param description="Number of steps to advance" type="int" variable="$step"/>
+      <param description="Whether to redraw or not" type="object" variable="$redraw">
+        <type full="Symfony\Component\Console\Helper\bool" namespace="Symfony\Component\Console\Helper" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+    <parameter name="step" byreference="false" type="integer" default="1"/>
+    <parameter name="redraw" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="setCurrent" start="254" end="278" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the current progress."/>
+      <param description="The current progress" type="int" variable="$current"/>
+      <param description="Whether to redraw or not" type="object" variable="$redraw">
+        <type full="Symfony\Component\Console\Helper\bool" namespace="Symfony\Component\Console\Helper" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+    <parameter name="current" byreference="false" type="{unknown}"/>
+    <parameter name="redraw" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="display" start="287" end="298" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Outputs the current progress string."/>
+      <param description="Forces the end result" type="object" variable="$finish">
+        <type full="Symfony\Component\Console\Helper\bool" namespace="Symfony\Component\Console\Helper" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+    <parameter name="finish" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="clear" start="307" end="310" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Removes the progress bar from the current line.">This is useful if you wish to write some output
+while a progress bar is running.
+Call display() to show the progress bar again.</description>
+    </docblock>
+  </method>
+  <method name="finish" start="315" end="330" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Finishes the progress output."/>
+    </docblock>
+  </method>
+  <method name="initialize" start="335" end="351" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Initializes the progress helper."/>
+    </docblock>
+  </method>
+  <method name="generate" start="360" end="409" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Generates the array map of format variables to values."/>
+      <param description="Forces the end result" type="object" variable="$finish">
+        <type full="Symfony\Component\Console\Helper\bool" namespace="Symfony\Component\Console\Helper" name="bool"/>
+      </param>
+      <return description="Array of format vars and values" type="array"/>
+    </docblock>
+    <parameter name="finish" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="humaneTime" start="418" end="434" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Converts seconds into human-readable format."/>
+      <param description="Number of seconds" type="int" variable="$secs"/>
+      <return description="Time in readable format" type="string"/>
+    </docblock>
+    <parameter name="secs" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="overwrite" start="442" end="456" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Overwrites a previous message to the output."/>
+      <param description="An Output instance" type="object" variable="$output">
+        <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+      </param>
+      <param description="The message" type="string" variable="$message"/>
+    </docblock>
+    <parameter name="output" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+    </parameter>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="append whitespace to match the last line's length" line="446"/>
+      <comment value="carriage return" line="451"/>
+    </inline>
+  </method>
+  <method name="getName" start="461" end="464" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+</class>

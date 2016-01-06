@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\CssSelector\XPath\Translator" namespace="Symfony\Component\CssSelector\XPath" name="Translator" abstract="false" final="false" start="29" end="299">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/css-selector/XPath" file="Translator.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/css-selector/XPath/Translator.php" size="8490" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="e987a95b64f4c997f1bf3103e1ba98286d00b0f1" relative="vendor/symfony/css-selector/XPath/Translator.php"/>
+  <docblock>
+    <description compact="XPath expression translator interface.">This component is a port of the Python cssselect library,
+which is copyright Ian Bicking, @see https://github.com/SimonSapin/cssselect.</description>
+    <author value="Jean-François Simon &lt;jeanfrancois.simon@sensiolabs.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\CssSelector\XPath\TranslatorInterface" namespace="Symfony\Component\CssSelector\XPath" name="TranslatorInterface"/>
+  <member name="mainParser" visibility="private" line="34">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\CssSelector\Parser\ParserInterface" namespace="Symfony\Component\CssSelector\Parser" name="ParserInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="shortcutParsers" type="array" default="" visibility="private" line="39">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="Symfony\Component\CssSelector\XPath\ParserInterface" namespace="Symfony\Component\CssSelector\XPath" name="ParserInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="extensions" type="array" default="" visibility="private" line="44">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\CssSelector\XPath\Extension\ExtensionInterface" namespace="Symfony\Component\CssSelector\XPath\Extension" name="ExtensionInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="nodeTranslators" type="array" default="" visibility="private" line="49">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="combinationTranslators" type="array" default="" visibility="private" line="54">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="functionTranslators" type="array" default="" visibility="private" line="59">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="pseudoClassTranslators" type="array" default="" visibility="private" line="64">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="attributeMatchingTranslators" type="array" default="" visibility="private" line="69">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="74" end="85" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+    </docblock>
+    <parameter name="parser" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\CssSelector\Parser\ParserInterface" namespace="Symfony\Component\CssSelector\Parser" name="ParserInterface"/>
+    </parameter>
+  </constructor>
+  <method name="getXpathLiteral" start="92" end="116" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$element"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="element" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="cssToXPath" start="121" end="135" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="cssExpr" byreference="false" type="{unknown}"/>
+    <parameter name="prefix" byreference="false" type="string" default="'descendant-or-self::'"/>
+  </method>
+  <method name="selectorToXPath" start="140" end="143" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="selector" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\Node\SelectorNode" namespace="Symfony\Component\CssSelector\Node" name="SelectorNode"/>
+    </parameter>
+    <parameter name="prefix" byreference="false" type="string" default="'descendant-or-self::'"/>
+  </method>
+  <method name="registerExtension" start="152" end="163" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Registers an extension."/>
+      <param type="object" variable="$extension">
+        <type full="Symfony\Component\CssSelector\XPath\Extension\ExtensionInterface" namespace="Symfony\Component\CssSelector\XPath\Extension" name="ExtensionInterface"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\XPath\Translator" namespace="Symfony\Component\CssSelector\XPath" name="Translator"/>
+      </return>
+    </docblock>
+    <parameter name="extension" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\XPath\Extension\ExtensionInterface" namespace="Symfony\Component\CssSelector\XPath\Extension" name="ExtensionInterface"/>
+    </parameter>
+  </method>
+  <method name="getExtension" start="172" end="179" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\XPath\Extension\ExtensionInterface" namespace="Symfony\Component\CssSelector\XPath\Extension" name="ExtensionInterface"/>
+      </return>
+      <throws type="object">
+        <type full="Symfony\Component\CssSelector\Exception\ExpressionErrorException" namespace="Symfony\Component\CssSelector\Exception" name="ExpressionErrorException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="registerParserShortcut" start="188" end="193" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Registers a shortcut parser."/>
+      <param type="object" variable="$shortcut">
+        <type full="Symfony\Component\CssSelector\Parser\ParserInterface" namespace="Symfony\Component\CssSelector\Parser" name="ParserInterface"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\XPath\Translator" namespace="Symfony\Component\CssSelector\XPath" name="Translator"/>
+      </return>
+    </docblock>
+    <parameter name="shortcut" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\Parser\ParserInterface" namespace="Symfony\Component\CssSelector\Parser" name="ParserInterface"/>
+    </parameter>
+  </method>
+  <method name="nodeToXPath" start="202" end="209" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$node">
+        <type full="Symfony\Component\CssSelector\Node\NodeInterface" namespace="Symfony\Component\CssSelector\Node" name="NodeInterface"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\XPath\XPathExpr" namespace="Symfony\Component\CssSelector\XPath" name="XPathExpr"/>
+      </return>
+      <throws type="object">
+        <type full="Symfony\Component\CssSelector\Exception\ExpressionErrorException" namespace="Symfony\Component\CssSelector\Exception" name="ExpressionErrorException"/>
+      </throws>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\Node\NodeInterface" namespace="Symfony\Component\CssSelector\Node" name="NodeInterface"/>
+    </parameter>
+  </method>
+  <method name="addCombination" start="220" end="227" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$combiner"/>
+      <param type="object" variable="$xpath">
+        <type full="Symfony\Component\CssSelector\Node\NodeInterface" namespace="Symfony\Component\CssSelector\Node" name="NodeInterface"/>
+      </param>
+      <param type="object" variable="$combinedXpath">
+        <type full="Symfony\Component\CssSelector\Node\NodeInterface" namespace="Symfony\Component\CssSelector\Node" name="NodeInterface"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\XPath\XPathExpr" namespace="Symfony\Component\CssSelector\XPath" name="XPathExpr"/>
+      </return>
+      <throws type="object">
+        <type full="Symfony\Component\CssSelector\Exception\ExpressionErrorException" namespace="Symfony\Component\CssSelector\Exception" name="ExpressionErrorException"/>
+      </throws>
+    </docblock>
+    <parameter name="combiner" byreference="false" type="{unknown}"/>
+    <parameter name="xpath" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\Node\NodeInterface" namespace="Symfony\Component\CssSelector\Node" name="NodeInterface"/>
+    </parameter>
+    <parameter name="combinedXpath" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\Node\NodeInterface" namespace="Symfony\Component\CssSelector\Node" name="NodeInterface"/>
+    </parameter>
+  </method>
+  <method name="addFunction" start="237" end="244" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$xpath">
+        <type full="Symfony\Component\CssSelector\XPath\XPathExpr" namespace="Symfony\Component\CssSelector\XPath" name="XPathExpr"/>
+      </param>
+      <param type="object" variable="$function">
+        <type full="Symfony\Component\CssSelector\Node\FunctionNode" namespace="Symfony\Component\CssSelector\Node" name="FunctionNode"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\XPath\XPathExpr" namespace="Symfony\Component\CssSelector\XPath" name="XPathExpr"/>
+      </return>
+      <throws type="object">
+        <type full="Symfony\Component\CssSelector\Exception\ExpressionErrorException" namespace="Symfony\Component\CssSelector\Exception" name="ExpressionErrorException"/>
+      </throws>
+    </docblock>
+    <parameter name="xpath" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\XPath\XPathExpr" namespace="Symfony\Component\CssSelector\XPath" name="XPathExpr"/>
+    </parameter>
+    <parameter name="function" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\Node\FunctionNode" namespace="Symfony\Component\CssSelector\Node" name="FunctionNode"/>
+    </parameter>
+  </method>
+  <method name="addPseudoClass" start="254" end="261" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$xpath">
+        <type full="Symfony\Component\CssSelector\XPath\XPathExpr" namespace="Symfony\Component\CssSelector\XPath" name="XPathExpr"/>
+      </param>
+      <param type="string" variable="$pseudoClass"/>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\XPath\XPathExpr" namespace="Symfony\Component\CssSelector\XPath" name="XPathExpr"/>
+      </return>
+      <throws type="object">
+        <type full="Symfony\Component\CssSelector\Exception\ExpressionErrorException" namespace="Symfony\Component\CssSelector\Exception" name="ExpressionErrorException"/>
+      </throws>
+    </docblock>
+    <parameter name="xpath" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\XPath\XPathExpr" namespace="Symfony\Component\CssSelector\XPath" name="XPathExpr"/>
+    </parameter>
+    <parameter name="pseudoClass" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addAttributeMatching" start="273" end="280" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$xpath">
+        <type full="Symfony\Component\CssSelector\XPath\XPathExpr" namespace="Symfony\Component\CssSelector\XPath" name="XPathExpr"/>
+      </param>
+      <param type="string" variable="$operator"/>
+      <param type="string" variable="$attribute"/>
+      <param type="string" variable="$value"/>
+      <throws type="object">
+        <type full="Symfony\Component\CssSelector\Exception\ExpressionErrorException" namespace="Symfony\Component\CssSelector\Exception" name="ExpressionErrorException"/>
+      </throws>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\XPath\XPathExpr" namespace="Symfony\Component\CssSelector\XPath" name="XPathExpr"/>
+      </return>
+    </docblock>
+    <parameter name="xpath" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\XPath\XPathExpr" namespace="Symfony\Component\CssSelector\XPath" name="XPathExpr"/>
+    </parameter>
+    <parameter name="operator" byreference="false" type="{unknown}"/>
+    <parameter name="attribute" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="parseSelectors" start="287" end="298" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$css"/>
+      <return type="array" of="object">
+        <type full="Symfony\Component\CssSelector\XPath\SelectorNode" namespace="Symfony\Component\CssSelector\XPath" name="SelectorNode"/>
+      </return>
+    </docblock>
+    <parameter name="css" byreference="false" type="{unknown}"/>
+  </method>
+</class>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="ExceptionTest" namespace="" name="ExceptionTest" abstract="false" final="false" start="2" end="139">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/tests/_files" file="ExceptionTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/tests/_files/ExceptionTest.php" size="2706" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="f4ff8a568b3b20a8d6ba0d2957de04bd519cde66" relative="vendor/phpunit/phpunit/tests/_files/ExceptionTest.php"/>
+  <extends full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+  <constant type="string" name="ERROR_MESSAGE" value="'Exception message'">
+    <docblock>
+      <description compact="Exception message"/>
+      <var type="string"/>
+    </docblock>
+  </constant>
+  <constant type="string" name="ERROR_MESSAGE_REGEX" value="'#regex#'">
+    <docblock>
+      <description compact="Exception message"/>
+      <var type="string"/>
+    </docblock>
+  </constant>
+  <constant type="integer" name="ERROR_CODE" value="500">
+    <docblock>
+      <description compact="Exception code"/>
+      <var type="int"/>
+    </docblock>
+  </constant>
+  <method name="testOne" start="28" end="30" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="FooBarBaz"/>
+    </docblock>
+  </method>
+  <method name="testTwo" start="35" end="37" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="Foo_Bar_Baz"/>
+    </docblock>
+  </method>
+  <method name="testThree" start="42" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="Foo\Bar\Baz"/>
+    </docblock>
+  </method>
+  <method name="testFour" start="49" end="51" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="ほげ"/>
+    </docblock>
+  </method>
+  <method name="testFive" start="56" end="58" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="Class Message 1234"/>
+    </docblock>
+  </method>
+  <method name="testSix" start="65" end="67" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="Class"/>
+      <expectedexceptionmessage value="Message"/>
+      <expectedexceptioncode value="1234"/>
+    </docblock>
+  </method>
+  <method name="testSeven" start="74" end="76" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="Class"/>
+      <expectedexceptionmessage value="Message"/>
+      <expectedexceptioncode value="ExceptionCode"/>
+    </docblock>
+  </method>
+  <method name="testEight" start="83" end="85" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="Class"/>
+      <expectedexceptionmessage value="Message"/>
+      <expectedexceptioncode value="0"/>
+    </docblock>
+  </method>
+  <method name="testNine" start="92" end="94" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="Class"/>
+      <expectedexceptionmessage value="ExceptionTest::ERROR_MESSAGE"/>
+      <expectedexceptioncode value="ExceptionTest::ERROR_CODE"/>
+    </docblock>
+  </method>
+  <method name="testSingleLine" start="97" end="99" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="@expectedException Class"/>
+    </docblock>
+  </method>
+  <method name="testUnknownConstants" start="106" end="108" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="Class"/>
+      <expectedexceptioncode value="ExceptionTest::UNKNOWN_CODE_CONSTANT"/>
+      <expectedexceptionmessage value="ExceptionTest::UNKNOWN_MESSAGE_CONSTANT"/>
+    </docblock>
+  </method>
+  <method name="testWithRegexMessage" start="116" end="118" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="Class"/>
+      <expectedexceptioncode value="1234"/>
+      <expectedexceptionmessage value="Message"/>
+      <expectedexceptionmessageregexp value="#regex#"/>
+    </docblock>
+  </method>
+  <method name="testWithRegexMessageFromClassConstant" start="126" end="128" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="Class"/>
+      <expectedexceptioncode value="1234"/>
+      <expectedexceptionmessage value="Message"/>
+      <expectedexceptionmessageregexp value="ExceptionTest::ERROR_MESSAGE_REGEX"/>
+    </docblock>
+  </method>
+  <method name="testWithUnknowRegexMessageFromClassConstant" start="136" end="138" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="Class"/>
+      <expectedexceptioncode value="1234"/>
+      <expectedexceptionmessage value="Message"/>
+      <expectedexceptionmessageregexp value="ExceptionTest::UNKNOWN_MESSAGE_REGEX_CONSTANT"/>
+    </docblock>
+  </method>
+</class>

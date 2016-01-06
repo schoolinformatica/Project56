@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Database\Grammar" namespace="Illuminate\Database" name="Grammar" abstract="true" final="false" start="7" end="188">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database" file="Grammar.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Grammar.php" size="4492" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="a5eabfe309add57bbb5f5d00d58cabb03b9d6313" relative="vendor/laravel/framework/src/Illuminate/Database/Grammar.php"/>
+  <member name="tablePrefix" type="string" default="''" visibility="protected" line="14">
+    <docblock>
+      <description compact="The grammar table prefix."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <method name="wrapArray" start="22" end="25" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Wrap an array of values."/>
+      <param type="array" variable="$values"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="values" byreference="false" type="array"/>
+  </method>
+  <method name="wrapTable" start="33" end="40" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Wrap a table in keyword identifiers."/>
+      <param type="object" variable="$table">
+        <type full="Illuminate\Database\string|\Illuminate\Database\Query\Expression" namespace="Illuminate\Database\string|\Illuminate\Database\Query" name="Expression"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="table" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="wrap" start="49" end="84" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Wrap a value in keyword identifiers."/>
+      <param type="object" variable="$value">
+        <type full="Illuminate\Database\string|\Illuminate\Database\Query\Expression" namespace="Illuminate\Database\string|\Illuminate\Database\Query" name="Expression"/>
+      </param>
+      <param type="object" variable="$prefixAlias">
+        <type full="Illuminate\Database\bool" namespace="Illuminate\Database" name="bool"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="prefixAlias" byreference="false" type="boolean" default="false"/>
+    <inline>
+      <comment value="If the value being wrapped has a column alias we will need to separate out" line="55"/>
+      <comment value="the pieces so we can wrap each of the segments of the expression on it" line="56"/>
+      <comment value="own, and then joins them both back together with the &quot;as&quot; connector." line="57"/>
+      <comment value="If the value is not an aliased table expression, we'll just wrap it like" line="72"/>
+      <comment value="normal, so if there is more than one segment, we will wrap the first" line="73"/>
+      <comment value="segments as if it was a table and the rest as just regular values." line="74"/>
+    </inline>
+  </method>
+  <method name="wrapValue" start="92" end="99" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Wrap a single string in keyword identifiers."/>
+      <param type="string" variable="$value"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="columnize" start="107" end="110" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Convert an array of column names into a delimited string."/>
+      <param type="array" variable="$columns"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="columns" byreference="false" type="array"/>
+  </method>
+  <method name="parameterize" start="118" end="121" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create query parameter place-holders for an array."/>
+      <param type="array" variable="$values"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="values" byreference="false" type="array"/>
+  </method>
+  <method name="parameter" start="129" end="132" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the appropriate query parameter place-holder for a value."/>
+      <param type="mixed" variable="$value"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getValue" start="140" end="143" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the value of a raw expression."/>
+      <param type="object" variable="$expression">
+        <type full="\Illuminate\Database\Query\Expression" namespace="\Illuminate\Database\Query" name="Expression"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="expression" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isExpression" start="151" end="154" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the given value is a raw expression."/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Database\bool" namespace="Illuminate\Database" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getDateFormat" start="161" end="164" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the format for database stored dates."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getTablePrefix" start="171" end="174" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the grammar's table prefix."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setTablePrefix" start="182" end="187" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the grammar's table prefix."/>
+      <param type="string" variable="$prefix"/>
+      <return type="object">
+        <type full="Illuminate\Database\$this" namespace="Illuminate\Database" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="prefix" byreference="false" type="{unknown}"/>
+  </method>
+</class>

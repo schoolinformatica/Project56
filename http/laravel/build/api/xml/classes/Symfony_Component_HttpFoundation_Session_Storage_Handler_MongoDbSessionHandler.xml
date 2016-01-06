@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpFoundation\Session\Storage\Handler\MongoDbSessionHandler" namespace="Symfony\Component\HttpFoundation\Session\Storage\Handler" name="MongoDbSessionHandler" abstract="false" final="false" start="19" end="188">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/Session/Storage/Handler" file="MongoDbSessionHandler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/Session/Storage/Handler/MongoDbSessionHandler.php" size="5209" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="d7e5f8082db8acc0e87b3e2163c990eedb433a59" relative="vendor/symfony/http-foundation/Session/Storage/Handler/MongoDbSessionHandler.php"/>
+  <docblock>
+    <description compact="MongoDB session handler."/>
+    <author value="Markus Bachmann &lt;markus.bachmann@bachi.biz&gt;"/>
+  </docblock>
+  <implements full="SessionHandlerInterface" namespace="" name="SessionHandlerInterface"/>
+  <member name="mongo" visibility="private" line="24">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="\Mongo" namespace="" name="Mongo"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="collection" visibility="private" line="29">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="\MongoCollection" namespace="" name="MongoCollection"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="options" visibility="private" line="34">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="70" end="88" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor.">List of available options:
+ * database: The name of the database [required]
+ * collection: The name of the collection [required]
+ * id_field: The field name for storing the session id [default: _id]
+ * data_field: The field name for storing the session data [default: data]
+ * time_field: The field name for storing the timestamp [default: time]
+ * expiry_field: The field name for storing the expiry-timestamp [default: expires_at]
+
+It is strongly recommended to put an index on the `expiry_field` for
+garbage-collection. Alternatively it's possible to automatically expire
+the sessions in the database as described below:
+
+A TTL collections can be used on MongoDB 2.2+ to cleanup expired sessions
+automatically. Such an index can for example look like this:
+
+    db.&lt;session-collection&gt;.ensureIndex(
+        { "&lt;expiry-field&gt;": 1 },
+        { "expireAfterSeconds": 0 }
+    )
+
+More details on: http://docs.mongodb.org/manual/tutorial/expire-data/
+
+If you use such an index, you can drop `gc_probability` to 0 since
+no garbage-collection is required.</description>
+      <param description="A MongoClient or Mongo instance" type="object" variable="$mongo">
+        <type full="\Mongo|\MongoClient" namespace="\Mongo|" name="MongoClient"/>
+      </param>
+      <param description="An associative array of field options" type="array" variable="$options"/>
+      <throws description="When MongoClient or Mongo instance not provided" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws description="When &quot;database&quot; or &quot;collection&quot; not provided" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="mongo" byreference="false" type="{unknown}"/>
+    <parameter name="options" byreference="false" type="array"/>
+  </constructor>
+  <method name="open" start="93" end="96" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="savePath" byreference="false" type="{unknown}"/>
+    <parameter name="sessionName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="close" start="101" end="104" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="destroy" start="109" end="116" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="sessionId" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="gc" start="121" end="128" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="maxlifetime" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="write" start="133" end="150" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="sessionId" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="read" start="155" end="163" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="sessionId" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getCollection" start="170" end="177" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Return a &quot;MongoCollection&quot; instance."/>
+      <return type="object">
+        <type full="\MongoCollection" namespace="" name="MongoCollection"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getMongo" start="184" end="187" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Return a Mongo instance."/>
+      <return type="object">
+        <type full="\Mongo" namespace="" name="Mongo"/>
+      </return>
+    </docblock>
+  </method>
+</class>

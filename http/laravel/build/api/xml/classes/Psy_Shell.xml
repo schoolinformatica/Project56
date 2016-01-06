@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\Shell" namespace="Psy" name="Shell" abstract="false" final="false" start="42" end="873">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy" file="Shell.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Shell.php" size="24873" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="265efe1fdf98bde6c711388751477da769f40ae9" relative="vendor/psy/psysh/src/Psy/Shell.php"/>
+  <docblock>
+    <description compact="The Psy Shell application.">Usage:
+
+    $shell = new Shell;
+    $shell-&gt;run();</description>
+    <author value="Justin Hileman &lt;justin@justinhileman.info&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\Console\Application" namespace="Symfony\Component\Console" name="Application"/>
+  <constant type="string" name="VERSION" value="'v0.6.1'"/>
+  <constant type="string" name="PROMPT" value="'&gt;&gt;&gt; '"/>
+  <constant type="string" name="BUFF_PROMPT" value="'... '"/>
+  <constant type="string" name="REPLAY" value="'--&gt; '"/>
+  <constant type="string" name="RETVAL" value="'=&gt; '"/>
+  <member name="config" visibility="private" line="51"/>
+  <member name="cleaner" visibility="private" line="52"/>
+  <member name="output" visibility="private" line="53"/>
+  <member name="readline" visibility="private" line="54"/>
+  <member name="inputBuffer" visibility="private" line="55"/>
+  <member name="code" visibility="private" line="56"/>
+  <member name="codeBuffer" visibility="private" line="57"/>
+  <member name="codeBufferOpen" visibility="private" line="58"/>
+  <member name="context" visibility="private" line="59"/>
+  <member name="includes" visibility="private" line="60"/>
+  <member name="loop" visibility="private" line="61"/>
+  <member name="outputWantsNewline" type="boolean" default="false" visibility="private" line="62"/>
+  <member name="completion" visibility="private" line="63"/>
+  <member name="tabCompletionMatchers" type="array" default="" visibility="private" line="64"/>
+  <constructor name="__construct" start="71" end="95" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new Psy Shell."/>
+      <param description="(default: null)" type="object" variable="$config">
+        <type full="Psy\Configuration" namespace="Psy" name="Configuration"/>
+      </param>
+    </docblock>
+    <parameter name="config" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Psy\Configuration" namespace="Psy" name="Configuration"/>
+    </parameter>
+    <inline>
+      <comment value="auto completer needs shell to be linked to configuration because of the context aware matchers" line="83"/>
+    </inline>
+  </constructor>
+  <method name="isIncluded" start="103" end="107" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Check whether the first thing in a backtrace is an include call.">This is used by the psysh bin to decide whether to start a shell on boot,
+or to simply autoload the library.</description>
+    </docblock>
+    <parameter name="trace" byreference="false" type="array"/>
+  </method>
+  <method name="debug" start="143" end="156" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Invoke a Psy Shell from the current context.">For example:
+
+    foreach ($items as $item) {
+        \Psy\Shell::debug(get_defined_vars());
+    }
+
+If you would like your shell interaction to affect the state of the
+current context, you can extract() the values returned from this call:
+
+    foreach ($items as $item) {
+        extract(\Psy\Shell::debug(get_defined_vars()));
+        var_dump($item); // will be whatever you set $item to in Psy Shell
+    }
+
+Optionally, supply an object as the `$bind` parameter. This determines
+the value `$this` will have in the shell, and sets up class scope so that
+private and protected members are accessible:
+
+    class Foo {
+        function bar() {
+            \Psy\Shell::debug(get_defined_vars(), $this);
+        }
+    }
+
+This only really works in PHP 5.4+ and HHVM 3.5+, so upgrade already.</description>
+      <param description="Scope variables from the calling context (default: array())" type="array" variable="$vars"/>
+      <param description="Bound object ($this) value for the shell" type="object" variable="$bind"/>
+      <return description="Scope variables from the debugger session." type="array"/>
+    </docblock>
+    <parameter name="vars" byreference="false" type="array" default=""/>
+    <parameter name="bind" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="add" start="167" end="180" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a command object.">{@inheritdoc}</description>
+      <param description="A Symfony Console Command object" type="object" variable="$command">
+        <type full="Symfony\Component\Console\Command\Command" namespace="Symfony\Component\Console\Command" name="Command"/>
+      </param>
+      <return description="The registered command" type="object">
+        <type full="Symfony\Component\Console\Command\Command" namespace="Symfony\Component\Console\Command" name="Command"/>
+      </return>
+    </docblock>
+    <parameter name="command" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Command\Command" namespace="Symfony\Component\Console\Command" name="Command"/>
+    </parameter>
+  </method>
+  <method name="getDefaultInputDefinition" start="187" end="193" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Gets the default input definition."/>
+      <return description="An InputDefinition instance" type="object">
+        <type full="Symfony\Component\Console\Input\InputDefinition" namespace="Symfony\Component\Console\Input" name="InputDefinition"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getDefaultCommands" start="200" end="221" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Gets the default commands that should always be available."/>
+      <return description="An array of default Command instances" type="array"/>
+    </docblock>
+  </method>
+  <method name="getTabCompletionMatchers" start="226" end="244" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="addTabCompletionMatchers" start="249" end="252" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="array" variable="$matchers"/>
+    </docblock>
+    <parameter name="matchers" byreference="false" type="array"/>
+  </method>
+  <method name="setOutput" start="259" end="262" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the Shell output."/>
+      <param type="object" variable="$output">
+        <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+      </param>
+    </docblock>
+    <parameter name="output" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+    </parameter>
+  </method>
+  <method name="run" start="272" end="287" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Runs the current application."/>
+      <param description="An Input instance" type="object" variable="$input">
+        <type full="Symfony\Component\Console\Input\InputInterface" namespace="Symfony\Component\Console\Input" name="InputInterface"/>
+      </param>
+      <param description="An Output instance" type="object" variable="$output">
+        <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+      </param>
+      <return description="0 if everything went fine, or an error code" type="int"/>
+    </docblock>
+    <parameter name="input" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\Console\Input\InputInterface" namespace="Symfony\Component\Console\Input" name="InputInterface"/>
+    </parameter>
+    <parameter name="output" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+    </parameter>
+  </method>
+  <method name="doRun" start="299" end="321" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Runs the current application."/>
+      <throws description="if thrown via the `throw-up` command." type="object">
+        <type full="Psy\Exception" namespace="Psy" name="Exception"/>
+      </throws>
+      <param description="An Input instance" type="object" variable="$input">
+        <type full="Symfony\Component\Console\Input\InputInterface" namespace="Symfony\Component\Console\Input" name="InputInterface"/>
+      </param>
+      <param description="An Output instance" type="object" variable="$output">
+        <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+      </param>
+      <return description="0 if everything went fine, or an error code" type="int"/>
+    </docblock>
+    <parameter name="input" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputInterface" namespace="Symfony\Component\Console\Input" name="InputInterface"/>
+    </parameter>
+    <parameter name="output" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+    </parameter>
+    <inline>
+      <comment value="if ($this-&gt;config-&gt;useReadline()) {" line="310"/>
+      <comment value="readline_completion_function(array($this, 'autocomplete'));" line="311"/>
+      <comment value="}" line="312"/>
+    </inline>
+  </method>
+  <method name="getInput" start="331" end="370" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Read user input.">This will continue fetching user input until the code buffer contains
+valid code.</description>
+      <throws description="if user hits Ctrl+D" type="object">
+        <type full="Psy\Exception\BreakException" namespace="Psy\Exception" name="BreakException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="beforeLoop" start="377" end="380" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Pass the beforeLoop callback through to the Loop instance."/>
+      <see value="Loop::beforeLoop"/>
+    </docblock>
+  </method>
+  <method name="afterLoop" start="387" end="390" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Pass the afterLoop callback through to the Loop instance."/>
+      <see value="Loop::afterLoop"/>
+    </docblock>
+  </method>
+  <method name="setScopeVariables" start="397" end="400" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the variables currently in scope."/>
+      <param type="array" variable="$vars"/>
+    </docblock>
+    <parameter name="vars" byreference="false" type="array"/>
+  </method>
+  <method name="getScopeVariables" start="407" end="410" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the set of variables currently in scope."/>
+      <return description="Associative array of scope variables." type="array"/>
+    </docblock>
+  </method>
+  <method name="getScopeVariableNames" start="417" end="420" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the set of variable names currently in scope."/>
+      <return description="Array of variable names." type="array"/>
+    </docblock>
+  </method>
+  <method name="getScopeVariable" start="429" end="432" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a scope variable value by name."/>
+      <param type="string" variable="$name"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setIncludes" start="439" end="442" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add includes, to be parsed and executed before running the interactive shell."/>
+      <param type="array" variable="$includes"/>
+    </docblock>
+    <parameter name="includes" byreference="false" type="array" default=""/>
+  </method>
+  <method name="getIncludes" start="449" end="452" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get PHP files to be parsed and executed before running the interactive shell."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="hasCode" start="459" end="462" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check whether this shell's code buffer contains code."/>
+      <return description="True if the code buffer contains code." type="object">
+        <type full="Psy\bool" namespace="Psy" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="hasValidCode" start="471" end="474" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Check whether the code in this shell's code buffer is valid.">If the code is valid, the code buffer should be flushed and evaluated.</description>
+      <return description="True if the code buffer content is valid." type="object">
+        <type full="Psy\bool" namespace="Psy" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="addCode" start="481" end="499" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add code to the code buffer."/>
+      <param type="string" variable="$code"/>
+    </docblock>
+    <parameter name="code" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getCodeBuffer" start="508" end="511" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the current code buffer.">This is useful for commands which manipulate the buffer.</description>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="runCommand" start="522" end="540" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Run a Psy Shell command given the user input."/>
+      <throws description="if the input is not a valid command." type="object">
+        <type full="Psy\InvalidArgumentException" namespace="Psy" name="InvalidArgumentException"/>
+      </throws>
+      <param description="User input string" type="string" variable="$input"/>
+      <return description="Who knows?" type="mixed"/>
+    </docblock>
+    <parameter name="input" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="resetCodeBuffer" start="548" end="552" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Reset the current code buffer.">This should be run after evaluating user input, catching exceptions, or
+on demand by commands such as BufferCommand.</description>
+    </docblock>
+  </method>
+  <method name="addInput" start="561" end="566" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Inject input into the input buffer.">This is useful for commands which want to replay history.</description>
+      <param type="object" variable="$input">
+        <type full="Psy\string|array" namespace="Psy" name="string|array"/>
+      </param>
+    </docblock>
+    <parameter name="input" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="flushCode" start="576" end="585" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Flush the current (valid) code buffer.">If the code buffer is valid, resets the code buffer and returns the
+current code.</description>
+      <return description="PHP code buffer contents." type="string"/>
+    </docblock>
+  </method>
+  <method name="getNamespace" start="594" end="599" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the current evaluation scope namespace."/>
+      <see value="CodeCleaner::getNamespace"/>
+      <return description="Current code namespace." type="string"/>
+    </docblock>
+  </method>
+  <method name="writeStdout" start="609" end="627" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Write a string to stdout.">This is used by the shell loop for rendering output from evaluated code.</description>
+      <param type="string" variable="$out"/>
+      <param description="Output buffering phase" type="int" variable="$phase"/>
+    </docblock>
+    <parameter name="out" byreference="false" type="{unknown}"/>
+    <parameter name="phase" byreference="false" type="{unknown}" default="" constant="PHP_OUTPUT_HANDLER_END"/>
+    <inline>
+      <comment value="Incremental flush" line="616"/>
+      <comment value="Output buffering is done!" line="622"/>
+    </inline>
+  </method>
+  <method name="writeReturnValue" start="639" end="646" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Write a return value to stdout.">The return value is formatted or pretty-printed, and rendered in a
+visibly distinct manner (in this case, as cyan).</description>
+      <see value="self::presentValue"/>
+      <param type="mixed" variable="$ret"/>
+    </docblock>
+    <parameter name="ret" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="writeException" start="659" end="672" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Renders a caught Exception.">Exceptions are formatted according to severity. ErrorExceptions which were
+warnings or Strict errors aren't rendered as harshly as real errors.
+
+Stores $e as the last Exception in the Shell Context.</description>
+      <param description="An exception instance" type="object" variable="$e">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </param>
+      <param description="An OutputInterface instance" type="object" variable="$output">
+        <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+      </param>
+    </docblock>
+    <parameter name="e" byreference="false" type="object">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+  </method>
+  <method name="getSeverity" start="681" end="702" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Helper for getting an output style for the given ErrorException's level."/>
+      <param type="object" variable="$e">
+        <type full="\ErrorException" namespace="" name="ErrorException"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="e" byreference="false" type="object">
+      <type full="ErrorException" namespace="" name="ErrorException"/>
+    </parameter>
+  </method>
+  <method name="handleError" start="730" end="738" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Helper for throwing an ErrorException.">This allows us to:
+
+    set_error_handler(array($psysh, 'handleError'));
+
+Unlike ErrorException::throwException, this error handler respects the
+current error_reporting level; i.e. it logs warnings and notices, but
+doesn't throw an exception unless it's above the current error_reporting
+threshold. This should probably only be used in the inner execution loop
+of the shell, as most of the time a thrown exception is much more useful.
+
+If the error type matches the `errorLoggingLevel` config, it will be
+logged as well, regardless of the `error_reporting` level.</description>
+      <see value="\Psy\Exception\ErrorException::throwException"/>
+      <see value="\Psy\Shell::writeException"/>
+      <throws description="depending on the current error_reporting level." type="object">
+        <type full="\Psy\Exception\ErrorException" namespace="\Psy\Exception" name="ErrorException"/>
+      </throws>
+      <param description="Error type" type="int" variable="$errno"/>
+      <param description="Message" type="string" variable="$errstr"/>
+      <param description="Filename" type="string" variable="$errfile"/>
+      <param description="Line number" type="int" variable="$errline"/>
+    </docblock>
+    <parameter name="errno" byreference="false" type="{unknown}"/>
+    <parameter name="errstr" byreference="false" type="{unknown}"/>
+    <parameter name="errfile" byreference="false" type="{unknown}"/>
+    <parameter name="errline" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="presentValue" start="749" end="752" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Format a value for display."/>
+      <see value="Presenter::present"/>
+      <param type="mixed" variable="$val"/>
+      <return description="Formatted value" type="string"/>
+    </docblock>
+    <parameter name="val" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getCommand" start="761" end="767" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get a command (if one exists) for the current input string."/>
+      <param type="string" variable="$input"/>
+      <return type="object">
+        <type full="Psy\null|Command" namespace="Psy" name="null|Command"/>
+      </return>
+    </docblock>
+    <parameter name="input" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasCommand" start="776" end="784" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Check whether a command is set for the current input string."/>
+      <param type="string" variable="$input"/>
+      <return description="True if the shell has a command for the given input." type="object">
+        <type full="Psy\bool" namespace="Psy" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="input" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getPrompt" start="791" end="794" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the current input prompt."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="readline" start="807" end="817" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Read a line of user input.">This will return a line from the input buffer (if any exist). Otherwise,
+it will ask the user for input.
+
+If readline is enabled, this delegates to readline. Otherwise, it's an
+ugly `fgets` call.</description>
+      <return description="One line of user input." type="string"/>
+    </docblock>
+  </method>
+  <method name="getHeader" start="824" end="827" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the shell output header."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getVersion" start="834" end="837" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the current version of Psy Shell."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getManualDb" start="844" end="847" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a PHP manual database instance."/>
+      <return type="object">
+        <type full="Psy\PDO|null" namespace="Psy" name="PDO|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="autocomplete" start="858" end="872" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Autocomplete variable names.">This is used by `readline` for tab completion.</description>
+      <param type="string" variable="$text"/>
+      <return description="Array possible completions for the given input, if any." type="mixed"/>
+    </docblock>
+    <parameter name="text" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="$line = substr($info['line_buffer'], 0, $info['end']);" line="861"/>
+      <comment value="Check whether there's a command for this" line="863"/>
+      <comment value="$words = explode(' ', $line);" line="864"/>
+      <comment value="$firstWord = reset($words);" line="865"/>
+      <comment value="check whether this is a variable..." line="867"/>
+    </inline>
+  </method>
+</class>

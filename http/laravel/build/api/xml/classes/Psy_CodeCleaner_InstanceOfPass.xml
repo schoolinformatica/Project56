@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\CodeCleaner\InstanceOfPass" namespace="Psy\CodeCleaner" name="InstanceOfPass" abstract="false" final="false" start="26" end="45">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/CodeCleaner" file="InstanceOfPass.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/CodeCleaner/InstanceOfPass.php" size="1267" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="36c9af8fad865704195fd344d67fd1987df1c689" relative="vendor/psy/psysh/src/Psy/CodeCleaner/InstanceOfPass.php"/>
+  <docblock>
+    <description compact="Validate that the instanceof statement does not receive a scalar value or a non-class constant."/>
+    <author value="Martin Hasoň &lt;martin.hason@gmail.com&gt;"/>
+  </docblock>
+  <extends full="Psy\CodeCleaner\CodeCleanerPass" namespace="Psy\CodeCleaner" name="CodeCleanerPass"/>
+  <method name="enterNode" start="35" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Validate that the instanceof statement does not receive a scalar value or a non-class constant."/>
+      <throws description="if a scalar or a non-class constant is given" type="object">
+        <type full="Psy\Exception\FatalErrorException" namespace="Psy\Exception" name="FatalErrorException"/>
+      </throws>
+      <param type="object" variable="$node">
+        <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+      </param>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+    </parameter>
+  </method>
+</class>

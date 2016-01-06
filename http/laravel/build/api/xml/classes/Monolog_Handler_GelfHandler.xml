@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Handler\GelfHandler" namespace="Monolog\Handler" name="GelfHandler" abstract="false" final="false" start="27" end="73">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler" file="GelfHandler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler/GelfHandler.php" size="2068" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="b0fb55642ba174faaa80b0d3c2a9f95fe42d02cb" relative="vendor/monolog/monolog/src/Monolog/Handler/GelfHandler.php"/>
+  <docblock>
+    <description compact="Handler to send messages to a Graylog2 (http://www.graylog2.org) server"/>
+    <author value="Matt Lehner &lt;mlehner@gmail.com&gt;"/>
+    <author value="Benjamin Zikarsky &lt;benjamin@zikarsky.de&gt;"/>
+  </docblock>
+  <extends full="Monolog\Handler\AbstractProcessingHandler" namespace="Monolog\Handler" name="AbstractProcessingHandler"/>
+  <member name="publisher" visibility="protected" line="32">
+    <docblock>
+      <description/>
+      <var description="the publisher object that sends the message to the server" type="object">
+        <type full="Gelf\Publisher" namespace="Gelf" name="Publisher"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="39" end="48" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param description="a publisher object" type="object" variable="$publisher">
+        <type full="Monolog\Handler\PublisherInterface|IMessagePublisher|Publisher" namespace="Monolog\Handler" name="PublisherInterface|IMessagePublisher|Publisher"/>
+      </param>
+      <param description="The minimum logging level at which this handler will be triggered" type="integer" variable="$level"/>
+      <param description="Whether the messages that are handled can bubble up the stack or not" type="boolean" variable="$bubble"/>
+    </docblock>
+    <parameter name="publisher" byreference="false" type="{unknown}"/>
+    <parameter name="level" byreference="false" type="{unknown}" default="" constant="Logger::DEBUG"/>
+    <parameter name="bubble" byreference="false" type="boolean" default="true"/>
+  </constructor>
+  <method name="close" start="53" end="56" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="write" start="61" end="64" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+  <method name="getDefaultFormatter" start="69" end="72" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritDoc}"/>
+    </docblock>
+  </method>
+</class>

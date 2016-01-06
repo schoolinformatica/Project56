@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Logger" namespace="Monolog" name="Logger" abstract="false" final="false" start="27" end="649">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog" file="Logger.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Logger.php" size="17796" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="0b33f95140c55d714c38506e4dbc5f0be349530e" relative="vendor/monolog/monolog/src/Monolog/Logger.php"/>
+  <docblock>
+    <description compact="Monolog log channel">It contains a stack of Handlers and a stack of Processors,
+and uses them to store records that are added to it.</description>
+    <author value="Jordi Boggiano &lt;j.boggiano@seld.be&gt;"/>
+  </docblock>
+  <implements full="Psr\Log\LoggerInterface" namespace="Psr\Log" name="LoggerInterface"/>
+  <constant type="integer" name="DEBUG" value="100">
+    <docblock>
+      <description compact="Detailed debug information"/>
+    </docblock>
+  </constant>
+  <constant type="integer" name="INFO" value="200">
+    <docblock>
+      <description compact="Interesting events">Examples: User logs in, SQL logs.</description>
+    </docblock>
+  </constant>
+  <constant type="integer" name="NOTICE" value="250">
+    <docblock>
+      <description compact="Uncommon events"/>
+    </docblock>
+  </constant>
+  <constant type="integer" name="WARNING" value="300">
+    <docblock>
+      <description compact="Exceptional occurrences that are not errors">Examples: Use of deprecated APIs, poor use of an API,
+undesirable things that are not necessarily wrong.</description>
+    </docblock>
+  </constant>
+  <constant type="integer" name="ERROR" value="400">
+    <docblock>
+      <description compact="Runtime errors"/>
+    </docblock>
+  </constant>
+  <constant type="integer" name="CRITICAL" value="500">
+    <docblock>
+      <description compact="Critical conditions">Example: Application component unavailable, unexpected exception.</description>
+    </docblock>
+  </constant>
+  <constant type="integer" name="ALERT" value="550">
+    <docblock>
+      <description compact="Action must be taken immediately">Example: Entire website down, database unavailable, etc.
+This should trigger the SMS alerts and wake you up.</description>
+    </docblock>
+  </constant>
+  <constant type="integer" name="EMERGENCY" value="600">
+    <docblock>
+      <description compact="Urgent alert."/>
+    </docblock>
+  </constant>
+  <constant type="integer" name="API" value="1">
+    <docblock>
+      <description compact="Monolog API version">This is only bumped when API breaks are done and should
+follow the major version of the library</description>
+      <var type="int"/>
+    </docblock>
+  </constant>
+  <member name="levels" type="array" default="" visibility="protected" line="94">
+    <docblock>
+      <description compact="Logging levels from syslog protocol defined in RFC 5424"/>
+      <var description="$levels Logging levels" type="array"/>
+    </docblock>
+  </member>
+  <member name="timezone" visibility="protected" line="108">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="\DateTimeZone" namespace="" name="DateTimeZone"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="name" visibility="protected" line="113">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="handlers" visibility="protected" line="120">
+    <docblock>
+      <description compact="The handler stack"/>
+      <var type="array" of="object">
+        <type full="Monolog\HandlerInterface" namespace="Monolog" name="HandlerInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="processors" visibility="protected" line="129">
+    <docblock>
+      <description compact="Processors that will process all log records">To process records of a single handler instead, add the processor on that specific handler</description>
+      <var type="array" of="object">
+        <type full="Monolog\callable" namespace="Monolog" name="callable"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="136" end="141" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param description="The logging channel" type="string" variable="$name"/>
+      <param description="Optional stack of handlers, the first one in the array is called first, etc." type="array" variable="$handlers" of="object">
+        <type full="Monolog\HandlerInterface" namespace="Monolog" name="HandlerInterface"/>
+      </param>
+      <param description="Optional array of processors" type="array" variable="$processors" of="object">
+        <type full="Monolog\callable" namespace="Monolog" name="callable"/>
+      </param>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="handlers" byreference="false" type="array" default=""/>
+    <parameter name="processors" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="getName" start="146" end="149" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="pushHandler" start="157" end="162" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Pushes a handler on to the stack."/>
+      <param type="object" variable="$handler">
+        <type full="Monolog\Handler\HandlerInterface" namespace="Monolog\Handler" name="HandlerInterface"/>
+      </param>
+      <return type="object">
+        <type full="Monolog\$this" namespace="Monolog" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="handler" byreference="false" type="object">
+      <type full="Monolog\Handler\HandlerInterface" namespace="Monolog\Handler" name="HandlerInterface"/>
+    </parameter>
+  </method>
+  <method name="popHandler" start="169" end="176" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Pops a handler from the stack"/>
+      <return type="object">
+        <type full="Monolog\Handler\HandlerInterface" namespace="Monolog\Handler" name="HandlerInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setHandlers" start="186" end="194" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set handlers, replacing all existing ones.">If a map is passed, keys will be ignored.</description>
+      <param type="array" variable="$handlers" of="object">
+        <type full="Monolog\HandlerInterface" namespace="Monolog" name="HandlerInterface"/>
+      </param>
+      <return type="object">
+        <type full="Monolog\$this" namespace="Monolog" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="handlers" byreference="false" type="array"/>
+  </method>
+  <method name="getHandlers" start="199" end="202" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="array" of="object">
+        <type full="Monolog\HandlerInterface" namespace="Monolog" name="HandlerInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="pushProcessor" start="210" end="218" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a processor on to the stack."/>
+      <param type="object" variable="$callback">
+        <type full="Monolog\callable" namespace="Monolog" name="callable"/>
+      </param>
+      <return type="object">
+        <type full="Monolog\$this" namespace="Monolog" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="popProcessor" start="225" end="232" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Removes the processor on top of the stack and returns it."/>
+      <return type="object">
+        <type full="Monolog\callable" namespace="Monolog" name="callable"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getProcessors" start="237" end="240" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="array" of="object">
+        <type full="Monolog\callable" namespace="Monolog" name="callable"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="addRecord" start="250" end="294" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a log record."/>
+      <param description="The logging level" type="integer" variable="$level"/>
+      <param description="The log message" type="string" variable="$message"/>
+      <param description="The log context" type="array" variable="$context"/>
+      <return description="Whether the record has been processed" type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="level" byreference="false" type="{unknown}"/>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+    <inline>
+      <comment value="check if any handler will handle this message so we can return early and save cycles" line="258"/>
+    </inline>
+  </method>
+  <method name="addDebug" start="303" end="306" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a log record at the DEBUG level."/>
+      <param description="The log message" type="string" variable="$message"/>
+      <param description="The log context" type="array" variable="$context"/>
+      <return description="Whether the record has been processed" type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="addInfo" start="315" end="318" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a log record at the INFO level."/>
+      <param description="The log message" type="string" variable="$message"/>
+      <param description="The log context" type="array" variable="$context"/>
+      <return description="Whether the record has been processed" type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="addNotice" start="327" end="330" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a log record at the NOTICE level."/>
+      <param description="The log message" type="string" variable="$message"/>
+      <param description="The log context" type="array" variable="$context"/>
+      <return description="Whether the record has been processed" type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="addWarning" start="339" end="342" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a log record at the WARNING level."/>
+      <param description="The log message" type="string" variable="$message"/>
+      <param description="The log context" type="array" variable="$context"/>
+      <return description="Whether the record has been processed" type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="addError" start="351" end="354" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a log record at the ERROR level."/>
+      <param description="The log message" type="string" variable="$message"/>
+      <param description="The log context" type="array" variable="$context"/>
+      <return description="Whether the record has been processed" type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="addCritical" start="363" end="366" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a log record at the CRITICAL level."/>
+      <param description="The log message" type="string" variable="$message"/>
+      <param description="The log context" type="array" variable="$context"/>
+      <return description="Whether the record has been processed" type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="addAlert" start="375" end="378" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a log record at the ALERT level."/>
+      <param description="The log message" type="string" variable="$message"/>
+      <param description="The log context" type="array" variable="$context"/>
+      <return description="Whether the record has been processed" type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="addEmergency" start="387" end="390" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a log record at the EMERGENCY level."/>
+      <param description="The log message" type="string" variable="$message"/>
+      <param description="The log context" type="array" variable="$context"/>
+      <return description="Whether the record has been processed" type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="getLevels" start="397" end="400" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Gets all supported logging levels."/>
+      <return description="Assoc array with human-readable level names =&gt; level codes." type="array"/>
+    </docblock>
+  </method>
+  <method name="getLevelName" start="408" end="415" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Gets the name of the logging level."/>
+      <param type="integer" variable="$level"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="level" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="toMonologLevel" start="423" end="430" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Converts PSR-3 levels to Monolog ones if necessary"/>
+      <param description="Level number (monolog) or name (PSR-3)" type="object">
+        <type full="Monolog\string|int" namespace="Monolog" name="string|int"/>
+      </param>
+      <return type="int"/>
+    </docblock>
+    <parameter name="level" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isHandling" start="438" end="451" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks whether the Logger has a handler that listens on the given level"/>
+      <param type="integer" variable="$level"/>
+      <return type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="level" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="log" start="463" end="468" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a log record at an arbitrary level.">This method allows for compatibility with common interfaces.</description>
+      <param description="The log level" type="mixed" variable="$level"/>
+      <param description="The log message" type="string" variable="$message"/>
+      <param description="The log context" type="array" variable="$context"/>
+      <return description="Whether the record has been processed" type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="level" byreference="false" type="{unknown}"/>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="debug" start="479" end="482" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a log record at the DEBUG level.">This method allows for compatibility with common interfaces.</description>
+      <param description="The log message" type="string" variable="$message"/>
+      <param description="The log context" type="array" variable="$context"/>
+      <return description="Whether the record has been processed" type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="info" start="493" end="496" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a log record at the INFO level.">This method allows for compatibility with common interfaces.</description>
+      <param description="The log message" type="string" variable="$message"/>
+      <param description="The log context" type="array" variable="$context"/>
+      <return description="Whether the record has been processed" type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="notice" start="507" end="510" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a log record at the NOTICE level.">This method allows for compatibility with common interfaces.</description>
+      <param description="The log message" type="string" variable="$message"/>
+      <param description="The log context" type="array" variable="$context"/>
+      <return description="Whether the record has been processed" type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="warn" start="521" end="524" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a log record at the WARNING level.">This method allows for compatibility with common interfaces.</description>
+      <param description="The log message" type="string" variable="$message"/>
+      <param description="The log context" type="array" variable="$context"/>
+      <return description="Whether the record has been processed" type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="warning" start="535" end="538" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a log record at the WARNING level.">This method allows for compatibility with common interfaces.</description>
+      <param description="The log message" type="string" variable="$message"/>
+      <param description="The log context" type="array" variable="$context"/>
+      <return description="Whether the record has been processed" type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="err" start="549" end="552" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a log record at the ERROR level.">This method allows for compatibility with common interfaces.</description>
+      <param description="The log message" type="string" variable="$message"/>
+      <param description="The log context" type="array" variable="$context"/>
+      <return description="Whether the record has been processed" type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="error" start="563" end="566" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a log record at the ERROR level.">This method allows for compatibility with common interfaces.</description>
+      <param description="The log message" type="string" variable="$message"/>
+      <param description="The log context" type="array" variable="$context"/>
+      <return description="Whether the record has been processed" type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="crit" start="577" end="580" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a log record at the CRITICAL level.">This method allows for compatibility with common interfaces.</description>
+      <param description="The log message" type="string" variable="$message"/>
+      <param description="The log context" type="array" variable="$context"/>
+      <return description="Whether the record has been processed" type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="critical" start="591" end="594" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a log record at the CRITICAL level.">This method allows for compatibility with common interfaces.</description>
+      <param description="The log message" type="string" variable="$message"/>
+      <param description="The log context" type="array" variable="$context"/>
+      <return description="Whether the record has been processed" type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="alert" start="605" end="608" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a log record at the ALERT level.">This method allows for compatibility with common interfaces.</description>
+      <param description="The log message" type="string" variable="$message"/>
+      <param description="The log context" type="array" variable="$context"/>
+      <return description="Whether the record has been processed" type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="emerg" start="619" end="622" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a log record at the EMERGENCY level.">This method allows for compatibility with common interfaces.</description>
+      <param description="The log message" type="string" variable="$message"/>
+      <param description="The log context" type="array" variable="$context"/>
+      <return description="Whether the record has been processed" type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="emergency" start="633" end="636" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a log record at the EMERGENCY level.">This method allows for compatibility with common interfaces.</description>
+      <param description="The log message" type="string" variable="$message"/>
+      <param description="The log context" type="array" variable="$context"/>
+      <return description="Whether the record has been processed" type="object">
+        <type full="Monolog\Boolean" namespace="Monolog" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="context" byreference="false" type="array" default=""/>
+  </method>
+  <method name="setTimezone" start="645" end="648" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set the timezone to be used for the timestamp of log records.">This is stored globally for all Logger instances</description>
+      <param description="Timezone object" type="object" variable="$tz">
+        <type full="\DateTimeZone" namespace="" name="DateTimeZone"/>
+      </param>
+    </docblock>
+    <parameter name="tz" byreference="false" type="object">
+      <type full="DateTimeZone" namespace="" name="DateTimeZone"/>
+    </parameter>
+  </method>
+</class>

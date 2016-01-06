@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trait xmlns="http://xml.phpdox.net/src" full="Illuminate\Routing\RouteDependencyResolverTrait" namespace="Illuminate\Routing" name="RouteDependencyResolverTrait" abstract="false" final="false" start="12" end="149">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Routing" file="RouteDependencyResolverTrait.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Routing/RouteDependencyResolverTrait.php" size="4496" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="8ba3311ed25969d36e81498212d8b05e2565a59e" relative="vendor/laravel/framework/src/Illuminate/Routing/RouteDependencyResolverTrait.php"/>
+  <method name="callWithDependencies" start="21" end="26" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Call a class method with the resolved dependencies."/>
+      <param type="object" variable="$instance"/>
+      <param type="string" variable="$method"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="instance" byreference="false" type="{unknown}"/>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="resolveClassMethodDependencies" start="36" end="45" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Resolve the object method's type-hinted dependencies."/>
+      <param type="array" variable="$parameters"/>
+      <param type="object" variable="$instance"/>
+      <param type="string" variable="$method"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="parameters" byreference="false" type="array"/>
+    <parameter name="instance" byreference="false" type="{unknown}"/>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="resolveMethodDependencies" start="54" end="69" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Resolve the given method's type-hinted dependencies."/>
+      <param type="array" variable="$parameters"/>
+      <param type="object" variable="$reflector">
+        <type full="\ReflectionFunctionAbstract" namespace="" name="ReflectionFunctionAbstract"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="parameters" byreference="false" type="array"/>
+    <parameter name="reflector" byreference="false" type="object">
+      <type full="ReflectionFunctionAbstract" namespace="" name="ReflectionFunctionAbstract"/>
+    </parameter>
+  </method>
+  <method name="transformDependency" start="79" end="89" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Attempt to transform the given parameter into a class instance."/>
+      <param type="object" variable="$parameter">
+        <type full="\ReflectionParameter" namespace="" name="ReflectionParameter"/>
+      </param>
+      <param type="array" variable="$parameters"/>
+      <param type="array" variable="$originalParameters"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="parameter" byreference="false" type="object">
+      <type full="ReflectionParameter" namespace="" name="ReflectionParameter"/>
+    </parameter>
+    <parameter name="parameters" byreference="false" type="{unknown}"/>
+    <parameter name="originalParameters" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="If the parameter has a type-hinted class, we will check to see if it is already in" line="83"/>
+      <comment value="the list of parameters. If it is we will just skip it as it is probably a model" line="84"/>
+      <comment value="binding and we do not want to mess with those; otherwise, we resolve it here." line="85"/>
+    </inline>
+  </method>
+  <method name="vacantEloquentParameter" start="100" end="104" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Determine if the given type-hinted class is an implict Eloquent binding.">Must not already be resolved in the parameter list by an explicit model binding.</description>
+      <param type="object" variable="$class">
+        <type full="\ReflectionClass" namespace="" name="ReflectionClass"/>
+      </param>
+      <param type="array" variable="$parameters"/>
+      <return type="object">
+        <type full="Illuminate\Routing\bool" namespace="Illuminate\Routing" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="class" byreference="false" type="object">
+      <type full="ReflectionClass" namespace="" name="ReflectionClass"/>
+    </parameter>
+    <parameter name="parameters" byreference="false" type="array"/>
+  </method>
+  <method name="extractModelIdentifier" start="114" end="119" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Extract an implicit model binding's key out of the parameter list."/>
+      <param type="object" variable="$parameter">
+        <type full="\ReflectionParameter" namespace="" name="ReflectionParameter"/>
+      </param>
+      <param type="array" variable="$originalParameters"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="parameter" byreference="false" type="object">
+      <type full="ReflectionParameter" namespace="" name="ReflectionParameter"/>
+    </parameter>
+    <parameter name="originalParameters" byreference="false" type="array"/>
+  </method>
+  <method name="alreadyInParameters" start="128" end="133" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Determine if an object of the given class is in a list of parameters."/>
+      <param type="string" variable="$class"/>
+      <param type="array" variable="$parameters"/>
+      <return type="object">
+        <type full="Illuminate\Routing\bool" namespace="Illuminate\Routing" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="array"/>
+  </method>
+  <method name="spliceIntoParameters" start="143" end="148" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Splice the given value into the parameter list."/>
+      <param type="array" variable="$parameters"/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$instance"/>
+      <return type="object">
+        <type full="Illuminate\Routing\void" namespace="Illuminate\Routing" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="parameters" byreference="true" type="array"/>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="instance" byreference="false" type="{unknown}"/>
+  </method>
+</trait>

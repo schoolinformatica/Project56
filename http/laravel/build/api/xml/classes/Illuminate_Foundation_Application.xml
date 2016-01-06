@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Foundation\Application" namespace="Illuminate\Foundation" name="Application" abstract="false" final="false" start="21" end="1122">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation" file="Application.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php" size="29524" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="9d66a937bca4bf601512d811cdb4e34f4f4ae527" relative="vendor/laravel/framework/src/Illuminate/Foundation/Application.php"/>
+  <extends full="Illuminate\Container\Container" namespace="Illuminate\Container" name="Container"/>
+  <implements full="Illuminate\Contracts\Foundation\Application" namespace="Illuminate\Contracts\Foundation" name="Application"/>
+  <implements full="Symfony\Component\HttpKernel\HttpKernelInterface" namespace="Symfony\Component\HttpKernel" name="HttpKernelInterface"/>
+  <constant type="string" name="VERSION" value="'5.1.26 (LTS)'">
+    <docblock>
+      <description compact="The Laravel framework version."/>
+      <var type="string"/>
+    </docblock>
+  </constant>
+  <member name="basePath" visibility="protected" line="35">
+    <docblock>
+      <description compact="The base path for the Laravel installation."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="hasBeenBootstrapped" type="boolean" default="false" visibility="protected" line="42">
+    <docblock>
+      <description compact="Indicates if the application has been bootstrapped before."/>
+      <var type="object">
+        <type full="Illuminate\Foundation\bool" namespace="Illuminate\Foundation" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="booted" type="boolean" default="false" visibility="protected" line="49">
+    <docblock>
+      <description compact="Indicates if the application has &quot;booted&quot;."/>
+      <var type="object">
+        <type full="Illuminate\Foundation\bool" namespace="Illuminate\Foundation" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="bootingCallbacks" type="array" default="" visibility="protected" line="56">
+    <docblock>
+      <description compact="The array of booting callbacks."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="bootedCallbacks" type="array" default="" visibility="protected" line="63">
+    <docblock>
+      <description compact="The array of booted callbacks."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="terminatingCallbacks" type="array" default="" visibility="protected" line="70">
+    <docblock>
+      <description compact="The array of terminating callbacks."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="serviceProviders" type="array" default="" visibility="protected" line="77">
+    <docblock>
+      <description compact="All of the registered service providers."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="loadedProviders" type="array" default="" visibility="protected" line="84">
+    <docblock>
+      <description compact="The names of the loaded service providers."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="deferredServices" type="array" default="" visibility="protected" line="91">
+    <docblock>
+      <description compact="The deferred services and their providers."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="monologConfigurator" visibility="protected" line="98">
+    <docblock>
+      <description compact="A custom callback used to configure Monolog."/>
+      <var type="object">
+        <type full="Illuminate\Foundation\callable|null" namespace="Illuminate\Foundation" name="callable|null"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="databasePath" visibility="protected" line="105">
+    <docblock>
+      <description compact="The custom database path defined by the developer."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="storagePath" visibility="protected" line="112">
+    <docblock>
+      <description compact="The custom storage path defined by the developer."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="environmentPath" visibility="protected" line="119">
+    <docblock>
+      <description compact="The custom environment path defined by the developer."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="environmentFile" type="string" default="'.env'" visibility="protected" line="126">
+    <docblock>
+      <description compact="The environment file to load during bootstrapping."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="namespace" type="{unknown}" default="" constant="null" visibility="protected" line="133">
+    <docblock>
+      <description compact="The application namespace."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="141" end="152" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new Illuminate application instance."/>
+      <param type="object" variable="$basePath">
+        <type full="Illuminate\Foundation\string|null" namespace="Illuminate\Foundation" name="string|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="basePath" byreference="false" type="{unknown}" default="" constant="null"/>
+  </constructor>
+  <method name="version" start="159" end="162" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the version number of the application."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="registerBaseBindings" start="169" end="176" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register the basic bindings into the container."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="registerBaseServiceProviders" start="183" end="188" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register all of the base service providers."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="bootstrapWith" start="196" end="207" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Run the given array of bootstrap classes."/>
+      <param type="array" variable="$bootstrappers"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="bootstrappers" byreference="false" type="array"/>
+  </method>
+  <method name="afterLoadingEnvironment" start="215" end="220" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a callback to run after loading the environment."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="beforeBootstrapping" start="229" end="232" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a callback to run before a bootstrapper."/>
+      <param type="string" variable="$bootstrapper"/>
+      <param type="object" variable="$callback">
+        <type full="Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="bootstrapper" byreference="false" type="{unknown}"/>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="afterBootstrapping" start="241" end="244" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a callback to run after a bootstrapper."/>
+      <param type="string" variable="$bootstrapper"/>
+      <param type="object" variable="$callback">
+        <type full="Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="bootstrapper" byreference="false" type="{unknown}"/>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="hasBeenBootstrapped" start="251" end="254" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the application has been bootstrapped before."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\bool" namespace="Illuminate\Foundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setBasePath" start="262" end="269" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the base path for the application."/>
+      <param type="string" variable="$basePath"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\$this" namespace="Illuminate\Foundation" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="basePath" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="bindPathsInContainer" start="276" end="283" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Bind all of the application paths in the container."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="path" start="290" end="293" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the path to the application &quot;app&quot; directory."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="basePath" start="300" end="303" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the base path of the Laravel installation."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="configPath" start="310" end="313" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the path to the application configuration files."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="databasePath" start="320" end="323" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the path to the database directory."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="useDatabasePath" start="331" end="338" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the database directory."/>
+      <param type="string" variable="$path"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\$this" namespace="Illuminate\Foundation" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="langPath" start="345" end="348" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the path to the language files."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="publicPath" start="355" end="358" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the path to the public / web directory."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="storagePath" start="365" end="368" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the path to the storage directory."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="useStoragePath" start="376" end="383" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the storage directory."/>
+      <param type="string" variable="$path"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\$this" namespace="Illuminate\Foundation" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="environmentPath" start="390" end="393" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the path to the environment file directory."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="useEnvironmentPath" start="401" end="406" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the directory for the environment file."/>
+      <param type="string" variable="$path"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\$this" namespace="Illuminate\Foundation" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="loadEnvironmentFrom" start="414" end="419" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the environment file to be loaded during bootstrapping."/>
+      <param type="string" variable="$file"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\$this" namespace="Illuminate\Foundation" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="file" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="environmentFile" start="426" end="429" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the environment file the application is using."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="environment" start="437" end="452" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get or check the current application environment."/>
+      <param type="mixed"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="isLocal" start="459" end="462" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if application is in local environment."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\bool" namespace="Illuminate\Foundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="detectEnvironment" start="470" end="475" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Detect the application's current environment."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="runningInConsole" start="482" end="485" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if we are running in the console."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\bool" namespace="Illuminate\Foundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="runningUnitTests" start="492" end="495" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if we are running unit tests."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\bool" namespace="Illuminate\Foundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="registerConfiguredProviders" start="502" end="508" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register all of the configured providers."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="register" start="518" end="550" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a service provider with the application."/>
+      <param type="object" variable="$provider">
+        <type full="\Illuminate\Support\ServiceProvider|string" namespace="\Illuminate\Support" name="ServiceProvider|string"/>
+      </param>
+      <param type="array" variable="$options"/>
+      <param type="object" variable="$force">
+        <type full="Illuminate\Foundation\bool" namespace="Illuminate\Foundation" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Support\ServiceProvider" namespace="\Illuminate\Support" name="ServiceProvider"/>
+      </return>
+    </docblock>
+    <parameter name="provider" byreference="false" type="{unknown}"/>
+    <parameter name="options" byreference="false" type="array" default=""/>
+    <parameter name="force" byreference="false" type="boolean" default="false"/>
+    <inline>
+      <comment value="If the given &quot;provider&quot; is a string, we will resolve it, passing in the" line="524"/>
+      <comment value="application instance automatically for the developer. This is simply" line="525"/>
+      <comment value="a more convenient way of specifying your service provider classes." line="526"/>
+      <comment value="Once we have registered the service we will iterate through the options" line="533"/>
+      <comment value="and set each of them on the application so they will be available on" line="534"/>
+      <comment value="the actual loading of the service objects and for developer usage." line="535"/>
+      <comment value="If the application has already booted, we will call this boot method on" line="542"/>
+      <comment value="the provider class so it has an opportunity to do its boot logic and" line="543"/>
+      <comment value="will be ready for any usage by the developer's application logics." line="544"/>
+    </inline>
+  </method>
+  <method name="getProvider" start="558" end="565" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the registered service provider instance if it exists."/>
+      <param type="object" variable="$provider">
+        <type full="\Illuminate\Support\ServiceProvider|string" namespace="\Illuminate\Support" name="ServiceProvider|string"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Support\ServiceProvider|null" namespace="\Illuminate\Support" name="ServiceProvider|null"/>
+      </return>
+    </docblock>
+    <parameter name="provider" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="resolveProviderClass" start="573" end="576" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Resolve a service provider instance from the class name."/>
+      <param type="string" variable="$provider"/>
+      <return type="object">
+        <type full="\Illuminate\Support\ServiceProvider" namespace="\Illuminate\Support" name="ServiceProvider"/>
+      </return>
+    </docblock>
+    <parameter name="provider" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="markAsRegistered" start="584" end="591" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Mark the given provider as registered."/>
+      <param type="object" variable="$provider">
+        <type full="\Illuminate\Support\ServiceProvider" namespace="\Illuminate\Support" name="ServiceProvider"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="provider" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="loadDeferredProviders" start="598" end="608" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Load and boot all of the remaining deferred providers."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+    <inline>
+      <comment value="We will simply spin through each of the deferred providers and register each" line="600"/>
+      <comment value="one and boot them if the application has booted. This should make each of" line="601"/>
+      <comment value="the remaining services available to this application for immediate use." line="602"/>
+    </inline>
+  </method>
+  <method name="loadDeferredProvider" start="616" end="630" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Load the provider for a deferred service."/>
+      <param type="string" variable="$service"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="service" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="If the service provider has not already been loaded and registered we can" line="624"/>
+      <comment value="register it with the application and remove the service from this list" line="625"/>
+      <comment value="of deferred services, since it will already be loaded on subsequent." line="626"/>
+    </inline>
+  </method>
+  <method name="registerDeferredProvider" start="639" end="655" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a deferred provider and service."/>
+      <param type="string" variable="$provider"/>
+      <param type="string" variable="$service"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="provider" byreference="false" type="{unknown}"/>
+    <parameter name="service" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="Once the provider that provides the deferred service has been registered we" line="641"/>
+      <comment value="will remove it from our local list of the deferred services with related" line="642"/>
+      <comment value="providers so that this container does not try to resolve it out again." line="643"/>
+    </inline>
+  </method>
+  <method name="make" start="666" end="675" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Resolve the given type from the container.">(Overriding Container::make)</description>
+      <param type="string" variable="$abstract"/>
+      <param type="array" variable="$parameters"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="abstract" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="array" default=""/>
+  </method>
+  <method name="bound" start="685" end="688" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the given abstract type has been bound.">(Overriding Container::bound)</description>
+      <param type="string" variable="$abstract"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\bool" namespace="Illuminate\Foundation" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="abstract" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isBooted" start="695" end="698" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the application has booted."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\bool" namespace="Illuminate\Foundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="boot" start="705" end="723" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Boot the application's service providers."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+    <inline>
+      <comment value="Once the application has booted we will also fire some &quot;booted&quot; callbacks" line="711"/>
+      <comment value="for any listeners that need to do work after this initial booting gets" line="712"/>
+      <comment value="finished. This is useful when ordering the boot-up processes we run." line="713"/>
+    </inline>
+  </method>
+  <method name="bootProvider" start="731" end="736" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Boot the given service provider."/>
+      <param type="object" variable="$provider">
+        <type full="\Illuminate\Support\ServiceProvider" namespace="\Illuminate\Support" name="ServiceProvider"/>
+      </param>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="provider" byreference="false" type="object">
+      <type full="Illuminate\Support\ServiceProvider" namespace="Illuminate\Support" name="ServiceProvider"/>
+    </parameter>
+  </method>
+  <method name="booting" start="744" end="747" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a new boot listener."/>
+      <param type="mixed" variable="$callback"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="booted" start="755" end="762" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a new &quot;booted&quot; listener."/>
+      <param type="mixed" variable="$callback"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="fireAppCallbacks" start="770" end="775" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Call the booting callbacks for the application."/>
+      <param type="array" variable="$callbacks"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="callbacks" byreference="false" type="array"/>
+  </method>
+  <method name="handle" start="780" end="783" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="type" byreference="false" type="{unknown}" default="" constant="self::MASTER_REQUEST"/>
+    <parameter name="catch" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="shouldSkipMiddleware" start="790" end="794" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if middleware has been disabled for the application."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\bool" namespace="Illuminate\Foundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="configurationIsCached" start="801" end="804" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the application configuration is cached."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\bool" namespace="Illuminate\Foundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getCachedConfigPath" start="811" end="814" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the path to the configuration cache file."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="routesAreCached" start="821" end="824" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the application routes are cached."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\bool" namespace="Illuminate\Foundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getCachedRoutesPath" start="831" end="834" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the path to the routes cache file."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getCachedCompilePath" start="841" end="844" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the path to the cached &quot;compiled.php&quot; file."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getCachedServicesPath" start="851" end="854" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the path to the cached services.json file."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="isDownForMaintenance" start="861" end="864" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the application is currently down for maintenance."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\bool" namespace="Illuminate\Foundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="abort" start="876" end="883" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Throw an HttpException with the given data."/>
+      <param type="int" variable="$code"/>
+      <param type="string" variable="$message"/>
+      <param type="array" variable="$headers"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+      <throws type="object">
+        <type full="\Symfony\Component\HttpKernel\Exception\HttpException" namespace="\Symfony\Component\HttpKernel\Exception" name="HttpException"/>
+      </throws>
+    </docblock>
+    <parameter name="code" byreference="false" type="{unknown}"/>
+    <parameter name="message" byreference="false" type="string" default="''"/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="terminating" start="891" end="896" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a terminating callback with the application."/>
+      <param type="object" variable="$callback">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\$this" namespace="Illuminate\Foundation" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="terminate" start="903" end="908" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Terminate the application."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getLoadedProviders" start="915" end="918" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the service providers that have been loaded."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getDeferredServices" start="925" end="928" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the application's deferred services."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="setDeferredServices" start="936" end="939" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the application's deferred services."/>
+      <param type="array" variable="$services"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="services" byreference="false" type="array"/>
+  </method>
+  <method name="addDeferredServices" start="947" end="950" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add an array of services to the application's deferred services."/>
+      <param type="array" variable="$services"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="services" byreference="false" type="array"/>
+  </method>
+  <method name="isDeferredService" start="958" end="961" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the given service is a deferred service."/>
+      <param type="string" variable="$service"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\bool" namespace="Illuminate\Foundation" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="service" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="configureMonologUsing" start="969" end="974" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Define a callback to be used to configure Monolog."/>
+      <param type="object" variable="$callback">
+        <type full="Illuminate\Foundation\callable" namespace="Illuminate\Foundation" name="callable"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\$this" namespace="Illuminate\Foundation" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Illuminate\Foundation\callable" namespace="Illuminate\Foundation" name="callable"/>
+    </parameter>
+  </method>
+  <method name="hasMonologConfigurator" start="981" end="984" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the application has a custom Monolog configurator."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\bool" namespace="Illuminate\Foundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getMonologConfigurator" start="991" end="994" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the custom Monolog configurator for the application."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\callable" namespace="Illuminate\Foundation" name="callable"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getLocale" start="1001" end="1004" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the current application locale."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setLocale" start="1012" end="1019" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the current application locale."/>
+      <param type="string" variable="$locale"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="registerCoreContainerAliases" start="1026" end="1069" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register the core class aliases in the container."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="flush" start="1076" end="1081" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Flush the container of all bindings and resolved instances."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getKernel" start="1088" end="1095" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the used kernel object."/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Console\Kernel|\Illuminate\Contracts\Http\Kernel" namespace="\Illuminate\Contracts\Console\Kernel|\Illuminate\Contracts\Http" name="Kernel"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getNamespace" start="1104" end="1121" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the application namespace."/>
+      <return type="string"/>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+  </method>
+</class>

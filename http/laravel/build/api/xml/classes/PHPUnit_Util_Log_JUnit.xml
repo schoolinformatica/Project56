@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PHPUnit_Util_Log_JUnit" namespace="" name="PHPUnit_Util_Log_JUnit" abstract="false" final="false" start="18" end="454">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Util/Log" file="JUnit.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Util/Log/JUnit.php" size="12979" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="e10975e2b2ece853ac5ccbbb46f98d8c39836aca" relative="vendor/phpunit/phpunit/src/Util/Log/JUnit.php"/>
+  <docblock>
+    <description compact="A TestListener that generates a logfile of the test execution in XML markup.">The XML markup used is the same as the one that is used by the JUnit Ant task.</description>
+    <since value="Class available since Release 2.1.0"/>
+  </docblock>
+  <extends full="PHPUnit_Util_Printer" namespace="" name="PHPUnit_Util_Printer"/>
+  <implements full="PHPUnit_Framework_TestListener" namespace="" name="PHPUnit_Framework_TestListener"/>
+  <member name="document" visibility="protected" line="23">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="DOMDocument" namespace="" name="DOMDocument"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="root" visibility="protected" line="28">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="DOMElement" namespace="" name="DOMElement"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="logIncompleteSkipped" type="boolean" default="false" visibility="protected" line="33">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="writeDocument" type="boolean" default="true" visibility="protected" line="38">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="testSuites" type="array" default="" visibility="protected" line="43">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="DOMElement" namespace="" name="DOMElement"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="testSuiteTests" type="array" default="" visibility="protected" line="48">
+    <docblock>
+      <description/>
+      <var type="array" of="int"/>
+    </docblock>
+  </member>
+  <member name="testSuiteAssertions" type="array" default="" visibility="protected" line="53">
+    <docblock>
+      <description/>
+      <var type="array" of="int"/>
+    </docblock>
+  </member>
+  <member name="testSuiteErrors" type="array" default="" visibility="protected" line="58">
+    <docblock>
+      <description/>
+      <var type="array" of="int"/>
+    </docblock>
+  </member>
+  <member name="testSuiteFailures" type="array" default="" visibility="protected" line="63">
+    <docblock>
+      <description/>
+      <var type="array" of="int"/>
+    </docblock>
+  </member>
+  <member name="testSuiteTimes" type="array" default="" visibility="protected" line="68">
+    <docblock>
+      <description/>
+      <var type="array" of="int"/>
+    </docblock>
+  </member>
+  <member name="testSuiteLevel" type="integer" default="0" visibility="protected" line="73">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="currentTestCase" type="{unknown}" default="" constant="null" visibility="protected" line="78">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="DOMElement" namespace="" name="DOMElement"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="attachCurrentTestCase" type="boolean" default="true" visibility="protected" line="83">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="91" end="102" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param type="mixed" variable="$out"/>
+      <param type="object" variable="$logIncompleteSkipped">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="out" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="logIncompleteSkipped" byreference="false" type="boolean" default="false"/>
+  </constructor>
+  <method name="flush" start="107" end="114" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Flush buffer and close output."/>
+    </docblock>
+  </method>
+  <method name="addError" start="123" end="149" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="An error occurred."/>
+      <param type="object" variable="$test">
+        <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+      </param>
+      <param type="object" variable="$e">
+        <type full="Exception" namespace="" name="Exception"/>
+      </param>
+      <param type="float" variable="$time"/>
+    </docblock>
+    <parameter name="test" byreference="false" type="object">
+      <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+    </parameter>
+    <parameter name="e" byreference="false" type="object">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+    <parameter name="time" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addFailure" start="158" end="184" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="A failure occurred."/>
+      <param type="object" variable="$test">
+        <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+      </param>
+      <param type="object" variable="$e">
+        <type full="PHPUnit_Framework_AssertionFailedError" namespace="" name="PHPUnit_Framework_AssertionFailedError"/>
+      </param>
+      <param type="float" variable="$time"/>
+    </docblock>
+    <parameter name="test" byreference="false" type="object">
+      <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+    </parameter>
+    <parameter name="e" byreference="false" type="object">
+      <type full="PHPUnit_Framework_AssertionFailedError" namespace="" name="PHPUnit_Framework_AssertionFailedError"/>
+    </parameter>
+    <parameter name="time" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addIncompleteTest" start="193" end="212" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Incomplete test."/>
+      <param type="object" variable="$test">
+        <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+      </param>
+      <param type="object" variable="$e">
+        <type full="Exception" namespace="" name="Exception"/>
+      </param>
+      <param type="float" variable="$time"/>
+    </docblock>
+    <parameter name="test" byreference="false" type="object">
+      <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+    </parameter>
+    <parameter name="e" byreference="false" type="object">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+    <parameter name="time" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addRiskyTest" start="223" end="242" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Risky test."/>
+      <param type="object" variable="$test">
+        <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+      </param>
+      <param type="object" variable="$e">
+        <type full="Exception" namespace="" name="Exception"/>
+      </param>
+      <param type="float" variable="$time"/>
+      <since value="Method available since Release 4.0.0"/>
+    </docblock>
+    <parameter name="test" byreference="false" type="object">
+      <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+    </parameter>
+    <parameter name="e" byreference="false" type="object">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+    <parameter name="time" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addSkippedTest" start="253" end="272" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Skipped test."/>
+      <param type="object" variable="$test">
+        <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+      </param>
+      <param type="object" variable="$e">
+        <type full="Exception" namespace="" name="Exception"/>
+      </param>
+      <param type="float" variable="$time"/>
+      <since value="Method available since Release 3.0.0"/>
+    </docblock>
+    <parameter name="test" byreference="false" type="object">
+      <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+    </parameter>
+    <parameter name="e" byreference="false" type="object">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+    <parameter name="time" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="startTestSuite" start="281" end="308" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="A testsuite started."/>
+      <param type="object" variable="$suite">
+        <type full="PHPUnit_Framework_TestSuite" namespace="" name="PHPUnit_Framework_TestSuite"/>
+      </param>
+      <since value="Method available since Release 2.2.0"/>
+    </docblock>
+    <parameter name="suite" byreference="false" type="object">
+      <type full="PHPUnit_Framework_TestSuite" namespace="" name="PHPUnit_Framework_TestSuite"/>
+    </parameter>
+  </method>
+  <method name="endTestSuite" start="317" end="353" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="A testsuite ended."/>
+      <param type="object" variable="$suite">
+        <type full="PHPUnit_Framework_TestSuite" namespace="" name="PHPUnit_Framework_TestSuite"/>
+      </param>
+      <since value="Method available since Release 2.2.0"/>
+    </docblock>
+    <parameter name="suite" byreference="false" type="object">
+      <type full="PHPUnit_Framework_TestSuite" namespace="" name="PHPUnit_Framework_TestSuite"/>
+    </parameter>
+  </method>
+  <method name="startTest" start="360" end="379" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="A test started."/>
+      <param type="object" variable="$test">
+        <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+      </param>
+    </docblock>
+    <parameter name="test" byreference="false" type="object">
+      <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+    </parameter>
+  </method>
+  <method name="endTest" start="387" end="423" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="A test ended."/>
+      <param type="object" variable="$test">
+        <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+      </param>
+      <param type="float" variable="$time"/>
+    </docblock>
+    <parameter name="test" byreference="false" type="object">
+      <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+    </parameter>
+    <parameter name="time" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getXML" start="432" end="435" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the XML as a string."/>
+      <return type="string"/>
+      <since value="Method available since Release 2.2.0"/>
+    </docblock>
+  </method>
+  <method name="setWriteDocument" start="448" end="453" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Enables or disables the writing of the document in flush().">This is a "hack" needed for the integration of
+PHPUnit with Phing.</description>
+      <return type="string"/>
+      <since value="Method available since Release 2.2.0"/>
+    </docblock>
+    <parameter name="flag" byreference="false" type="{unknown}"/>
+  </method>
+</class>

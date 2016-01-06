@@ -1,0 +1,131 @@
+
+
+<project name="Project56 - Output" default="full-build">
+<!--  By default, we assume all tools to be on the $PATH -->  
+<property name="phpdox" value="phpdox"/>
+<property name="phploc" value="phploc"/>
+<property name="phpunit" value="phpunit"/>
+<property name="src.dir" location="src" />
+<property name="build.dir" location="bin" />
+<target name="full-build" depends="prepare,static-analysis,phpunit,phpdox,-check-failure" description="Performs static analysis, runs the tests, and generates project documentation"/>
+<target name="full-build-parallel" depends="prepare,static-analysis-parallel,phpunit,phpdox,-check-failure" description="Performs static analysis (executing the tools in parallel), runs the tests, and generates project documentation"/>
+<target name="quick-build" depends="prepare,lint,phpunit-no-coverage" description="Performs a lint check and runs the tests (without generating code coverage reports)"/>
+<target name="static-analysis" depends="lint,phploc-ci" description="Performs static analysis"/>
+<!--
+ Adjust the threadCount attribute's value to the number of CPUs 
+-->
+
+
+<target name="static-analysis-parallel"
+         description="Performs static analysis (executing the tools in parallel)">
+  <parallel threadCount="2">
+   <antcall target="lint"/>
+   <antcall target="phploc-ci"/>
+  </parallel>
+ </target>
+
+
+
+<target name="clean" unless="clean.done" description="Cleanup build artifacts">
+<delete dir="${basedir}/build/api"/>
+<delete dir="${basedir}/build/coverage"/>
+<delete dir="${basedir}/build/logs"/>
+<delete dir="${basedir}/build/pdepend"/>
+<delete dir="${basedir}/build/phpdox"/>
+<property name="clean.done" value="true"/>
+</target>
+
+
+
+
+
+<target name="prepare" unless="prepare.done" depends="clean" description="Prepare for build">
+<mkdir dir="${basedir}/build/api"/>
+<mkdir dir="${basedir}/build/coverage"/>
+<mkdir dir="${basedir}/build/logs"/>
+<mkdir dir="${basedir}/build/pdepend"/>
+<mkdir dir="${basedir}/build/phpdox"/>
+<property name="prepare.done" value="true"/>
+</target>
+
+
+
+<target name="lint" unless="lint.done" description="Perform syntax check of sourcecode files">
+<apply executable="php" taskname="lint">
+<arg value="-l"/>
+<fileset dir="${basedir}/laravel">
+<include name="**/*.php"/>
+<modified/>
+</fileset>
+<fileset dir="${basedir}/laravel/tests">
+<include name="**/*.php"/>
+<modified/>
+</fileset>
+</apply>
+<property name="lint.done" value="true"/>
+</target>
+
+
+
+
+<target name="phploc" unless="phploc.done" description="Measure project size using PHPLOC and print human readable output. Intended for usage on the command line.">
+<exec executable="${phploc}" taskname="phploc">
+<arg value="--count-tests"/>
+<arg path="${basedir}/laravel"/>
+<arg path="${basedir}/tests"/>
+</exec>
+<property name="phploc.done" value="true"/>
+</target>
+
+
+<target name="phploc-ci" unless="phploc.done" depends="prepare" description="Measure project size using PHPLOC and log result in CSV and XML format. Intended for usage within a continuous integration environment.">
+<exec executable="${phploc}" taskname="phploc">
+<arg value="--count-tests"/>
+<arg value="--log-csv"/>
+<arg path="${basedir}/build/logs/phploc.csv"/>
+<arg value="--log-xml"/>
+<arg path="${basedir}/build/logs/phploc.xml"/>
+<arg path="${basedir}/laravel"/>
+<arg path="${basedir}/laravel/tests"/>
+</exec>
+<property name="phploc.done" value="true"/>
+</target>
+
+
+<target name="phpunit" unless="phpunit.done" depends="prepare" description="Run unit tests with PHPUnit">
+<exec executable="${phpunit}" resultproperty="result.phpunit" taskname="phpunit">
+<arg value="--configuration"/>
+<arg path="${basedir}/build/phpunit.xml"/>
+</exec>
+<property name="phpunit.done" value="true"/>
+</target>
+
+
+<target name="phpunit-no-coverage" unless="phpunit.done" depends="prepare" description="Run unit tests with PHPUnit (without generating code coverage reports)">
+<exec executable="${phpunit}" failonerror="true" taskname="phpunit">
+<arg value="--configuration"/>
+<arg path="${basedir}/build/phpunit.xml"/>
+<arg value="--no-coverage"/>
+</exec>
+<property name="phpunit.done" value="true"/>
+</target>
+
+
+<target name="phpdox" unless="phpdox.done" depends="phploc-ci" description="Generate project documentation using phpDox">
+<exec executable="${phpdox}" dir="${basedir}" taskname="phpdox"/>
+<property name="phpdox.done" value="true"/>
+</target>
+
+
+<target name="-check-failure">
+<fail message="PHPUnit did not finish successfully">
+<condition>
+<not>
+<equals arg1="${result.phpunit}" arg2="0"/>
+</not>
+</condition>
+</fail>
+</target>
+
+</project>
+

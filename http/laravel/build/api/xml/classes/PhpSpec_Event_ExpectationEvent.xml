@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpSpec\Event\ExpectationEvent" namespace="PhpSpec\Event" name="ExpectationEvent" abstract="false" final="false" start="23" end="173">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Event" file="ExpectationEvent.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Event/ExpectationEvent.php" size="3184" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="9d74c0e301c86fc40fd7097f4b1c7969af176912" relative="vendor/phpspec/phpspec/src/PhpSpec/Event/ExpectationEvent.php"/>
+  <docblock>
+    <description compact="Class ExpectationEvent holds information about the expectation event"/>
+  </docblock>
+  <extends full="Symfony\Component\EventDispatcher\Event" namespace="Symfony\Component\EventDispatcher" name="Event"/>
+  <implements full="PhpSpec\Event\EventInterface" namespace="PhpSpec\Event" name="EventInterface"/>
+  <constant type="integer" name="PASSED" value="0">
+    <docblock>
+      <description compact="Expectation passed"/>
+    </docblock>
+  </constant>
+  <constant type="integer" name="FAILED" value="1">
+    <docblock>
+      <description compact="Expectation failed"/>
+    </docblock>
+  </constant>
+  <constant type="integer" name="BROKEN" value="2">
+    <docblock>
+      <description compact="Expectation broken"/>
+    </docblock>
+  </constant>
+  <member name="example" visibility="private" line="43">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\Loader\Node\ExampleNode" namespace="PhpSpec\Loader\Node" name="ExampleNode"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="matcher" visibility="private" line="48">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\Matcher\MatcherInterface" namespace="PhpSpec\Matcher" name="MatcherInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="subject" visibility="private" line="53">
+    <docblock>
+      <description/>
+      <var type="mixed"/>
+    </docblock>
+  </member>
+  <member name="method" visibility="private" line="58">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="arguments" visibility="private" line="63">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="result" visibility="private" line="68">
+    <docblock>
+      <description/>
+      <var type="integer"/>
+    </docblock>
+  </member>
+  <member name="exception" visibility="private" line="73">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="84" end="100" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$example">
+        <type full="PhpSpec\Loader\Node\ExampleNode" namespace="PhpSpec\Loader\Node" name="ExampleNode"/>
+      </param>
+      <param type="object" variable="$matcher">
+        <type full="PhpSpec\Matcher\MatcherInterface" namespace="PhpSpec\Matcher" name="MatcherInterface"/>
+      </param>
+      <param type="mixed" variable="$subject"/>
+      <param type="string" variable="$method"/>
+      <param type="array" variable="$arguments"/>
+      <param type="integer" variable="$result"/>
+      <param type="object" variable="$exception">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </param>
+    </docblock>
+    <parameter name="example" byreference="false" type="object">
+      <type full="PhpSpec\Loader\Node\ExampleNode" namespace="PhpSpec\Loader\Node" name="ExampleNode"/>
+    </parameter>
+    <parameter name="matcher" byreference="false" type="object">
+      <type full="PhpSpec\Matcher\MatcherInterface" namespace="PhpSpec\Matcher" name="MatcherInterface"/>
+    </parameter>
+    <parameter name="subject" byreference="false" type="{unknown}"/>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}"/>
+    <parameter name="result" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="exception" byreference="false" type="{unknown}" default="" constant="null"/>
+  </constructor>
+  <method name="getMatcher" start="105" end="108" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="PhpSpec\Matcher\MatcherInterface" namespace="PhpSpec\Matcher" name="MatcherInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getExample" start="113" end="116" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="PhpSpec\Loader\Node\ExampleNode" namespace="PhpSpec\Loader\Node" name="ExampleNode"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getSpecification" start="121" end="124" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="\PhpSpec\Loader\Node\SpecificationNode" namespace="\PhpSpec\Loader\Node" name="SpecificationNode"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getSuite" start="129" end="132" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="\PhpSpec\Loader\Suite" namespace="\PhpSpec\Loader" name="Suite"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getSubject" start="137" end="140" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+  <method name="getMethod" start="145" end="148" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getArguments" start="153" end="156" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getException" start="161" end="164" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getResult" start="169" end="172" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="integer"/>
+    </docblock>
+  </method>
+</class>

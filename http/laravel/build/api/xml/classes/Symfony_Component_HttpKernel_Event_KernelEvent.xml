@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\Event\KernelEvent" namespace="Symfony\Component\HttpKernel\Event" name="KernelEvent" abstract="false" final="false" start="23" end="94">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Event" file="KernelEvent.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Event/KernelEvent.php" size="2192" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="cfd711ce444f72f9e11ca1a4f530e201854d8ec2" relative="vendor/symfony/http-kernel/Event/KernelEvent.php"/>
+  <docblock>
+    <description compact="Base class for events thrown in the HttpKernel component."/>
+    <author value="Bernhard Schussek &lt;bschussek@gmail.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\EventDispatcher\Event" namespace="Symfony\Component\EventDispatcher" name="Event"/>
+  <member name="kernel" visibility="private" line="30">
+    <docblock>
+      <description compact="The kernel in which this event was thrown."/>
+      <var type="object">
+        <type full="Symfony\Component\HttpKernel\HttpKernelInterface" namespace="Symfony\Component\HttpKernel" name="HttpKernelInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="request" visibility="private" line="37">
+    <docblock>
+      <description compact="The request the kernel is currently processing."/>
+      <var type="object">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="requestType" visibility="private" line="45">
+    <docblock>
+      <description compact="The request type the kernel is currently processing.  One of HttpKernelInterface::MASTER_REQUEST and HttpKernelInterface::SUB_REQUEST."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="47" end="52" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="kernel" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\HttpKernelInterface" namespace="Symfony\Component\HttpKernel" name="HttpKernelInterface"/>
+    </parameter>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="requestType" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="getKernel" start="59" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the kernel in which this event was thrown."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\HttpKernelInterface" namespace="Symfony\Component\HttpKernel" name="HttpKernelInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getRequest" start="69" end="72" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the request the kernel is currently processing."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getRequestType" start="80" end="83" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the request type the kernel is currently processing."/>
+      <return description="One of HttpKernelInterface::MASTER_REQUEST and" type="int">HttpKernelInterface::SUB_REQUEST</return>
+    </docblock>
+  </method>
+  <method name="isMasterRequest" start="90" end="93" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks if this is a master request."/>
+      <return description="True if the request is a master request" type="object">
+        <type full="Symfony\Component\HttpKernel\Event\bool" namespace="Symfony\Component\HttpKernel\Event" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+</class>

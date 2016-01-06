@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpParser\Builder\Use_" namespace="PhpParser\Builder" name="Use_" abstract="false" final="false" start="12" end="58">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/nikic/php-parser/lib/PhpParser/Builder" file="Use_.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/nikic/php-parser/lib/PhpParser/Builder/Use_.php" size="1563" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="9a80f0b983263cf6753d8ef0e7b6d5ad1632272c" relative="vendor/nikic/php-parser/lib/PhpParser/Builder/Use_.php"/>
+  <docblock>
+    <description/>
+    <method value="$this as(string $alias) Sets alias for used name."/>
+  </docblock>
+  <extends full="PhpParser\BuilderAbstract" namespace="PhpParser" name="BuilderAbstract"/>
+  <member name="name" visibility="protected" line="13"/>
+  <member name="type" visibility="protected" line="14"/>
+  <member name="alias" type="{unknown}" default="" constant="null" visibility="protected" line="15"/>
+  <constructor name="__construct" start="23" end="26" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Creates a name use (alias) builder."/>
+      <param description="Name of the entity (namespace, class, function, constant) to alias" type="object" variable="$name">
+        <type full="PhpParser\Builder\Node\Name|string" namespace="PhpParser\Builder\Node" name="Name|string"/>
+      </param>
+      <param description="One of the Stmt\Use_::TYPE_* constants" type="int" variable="$type"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="as_" start="35" end="38" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Sets alias for used name."/>
+      <param description="Alias to use (last component of full name by default)" type="string" variable="$alias"/>
+      <return description="The builder instance (for fluid interface)" type="object">
+        <type full="PhpParser\Builder\$this" namespace="PhpParser\Builder" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="alias" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__call" start="39" end="45" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="args" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getNode" start="52" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the built node."/>
+      <return description="The built node" type="object">
+        <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+      </return>
+    </docblock>
+  </method>
+</class>

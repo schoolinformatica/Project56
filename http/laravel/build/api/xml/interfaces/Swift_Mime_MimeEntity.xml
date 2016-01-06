@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Swift_Mime_MimeEntity" namespace="" name="Swift_Mime_MimeEntity" abstract="false" final="false" start="16" end="117">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime" file="MimeEntity.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/MimeEntity.php" size="2983" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="43517a9b2d7d65a985641da6ee620a71d9d750c3" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/MimeEntity.php"/>
+  <docblock>
+    <description compact="A MIME entity, such as an attachment."/>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <extends full="Swift_Mime_CharsetObserver" namespace="" name="Swift_Mime_CharsetObserver"/>
+  <extends full="Swift_Mime_EncodingObserver" namespace="" name="Swift_Mime_EncodingObserver"/>
+  <constant type="integer" name="LEVEL_TOP" value="16">
+    <docblock>
+      <description compact="Main message document; there can only be one of these"/>
+    </docblock>
+  </constant>
+  <constant type="integer" name="LEVEL_MIXED" value="256">
+    <docblock>
+      <description compact="An entity which nests with the same precedence as an attachment"/>
+    </docblock>
+  </constant>
+  <constant type="integer" name="LEVEL_ALTERNATIVE" value="4096">
+    <docblock>
+      <description compact="An entity which nests with the same precedence as a mime part"/>
+    </docblock>
+  </constant>
+  <constant type="integer" name="LEVEL_RELATED" value="65536">
+    <docblock>
+      <description compact="An entity which nests with the same precedence as embedded content"/>
+    </docblock>
+  </constant>
+  <method name="getNestingLevel" start="39" end="39" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the level at which this entity shall be nested in final document.">The lower the value, the more outermost the entity will be nested.</description>
+      <see value="LEVEL_TOP, LEVEL_MIXED, LEVEL_RELATED, LEVEL_ALTERNATIVE"/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getContentType" start="46" end="46" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the qualified content-type of this mime entity."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getId" start="60" end="60" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a unique ID for this entity.">For most entities this will likely be the Content-ID, though it has
+no explicit semantic meaning and can be considered an identifier for
+programming logic purposes.
+
+If a Content-ID header is present, this value SHOULD match the value of
+the header.</description>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getChildren" start="69" end="69" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get all children nested inside this entity.">These are not just the immediate children, but all children.</description>
+      <return type="array" of="object">
+        <type full="Swift_Mime_MimeEntity" namespace="" name="Swift_Mime_MimeEntity"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setChildren" start="78" end="78" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set all children nested inside this entity.">This includes grandchildren.</description>
+      <param type="array" variable="$children" of="object">
+        <type full="Swift_Mime_MimeEntity" namespace="" name="Swift_Mime_MimeEntity"/>
+      </param>
+    </docblock>
+    <parameter name="children" byreference="false" type="array"/>
+  </method>
+  <method name="getHeaders" start="85" end="85" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the collection of Headers in this Mime entity."/>
+      <return type="object">
+        <type full="Swift_Mime_HeaderSet" namespace="" name="Swift_Mime_HeaderSet"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getBody" start="94" end="94" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the body content of this entity as a string.">Returns NULL if no body has been set.</description>
+      <return type="object">
+        <type full="string|null" namespace="" name="string|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setBody" start="102" end="102" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the body content of this entity as a string."/>
+      <param type="string" variable="$body"/>
+      <param description="optional" type="string" variable="$contentType"/>
+    </docblock>
+    <parameter name="body" byreference="false" type="{unknown}"/>
+    <parameter name="contentType" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="toString" start="109" end="109" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get this entire entity in its string form."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="toByteStream" start="116" end="116" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get this entire entity as a ByteStream."/>
+      <param description="to write to" type="object" variable="$is">
+        <type full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+      </param>
+    </docblock>
+    <parameter name="is" byreference="false" type="object">
+      <type full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+    </parameter>
+  </method>
+</interface>

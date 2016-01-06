@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="League\Flysystem\FilesystemInterface" namespace="League\Flysystem" name="FilesystemInterface" abstract="false" final="false" start="5" end="276">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/league/flysystem/src" file="FilesystemInterface.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/league/flysystem/src/FilesystemInterface.php" size="7542" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="f95ddc3e1cd9ae7bf5056d221d4e4b76f75f43b9" relative="vendor/league/flysystem/src/FilesystemInterface.php"/>
+  <method name="has" start="14" end="14" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check whether a file exists."/>
+      <param type="string" variable="$path"/>
+      <return type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="read" start="25" end="25" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Read a file."/>
+      <param description="The path to the file." type="string" variable="$path"/>
+      <throws type="object">
+        <type full="League\Flysystem\FileNotFoundException" namespace="League\Flysystem" name="FileNotFoundException"/>
+      </throws>
+      <return description="The file contents or false on failure." type="object">
+        <type full="League\Flysystem\string|false" namespace="League\Flysystem" name="string|false"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="readStream" start="36" end="36" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieves a read-stream for a path."/>
+      <param description="The path to the file." type="string" variable="$path"/>
+      <throws type="object">
+        <type full="League\Flysystem\FileNotFoundException" namespace="League\Flysystem" name="FileNotFoundException"/>
+      </throws>
+      <return description="The path resource or false on failure." type="object">
+        <type full="League\Flysystem\resource|false" namespace="League\Flysystem" name="resource|false"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="listContents" start="46" end="46" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="List contents of a directory."/>
+      <param description="The directory to list." type="string" variable="$directory"/>
+      <param description="Whether to list recursively." type="object" variable="$recursive">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </param>
+      <return description="A list of file metadata." type="array"/>
+    </docblock>
+    <parameter name="directory" byreference="false" type="string" default="''"/>
+    <parameter name="recursive" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="getMetadata" start="57" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a file's metadata."/>
+      <param description="The path to the file." type="string" variable="$path"/>
+      <throws type="object">
+        <type full="League\Flysystem\FileNotFoundException" namespace="League\Flysystem" name="FileNotFoundException"/>
+      </throws>
+      <return description="The file metadata or false on failure." type="object">
+        <type full="League\Flysystem\array|false" namespace="League\Flysystem" name="array|false"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getSize" start="66" end="66" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a file's size."/>
+      <param description="The path to the file." type="string" variable="$path"/>
+      <return description="The file size or false on failure." type="object">
+        <type full="League\Flysystem\int|false" namespace="League\Flysystem" name="int|false"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getMimetype" start="77" end="77" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a file's mime-type."/>
+      <param description="The path to the file." type="string" variable="$path"/>
+      <throws type="object">
+        <type full="League\Flysystem\FileNotFoundException" namespace="League\Flysystem" name="FileNotFoundException"/>
+      </throws>
+      <return description="The file mime-type or false on failure." type="object">
+        <type full="League\Flysystem\string|false" namespace="League\Flysystem" name="string|false"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getTimestamp" start="88" end="88" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a file's timestamp."/>
+      <param description="The path to the file." type="string" variable="$path"/>
+      <throws type="object">
+        <type full="League\Flysystem\FileNotFoundException" namespace="League\Flysystem" name="FileNotFoundException"/>
+      </throws>
+      <return description="The timestamp or false on failure." type="object">
+        <type full="League\Flysystem\string|false" namespace="League\Flysystem" name="string|false"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getVisibility" start="99" end="99" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a file's visibility."/>
+      <param description="The path to the file." type="string" variable="$path"/>
+      <throws type="object">
+        <type full="League\Flysystem\FileNotFoundException" namespace="League\Flysystem" name="FileNotFoundException"/>
+      </throws>
+      <return description="The visibility (public|private) or false on failure." type="object">
+        <type full="League\Flysystem\string|false" namespace="League\Flysystem" name="string|false"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="write" start="112" end="112" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Write a new file."/>
+      <param description="The path of the new file." type="string" variable="$path"/>
+      <param description="The file contents." type="string" variable="$contents"/>
+      <param description="An optional configuration array." type="array" variable="$config"/>
+      <throws type="object">
+        <type full="League\Flysystem\FileExistsException" namespace="League\Flysystem" name="FileExistsException"/>
+      </throws>
+      <return description="True on success, false on failure." type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="contents" byreference="false" type="{unknown}"/>
+    <parameter name="config" byreference="false" type="array" default=""/>
+  </method>
+  <method name="writeStream" start="126" end="126" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Write a new file using a stream."/>
+      <param description="The path of the new file." type="string" variable="$path"/>
+      <param description="The file handle." type="resource" variable="$resource"/>
+      <param description="An optional configuration array." type="array" variable="$config"/>
+      <throws description="If $resource is not a file handle." type="object">
+        <type full="League\Flysystem\InvalidArgumentException" namespace="League\Flysystem" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="League\Flysystem\FileExistsException" namespace="League\Flysystem" name="FileExistsException"/>
+      </throws>
+      <return description="True on success, false on failure." type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="resource" byreference="false" type="{unknown}"/>
+    <parameter name="config" byreference="false" type="array" default=""/>
+  </method>
+  <method name="update" start="139" end="139" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Update an existing file."/>
+      <param description="The path of the existing file." type="string" variable="$path"/>
+      <param description="The file contents." type="string" variable="$contents"/>
+      <param description="An optional configuration array." type="array" variable="$config"/>
+      <throws type="object">
+        <type full="League\Flysystem\FileNotFoundException" namespace="League\Flysystem" name="FileNotFoundException"/>
+      </throws>
+      <return description="True on success, false on failure." type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="contents" byreference="false" type="{unknown}"/>
+    <parameter name="config" byreference="false" type="array" default=""/>
+  </method>
+  <method name="updateStream" start="153" end="153" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Update an existing file using a stream."/>
+      <param description="The path of the existing file." type="string" variable="$path"/>
+      <param description="The file handle." type="resource" variable="$resource"/>
+      <param description="An optional configuration array." type="array" variable="$config"/>
+      <throws description="If $resource is not a file handle." type="object">
+        <type full="League\Flysystem\InvalidArgumentException" namespace="League\Flysystem" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="League\Flysystem\FileNotFoundException" namespace="League\Flysystem" name="FileNotFoundException"/>
+      </throws>
+      <return description="True on success, false on failure." type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="resource" byreference="false" type="{unknown}"/>
+    <parameter name="config" byreference="false" type="array" default=""/>
+  </method>
+  <method name="rename" start="166" end="166" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Rename a file."/>
+      <param description="Path to the existing file." type="string" variable="$path"/>
+      <param description="The new path of the file." type="string" variable="$newpath"/>
+      <throws description="Thrown if $newpath exists." type="object">
+        <type full="League\Flysystem\FileExistsException" namespace="League\Flysystem" name="FileExistsException"/>
+      </throws>
+      <throws description="Thrown if $path does not exist." type="object">
+        <type full="League\Flysystem\FileNotFoundException" namespace="League\Flysystem" name="FileNotFoundException"/>
+      </throws>
+      <return description="True on success, false on failure." type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="newpath" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="copy" start="179" end="179" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Copy a file."/>
+      <param description="Path to the existing file." type="string" variable="$path"/>
+      <param description="The new path of the file." type="string" variable="$newpath"/>
+      <throws description="Thrown if $newpath exists." type="object">
+        <type full="League\Flysystem\FileExistsException" namespace="League\Flysystem" name="FileExistsException"/>
+      </throws>
+      <throws description="Thrown if $path does not exist." type="object">
+        <type full="League\Flysystem\FileNotFoundException" namespace="League\Flysystem" name="FileNotFoundException"/>
+      </throws>
+      <return description="True on success, false on failure." type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="newpath" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="delete" start="190" end="190" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Delete a file."/>
+      <param type="string" variable="$path"/>
+      <throws type="object">
+        <type full="League\Flysystem\FileNotFoundException" namespace="League\Flysystem" name="FileNotFoundException"/>
+      </throws>
+      <return description="True on success, false on failure." type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="deleteDir" start="201" end="201" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Delete a directory."/>
+      <param type="string" variable="$dirname"/>
+      <throws description="Thrown if $dirname is empty." type="object">
+        <type full="League\Flysystem\RootViolationException" namespace="League\Flysystem" name="RootViolationException"/>
+      </throws>
+      <return description="True on success, false on failure." type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="dirname" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="createDir" start="211" end="211" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a directory."/>
+      <param description="The name of the new directory." type="string" variable="$dirname"/>
+      <param description="An optional configuration array." type="array" variable="$config"/>
+      <return description="True on success, false on failure." type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="dirname" byreference="false" type="{unknown}"/>
+    <parameter name="config" byreference="false" type="array" default=""/>
+  </method>
+  <method name="setVisibility" start="221" end="221" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the visibility for a file."/>
+      <param description="The path to the file." type="string" variable="$path"/>
+      <param description="One of 'public' or 'private'." type="string" variable="$visibility"/>
+      <return description="True on success, false on failure." type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="visibility" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="put" start="232" end="232" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a file or update if exists."/>
+      <param description="The path to the file." type="string" variable="$path"/>
+      <param description="The file contents." type="string" variable="$contents"/>
+      <param description="An optional configuration array." type="array" variable="$config"/>
+      <return description="True on success, false on failure." type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="contents" byreference="false" type="{unknown}"/>
+    <parameter name="config" byreference="false" type="array" default=""/>
+  </method>
+  <method name="putStream" start="245" end="245" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a file or update if exists."/>
+      <param description="The path to the file." type="string" variable="$path"/>
+      <param description="The file handle." type="resource" variable="$resource"/>
+      <param description="An optional configuration array." type="array" variable="$config"/>
+      <throws description="Thrown if $resource is not a resource." type="object">
+        <type full="League\Flysystem\InvalidArgumentException" namespace="League\Flysystem" name="InvalidArgumentException"/>
+      </throws>
+      <return description="True on success, false on failure." type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="resource" byreference="false" type="{unknown}"/>
+    <parameter name="config" byreference="false" type="array" default=""/>
+  </method>
+  <method name="readAndDelete" start="256" end="256" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Read and delete a file."/>
+      <param description="The path to the file." type="string" variable="$path"/>
+      <throws type="object">
+        <type full="League\Flysystem\FileNotFoundException" namespace="League\Flysystem" name="FileNotFoundException"/>
+      </throws>
+      <return description="The file contents, or false on failure." type="object">
+        <type full="League\Flysystem\string|false" namespace="League\Flysystem" name="string|false"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get" start="266" end="266" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a file/directory handler."/>
+      <param description="The path to the file." type="string" variable="$path"/>
+      <param description="An optional existing handler to populate." type="object" variable="$handler">
+        <type full="League\Flysystem\Handler" namespace="League\Flysystem" name="Handler"/>
+      </param>
+      <return description="Either a file or directory handler." type="object">
+        <type full="League\Flysystem\Handler" namespace="League\Flysystem" name="Handler"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="handler" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="League\Flysystem\Handler" namespace="League\Flysystem" name="Handler"/>
+    </parameter>
+  </method>
+  <method name="addPlugin" start="275" end="275" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a plugin."/>
+      <param description="The plugin to register." type="object" variable="$plugin">
+        <type full="League\Flysystem\PluginInterface" namespace="League\Flysystem" name="PluginInterface"/>
+      </param>
+      <return type="object">
+        <type full="League\Flysystem\$this" namespace="League\Flysystem" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="plugin" byreference="false" type="object">
+      <type full="League\Flysystem\PluginInterface" namespace="League\Flysystem" name="PluginInterface"/>
+    </parameter>
+  </method>
+</interface>

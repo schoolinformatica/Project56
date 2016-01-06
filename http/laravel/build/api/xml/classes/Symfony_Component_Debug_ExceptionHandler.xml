@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Debug\ExceptionHandler" namespace="Symfony\Component\Debug" name="ExceptionHandler" abstract="false" final="false" start="30" end="472">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/debug" file="ExceptionHandler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/debug/ExceptionHandler.php" size="18084" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="01b139e1e720aedb54e2018f56032c9f388f7ad2" relative="vendor/symfony/debug/ExceptionHandler.php"/>
+  <docblock>
+    <description compact="ExceptionHandler converts an exception to a Response object.">It is mostly useful in debug mode to replace the default PHP/XDebug
+output with something prettier and more useful.
+
+As this class is mainly used during Kernel boot, where nothing is yet
+available, the Response content is always HTML.</description>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+    <author value="Nicolas Grekas &lt;p@tchwork.com&gt;"/>
+  </docblock>
+  <member name="debug" visibility="private" line="32"/>
+  <member name="charset" visibility="private" line="33"/>
+  <member name="handler" visibility="private" line="34"/>
+  <member name="caughtBuffer" visibility="private" line="35"/>
+  <member name="caughtLength" visibility="private" line="36"/>
+  <member name="fileLinkFormat" visibility="private" line="37"/>
+  <constructor name="__construct" start="39" end="50" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="debug" byreference="false" type="boolean" default="true"/>
+    <parameter name="charset" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="fileLinkFormat" byreference="false" type="{unknown}" default="" constant="null"/>
+  </constructor>
+  <method name="register" start="61" end="72" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Registers the exception handler."/>
+      <param description="Enable/disable debug mode, where the stack trace is displayed" type="object" variable="$debug">
+        <type full="Symfony\Component\Debug\bool" namespace="Symfony\Component\Debug" name="bool"/>
+      </param>
+      <param description="The charset used by exception messages" type="object" variable="$charset">
+        <type full="Symfony\Component\Debug\string|null" namespace="Symfony\Component\Debug" name="string|null"/>
+      </param>
+      <param description="The IDE link template" type="object" variable="$fileLinkFormat">
+        <type full="Symfony\Component\Debug\string|null" namespace="Symfony\Component\Debug" name="string|null"/>
+      </param>
+      <return description="The registered exception handler" type="object">
+        <type full="Symfony\Component\Debug\ExceptionHandler" namespace="Symfony\Component\Debug" name="ExceptionHandler"/>
+      </return>
+    </docblock>
+    <parameter name="debug" byreference="false" type="boolean" default="true"/>
+    <parameter name="charset" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="fileLinkFormat" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="setHandler" start="81" end="90" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets a user exception handler."/>
+      <param description="An handler that will be called on Exception" type="object" variable="$handler">
+        <type full="Symfony\Component\Debug\callable" namespace="Symfony\Component\Debug" name="callable"/>
+      </param>
+      <return description="The previous exception handler if any" type="object">
+        <type full="Symfony\Component\Debug\callable|null" namespace="Symfony\Component\Debug" name="callable|null"/>
+      </return>
+    </docblock>
+    <parameter name="handler" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setFileLinkFormat" start="99" end="105" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the format for links to source files."/>
+      <param description="The format for links to source files" type="string" variable="$format"/>
+      <return description="The previous file link format." type="string"/>
+    </docblock>
+    <parameter name="format" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="handle" start="115" end="146" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sends a response for the given Exception.">To be as fail-safe as possible, the exception is first handled
+by our simple exception handler, then by the user exception handler.
+The latter takes precedence and any output from the former is cancelled,
+if and only if nothing bad happens in this handling path.</description>
+    </docblock>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+  </method>
+  <method name="failSafeHandle" start="157" end="172" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Sends a response for the given Exception.">If you have the Symfony HttpFoundation component installed,
+this method will use it to create and send the response. If not,
+it will fallback to plain PHP functions.</description>
+      <param description="An \Exception instance" type="object" variable="$exception">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </param>
+    </docblock>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+  </method>
+  <method name="sendPhpResponse" start="182" end="197" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sends the error associated with the given Exception as a plain PHP response.">This method uses plain PHP functions like header() and echo to output
+the response.</description>
+      <param description="An \Exception instance" type="object" variable="$exception">
+        <type full="\Exception|FlattenException" namespace="" name="Exception|FlattenException"/>
+      </param>
+    </docblock>
+    <parameter name="exception" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="createResponse" start="206" end="213" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Creates the error Response associated with the given Exception."/>
+      <param description="An \Exception instance" type="object" variable="$exception">
+        <type full="\Exception|FlattenException" namespace="" name="Exception|FlattenException"/>
+      </param>
+      <return description="A Response instance" type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="exception" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getContent" start="222" end="281" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the HTML content associated with the given exception."/>
+      <param description="A FlattenException instance" type="object" variable="$exception">
+        <type full="Symfony\Component\Debug\Exception\FlattenException" namespace="Symfony\Component\Debug\Exception" name="FlattenException"/>
+      </param>
+      <return description="The content as a string" type="string"/>
+    </docblock>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="Symfony\Component\Debug\Exception\FlattenException" namespace="Symfony\Component\Debug\Exception" name="FlattenException"/>
+    </parameter>
+  </method>
+  <method name="getStylesheet" start="290" end="346" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the stylesheet associated with the given exception."/>
+      <param description="A FlattenException instance" type="object" variable="$exception">
+        <type full="Symfony\Component\Debug\Exception\FlattenException" namespace="Symfony\Component\Debug\Exception" name="FlattenException"/>
+      </param>
+      <return description="The stylesheet as a string" type="string"/>
+    </docblock>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="Symfony\Component\Debug\Exception\FlattenException" namespace="Symfony\Component\Debug\Exception" name="FlattenException"/>
+    </parameter>
+  </method>
+  <method name="decorate" start="348" end="371" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="content" byreference="false" type="{unknown}"/>
+    <parameter name="css" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="formatClass" start="373" end="378" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="class" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="formatPath" start="380" end="392" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="line" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="formatArgs" start="401" end="425" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Formats an array as a string."/>
+      <param description="The argument array" type="array" variable="$args"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="args" byreference="false" type="array"/>
+  </method>
+  <method name="utf8Htmlize" start="432" end="437" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Returns an UTF-8 and HTML encoded string."/>
+      <deprecated value="since version 2.7, to be removed in 3.0."/>
+    </docblock>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="escapeHtml" start="442" end="445" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="HTML-encodes a string."/>
+    </docblock>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="catchOutput" start="450" end="455" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <internal/>
+    </docblock>
+    <parameter name="buffer" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="cleanOutput" start="460" end="471" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <internal/>
+    </docblock>
+    <parameter name="buffer" byreference="false" type="{unknown}"/>
+  </method>
+</class>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpSpec\Runner\Maintainer\SubjectMaintainer" namespace="PhpSpec\Runner\Maintainer" name="SubjectMaintainer" abstract="false" final="false" start="26" end="116">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Runner/Maintainer" file="SubjectMaintainer.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Runner/Maintainer/SubjectMaintainer.php" size="3203" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="4761dbf9ada4442834abcbaa240bb0d6436a3eb0" relative="vendor/phpspec/phpspec/src/PhpSpec/Runner/Maintainer/SubjectMaintainer.php"/>
+  <implements full="PhpSpec\Runner\Maintainer\MaintainerInterface" namespace="PhpSpec\Runner\Maintainer" name="MaintainerInterface"/>
+  <member name="presenter" visibility="private" line="31">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\Formatter\Presenter\PresenterInterface" namespace="PhpSpec\Formatter\Presenter" name="PresenterInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="unwrapper" visibility="private" line="35">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\Wrapper\Unwrapper" namespace="PhpSpec\Wrapper" name="Unwrapper"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="dispatcher" visibility="private" line="39">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\EventDispatcher\EventDispatcherInterface" namespace="Symfony\Component\EventDispatcher" name="EventDispatcherInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="accessInspector" visibility="private" line="43">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\CodeAnalysis\AccessInspectorInterface" namespace="PhpSpec\CodeAnalysis" name="AccessInspectorInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="50" end="60" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$presenter">
+        <type full="PhpSpec\Formatter\Presenter\PresenterInterface" namespace="PhpSpec\Formatter\Presenter" name="PresenterInterface"/>
+      </param>
+      <param type="object" variable="$unwrapper">
+        <type full="PhpSpec\Wrapper\Unwrapper" namespace="PhpSpec\Wrapper" name="Unwrapper"/>
+      </param>
+      <param type="object" variable="$dispatcher">
+        <type full="Symfony\Component\EventDispatcher\EventDispatcherInterface" namespace="Symfony\Component\EventDispatcher" name="EventDispatcherInterface"/>
+      </param>
+    </docblock>
+    <parameter name="presenter" byreference="false" type="object">
+      <type full="PhpSpec\Formatter\Presenter\PresenterInterface" namespace="PhpSpec\Formatter\Presenter" name="PresenterInterface"/>
+    </parameter>
+    <parameter name="unwrapper" byreference="false" type="object">
+      <type full="PhpSpec\Wrapper\Unwrapper" namespace="PhpSpec\Wrapper" name="Unwrapper"/>
+    </parameter>
+    <parameter name="dispatcher" byreference="false" type="object">
+      <type full="Symfony\Component\EventDispatcher\EventDispatcherInterface" namespace="Symfony\Component\EventDispatcher" name="EventDispatcherInterface"/>
+    </parameter>
+    <parameter name="accessInspector" byreference="false" type="object">
+      <type full="PhpSpec\CodeAnalysis\AccessInspectorInterface" namespace="PhpSpec\CodeAnalysis" name="AccessInspectorInterface"/>
+    </parameter>
+  </constructor>
+  <method name="supports" start="67" end="72" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$example">
+        <type full="PhpSpec\Loader\Node\ExampleNode" namespace="PhpSpec\Loader\Node" name="ExampleNode"/>
+      </param>
+      <return type="boolean"/>
+    </docblock>
+    <parameter name="example" byreference="false" type="object">
+      <type full="PhpSpec\Loader\Node\ExampleNode" namespace="PhpSpec\Loader\Node" name="ExampleNode"/>
+    </parameter>
+  </method>
+  <method name="prepare" start="80" end="93" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$example">
+        <type full="PhpSpec\Loader\Node\ExampleNode" namespace="PhpSpec\Loader\Node" name="ExampleNode"/>
+      </param>
+      <param type="object" variable="$context">
+        <type full="PhpSpec\SpecificationInterface" namespace="PhpSpec" name="SpecificationInterface"/>
+      </param>
+      <param type="object" variable="$matchers">
+        <type full="PhpSpec\Runner\MatcherManager" namespace="PhpSpec\Runner" name="MatcherManager"/>
+      </param>
+      <param type="object" variable="$collaborators">
+        <type full="PhpSpec\Runner\CollaboratorManager" namespace="PhpSpec\Runner" name="CollaboratorManager"/>
+      </param>
+    </docblock>
+    <parameter name="example" byreference="false" type="object">
+      <type full="PhpSpec\Loader\Node\ExampleNode" namespace="PhpSpec\Loader\Node" name="ExampleNode"/>
+    </parameter>
+    <parameter name="context" byreference="false" type="object">
+      <type full="PhpSpec\SpecificationInterface" namespace="PhpSpec" name="SpecificationInterface"/>
+    </parameter>
+    <parameter name="matchers" byreference="false" type="object">
+      <type full="PhpSpec\Runner\MatcherManager" namespace="PhpSpec\Runner" name="MatcherManager"/>
+    </parameter>
+    <parameter name="collaborators" byreference="false" type="object">
+      <type full="PhpSpec\Runner\CollaboratorManager" namespace="PhpSpec\Runner" name="CollaboratorManager"/>
+    </parameter>
+  </method>
+  <method name="teardown" start="101" end="107" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$example">
+        <type full="PhpSpec\Loader\Node\ExampleNode" namespace="PhpSpec\Loader\Node" name="ExampleNode"/>
+      </param>
+      <param type="object" variable="$context">
+        <type full="PhpSpec\SpecificationInterface" namespace="PhpSpec" name="SpecificationInterface"/>
+      </param>
+      <param type="object" variable="$matchers">
+        <type full="PhpSpec\Runner\MatcherManager" namespace="PhpSpec\Runner" name="MatcherManager"/>
+      </param>
+      <param type="object" variable="$collaborators">
+        <type full="PhpSpec\Runner\CollaboratorManager" namespace="PhpSpec\Runner" name="CollaboratorManager"/>
+      </param>
+    </docblock>
+    <parameter name="example" byreference="false" type="object">
+      <type full="PhpSpec\Loader\Node\ExampleNode" namespace="PhpSpec\Loader\Node" name="ExampleNode"/>
+    </parameter>
+    <parameter name="context" byreference="false" type="object">
+      <type full="PhpSpec\SpecificationInterface" namespace="PhpSpec" name="SpecificationInterface"/>
+    </parameter>
+    <parameter name="matchers" byreference="false" type="object">
+      <type full="PhpSpec\Runner\MatcherManager" namespace="PhpSpec\Runner" name="MatcherManager"/>
+    </parameter>
+    <parameter name="collaborators" byreference="false" type="object">
+      <type full="PhpSpec\Runner\CollaboratorManager" namespace="PhpSpec\Runner" name="CollaboratorManager"/>
+    </parameter>
+  </method>
+  <method name="getPriority" start="112" end="115" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="int"/>
+    </docblock>
+  </method>
+</class>

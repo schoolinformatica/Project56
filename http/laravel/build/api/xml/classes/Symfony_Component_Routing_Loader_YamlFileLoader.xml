@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Routing\Loader\YamlFileLoader" namespace="Symfony\Component\Routing\Loader" name="YamlFileLoader" abstract="false" final="false" start="27" end="236">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/routing/Loader" file="YamlFileLoader.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/routing/Loader/YamlFileLoader.php" size="9626" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="4743d9fc4e451c8cac4bab64b5e2b784be4398fe" relative="vendor/symfony/routing/Loader/YamlFileLoader.php"/>
+  <docblock>
+    <description compact="YamlFileLoader loads Yaml routing files."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+    <author value="Tobias Schultze &lt;http://tobion.de&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\Config\Loader\FileLoader" namespace="Symfony\Component\Config\Loader" name="FileLoader"/>
+  <member name="availableKeys" type="array" default="" visibility="private" line="29"/>
+  <member name="yamlParser" visibility="private" line="32"/>
+  <method name="load" start="44" end="101" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Loads a Yaml file."/>
+      <param description="A Yaml file path" type="string" variable="$file"/>
+      <param description="The resource type" type="object" variable="$type">
+        <type full="Symfony\Component\Routing\Loader\string|null" namespace="Symfony\Component\Routing\Loader" name="string|null"/>
+      </param>
+      <return description="A RouteCollection instance" type="object">
+        <type full="Symfony\Component\Routing\RouteCollection" namespace="Symfony\Component\Routing" name="RouteCollection"/>
+      </return>
+      <throws description="When a route can't be parsed because YAML is invalid" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="file" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="empty file" line="69"/>
+      <comment value="not an array" line="74"/>
+    </inline>
+  </method>
+  <method name="supports" start="106" end="109" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="resource" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="parseRoute" start="119" end="150" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Parses a route and adds it to the RouteCollection."/>
+      <param description="A RouteCollection instance" type="object" variable="$collection">
+        <type full="Symfony\Component\Routing\RouteCollection" namespace="Symfony\Component\Routing" name="RouteCollection"/>
+      </param>
+      <param description="Route name" type="string" variable="$name"/>
+      <param description="Route definition" type="array" variable="$config"/>
+      <param description="Full path of the YAML file being processed" type="string" variable="$path"/>
+    </docblock>
+    <parameter name="collection" byreference="false" type="object">
+      <type full="Symfony\Component\Routing\RouteCollection" namespace="Symfony\Component\Routing" name="RouteCollection"/>
+    </parameter>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="config" byreference="false" type="array"/>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="parseImport" start="160" end="194" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Parses an import and adds the routes in the resource to the RouteCollection."/>
+      <param description="A RouteCollection instance" type="object" variable="$collection">
+        <type full="Symfony\Component\Routing\RouteCollection" namespace="Symfony\Component\Routing" name="RouteCollection"/>
+      </param>
+      <param description="Route definition" type="array" variable="$config"/>
+      <param description="Full path of the YAML file being processed" type="string" variable="$path"/>
+      <param description="Loaded file name" type="string" variable="$file"/>
+    </docblock>
+    <parameter name="collection" byreference="false" type="object">
+      <type full="Symfony\Component\Routing\RouteCollection" namespace="Symfony\Component\Routing" name="RouteCollection"/>
+    </parameter>
+    <parameter name="config" byreference="false" type="array"/>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="file" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="validate" start="206" end="235" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Validates the route configuration."/>
+      <param description="A resource config" type="array" variable="$config"/>
+      <param description="The config key" type="string" variable="$name"/>
+      <param description="The loaded file path" type="string" variable="$path"/>
+      <throws description="If one of the provided config keys is not supported," type="object">something is missing or the combination is nonsense<type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/></throws>
+    </docblock>
+    <parameter name="config" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+</class>

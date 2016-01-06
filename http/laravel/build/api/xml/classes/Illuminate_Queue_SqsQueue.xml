@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Queue\SqsQueue" namespace="Illuminate\Queue" name="SqsQueue" abstract="false" final="false" start="9" end="166">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Queue" file="SqsQueue.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Queue/SqsQueue.php" size="3842" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="a16cb1cd1d95fc1863e23e2a985dfc85d97abd7c" relative="vendor/laravel/framework/src/Illuminate/Queue/SqsQueue.php"/>
+  <extends full="Illuminate\Queue\Queue" namespace="Illuminate\Queue" name="Queue"/>
+  <implements full="Illuminate\Contracts\Queue\Queue" namespace="Illuminate\Contracts\Queue" name="Queue"/>
+  <member name="sqs" visibility="protected" line="16">
+    <docblock>
+      <description compact="The Amazon SQS instance."/>
+      <var type="object">
+        <type full="\Aws\Sqs\SqsClient" namespace="\Aws\Sqs" name="SqsClient"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="default" visibility="protected" line="23">
+    <docblock>
+      <description compact="The name of the default tube."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="prefix" visibility="protected" line="30">
+    <docblock>
+      <description compact="The sqs prefix url."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="jobCreator" visibility="protected" line="37">
+    <docblock>
+      <description compact="The job creator callback."/>
+      <var type="object">
+        <type full="Illuminate\Queue\callable|null" namespace="Illuminate\Queue" name="callable|null"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="47" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new Amazon SQS queue instance."/>
+      <param type="object" variable="$sqs">
+        <type full="\Aws\Sqs\SqsClient" namespace="\Aws\Sqs" name="SqsClient"/>
+      </param>
+      <param type="string" variable="$default"/>
+      <param type="string" variable="$prefix"/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="sqs" byreference="false" type="object">
+      <type full="Aws\Sqs\SqsClient" namespace="Aws\Sqs" name="SqsClient"/>
+    </parameter>
+    <parameter name="default" byreference="false" type="{unknown}"/>
+    <parameter name="prefix" byreference="false" type="string" default="''"/>
+  </constructor>
+  <method name="push" start="62" end="65" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Push a new job onto the queue."/>
+      <param type="string" variable="$job"/>
+      <param type="mixed" variable="$data"/>
+      <param type="string" variable="$queue"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="job" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="string" default="''"/>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="pushRaw" start="75" end="80" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Push a raw payload onto the queue."/>
+      <param type="string" variable="$payload"/>
+      <param type="string" variable="$queue"/>
+      <param type="array" variable="$options"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="payload" byreference="false" type="{unknown}"/>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="options" byreference="false" type="array" default=""/>
+  </method>
+  <method name="later" start="91" end="102" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Push a new job onto the queue after a delay."/>
+      <param type="object" variable="$delay">
+        <type full="\DateTime|int" namespace="" name="DateTime|int"/>
+      </param>
+      <param type="string" variable="$job"/>
+      <param type="mixed" variable="$data"/>
+      <param type="string" variable="$queue"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="delay" byreference="false" type="{unknown}"/>
+    <parameter name="job" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="string" default="''"/>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="pop" start="110" end="125" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Pop the next job off of the queue."/>
+      <param type="string" variable="$queue"/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Queue\Job|null" namespace="\Illuminate\Contracts\Queue" name="Job|null"/>
+      </return>
+    </docblock>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="createJobsUsing" start="133" end="138" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Define the job creator callback for the connection."/>
+      <param type="object" variable="$callback">
+        <type full="Illuminate\Queue\callable" namespace="Illuminate\Queue" name="callable"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Queue\$this" namespace="Illuminate\Queue" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Illuminate\Queue\callable" namespace="Illuminate\Queue" name="callable"/>
+    </parameter>
+  </method>
+  <method name="getQueue" start="146" end="155" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the queue or return the default."/>
+      <param type="object" variable="$queue">
+        <type full="Illuminate\Queue\string|null" namespace="Illuminate\Queue" name="string|null"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="queue" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getSqs" start="162" end="165" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the underlying SQS instance."/>
+      <return type="object">
+        <type full="\Aws\Sqs\SqsClient" namespace="\Aws\Sqs" name="SqsClient"/>
+      </return>
+    </docblock>
+  </method>
+</class>

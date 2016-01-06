@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Foundation\Bootstrap\LoadConfiguration" namespace="Illuminate\Foundation\Bootstrap" name="LoadConfiguration" abstract="false" final="false" start="11" end="98">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap" file="LoadConfiguration.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php" size="3107" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="eaaf54f96ed122d27c9a7cca210958dd2f7d4091" relative="vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php"/>
+  <method name="bootstrap" start="19" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Bootstrap the given application."/>
+      <param type="object" variable="$app">
+        <type full="\Illuminate\Contracts\Foundation\Application" namespace="\Illuminate\Contracts\Foundation" name="Application"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\Bootstrap\void" namespace="Illuminate\Foundation\Bootstrap" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="app" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Foundation\Application" namespace="Illuminate\Contracts\Foundation" name="Application"/>
+    </parameter>
+    <inline>
+      <comment value="First we will see if we have a cache configuration file. If we do, we'll load" line="23"/>
+      <comment value="the configuration items from that file so that it is very quick. Otherwise" line="24"/>
+      <comment value="we will need to spin through every configuration file and load them all." line="25"/>
+      <comment value="Next we will spin through all of the configuration files in the configuration" line="34"/>
+      <comment value="directory and load each one into the repository. This will make all of the" line="35"/>
+      <comment value="options available to the developer for use in various parts of this app." line="36"/>
+    </inline>
+  </method>
+  <method name="loadConfigurationFiles" start="53" end="58" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Load the configuration items from all of the files."/>
+      <param type="object" variable="$app">
+        <type full="\Illuminate\Contracts\Foundation\Application" namespace="\Illuminate\Contracts\Foundation" name="Application"/>
+      </param>
+      <param type="object" variable="$repository">
+        <type full="\Illuminate\Contracts\Config\Repository" namespace="\Illuminate\Contracts\Config" name="Repository"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\Bootstrap\void" namespace="Illuminate\Foundation\Bootstrap" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="app" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Foundation\Application" namespace="Illuminate\Contracts\Foundation" name="Application"/>
+    </parameter>
+    <parameter name="repository" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Config\Repository" namespace="Illuminate\Contracts\Config" name="Repository"/>
+    </parameter>
+  </method>
+  <method name="getConfigurationFiles" start="66" end="79" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get all of the configuration files for the application."/>
+      <param type="object" variable="$app">
+        <type full="\Illuminate\Contracts\Foundation\Application" namespace="\Illuminate\Contracts\Foundation" name="Application"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="app" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Foundation\Application" namespace="Illuminate\Contracts\Foundation" name="Application"/>
+    </parameter>
+  </method>
+  <method name="getConfigurationNesting" start="88" end="97" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the configuration file nesting path."/>
+      <param type="object" variable="$file">
+        <type full="\Symfony\Component\Finder\SplFileInfo" namespace="\Symfony\Component\Finder" name="SplFileInfo"/>
+      </param>
+      <param type="string" variable="$configPath"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="file" byreference="false" type="object">
+      <type full="Symfony\Component\Finder\SplFileInfo" namespace="Symfony\Component\Finder" name="SplFileInfo"/>
+    </parameter>
+    <parameter name="configPath" byreference="false" type="{unknown}"/>
+  </method>
+</class>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Queue\Jobs\Job" namespace="Illuminate\Queue\Jobs" name="Job" abstract="true" final="false" start="8" end="270">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Queue/Jobs" file="Job.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php" size="5575" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="d3c9607821612d2c807e8c0275b0b5db2ee3bcc8" relative="vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php"/>
+  <member name="instance" visibility="protected" line="15">
+    <docblock>
+      <description compact="The job handler instance."/>
+      <var type="mixed"/>
+    </docblock>
+  </member>
+  <member name="container" visibility="protected" line="22">
+    <docblock>
+      <description compact="The IoC container instance."/>
+      <var type="object">
+        <type full="\Illuminate\Container\Container" namespace="\Illuminate\Container" name="Container"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="queue" visibility="protected" line="29">
+    <docblock>
+      <description compact="The name of the queue the job belongs to."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="deleted" type="boolean" default="false" visibility="protected" line="36">
+    <docblock>
+      <description compact="Indicates if the job has been deleted."/>
+      <var type="object">
+        <type full="Illuminate\Queue\Jobs\bool" namespace="Illuminate\Queue\Jobs" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="released" type="boolean" default="false" visibility="protected" line="43">
+    <docblock>
+      <description compact="Indicates if the job has been released."/>
+      <var type="object">
+        <type full="Illuminate\Queue\Jobs\bool" namespace="Illuminate\Queue\Jobs" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="fire" start="50" end="50" abstract="true" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Fire the job."/>
+      <return type="object">
+        <type full="Illuminate\Queue\Jobs\void" namespace="Illuminate\Queue\Jobs" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="delete" start="57" end="60" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Delete the job from the queue."/>
+      <return type="object">
+        <type full="Illuminate\Queue\Jobs\void" namespace="Illuminate\Queue\Jobs" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isDeleted" start="67" end="70" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the job has been deleted."/>
+      <return type="object">
+        <type full="Illuminate\Queue\Jobs\bool" namespace="Illuminate\Queue\Jobs" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="release" start="78" end="81" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Release the job back into the queue."/>
+      <param type="int" variable="$delay"/>
+      <return type="object">
+        <type full="Illuminate\Queue\Jobs\void" namespace="Illuminate\Queue\Jobs" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="delay" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="isReleased" start="88" end="91" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the job was released back into the queue."/>
+      <return type="object">
+        <type full="Illuminate\Queue\Jobs\bool" namespace="Illuminate\Queue\Jobs" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isDeletedOrReleased" start="98" end="101" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the job has been deleted or released."/>
+      <return type="object">
+        <type full="Illuminate\Queue\Jobs\bool" namespace="Illuminate\Queue\Jobs" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="attempts" start="108" end="108" abstract="true" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the number of times the job has been attempted."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getRawBody" start="115" end="115" abstract="true" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the raw body string for the job."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="resolveAndFire" start="123" end="130" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Resolve and fire the job handler method."/>
+      <param type="array" variable="$payload"/>
+      <return type="object">
+        <type full="Illuminate\Queue\Jobs\void" namespace="Illuminate\Queue\Jobs" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="payload" byreference="false" type="array"/>
+  </method>
+  <method name="parseJob" start="138" end="143" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Parse the job declaration into class and method."/>
+      <param type="string" variable="$job"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="job" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="resolve" start="151" end="154" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Resolve the given job handler."/>
+      <param type="string" variable="$class"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="resolveQueueableEntities" start="162" end="179" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Resolve all of the queueable entities in the given payload."/>
+      <param type="mixed" variable="$data"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="resolveQueueableEntity" start="187" end="196" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Resolve a single queueable entity from the resolver."/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Queue\QueueableEntity" namespace="\Illuminate\Contracts\Queue" name="QueueableEntity"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="failed" start="203" end="214" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Call the failed method on the job instance."/>
+      <return type="object">
+        <type full="Illuminate\Queue\Jobs\void" namespace="Illuminate\Queue\Jobs" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getEntityResolver" start="221" end="224" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get an entity resolver instance."/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Queue\EntityResolver" namespace="\Illuminate\Contracts\Queue" name="EntityResolver"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getSeconds" start="232" end="239" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Calculate the number of seconds with the given delay."/>
+      <param type="object" variable="$delay">
+        <type full="\DateTime|int" namespace="" name="DateTime|int"/>
+      </param>
+      <return type="int"/>
+    </docblock>
+    <parameter name="delay" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getTime" start="246" end="249" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the current system time."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getName" start="256" end="259" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the name of the queued job class."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getQueue" start="266" end="269" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the name of the queue the job belongs to."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+</class>

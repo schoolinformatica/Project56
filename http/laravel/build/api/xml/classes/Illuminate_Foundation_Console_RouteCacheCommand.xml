@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Foundation\Console\RouteCacheCommand" namespace="Illuminate\Foundation\Console" name="RouteCacheCommand" abstract="false" final="false" start="9" end="97">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console" file="RouteCacheCommand.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/RouteCacheCommand.php" size="2254" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="00d999b9d9f22ebfa31702be026e750ddafe87ec" relative="vendor/laravel/framework/src/Illuminate/Foundation/Console/RouteCacheCommand.php"/>
+  <extends full="Illuminate\Console\Command" namespace="Illuminate\Console" name="Command"/>
+  <member name="name" type="string" default="'route:cache'" visibility="protected" line="16">
+    <docblock>
+      <description compact="The console command name."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="description" type="string" default="'Create a route cache file for faster route registration'" visibility="protected" line="23">
+    <docblock>
+      <description compact="The console command description."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="files" visibility="protected" line="30">
+    <docblock>
+      <description compact="The filesystem instance."/>
+      <var type="object">
+        <type full="\Illuminate\Filesystem\Filesystem" namespace="\Illuminate\Filesystem" name="Filesystem"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="38" end="43" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new route command instance."/>
+      <param type="object" variable="$files">
+        <type full="\Illuminate\Filesystem\Filesystem" namespace="\Illuminate\Filesystem" name="Filesystem"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\Console\void" namespace="Illuminate\Foundation\Console" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="files" byreference="false" type="object">
+      <type full="Illuminate\Filesystem\Filesystem" namespace="Illuminate\Filesystem" name="Filesystem"/>
+    </parameter>
+  </constructor>
+  <method name="fire" start="50" end="69" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Execute the console command."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Console\void" namespace="Illuminate\Foundation\Console" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getFreshApplicationRoutes" start="76" end="83" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Boot a fresh copy of the application and get the routes."/>
+      <return type="object">
+        <type full="\Illuminate\Routing\RouteCollection" namespace="\Illuminate\Routing" name="RouteCollection"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="buildRouteCacheFile" start="91" end="96" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Build the route cache file."/>
+      <param type="object" variable="$routes">
+        <type full="\Illuminate\Routing\RouteCollection" namespace="\Illuminate\Routing" name="RouteCollection"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="routes" byreference="false" type="object">
+      <type full="Illuminate\Routing\RouteCollection" namespace="Illuminate\Routing" name="RouteCollection"/>
+    </parameter>
+  </method>
+</class>

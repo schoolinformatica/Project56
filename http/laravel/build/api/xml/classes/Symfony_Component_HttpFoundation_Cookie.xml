@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpFoundation\Cookie" namespace="Symfony\Component\HttpFoundation" name="Cookie" abstract="false" final="false" start="19" end="190">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation" file="Cookie.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/Cookie.php" size="4838" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="b934d7bb605409d455b825400aa3d24f1be74d00" relative="vendor/symfony/http-foundation/Cookie.php"/>
+  <docblock>
+    <description compact="Represents a cookie."/>
+    <author value="Johannes M. Schmitt &lt;schmittjoh@gmail.com&gt;"/>
+  </docblock>
+  <member name="name" visibility="protected" line="21"/>
+  <member name="value" visibility="protected" line="22"/>
+  <member name="domain" visibility="protected" line="23"/>
+  <member name="expire" visibility="protected" line="24"/>
+  <member name="path" visibility="protected" line="25"/>
+  <member name="secure" visibility="protected" line="26"/>
+  <member name="httpOnly" visibility="protected" line="27"/>
+  <constructor name="__construct" start="42" end="71" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="The name of the cookie" type="string" variable="$name"/>
+      <param description="The value of the cookie" type="string" variable="$value"/>
+      <param description="The time the cookie expires" type="object" variable="$expire">
+        <type full="Symfony\Component\HttpFoundation\int|string|\DateTime" namespace="Symfony\Component\HttpFoundation\int|string|" name="DateTime"/>
+      </param>
+      <param description="The path on the server in which the cookie will be available on" type="string" variable="$path"/>
+      <param description="The domain that the cookie is available to" type="string" variable="$domain"/>
+      <param description="Whether the cookie should only be transmitted over a secure HTTPS connection from the client" type="object" variable="$secure">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </param>
+      <param description="Whether the cookie will be made accessible only through the HTTP protocol" type="object" variable="$httpOnly">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="expire" byreference="false" type="integer" default="0"/>
+    <parameter name="path" byreference="false" type="string" default="'/'"/>
+    <parameter name="domain" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="secure" byreference="false" type="boolean" default="false"/>
+    <parameter name="httpOnly" byreference="false" type="boolean" default="true"/>
+    <inline>
+      <comment value="from PHP source code" line="44"/>
+      <comment value="convert expiration time to a Unix timestamp" line="53"/>
+    </inline>
+  </constructor>
+  <method name="__toString" start="78" end="109" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the cookie as a string."/>
+      <return description="The cookie" type="string"/>
+    </docblock>
+  </method>
+  <method name="getName" start="116" end="119" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the name of the cookie."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getValue" start="126" end="129" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the value of the cookie."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getDomain" start="136" end="139" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the domain that the cookie is available to."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getExpiresTime" start="146" end="149" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the time the cookie expires."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getPath" start="156" end="159" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the path on the server in which the cookie will be available on."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="isSecure" start="166" end="169" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks whether the cookie should only be transmitted over a secure HTTPS connection from the client."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isHttpOnly" start="176" end="179" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks whether the cookie will be made accessible only through the HTTP protocol."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isCleared" start="186" end="189" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Whether this cookie is about to be cleared."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+</class>

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Mockery\MockInterface" namespace="Mockery" name="MockInterface" abstract="false" final="false" start="23" end="242">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/mockery/mockery/library/Mockery" file="MockInterface.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/mockery/mockery/library/Mockery/MockInterface.php" size="5873" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="a10f37cbbdcc9506a132541a3cb913df5ec44517" relative="vendor/mockery/mockery/library/Mockery/MockInterface.php"/>
+  <method name="mockery_init" start="33" end="33" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Alternative setup method to constructor"/>
+      <param type="object" variable="$container">
+        <type full="\Mockery\Container" namespace="\Mockery" name="Container"/>
+      </param>
+      <param type="object" variable="$partialObject"/>
+      <return type="object">
+        <type full="Mockery\void" namespace="Mockery" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="container" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Mockery\Container" namespace="Mockery" name="Container"/>
+    </parameter>
+    <parameter name="partialObject" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="shouldReceive" start="41" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set expected method calls"/>
+      <param type="mixed" variable="..."/>
+      <return type="object">
+        <type full="\Mockery\Expectation" namespace="\Mockery" name="Expectation"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="shouldNotReceive" start="49" end="49" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Shortcut method for setting an expectation that a method should not be called."/>
+      <param type="mixed" variable="..."/>
+      <return type="object">
+        <type full="\Mockery\Expectation" namespace="\Mockery" name="Expectation"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="shouldAllowMockingMethod" start="55" end="55" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Allows additional methods to be mocked that do not explicitly exist on mocked class"/>
+      <param description="name of the method to be mocked" type="object" variable="$method">
+        <type full="Mockery\String" namespace="Mockery" name="String"/>
+      </param>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="shouldIgnoreMissing" start="62" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set mock to ignore unexpected methods and return Undefined class"/>
+      <param description="the default return value for calls to missing functions on this mock" type="mixed" variable="$returnValue"/>
+      <return type="object">
+        <type full="Mockery\Mock" namespace="Mockery" name="Mock"/>
+      </return>
+    </docblock>
+    <parameter name="returnValue" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="shouldAllowMockingProtectedMethods" start="67" end="67" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="Mockery\Mock" namespace="Mockery" name="Mock"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="shouldDeferMissing" start="74" end="74" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set mock to defer unexpected methods to its parent if possible"/>
+      <return type="object">
+        <type full="Mockery\Mock" namespace="Mockery" name="Mock"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="makePartial" start="81" end="81" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set mock to defer unexpected methods to its parent if possible"/>
+      <return type="object">
+        <type full="Mockery\Mock" namespace="Mockery" name="Mock"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="shouldHaveReceived" start="88" end="88" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param variable="$method"/>
+      <param type="object" variable="$args">
+        <type full="Mockery\null" namespace="Mockery" name="null"/>
+      </param>
+      <return type="object">
+        <type full="\Mockery\Expectation" namespace="\Mockery" name="Expectation"/>
+      </return>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="args" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="shouldNotHaveReceived" start="95" end="95" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param variable="$method"/>
+      <param type="object" variable="$args">
+        <type full="Mockery\null" namespace="Mockery" name="null"/>
+      </param>
+      <return type="object">
+        <type full="Mockery\null" namespace="Mockery" name="null"/>
+      </return>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="args" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="byDefault" start="105" end="105" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="In the event shouldReceive() accepting an array of methods/returns this method will switch them from normal expectations to default expectations"/>
+      <return resolution="self" type="object">
+        <type full="Mockery\MockInterface" namespace="Mockery" name="MockInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="mockery_verify" start="127" end="127" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Iterate across all expectation directors and validate each"/>
+      <throws type="object">
+        <type full="\Mockery\CountValidator\Exception" namespace="\Mockery\CountValidator" name="Exception"/>
+      </throws>
+      <return type="object">
+        <type full="Mockery\void" namespace="Mockery" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="mockery_teardown" start="134" end="134" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Tear down tasks for this mock"/>
+      <return type="object">
+        <type full="Mockery\void" namespace="Mockery" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="mockery_allocateOrder" start="141" end="141" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Fetch the next available allocation order number"/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="mockery_setGroup" start="149" end="149" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set ordering for a group"/>
+      <param type="mixed" variable="$group"/>
+      <param type="int" variable="$order"/>
+    </docblock>
+    <parameter name="group" byreference="false" type="{unknown}"/>
+    <parameter name="order" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="mockery_getGroups" start="156" end="156" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Fetch array of ordered groups"/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="mockery_setCurrentOrder" start="163" end="163" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set current ordered number"/>
+      <param type="int" variable="$order"/>
+    </docblock>
+    <parameter name="order" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="mockery_getCurrentOrder" start="170" end="170" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get current ordered number"/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="mockery_validateOrder" start="180" end="180" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Validate the current mock's ordering"/>
+      <param type="string" variable="$method"/>
+      <param type="int" variable="$order"/>
+      <throws type="object">
+        <type full="\Mockery\Exception" namespace="\Mockery" name="Exception"/>
+      </throws>
+      <return type="object">
+        <type full="Mockery\void" namespace="Mockery" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="order" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="mockery_getExpectationCount" start="187" end="187" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the count of expectations for this mock"/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="mockery_setExpectationsFor" start="195" end="195" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the expectations director for the given method"/>
+      <var description="$method" type="string"/>
+      <return type="object">
+        <type full="\Mockery\ExpectationDirector|null" namespace="\Mockery" name="ExpectationDirector|null"/>
+      </return>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="director" byreference="false" type="object">
+      <type full="Mockery\ExpectationDirector" namespace="Mockery" name="ExpectationDirector"/>
+    </parameter>
+  </method>
+  <method name="mockery_getExpectationsFor" start="203" end="203" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the expectations director for the given method"/>
+      <var description="$method" type="string"/>
+      <return type="object">
+        <type full="\Mockery\ExpectationDirector|null" namespace="\Mockery" name="ExpectationDirector|null"/>
+      </return>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="mockery_findExpectation" start="212" end="212" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Find an expectation matching the given method and arguments"/>
+      <var description="$method" type="string"/>
+      <var description="$args" type="array"/>
+      <return type="object">
+        <type full="\Mockery\Expectation|null" namespace="\Mockery" name="Expectation|null"/>
+      </return>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="args" byreference="false" type="array"/>
+  </method>
+  <method name="mockery_getContainer" start="219" end="219" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the container for this mock"/>
+      <return type="object">
+        <type full="\Mockery\Container" namespace="\Mockery" name="Container"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="mockery_getName" start="226" end="226" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the name for this mock"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="mockery_getMockableProperties" start="231" end="231" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="mockery_getMockableMethods" start="236" end="236" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="array" of="object">
+        <type full="Mockery\string" namespace="Mockery" name="string"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="mockery_isAnonymous" start="241" end="241" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="Mockery\bool" namespace="Mockery" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+</interface>

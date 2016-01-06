@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\EventDispatcher\ContainerAwareEventDispatcher" namespace="Symfony\Component\EventDispatcher" name="ContainerAwareEventDispatcher" abstract="false" final="false" start="24" end="197">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/event-dispatcher" file="ContainerAwareEventDispatcher.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/event-dispatcher/ContainerAwareEventDispatcher.php" size="6346" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="e53db53952c7e5c08e5d8d2d0154cbaefb1dc779" relative="vendor/symfony/event-dispatcher/ContainerAwareEventDispatcher.php"/>
+  <docblock>
+    <description compact="Lazily loads listeners and subscribers from the dependency injection container."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+    <author value="Bernhard Schussek &lt;bschussek@gmail.com&gt;"/>
+    <author value="Jordan Alliot &lt;jordan.alliot@gmail.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\EventDispatcher\EventDispatcher" namespace="Symfony\Component\EventDispatcher" name="EventDispatcher"/>
+  <member name="container" visibility="private" line="31">
+    <docblock>
+      <description compact="The container from where services are loaded."/>
+      <var type="object">
+        <type full="Symfony\Component\DependencyInjection\ContainerInterface" namespace="Symfony\Component\DependencyInjection" name="ContainerInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="listenerIds" type="array" default="" visibility="private" line="38">
+    <docblock>
+      <description compact="The service IDs of the event listeners and subscribers."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="listeners" type="array" default="" visibility="private" line="45">
+    <docblock>
+      <description compact="The services registered as listeners."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="52" end="55" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="A ContainerInterface instance" type="object" variable="$container">
+        <type full="Symfony\Component\DependencyInjection\ContainerInterface" namespace="Symfony\Component\DependencyInjection" name="ContainerInterface"/>
+      </param>
+    </docblock>
+    <parameter name="container" byreference="false" type="object">
+      <type full="Symfony\Component\DependencyInjection\ContainerInterface" namespace="Symfony\Component\DependencyInjection" name="ContainerInterface"/>
+    </parameter>
+  </constructor>
+  <method name="addListenerService" start="69" end="76" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a service as event listener."/>
+      <param description="Event for which the listener is added" type="string" variable="$eventName"/>
+      <param description="The service ID of the listener service &amp; the method" type="array" variable="$callback">name that has to be called</param>
+      <param description="The higher this value, the earlier an event listener" type="int" variable="$priority">will be triggered in the chain.
+                         Defaults to 0.</param>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="eventName" byreference="false" type="{unknown}"/>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+    <parameter name="priority" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="removeListener" start="78" end="100" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="eventName" byreference="false" type="{unknown}"/>
+    <parameter name="listener" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasListeners" start="105" end="116" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="eventName" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getListeners" start="121" end="132" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="eventName" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getListenerPriority" start="137" end="142" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="eventName" byreference="false" type="{unknown}"/>
+    <parameter name="listener" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addSubscriberService" start="150" end="163" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a service as event subscriber."/>
+      <param description="The service ID of the subscriber service" type="string" variable="$serviceId"/>
+      <param description="The service's class name (which must implement EventSubscriberInterface)" type="string" variable="$class"/>
+    </docblock>
+    <parameter name="serviceId" byreference="false" type="{unknown}"/>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getContainer" start="165" end="168" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="lazyLoad" start="178" end="196" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Lazily loads listeners for this event from the dependency injection container."/>
+      <param description="The name of the event to dispatch. The name of" type="string" variable="$eventName">the event is the name of the method that is
+                         invoked on listeners.</param>
+    </docblock>
+    <parameter name="eventName" byreference="false" type="{unknown}"/>
+  </method>
+</class>

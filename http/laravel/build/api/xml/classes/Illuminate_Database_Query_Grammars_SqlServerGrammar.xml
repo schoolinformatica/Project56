@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Database\Query\Grammars\SqlServerGrammar" namespace="Illuminate\Database\Query\Grammars" name="SqlServerGrammar" abstract="false" final="false" start="7" end="316">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Query/Grammars" file="SqlServerGrammar.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Query/Grammars/SqlServerGrammar.php" size="9412" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="f9b6ad018515fc4682628e14bfd834e48b2ee695" relative="vendor/laravel/framework/src/Illuminate/Database/Query/Grammars/SqlServerGrammar.php"/>
+  <extends full="Illuminate\Database\Query\Grammars\Grammar" namespace="Illuminate\Database\Query\Grammars" name="Grammar"/>
+  <member name="operators" type="array" default="" visibility="protected" line="14">
+    <docblock>
+      <description compact="All of the available clause operators."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="compileSelect" start="26" end="42" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compile a select query into SQL."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Query\Builder" namespace="Illuminate\Database\Query" name="Builder"/>
+    </parameter>
+    <inline>
+      <comment value="If an offset is present on the query, we will need to wrap the query in" line="34"/>
+      <comment value="a big &quot;ANSI&quot; offset syntax block. This is very nasty compared to the" line="35"/>
+      <comment value="other database systems but is necessary for implementing features." line="36"/>
+    </inline>
+  </method>
+  <method name="compileColumns" start="51" end="67" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Compile the &quot;select *&quot; portion of the query."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </param>
+      <param type="array" variable="$columns"/>
+      <return type="object">
+        <type full="Illuminate\Database\Query\Grammars\string|null" namespace="Illuminate\Database\Query\Grammars" name="string|null"/>
+      </return>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Query\Builder" namespace="Illuminate\Database\Query" name="Builder"/>
+    </parameter>
+    <parameter name="columns" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="If there is a limit on the query, but not an offset, we will add the top" line="59"/>
+      <comment value="clause to the query, which serves as a &quot;limit&quot; type clause within the" line="60"/>
+      <comment value="SQL Server system similar to the limit keywords available in MySQL." line="61"/>
+    </inline>
+  </method>
+  <method name="compileFrom" start="76" end="89" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Compile the &quot;from&quot; portion of the query."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </param>
+      <param type="string" variable="$table"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Query\Builder" namespace="Illuminate\Database\Query" name="Builder"/>
+    </parameter>
+    <parameter name="table" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="compileAnsiOffset" start="98" end="127" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create a full ANSI offset clause for the query."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </param>
+      <param type="array" variable="$components"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Query\Builder" namespace="Illuminate\Database\Query" name="Builder"/>
+    </parameter>
+    <parameter name="components" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="An ORDER BY clause is required to make this offset query work, so if one does" line="100"/>
+      <comment value="not exist we'll just create a dummy clause to trick the database and so it" line="101"/>
+      <comment value="does not complain about the queries for not having an &quot;order by&quot; clause." line="102"/>
+      <comment value="We need to add the row number to the query so we can compare it to the offset" line="107"/>
+      <comment value="and limit values given for the statements. So we will add an expression to" line="108"/>
+      <comment value="the &quot;select&quot; that will give back the row numbers on each of the records." line="109"/>
+      <comment value="Next we need to calculate the constraints that should be placed on the query" line="116"/>
+      <comment value="to get the right offset and limit from our query but if there is no limit" line="117"/>
+      <comment value="set we will just handle the offset only since that is all that matters." line="118"/>
+      <comment value="We are now ready to build the final SQL query so we'll create a common table" line="123"/>
+      <comment value="expression from the query and get the records with row numbers within our" line="124"/>
+      <comment value="given limit and offset value that we just put on as a query constraint." line="125"/>
+    </inline>
+  </method>
+  <method name="compileOver" start="135" end="138" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Compile the over statement for a table expression."/>
+      <param type="string" variable="$orderings"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="orderings" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="compileRowConstraint" start="146" end="157" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Compile the limit / offset row constraint for a query."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="compileTableExpression" start="166" end="169" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Compile a common table expression for a query."/>
+      <param type="string" variable="$sql"/>
+      <param type="string" variable="$constraint"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="sql" byreference="false" type="{unknown}"/>
+    <parameter name="constraint" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="compileLimit" start="178" end="181" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Compile the &quot;limit&quot; portions of the query."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </param>
+      <param type="int" variable="$limit"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Query\Builder" namespace="Illuminate\Database\Query" name="Builder"/>
+    </parameter>
+    <parameter name="limit" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="compileOffset" start="190" end="193" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Compile the &quot;offset&quot; portions of the query."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </param>
+      <param type="int" variable="$offset"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Query\Builder" namespace="Illuminate\Database\Query" name="Builder"/>
+    </parameter>
+    <parameter name="offset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="compileTruncate" start="201" end="204" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compile a truncate table statement into SQL."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Query\Builder" namespace="Illuminate\Database\Query" name="Builder"/>
+    </parameter>
+  </method>
+  <method name="compileExists" start="212" end="217" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compile an exists statement into SQL."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Query\Builder" namespace="Illuminate\Database\Query" name="Builder"/>
+    </parameter>
+  </method>
+  <method name="whereDate" start="226" end="231" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Compile a &quot;where date&quot; clause."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </param>
+      <param type="array" variable="$where"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Query\Builder" namespace="Illuminate\Database\Query" name="Builder"/>
+    </parameter>
+    <parameter name="where" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="supportsSavepoints" start="238" end="241" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the grammar supports savepoints."/>
+      <return type="object">
+        <type full="Illuminate\Database\Query\Grammars\bool" namespace="Illuminate\Database\Query\Grammars" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getDateFormat" start="248" end="251" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the format for database stored dates."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="wrapValue" start="259" end="266" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Wrap a single string in keyword identifiers."/>
+      <param type="string" variable="$value"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="compileUpdate" start="275" end="315" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compile an update statement into SQL."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </param>
+      <param type="array" variable="$values"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Query\Builder" namespace="Illuminate\Database\Query" name="Builder"/>
+    </parameter>
+    <parameter name="values" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Each one of the columns in the update statements needs to be wrapped in the" line="285"/>
+      <comment value="keyword identifiers, also a place-holder needs to be created for each of" line="286"/>
+      <comment value="the values in the list of bindings so we can make the sets statements." line="287"/>
+      <comment value="If the query has any &quot;join&quot; clauses, we will setup the joins on the builder" line="296"/>
+      <comment value="and compile them so we can attach them to this update, as update queries" line="297"/>
+      <comment value="can get join statements to attach to other tables when they're needed." line="298"/>
+      <comment value="Of course, update queries may also be constrained by where clauses so we'll" line="305"/>
+      <comment value="need to compile the where clauses and attach it to the query so only the" line="306"/>
+      <comment value="intended records are updated by the SQL statements we generate to run." line="307"/>
+    </inline>
+  </method>
+</class>

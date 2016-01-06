@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Database\Schema\Grammars\SqlServerGrammar" namespace="Illuminate\Database\Schema\Grammars" name="SqlServerGrammar" abstract="false" final="false" start="8" end="570">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Schema/Grammars" file="SqlServerGrammar.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Schema/Grammars/SqlServerGrammar.php" size="14698" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="d706ea1c12a598e8399dfdcc1d31452cf8ace6dc" relative="vendor/laravel/framework/src/Illuminate/Database/Schema/Grammars/SqlServerGrammar.php"/>
+  <extends full="Illuminate\Database\Schema\Grammars\Grammar" namespace="Illuminate\Database\Schema\Grammars" name="Grammar"/>
+  <member name="modifiers" type="array" default="" visibility="protected" line="15">
+    <docblock>
+      <description compact="The possible column modifiers."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="serials" type="array" default="" visibility="protected" line="22">
+    <docblock>
+      <description compact="The columns available as serials."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="compileTableExists" start="29" end="32" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compile the query to determine if a table exists."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="compileColumnExists" start="40" end="45" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compile the query to determine the list of columns."/>
+      <param type="string" variable="$table"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="table" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="compileCreate" start="54" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compile a create table command."/>
+      <param type="object" variable="$blueprint">
+        <type full="\Illuminate\Database\Schema\Blueprint" namespace="\Illuminate\Database\Schema" name="Blueprint"/>
+      </param>
+      <param type="object" variable="$command">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="blueprint" byreference="false" type="object">
+      <type full="Illuminate\Database\Schema\Blueprint" namespace="Illuminate\Database\Schema" name="Blueprint"/>
+    </parameter>
+    <parameter name="command" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="compileAdd" start="68" end="75" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compile a create table command."/>
+      <param type="object" variable="$blueprint">
+        <type full="\Illuminate\Database\Schema\Blueprint" namespace="\Illuminate\Database\Schema" name="Blueprint"/>
+      </param>
+      <param type="object" variable="$command">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="blueprint" byreference="false" type="object">
+      <type full="Illuminate\Database\Schema\Blueprint" namespace="Illuminate\Database\Schema" name="Blueprint"/>
+    </parameter>
+    <parameter name="command" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="compilePrimary" start="84" end="91" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compile a primary key command."/>
+      <param type="object" variable="$blueprint">
+        <type full="\Illuminate\Database\Schema\Blueprint" namespace="\Illuminate\Database\Schema" name="Blueprint"/>
+      </param>
+      <param type="object" variable="$command">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="blueprint" byreference="false" type="object">
+      <type full="Illuminate\Database\Schema\Blueprint" namespace="Illuminate\Database\Schema" name="Blueprint"/>
+    </parameter>
+    <parameter name="command" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="compileUnique" start="100" end="107" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compile a unique key command."/>
+      <param type="object" variable="$blueprint">
+        <type full="\Illuminate\Database\Schema\Blueprint" namespace="\Illuminate\Database\Schema" name="Blueprint"/>
+      </param>
+      <param type="object" variable="$command">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="blueprint" byreference="false" type="object">
+      <type full="Illuminate\Database\Schema\Blueprint" namespace="Illuminate\Database\Schema" name="Blueprint"/>
+    </parameter>
+    <parameter name="command" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="compileIndex" start="116" end="123" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compile a plain index key command."/>
+      <param type="object" variable="$blueprint">
+        <type full="\Illuminate\Database\Schema\Blueprint" namespace="\Illuminate\Database\Schema" name="Blueprint"/>
+      </param>
+      <param type="object" variable="$command">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="blueprint" byreference="false" type="object">
+      <type full="Illuminate\Database\Schema\Blueprint" namespace="Illuminate\Database\Schema" name="Blueprint"/>
+    </parameter>
+    <parameter name="command" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="compileDrop" start="132" end="135" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compile a drop table command."/>
+      <param type="object" variable="$blueprint">
+        <type full="\Illuminate\Database\Schema\Blueprint" namespace="\Illuminate\Database\Schema" name="Blueprint"/>
+      </param>
+      <param type="object" variable="$command">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="blueprint" byreference="false" type="object">
+      <type full="Illuminate\Database\Schema\Blueprint" namespace="Illuminate\Database\Schema" name="Blueprint"/>
+    </parameter>
+    <parameter name="command" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="compileDropIfExists" start="144" end="147" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compile a drop table (if exists) command."/>
+      <param type="object" variable="$blueprint">
+        <type full="\Illuminate\Database\Schema\Blueprint" namespace="\Illuminate\Database\Schema" name="Blueprint"/>
+      </param>
+      <param type="object" variable="$command">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="blueprint" byreference="false" type="object">
+      <type full="Illuminate\Database\Schema\Blueprint" namespace="Illuminate\Database\Schema" name="Blueprint"/>
+    </parameter>
+    <parameter name="command" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="compileDropColumn" start="156" end="163" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compile a drop column command."/>
+      <param type="object" variable="$blueprint">
+        <type full="\Illuminate\Database\Schema\Blueprint" namespace="\Illuminate\Database\Schema" name="Blueprint"/>
+      </param>
+      <param type="object" variable="$command">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="blueprint" byreference="false" type="object">
+      <type full="Illuminate\Database\Schema\Blueprint" namespace="Illuminate\Database\Schema" name="Blueprint"/>
+    </parameter>
+    <parameter name="command" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="compileDropPrimary" start="172" end="177" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compile a drop primary key command."/>
+      <param type="object" variable="$blueprint">
+        <type full="\Illuminate\Database\Schema\Blueprint" namespace="\Illuminate\Database\Schema" name="Blueprint"/>
+      </param>
+      <param type="object" variable="$command">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="blueprint" byreference="false" type="object">
+      <type full="Illuminate\Database\Schema\Blueprint" namespace="Illuminate\Database\Schema" name="Blueprint"/>
+    </parameter>
+    <parameter name="command" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="compileDropUnique" start="186" end="191" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compile a drop unique key command."/>
+      <param type="object" variable="$blueprint">
+        <type full="\Illuminate\Database\Schema\Blueprint" namespace="\Illuminate\Database\Schema" name="Blueprint"/>
+      </param>
+      <param type="object" variable="$command">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="blueprint" byreference="false" type="object">
+      <type full="Illuminate\Database\Schema\Blueprint" namespace="Illuminate\Database\Schema" name="Blueprint"/>
+    </parameter>
+    <parameter name="command" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="compileDropIndex" start="200" end="205" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compile a drop index command."/>
+      <param type="object" variable="$blueprint">
+        <type full="\Illuminate\Database\Schema\Blueprint" namespace="\Illuminate\Database\Schema" name="Blueprint"/>
+      </param>
+      <param type="object" variable="$command">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="blueprint" byreference="false" type="object">
+      <type full="Illuminate\Database\Schema\Blueprint" namespace="Illuminate\Database\Schema" name="Blueprint"/>
+    </parameter>
+    <parameter name="command" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="compileDropForeign" start="214" end="219" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compile a drop foreign key command."/>
+      <param type="object" variable="$blueprint">
+        <type full="\Illuminate\Database\Schema\Blueprint" namespace="\Illuminate\Database\Schema" name="Blueprint"/>
+      </param>
+      <param type="object" variable="$command">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="blueprint" byreference="false" type="object">
+      <type full="Illuminate\Database\Schema\Blueprint" namespace="Illuminate\Database\Schema" name="Blueprint"/>
+    </parameter>
+    <parameter name="command" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="compileRename" start="228" end="233" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compile a rename table command."/>
+      <param type="object" variable="$blueprint">
+        <type full="\Illuminate\Database\Schema\Blueprint" namespace="\Illuminate\Database\Schema" name="Blueprint"/>
+      </param>
+      <param type="object" variable="$command">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="blueprint" byreference="false" type="object">
+      <type full="Illuminate\Database\Schema\Blueprint" namespace="Illuminate\Database\Schema" name="Blueprint"/>
+    </parameter>
+    <parameter name="command" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeChar" start="241" end="244" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a char type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeString" start="252" end="255" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a string type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeText" start="263" end="266" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a text type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeMediumText" start="274" end="277" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a medium text type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeLongText" start="285" end="288" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a long text type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeInteger" start="296" end="299" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a integer type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeBigInteger" start="307" end="310" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a big integer type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeMediumInteger" start="318" end="321" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a medium integer type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeTinyInteger" start="329" end="332" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a tiny integer type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeSmallInteger" start="340" end="343" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a small integer type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeFloat" start="351" end="354" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a float type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeDouble" start="362" end="365" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a double type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeDecimal" start="373" end="376" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a decimal type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeBoolean" start="384" end="387" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a boolean type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeEnum" start="395" end="398" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for an enum type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeJson" start="406" end="409" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a json type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeJsonb" start="417" end="420" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a jsonb type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeDate" start="428" end="431" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a date type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeDateTime" start="439" end="442" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a date-time type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeDateTimeTz" start="450" end="453" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a date-time type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeTime" start="461" end="464" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a time type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeTimeTz" start="472" end="475" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a time type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeTimestamp" start="483" end="490" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a timestamp type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeTimestampTz" start="500" end="507" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a timestamp type."/>
+      <link value="https://msdn.microsoft.com/en-us/library/bb630289(v=sql.120).aspx"/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeBinary" start="515" end="518" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a binary type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="typeUuid" start="526" end="529" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the column definition for a uuid type."/>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="modifyNullable" start="538" end="541" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the SQL for a nullable column modifier."/>
+      <param type="object" variable="$blueprint">
+        <type full="\Illuminate\Database\Schema\Blueprint" namespace="\Illuminate\Database\Schema" name="Blueprint"/>
+      </param>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Schema\Grammars\string|null" namespace="Illuminate\Database\Schema\Grammars" name="string|null"/>
+      </return>
+    </docblock>
+    <parameter name="blueprint" byreference="false" type="object">
+      <type full="Illuminate\Database\Schema\Blueprint" namespace="Illuminate\Database\Schema" name="Blueprint"/>
+    </parameter>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="modifyDefault" start="550" end="555" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the SQL for a default column modifier."/>
+      <param type="object" variable="$blueprint">
+        <type full="\Illuminate\Database\Schema\Blueprint" namespace="\Illuminate\Database\Schema" name="Blueprint"/>
+      </param>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Schema\Grammars\string|null" namespace="Illuminate\Database\Schema\Grammars" name="string|null"/>
+      </return>
+    </docblock>
+    <parameter name="blueprint" byreference="false" type="object">
+      <type full="Illuminate\Database\Schema\Blueprint" namespace="Illuminate\Database\Schema" name="Blueprint"/>
+    </parameter>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+  <method name="modifyIncrement" start="564" end="569" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the SQL for an auto-increment column modifier."/>
+      <param type="object" variable="$blueprint">
+        <type full="\Illuminate\Database\Schema\Blueprint" namespace="\Illuminate\Database\Schema" name="Blueprint"/>
+      </param>
+      <param type="object" variable="$column">
+        <type full="\Illuminate\Support\Fluent" namespace="\Illuminate\Support" name="Fluent"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Schema\Grammars\string|null" namespace="Illuminate\Database\Schema\Grammars" name="string|null"/>
+      </return>
+    </docblock>
+    <parameter name="blueprint" byreference="false" type="object">
+      <type full="Illuminate\Database\Schema\Blueprint" namespace="Illuminate\Database\Schema" name="Blueprint"/>
+    </parameter>
+    <parameter name="column" byreference="false" type="object">
+      <type full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent"/>
+    </parameter>
+  </method>
+</class>

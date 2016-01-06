@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_StreamFilters_ByteArrayReplacementFilter" namespace="" name="Swift_StreamFilters_ByteArrayReplacementFilter" abstract="false" final="false" start="18" end="169">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/StreamFilters" file="ByteArrayReplacementFilter.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/StreamFilters/ByteArrayReplacementFilter.php" size="5424" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="666892018eedda385c10b4b167a67a790d6b4fee" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/StreamFilters/ByteArrayReplacementFilter.php"/>
+  <docblock>
+    <description compact="Processes bytes as they pass through a buffer and replaces sequences in it.">This stream filter deals with Byte arrays rather than simple strings.</description>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <implements full="Swift_StreamFilter" namespace="" name="Swift_StreamFilter"/>
+  <member name="_search" visibility="private" line="21">
+    <docblock>
+      <description compact="The needle(s) to search for"/>
+    </docblock>
+  </member>
+  <member name="_replace" visibility="private" line="24">
+    <docblock>
+      <description compact="The replacement(s) to make"/>
+    </docblock>
+  </member>
+  <member name="_index" visibility="private" line="27">
+    <docblock>
+      <description compact="The Index for searching"/>
+    </docblock>
+  </member>
+  <member name="_tree" type="array" default="" visibility="private" line="30">
+    <docblock>
+      <description compact="The Search Tree"/>
+    </docblock>
+  </member>
+  <member name="_treeMaxLen" type="integer" default="0" visibility="private" line="33">
+    <docblock>
+      <description compact="Gives the size of the largest search"/>
+    </docblock>
+  </member>
+  <member name="_repSize" visibility="private" line="35"/>
+  <constructor name="__construct" start="43" end="95" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new ByteArrayReplacementFilter with $search and $replace."/>
+      <param type="array" variable="$search"/>
+      <param type="array" variable="$replace"/>
+    </docblock>
+    <parameter name="search" byreference="false" type="{unknown}"/>
+    <parameter name="replace" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="shouldBuffer" start="104" end="109" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if based on the buffer passed more bytes should be buffered."/>
+      <param type="array" variable="$buffer"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="buffer" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="filter" start="119" end="168" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Perform the actual replacements on $buffer and return the result."/>
+      <param type="array" variable="$buffer"/>
+      <param type="int" variable="$_minReplaces"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="buffer" byreference="false" type="{unknown}"/>
+    <parameter name="_minReplaces" byreference="false" type="integer" default="1"/>
+  </method>
+</class>

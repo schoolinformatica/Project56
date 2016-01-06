@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\Exception\ErrorException" namespace="Psy\Exception" name="ErrorException" abstract="false" final="false" start="17" end="88">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Exception" file="ErrorException.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Exception/ErrorException.php" size="2404" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="336058c8504bc4d7bffea79d3b7d7d0a18981e99" relative="vendor/psy/psysh/src/Psy/Exception/ErrorException.php"/>
+  <docblock>
+    <description compact="A custom error Exception for Psy with a formatted $message."/>
+  </docblock>
+  <extends full="ErrorException" namespace="" name="ErrorException"/>
+  <implements full="Psy\Exception\Exception" namespace="Psy\Exception" name="Exception"/>
+  <member name="rawMessage" visibility="private" line="19"/>
+  <constructor name="__construct" start="31" end="58" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Construct a Psy ErrorException."/>
+      <param description="(default: &quot;&quot;)" type="string" variable="$message"/>
+      <param description="(default: 0)" type="int" variable="$code"/>
+      <param description="(default: 1)" type="int" variable="$severity"/>
+      <param description="(default: null)" type="string" variable="$filename"/>
+      <param description="(default: null)" type="int" variable="$lineno"/>
+      <param description="(default: null)" type="object" variable="$previous">
+        <type full="Psy\Exception\Exception" namespace="Psy\Exception" name="Exception"/>
+      </param>
+    </docblock>
+    <parameter name="message" byreference="false" type="string" default="''"/>
+    <parameter name="code" byreference="false" type="integer" default="0"/>
+    <parameter name="severity" byreference="false" type="integer" default="1"/>
+    <parameter name="filename" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="lineno" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="previous" byreference="false" type="{unknown}" default="" constant="null"/>
+  </constructor>
+  <method name="getRawMessage" start="65" end="68" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the raw (unformatted) message for this error."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="throwException" start="84" end="87" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Helper for throwing an ErrorException.">This allows us to:
+
+    set_error_handler(array('Psy\Exception\ErrorException', 'throwException'));</description>
+      <throws type="object">
+        <type full="Psy\Exception\ErrorException" namespace="Psy\Exception" name="ErrorException"/>
+      </throws>
+      <param description="Error type" type="int" variable="$errno"/>
+      <param description="Message" type="string" variable="$errstr"/>
+      <param description="Filename" type="string" variable="$errfile"/>
+      <param description="Line number" type="int" variable="$errline"/>
+    </docblock>
+    <parameter name="errno" byreference="false" type="{unknown}"/>
+    <parameter name="errstr" byreference="false" type="{unknown}"/>
+    <parameter name="errfile" byreference="false" type="{unknown}"/>
+    <parameter name="errline" byreference="false" type="{unknown}"/>
+  </method>
+</class>

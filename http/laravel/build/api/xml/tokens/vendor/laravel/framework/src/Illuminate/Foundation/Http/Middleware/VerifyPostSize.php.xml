@@ -1,0 +1,311 @@
+<?xml version="1.0"?>
+<source xmlns="http://xml.phpdox.net/token">
+  <file xmlns="http://xml.phpdox.net/src" path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware" file="VerifyPostSize.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyPostSize.php" size="1188" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="bbc658cc0ed97588fadb39ff87d92be02906ff63" relative="vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyPostSize.php"/>
+  <line no="1">
+    <token name="T_OPEN_TAG">&lt;?php</token>
+  </line>
+  <line no="2"/>
+  <line no="3">
+    <token name="T_NAMESPACE">namespace</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Illuminate</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">Foundation</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">Http</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">Middleware</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="4"/>
+  <line no="5">
+    <token name="T_USE">use</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Closure</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="6">
+    <token name="T_USE">use</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Illuminate</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">Http</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">Exception</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">PostTooLargeException</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="7"/>
+  <line no="8">
+    <token name="T_CLASS">class</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">VerifyPostSize</token>
+  </line>
+  <line no="9">
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="10">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="11">
+    <token name="T_DOC_COMMENT">     * Handle an incoming request.</token>
+  </line>
+  <line no="12">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="13">
+    <token name="T_DOC_COMMENT">     * @param  \Illuminate\Http\Request  $request</token>
+  </line>
+  <line no="14">
+    <token name="T_DOC_COMMENT">     * @param  \Closure  $next</token>
+  </line>
+  <line no="15">
+    <token name="T_DOC_COMMENT">     * @return mixed</token>
+  </line>
+  <line no="16">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="17">
+    <token name="T_DOC_COMMENT">     * @throws \Illuminate\Http\Exception\PostTooLargeException</token>
+  </line>
+  <line no="18">
+    <token name="T_DOC_COMMENT">     */</token>
+  </line>
+  <line no="19">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">handle</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$request</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Closure</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$next</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+  </line>
+  <line no="20">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="21">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_IF">if</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$request</token>
+    <token name="T_OBJECT_OPERATOR">-&gt;</token>
+    <token name="T_STRING">server</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'CONTENT_LENGTH'</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_GT">&gt;</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$this</token>
+    <token name="T_OBJECT_OPERATOR">-&gt;</token>
+    <token name="T_STRING">getPostMaxSize</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="22">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_THROW">throw</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_NEW">new</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">PostTooLargeException</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="23">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="24"/>
+  <line no="25">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$next</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$request</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="26">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="27"/>
+  <line no="28">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="29">
+    <token name="T_DOC_COMMENT">     * Determine the server 'post_max_size' as bytes.</token>
+  </line>
+  <line no="30">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="31">
+    <token name="T_DOC_COMMENT">     * @return int</token>
+  </line>
+  <line no="32">
+    <token name="T_DOC_COMMENT">     */</token>
+  </line>
+  <line no="33">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PROTECTED">protected</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">getPostMaxSize</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+  </line>
+  <line no="34">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="35">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_VARIABLE">$postMaxSize</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">ini_get</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'post_max_size'</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="36"/>
+  <line no="37">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_SWITCH">switch</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_STRING">substr</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$postMaxSize</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_MINUS">-</token>
+    <token name="T_LNUMBER">1</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="38">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_CASE">case</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'M'</token>
+    <token name="T_PHPDOX_COLON">:</token>
+  </line>
+  <line no="39">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_CASE">case</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'m'</token>
+    <token name="T_PHPDOX_COLON">:</token>
+  </line>
+  <line no="40">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_INT_CAST">(int)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$postMaxSize</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_MULT">*</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_LNUMBER">1048576</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="41">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_CASE">case</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'K'</token>
+    <token name="T_PHPDOX_COLON">:</token>
+  </line>
+  <line no="42">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_CASE">case</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'k'</token>
+    <token name="T_PHPDOX_COLON">:</token>
+  </line>
+  <line no="43">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_INT_CAST">(int)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$postMaxSize</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_MULT">*</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_LNUMBER">1024</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="44">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_CASE">case</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'G'</token>
+    <token name="T_PHPDOX_COLON">:</token>
+  </line>
+  <line no="45">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_CASE">case</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'g'</token>
+    <token name="T_PHPDOX_COLON">:</token>
+  </line>
+  <line no="46">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_INT_CAST">(int)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$postMaxSize</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_MULT">*</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_LNUMBER">1073741824</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="47">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="48"/>
+  <line no="49">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_INT_CAST">(int)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$postMaxSize</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="50">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="51">
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="52"/>
+</source>

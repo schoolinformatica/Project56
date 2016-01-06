@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\CodeCleaner\LeavePsyshAlonePass" namespace="Psy\CodeCleaner" name="LeavePsyshAlonePass" abstract="false" final="false" start="21" end="36">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/CodeCleaner" file="LeavePsyshAlonePass.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/CodeCleaner/LeavePsyshAlonePass.php" size="915" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="969e2ccd13627823817d81d14e12404e4efd2769" relative="vendor/psy/psysh/src/Psy/CodeCleaner/LeavePsyshAlonePass.php"/>
+  <docblock>
+    <description compact="Validate that the user input does not reference the `$__psysh__` variable."/>
+  </docblock>
+  <extends full="Psy\CodeCleaner\CodeCleanerPass" namespace="Psy\CodeCleaner" name="CodeCleanerPass"/>
+  <method name="enterNode" start="30" end="35" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Validate that the user input does not reference the `$__psysh__` variable."/>
+      <throws description="if the user is messing with $__psysh__." type="object">
+        <type full="Psy\Exception\RuntimeException" namespace="Psy\Exception" name="RuntimeException"/>
+      </throws>
+      <param type="object" variable="$node">
+        <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+      </param>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+    </parameter>
+  </method>
+</class>

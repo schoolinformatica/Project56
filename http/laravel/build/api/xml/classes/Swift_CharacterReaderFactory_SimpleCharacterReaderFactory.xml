@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_CharacterReaderFactory_SimpleCharacterReaderFactory" namespace="" name="Swift_CharacterReaderFactory_SimpleCharacterReaderFactory" abstract="false" final="false" start="16" end="124">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/CharacterReaderFactory" file="SimpleCharacterReaderFactory.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/CharacterReaderFactory/SimpleCharacterReaderFactory.php" size="3352" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="81f74f94820ae0e96afe0912314c4511fca53bf8" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/CharacterReaderFactory/SimpleCharacterReaderFactory.php"/>
+  <docblock>
+    <description compact="Standard factory for creating CharacterReaders."/>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <implements full="Swift_CharacterReaderFactory" namespace="" name="Swift_CharacterReaderFactory"/>
+  <member name="_map" type="array" default="" visibility="private" line="23">
+    <docblock>
+      <description compact="A map of charset patterns to their implementation classes."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="_loaded" type="array" default="" visibility="private" line="30">
+    <docblock>
+      <description compact="Factories which have already been loaded."/>
+      <var type="array" of="object">
+        <type full="Swift_CharacterReaderFactory" namespace="" name="Swift_CharacterReaderFactory"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="35" end="38" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Creates a new CharacterReaderFactory."/>
+    </docblock>
+  </constructor>
+  <method name="__wakeup" start="40" end="43" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="init" start="45" end="95" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="Utf-8" line="68"/>
+      <comment value="7-8 bit charsets" line="74"/>
+      <comment value="16 bits" line="87"/>
+      <comment value="32 bits" line="90"/>
+      <comment value="Fallback" line="93"/>
+    </inline>
+  </method>
+  <method name="getReaderFor" start="104" end="123" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a CharacterReader suitable for the charset applied."/>
+      <param type="string" variable="$charset"/>
+      <return type="object">
+        <type full="Swift_CharacterReader" namespace="" name="Swift_CharacterReader"/>
+      </return>
+    </docblock>
+    <parameter name="charset" byreference="false" type="{unknown}"/>
+  </method>
+</class>

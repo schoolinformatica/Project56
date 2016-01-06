@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Foundation\Console\OptimizeCommand" namespace="Illuminate\Foundation\Console" name="OptimizeCommand" abstract="false" final="false" start="19" end="169">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console" file="OptimizeCommand.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/OptimizeCommand.php" size="4292" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="73e3efefe130488cc3633a8090cfaa452775310c" relative="vendor/laravel/framework/src/Illuminate/Foundation/Console/OptimizeCommand.php"/>
+  <extends full="Illuminate\Console\Command" namespace="Illuminate\Console" name="Command"/>
+  <member name="name" type="string" default="'optimize'" visibility="protected" line="26">
+    <docblock>
+      <description compact="The console command name."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="description" type="string" default="'Optimize the framework for better performance'" visibility="protected" line="33">
+    <docblock>
+      <description compact="The console command description."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="composer" visibility="protected" line="40">
+    <docblock>
+      <description compact="The composer instance."/>
+      <var type="object">
+        <type full="\Illuminate\Foundation\Composer" namespace="\Illuminate\Foundation" name="Composer"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="48" end="53" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new optimize command instance."/>
+      <param type="object" variable="$composer">
+        <type full="\Illuminate\Foundation\Composer" namespace="\Illuminate\Foundation" name="Composer"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\Console\void" namespace="Illuminate\Foundation\Console" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="composer" byreference="false" type="object">
+      <type full="Illuminate\Foundation\Composer" namespace="Illuminate\Foundation" name="Composer"/>
+    </parameter>
+  </constructor>
+  <method name="fire" start="60" end="76" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Execute the console command."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Console\void" namespace="Illuminate\Foundation\Console" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="compileClasses" start="83" end="100" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Generate the compiled class file."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Console\void" namespace="Illuminate\Foundation\Console" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getClassPreloader" start="107" end="116" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the class preloader used by the command."/>
+      <return type="object">
+        <type full="\ClassPreloader\ClassPreloader" namespace="\ClassPreloader" name="ClassPreloader"/>
+      </return>
+    </docblock>
+    <inline>
+      <comment value="Class Preloader 3.x" line="109"/>
+      <comment value="Class Preloader 2.x" line="114"/>
+    </inline>
+  </method>
+  <method name="getTraverser" start="125" end="134" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the node traverser used by the command.">Note that this method is only called if we're using Class Preloader 2.x.</description>
+      <return type="object">
+        <type full="\ClassPreloader\Parser\NodeTraverser" namespace="\ClassPreloader\Parser" name="NodeTraverser"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getClassFiles" start="141" end="154" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the classes that should be combined and compiled."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getOptions" start="161" end="168" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the console command options."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+</class>

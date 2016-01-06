@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PHPUnit_Util_Printer" namespace="" name="PHPUnit_Util_Printer" abstract="false" final="false" start="16" end="172">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Util" file="Printer.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Util/Printer.php" size="4188" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="8b146904c6ecf7ec27f3c83b0dc9ca4b9b604a35" relative="vendor/phpunit/phpunit/src/Util/Printer.php"/>
+  <docblock>
+    <description compact="Utility class that can print to STDOUT or write to a file."/>
+    <since value="Class available since Release 2.0.0"/>
+  </docblock>
+  <member name="autoFlush" type="boolean" default="false" visibility="protected" line="23">
+    <docblock>
+      <description compact="If true, flush output after every write."/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="out" visibility="protected" line="28">
+    <docblock>
+      <description/>
+      <var type="resource"/>
+    </docblock>
+  </member>
+  <member name="outTarget" visibility="protected" line="33">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="printsHTML" type="boolean" default="false" visibility="protected" line="38">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="47" end="73" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param type="mixed" variable="$out"/>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="out" byreference="false" type="{unknown}" default="" constant="null"/>
+  </constructor>
+  <method name="flush" start="78" end="98" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Flush buffer, optionally tidy up HTML, and close output if it's not to a php stream"/>
+    </docblock>
+  </method>
+  <method name="incrementalFlush" start="109" end="116" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Performs a safe, incremental flush.">Do not confuse this function with the flush() function of this class,
+since the flush() function may close the file being written to, rendering
+the current object no longer usable.</description>
+      <since value="Method available since Release 3.3.0"/>
+    </docblock>
+  </method>
+  <method name="write" start="121" end="140" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$buffer"/>
+    </docblock>
+    <parameter name="buffer" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getAutoFlush" start="149" end="152" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check auto-flush mode."/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <since value="Method available since Release 3.3.0"/>
+    </docblock>
+  </method>
+  <method name="setAutoFlush" start="164" end="171" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set auto-flushing mode.">If set, *incremental* flushes will be done after each write. This should
+not be confused with the different effects of this class' flush() method.</description>
+      <param type="object" variable="$autoFlush">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <since value="Method available since Release 3.3.0"/>
+    </docblock>
+    <parameter name="autoFlush" byreference="false" type="{unknown}"/>
+  </method>
+</class>

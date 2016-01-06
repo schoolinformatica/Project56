@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Console\Formatter\OutputFormatterInterface" namespace="Symfony\Component\Console\Formatter" name="OutputFormatterInterface" abstract="false" final="false" start="19" end="69">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Formatter" file="OutputFormatterInterface.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Formatter/OutputFormatterInterface.php" size="1629" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="34adadf2241f94c1fac2bd61f5aade03ab19e9e9" relative="vendor/symfony/console/Formatter/OutputFormatterInterface.php"/>
+  <docblock>
+    <description compact="Formatter interface for console output."/>
+    <author value="Konstantin Kudryashov &lt;ever.zet@gmail.com&gt;"/>
+  </docblock>
+  <method name="setDecorated" start="26" end="26" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the decorated flag."/>
+      <param description="Whether to decorate the messages or not" type="object" variable="$decorated">
+        <type full="Symfony\Component\Console\Formatter\bool" namespace="Symfony\Component\Console\Formatter" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="decorated" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isDecorated" start="33" end="33" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the decorated flag."/>
+      <return description="true if the output will decorate messages, false otherwise" type="object">
+        <type full="Symfony\Component\Console\Formatter\bool" namespace="Symfony\Component\Console\Formatter" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setStyle" start="41" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets a new style."/>
+      <param description="The style name" type="string" variable="$name"/>
+      <param description="The style instance" type="object" variable="$style">
+        <type full="Symfony\Component\Console\Formatter\OutputFormatterStyleInterface" namespace="Symfony\Component\Console\Formatter" name="OutputFormatterStyleInterface"/>
+      </param>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="style" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Formatter\OutputFormatterStyleInterface" namespace="Symfony\Component\Console\Formatter" name="OutputFormatterStyleInterface"/>
+    </parameter>
+  </method>
+  <method name="hasStyle" start="50" end="50" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks if output formatter has style with specified name."/>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="Symfony\Component\Console\Formatter\bool" namespace="Symfony\Component\Console\Formatter" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getStyle" start="59" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets style options from style with specified name."/>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="Symfony\Component\Console\Formatter\OutputFormatterStyleInterface" namespace="Symfony\Component\Console\Formatter" name="OutputFormatterStyleInterface"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="format" start="68" end="68" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Formats a message according to the given styles."/>
+      <param description="The message to style" type="string" variable="$message"/>
+      <return description="The styled message" type="string"/>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+  </method>
+</interface>

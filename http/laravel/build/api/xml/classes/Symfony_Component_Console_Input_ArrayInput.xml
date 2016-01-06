@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Console\Input\ArrayInput" namespace="Symfony\Component\Console\Input" name="ArrayInput" abstract="false" final="false" start="23" end="207">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Input" file="ArrayInput.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Input/ArrayInput.php" size="5933" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="20c5a8e699603b276b4425c0192959a6124e6941" relative="vendor/symfony/console/Input/ArrayInput.php"/>
+  <docblock>
+    <description compact="ArrayInput represents an input provided as an array.">Usage:
+
+    $input = new ArrayInput(array('name' =&gt; 'foo', '--bar' =&gt; 'foobar'));</description>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\Console\Input\Input" namespace="Symfony\Component\Console\Input" name="Input"/>
+  <member name="parameters" visibility="private" line="25"/>
+  <constructor name="__construct" start="33" end="38" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="An array of parameters" type="array" variable="$parameters"/>
+      <param description="A InputDefinition instance" type="object" variable="$definition">
+        <type full="Symfony\Component\Console\Input\InputDefinition" namespace="Symfony\Component\Console\Input" name="InputDefinition"/>
+      </param>
+    </docblock>
+    <parameter name="parameters" byreference="false" type="array"/>
+    <parameter name="definition" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\Console\Input\InputDefinition" namespace="Symfony\Component\Console\Input" name="InputDefinition"/>
+    </parameter>
+  </constructor>
+  <method name="getFirstArgument" start="45" end="54" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the first argument from the raw parameters (not parsed)."/>
+      <return description="The value of the first argument or null otherwise" type="string"/>
+    </docblock>
+  </method>
+  <method name="hasParameterOption" start="66" end="81" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if the raw parameters (not parsed) contain a value.">This method is to be used to introspect the input parameters
+before they have been validated. It must be used carefully.</description>
+      <param description="The values to look for in the raw parameters (can be an array)" type="object" variable="$values">
+        <type full="Symfony\Component\Console\Input\string|array" namespace="Symfony\Component\Console\Input" name="string|array"/>
+      </param>
+      <return description="true if the value is contained in the raw parameters" type="object">
+        <type full="Symfony\Component\Console\Input\bool" namespace="Symfony\Component\Console\Input" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="values" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getParameterOption" start="94" end="109" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the value of a raw option (not parsed).">This method is to be used to introspect the input parameters
+before they have been validated. It must be used carefully.</description>
+      <param description="The value(s) to look for in the raw parameters (can be an array)" type="object" variable="$values">
+        <type full="Symfony\Component\Console\Input\string|array" namespace="Symfony\Component\Console\Input" name="string|array"/>
+      </param>
+      <param description="The default value to return if no result is found" type="mixed" variable="$default"/>
+      <return description="The option value" type="mixed"/>
+    </docblock>
+    <parameter name="values" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="__toString" start="116" end="128" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a stringified representation of the args passed to the command."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="parse" start="133" end="144" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Processes command line arguments."/>
+    </docblock>
+  </method>
+  <method name="addShortOption" start="154" end="161" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Adds a short option value."/>
+      <param description="The short option key" type="string" variable="$shortcut"/>
+      <param description="The value for the option" type="mixed" variable="$value"/>
+      <throws description="When option given doesn't exist" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="shortcut" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addLongOption" start="172" end="189" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Adds a long option value."/>
+      <param description="The long option key" type="string" variable="$name"/>
+      <param description="The value for the option" type="mixed" variable="$value"/>
+      <throws description="When option given doesn't exist" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws description="When a required value is missing" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addArgument" start="199" end="206" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Adds an argument value."/>
+      <param description="The argument name" type="string" variable="$name"/>
+      <param description="The value for the argument" type="mixed" variable="$value"/>
+      <throws description="When argument given doesn't exist" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+</class>

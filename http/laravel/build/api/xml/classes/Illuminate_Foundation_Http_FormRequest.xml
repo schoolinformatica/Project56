@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Foundation\Http\FormRequest" namespace="Illuminate\Foundation\Http" name="FormRequest" abstract="false" final="false" start="16" end="227">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Http" file="FormRequest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Http/FormRequest.php" size="5473" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="9b0b2a9c52f2637d71b0e360f576b3260c5a9f18" relative="vendor/laravel/framework/src/Illuminate/Foundation/Http/FormRequest.php"/>
+  <extends full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+  <implements full="Illuminate\Contracts\Validation\ValidatesWhenResolved" namespace="Illuminate\Contracts\Validation" name="ValidatesWhenResolved"/>
+  <uses full="Illuminate\Validation\ValidatesWhenResolvedTrait" namespace="Illuminate\Validation" name="ValidatesWhenResolvedTrait" start="18" end="18"/>
+  <member name="container" visibility="protected" line="25">
+    <docblock>
+      <description compact="The container instance."/>
+      <var type="object">
+        <type full="\Illuminate\Container\Container" namespace="\Illuminate\Container" name="Container"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="redirector" visibility="protected" line="32">
+    <docblock>
+      <description compact="The redirector instance."/>
+      <var type="object">
+        <type full="\Illuminate\Routing\Redirector" namespace="\Illuminate\Routing" name="Redirector"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="redirect" visibility="protected" line="39">
+    <docblock>
+      <description compact="The URI to redirect to if validation fails."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="redirectRoute" visibility="protected" line="46">
+    <docblock>
+      <description compact="The route to redirect to if validation fails."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="redirectAction" visibility="protected" line="53">
+    <docblock>
+      <description compact="The controller action to redirect to if validation fails."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="errorBag" type="string" default="'default'" visibility="protected" line="60">
+    <docblock>
+      <description compact="The key to be used for the view error bag."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="dontFlash" type="array" default="" visibility="protected" line="67">
+    <docblock>
+      <description compact="The input keys that should not be flashed on redirect."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="getValidatorInstance" start="74" end="85" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the validator instance for the request."/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Validation\Validator" namespace="\Illuminate\Contracts\Validation" name="Validator"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="failedValidation" start="93" end="98" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Handle a failed validation attempt."/>
+      <param type="object" variable="$validator">
+        <type full="\Illuminate\Contracts\Validation\Validator" namespace="\Illuminate\Contracts\Validation" name="Validator"/>
+      </param>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="validator" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Validation\Validator" namespace="Illuminate\Contracts\Validation" name="Validator"/>
+    </parameter>
+  </method>
+  <method name="passesAuthorization" start="105" end="112" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Determine if the request passes the authorization check."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Http\bool" namespace="Illuminate\Foundation\Http" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="failedAuthorization" start="119" end="122" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Handle a failed authorization attempt."/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+  <method name="response" start="130" end="139" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the proper failed validation response for the request."/>
+      <param type="array" variable="$errors"/>
+      <return type="object">
+        <type full="\Symfony\Component\HttpFoundation\Response" namespace="\Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="errors" byreference="false" type="array"/>
+  </method>
+  <method name="forbiddenResponse" start="146" end="149" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the response for a forbidden operation."/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="formatErrors" start="157" end="160" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Format the errors from the given Validator instance."/>
+      <param type="object" variable="$validator">
+        <type full="\Illuminate\Contracts\Validation\Validator" namespace="\Illuminate\Contracts\Validation" name="Validator"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="validator" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Validation\Validator" namespace="Illuminate\Contracts\Validation" name="Validator"/>
+    </parameter>
+  </method>
+  <method name="getRedirectUrl" start="167" end="180" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the URL to redirect to on a validation error."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setRedirector" start="188" end="193" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the Redirector instance."/>
+      <param type="object" variable="$redirector">
+        <type full="\Illuminate\Routing\Redirector" namespace="\Illuminate\Routing" name="Redirector"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Foundation\Http\FormRequest" namespace="\Illuminate\Foundation\Http" name="FormRequest"/>
+      </return>
+    </docblock>
+    <parameter name="redirector" byreference="false" type="object">
+      <type full="Illuminate\Routing\Redirector" namespace="Illuminate\Routing" name="Redirector"/>
+    </parameter>
+  </method>
+  <method name="setContainer" start="201" end="206" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the container implementation."/>
+      <param type="object" variable="$container">
+        <type full="\Illuminate\Container\Container" namespace="\Illuminate\Container" name="Container"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\Http\$this" namespace="Illuminate\Foundation\Http" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="container" byreference="false" type="object">
+      <type full="Illuminate\Container\Container" namespace="Illuminate\Container" name="Container"/>
+    </parameter>
+  </method>
+  <method name="messages" start="213" end="216" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set custom messages for validator errors."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="attributes" start="223" end="226" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set custom attributes for validator errors."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+</class>

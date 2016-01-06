@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Handler\DoctrineCouchDBHandler" namespace="Monolog\Handler" name="DoctrineCouchDBHandler" abstract="false" final="false" start="23" end="45">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler" file="DoctrineCouchDBHandler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler/DoctrineCouchDBHandler.php" size="1000" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="6f7ea6f55281545e3e792f9462854c848e6e5a91" relative="vendor/monolog/monolog/src/Monolog/Handler/DoctrineCouchDBHandler.php"/>
+  <docblock>
+    <description compact="CouchDB handler for Doctrine CouchDB ODM"/>
+    <author value="Markus Bachmann &lt;markus.bachmann@bachi.biz&gt;"/>
+  </docblock>
+  <extends full="Monolog\Handler\AbstractProcessingHandler" namespace="Monolog\Handler" name="AbstractProcessingHandler"/>
+  <member name="client" visibility="private" line="25"/>
+  <constructor name="__construct" start="27" end="31" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="client" byreference="false" type="object">
+      <type full="Doctrine\CouchDB\CouchDBClient" namespace="Doctrine\CouchDB" name="CouchDBClient"/>
+    </parameter>
+    <parameter name="level" byreference="false" type="{unknown}" default="" constant="Logger::DEBUG"/>
+    <parameter name="bubble" byreference="false" type="boolean" default="true"/>
+  </constructor>
+  <method name="write" start="36" end="39" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritDoc}"/>
+    </docblock>
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+  <method name="getDefaultFormatter" start="41" end="44" abstract="false" final="false" static="false" visibility="protected"/>
+</class>

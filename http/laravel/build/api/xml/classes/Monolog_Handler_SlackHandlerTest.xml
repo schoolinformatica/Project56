@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Handler\SlackHandlerTest" namespace="Monolog\Handler" name="SlackHandlerTest" abstract="false" final="false" start="21" end="133">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/tests/Monolog/Handler" file="SlackHandlerTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/tests/Monolog/Handler/SlackHandlerTest.php" size="4397" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="7e778aceef71aa68ccdcdd27a257933de00baea3" relative="vendor/monolog/monolog/tests/Monolog/Handler/SlackHandlerTest.php"/>
+  <docblock>
+    <description/>
+    <author value="Greg Kedzierski &lt;greg@gregkedzierski.com&gt;"/>
+    <see value="https://api.slack.com/"/>
+  </docblock>
+  <extends full="Monolog\TestCase" namespace="Monolog" name="TestCase"/>
+  <member name="res" visibility="private" line="26">
+    <docblock>
+      <description/>
+      <var type="resource"/>
+    </docblock>
+  </member>
+  <member name="handler" visibility="private" line="31">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Monolog\Handler\SlackHandler" namespace="Monolog\Handler" name="SlackHandler"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="setUp" start="33" end="38" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testWriteHeader" start="40" end="48" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testWriteContent" start="50" end="58" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testWriteContentWithEmoji" start="60" end="68" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testWriteContentWithColors" start="73" end="81" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="provideLevelColors"/>
+    </docblock>
+    <parameter name="level" byreference="false" type="{unknown}"/>
+    <parameter name="expectedColor" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testWriteContentWithPlainTextMessage" start="83" end="91" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="provideLevelColors" start="93" end="105" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="createHandler" start="107" end="132" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="token" byreference="false" type="string" default="'myToken'"/>
+    <parameter name="channel" byreference="false" type="string" default="'channel1'"/>
+    <parameter name="username" byreference="false" type="string" default="'Monolog'"/>
+    <parameter name="useAttachment" byreference="false" type="boolean" default="true"/>
+    <parameter name="iconEmoji" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="useShortAttachment" byreference="false" type="boolean" default="false"/>
+    <parameter name="includeExtra" byreference="false" type="boolean" default="false"/>
+  </method>
+</class>

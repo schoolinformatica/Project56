@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PHPUnit_Framework_MockObject_Matcher_InvokedAtIndex" namespace="" name="PHPUnit_Framework_MockObject_Matcher_InvokedAtIndex" abstract="false" final="false" start="23" end="86">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit-mock-objects/src/Framework/MockObject/Matcher" file="InvokedAtIndex.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit-mock-objects/src/Framework/MockObject/Matcher/InvokedAtIndex.php" size="2320" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="6614459e6d41ff5ac6785e1ad45143c5200d5444" relative="vendor/phpunit/phpunit-mock-objects/src/Framework/MockObject/Matcher/InvokedAtIndex.php"/>
+  <docblock>
+    <description compact="Invocation matcher which checks if a method was invoked at a certain index.">If the expected index number does not match the current invocation index it
+will not match which means it skips all method and parameter matching. Only
+once the index is reached will the method and parameter start matching and
+verifying.
+
+If the index is never reached it will throw an exception in index.</description>
+    <since value="Class available since Release 1.0.0"/>
+  </docblock>
+  <implements full="PHPUnit_Framework_MockObject_Matcher_Invocation" namespace="" name="PHPUnit_Framework_MockObject_Matcher_Invocation"/>
+  <member name="sequenceIndex" visibility="protected" line="28">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="currentIndex" type="integer" default="1" visibility="protected" line="33">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="38" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="int" variable="$sequenceIndex"/>
+    </docblock>
+    <parameter name="sequenceIndex" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="toString" start="46" end="49" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="matches" start="55" end="60" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$invocation">
+        <type full="PHPUnit_Framework_MockObject_Invocation" namespace="" name="PHPUnit_Framework_MockObject_Invocation"/>
+      </param>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="invocation" byreference="false" type="object">
+      <type full="PHPUnit_Framework_MockObject_Invocation" namespace="" name="PHPUnit_Framework_MockObject_Invocation"/>
+    </parameter>
+  </method>
+  <method name="invoked" start="65" end="67" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$invocation">
+        <type full="PHPUnit_Framework_MockObject_Invocation" namespace="" name="PHPUnit_Framework_MockObject_Invocation"/>
+      </param>
+    </docblock>
+    <parameter name="invocation" byreference="false" type="object">
+      <type full="PHPUnit_Framework_MockObject_Invocation" namespace="" name="PHPUnit_Framework_MockObject_Invocation"/>
+    </parameter>
+  </method>
+  <method name="verify" start="75" end="85" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Verifies that the current expectation is valid. If everything is OK the code should just return, if not it must throw an exception."/>
+      <throws type="object">
+        <type full="PHPUnit_Framework_ExpectationFailedException" namespace="" name="PHPUnit_Framework_ExpectationFailedException"/>
+      </throws>
+    </docblock>
+  </method>
+</class>

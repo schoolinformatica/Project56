@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\Tests\Profiler\Mock\MemcachedMock" namespace="Symfony\Component\HttpKernel\Tests\Profiler\Mock" name="MemcachedMock" abstract="false" final="false" start="19" end="219">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Tests/Profiler/Mock" file="MemcachedMock.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Tests/Profiler/Mock/MemcachedMock.php" size="4228" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="d205b363bd7337f89ba7bfdff79ab5559afd6529" relative="vendor/symfony/http-kernel/Tests/Profiler/Mock/MemcachedMock.php"/>
+  <docblock>
+    <description compact="MemcachedMock for simulating Memcached extension in tests."/>
+    <author value="Andrej Hudec &lt;pulzarraider@gmail.com&gt;"/>
+  </docblock>
+  <member name="connected" type="boolean" default="false" visibility="private" line="21"/>
+  <member name="storage" type="array" default="" visibility="private" line="22"/>
+  <method name="setOption" start="32" end="35" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set a Memcached option."/>
+      <param type="int" variable="$option"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Tests\Profiler\Mock\bool" namespace="Symfony\Component\HttpKernel\Tests\Profiler\Mock" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="option" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addServer" start="46" end="55" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a memcached server to connection pool."/>
+      <param type="string" variable="$host"/>
+      <param type="int" variable="$port"/>
+      <param type="int" variable="$weight"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Tests\Profiler\Mock\bool" namespace="Symfony\Component\HttpKernel\Tests\Profiler\Mock" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="host" byreference="false" type="{unknown}"/>
+    <parameter name="port" byreference="false" type="integer" default="11211"/>
+    <parameter name="weight" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="add" start="66" end="79" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add an item to the server only if such key doesn't exist at the server yet."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <param type="int" variable="$expiration"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Tests\Profiler\Mock\bool" namespace="Symfony\Component\HttpKernel\Tests\Profiler\Mock" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="expiration" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="set" start="90" end="99" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Store data at the server."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <param type="int" variable="$expiration"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Tests\Profiler\Mock\bool" namespace="Symfony\Component\HttpKernel\Tests\Profiler\Mock" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="expiration" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="replace" start="110" end="123" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Replace value of the existing item."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <param type="int" variable="$expiration"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Tests\Profiler\Mock\bool" namespace="Symfony\Component\HttpKernel\Tests\Profiler\Mock" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="expiration" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="get" start="134" end="141" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieve item from the server."/>
+      <param type="string" variable="$key"/>
+      <param type="object" variable="$cache_cb">
+        <type full="Symfony\Component\HttpKernel\Tests\Profiler\Mock\callable" namespace="Symfony\Component\HttpKernel\Tests\Profiler\Mock" name="callable"/>
+      </param>
+      <param type="float" variable="$cas_token"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Tests\Profiler\Mock\bool" namespace="Symfony\Component\HttpKernel\Tests\Profiler\Mock" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="cache_cb" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="cas_token" byreference="true" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="append" start="151" end="164" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Append data to an existing item."/>
+      <param type="string" variable="$key"/>
+      <param type="string" variable="$value"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Tests\Profiler\Mock\bool" namespace="Symfony\Component\HttpKernel\Tests\Profiler\Mock" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="delete" start="173" end="186" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Delete item from the server."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Tests\Profiler\Mock\bool" namespace="Symfony\Component\HttpKernel\Tests\Profiler\Mock" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="flush" start="193" end="202" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Flush all existing items at the server."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Tests\Profiler\Mock\bool" namespace="Symfony\Component\HttpKernel\Tests\Profiler\Mock" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getData" start="204" end="211" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="storeData" start="213" end="218" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+</class>

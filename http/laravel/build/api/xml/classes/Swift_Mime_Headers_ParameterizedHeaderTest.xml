@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_Mime_Headers_ParameterizedHeaderTest" namespace="" name="Swift_Mime_Headers_ParameterizedHeaderTest" abstract="false" final="false" start="3" end="400">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/tests/unit/Swift/Mime/Headers" file="ParameterizedHeaderTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/tests/unit/Swift/Mime/Headers/ParameterizedHeaderTest.php" size="15461" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="4aad0337c2cd9a9a58688d56acb16b734a9f1904" relative="vendor/swiftmailer/swiftmailer/tests/unit/Swift/Mime/Headers/ParameterizedHeaderTest.php"/>
+  <extends full="SwiftMailerTestCase" namespace="" name="SwiftMailerTestCase"/>
+  <member name="_charset" type="string" default="'utf-8'" visibility="private" line="5"/>
+  <member name="_lang" type="string" default="'en-us'" visibility="private" line="6"/>
+  <method name="testTypeIsParameterizedHeader" start="8" end="14" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testValueIsReturnedVerbatim" start="16" end="23" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testParametersAreAppended" start="25" end="52" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="-- RFC 2045, 5.1" line="27"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="parameter := attribute &quot;=&quot; value" line="28"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="attribute := token" line="29"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="; Matching of attributes" line="30"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="; is ALWAYS case-insensitive." line="31"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="value := token / quoted-string" line="32"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="token := 1*&lt;any (US-ASCII) CHAR except SPACE, CTLs," line="33"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="or tspecials&gt;" line="34"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="tspecials :=  &quot;(&quot; / &quot;)&quot; / &quot;&lt;&quot; / &quot;&gt;&quot; / &quot;@&quot; /" line="35"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="&quot;,&quot; / &quot;;&quot; / &quot;:&quot; / &quot;\&quot; / &lt;&quot;&gt;" line="36"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="&quot;/&quot; / &quot;[&quot; / &quot;]&quot; / &quot;?&quot; / &quot;=&quot;" line="37"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="; Must be in quoted-string," line="38"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="; to use within parameter values" line="39"/>
+    </inline>
+  </method>
+  <method name="testSpaceInParamResultsInQuotedString" start="54" end="64" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testLongParamsAreBrokenIntoMultipleAttributeStrings" start="66" end="117" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="-- RFC 2231, 3." line="68"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="The asterisk character (&quot;*&quot;) followed" line="69"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="by a decimal count is employed to indicate that multiple parameters" line="70"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="are being used to encapsulate a single parameter value.  The count" line="71"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="starts at 0 and increments by 1 for each subsequent section of the" line="72"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="parameter value.  Decimal values are used and neither leading zeroes" line="73"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="nor gaps in the sequence are allowed." line="74"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="The original parameter value is recovered by concatenating the" line="76"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="content-type field" line="77"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Content-Type: message/external-body; access-type=URL;" line="78"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="URL*0=&quot;ftp://&quot;;" line="79"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="URL*1=&quot;cs.utk.edu/pub/moore/bulk-mailer/bulk-mailer.tar&quot;" line="80"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="is semantically identical to" line="81"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Content-Type: message/external-body; access-type=URL;" line="82"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="URL=&quot;ftp://cs.utk.edu/pub/moore/bulk-mailer/bulk-mailer.tar&quot;" line="83"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Note that quotes around parameter values are part of the value" line="84"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="syntax; they are NOT part of the value itself.  Furthermore, it is" line="85"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="explicitly permitted to have a mixture of quoted and unquoted" line="86"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="continuation fields." line="87"/>
+    </inline>
+  </method>
+  <method name="testEncodedParamDataIncludesCharsetAndLanguage" start="119" end="164" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="-- RFC 2231, 4." line="121"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Asterisks (&quot;*&quot;) are reused to provide the indicator that language and" line="122"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="character set information is present and encoding is being used. A" line="123"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="single quote (&quot;'&quot;) is used to delimit the character set and language" line="124"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="information at the beginning of the parameter value. Percent signs" line="125"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="(&quot;%&quot;) are used as the encoding flag, which agrees with RFC 2047." line="126"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Specifically, an asterisk at the end of a parameter name acts as an" line="127"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="indicator that character set and language information may appear at" line="128"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="the beginning of the parameter value. A single quote is used to" line="129"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="separate the character set, language, and actual value information in" line="130"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="the parameter value string, and an percent sign is used to flag" line="131"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="octets encoded in hexadecimal.  For example:" line="132"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Content-Type: application/x-stuff;" line="133"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="title*=us-ascii'en-us'This%20is%20%2A%2A%2Afun%2A%2A%2A" line="134"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Note that it is perfectly permissible to leave either the character" line="135"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="set or language field blank.  Note also that the single quote" line="136"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="delimiters MUST be present even when one of the field values is" line="137"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="omitted." line="138"/>
+    </inline>
+  </method>
+  <method name="testMultipleEncodedParamLinesAreFormattedCorrectly" start="166" end="219" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="-- RFC 2231, 4.1." line="168"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Character set and language information may be combined with the" line="169"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="parameter continuation mechanism. For example:" line="170"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Content-Type: application/x-stuff" line="171"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="title*0*=us-ascii'en'This%20is%20even%20more%20" line="172"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="title*1*=%2A%2A%2Afun%2A%2A%2A%20" line="173"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="title*2=&quot;isn't it!&quot;" line="174"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Note that:" line="175"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="(1)   Language and character set information only appear at" line="176"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="the beginning of a given parameter value." line="177"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="(2)   Continuations do not provide a facility for using more" line="178"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="than one character set or language in the same" line="179"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="parameter value." line="180"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="(3)   A value presented using multiple continuations may" line="181"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="contain a mixture of encoded and unencoded segments." line="182"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="(4)   The first segment of a continuation MUST be encoded if" line="183"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="language and character set information are given." line="184"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="(5)   If the first segment of a continued parameter value is" line="185"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="encoded the language and character set field delimiters" line="186"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="MUST be present even when the fields are left blank." line="187"/>
+    </inline>
+  </method>
+  <method name="testToString" start="221" end="231" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testValueCanBeEncodedIfNonAscii" start="233" end="249" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testValueAndParamCanBeEncodedIfNonAscii" start="251" end="273" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testParamsAreEncodedWithEncodedWordsIfNoParamEncoderSet" start="275" end="291" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testLanguageInformationAppearsInEncodedWords" start="293" end="333" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="-- RFC 2231, 5." line="295"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="5.  Language specification in Encoded Words" line="296"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="RFC 2047 provides support for non-US-ASCII character sets in RFC 822" line="297"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="message header comments, phrases, and any unstructured text field." line="298"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="This is done by defining an encoded word construct which can appear" line="299"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="in any of these places.  Given that these are fields intended for" line="300"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="display, it is sometimes necessary to associate language information" line="301"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="with encoded words as well as just the character set.  This" line="302"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="specification extends the definition of an encoded word to allow the" line="303"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="inclusion of such information.  This is simply done by suffixing the" line="304"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="character set specification with an asterisk followed by the language" line="305"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="tag.  For example:" line="306"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="From: =?US-ASCII*EN?Q?Keith_Moore?= &lt;moore@cs.utk.edu&gt;" line="307"/>
+    </inline>
+  </method>
+  <method name="testSetBodyModel" start="335" end="342" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetBodyModel" start="344" end="351" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSetParameter" start="353" end="363" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetParameter" start="365" end="372" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="_getHeader" start="376" end="384" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="encoder" byreference="false" type="{unknown}"/>
+    <parameter name="paramEncoder" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_getHeaderEncoder" start="386" end="394" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="type" byreference="false" type="{unknown}"/>
+    <parameter name="stub" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="_getParameterEncoder" start="396" end="399" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="stub" byreference="false" type="boolean" default="false"/>
+  </method>
+</class>

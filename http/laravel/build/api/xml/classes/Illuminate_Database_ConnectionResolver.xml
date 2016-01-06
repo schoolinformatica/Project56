@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Database\ConnectionResolver" namespace="Illuminate\Database" name="ConnectionResolver" abstract="false" final="false" start="5" end="92">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database" file="ConnectionResolver.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/ConnectionResolver.php" size="1908" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="617a4368bb36aa2e189e7bc22128df4638a4b461" relative="vendor/laravel/framework/src/Illuminate/Database/ConnectionResolver.php"/>
+  <implements full="Illuminate\Database\ConnectionResolverInterface" namespace="Illuminate\Database" name="ConnectionResolverInterface"/>
+  <member name="connections" type="array" default="" visibility="protected" line="12">
+    <docblock>
+      <description compact="All of the registered connections."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="default" visibility="protected" line="19">
+    <docblock>
+      <description compact="The default connection name."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="27" end="32" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new connection resolver instance."/>
+      <param type="array" variable="$connections"/>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="connections" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="connection" start="40" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a database connection instance."/>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="\Illuminate\Database\ConnectionInterface" namespace="\Illuminate\Database" name="ConnectionInterface"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="addConnection" start="56" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a connection to the resolver."/>
+      <param type="string" variable="$name"/>
+      <param type="object" variable="$connection">
+        <type full="\Illuminate\Database\ConnectionInterface" namespace="\Illuminate\Database" name="ConnectionInterface"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="connection" byreference="false" type="object">
+      <type full="Illuminate\Database\ConnectionInterface" namespace="Illuminate\Database" name="ConnectionInterface"/>
+    </parameter>
+  </method>
+  <method name="hasConnection" start="67" end="70" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check if a connection has been registered."/>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="Illuminate\Database\bool" namespace="Illuminate\Database" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getDefaultConnection" start="77" end="80" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the default connection name."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setDefaultConnection" start="88" end="91" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the default connection name."/>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="Illuminate\Database\void" namespace="Illuminate\Database" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+</class>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpParser\BuilderFactory" namespace="PhpParser" name="BuilderFactory" abstract="false" final="false" start="19" end="127">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/nikic/php-parser/lib/PhpParser" file="BuilderFactory.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/nikic/php-parser/lib/PhpParser/BuilderFactory.php" size="3445" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="06db05ab2c27ec64d1313cf0b866e570d4765f42" relative="vendor/nikic/php-parser/lib/PhpParser/BuilderFactory.php"/>
+  <docblock>
+    <description compact="The following methods use reserved keywords, so their implementation is defined with an underscore and made available with the reserved name through __call() magic."/>
+    <method value="Builder\Namespace_ namespace(string $name) Creates a namespace builder."/>
+    <method value="Builder\Class_     class(string $name)     Creates a class builder."/>
+    <method value="Builder\Interface_ interface(string $name) Creates an interface builder."/>
+    <method value="Builder\Trait_     trait(string $name)     Creates a trait builder."/>
+    <method value="Builder\Function_  function(string $name)  Creates a function builder."/>
+    <method value="Builder\Use_       use(string $name)       Creates a namespace/class use builder."/>
+  </docblock>
+  <method name="_namespace" start="28" end="30" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Creates a namespace builder."/>
+      <param description="Name of the namespace" type="object" variable="$name">
+        <type full="PhpParser\null|string|Node\Name" namespace="PhpParser\null|string|Node" name="Name"/>
+      </param>
+      <return description="The created namespace builder" type="object">
+        <type full="PhpParser\Builder\Namespace_" namespace="PhpParser\Builder" name="Namespace_"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_class" start="39" end="41" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Creates a class builder."/>
+      <param description="Name of the class" type="string" variable="$name"/>
+      <return description="The created class builder" type="object">
+        <type full="PhpParser\Builder\Class_" namespace="PhpParser\Builder" name="Class_"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_interface" start="50" end="52" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Creates an interface builder."/>
+      <param description="Name of the interface" type="string" variable="$name"/>
+      <return description="The created interface builder" type="object">
+        <type full="PhpParser\Builder\Interface_" namespace="PhpParser\Builder" name="Interface_"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_trait" start="61" end="63" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Creates a trait builder."/>
+      <param description="Name of the trait" type="string" variable="$name"/>
+      <return description="The created trait builder" type="object">
+        <type full="PhpParser\Builder\Trait_" namespace="PhpParser\Builder" name="Trait_"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="method" start="72" end="74" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Creates a method builder."/>
+      <param description="Name of the method" type="string" variable="$name"/>
+      <return description="The created method builder" type="object">
+        <type full="PhpParser\Builder\Method" namespace="PhpParser\Builder" name="Method"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="param" start="83" end="85" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Creates a parameter builder."/>
+      <param description="Name of the parameter" type="string" variable="$name"/>
+      <return description="The created parameter builder" type="object">
+        <type full="PhpParser\Builder\Param" namespace="PhpParser\Builder" name="Param"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="property" start="94" end="96" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Creates a property builder."/>
+      <param description="Name of the property" type="string" variable="$name"/>
+      <return description="The created property builder" type="object">
+        <type full="PhpParser\Builder\Property" namespace="PhpParser\Builder" name="Property"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_function" start="105" end="107" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Creates a function builder."/>
+      <param description="Name of the function" type="string" variable="$name"/>
+      <return description="The created function builder" type="object">
+        <type full="PhpParser\Builder\Function_" namespace="PhpParser\Builder" name="Function_"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_use" start="116" end="118" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Creates a namespace/class use builder."/>
+      <param description="Name to alias" type="object">
+        <type full="PhpParser\string|Node\Name" namespace="PhpParser\string|Node" name="Name"/>
+      </param>
+      <return description="The create use builder" type="object">
+        <type full="PhpParser\Builder\Use_" namespace="PhpParser\Builder" name="Use_"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__call" start="120" end="126" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="args" byreference="false" type="array"/>
+  </method>
+</class>

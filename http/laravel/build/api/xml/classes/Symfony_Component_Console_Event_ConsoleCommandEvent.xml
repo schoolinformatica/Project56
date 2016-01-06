@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Console\Event\ConsoleCommandEvent" namespace="Symfony\Component\Console\Event" name="ConsoleCommandEvent" abstract="false" final="false" start="19" end="62">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Event" file="ConsoleCommandEvent.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Event/ConsoleCommandEvent.php" size="1341" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="321590b6de6d7c3b59111b39886cfbd93e0bdd40" relative="vendor/symfony/console/Event/ConsoleCommandEvent.php"/>
+  <docblock>
+    <description compact="Allows to do things before the command is executed, like skipping the command or changing the input."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\Console\Event\ConsoleEvent" namespace="Symfony\Component\Console\Event" name="ConsoleEvent"/>
+  <constant type="integer" name="RETURN_CODE_DISABLED" value="113">
+    <docblock>
+      <description compact="The return code for skipped commands, this will also be passed into the terminate event."/>
+    </docblock>
+  </constant>
+  <member name="commandShouldRun" type="boolean" default="true" visibility="private" line="31">
+    <docblock>
+      <description compact="Indicates if the command should be run or skipped."/>
+      <var type="object">
+        <type full="Symfony\Component\Console\Event\bool" namespace="Symfony\Component\Console\Event" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="disableCommand" start="38" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Disables the command, so it won't be run."/>
+      <return type="object">
+        <type full="Symfony\Component\Console\Event\bool" namespace="Symfony\Component\Console\Event" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="enableCommand" start="48" end="51" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Enables the command."/>
+      <return type="object">
+        <type full="Symfony\Component\Console\Event\bool" namespace="Symfony\Component\Console\Event" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="commandShouldRun" start="58" end="61" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if the command is runnable, false otherwise."/>
+      <return type="object">
+        <type full="Symfony\Component\Console\Event\bool" namespace="Symfony\Component\Console\Event" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+</class>

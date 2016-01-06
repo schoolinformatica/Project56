@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpFoundation\File\MimeType\FileinfoMimeTypeGuesser" namespace="Symfony\Component\HttpFoundation\File\MimeType" name="FileinfoMimeTypeGuesser" abstract="false" final="false" start="22" end="71">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/File/MimeType" file="FileinfoMimeTypeGuesser.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/File/MimeType/FileinfoMimeTypeGuesser.php" size="1663" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="0a7b6ef5456f4c8a7b455668caad8e323c8394a2" relative="vendor/symfony/http-foundation/File/MimeType/FileinfoMimeTypeGuesser.php"/>
+  <docblock>
+    <description compact="Guesses the mime type using the PECL extension FileInfo."/>
+    <author value="Bernhard Schussek &lt;bschussek@gmail.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesserInterface" namespace="Symfony\Component\HttpFoundation\File\MimeType" name="MimeTypeGuesserInterface"/>
+  <member name="magicFile" visibility="private" line="24"/>
+  <constructor name="__construct" start="33" end="36" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="A magic file to use with the finfo instance" type="string" variable="$magicFile"/>
+      <link value="http://www.php.net/manual/en/function.finfo-open.php"/>
+    </docblock>
+    <parameter name="magicFile" byreference="false" type="{unknown}" default="" constant="null"/>
+  </constructor>
+  <method name="isSupported" start="43" end="46" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns whether this guesser is supported on the current OS/PHP setup."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\File\MimeType\bool" namespace="Symfony\Component\HttpFoundation\File\MimeType" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="guess" start="51" end="70" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+</class>

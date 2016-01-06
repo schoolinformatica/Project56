@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\Context" namespace="Psy" name="Context" abstract="false" final="false" start="20" end="136">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy" file="Context.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Context.php" size="3000" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="4c26b574526d586aa8999fdd9de30544017067d0" relative="vendor/psy/psysh/src/Psy/Context.php"/>
+  <docblock>
+    <description compact="The Shell execution context.">This class encapsulates the current variables, most recent return value and
+exception, and the current namespace.</description>
+  </docblock>
+  <member name="specialVars" type="array" default="" visibility="private" line="22"/>
+  <member name="scopeVariables" type="array" default="" visibility="private" line="23"/>
+  <member name="lastException" visibility="private" line="24"/>
+  <member name="returnValue" visibility="private" line="25"/>
+  <method name="get" start="36" end="56" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a context variable."/>
+      <throws description="If the variable is not found in the current context." type="object">
+        <type full="Psy\InvalidArgumentException" namespace="Psy" name="InvalidArgumentException"/>
+      </throws>
+      <param type="string" variable="$name"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getAll" start="63" end="73" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get all defined variables."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="setAll" start="82" end="89" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set all scope variables.">This method does *not* set the magic $_ and $_e variables.</description>
+      <param type="array" variable="$vars"/>
+    </docblock>
+    <parameter name="vars" byreference="false" type="array"/>
+  </method>
+  <method name="setReturnValue" start="96" end="99" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the most recent return value."/>
+      <param type="mixed" variable="$value"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getReturnValue" start="106" end="109" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the most recent return value."/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+  <method name="setLastException" start="116" end="119" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the most recent Exception."/>
+      <param type="object" variable="$e">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </param>
+    </docblock>
+    <parameter name="e" byreference="false" type="object">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+  </method>
+  <method name="getLastException" start="128" end="135" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the most recent Exception."/>
+      <throws description="If no Exception has been caught." type="object">
+        <type full="Psy\InvalidArgumentException" namespace="Psy" name="InvalidArgumentException"/>
+      </throws>
+      <return type="object">
+        <type full="Psy\null|Exception" namespace="Psy" name="null|Exception"/>
+      </return>
+    </docblock>
+  </method>
+</class>

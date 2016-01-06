@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Monolog\Handler\HandlerInterface" namespace="Monolog\Handler" name="HandlerInterface" abstract="false" final="false" start="21" end="90">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler" file="HandlerInterface.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler/HandlerInterface.php" size="2597" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="ac3ceade20d03e6874d754030bffa351a7c29650" relative="vendor/monolog/monolog/src/Monolog/Handler/HandlerInterface.php"/>
+  <docblock>
+    <description compact="Interface that all Monolog Handlers must implement"/>
+    <author value="Jordi Boggiano &lt;j.boggiano@seld.be&gt;"/>
+  </docblock>
+  <method name="isHandling" start="36" end="36" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks whether the given record will be handled by this handler.">This is mostly done for performance reasons, to avoid calling processors for nothing.
+
+Handlers should still check the record levels within handle(), returning false in isHandling()
+is no guarantee that handle() will not be called, and isHandling() might not be called
+for a given record.</description>
+      <param description="Partial log record containing only a level key" type="array" variable="$record"/>
+      <return type="object">
+        <type full="Monolog\Handler\Boolean" namespace="Monolog\Handler" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+  <method name="handle" start="52" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Handles a record.">All records may be passed to this method, and the handler should discard
+those that it does not want to handle.
+
+The return value of this function controls the bubbling process of the handler stack.
+Unless the bubbling is interrupted (by returning true), the Logger class will keep on
+calling further handlers in the stack with a given log record.</description>
+      <param description="The record to handle" type="array" variable="$record"/>
+      <return description="true means that this handler handled the record, and that bubbling is not permitted." type="object">false means the record was either not processed or that this handler allows bubbling.<type full="Monolog\Handler\Boolean" namespace="Monolog\Handler" name="Boolean"/></return>
+    </docblock>
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+  <method name="handleBatch" start="59" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Handles a set of records at once."/>
+      <param description="The records to handle (an array of record arrays)" type="array" variable="$records"/>
+    </docblock>
+    <parameter name="records" byreference="false" type="array"/>
+  </method>
+  <method name="pushProcessor" start="67" end="67" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a processor in the stack."/>
+      <param type="object" variable="$callback">
+        <type full="Monolog\Handler\callable" namespace="Monolog\Handler" name="callable"/>
+      </param>
+      <return resolution="self" type="object">
+        <type full="Monolog\Handler\HandlerInterface" namespace="Monolog\Handler" name="HandlerInterface"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="popProcessor" start="74" end="74" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Removes the processor on top of the stack and returns it."/>
+      <return type="object">
+        <type full="Monolog\Handler\callable" namespace="Monolog\Handler" name="callable"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setFormatter" start="82" end="82" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the formatter."/>
+      <param type="object" variable="$formatter">
+        <type full="Monolog\Formatter\FormatterInterface" namespace="Monolog\Formatter" name="FormatterInterface"/>
+      </param>
+      <return resolution="self" type="object">
+        <type full="Monolog\Handler\HandlerInterface" namespace="Monolog\Handler" name="HandlerInterface"/>
+      </return>
+    </docblock>
+    <parameter name="formatter" byreference="false" type="object">
+      <type full="Monolog\Formatter\FormatterInterface" namespace="Monolog\Formatter" name="FormatterInterface"/>
+    </parameter>
+  </method>
+  <method name="getFormatter" start="89" end="89" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the formatter."/>
+      <return type="object">
+        <type full="Monolog\Formatter\FormatterInterface" namespace="Monolog\Formatter" name="FormatterInterface"/>
+      </return>
+    </docblock>
+  </method>
+</interface>

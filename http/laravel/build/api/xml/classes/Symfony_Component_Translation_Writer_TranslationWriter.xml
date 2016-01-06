@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Translation\Writer\TranslationWriter" namespace="Symfony\Component\Translation\Writer" name="TranslationWriter" abstract="false" final="false" start="22" end="87">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation/Writer" file="TranslationWriter.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation/Writer/TranslationWriter.php" size="2236" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="9cd03052c7cbc8391e231ff77ca12f07b579d105" relative="vendor/symfony/translation/Writer/TranslationWriter.php"/>
+  <docblock>
+    <description compact="TranslationWriter writes translation messages."/>
+    <author value="Michel Salib &lt;michelsalib@hotmail.com&gt;"/>
+  </docblock>
+  <member name="dumpers" type="array" default="" visibility="private" line="29">
+    <docblock>
+      <description compact="Dumpers used for export."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="addDumper" start="37" end="40" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a dumper to the writer."/>
+      <param description="The format of the dumper" type="string" variable="$format"/>
+      <param description="The dumper" type="object" variable="$dumper">
+        <type full="Symfony\Component\Translation\Dumper\DumperInterface" namespace="Symfony\Component\Translation\Dumper" name="DumperInterface"/>
+      </param>
+    </docblock>
+    <parameter name="format" byreference="false" type="{unknown}"/>
+    <parameter name="dumper" byreference="false" type="object">
+      <type full="Symfony\Component\Translation\Dumper\DumperInterface" namespace="Symfony\Component\Translation\Dumper" name="DumperInterface"/>
+    </parameter>
+  </method>
+  <method name="disableBackup" start="45" end="50" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Disables dumper backup."/>
+    </docblock>
+  </method>
+  <method name="getFormats" start="57" end="60" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Obtains the list of supported formats."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="writeTranslations" start="71" end="86" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Writes translation from the catalogue according to the selected format."/>
+      <param description="The message catalogue to dump" type="object" variable="$catalogue">
+        <type full="Symfony\Component\Translation\MessageCatalogue" namespace="Symfony\Component\Translation" name="MessageCatalogue"/>
+      </param>
+      <param description="The format to use to dump the messages" type="string" variable="$format"/>
+      <param description="Options that are passed to the dumper" type="array" variable="$options"/>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="catalogue" byreference="false" type="object">
+      <type full="Symfony\Component\Translation\MessageCatalogue" namespace="Symfony\Component\Translation" name="MessageCatalogue"/>
+    </parameter>
+    <parameter name="format" byreference="false" type="{unknown}"/>
+    <parameter name="options" byreference="false" type="array" default=""/>
+    <inline>
+      <comment value="get the right dumper" line="77"/>
+      <comment value="save" line="84"/>
+    </inline>
+  </method>
+</class>

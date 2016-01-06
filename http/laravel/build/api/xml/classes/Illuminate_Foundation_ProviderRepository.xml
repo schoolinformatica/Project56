@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Foundation\ProviderRepository" namespace="Illuminate\Foundation" name="ProviderRepository" abstract="false" final="false" start="8" end="203">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation" file="ProviderRepository.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php" size="6202" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="f852dba379e1f79cf6dc312df893d4adda1668ee" relative="vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php"/>
+  <member name="app" visibility="protected" line="15">
+    <docblock>
+      <description compact="The application implementation."/>
+      <var type="object">
+        <type full="\Illuminate\Contracts\Foundation\Application" namespace="\Illuminate\Contracts\Foundation" name="Application"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="files" visibility="protected" line="22">
+    <docblock>
+      <description compact="The filesystem instance."/>
+      <var type="object">
+        <type full="\Illuminate\Filesystem\Filesystem" namespace="\Illuminate\Filesystem" name="Filesystem"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="manifestPath" visibility="protected" line="29">
+    <docblock>
+      <description compact="The path to the manifest file."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="39" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new service repository instance."/>
+      <param type="object" variable="$app">
+        <type full="\Illuminate\Contracts\Foundation\Application" namespace="\Illuminate\Contracts\Foundation" name="Application"/>
+      </param>
+      <param type="object" variable="$files">
+        <type full="\Illuminate\Filesystem\Filesystem" namespace="\Illuminate\Filesystem" name="Filesystem"/>
+      </param>
+      <param type="string" variable="$manifestPath"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="app" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Foundation\Application" namespace="Illuminate\Contracts\Foundation" name="Application"/>
+    </parameter>
+    <parameter name="files" byreference="false" type="object">
+      <type full="Illuminate\Filesystem\Filesystem" namespace="Illuminate\Filesystem" name="Filesystem"/>
+    </parameter>
+    <parameter name="manifestPath" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="load" start="52" end="78" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register the application service providers."/>
+      <param type="array" variable="$providers"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="providers" byreference="false" type="array"/>
+    <inline>
+      <comment value="First we will load the service manifest, which contains information on all" line="56"/>
+      <comment value="service providers registered with the application and which services it" line="57"/>
+      <comment value="provides. This is used to know which services are &quot;deferred&quot; loaders." line="58"/>
+      <comment value="Next, we will register events to load the providers for each of the events" line="63"/>
+      <comment value="that it has requested. This allows the service provider to defer itself" line="64"/>
+      <comment value="while still getting automatically loaded when a certain event occurs." line="65"/>
+      <comment value="We will go ahead and register all of the eagerly loaded providers with the" line="70"/>
+      <comment value="application so their services can be registered with the application as" line="71"/>
+      <comment value="a provided service. Then we will set the deferred service list on it." line="72"/>
+    </inline>
+  </method>
+  <method name="registerLoadEvents" start="87" end="98" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register the load events for the given provider."/>
+      <param type="string" variable="$provider"/>
+      <param type="array" variable="$events"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\void" namespace="Illuminate\Foundation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="provider" byreference="false" type="{unknown}"/>
+    <parameter name="events" byreference="false" type="array"/>
+  </method>
+  <method name="compileManifest" start="106" end="136" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Compile the application manifest file."/>
+      <param type="array" variable="$providers"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="providers" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="The service manifest should contain a list of all of the providers for" line="108"/>
+      <comment value="the application so we can compare it on each request to the service" line="109"/>
+      <comment value="and determine if the manifest should be recompiled or is current." line="110"/>
+    </inline>
+  </method>
+  <method name="createProvider" start="144" end="147" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new provider instance."/>
+      <param type="string" variable="$provider"/>
+      <return type="object">
+        <type full="\Illuminate\Support\ServiceProvider" namespace="\Illuminate\Support" name="ServiceProvider"/>
+      </return>
+    </docblock>
+    <parameter name="provider" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="shouldRecompile" start="156" end="159" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the manifest should be compiled."/>
+      <param type="array" variable="$manifest"/>
+      <param type="array" variable="$providers"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\bool" namespace="Illuminate\Foundation" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="manifest" byreference="false" type="{unknown}"/>
+    <parameter name="providers" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="loadManifest" start="166" end="176" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Load the service provider manifest JSON file."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\array|null" namespace="Illuminate\Foundation" name="array|null"/>
+      </return>
+    </docblock>
+    <inline>
+      <comment value="The service manifest is a file containing a JSON representation of every" line="168"/>
+      <comment value="service provided by the application and whether its provider is using" line="169"/>
+      <comment value="deferred loading or should be eagerly loaded on each request to us." line="170"/>
+    </inline>
+  </method>
+  <method name="writeManifest" start="184" end="191" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Write the service manifest file to disk."/>
+      <param type="array" variable="$manifest"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="manifest" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="freshManifest" start="199" end="202" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create a fresh service manifest data structure."/>
+      <param type="array" variable="$providers"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="providers" byreference="false" type="array"/>
+  </method>
+</class>

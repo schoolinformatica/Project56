@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\DataCollector\EventDataCollector" namespace="Symfony\Component\HttpKernel\DataCollector" name="EventDataCollector" abstract="false" final="false" start="24" end="107">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/DataCollector" file="EventDataCollector.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/DataCollector/EventDataCollector.php" size="2684" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="40806a938669b6a8f48e50ee49c50ccc0011cf58" relative="vendor/symfony/http-kernel/DataCollector/EventDataCollector.php"/>
+  <docblock>
+    <description compact="EventDataCollector."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\HttpKernel\DataCollector\DataCollector" namespace="Symfony\Component\HttpKernel\DataCollector" name="DataCollector"/>
+  <implements full="Symfony\Component\HttpKernel\DataCollector\LateDataCollectorInterface" namespace="Symfony\Component\HttpKernel\DataCollector" name="LateDataCollectorInterface"/>
+  <member name="dispatcher" visibility="protected" line="26"/>
+  <constructor name="__construct" start="28" end="31" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="dispatcher" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\EventDispatcher\EventDispatcherInterface" namespace="Symfony\Component\EventDispatcher" name="EventDispatcherInterface"/>
+    </parameter>
+  </constructor>
+  <method name="collect" start="36" end="42" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="response" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+    </parameter>
+    <parameter name="exception" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+  </method>
+  <method name="lateCollect" start="44" end="50" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="setCalledListeners" start="59" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the called listeners."/>
+      <param description="An array of called listeners" type="array" variable="$listeners"/>
+      <see value="TraceableEventDispatcherInterface"/>
+    </docblock>
+    <parameter name="listeners" byreference="false" type="array"/>
+  </method>
+  <method name="getCalledListeners" start="71" end="74" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the called listeners."/>
+      <return description="An array of called listeners" type="array"/>
+      <see value="TraceableEventDispatcherInterface"/>
+    </docblock>
+  </method>
+  <method name="setNotCalledListeners" start="83" end="86" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the not called listeners."/>
+      <param description="An array of not called listeners" type="array" variable="$listeners"/>
+      <see value="TraceableEventDispatcherInterface"/>
+    </docblock>
+    <parameter name="listeners" byreference="false" type="array"/>
+  </method>
+  <method name="getNotCalledListeners" start="95" end="98" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the not called listeners."/>
+      <return description="An array of not called listeners" type="array"/>
+      <see value="TraceableEventDispatcherInterface"/>
+    </docblock>
+  </method>
+  <method name="getName" start="103" end="106" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+</class>

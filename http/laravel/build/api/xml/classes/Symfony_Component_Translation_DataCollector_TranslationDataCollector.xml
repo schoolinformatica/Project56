@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Translation\DataCollector\TranslationDataCollector" namespace="Symfony\Component\Translation\DataCollector" name="TranslationDataCollector" abstract="false" final="false" start="23" end="145">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation/DataCollector" file="TranslationDataCollector.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation/DataCollector/TranslationDataCollector.php" size="3932" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="150851b88ee9ad6cf36cdc9e0ae3d6077569274d" relative="vendor/symfony/translation/DataCollector/TranslationDataCollector.php"/>
+  <docblock>
+    <description/>
+    <author value="Abdellatif Ait boudad &lt;a.aitboudad@gmail.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\HttpKernel\DataCollector\DataCollector" namespace="Symfony\Component\HttpKernel\DataCollector" name="DataCollector"/>
+  <implements full="Symfony\Component\HttpKernel\DataCollector\LateDataCollectorInterface" namespace="Symfony\Component\HttpKernel\DataCollector" name="LateDataCollectorInterface"/>
+  <member name="translator" visibility="private" line="28">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\Translation\DataCollectorTranslator" namespace="Symfony\Component\Translation" name="DataCollectorTranslator"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="33" end="36" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$translator">
+        <type full="Symfony\Component\Translation\DataCollectorTranslator" namespace="Symfony\Component\Translation" name="DataCollectorTranslator"/>
+      </param>
+    </docblock>
+    <parameter name="translator" byreference="false" type="object">
+      <type full="Symfony\Component\Translation\DataCollectorTranslator" namespace="Symfony\Component\Translation" name="DataCollectorTranslator"/>
+    </parameter>
+  </constructor>
+  <method name="lateCollect" start="41" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="collect" start="52" end="54" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="response" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+    </parameter>
+    <parameter name="exception" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+  </method>
+  <method name="getMessages" start="59" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getCountMissings" start="67" end="70" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getCountFallbacks" start="75" end="78" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getCountDefines" start="83" end="86" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getName" start="91" end="94" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="sanitizeCollectedMessages" start="96" end="114" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="messages" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="computeCount" start="116" end="129" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="messages" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="sanitizeString" start="131" end="144" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="string" byreference="false" type="{unknown}"/>
+    <parameter name="length" byreference="false" type="integer" default="80"/>
+  </method>
+</class>

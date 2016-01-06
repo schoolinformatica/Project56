@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpFoundation\StreamedResponse" namespace="Symfony\Component\HttpFoundation" name="StreamedResponse" abstract="false" final="false" start="27" end="119">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation" file="StreamedResponse.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/StreamedResponse.php" size="2988" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="f4ec68225d37e35202b60d757bf94ada6684fb1c" relative="vendor/symfony/http-foundation/StreamedResponse.php"/>
+  <docblock>
+    <description compact="StreamedResponse represents a streamed HTTP response.">A StreamedResponse uses a callback for its content.
+
+The callback should use the standard PHP functions like echo
+to stream the response back to the client. The flush() method
+can also be used if needed.</description>
+    <see value="flush()"/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+  <member name="callback" visibility="protected" line="29"/>
+  <member name="streamed" visibility="protected" line="30"/>
+  <constructor name="__construct" start="39" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="A valid PHP callback or null to set it later" type="object" variable="$callback">
+        <type full="Symfony\Component\HttpFoundation\callable|null" namespace="Symfony\Component\HttpFoundation" name="callable|null"/>
+      </param>
+      <param description="The response status code" type="int" variable="$status"/>
+      <param description="An array of response headers" type="array" variable="$headers"/>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="status" byreference="false" type="integer" default="200"/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="create" start="58" end="61" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Factory method for chainability."/>
+      <param description="A valid PHP callback or null to set it later" type="object" variable="$callback">
+        <type full="Symfony\Component\HttpFoundation\callable|null" namespace="Symfony\Component\HttpFoundation" name="callable|null"/>
+      </param>
+      <param description="The response status code" type="int" variable="$status"/>
+      <param description="An array of response headers" type="array" variable="$headers"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\StreamedResponse" namespace="Symfony\Component\HttpFoundation" name="StreamedResponse"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="status" byreference="false" type="integer" default="200"/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="setCallback" start="70" end="76" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the PHP callback associated with this Response."/>
+      <param description="A valid PHP callback" type="object" variable="$callback">
+        <type full="Symfony\Component\HttpFoundation\callable" namespace="Symfony\Component\HttpFoundation" name="callable"/>
+      </param>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="sendContent" start="83" end="96" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}">This method only sends the content once.</description>
+    </docblock>
+  </method>
+  <method name="setContent" start="103" end="108" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+      <throws description="when the content is not null" type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getContent" start="115" end="118" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\false" namespace="Symfony\Component\HttpFoundation" name="false"/>
+      </return>
+    </docblock>
+  </method>
+</class>

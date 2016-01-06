@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Routing\Tests\Matcher\UrlMatcherTest" namespace="Symfony\Component\Routing\Tests\Matcher" name="UrlMatcherTest" abstract="false" final="false" start="21" end="419">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/routing/Tests/Matcher" file="UrlMatcherTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/routing/Tests/Matcher/UrlMatcherTest.php" size="18119" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="0a6a5f2a9195c69483a722f0fa1b91eab74f8937" relative="vendor/symfony/routing/Tests/Matcher/UrlMatcherTest.php"/>
+  <extends full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+  <method name="testNoMethodSoAllowed" start="23" end="30" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testMethodNotAllowed" start="32" end="45" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testHeadAllowedWhenRequirementContainsGet" start="47" end="54" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testMethodNotAllowedAggregatesAllowedMethods" start="56" end="70" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testMatch" start="72" end="131" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="test the patterns are matched and parameters are returned" line="74"/>
+      <comment value="test that defaults are merged" line="85"/>
+      <comment value="test that route &quot;method&quot; is ignored if no method is given in the context" line="91"/>
+      <comment value="route does not match with POST method context" line="97"/>
+      <comment value="route does match with GET or HEAD method context" line="105"/>
+      <comment value="route with an optional variable as the first segment" line="111"/>
+      <comment value="route with only optional variables" line="124"/>
+    </inline>
+  </method>
+  <method name="testMatchWithPrefixes" start="133" end="142" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testMatchWithDynamicPrefix" start="144" end="153" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testMatchSpecialRouteName" start="155" end="162" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testMatchNonAlpha" start="164" end="173" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testMatchWithDotMetacharacterInRequirements" start="175" end="182" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testMatchOverriddenRoute" start="184" end="199" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testMatchRegression" start="201" end="218" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testDefaultRequirementForOptionalVariables" start="220" end="227" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testMatchingIsEager" start="229" end="236" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testAdjacentVariables" start="238" end="256" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="'w' eagerly matches as much as possible and the other variables match the remaining chars." line="244"/>
+      <comment value="This also shows that the variables w-z must all exclude the separating char (the dot '.' in this case) by default requirement." line="245"/>
+      <comment value="Otherwise they would also consume '.xml' and _format would never match as it's an optional variable." line="246"/>
+      <comment value="As 'y' has custom requirement and can only be of value 'y|Y', it will leave  'ZZZ' to variable z." line="248"/>
+      <comment value="So with carefully chosen requirements adjacent variables, can be useful." line="249"/>
+      <comment value="z and _format are optional." line="251"/>
+    </inline>
+  </method>
+  <method name="testOptionalVariableWithNoRealSeparator" start="258" end="271" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="Usually the character in front of an optional parameter can be left out, e.g. with pattern '/get/{what}' just '/get' would match." line="267"/>
+      <comment value="But here the 't' in 'get' is not a separating character, so it makes no sense to match without it." line="268"/>
+    </inline>
+  </method>
+  <method name="testRequiredVariableWithNoRealSeparator" start="273" end="280" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testDefaultRequirementOfVariable" start="282" end="289" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testDefaultRequirementOfVariableDisallowsSlash" start="294" end="301" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\Symfony\Component\Routing\Exception\ResourceNotFoundException"/>
+    </docblock>
+  </method>
+  <method name="testDefaultRequirementOfVariableDisallowsNextSeparator" start="306" end="313" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\Symfony\Component\Routing\Exception\ResourceNotFoundException"/>
+    </docblock>
+  </method>
+  <method name="testSchemeRequirement" start="318" end="324" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\Symfony\Component\Routing\Exception\ResourceNotFoundException"/>
+    </docblock>
+  </method>
+  <method name="testCondition" start="329" end="337" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\Symfony\Component\Routing\Exception\ResourceNotFoundException"/>
+    </docblock>
+  </method>
+  <method name="testDecodeOnce" start="339" end="346" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testCannotRelyOnPrefix" start="348" end="362" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="overwrite the pattern, so the prefix is not valid anymore for this route in the collection" line="355"/>
+    </inline>
+  </method>
+  <method name="testWithHost" start="364" end="371" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testWithHostOnRouteCollection" start="373" end="385" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testWithOutHostHostDoesNotMatch" start="390" end="397" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\Symfony\Component\Routing\Exception\ResourceNotFoundException"/>
+    </docblock>
+  </method>
+  <method name="testPathIsCaseSensitive" start="402" end="409" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\Symfony\Component\Routing\Exception\ResourceNotFoundException"/>
+    </docblock>
+  </method>
+  <method name="testHostIsCaseInsensitive" start="411" end="418" abstract="false" final="false" static="false" visibility="public"/>
+</class>

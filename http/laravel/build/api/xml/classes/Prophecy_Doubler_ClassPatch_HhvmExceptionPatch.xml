@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Prophecy\Doubler\ClassPatch\HhvmExceptionPatch" namespace="Prophecy\Doubler\ClassPatch" name="HhvmExceptionPatch" abstract="false" final="false" start="21" end="63">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Doubler/ClassPatch" file="HhvmExceptionPatch.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Doubler/ClassPatch/HhvmExceptionPatch.php" size="1489" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="384c788c2c264db7790e0a5676ba880a85873780" relative="vendor/phpspec/prophecy/src/Prophecy/Doubler/ClassPatch/HhvmExceptionPatch.php"/>
+  <docblock>
+    <description compact="Exception patch for HHVM to remove the stubs from special methods"/>
+    <author value="Christophe Coevoet &lt;stof@notk.org&gt;"/>
+  </docblock>
+  <implements full="Prophecy\Doubler\ClassPatch\ClassPatchInterface" namespace="Prophecy\Doubler\ClassPatch" name="ClassPatchInterface"/>
+  <method name="supports" start="30" end="37" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Supports exceptions on HHVM."/>
+      <param type="object" variable="$node">
+        <type full="Prophecy\Doubler\Generator\Node\ClassNode" namespace="Prophecy\Doubler\Generator\Node" name="ClassNode"/>
+      </param>
+      <return type="object">
+        <type full="Prophecy\Doubler\ClassPatch\bool" namespace="Prophecy\Doubler\ClassPatch" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="Prophecy\Doubler\Generator\Node\ClassNode" namespace="Prophecy\Doubler\Generator\Node" name="ClassNode"/>
+    </parameter>
+  </method>
+  <method name="apply" start="46" end="54" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Removes special exception static methods from the doubled methods."/>
+      <param type="object" variable="$node">
+        <type full="Prophecy\Doubler\Generator\Node\ClassNode" namespace="Prophecy\Doubler\Generator\Node" name="ClassNode"/>
+      </param>
+      <return type="object">
+        <type full="Prophecy\Doubler\ClassPatch\void" namespace="Prophecy\Doubler\ClassPatch" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="Prophecy\Doubler\Generator\Node\ClassNode" namespace="Prophecy\Doubler\Generator\Node" name="ClassNode"/>
+    </parameter>
+  </method>
+  <method name="getPriority" start="59" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+</class>

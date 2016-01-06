@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception" abstract="false" final="false" start="32" end="77">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Framework" file="Exception.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Framework/Exception.php" size="2333" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="3f9ec7890ebff6062d5427a012dc15928af0813d" relative="vendor/phpunit/phpunit/src/Framework/Exception.php"/>
+  <docblock>
+    <description compact="Base class for all PHPUnit Framework exceptions.">Ensures that exceptions thrown during a test run do not leave stray
+references behind.
+
+Every Exception contains a stack trace. Each stack frame contains the 'args'
+of the called function. The function arguments can contain references to
+instantiated objects. The references prevent the objects from being
+destructed (until test results are eventually printed), so memory cannot be
+freed up.
+
+With enabled process isolation, test results are serialized in the child
+process and unserialized in the parent process. The stack trace of Exceptions
+may contain objects that cannot be serialized or unserialized (e.g., PDO
+connections). Unserializing user-space objects from the child process into
+the parent would break the intended encapsulation of process isolation.</description>
+    <see value="http://fabien.potencier.org/article/9/php-serialization-stack-traces-and-exceptions"/>
+    <since value="Class available since Release 3.4.0"/>
+  </docblock>
+  <extends full="RuntimeException" namespace="" name="RuntimeException"/>
+  <implements full="PHPUnit_Exception" namespace="" name="PHPUnit_Exception"/>
+  <member name="serializableTrace" visibility="protected" line="37">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="39" end="47" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="message" byreference="false" type="string" default="''"/>
+    <parameter name="code" byreference="false" type="integer" default="0"/>
+    <parameter name="previous" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+  </constructor>
+  <method name="getSerializableTrace" start="54" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the serializable trace (without 'args')."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="__toString" start="62" end="71" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="__sleep" start="73" end="76" abstract="false" final="false" static="false" visibility="public"/>
+</class>

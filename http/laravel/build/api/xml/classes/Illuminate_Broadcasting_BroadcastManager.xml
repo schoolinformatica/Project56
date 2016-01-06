@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Broadcasting\BroadcastManager" namespace="Illuminate\Broadcasting" name="BroadcastManager" abstract="false" final="false" start="14" end="213">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Broadcasting" file="BroadcastManager.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Broadcasting/BroadcastManager.php" size="5018" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="80a85d853de1cd5237829f1a6a5218d8d2267e9c" relative="vendor/laravel/framework/src/Illuminate/Broadcasting/BroadcastManager.php"/>
+  <implements full="Illuminate\Contracts\Broadcasting\Factory" namespace="Illuminate\Contracts\Broadcasting" name="Factory"/>
+  <member name="app" visibility="protected" line="21">
+    <docblock>
+      <description compact="The application instance."/>
+      <var type="object">
+        <type full="\Illuminate\Foundation\Application" namespace="\Illuminate\Foundation" name="Application"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="drivers" type="array" default="" visibility="protected" line="28">
+    <docblock>
+      <description compact="The array of resolved broadcast drivers."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="customCreators" type="array" default="" visibility="protected" line="35">
+    <docblock>
+      <description compact="The registered custom driver creators."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="43" end="46" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new manager instance."/>
+      <param type="object" variable="$app">
+        <type full="\Illuminate\Foundation\Application" namespace="\Illuminate\Foundation" name="Application"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Broadcasting\void" namespace="Illuminate\Broadcasting" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="app" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="connection" start="54" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a driver instance."/>
+      <param type="string" variable="$driver"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="driver" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="driver" start="65" end="70" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a driver instance."/>
+      <param type="string" variable="$name"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="get" start="78" end="81" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Attempt to get the connection from the local cache."/>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Broadcasting\Broadcaster" namespace="\Illuminate\Contracts\Broadcasting" name="Broadcaster"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="resolve" start="91" end="104" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Resolve the given store."/>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Broadcasting\Broadcaster" namespace="\Illuminate\Contracts\Broadcasting" name="Broadcaster"/>
+      </return>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="callCustomCreator" start="112" end="115" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Call a custom driver creator."/>
+      <param type="array" variable="$config"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="config" byreference="false" type="array"/>
+  </method>
+  <method name="createPusherDriver" start="123" end="128" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create an instance of the driver."/>
+      <param type="array" variable="$config"/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Broadcasting\Broadcaster" namespace="\Illuminate\Contracts\Broadcasting" name="Broadcaster"/>
+      </return>
+    </docblock>
+    <parameter name="config" byreference="false" type="array"/>
+  </method>
+  <method name="createRedisDriver" start="136" end="141" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create an instance of the driver."/>
+      <param type="array" variable="$config"/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Broadcasting\Broadcaster" namespace="\Illuminate\Contracts\Broadcasting" name="Broadcaster"/>
+      </return>
+    </docblock>
+    <parameter name="config" byreference="false" type="array"/>
+  </method>
+  <method name="createLogDriver" start="149" end="154" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create an instance of the driver."/>
+      <param type="array" variable="$config"/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Broadcasting\Broadcaster" namespace="\Illuminate\Contracts\Broadcasting" name="Broadcaster"/>
+      </return>
+    </docblock>
+    <parameter name="config" byreference="false" type="array"/>
+  </method>
+  <method name="getConfig" start="162" end="165" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the connection configuration."/>
+      <param type="string" variable="$name"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getDefaultDriver" start="172" end="175" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the default driver name."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setDefaultDriver" start="183" end="186" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the default driver name."/>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="Illuminate\Broadcasting\void" namespace="Illuminate\Broadcasting" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="extend" start="195" end="200" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a custom driver creator Closure."/>
+      <param type="string" variable="$driver"/>
+      <param type="object" variable="$callback">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Broadcasting\$this" namespace="Illuminate\Broadcasting" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="driver" byreference="false" type="{unknown}"/>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="__call" start="209" end="212" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Dynamically call the default driver instance."/>
+      <param type="string" variable="$method"/>
+      <param type="array" variable="$parameters"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="{unknown}"/>
+  </method>
+</class>

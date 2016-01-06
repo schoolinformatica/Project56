@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\Event\GetResponseEvent" namespace="Symfony\Component\HttpKernel\Event" name="GetResponseEvent" abstract="false" final="false" start="25" end="65">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Event" file="GetResponseEvent.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Event/GetResponseEvent.php" size="1360" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="286937feba70168c760465e99b7b6ff201b1fbfe" relative="vendor/symfony/http-kernel/Event/GetResponseEvent.php"/>
+  <docblock>
+    <description compact="Allows to create a response for a request.">Call setResponse() to set the response that will be returned for the
+current request. The propagation of this event is stopped as soon as a
+response is set.</description>
+    <author value="Bernhard Schussek &lt;bschussek@gmail.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\HttpKernel\Event\KernelEvent" namespace="Symfony\Component\HttpKernel\Event" name="KernelEvent"/>
+  <member name="response" visibility="private" line="32">
+    <docblock>
+      <description compact="The response object."/>
+      <var type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="getResponse" start="39" end="42" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the response object."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setResponse" start="49" end="54" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets a response and stops event propagation."/>
+      <param type="object" variable="$response">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </param>
+    </docblock>
+    <parameter name="response" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+    </parameter>
+  </method>
+  <method name="hasResponse" start="61" end="64" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns whether a response was set."/>
+      <return description="Whether a response was set" type="object">
+        <type full="Symfony\Component\HttpKernel\Event\bool" namespace="Symfony\Component\HttpKernel\Event" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+</class>

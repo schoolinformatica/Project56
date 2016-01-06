@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PHP_CodeCoverage_Filter" namespace="" name="PHP_CodeCoverage_Filter" abstract="false" final="false" start="16" end="293">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/php-code-coverage/src/CodeCoverage" file="Filter.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/php-code-coverage/src/CodeCoverage/Filter.php" size="7213" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="95db1cfa74b3f9c0f3092e7d456d822938758309" relative="vendor/phpunit/php-code-coverage/src/CodeCoverage/Filter.php"/>
+  <docblock>
+    <description compact="Filter for blacklisting and whitelisting of code coverage information."/>
+    <since value="Class available since Release 1.0.0"/>
+  </docblock>
+  <member name="blacklistedFiles" type="array" default="" visibility="private" line="23">
+    <docblock>
+      <description compact="Source files that are blacklisted."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="whitelistedFiles" type="array" default="" visibility="private" line="30">
+    <docblock>
+      <description compact="Source files that are whitelisted."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="addDirectoryToBlacklist" start="39" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a directory to the blacklist (recursively)."/>
+      <param type="string" variable="$directory"/>
+      <param type="string" variable="$suffix"/>
+      <param type="string" variable="$prefix"/>
+    </docblock>
+    <parameter name="directory" byreference="false" type="{unknown}"/>
+    <parameter name="suffix" byreference="false" type="string" default="'.php'"/>
+    <parameter name="prefix" byreference="false" type="string" default="''"/>
+  </method>
+  <method name="addFileToBlacklist" start="54" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a file to the blacklist."/>
+      <param type="string" variable="$filename"/>
+    </docblock>
+    <parameter name="filename" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addFilesToBlacklist" start="64" end="69" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds files to the blacklist."/>
+      <param type="array" variable="$files"/>
+    </docblock>
+    <parameter name="files" byreference="false" type="array"/>
+  </method>
+  <method name="removeDirectoryFromBlacklist" start="78" end="86" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Removes a directory from the blacklist (recursively)."/>
+      <param type="string" variable="$directory"/>
+      <param type="string" variable="$suffix"/>
+      <param type="string" variable="$prefix"/>
+    </docblock>
+    <parameter name="directory" byreference="false" type="{unknown}"/>
+    <parameter name="suffix" byreference="false" type="string" default="'.php'"/>
+    <parameter name="prefix" byreference="false" type="string" default="''"/>
+  </method>
+  <method name="removeFileFromBlacklist" start="93" end="100" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Removes a file from the blacklist."/>
+      <param type="string" variable="$filename"/>
+    </docblock>
+    <parameter name="filename" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addDirectoryToWhitelist" start="109" end="117" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a directory to the whitelist (recursively)."/>
+      <param type="string" variable="$directory"/>
+      <param type="string" variable="$suffix"/>
+      <param type="string" variable="$prefix"/>
+    </docblock>
+    <parameter name="directory" byreference="false" type="{unknown}"/>
+    <parameter name="suffix" byreference="false" type="string" default="'.php'"/>
+    <parameter name="prefix" byreference="false" type="string" default="''"/>
+  </method>
+  <method name="addFileToWhitelist" start="124" end="127" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a file to the whitelist."/>
+      <param type="string" variable="$filename"/>
+    </docblock>
+    <parameter name="filename" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addFilesToWhitelist" start="134" end="139" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds files to the whitelist."/>
+      <param type="array" variable="$files"/>
+    </docblock>
+    <parameter name="files" byreference="false" type="array"/>
+  </method>
+  <method name="removeDirectoryFromWhitelist" start="148" end="156" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Removes a directory from the whitelist (recursively)."/>
+      <param type="string" variable="$directory"/>
+      <param type="string" variable="$suffix"/>
+      <param type="string" variable="$prefix"/>
+    </docblock>
+    <parameter name="directory" byreference="false" type="{unknown}"/>
+    <parameter name="suffix" byreference="false" type="string" default="'.php'"/>
+    <parameter name="prefix" byreference="false" type="string" default="''"/>
+  </method>
+  <method name="removeFileFromWhitelist" start="163" end="170" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Removes a file from the whitelist."/>
+      <param type="string" variable="$filename"/>
+    </docblock>
+    <parameter name="filename" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isFile" start="178" end="192" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks whether a filename is a real filename."/>
+      <param type="string" variable="$filename"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="filename" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isFiltered" start="204" end="217" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks whether or not a file is filtered.">When the whitelist is empty (default), blacklisting is used.
+When the whitelist is not empty, whitelisting is used.</description>
+      <param type="string" variable="$filename"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <throws type="object">
+        <type full="PHP_CodeCoverage_Exception" namespace="" name="PHP_CodeCoverage_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="filename" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getBlacklist" start="224" end="227" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the list of blacklisted files."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getWhitelist" start="234" end="237" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the list of whitelisted files."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="hasWhitelist" start="245" end="248" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns whether this filter has a whitelist."/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <since value="Method available since Release 1.1.0"/>
+    </docblock>
+  </method>
+  <method name="getBlacklistedFiles" start="256" end="259" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the blacklisted files."/>
+      <return type="array"/>
+      <since value="Method available since Release 2.0.0"/>
+    </docblock>
+  </method>
+  <method name="setBlacklistedFiles" start="267" end="270" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the blacklisted files."/>
+      <param type="array" variable="$blacklistedFiles"/>
+      <since value="Method available since Release 2.0.0"/>
+    </docblock>
+    <parameter name="blacklistedFiles" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getWhitelistedFiles" start="278" end="281" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the whitelisted files."/>
+      <return type="array"/>
+      <since value="Method available since Release 2.0.0"/>
+    </docblock>
+  </method>
+  <method name="setWhitelistedFiles" start="289" end="292" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the whitelisted files."/>
+      <param type="array" variable="$whitelistedFiles"/>
+      <since value="Method available since Release 2.0.0"/>
+    </docblock>
+    <parameter name="whitelistedFiles" byreference="false" type="{unknown}"/>
+  </method>
+</class>

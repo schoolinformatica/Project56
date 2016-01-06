@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SebastianBergmann\Comparator\DOMNodeComparator" namespace="SebastianBergmann\Comparator" name="DOMNodeComparator" abstract="false" final="false" start="19" end="110">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/sebastian/comparator/src" file="DOMNodeComparator.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/sebastian/comparator/src/DOMNodeComparator.php" size="3475" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="aacf03f628892de2af1d18a63de3e1e62a734a76" relative="vendor/sebastian/comparator/src/DOMNodeComparator.php"/>
+  <docblock>
+    <description compact="Compares DOMNode instances for equality."/>
+  </docblock>
+  <extends full="SebastianBergmann\Comparator\ObjectComparator" namespace="SebastianBergmann\Comparator" name="ObjectComparator"/>
+  <method name="accepts" start="28" end="31" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns whether the comparator can compare two values."/>
+      <param description="The first value to compare" type="mixed" variable="$expected"/>
+      <param description="The second value to compare" type="mixed" variable="$actual"/>
+      <return type="object">
+        <type full="SebastianBergmann\Comparator\bool" namespace="SebastianBergmann\Comparator" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="actual" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="assertEquals" start="48" end="69" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Asserts that two values are equal."/>
+      <param description="The first value to compare" type="mixed" variable="$expected"/>
+      <param description="The second value to compare" type="mixed" variable="$actual"/>
+      <param description="The allowed numerical distance between two values to" type="float" variable="$delta">consider them equal</param>
+      <param description="If set to TRUE, arrays are sorted before" type="object" variable="$canonicalize">comparison<type full="SebastianBergmann\Comparator\bool" namespace="SebastianBergmann\Comparator" name="bool"/></param>
+      <param description="If set to TRUE, upper- and lowercasing is" type="object" variable="$ignoreCase">ignored when comparing string values<type full="SebastianBergmann\Comparator\bool" namespace="SebastianBergmann\Comparator" name="bool"/></param>
+      <throws description="Thrown when the comparison" type="object">fails. Contains information about the
+                                       specific errors that lead to the failure.<type full="SebastianBergmann\Comparator\ComparisonFailure" namespace="SebastianBergmann\Comparator" name="ComparisonFailure"/></throws>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="actual" byreference="false" type="{unknown}"/>
+    <parameter name="delta" byreference="false" type="float" default="0.0"/>
+    <parameter name="canonicalize" byreference="false" type="boolean" default="false"/>
+    <parameter name="ignoreCase" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="nodeToText" start="80" end="109" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Returns the normalized, whitespace-cleaned, and indented textual representation of a DOMNode."/>
+      <param type="object" variable="$node">
+        <type full="DOMNode" namespace="" name="DOMNode"/>
+      </param>
+      <param type="object" variable="$canonicalize">
+        <type full="SebastianBergmann\Comparator\bool" namespace="SebastianBergmann\Comparator" name="bool"/>
+      </param>
+      <param type="object" variable="$ignoreCase">
+        <type full="SebastianBergmann\Comparator\bool" namespace="SebastianBergmann\Comparator" name="bool"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="DOMNode" namespace="" name="DOMNode"/>
+    </parameter>
+    <parameter name="canonicalize" byreference="false" type="{unknown}"/>
+    <parameter name="ignoreCase" byreference="false" type="{unknown}"/>
+  </method>
+</class>

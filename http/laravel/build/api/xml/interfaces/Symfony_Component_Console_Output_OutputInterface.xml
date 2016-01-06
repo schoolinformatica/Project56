@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface" abstract="false" final="false" start="21" end="95">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Output" file="OutputInterface.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Output/OutputInterface.php" size="2686" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="b0c762c314dfa2c60125702eacd3ec39c1bac76c" relative="vendor/symfony/console/Output/OutputInterface.php"/>
+  <docblock>
+    <description compact="OutputInterface is the interface implemented by all Output classes."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <constant type="integer" name="VERBOSITY_QUIET" value="0"/>
+  <constant type="integer" name="VERBOSITY_NORMAL" value="1"/>
+  <constant type="integer" name="VERBOSITY_VERBOSE" value="2"/>
+  <constant type="integer" name="VERBOSITY_VERY_VERBOSE" value="3"/>
+  <constant type="integer" name="VERBOSITY_DEBUG" value="4"/>
+  <constant type="integer" name="OUTPUT_NORMAL" value="0"/>
+  <constant type="integer" name="OUTPUT_RAW" value="1"/>
+  <constant type="integer" name="OUTPUT_PLAIN" value="2"/>
+  <method name="write" start="42" end="42" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Writes a message to the output."/>
+      <param description="The message as an array of lines or a single string" type="object" variable="$messages">
+        <type full="Symfony\Component\Console\Output\string|array" namespace="Symfony\Component\Console\Output" name="string|array"/>
+      </param>
+      <param description="Whether to add a newline" type="object" variable="$newline">
+        <type full="Symfony\Component\Console\Output\bool" namespace="Symfony\Component\Console\Output" name="bool"/>
+      </param>
+      <param description="The type of output (one of the OUTPUT constants)" type="int" variable="$type"/>
+      <throws description="When unknown output type is given" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="messages" byreference="false" type="{unknown}"/>
+    <parameter name="newline" byreference="false" type="boolean" default="false"/>
+    <parameter name="type" byreference="false" type="{unknown}" default="" constant="self::OUTPUT_NORMAL"/>
+  </method>
+  <method name="writeln" start="52" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Writes a message to the output and adds a newline at the end."/>
+      <param description="The message as an array of lines or a single string" type="object" variable="$messages">
+        <type full="Symfony\Component\Console\Output\string|array" namespace="Symfony\Component\Console\Output" name="string|array"/>
+      </param>
+      <param description="The type of output (one of the OUTPUT constants)" type="int" variable="$type"/>
+      <throws description="When unknown output type is given" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="messages" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}" default="" constant="self::OUTPUT_NORMAL"/>
+  </method>
+  <method name="setVerbosity" start="59" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the verbosity of the output."/>
+      <param description="The level of verbosity (one of the VERBOSITY constants)" type="int" variable="$level"/>
+    </docblock>
+    <parameter name="level" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getVerbosity" start="66" end="66" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the current verbosity of the output."/>
+      <return description="The current level of verbosity (one of the VERBOSITY constants)" type="int"/>
+    </docblock>
+  </method>
+  <method name="setDecorated" start="73" end="73" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the decorated flag."/>
+      <param description="Whether to decorate the messages" type="object" variable="$decorated">
+        <type full="Symfony\Component\Console\Output\bool" namespace="Symfony\Component\Console\Output" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="decorated" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isDecorated" start="80" end="80" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the decorated flag."/>
+      <return description="true if the output will decorate messages, false otherwise" type="object">
+        <type full="Symfony\Component\Console\Output\bool" namespace="Symfony\Component\Console\Output" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setFormatter" start="87" end="87" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets output formatter."/>
+      <param type="object" variable="$formatter">
+        <type full="Symfony\Component\Console\Formatter\OutputFormatterInterface" namespace="Symfony\Component\Console\Formatter" name="OutputFormatterInterface"/>
+      </param>
+    </docblock>
+    <parameter name="formatter" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Formatter\OutputFormatterInterface" namespace="Symfony\Component\Console\Formatter" name="OutputFormatterInterface"/>
+    </parameter>
+  </method>
+  <method name="getFormatter" start="94" end="94" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns current output formatter instance."/>
+      <return type="object">
+        <type full="Symfony\Component\Console\Formatter\OutputFormatterInterface" namespace="Symfony\Component\Console\Formatter" name="OutputFormatterInterface"/>
+      </return>
+    </docblock>
+  </method>
+</interface>

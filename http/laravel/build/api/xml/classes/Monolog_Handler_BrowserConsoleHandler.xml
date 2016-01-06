@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Handler\BrowserConsoleHandler" namespace="Monolog\Handler" name="BrowserConsoleHandler" abstract="false" final="false" start="21" end="192">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler" file="BrowserConsoleHandler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler/BrowserConsoleHandler.php" size="6213" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="3a785e77a7efc1c17e0d6f19018adbd06f99aea7" relative="vendor/monolog/monolog/src/Monolog/Handler/BrowserConsoleHandler.php"/>
+  <docblock>
+    <description compact="Handler sending logs to browser's javascript console with no browser extension required"/>
+    <author value="Olivier Poitrey &lt;rs@dailymotion.com&gt;"/>
+  </docblock>
+  <extends full="Monolog\Handler\AbstractProcessingHandler" namespace="Monolog\Handler" name="AbstractProcessingHandler"/>
+  <member name="initialized" type="boolean" default="false" visibility="protected" line="23"/>
+  <member name="records" type="array" default="" visibility="protected" line="24"/>
+  <method name="getDefaultFormatter" start="36" end="39" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritDoc}">Formatted output may contain some formatting markers to be transferred to `console.log` using the %c format.
+
+Example of formatted string:
+
+    You can do [[blue text]]{color: blue} or [[green background]]{background-color: green; color: white}</description>
+    </docblock>
+  </method>
+  <method name="write" start="44" end="54" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritDoc}"/>
+    </docblock>
+    <parameter name="record" byreference="false" type="array"/>
+    <inline>
+      <comment value="Accumulate records" line="46"/>
+      <comment value="Register shutdown handler if not already done" line="49"/>
+    </inline>
+  </method>
+  <method name="send" start="60" end="85" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Convert records to javascript console commands and send it to the browser.">This method is automatically called on PHP shutdown if output is HTML or Javascript.</description>
+    </docblock>
+    <inline>
+      <comment value="Check content type" line="63"/>
+    </inline>
+  </method>
+  <method name="reset" start="90" end="93" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Forget all logged records"/>
+    </docblock>
+  </method>
+  <method name="generateScript" start="95" end="115" abstract="false" final="false" static="true" visibility="private"/>
+  <method name="handleStyles" start="117" end="134" abstract="false" final="false" static="true" visibility="private">
+    <parameter name="formatted" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="handleCustomStyles" start="136" end="154" abstract="false" final="false" static="true" visibility="private">
+    <parameter name="style" byreference="false" type="{unknown}"/>
+    <parameter name="string" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="dump" start="156" end="173" abstract="false" final="false" static="true" visibility="private">
+    <parameter name="title" byreference="false" type="{unknown}"/>
+    <parameter name="dict" byreference="false" type="array"/>
+  </method>
+  <method name="quote" start="175" end="178" abstract="false" final="false" static="true" visibility="private">
+    <parameter name="arg" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="call" start="180" end="186" abstract="false" final="false" static="true" visibility="private"/>
+  <method name="call_array" start="188" end="191" abstract="false" final="false" static="true" visibility="private">
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="args" byreference="false" type="array"/>
+  </method>
+</class>

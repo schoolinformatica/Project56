@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Formatter\LogstashFormatter" namespace="Monolog\Formatter" name="LogstashFormatter" abstract="false" final="false" start="22" end="166">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Formatter" file="LogstashFormatter.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Formatter/LogstashFormatter.php" size="5315" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="7553ebb79cf54cc7f21d6acb16aa6c28972aa938" relative="vendor/monolog/monolog/src/Monolog/Formatter/LogstashFormatter.php"/>
+  <docblock>
+    <description compact="Serializes a log message to Logstash Event Format"/>
+    <see value="http://logstash.net/"/>
+    <see value="https://github.com/logstash/logstash/blob/master/lib/logstash/event.rb"/>
+    <author value="Tim Mower &lt;timothy.mower@gmail.com&gt;"/>
+  </docblock>
+  <extends full="Monolog\Formatter\NormalizerFormatter" namespace="Monolog\Formatter" name="NormalizerFormatter"/>
+  <constant type="integer" name="V0" value="0"/>
+  <constant type="integer" name="V1" value="1"/>
+  <member name="systemName" visibility="protected" line="30">
+    <docblock>
+      <description/>
+      <var description="the name of the system for the Logstash log message, used to fill the @source field" type="string"/>
+    </docblock>
+  </member>
+  <member name="applicationName" visibility="protected" line="35">
+    <docblock>
+      <description/>
+      <var description="an application name for the Logstash log message, used to fill the @type field" type="string"/>
+    </docblock>
+  </member>
+  <member name="extraPrefix" visibility="protected" line="40">
+    <docblock>
+      <description/>
+      <var description="a prefix for 'extra' fields from the Monolog record (optional)" type="string"/>
+    </docblock>
+  </member>
+  <member name="contextPrefix" visibility="protected" line="45">
+    <docblock>
+      <description/>
+      <var description="a prefix for 'context' fields from the Monolog record (optional)" type="string"/>
+    </docblock>
+  </member>
+  <member name="version" visibility="protected" line="50">
+    <docblock>
+      <description/>
+      <var description="logstash format version to use" type="integer"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="59" end="69" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param description="the application that sends the data, used as the &quot;type&quot; field of logstash" type="string" variable="$applicationName"/>
+      <param description="the system/machine name, used as the &quot;source&quot; field of logstash, defaults to the hostname of the machine" type="string" variable="$systemName"/>
+      <param description="prefix for extra keys inside logstash &quot;fields&quot;" type="string" variable="$extraPrefix"/>
+      <param description="prefix for context keys inside logstash &quot;fields&quot;, defaults to ctxt_" type="string" variable="$contextPrefix"/>
+      <param description="the logstash format version to use, defaults to 0" type="integer" variable="$version"/>
+    </docblock>
+    <parameter name="applicationName" byreference="false" type="{unknown}"/>
+    <parameter name="systemName" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="extraPrefix" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="contextPrefix" byreference="false" type="string" default="'ctxt_'"/>
+    <parameter name="version" byreference="false" type="{unknown}" default="" constant="self::V0"/>
+    <inline>
+      <comment value="logstash requires a ISO 8601 format date with optional millisecond precision." line="61"/>
+    </inline>
+  </constructor>
+  <method name="format" start="74" end="85" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+  <method name="formatV0" start="87" end="128" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+  <method name="formatV1" start="130" end="165" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+</class>

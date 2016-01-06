@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Encryption\BaseEncrypter" namespace="Illuminate\Encryption" name="BaseEncrypter" abstract="true" final="false" start="8" end="82">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Encryption" file="BaseEncrypter.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Encryption/BaseEncrypter.php" size="2132" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="b69e602c721757a65d93950a3901deb5d3c3c41d" relative="vendor/laravel/framework/src/Illuminate/Encryption/BaseEncrypter.php"/>
+  <member name="key" visibility="protected" line="15">
+    <docblock>
+      <description compact="The encryption key."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <method name="hash" start="24" end="27" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create a MAC for the given value."/>
+      <param type="string" variable="$iv"/>
+      <param type="string" variable="$value"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="iv" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getJsonPayload" start="37" end="53" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the JSON array from the given payload."/>
+      <param type="string" variable="$payload"/>
+      <return type="array"/>
+      <throws type="object">
+        <type full="\Illuminate\Contracts\Encryption\DecryptException" namespace="\Illuminate\Contracts\Encryption" name="DecryptException"/>
+      </throws>
+    </docblock>
+    <parameter name="payload" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="If the payload is not valid JSON or does not have the proper keys set we will" line="41"/>
+      <comment value="assume it is invalid and bail out of the routine since we will not be able" line="42"/>
+      <comment value="to decrypt the given value. We'll also check the MAC for this encryption." line="43"/>
+    </inline>
+  </method>
+  <method name="invalidPayload" start="61" end="64" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Verify that the encryption payload is valid."/>
+      <param type="object" variable="$data">
+        <type full="Illuminate\Encryption\array|mixed" namespace="Illuminate\Encryption" name="array|mixed"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Encryption\bool" namespace="Illuminate\Encryption" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="validMac" start="74" end="81" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Determine if the MAC for the given payload is valid."/>
+      <param type="array" variable="$payload"/>
+      <return type="object">
+        <type full="Illuminate\Encryption\bool" namespace="Illuminate\Encryption" name="bool"/>
+      </return>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="payload" byreference="false" type="array"/>
+  </method>
+</class>

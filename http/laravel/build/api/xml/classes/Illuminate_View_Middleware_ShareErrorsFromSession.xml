@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\View\Middleware\ShareErrorsFromSession" namespace="Illuminate\View\Middleware" name="ShareErrorsFromSession" abstract="false" final="false" start="9" end="51">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/View/Middleware" file="ShareErrorsFromSession.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php" size="1424" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="5bc210aeff41cfbf42bd874a7ea894844775915f" relative="vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php"/>
+  <member name="view" visibility="protected" line="16">
+    <docblock>
+      <description compact="The view factory implementation."/>
+      <var type="object">
+        <type full="\Illuminate\Contracts\View\Factory" namespace="\Illuminate\Contracts\View" name="Factory"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="24" end="27" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new error binder instance."/>
+      <param type="object" variable="$view">
+        <type full="\Illuminate\Contracts\View\Factory" namespace="\Illuminate\Contracts\View" name="Factory"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\View\Middleware\void" namespace="Illuminate\View\Middleware" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="view" byreference="false" type="object">
+      <type full="Illuminate\Contracts\View\Factory" namespace="Illuminate\Contracts\View" name="Factory"/>
+    </parameter>
+  </constructor>
+  <method name="handle" start="36" end="50" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Handle an incoming request."/>
+      <param type="object" variable="$request">
+        <type full="\Illuminate\Http\Request" namespace="\Illuminate\Http" name="Request"/>
+      </param>
+      <param type="object" variable="$next">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="{unknown}"/>
+    <parameter name="next" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+    <inline>
+      <comment value="If the current session has an &quot;errors&quot; variable bound to it, we will share" line="38"/>
+      <comment value="its value with all view instances so the views can easily access errors" line="39"/>
+      <comment value="without having to bind. An empty bag is set when there aren't errors." line="40"/>
+      <comment value="Putting the errors in the view for every view allows the developer to just" line="45"/>
+      <comment value="assume that some errors are always available, which is convenient since" line="46"/>
+      <comment value="they don't have to continually run checks for the presence of errors." line="47"/>
+    </inline>
+  </method>
+</class>

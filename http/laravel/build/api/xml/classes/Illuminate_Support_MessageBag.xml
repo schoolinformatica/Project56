@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Support\MessageBag" namespace="Illuminate\Support" name="MessageBag" abstract="false" final="false" start="12" end="309">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Support" file="MessageBag.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Support/MessageBag.php" size="6952" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="9fafc395509f1aa03e1476ea2e97e2270ddde79b" relative="vendor/laravel/framework/src/Illuminate/Support/MessageBag.php"/>
+  <implements full="Illuminate\Contracts\Support\Arrayable" namespace="Illuminate\Contracts\Support" name="Arrayable"/>
+  <implements full="Countable" namespace="" name="Countable"/>
+  <implements full="Illuminate\Contracts\Support\Jsonable" namespace="Illuminate\Contracts\Support" name="Jsonable"/>
+  <implements full="JsonSerializable" namespace="" name="JsonSerializable"/>
+  <implements full="Illuminate\Contracts\Support\MessageBag" namespace="Illuminate\Contracts\Support" name="MessageBag"/>
+  <implements full="Illuminate\Contracts\Support\MessageProvider" namespace="Illuminate\Contracts\Support" name="MessageProvider"/>
+  <member name="messages" type="array" default="" visibility="protected" line="19">
+    <docblock>
+      <description compact="All of the registered messages."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="format" type="string" default="':message'" visibility="protected" line="26">
+    <docblock>
+      <description compact="Default format for message output."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="34" end="39" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new message bag instance."/>
+      <param type="array" variable="$messages"/>
+      <return type="object">
+        <type full="Illuminate\Support\void" namespace="Illuminate\Support" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="messages" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="keys" start="46" end="49" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the keys present in the message bag."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="add" start="58" end="65" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a message to the bag."/>
+      <param type="string" variable="$key"/>
+      <param type="string" variable="$message"/>
+      <return type="object">
+        <type full="Illuminate\Support\$this" namespace="Illuminate\Support" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="merge" start="73" end="82" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Merge a new array of messages into the bag."/>
+      <param type="object" variable="$messages">
+        <type full="\Illuminate\Contracts\Support\MessageProvider|array" namespace="\Illuminate\Contracts\Support" name="MessageProvider|array"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Support\$this" namespace="Illuminate\Support" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="messages" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isUnique" start="91" end="96" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Determine if a key and message combination already exists."/>
+      <param type="string" variable="$key"/>
+      <param type="string" variable="$message"/>
+      <return type="object">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="has" start="104" end="107" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if messages exist for a given key."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="first" start="116" end="121" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the first message from the bag for a given key."/>
+      <param type="string" variable="$key"/>
+      <param type="string" variable="$format"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="format" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="get" start="130" end="140" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get all of the messages from the bag for a given key."/>
+      <param type="string" variable="$key"/>
+      <param type="string" variable="$format"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="format" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="If the message exists in the container, we will transform it and return" line="132"/>
+      <comment value="the message. Otherwise, we'll return an empty array since the entire" line="133"/>
+      <comment value="methods is to return back an array of messages in the first place." line="134"/>
+    </inline>
+  </method>
+  <method name="all" start="148" end="159" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get all of the messages for every key in the bag."/>
+      <param type="string" variable="$format"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="format" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="transform" start="169" end="183" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Format an array of messages."/>
+      <param type="array" variable="$messages"/>
+      <param type="string" variable="$format"/>
+      <param type="string" variable="$messageKey"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="messages" byreference="false" type="{unknown}"/>
+    <parameter name="format" byreference="false" type="{unknown}"/>
+    <parameter name="messageKey" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="We will simply spin through the given messages and transform each one" line="173"/>
+      <comment value="replacing the :message place holder with the real message allowing" line="174"/>
+      <comment value="the messages to be easily formatted to each developer's desires." line="175"/>
+    </inline>
+  </method>
+  <method name="checkFormat" start="191" end="194" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the appropriate format based on the given format."/>
+      <param type="string" variable="$format"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="format" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getMessages" start="201" end="204" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the raw messages in the container."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getMessageBag" start="211" end="214" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the messages for the instance."/>
+      <return type="object">
+        <type full="\Illuminate\Support\MessageBag" namespace="\Illuminate\Support" name="MessageBag"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getFormat" start="221" end="224" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the default message format."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setFormat" start="232" end="237" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the default message format."/>
+      <param type="string" variable="$format"/>
+      <return type="object">
+        <type full="\Illuminate\Support\MessageBag" namespace="\Illuminate\Support" name="MessageBag"/>
+      </return>
+    </docblock>
+    <parameter name="format" byreference="false" type="string" default="':message'"/>
+  </method>
+  <method name="isEmpty" start="244" end="247" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the message bag has any messages."/>
+      <return type="object">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="any" start="254" end="257" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the message bag has any messages."/>
+      <return type="object">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="count" start="264" end="267" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the number of messages in the container."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="toArray" start="274" end="277" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the instance as an array."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="jsonSerialize" start="284" end="287" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Convert the object into something JSON serializable."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="toJson" start="295" end="298" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Convert the object to its JSON representation."/>
+      <param type="int" variable="$options"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="options" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="__toString" start="305" end="308" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Convert the message bag to its string representation."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+</class>

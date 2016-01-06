@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_ByteStream_ArrayByteStream" namespace="" name="Swift_ByteStream_ArrayByteStream" abstract="false" final="false" start="16" end="184">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/ByteStream" file="ArrayByteStream.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/ByteStream/ArrayByteStream.php" size="4306" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="fba53c21b137895f49be4790a2c572b6aa6c70e7" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/ByteStream/ArrayByteStream.php"/>
+  <docblock>
+    <description compact="Allows reading and writing of bytes to and from an array."/>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <implements full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+  <implements full="Swift_OutputByteStream" namespace="" name="Swift_OutputByteStream"/>
+  <member name="_array" type="array" default="" visibility="private" line="23">
+    <docblock>
+      <description compact="The internal stack of bytes."/>
+      <var type="array" of="string"/>
+    </docblock>
+  </member>
+  <member name="_arraySize" type="integer" default="0" visibility="private" line="30">
+    <docblock>
+      <description compact="The size of the stack."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="_offset" type="integer" default="0" visibility="private" line="37">
+    <docblock>
+      <description compact="The internal pointer offset."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="_mirrors" type="array" default="" visibility="private" line="44">
+    <docblock>
+      <description compact="Bound streams."/>
+      <var type="array" of="object">
+        <type full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="53" end="63" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new ArrayByteStream.">If $stack is given the stream will be populated with the bytes it contains.</description>
+      <param description="of bytes in string or array form, optional" type="mixed" variable="$stack"/>
+    </docblock>
+    <parameter name="stack" byreference="false" type="{unknown}" default="" constant="null"/>
+  </constructor>
+  <method name="read" start="77" end="94" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Reads $length bytes from the stream into a string and moves the pointer through the stream by $length.">If less bytes exist than are requested the
+remaining bytes are given instead. If no bytes are remaining at all, boolean
+false is returned.</description>
+      <param type="int" variable="$length"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="length" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Don't use array slice" line="83"/>
+    </inline>
+  </method>
+  <method name="write" start="101" end="112" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Writes $bytes to the end of the stream."/>
+      <param type="string" variable="$bytes"/>
+    </docblock>
+    <parameter name="bytes" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="commit" start="117" end="119" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Not used."/>
+    </docblock>
+  </method>
+  <method name="bind" start="129" end="132" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Attach $is to this stream.">The stream acts as an observer, receiving all data that is written.
+All <link xmlns="http://xml.phpdox.net/src" value="write()"/> and <link xmlns="http://xml.phpdox.net/src" value="flushBuffers()"/> operations will be mirrored.
+</description>
+      <param type="object" variable="$is">
+        <type full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+      </param>
+    </docblock>
+    <parameter name="is" byreference="false" type="object">
+      <type full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+    </parameter>
+  </method>
+  <method name="unbind" start="143" end="150" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remove an already bound stream.">If $is is not bound, no errors will be raised.
+If the stream currently has any buffered data it will be written to $is
+before unbinding occurs.</description>
+      <param type="object" variable="$is">
+        <type full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+      </param>
+    </docblock>
+    <parameter name="is" byreference="false" type="object">
+      <type full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+    </parameter>
+  </method>
+  <method name="setReadPointer" start="159" end="168" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Move the internal read pointer to $byteOffset in the stream."/>
+      <param type="int" variable="$byteOffset"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="byteOffset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="flushBuffers" start="174" end="183" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Flush the contents of the stream (empty it) and set the internal pointer to the beginning."/>
+    </docblock>
+  </method>
+</class>

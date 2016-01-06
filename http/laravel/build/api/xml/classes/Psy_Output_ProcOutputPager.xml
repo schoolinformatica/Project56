@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\Output\ProcOutputPager" namespace="Psy\Output" name="ProcOutputPager" abstract="false" final="false" start="24" end="103">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Output" file="ProcOutputPager.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Output/ProcOutputPager.php" size="2809" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="2f1c7094471e91d47f38c86247c65ba51174661e" relative="vendor/psy/psysh/src/Psy/Output/ProcOutputPager.php"/>
+  <docblock>
+    <description compact="ProcOutputPager class.">A ProcOutputPager instance wraps a regular StreamOutput's stream. Rather
+than writing directly to the stream, it shells out to a pager process and
+gives that process the stream as stdout. This means regular *nix commands
+like `less` and `more` can be used to page large amounts of output.</description>
+  </docblock>
+  <extends full="Symfony\Component\Console\Output\StreamOutput" namespace="Symfony\Component\Console\Output" name="StreamOutput"/>
+  <implements full="Psy\Output\OutputPager" namespace="Psy\Output" name="OutputPager"/>
+  <member name="proc" visibility="private" line="26"/>
+  <member name="pipe" visibility="private" line="27"/>
+  <member name="stream" visibility="private" line="28"/>
+  <member name="cmd" visibility="private" line="29"/>
+  <constructor name="__construct" start="37" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param type="object" variable="$output">
+        <type full="Symfony\Component\Console\Output\StreamOutput" namespace="Symfony\Component\Console\Output" name="StreamOutput"/>
+      </param>
+      <param description="Pager process command (default: 'less -R -S -F -X')" type="string" variable="$cmd"/>
+    </docblock>
+    <parameter name="output" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Output\StreamOutput" namespace="Symfony\Component\Console\Output" name="StreamOutput"/>
+    </parameter>
+    <parameter name="cmd" byreference="false" type="string" default="'less -R -S -F -X'"/>
+  </constructor>
+  <method name="doWrite" start="51" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Writes a message to the output."/>
+      <param description="A message to write to the output" type="string" variable="$message"/>
+      <param description="Whether to add a newline or not" type="object" variable="$newline">
+        <type full="Psy\Output\bool" namespace="Psy\Output" name="bool"/>
+      </param>
+      <throws description="When unable to write output (should never happen)" type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="newline" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="close" start="67" end="81" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Close the current pager process."/>
+    </docblock>
+  </method>
+  <method name="getPipe" start="88" end="102" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Get a pipe for paging output.">If no active pager process exists, fork one and return its input pipe.</description>
+    </docblock>
+  </method>
+</class>

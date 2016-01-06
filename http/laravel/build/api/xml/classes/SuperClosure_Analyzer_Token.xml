@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SuperClosure\Analyzer\Token" namespace="SuperClosure\Analyzer" name="Token" abstract="false" final="false" start="11" end="70">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/jeremeamia/SuperClosure/src/Analyzer" file="Token.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/jeremeamia/SuperClosure/src/Analyzer/Token.php" size="1668" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="3b02a046c5b879406a468603e0599d139f63b07a" relative="vendor/jeremeamia/SuperClosure/src/Analyzer/Token.php"/>
+  <docblock>
+    <description compact="A Token object represents and individual token parsed from PHP code.">Each Token object is a normalized token created from the result of the
+`get_token_all()`. function, which is part of PHP's tokenizer.</description>
+    <link value="http://us2.php.net/manual/en/tokens.php"/>
+  </docblock>
+  <member name="name" visibility="public" line="16">
+    <docblock>
+      <description/>
+      <var description="The token name. Always null for literal tokens." type="string"/>
+    </docblock>
+  </member>
+  <member name="value" visibility="public" line="21">
+    <docblock>
+      <description/>
+      <var description="The token's integer value. Always null for literal tokens." type="object">
+        <type full="SuperClosure\Analyzer\int|null" namespace="SuperClosure\Analyzer" name="int|null"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="code" visibility="public" line="26">
+    <docblock>
+      <description/>
+      <var description="The PHP code of the token." type="string"/>
+    </docblock>
+  </member>
+  <member name="line" visibility="public" line="31">
+    <docblock>
+      <description/>
+      <var description="The line number of the token in the original code." type="object">
+        <type full="SuperClosure\Analyzer\int|null" namespace="SuperClosure\Analyzer" name="int|null"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="42" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructs a token object."/>
+      <param type="string" variable="$code"/>
+      <param type="object" variable="$value">
+        <type full="SuperClosure\Analyzer\int|null" namespace="SuperClosure\Analyzer" name="int|null"/>
+      </param>
+      <param type="object" variable="$line">
+        <type full="SuperClosure\Analyzer\int|null" namespace="SuperClosure\Analyzer" name="int|null"/>
+      </param>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="code" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="line" byreference="false" type="{unknown}" default="" constant="null"/>
+  </constructor>
+  <method name="is" start="61" end="64" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determines if the token's value/code is equal to the specified value."/>
+      <param description="The value to check." type="mixed" variable="$value"/>
+      <return description="True if the token is equal to the value." type="object">
+        <type full="SuperClosure\Analyzer\bool" namespace="SuperClosure\Analyzer" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__toString" start="66" end="69" abstract="false" final="false" static="false" visibility="public"/>
+</class>

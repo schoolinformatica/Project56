@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route" abstract="false" final="false" start="20" end="659">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/routing" file="Route.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/routing/Route.php" size="17218" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="0c2b07d3a77598be30176f22302fae0ca1b04f99" relative="vendor/symfony/routing/Route.php"/>
+  <docblock>
+    <description compact="A Route describes a route and its parameters."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+    <author value="Tobias Schultze &lt;http://tobion.de&gt;"/>
+  </docblock>
+  <implements full="Serializable" namespace="" name="Serializable"/>
+  <member name="path" type="string" default="'/'" visibility="private" line="25">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="host" type="string" default="''" visibility="private" line="30">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="schemes" type="array" default="" visibility="private" line="35">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="methods" type="array" default="" visibility="private" line="40">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="defaults" type="array" default="" visibility="private" line="45">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="requirements" type="array" default="" visibility="private" line="50">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="options" type="array" default="" visibility="private" line="55">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="compiled" visibility="private" line="60">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\Routing\null|CompiledRoute" namespace="Symfony\Component\Routing" name="null|CompiledRoute"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="condition" type="string" default="''" visibility="private" line="65">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="83" end="99" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor.">Available options:
+
+ * compiler_class: A class name able to compile this route instance (RouteCompiler by default)</description>
+      <param description="The path pattern to match" type="string" variable="$path"/>
+      <param description="An array of default parameter values" type="array" variable="$defaults"/>
+      <param description="An array of requirements for parameters (regexes)" type="array" variable="$requirements"/>
+      <param description="An array of options" type="array" variable="$options"/>
+      <param description="The host pattern to match" type="string" variable="$host"/>
+      <param description="A required URI scheme or an array of restricted schemes" type="object" variable="$schemes">
+        <type full="Symfony\Component\Routing\string|array" namespace="Symfony\Component\Routing" name="string|array"/>
+      </param>
+      <param description="A required HTTP method or an array of restricted methods" type="object" variable="$methods">
+        <type full="Symfony\Component\Routing\string|array" namespace="Symfony\Component\Routing" name="string|array"/>
+      </param>
+      <param description="A condition that should evaluate to true for the route to match" type="string" variable="$condition"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="defaults" byreference="false" type="array" default=""/>
+    <parameter name="requirements" byreference="false" type="array" default=""/>
+    <parameter name="options" byreference="false" type="array" default=""/>
+    <parameter name="host" byreference="false" type="string" default="''"/>
+    <parameter name="schemes" byreference="false" type="array" default=""/>
+    <parameter name="methods" byreference="false" type="array" default=""/>
+    <parameter name="condition" byreference="false" type="string" default="''"/>
+    <inline>
+      <comment value="The conditions make sure that an initial empty $schemes/$methods does not override the corresponding requirement." line="90"/>
+      <comment value="They can be removed when the BC layer is removed." line="91"/>
+    </inline>
+  </constructor>
+  <method name="serialize" start="104" end="117" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="unserialize" start="122" end="139" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="serialized" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getPattern" start="148" end="153" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the pattern for the path."/>
+      <return description="The pattern" type="string"/>
+      <deprecated value="since version 2.2, to be removed in 3.0. Use getPath instead."/>
+    </docblock>
+  </method>
+  <method name="setPattern" start="166" end="171" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the pattern for the path.">This method implements a fluent interface.</description>
+      <param description="The path pattern" type="string" variable="$pattern"/>
+      <return description="The current Route instance" type="object">
+        <type full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route"/>
+      </return>
+      <deprecated value="since version 2.2, to be removed in 3.0. Use setPath instead."/>
+    </docblock>
+    <parameter name="pattern" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getPath" start="178" end="181" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the pattern for the path."/>
+      <return description="The path pattern" type="string"/>
+    </docblock>
+  </method>
+  <method name="setPath" start="192" end="200" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the pattern for the path.">This method implements a fluent interface.</description>
+      <param description="The path pattern" type="string" variable="$pattern"/>
+      <return description="The current Route instance" type="object">
+        <type full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route"/>
+      </return>
+    </docblock>
+    <parameter name="pattern" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="A pattern must start with a slash and must not have multiple slashes at the beginning because the" line="194"/>
+      <comment value="generated path for this route would be confused with a network path, e.g. '//domain.com/path'." line="195"/>
+    </inline>
+  </method>
+  <method name="getHost" start="207" end="210" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the pattern for the host."/>
+      <return description="The host pattern" type="string"/>
+    </docblock>
+  </method>
+  <method name="setHost" start="221" end="227" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the pattern for the host.">This method implements a fluent interface.</description>
+      <param description="The host pattern" type="string" variable="$pattern"/>
+      <return description="The current Route instance" type="object">
+        <type full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route"/>
+      </return>
+    </docblock>
+    <parameter name="pattern" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getSchemes" start="235" end="238" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the lowercased schemes this route is restricted to.">So an empty array means that any scheme is allowed.</description>
+      <return description="The schemes" type="array"/>
+    </docblock>
+  </method>
+  <method name="setSchemes" start="250" end="264" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the schemes (e.g. 'https') this route is restricted to.">So an empty array means that any scheme is allowed.
+
+This method implements a fluent interface.</description>
+      <param description="The scheme or an array of schemes" type="object" variable="$schemes">
+        <type full="Symfony\Component\Routing\string|array" namespace="Symfony\Component\Routing" name="string|array"/>
+      </param>
+      <return description="The current Route instance" type="object">
+        <type full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route"/>
+      </return>
+    </docblock>
+    <parameter name="schemes" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="this is to keep BC and will be removed in a future version" line="254"/>
+    </inline>
+  </method>
+  <method name="hasScheme" start="273" end="276" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks if a scheme requirement has been set."/>
+      <param type="string" variable="$scheme"/>
+      <return description="true if the scheme requirement exists, otherwise false" type="object">
+        <type full="Symfony\Component\Routing\bool" namespace="Symfony\Component\Routing" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="scheme" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getMethods" start="284" end="287" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the uppercased HTTP methods this route is restricted to.">So an empty array means that any method is allowed.</description>
+      <return description="The methods" type="array"/>
+    </docblock>
+  </method>
+  <method name="setMethods" start="299" end="313" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the HTTP methods (e.g. 'POST') this route is restricted to.">So an empty array means that any method is allowed.
+
+This method implements a fluent interface.</description>
+      <param description="The method or an array of methods" type="object" variable="$methods">
+        <type full="Symfony\Component\Routing\string|array" namespace="Symfony\Component\Routing" name="string|array"/>
+      </param>
+      <return description="The current Route instance" type="object">
+        <type full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route"/>
+      </return>
+    </docblock>
+    <parameter name="methods" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="this is to keep BC and will be removed in a future version" line="303"/>
+    </inline>
+  </method>
+  <method name="getOptions" start="320" end="323" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the options."/>
+      <return description="The options" type="array"/>
+    </docblock>
+  </method>
+  <method name="setOptions" start="334" end="341" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the options.">This method implements a fluent interface.</description>
+      <param description="The options" type="array" variable="$options"/>
+      <return description="The current Route instance" type="object">
+        <type full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route"/>
+      </return>
+    </docblock>
+    <parameter name="options" byreference="false" type="array"/>
+  </method>
+  <method name="addOptions" start="352" end="360" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds options.">This method implements a fluent interface.</description>
+      <param description="The options" type="array" variable="$options"/>
+      <return description="The current Route instance" type="object">
+        <type full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route"/>
+      </return>
+    </docblock>
+    <parameter name="options" byreference="false" type="array"/>
+  </method>
+  <method name="setOption" start="372" end="378" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets an option value.">This method implements a fluent interface.</description>
+      <param description="An option name" type="string" variable="$name"/>
+      <param description="The option value" type="mixed" variable="$value"/>
+      <return description="The current Route instance" type="object">
+        <type full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getOption" start="387" end="390" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get an option value."/>
+      <param description="An option name" type="string" variable="$name"/>
+      <return description="The option value or null when not given" type="mixed"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasOption" start="399" end="402" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks if an option has been set."/>
+      <param description="An option name" type="string" variable="$name"/>
+      <return description="true if the option is set, false otherwise" type="object">
+        <type full="Symfony\Component\Routing\bool" namespace="Symfony\Component\Routing" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getDefaults" start="409" end="412" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the defaults."/>
+      <return description="The defaults" type="array"/>
+    </docblock>
+  </method>
+  <method name="setDefaults" start="423" end="428" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the defaults.">This method implements a fluent interface.</description>
+      <param description="The defaults" type="array" variable="$defaults"/>
+      <return description="The current Route instance" type="object">
+        <type full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route"/>
+      </return>
+    </docblock>
+    <parameter name="defaults" byreference="false" type="array"/>
+  </method>
+  <method name="addDefaults" start="439" end="447" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds defaults.">This method implements a fluent interface.</description>
+      <param description="The defaults" type="array" variable="$defaults"/>
+      <return description="The current Route instance" type="object">
+        <type full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route"/>
+      </return>
+    </docblock>
+    <parameter name="defaults" byreference="false" type="array"/>
+  </method>
+  <method name="getDefault" start="456" end="459" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets a default value."/>
+      <param description="A variable name" type="string" variable="$name"/>
+      <return description="The default value or null when not given" type="mixed"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasDefault" start="468" end="471" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks if a default value is set for the given variable."/>
+      <param description="A variable name" type="string" variable="$name"/>
+      <return description="true if the default value is set, false otherwise" type="object">
+        <type full="Symfony\Component\Routing\bool" namespace="Symfony\Component\Routing" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setDefault" start="481" end="487" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets a default value."/>
+      <param description="A variable name" type="string" variable="$name"/>
+      <param description="The default value" type="mixed" variable="$default"/>
+      <return description="The current Route instance" type="object">
+        <type full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getRequirements" start="494" end="497" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the requirements."/>
+      <return description="The requirements" type="array"/>
+    </docblock>
+  </method>
+  <method name="setRequirements" start="508" end="513" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the requirements.">This method implements a fluent interface.</description>
+      <param description="The requirements" type="array" variable="$requirements"/>
+      <return description="The current Route instance" type="object">
+        <type full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route"/>
+      </return>
+    </docblock>
+    <parameter name="requirements" byreference="false" type="array"/>
+  </method>
+  <method name="addRequirements" start="524" end="532" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds requirements.">This method implements a fluent interface.</description>
+      <param description="The requirements" type="array" variable="$requirements"/>
+      <return description="The current Route instance" type="object">
+        <type full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route"/>
+      </return>
+    </docblock>
+    <parameter name="requirements" byreference="false" type="array"/>
+  </method>
+  <method name="getRequirement" start="541" end="550" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the requirement for the given key."/>
+      <param description="The key" type="string" variable="$key"/>
+      <return description="The regex or null when not given" type="object">
+        <type full="Symfony\Component\Routing\string|null" namespace="Symfony\Component\Routing" name="string|null"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasRequirement" start="559" end="562" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks if a requirement is set for the given key."/>
+      <param description="A variable name" type="string" variable="$key"/>
+      <return description="true if a requirement is specified, false otherwise" type="object">
+        <type full="Symfony\Component\Routing\bool" namespace="Symfony\Component\Routing" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setRequirement" start="572" end="578" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets a requirement for the given key."/>
+      <param description="The key" type="string" variable="$key"/>
+      <param description="The regex" type="string" variable="$regex"/>
+      <return description="The current Route instance" type="object">
+        <type full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="regex" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getCondition" start="585" end="588" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the condition."/>
+      <return description="The condition" type="string"/>
+    </docblock>
+  </method>
+  <method name="setCondition" start="599" end="605" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the condition.">This method implements a fluent interface.</description>
+      <param description="The condition" type="string" variable="$condition"/>
+      <return description="The current Route instance" type="object">
+        <type full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route"/>
+      </return>
+    </docblock>
+    <parameter name="condition" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="compile" start="617" end="626" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compiles the route."/>
+      <return description="A CompiledRoute instance" type="object">
+        <type full="Symfony\Component\Routing\CompiledRoute" namespace="Symfony\Component\Routing" name="CompiledRoute"/>
+      </return>
+      <throws description="If the Route cannot be compiled because the" type="object">path or host pattern is invalid<type full="\LogicException" namespace="" name="LogicException"/></throws>
+      <see value="RouteCompiler which is responsible for the compilation process"/>
+    </docblock>
+  </method>
+  <method name="sanitizeRequirement" start="628" end="658" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="regex" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="this is to keep BC and will be removed in a future version" line="646"/>
+    </inline>
+  </method>
+</class>

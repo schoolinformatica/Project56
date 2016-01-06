@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Support\ServiceProvider" namespace="Illuminate\Support" name="ServiceProvider" abstract="true" final="false" start="7" end="236">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Support" file="ServiceProvider.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Support/ServiceProvider.php" size="5594" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="9614dd6fae392fab5e60a6f9e9e35454a3ffc3af" relative="vendor/laravel/framework/src/Illuminate/Support/ServiceProvider.php"/>
+  <member name="app" visibility="protected" line="14">
+    <docblock>
+      <description compact="The application instance."/>
+      <var type="object">
+        <type full="\Illuminate\Contracts\Foundation\Application" namespace="\Illuminate\Contracts\Foundation" name="Application"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="defer" type="boolean" default="false" visibility="protected" line="21">
+    <docblock>
+      <description compact="Indicates if loading of the provider is deferred."/>
+      <var type="object">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="publishes" type="array" default="" visibility="protected" line="28">
+    <docblock>
+      <description compact="The paths that should be published."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="publishGroups" type="array" default="" visibility="protected" line="35">
+    <docblock>
+      <description compact="The paths that should be published by group."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="43" end="46" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new service provider instance."/>
+      <param type="object" variable="$app">
+        <type full="\Illuminate\Contracts\Foundation\Application" namespace="\Illuminate\Contracts\Foundation" name="Application"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Support\void" namespace="Illuminate\Support" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="app" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="register" start="53" end="53" abstract="true" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register the service provider."/>
+      <return type="object">
+        <type full="Illuminate\Support\void" namespace="Illuminate\Support" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="mergeConfigFrom" start="62" end="67" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Merge the given configuration with the existing configuration."/>
+      <param type="string" variable="$path"/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Support\void" namespace="Illuminate\Support" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="loadViewsFrom" start="76" end="83" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register a view file namespace."/>
+      <param type="string" variable="$path"/>
+      <param type="string" variable="$namespace"/>
+      <return type="object">
+        <type full="Illuminate\Support\void" namespace="Illuminate\Support" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="namespace" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="loadTranslationsFrom" start="92" end="95" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register a translation file namespace."/>
+      <param type="string" variable="$path"/>
+      <param type="string" variable="$namespace"/>
+      <return type="object">
+        <type full="Illuminate\Support\void" namespace="Illuminate\Support" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="namespace" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="publishes" start="104" end="121" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register paths to be published by the publish command."/>
+      <param type="array" variable="$paths"/>
+      <param type="string" variable="$group"/>
+      <return type="object">
+        <type full="Illuminate\Support\void" namespace="Illuminate\Support" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="paths" byreference="false" type="array"/>
+    <parameter name="group" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="pathsToPublish" start="130" end="159" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get the paths to publish."/>
+      <param type="string" variable="$provider"/>
+      <param type="string" variable="$group"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="provider" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="group" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="commands" start="167" end="179" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register the package's custom Artisan commands."/>
+      <param type="object" variable="$commands">
+        <type full="Illuminate\Support\array|mixed" namespace="Illuminate\Support" name="array|mixed"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Support\void" namespace="Illuminate\Support" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="commands" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="To register the commands with Artisan, we will grab each of the arguments" line="171"/>
+      <comment value="passed into the method and listen for Artisan &quot;start&quot; event which will" line="172"/>
+      <comment value="give us the Artisan console instance which we will give commands to." line="173"/>
+    </inline>
+  </method>
+  <method name="provides" start="186" end="189" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the services provided by the provider."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="when" start="196" end="199" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the events that trigger this service provider to register."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="isDeferred" start="206" end="209" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the provider is deferred."/>
+      <return type="object">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="compiles" start="216" end="219" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get a list of files that should be compiled for the package."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="__call" start="228" end="235" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Dynamically handle missing method calls."/>
+      <param type="string" variable="$method"/>
+      <param type="array" variable="$parameters"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="{unknown}"/>
+  </method>
+</class>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\Command\ReflectingCommand" namespace="Psy\Command" name="ReflectingCommand" abstract="true" final="false" start="22" end="172">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Command" file="ReflectingCommand.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Command/ReflectingCommand.php" size="5355" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="203660c0b1ee0b33e968fa10f793c54c8190195c" relative="vendor/psy/psysh/src/Psy/Command/ReflectingCommand.php"/>
+  <docblock>
+    <description compact="An abstract command with helpers for inspecting the current context."/>
+  </docblock>
+  <extends full="Psy\Command\Command" namespace="Psy\Command" name="Command"/>
+  <implements full="Psy\ContextAware" namespace="Psy" name="ContextAware"/>
+  <constant type="string" name="CLASS_OR_FUNC" value="'/^[\\\\\w]+$/'"/>
+  <constant type="string" name="INSTANCE" value="'/^\$(\w+)$/'"/>
+  <constant type="string" name="CLASS_MEMBER" value="'/^([\\\\\w]+)::(\w+)$/'"/>
+  <constant type="string" name="CLASS_STATIC" value="'/^([\\\\\w]+)::\$(\w+)$/'"/>
+  <constant type="string" name="INSTANCE_MEMBER" value="'/^\$(\w+)(::|-&gt;)(\w+)$/'"/>
+  <constant type="string" name="INSTANCE_STATIC" value="'/^\$(\w+)::\$(\w+)$/'"/>
+  <member name="context" visibility="protected" line="36">
+    <docblock>
+      <description compact="Context instance (for ContextAware interface)."/>
+      <var type="object">
+        <type full="Psy\Context" namespace="Psy" name="Context"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="setContext" start="43" end="46" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="ContextAware interface."/>
+      <param type="object" variable="$context">
+        <type full="Psy\Context" namespace="Psy" name="Context"/>
+      </param>
+    </docblock>
+    <parameter name="context" byreference="false" type="object">
+      <type full="Psy\Context" namespace="Psy" name="Context"/>
+    </parameter>
+  </method>
+  <method name="getTarget" start="58" end="90" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the target for a value."/>
+      <throws description="when the value specified can't be resolved." type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <param description="Function, class, variable, constant, method or property name." type="string" variable="$valueName"/>
+      <param description="True if the name should only refer to a class, function or instance" type="object" variable="$classOnly">
+        <type full="Psy\Command\bool" namespace="Psy\Command" name="bool"/>
+      </param>
+      <return description="(class or instance name, member name, kind)" type="array"/>
+    </docblock>
+    <parameter name="valueName" byreference="false" type="{unknown}"/>
+    <parameter name="classOnly" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="resolveName" start="100" end="115" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Resolve a class or function name (with the current shell namespace)."/>
+      <param type="string" variable="$name"/>
+      <param description="(default: false)" type="object" variable="$includeFunctions">
+        <type full="Psy\Command\bool" namespace="Psy\Command" name="bool"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="includeFunctions" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="getTargetAndReflector" start="125" end="130" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get a Reflector and documentation for a function, class or instance, constant, method or property."/>
+      <param description="Function, class, variable, constant, method or property name." type="string" variable="$valueName"/>
+      <param description="True if the name should only refer to a class, function or instance" type="object" variable="$classOnly">
+        <type full="Psy\Command\bool" namespace="Psy\Command" name="bool"/>
+      </param>
+      <return description="(value, Reflector)" type="array"/>
+    </docblock>
+    <parameter name="valueName" byreference="false" type="{unknown}"/>
+    <parameter name="classOnly" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="resolveInstance" start="141" end="149" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Return a variable instance from the current scope."/>
+      <throws description="when the requested variable does not exist in the current scope." type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <param type="string" variable="$name"/>
+      <return description="Variable instance." type="mixed"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getScopeVariable" start="158" end="161" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get a variable from the current shell scope."/>
+      <param type="string" variable="$name"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getScopeVariables" start="168" end="171" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get all scope variables from the current shell scope."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+</class>

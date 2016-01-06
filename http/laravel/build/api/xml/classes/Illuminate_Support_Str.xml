@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Support\Str" namespace="Illuminate\Support" name="Str" abstract="false" final="false" start="9" end="460">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Support" file="Str.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Support/Str.php" size="11495" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="2da7177844e5d8742ff086b9d01d4a13ab45e33f" relative="vendor/laravel/framework/src/Illuminate/Support/Str.php"/>
+  <uses full="Illuminate\Support\Traits\Macroable" namespace="Illuminate\Support\Traits" name="Macroable" start="11" end="11"/>
+  <member name="snakeCache" type="array" default="" visibility="protected" line="18">
+    <docblock>
+      <description compact="The cache of snake-cased words."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="camelCache" type="array" default="" visibility="protected" line="25">
+    <docblock>
+      <description compact="The cache of camel-cased words."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="studlyCache" type="array" default="" visibility="protected" line="32">
+    <docblock>
+      <description compact="The cache of studly-cased words."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="ascii" start="40" end="43" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Transliterate a UTF-8 value to ASCII."/>
+      <param type="string" variable="$value"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="camel" start="51" end="58" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Convert a value to camel case."/>
+      <param type="string" variable="$value"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="contains" start="67" end="76" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Determine if a given string contains a given substring."/>
+      <param type="string" variable="$haystack"/>
+      <param type="object" variable="$needles">
+        <type full="Illuminate\Support\string|array" namespace="Illuminate\Support" name="string|array"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="haystack" byreference="false" type="{unknown}"/>
+    <parameter name="needles" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="endsWith" start="85" end="94" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Determine if a given string ends with a given substring."/>
+      <param type="string" variable="$haystack"/>
+      <param type="object" variable="$needles">
+        <type full="Illuminate\Support\string|array" namespace="Illuminate\Support" name="string|array"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="haystack" byreference="false" type="{unknown}"/>
+    <parameter name="needles" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="finish" start="103" end="108" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Cap a string with a single instance of a given value."/>
+      <param type="string" variable="$value"/>
+      <param type="string" variable="$cap"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="cap" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="is" start="117" end="131" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Determine if a given string matches a given pattern."/>
+      <param type="string" variable="$pattern"/>
+      <param type="string" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="pattern" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Asterisks are translated into zero-or-more regular expression wildcards" line="125"/>
+      <comment value="to make it convenient to check if the strings starts with the given" line="126"/>
+      <comment value="pattern such as &quot;library/*&quot;, making any string check convenient." line="127"/>
+    </inline>
+  </method>
+  <method name="length" start="139" end="142" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Return the length of the given string."/>
+      <param type="string" variable="$value"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="limit" start="152" end="159" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Limit the number of characters in a string."/>
+      <param type="string" variable="$value"/>
+      <param type="int" variable="$limit"/>
+      <param type="string" variable="$end"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="limit" byreference="false" type="integer" default="100"/>
+    <parameter name="end" byreference="false" type="string" default="'...'"/>
+  </method>
+  <method name="lower" start="167" end="170" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Convert the given string to lower-case."/>
+      <param type="string" variable="$value"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="words" start="180" end="189" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Limit the number of words in a string."/>
+      <param type="string" variable="$value"/>
+      <param type="int" variable="$words"/>
+      <param type="string" variable="$end"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="words" byreference="false" type="integer" default="100"/>
+    <parameter name="end" byreference="false" type="string" default="'...'"/>
+  </method>
+  <method name="parseCallback" start="198" end="201" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Parse a Class@method style callback into class and method."/>
+      <param type="string" variable="$callback"/>
+      <param type="string" variable="$default"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="plural" start="210" end="213" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get the plural form of an English word."/>
+      <param type="string" variable="$value"/>
+      <param type="int" variable="$count"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="count" byreference="false" type="integer" default="2"/>
+  </method>
+  <method name="random" start="223" end="236" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Generate a more truly &quot;random&quot; alpha-numeric string."/>
+      <param type="int" variable="$length"/>
+      <return type="string"/>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="length" byreference="false" type="integer" default="16"/>
+  </method>
+  <method name="randomBytes" start="246" end="261" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Generate a more truly &quot;random&quot; bytes."/>
+      <param type="int" variable="$length"/>
+      <return type="string"/>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="length" byreference="false" type="integer" default="16"/>
+  </method>
+  <method name="quickRandom" start="271" end="276" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Generate a &quot;random&quot; alpha-numeric string.">Should not be considered sufficient for cryptography, etc.</description>
+      <param type="int" variable="$length"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="length" byreference="false" type="integer" default="16"/>
+  </method>
+  <method name="equals" start="289" end="316" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Compares two strings using a constant-time algorithm.">Note: This method will leak length information.
+
+Note: Adapted from Symfony\Component\Security\Core\Util\StringUtils.</description>
+      <param type="string" variable="$knownString"/>
+      <param type="string" variable="$userInput"/>
+      <return type="object">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="knownString" byreference="false" type="{unknown}"/>
+    <parameter name="userInput" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="upper" start="324" end="327" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Convert the given string to upper-case."/>
+      <param type="string" variable="$value"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="title" start="335" end="338" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Convert the given string to title case."/>
+      <param type="string" variable="$value"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="singular" start="346" end="349" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get the singular form of an English word."/>
+      <param type="string" variable="$value"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="slug" start="358" end="374" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Generate a URL friendly &quot;slug&quot; from a given string."/>
+      <param type="string" variable="$title"/>
+      <param type="string" variable="$separator"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="title" byreference="false" type="{unknown}"/>
+    <parameter name="separator" byreference="false" type="string" default="'-'"/>
+    <inline>
+      <comment value="Convert all dashes/underscores into separator" line="362"/>
+      <comment value="Remove all characters that are not the separator, letters, numbers, or whitespace." line="367"/>
+      <comment value="Replace all separator characters and whitespace by a single separator" line="370"/>
+    </inline>
+  </method>
+  <method name="snake" start="383" end="398" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Convert a string to snake case."/>
+      <param type="string" variable="$value"/>
+      <param type="string" variable="$delimiter"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="delimiter" byreference="false" type="string" default="'_'"/>
+  </method>
+  <method name="startsWith" start="407" end="416" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Determine if a given string starts with a given substring."/>
+      <param type="string" variable="$haystack"/>
+      <param type="object" variable="$needles">
+        <type full="Illuminate\Support\string|array" namespace="Illuminate\Support" name="string|array"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="haystack" byreference="false" type="{unknown}"/>
+    <parameter name="needles" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="studly" start="424" end="435" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Convert a value to studly caps case."/>
+      <param type="string" variable="$value"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="substr" start="445" end="448" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns the portion of string specified by the start and length parameters."/>
+      <param type="string" variable="$string"/>
+      <param type="int" variable="$start"/>
+      <param type="object" variable="$length">
+        <type full="Illuminate\Support\int|null" namespace="Illuminate\Support" name="int|null"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="string" byreference="false" type="{unknown}"/>
+    <parameter name="start" byreference="false" type="{unknown}"/>
+    <parameter name="length" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="ucfirst" start="456" end="459" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Make a string's first character uppercase."/>
+      <param type="string" variable="$string"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="string" byreference="false" type="{unknown}"/>
+  </method>
+</class>

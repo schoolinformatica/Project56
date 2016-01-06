@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\Command\ListCommand\MethodEnumerator" namespace="Psy\Command\ListCommand" name="MethodEnumerator" abstract="false" final="false" start="19" end="138">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Command/ListCommand" file="MethodEnumerator.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Command/ListCommand/MethodEnumerator.php" size="3447" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="438e63b41f0d00050f29526f0ed73a0c772edd49" relative="vendor/psy/psysh/src/Psy/Command/ListCommand/MethodEnumerator.php"/>
+  <docblock>
+    <description compact="Method Enumerator class."/>
+  </docblock>
+  <extends full="Psy\Command\ListCommand\Enumerator" namespace="Psy\Command\ListCommand" name="Enumerator"/>
+  <method name="listItems" start="24" end="53" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="input" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputInterface" namespace="Symfony\Component\Console\Input" name="InputInterface"/>
+    </parameter>
+    <parameter name="reflector" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Reflector" namespace="" name="Reflector"/>
+    </parameter>
+    <parameter name="target" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="only list methods when a Reflector is present." line="26"/>
+      <comment value="We can only list methods on actual class (or object) reflectors." line="32"/>
+      <comment value="only list methods if we are specifically asked" line="37"/>
+    </inline>
+  </method>
+  <method name="getMethods" start="63" end="76" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get defined methods for the given class or object Reflector."/>
+      <param description="Include private and protected methods." type="object" variable="$showAll">
+        <type full="Psy\Command\ListCommand\bool" namespace="Psy\Command\ListCommand" name="bool"/>
+      </param>
+      <param type="object" variable="$reflector">
+        <type full="\Reflector" namespace="" name="Reflector"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="showAll" byreference="false" type="{unknown}"/>
+    <parameter name="reflector" byreference="false" type="object">
+      <type full="Reflector" namespace="" name="Reflector"/>
+    </parameter>
+    <inline>
+      <todo value="this should be natcasesort" line="72"/>
+    </inline>
+  </method>
+  <method name="prepareMethods" start="85" end="101" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Prepare formatted method array."/>
+      <param type="array" variable="$methods"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="methods" byreference="false" type="array"/>
+    <inline>
+      <comment value="My kingdom for a generator." line="87"/>
+    </inline>
+  </method>
+  <method name="getKindLabel" start="110" end="119" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get a label for the particular kind of &quot;class&quot; represented."/>
+      <param type="object" variable="$reflector">
+        <type full="\ReflectionClass" namespace="" name="ReflectionClass"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="reflector" byreference="false" type="object">
+      <type full="ReflectionClass" namespace="" name="ReflectionClass"/>
+    </parameter>
+  </method>
+  <method name="getVisibilityStyle" start="128" end="137" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Get output style for the given method's visibility."/>
+      <param type="object" variable="$method">
+        <type full="\ReflectionMethod" namespace="" name="ReflectionMethod"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="method" byreference="false" type="object">
+      <type full="ReflectionMethod" namespace="" name="ReflectionMethod"/>
+    </parameter>
+  </method>
+</class>

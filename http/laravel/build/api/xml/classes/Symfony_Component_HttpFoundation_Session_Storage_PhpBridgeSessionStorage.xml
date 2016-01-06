@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpFoundation\Session\Storage\PhpBridgeSessionStorage" namespace="Symfony\Component\HttpFoundation\Session\Storage" name="PhpBridgeSessionStorage" abstract="false" final="false" start="22" end="68">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/Session/Storage" file="PhpBridgeSessionStorage.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/Session/Storage/PhpBridgeSessionStorage.php" size="1822" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="9f51048be0464edbd2a15f815ce7171dc52a9c47" relative="vendor/symfony/http-foundation/Session/Storage/PhpBridgeSessionStorage.php"/>
+  <docblock>
+    <description compact="Allows session to be started by PHP and managed by Symfony."/>
+    <author value="Drak &lt;drak@zikula.org&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage" namespace="Symfony\Component\HttpFoundation\Session\Storage" name="NativeSessionStorage"/>
+  <constructor name="__construct" start="30" end="34" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param type="object" variable="$handler">
+        <type full="Symfony\Component\HttpFoundation\Session\Storage\AbstractProxy|NativeSessionHandler|\SessionHandlerInterface|null" namespace="Symfony\Component\HttpFoundation\Session\Storage\AbstractProxy|NativeSessionHandler|" name="SessionHandlerInterface|null"/>
+      </param>
+      <param description="MetadataBag" type="object" variable="$metaBag">
+        <type full="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag" namespace="Symfony\Component\HttpFoundation\Session\Storage" name="MetadataBag"/>
+      </param>
+    </docblock>
+    <parameter name="handler" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="metaBag" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag" namespace="Symfony\Component\HttpFoundation\Session\Storage" name="MetadataBag"/>
+    </parameter>
+  </constructor>
+  <method name="start" start="39" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="clear" start="57" end="67" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <inline>
+      <comment value="clear out the bags and nothing else that may be set" line="59"/>
+      <comment value="since the purpose of this driver is to share a handler" line="60"/>
+      <comment value="reconnect the bags to the session" line="65"/>
+    </inline>
+  </method>
+</class>

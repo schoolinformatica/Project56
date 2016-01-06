@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Translation\Tests\TranslatorTest" namespace="Symfony\Component\Translation\Tests" name="TranslatorTest" abstract="false" final="false" start="19" end="612">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation/Tests" file="TranslatorTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation/Tests/TranslatorTest.php" size="23192" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="486ea4b902cc2831f802c71c95e9834512c7a341" relative="vendor/symfony/translation/Tests/TranslatorTest.php"/>
+  <extends full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+  <method name="testConstructorInvalidLocale" start="25" end="28" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getInvalidLocalesTests"/>
+      <expectedexception value="\InvalidArgumentException"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testConstructorValidLocale" start="33" end="38" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getValidLocalesTests"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testConstructorWithoutLocale" start="40" end="45" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSetGetLocale" start="47" end="55" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSetInvalidLocale" start="61" end="65" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getInvalidLocalesTests"/>
+      <expectedexception value="\InvalidArgumentException"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testSetValidLocale" start="70" end="76" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getValidLocalesTests"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testGetCatalogue" start="78" end="86" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testGetCatalogueReturnsConsolidatedCatalogue" start="88" end="110" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="This will be useful once we refactor so that different domains will be loaded lazily (on-demand)." line="90"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="In that case, getCatalogue() will probably have to load all missing domains in order to return" line="91"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="one complete catalogue." line="92"/>
+      <comment value="Test that we get a single catalogue comprising messages" line="103"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="from different loaders and different domains" line="104"/>
+    </inline>
+  </method>
+  <method name="testSetFallbackLocales" start="112" end="124" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="force catalogue loading" line="119"/>
+    </inline>
+  </method>
+  <method name="testSetFallbackLocalesMultiple" start="126" end="138" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="force catalogue loading" line="133"/>
+    </inline>
+  </method>
+  <method name="testSetFallbackInvalidLocales" start="144" end="148" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getInvalidLocalesTests"/>
+      <expectedexception value="\InvalidArgumentException"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testSetFallbackValidLocales" start="153" end="158" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getValidLocalesTests"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testTransWithFallbackLocale" start="160" end="169" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testAddResourceInvalidLocales" start="175" end="179" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getInvalidLocalesTests"/>
+      <expectedexception value="\InvalidArgumentException"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testAddResourceValidLocales" start="184" end="189" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getValidLocalesTests"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testAddResourceAfterTrans" start="191" end="203" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testTransWithoutFallbackLocaleFile" start="209" end="219" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getTransFileTests"/>
+      <expectedexception value="\Symfony\Component\Translation\Exception\NotFoundResourceException"/>
+    </docblock>
+    <parameter name="format" byreference="false" type="{unknown}"/>
+    <parameter name="loader" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="force catalogue loading" line="217"/>
+    </inline>
+  </method>
+  <method name="testTransWithFallbackLocaleFile" start="224" end="233" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getTransFileTests"/>
+    </docblock>
+    <parameter name="format" byreference="false" type="{unknown}"/>
+    <parameter name="loader" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testTransWithFallbackLocaleBis" start="235" end="242" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testTransWithFallbackLocaleTer" start="244" end="255" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testTransNonExistentWithFallback" start="257" end="263" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testWhenAResourceHasNoRegisteredLoader" start="268" end="274" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\RuntimeException"/>
+    </docblock>
+  </method>
+  <method name="testTrans" start="279" end="286" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getTransTests"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="translation" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="{unknown}"/>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="domain" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testTransInvalidLocale" start="292" end="299" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getInvalidLocalesTests"/>
+      <expectedexception value="\InvalidArgumentException"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testTransValidLocale" start="304" end="312" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getValidLocalesTests"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testFlattenedTrans" start="317" end="324" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getFlattenedTransTests"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="messages" byreference="false" type="{unknown}"/>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testTransChoice" start="329" end="336" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getTransChoiceTests"/>
+    </docblock>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="translation" byreference="false" type="{unknown}"/>
+    <parameter name="number" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="{unknown}"/>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="domain" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testTransChoiceInvalidLocale" start="342" end="349" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getInvalidLocalesTests"/>
+      <expectedexception value="\InvalidArgumentException"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testTransChoiceValidLocale" start="354" end="362" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getValidLocalesTests"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getTransFileTests" start="364" end="377" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getTransTests" start="379" end="386" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getFlattenedTransTests" start="388" end="409" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getTransChoiceTests" start="411" end="432" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getInvalidLocalesTests" start="434" end="449" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getValidLocalesTests" start="451" end="466" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testTransChoiceFallback" start="468" end="476" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testTransChoiceFallbackBis" start="478" end="486" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testTransChoiceFallbackWithNoTranslation" start="488" end="497" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="consistent behavior with Translator::trans(), which returns the string" line="494"/>
+      <comment value="unchanged if it can't be found" line="495"/>
+    </inline>
+  </method>
+  <method name="testGetMessages" start="502" end="519" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="dataProviderGetMessages"/>
+    </docblock>
+    <parameter name="resources" byreference="false" type="{unknown}"/>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="dataProviderGetMessages" start="521" end="611" abstract="false" final="false" static="false" visibility="public"/>
+</class>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\Command\ListCommand\PropertyEnumerator" namespace="Psy\Command\ListCommand" name="PropertyEnumerator" abstract="false" final="false" start="19" end="161">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Command/ListCommand" file="PropertyEnumerator.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Command/ListCommand/PropertyEnumerator.php" size="4258" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="bbdf9fe7a0989984d93f1c64ec4495c7827614b2" relative="vendor/psy/psysh/src/Psy/Command/ListCommand/PropertyEnumerator.php"/>
+  <docblock>
+    <description compact="Property Enumerator class."/>
+  </docblock>
+  <extends full="Psy\Command\ListCommand\Enumerator" namespace="Psy\Command\ListCommand" name="Enumerator"/>
+  <method name="listItems" start="24" end="53" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="input" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputInterface" namespace="Symfony\Component\Console\Input" name="InputInterface"/>
+    </parameter>
+    <parameter name="reflector" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Reflector" namespace="" name="Reflector"/>
+    </parameter>
+    <parameter name="target" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="only list properties when a Reflector is present." line="26"/>
+      <comment value="We can only list properties on actual class (or object) reflectors." line="32"/>
+      <comment value="only list properties if we are specifically asked" line="37"/>
+    </inline>
+  </method>
+  <method name="getProperties" start="63" end="76" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get defined properties for the given class or object Reflector."/>
+      <param description="Include private and protected properties." type="object" variable="$showAll">
+        <type full="Psy\Command\ListCommand\bool" namespace="Psy\Command\ListCommand" name="bool"/>
+      </param>
+      <param type="object" variable="$reflector">
+        <type full="\Reflector" namespace="" name="Reflector"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="showAll" byreference="false" type="{unknown}"/>
+    <parameter name="reflector" byreference="false" type="object">
+      <type full="Reflector" namespace="" name="Reflector"/>
+    </parameter>
+    <inline>
+      <todo value="this should be natcasesort" line="72"/>
+    </inline>
+  </method>
+  <method name="prepareProperties" start="85" end="102" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Prepare formatted property array."/>
+      <param type="array" variable="$properties"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="properties" byreference="false" type="array"/>
+    <parameter name="target" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="My kingdom for a generator." line="87"/>
+    </inline>
+  </method>
+  <method name="getKindLabel" start="111" end="120" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get a label for the particular kind of &quot;class&quot; represented."/>
+      <param type="object" variable="$reflector">
+        <type full="\ReflectionClass" namespace="" name="ReflectionClass"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="reflector" byreference="false" type="object">
+      <type full="ReflectionClass" namespace="" name="ReflectionClass"/>
+    </parameter>
+  </method>
+  <method name="getVisibilityStyle" start="129" end="138" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Get output style for the given property's visibility."/>
+      <param type="object" variable="$property">
+        <type full="\ReflectionProperty" namespace="" name="ReflectionProperty"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="property" byreference="false" type="object">
+      <type full="ReflectionProperty" namespace="" name="ReflectionProperty"/>
+    </parameter>
+  </method>
+  <method name="presentValue" start="148" end="160" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Present the $target's current value for a reflection property."/>
+      <param type="object" variable="$property">
+        <type full="\ReflectionProperty" namespace="" name="ReflectionProperty"/>
+      </param>
+      <param type="mixed" variable="$target"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="property" byreference="false" type="object">
+      <type full="ReflectionProperty" namespace="" name="ReflectionProperty"/>
+    </parameter>
+    <parameter name="target" byreference="false" type="{unknown}"/>
+  </method>
+</class>

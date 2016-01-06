@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Hamcrest\MatcherAssert" namespace="Hamcrest" name="MatcherAssert" abstract="false" final="false" start="8" end="118">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest" file="MatcherAssert.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest/MatcherAssert.php" size="3387" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="8f45ab27f62c72a7e8673348e8b0ac0e95947981" relative="vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest/MatcherAssert.php"/>
+  <member name="_count" type="integer" default="0" visibility="private" line="16">
+    <docblock>
+      <description compact="Number of assertions performed."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <method name="assertThat" start="38" end="70" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Make an assertion and throw {@link Hamcrest\AssertionError} if it fails.">The first parameter may optionally be a string identifying the assertion
+to be included in the failure message.
+
+If the third parameter is not a matcher it is passed to
+{@link Hamcrest\Core\IsEqual#equalTo} to create one.
+
+Example:
+&lt;pre&gt;
+// With an identifier
+assertThat("apple flavour", $apple-&gt;flavour(), equalTo("tasty"));
+// Without an identifier
+assertThat($apple-&gt;flavour(), equalTo("tasty"));
+// Evaluating a boolean expression
+assertThat("some error", $a &gt; $b);
+assertThat($a &gt; $b);
+&lt;/pre&gt;</description>
+    </docblock>
+  </method>
+  <method name="getCount" start="77" end="80" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns the number of assertions performed."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="resetCount" start="85" end="88" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Resets the number of assertions performed to zero."/>
+    </docblock>
+  </method>
+  <method name="doAssert" start="102" end="117" abstract="false" final="false" static="true" visibility="private">
+    <docblock>
+      <description compact="Performs the actual assertion logic.">If &lt;code&gt;$matcher&lt;/code&gt; doesn't match &lt;code&gt;$actual&lt;/code&gt;,
+throws a <link xmlns="http://xml.phpdox.net/src" value="Hamcrest\AssertionError"/> with a description
+of the failure along with the optional &lt;code&gt;$identifier&lt;/code&gt;.
+</description>
+      <param description="added to the message upon failure" type="string" variable="$identifier"/>
+      <param description="value to compare against &lt;code&gt;$matcher&lt;/code&gt;" type="mixed" variable="$actual"/>
+      <param description="applied to &lt;code&gt;$actual&lt;/code&gt;" type="object" variable="$matcher">
+        <type full="\Hamcrest\Matcher" namespace="\Hamcrest" name="Matcher"/>
+      </param>
+      <throws type="object">
+        <type full="Hamcrest\AssertionError" namespace="Hamcrest" name="AssertionError"/>
+      </throws>
+    </docblock>
+    <parameter name="identifier" byreference="false" type="{unknown}"/>
+    <parameter name="actual" byreference="false" type="{unknown}"/>
+    <parameter name="matcher" byreference="false" type="object">
+      <type full="Hamcrest\Matcher" namespace="Hamcrest" name="Matcher"/>
+    </parameter>
+  </method>
+</class>

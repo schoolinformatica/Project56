@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="SuperClosure\SerializerInterface" namespace="SuperClosure" name="SerializerInterface" abstract="false" final="false" start="8" end="45">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/jeremeamia/SuperClosure/src" file="SerializerInterface.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/jeremeamia/SuperClosure/src/SerializerInterface.php" size="1489" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="f033f2a4a402f4f8d077704b9e8956ec934a03a6" relative="vendor/jeremeamia/SuperClosure/src/SerializerInterface.php"/>
+  <docblock>
+    <description compact="Interface for a serializer that is used to serialize Closure objects."/>
+  </docblock>
+  <method name="serialize" start="18" end="18" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Takes a Closure object, decorates it with a SerializableClosure object, then performs the serialization."/>
+      <param description="Closure to serialize." type="object" variable="$closure">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return description="Serialized closure." type="string"/>
+    </docblock>
+    <parameter name="closure" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="unserialize" start="29" end="29" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Takes a serialized closure, performs the unserialization, and then extracts and returns a the Closure object."/>
+      <param description="Serialized closure." type="string" variable="$serialized"/>
+      <throws description="if unserialization fails." type="object">
+        <type full="SuperClosure\Exception\ClosureUnserializationException" namespace="SuperClosure\Exception" name="ClosureUnserializationException"/>
+      </throws>
+      <return description="Unserialized closure." type="object">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </return>
+    </docblock>
+    <parameter name="serialized" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getData" start="44" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieves data about a closure including its code, context, and binding.">The data returned is dependant on the `ClosureAnalyzer` implementation
+used and whether the `$forSerialization` parameter is set to true. If
+`$forSerialization` is true, then only data relevant to serializing the
+closure is returned.</description>
+      <param description="Closure to analyze." type="object" variable="$closure">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <param description="Include only serialization data." type="object" variable="$forSerialization">
+        <type full="SuperClosure\bool" namespace="SuperClosure" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </return>
+    </docblock>
+    <parameter name="closure" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+    <parameter name="forSerialization" byreference="false" type="boolean" default="false"/>
+  </method>
+</interface>

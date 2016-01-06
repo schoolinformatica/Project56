@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\CodeCleaner\AbstractClassPass" namespace="Psy\CodeCleaner" name="AbstractClassPass" abstract="false" final="false" start="22" end="69">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/CodeCleaner" file="AbstractClassPass.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/CodeCleaner/AbstractClassPass.php" size="2081" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="474cecb3a47002606140f215f1835f67446cc6d0" relative="vendor/psy/psysh/src/Psy/CodeCleaner/AbstractClassPass.php"/>
+  <docblock>
+    <description compact="The abstract class pass handles abstract classes and methods, complaining if there are too few or too many of either."/>
+  </docblock>
+  <extends full="Psy\CodeCleaner\CodeCleanerPass" namespace="Psy\CodeCleaner" name="CodeCleanerPass"/>
+  <member name="class" visibility="private" line="24"/>
+  <member name="abstractMethods" visibility="private" line="25"/>
+  <method name="enterNode" start="32" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <throws description="if the node is an abstract function with a body." type="object">
+        <type full="Psy\CodeCleaner\RuntimeException" namespace="Psy\CodeCleaner" name="RuntimeException"/>
+      </throws>
+      <param type="object" variable="$node">
+        <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+      </param>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+    </parameter>
+  </method>
+  <method name="leaveNode" start="54" end="68" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <throws description="if the node is a non-abstract class with abstract methods." type="object">
+        <type full="Psy\CodeCleaner\RuntimeException" namespace="Psy\CodeCleaner" name="RuntimeException"/>
+      </throws>
+      <param type="object" variable="$node">
+        <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+      </param>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+    </parameter>
+  </method>
+</class>

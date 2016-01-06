@@ -70,6 +70,7 @@
                     <li><a href="/about/">About Us</a></li>
                     <li><a href="/uploadPage/">Upload files</a></li>
                     <li><a href="/download/">Download files</a></li>
+                    <li><a href="/vehicles/">Vehicles</a></li>
                     <!--<li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">Messages <b class="caret"></b></a>
                             <ul role="menu" class="dropdown-menu">
@@ -83,7 +84,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if(Auth::check())
-                        <li><a href="/auth/login/">Logout</a></li>
+                        <li><a href="/auth/logout/">Logout</a></li>
                     @else
                         <li><a href="/auth/login/">Login</a></li>
                     @endif

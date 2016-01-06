@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\Bundle\Bundle" namespace="Symfony\Component\HttpKernel\Bundle" name="Bundle" abstract="true" final="false" start="27" end="203">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Bundle" file="Bundle.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Bundle/Bundle.php" size="5921" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="791e71e14d3b45ba2b21a3b6d190e016b02b6e1a" relative="vendor/symfony/http-kernel/Bundle/Bundle.php"/>
+  <docblock>
+    <description compact="An implementation of BundleInterface that adds a few conventions for DependencyInjection extensions and Console commands."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\DependencyInjection\ContainerAware" namespace="Symfony\Component\DependencyInjection" name="ContainerAware"/>
+  <implements full="Symfony\Component\HttpKernel\Bundle\BundleInterface" namespace="Symfony\Component\HttpKernel\Bundle" name="BundleInterface"/>
+  <member name="name" visibility="protected" line="29"/>
+  <member name="extension" visibility="protected" line="30"/>
+  <member name="path" visibility="protected" line="31"/>
+  <method name="boot" start="36" end="38" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Boots the Bundle."/>
+    </docblock>
+  </method>
+  <method name="shutdown" start="43" end="45" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Shutdowns the Bundle."/>
+    </docblock>
+  </method>
+  <method name="build" start="57" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Builds the bundle.">It is only ever called once when the cache is empty.
+
+This method can be overridden to register compilation passes,
+other extensions, ...</description>
+      <param description="A ContainerBuilder instance" type="object" variable="$container">
+        <type full="Symfony\Component\DependencyInjection\ContainerBuilder" namespace="Symfony\Component\DependencyInjection" name="ContainerBuilder"/>
+      </param>
+    </docblock>
+    <parameter name="container" byreference="false" type="object">
+      <type full="Symfony\Component\DependencyInjection\ContainerBuilder" namespace="Symfony\Component\DependencyInjection" name="ContainerBuilder"/>
+    </parameter>
+  </method>
+  <method name="getContainerExtension" start="68" end="98" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the bundle's container extension."/>
+      <return description="The container extension" type="object">
+        <type full="Symfony\Component\HttpKernel\Bundle\ExtensionInterface|null" namespace="Symfony\Component\HttpKernel\Bundle" name="ExtensionInterface|null"/>
+      </return>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="getNamespace" start="105" end="110" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the Bundle namespace."/>
+      <return description="The Bundle namespace" type="string"/>
+    </docblock>
+  </method>
+  <method name="getPath" start="117" end="125" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the Bundle directory path."/>
+      <return description="The Bundle absolute path" type="string"/>
+    </docblock>
+  </method>
+  <method name="getParent" start="132" end="134" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the bundle parent name."/>
+      <return description="The Bundle parent name it overrides or null if no parent" type="string"/>
+    </docblock>
+  </method>
+  <method name="getName" start="141" end="151" abstract="false" final="true" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the bundle name (the class short name)."/>
+      <return description="The Bundle name" type="string"/>
+    </docblock>
+  </method>
+  <method name="registerCommands" start="163" end="190" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Finds and registers Commands.">Override this method if your bundle commands do not follow the conventions:
+
+* Commands are in the 'Command' sub-directory
+* Commands extend Symfony\Component\Console\Command\Command</description>
+      <param description="An Application instance" type="object" variable="$application">
+        <type full="Symfony\Component\Console\Application" namespace="Symfony\Component\Console" name="Application"/>
+      </param>
+    </docblock>
+    <parameter name="application" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Application" namespace="Symfony\Component\Console" name="Application"/>
+    </parameter>
+  </method>
+  <method name="getContainerExtensionClass" start="197" end="202" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Returns the bundle's container extension class."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+</class>

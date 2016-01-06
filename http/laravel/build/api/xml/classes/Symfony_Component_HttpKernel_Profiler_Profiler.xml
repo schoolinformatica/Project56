@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\Profiler\Profiler" namespace="Symfony\Component\HttpKernel\Profiler" name="Profiler" abstract="false" final="false" start="25" end="296">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Profiler" file="Profiler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Profiler/Profiler.php" size="7546" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="80784c443b4b8d955868df33a5caa7b0958d6b0d" relative="vendor/symfony/http-kernel/Profiler/Profiler.php"/>
+  <docblock>
+    <description compact="Profiler."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <member name="storage" visibility="private" line="30">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\ProfilerStorageInterface" namespace="Symfony\Component\HttpKernel\Profiler" name="ProfilerStorageInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="collectors" type="array" default="" visibility="private" line="35">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\DataCollectorInterface" namespace="Symfony\Component\HttpKernel\Profiler" name="DataCollectorInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="logger" visibility="private" line="40">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Psr\Log\LoggerInterface" namespace="Psr\Log" name="LoggerInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="enabled" type="boolean" default="true" visibility="private" line="45">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\bool" namespace="Symfony\Component\HttpKernel\Profiler" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="53" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="A ProfilerStorageInterface instance" type="object" variable="$storage">
+        <type full="Symfony\Component\HttpKernel\Profiler\ProfilerStorageInterface" namespace="Symfony\Component\HttpKernel\Profiler" name="ProfilerStorageInterface"/>
+      </param>
+      <param description="A LoggerInterface instance" type="object" variable="$logger">
+        <type full="Psr\Log\LoggerInterface" namespace="Psr\Log" name="LoggerInterface"/>
+      </param>
+    </docblock>
+    <parameter name="storage" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\Profiler\ProfilerStorageInterface" namespace="Symfony\Component\HttpKernel\Profiler" name="ProfilerStorageInterface"/>
+    </parameter>
+    <parameter name="logger" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Psr\Log\LoggerInterface" namespace="Psr\Log" name="LoggerInterface"/>
+    </parameter>
+  </constructor>
+  <method name="disable" start="62" end="65" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Disables the profiler."/>
+    </docblock>
+  </method>
+  <method name="enable" start="70" end="73" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Enables the profiler."/>
+    </docblock>
+  </method>
+  <method name="loadProfileFromResponse" start="82" end="89" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Loads the Profile for the given Response."/>
+      <param description="A Response instance" type="object" variable="$response">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </param>
+      <return description="A Profile instance" type="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\Profile" namespace="Symfony\Component\HttpKernel\Profiler" name="Profile"/>
+      </return>
+    </docblock>
+    <parameter name="response" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+    </parameter>
+  </method>
+  <method name="loadProfile" start="98" end="101" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Loads the Profile for the given token."/>
+      <param description="A token" type="string" variable="$token"/>
+      <return description="A Profile instance" type="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\Profile" namespace="Symfony\Component\HttpKernel\Profiler" name="Profile"/>
+      </return>
+    </docblock>
+    <parameter name="token" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="saveProfile" start="110" end="124" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Saves a Profile."/>
+      <param description="A Profile instance" type="object" variable="$profile">
+        <type full="Symfony\Component\HttpKernel\Profiler\Profile" namespace="Symfony\Component\HttpKernel\Profiler" name="Profile"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\bool" namespace="Symfony\Component\HttpKernel\Profiler" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="profile" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\Profiler\Profile" namespace="Symfony\Component\HttpKernel\Profiler" name="Profile"/>
+    </parameter>
+    <inline>
+      <comment value="late collect" line="112"/>
+    </inline>
+  </method>
+  <method name="purge" start="129" end="132" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Purges all data from the storage."/>
+    </docblock>
+  </method>
+  <method name="export" start="141" end="144" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Exports the current profiler data."/>
+      <param description="A Profile instance" type="object" variable="$profile">
+        <type full="Symfony\Component\HttpKernel\Profiler\Profile" namespace="Symfony\Component\HttpKernel\Profiler" name="Profile"/>
+      </param>
+      <return description="The exported data" type="string"/>
+    </docblock>
+    <parameter name="profile" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\Profiler\Profile" namespace="Symfony\Component\HttpKernel\Profiler" name="Profile"/>
+    </parameter>
+  </method>
+  <method name="import" start="153" end="164" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Imports data into the profiler storage."/>
+      <param description="A data string as exported by the export() method" type="string" variable="$data"/>
+      <return description="A Profile instance" type="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\Profile" namespace="Symfony\Component\HttpKernel\Profiler" name="Profile"/>
+      </return>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="find" start="180" end="183" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Finds profiler tokens for the given criteria."/>
+      <param description="The IP" type="string" variable="$ip"/>
+      <param description="The URL" type="string" variable="$url"/>
+      <param description="The maximum number of tokens to return" type="string" variable="$limit"/>
+      <param description="The request method" type="string" variable="$method"/>
+      <param description="The start date to search from" type="string" variable="$start"/>
+      <param description="The end date to search to" type="string" variable="$end"/>
+      <return description="An array of tokens" type="array"/>
+      <see value="http://php.net/manual/en/datetime.formats.php for the supported date/time formats"/>
+    </docblock>
+    <parameter name="ip" byreference="false" type="{unknown}"/>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+    <parameter name="limit" byreference="false" type="{unknown}"/>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="start" byreference="false" type="{unknown}"/>
+    <parameter name="end" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="collect" start="194" end="217" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Collects data for the given Response."/>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <param description="A Response instance" type="object" variable="$response">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </param>
+      <param description="An exception instance if the request threw one" type="object" variable="$exception">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </param>
+      <return description="A Profile instance or null if the profiler is disabled" type="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\Profile|null" namespace="Symfony\Component\HttpKernel\Profiler" name="Profile|null"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="response" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+    </parameter>
+    <parameter name="exception" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+  </method>
+  <method name="all" start="224" end="227" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the Collectors associated with this profiler."/>
+      <return description="An array of collectors" type="array"/>
+    </docblock>
+  </method>
+  <method name="set" start="234" end="240" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the Collectors associated with this profiler."/>
+      <param description="An array of collectors" type="array" variable="$collectors" of="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\DataCollectorInterface" namespace="Symfony\Component\HttpKernel\Profiler" name="DataCollectorInterface"/>
+      </param>
+    </docblock>
+    <parameter name="collectors" byreference="false" type="array" default=""/>
+  </method>
+  <method name="add" start="247" end="250" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a Collector."/>
+      <param description="A DataCollectorInterface instance" type="object" variable="$collector">
+        <type full="Symfony\Component\HttpKernel\DataCollector\DataCollectorInterface" namespace="Symfony\Component\HttpKernel\DataCollector" name="DataCollectorInterface"/>
+      </param>
+    </docblock>
+    <parameter name="collector" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\DataCollector\DataCollectorInterface" namespace="Symfony\Component\HttpKernel\DataCollector" name="DataCollectorInterface"/>
+    </parameter>
+  </method>
+  <method name="has" start="259" end="262" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if a Collector for the given name exists."/>
+      <param description="A collector name" type="string" variable="$name"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\bool" namespace="Symfony\Component\HttpKernel\Profiler" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get" start="273" end="280" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets a Collector by name."/>
+      <param description="A collector name" type="string" variable="$name"/>
+      <return description="A DataCollectorInterface instance" type="object">
+        <type full="Symfony\Component\HttpKernel\DataCollector\DataCollectorInterface" namespace="Symfony\Component\HttpKernel\DataCollector" name="DataCollectorInterface"/>
+      </return>
+      <throws description="if the collector does not exist" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getTimestamp" start="282" end="295" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+</class>

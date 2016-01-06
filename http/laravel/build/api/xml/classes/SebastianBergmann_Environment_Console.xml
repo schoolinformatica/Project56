@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SebastianBergmann\Environment\Console" namespace="SebastianBergmann\Environment" name="Console" abstract="false" final="false" start="15" end="81">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/sebastian/environment/src" file="Console.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/sebastian/environment/src/Console.php" size="1934" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="b4f8e548fafd8c7b3e79d8a46df66a85276b229c" relative="vendor/sebastian/environment/src/Console.php"/>
+  <docblock>
+    <description/>
+  </docblock>
+  <constant type="integer" name="STDIN" value="0"/>
+  <constant type="integer" name="STDOUT" value="1"/>
+  <constant type="integer" name="STDERR" value="2"/>
+  <method name="hasColorSupport" start="29" end="40" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if STDOUT supports colorization.">This code has been copied and adapted from
+Symfony\Component\Console\Output\OutputStream.</description>
+      <return type="object">
+        <type full="SebastianBergmann\Environment\bool" namespace="SebastianBergmann\Environment" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getNumberOfColumns" start="47" end="68" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the number of columns of the terminal."/>
+      <return type="int"/>
+    </docblock>
+    <inline>
+      <comment value="Windows terminals have a fixed size of 80" line="49"/>
+      <comment value="but one column is used for the cursor." line="50"/>
+    </inline>
+  </method>
+  <method name="isInteractive" start="77" end="80" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns if the file descriptor is an interactive terminal or not."/>
+      <param type="object" variable="$fileDescriptor">
+        <type full="SebastianBergmann\Environment\int|resource" namespace="SebastianBergmann\Environment" name="int|resource"/>
+      </param>
+      <return type="object">
+        <type full="SebastianBergmann\Environment\bool" namespace="SebastianBergmann\Environment" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="fileDescriptor" byreference="false" type="{unknown}" default="" constant="self::STDOUT"/>
+  </method>
+</class>

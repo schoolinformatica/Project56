@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PHPUnit_Util_Configuration" namespace="" name="PHPUnit_Util_Configuration" abstract="false" final="false" start="142" end="1155">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Util" file="Configuration.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Util/Configuration.php" size="35651" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="93b7a1a6574a86948a6e397a782c5e1d4258856b" relative="vendor/phpunit/phpunit/src/Util/Configuration.php"/>
+  <docblock>
+    <description compact="Wrapper for the PHPUnit XML configuration file.">Example XML configuration file:
+&lt;code&gt;
+&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+
+&lt;phpunit backupGlobals="true"
+         backupStaticAttributes="false"
+         bootstrap="/path/to/bootstrap.php"
+         cacheTokens="false"
+         columns="80"
+         colors="false"
+         stderr="false"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         forceCoversAnnotation="false"
+         mapTestClassNameToCoveredClassName="false"
+         printerClass="PHPUnit_TextUI_ResultPrinter"
+         processIsolation="false"
+         stopOnError="false"
+         stopOnFailure="false"
+         stopOnIncomplete="false"
+         stopOnRisky="false"
+         stopOnSkipped="false"
+         testSuiteLoaderClass="PHPUnit_Runner_StandardTestSuiteLoader"
+         timeoutForSmallTests="1"
+         timeoutForMediumTests="10"
+         timeoutForLargeTests="60"
+         beStrictAboutTestsThatDoNotTestAnything="false"
+         beStrictAboutOutputDuringTests="false"
+         beStrictAboutTestSize="false"
+         beStrictAboutTodoAnnotatedTests="false"
+         checkForUnintentionallyCoveredCode="false"
+         disallowChangesToGlobalState="false"
+         verbose="false"&gt;
+  &lt;testsuites&gt;
+    &lt;testsuite name="My Test Suite"&gt;
+      &lt;directory suffix="Test.php" phpVersion="5.3.0" phpVersionOperator="&gt;="&gt;/path/to/files&lt;/directory&gt;
+      &lt;file phpVersion="5.3.0" phpVersionOperator="&gt;="&gt;/path/to/MyTest.php&lt;/file&gt;
+      &lt;exclude&gt;/path/to/files/exclude&lt;/exclude&gt;
+    &lt;/testsuite&gt;
+  &lt;/testsuites&gt;
+
+  &lt;groups&gt;
+    &lt;include&gt;
+      &lt;group&gt;name&lt;/group&gt;
+    &lt;/include&gt;
+    &lt;exclude&gt;
+      &lt;group&gt;name&lt;/group&gt;
+    &lt;/exclude&gt;
+  &lt;/groups&gt;
+
+  &lt;filter&gt;
+    &lt;blacklist&gt;
+      &lt;directory suffix=".php"&gt;/path/to/files&lt;/directory&gt;
+      &lt;file&gt;/path/to/file&lt;/file&gt;
+      &lt;exclude&gt;
+        &lt;directory suffix=".php"&gt;/path/to/files&lt;/directory&gt;
+        &lt;file&gt;/path/to/file&lt;/file&gt;
+      &lt;/exclude&gt;
+    &lt;/blacklist&gt;
+    &lt;whitelist addUncoveredFilesFromWhitelist="true"
+               processUncoveredFilesFromWhitelist="false"&gt;
+      &lt;directory suffix=".php"&gt;/path/to/files&lt;/directory&gt;
+      &lt;file&gt;/path/to/file&lt;/file&gt;
+      &lt;exclude&gt;
+        &lt;directory suffix=".php"&gt;/path/to/files&lt;/directory&gt;
+        &lt;file&gt;/path/to/file&lt;/file&gt;
+      &lt;/exclude&gt;
+    &lt;/whitelist&gt;
+  &lt;/filter&gt;
+
+  &lt;listeners&gt;
+    &lt;listener class="MyListener" file="/optional/path/to/MyListener.php"&gt;
+      &lt;arguments&gt;
+        &lt;array&gt;
+          &lt;element key="0"&gt;
+            &lt;string&gt;Sebastian&lt;/string&gt;
+          &lt;/element&gt;
+        &lt;/array&gt;
+        &lt;integer&gt;22&lt;/integer&gt;
+        &lt;string&gt;April&lt;/string&gt;
+        &lt;double&gt;19.78&lt;/double&gt;
+        &lt;null/&gt;
+        &lt;object class="stdClass"/&gt;
+        &lt;file&gt;MyRelativeFile.php&lt;/file&gt;
+        &lt;directory&gt;MyRelativeDir&lt;/directory&gt;
+      &lt;/arguments&gt;
+    &lt;/listener&gt;
+  &lt;/listeners&gt;
+
+  &lt;logging&gt;
+    &lt;log type="coverage-html" target="/tmp/report" lowUpperBound="50" highLowerBound="90"/&gt;
+    &lt;log type="coverage-clover" target="/tmp/clover.xml"/&gt;
+    &lt;log type="coverage-crap4j" target="/tmp/crap.xml" threshold="30"/&gt;
+    &lt;log type="json" target="/tmp/logfile.json"/&gt;
+    &lt;log type="plain" target="/tmp/logfile.txt"/&gt;
+    &lt;log type="tap" target="/tmp/logfile.tap"/&gt;
+    &lt;log type="junit" target="/tmp/logfile.xml" logIncompleteSkipped="false"/&gt;
+    &lt;log type="testdox-html" target="/tmp/testdox.html"/&gt;
+    &lt;log type="testdox-text" target="/tmp/testdox.txt"/&gt;
+  &lt;/logging&gt;
+
+  &lt;php&gt;
+    &lt;includePath&gt;.&lt;/includePath&gt;
+    &lt;ini name="foo" value="bar"/&gt;
+    &lt;const name="foo" value="bar"/&gt;
+    &lt;var name="foo" value="bar"/&gt;
+    &lt;env name="foo" value="bar"/&gt;
+    &lt;post name="foo" value="bar"/&gt;
+    &lt;get name="foo" value="bar"/&gt;
+    &lt;cookie name="foo" value="bar"/&gt;
+    &lt;server name="foo" value="bar"/&gt;
+    &lt;files name="foo" value="bar"/&gt;
+    &lt;request name="foo" value="bar"/&gt;
+  &lt;/php&gt;
+
+  &lt;selenium&gt;
+    &lt;browser name="Firefox on Linux"
+             browser="*firefox /usr/lib/firefox/firefox-bin"
+             host="my.linux.box"
+             port="4444"
+             timeout="30000"/&gt;
+  &lt;/selenium&gt;
+&lt;/phpunit&gt;
+&lt;/code&gt;</description>
+    <since value="Class available since Release 3.2.0"/>
+  </docblock>
+  <member name="instances" type="array" default="" visibility="private" line="144"/>
+  <member name="document" visibility="protected" line="146"/>
+  <member name="xpath" visibility="protected" line="147"/>
+  <member name="filename" visibility="protected" line="148"/>
+  <constructor name="__construct" start="155" end="160" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Loads a PHPUnit configuration file."/>
+      <param type="string" variable="$filename"/>
+    </docblock>
+    <parameter name="filename" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="__clone" start="165" end="167" abstract="false" final="true" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+  </method>
+  <method name="getInstance" start="178" end="196" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns a PHPUnit configuration object."/>
+      <param type="string" variable="$filename"/>
+      <return type="object">
+        <type full="PHPUnit_Util_Configuration" namespace="" name="PHPUnit_Util_Configuration"/>
+      </return>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+    <parameter name="filename" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getFilename" start="205" end="208" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the realpath to the configuration file."/>
+      <return type="string"/>
+      <since value="Method available since Release 3.6.0"/>
+    </docblock>
+  </method>
+  <method name="getFilterConfiguration" start="217" end="284" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the configuration for SUT filtering."/>
+      <return type="array"/>
+      <since value="Method available since Release 3.2.1"/>
+    </docblock>
+  </method>
+  <method name="getGroupConfiguration" start="293" end="309" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the configuration for groups."/>
+      <return type="array"/>
+      <since value="Method available since Release 3.2.1"/>
+    </docblock>
+  </method>
+  <method name="getListenerConfiguration" start="318" end="357" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the configuration for listeners."/>
+      <return type="array"/>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+  </method>
+  <method name="getLoggingConfiguration" start="364" end="425" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the logging configuration."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getPHPConfiguration" start="434" end="481" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the PHP configuration."/>
+      <return type="array"/>
+      <since value="Method available since Release 3.2.1"/>
+    </docblock>
+  </method>
+  <method name="handlePHPConfiguration" start="488" end="544" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Handles the PHP configuration."/>
+      <since value="Method available since Release 3.2.20"/>
+    </docblock>
+  </method>
+  <method name="getPHPUnitConfiguration" start="553" end="801" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the PHPUnit configuration."/>
+      <return type="array"/>
+      <since value="Method available since Release 3.2.14"/>
+    </docblock>
+    <inline>
+      <comment value="Issue #657" line="585"/>
+    </inline>
+  </method>
+  <method name="getSeleniumBrowserConfiguration" start="810" end="852" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the SeleniumTestCase browser configuration."/>
+      <return type="array"/>
+      <since value="Method available since Release 3.2.9"/>
+    </docblock>
+  </method>
+  <method name="getTestSuiteConfiguration" start="861" end="884" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the test suite configuration."/>
+      <return type="object">
+        <type full="PHPUnit_Framework_TestSuite" namespace="" name="PHPUnit_Framework_TestSuite"/>
+      </return>
+      <since value="Method available since Release 3.2.1"/>
+    </docblock>
+    <parameter name="testSuiteFilter" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getTestSuite" start="893" end="1004" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="object" variable="$testSuiteNode">
+        <type full="DOMElement" namespace="" name="DOMElement"/>
+      </param>
+      <return type="object">
+        <type full="PHPUnit_Framework_TestSuite" namespace="" name="PHPUnit_Framework_TestSuite"/>
+      </return>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+    <parameter name="testSuiteNode" byreference="false" type="object">
+      <type full="DOMElement" namespace="" name="DOMElement"/>
+    </parameter>
+    <parameter name="testSuiteFilter" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getBoolean" start="1014" end="1023" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$value"/>
+      <param type="object" variable="$default">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <since value="Method available since Release 3.2.3"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getInteger" start="1033" end="1040" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$value"/>
+      <param type="object" variable="$default">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <since value="Method available since Release 3.6.0"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="readFilterDirectories" start="1049" end="1087" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$query"/>
+      <return type="array"/>
+      <since value="Method available since Release 3.2.3"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="readFilterFiles" start="1096" end="1108" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$query"/>
+      <return type="array"/>
+      <since value="Method available since Release 3.2.3"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="toAbsolutePath" start="1118" end="1154" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$path"/>
+      <param type="object" variable="$useIncludePath">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="string"/>
+      <since value="Method available since Release 3.5.0"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="useIncludePath" byreference="false" type="boolean" default="false"/>
+    <inline>
+      <comment value="Matches the following on Windows:" line="1124"/>
+      <comment value="- \\NetworkComputer\Path" line="1125"/>
+      <comment value="- \\.\D:" line="1126"/>
+      <comment value="- \\.\c:" line="1127"/>
+      <comment value="- C:\Windows" line="1128"/>
+      <comment value="- C:\windows" line="1129"/>
+      <comment value="- C:/windows" line="1130"/>
+      <comment value="- c:/windows" line="1131"/>
+      <comment value="Stream" line="1138"/>
+    </inline>
+  </method>
+</class>

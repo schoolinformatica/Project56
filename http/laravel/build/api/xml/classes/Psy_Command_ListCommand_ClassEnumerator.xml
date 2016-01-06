@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\Command\ListCommand\ClassEnumerator" namespace="Psy\Command\ListCommand" name="ClassEnumerator" abstract="false" final="false" start="19" end="80">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Command/ListCommand" file="ClassEnumerator.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Command/ListCommand/ClassEnumerator.php" size="1821" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="4510929363e21a87639e6ace51314c3c52fa03f2" relative="vendor/psy/psysh/src/Psy/Command/ListCommand/ClassEnumerator.php"/>
+  <docblock>
+    <description compact="Class Enumerator class."/>
+  </docblock>
+  <extends full="Psy\Command\ListCommand\Enumerator" namespace="Psy\Command\ListCommand" name="Enumerator"/>
+  <method name="listItems" start="24" end="52" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="input" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputInterface" namespace="Symfony\Component\Console\Input" name="InputInterface"/>
+    </parameter>
+    <parameter name="reflector" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Reflector" namespace="" name="Reflector"/>
+    </parameter>
+    <parameter name="target" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="only list classes when no Reflector is present." line="26"/>
+      <todo value="make a NamespaceReflector and pass that in for commands like:" line="28"/>
+      <comment value="ls --classes Foo" line="30"/>
+      <comment value="... for listing classes in the Foo namespace" line="32"/>
+      <comment value="only list classes if we are specifically asked" line="38"/>
+    </inline>
+  </method>
+  <method name="prepareClasses" start="61" end="79" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Prepare formatted class array."/>
+      <param type="array" variable="$class"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="classes" byreference="false" type="array"/>
+    <inline>
+      <comment value="My kingdom for a generator." line="65"/>
+    </inline>
+  </method>
+</class>

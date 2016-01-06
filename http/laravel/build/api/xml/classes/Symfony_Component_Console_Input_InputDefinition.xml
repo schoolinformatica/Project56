@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Console\Input\InputDefinition" namespace="Symfony\Component\Console\Input" name="InputDefinition" abstract="false" final="false" start="30" end="455">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Input" file="InputDefinition.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Input/InputDefinition.php" size="12870" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="2dd60ff256b3f6cd9aa72cb516686db4bd121e50" relative="vendor/symfony/console/Input/InputDefinition.php"/>
+  <docblock>
+    <description compact="A InputDefinition represents a set of valid command line arguments and options.">Usage:
+
+    $definition = new InputDefinition(array(
+      new InputArgument('name', InputArgument::REQUIRED),
+      new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
+    ));</description>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <member name="arguments" visibility="private" line="32"/>
+  <member name="requiredCount" visibility="private" line="33"/>
+  <member name="hasAnArrayArgument" type="boolean" default="false" visibility="private" line="34"/>
+  <member name="hasOptional" visibility="private" line="35"/>
+  <member name="options" visibility="private" line="36"/>
+  <member name="shortcuts" visibility="private" line="37"/>
+  <constructor name="__construct" start="44" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="An array of InputArgument and InputOption instance" type="array" variable="$definition"/>
+    </docblock>
+    <parameter name="definition" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="setDefinition" start="54" end="68" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the definition of the input."/>
+      <param description="The definition array" type="array" variable="$definition"/>
+    </docblock>
+    <parameter name="definition" byreference="false" type="array"/>
+  </method>
+  <method name="setArguments" start="75" end="82" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the InputArgument objects."/>
+      <param description="An array of InputArgument objects" type="array" variable="$arguments" of="object">
+        <type full="Symfony\Component\Console\Input\InputArgument" namespace="Symfony\Component\Console\Input" name="InputArgument"/>
+      </param>
+    </docblock>
+    <parameter name="arguments" byreference="false" type="array" default=""/>
+  </method>
+  <method name="addArguments" start="89" end="96" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds an array of InputArgument objects."/>
+      <param description="An array of InputArgument objects" type="array" variable="$arguments" of="object">
+        <type full="Symfony\Component\Console\Input\InputArgument" namespace="Symfony\Component\Console\Input" name="InputArgument"/>
+      </param>
+    </docblock>
+    <parameter name="arguments" byreference="false" type="array" default=""/>
+  </method>
+  <method name="addArgument" start="105" end="130" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds an InputArgument object."/>
+      <param description="An InputArgument object" type="object" variable="$argument">
+        <type full="Symfony\Component\Console\Input\InputArgument" namespace="Symfony\Component\Console\Input" name="InputArgument"/>
+      </param>
+      <throws description="When incorrect argument is given" type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+    <parameter name="argument" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputArgument" namespace="Symfony\Component\Console\Input" name="InputArgument"/>
+    </parameter>
+  </method>
+  <method name="getArgument" start="141" end="150" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an InputArgument by name or by position."/>
+      <param description="The InputArgument name or position" type="object" variable="$name">
+        <type full="Symfony\Component\Console\Input\string|int" namespace="Symfony\Component\Console\Input" name="string|int"/>
+      </param>
+      <return description="An InputArgument object" type="object">
+        <type full="Symfony\Component\Console\Input\InputArgument" namespace="Symfony\Component\Console\Input" name="InputArgument"/>
+      </return>
+      <throws description="When argument given doesn't exist" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasArgument" start="159" end="164" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if an InputArgument object exists by name or position."/>
+      <param description="The InputArgument name or position" type="object" variable="$name">
+        <type full="Symfony\Component\Console\Input\string|int" namespace="Symfony\Component\Console\Input" name="string|int"/>
+      </param>
+      <return description="true if the InputArgument object exists, false otherwise" type="object">
+        <type full="Symfony\Component\Console\Input\bool" namespace="Symfony\Component\Console\Input" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getArguments" start="171" end="174" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the array of InputArgument objects."/>
+      <return description="An array of InputArgument objects" type="array" of="object">
+        <type full="Symfony\Component\Console\Input\InputArgument" namespace="Symfony\Component\Console\Input" name="InputArgument"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getArgumentCount" start="181" end="184" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the number of InputArguments."/>
+      <return description="The number of InputArguments" type="int"/>
+    </docblock>
+  </method>
+  <method name="getArgumentRequiredCount" start="191" end="194" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the number of required InputArguments."/>
+      <return description="The number of required InputArguments" type="int"/>
+    </docblock>
+  </method>
+  <method name="getArgumentDefaults" start="201" end="209" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the default values."/>
+      <return description="An array of default values" type="array"/>
+    </docblock>
+  </method>
+  <method name="setOptions" start="216" end="221" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the InputOption objects."/>
+      <param description="An array of InputOption objects" type="array" variable="$options" of="object">
+        <type full="Symfony\Component\Console\Input\InputOption" namespace="Symfony\Component\Console\Input" name="InputOption"/>
+      </param>
+    </docblock>
+    <parameter name="options" byreference="false" type="array" default=""/>
+  </method>
+  <method name="addOptions" start="228" end="233" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds an array of InputOption objects."/>
+      <param description="An array of InputOption objects" type="array" variable="$options" of="object">
+        <type full="Symfony\Component\Console\Input\InputOption" namespace="Symfony\Component\Console\Input" name="InputOption"/>
+      </param>
+    </docblock>
+    <parameter name="options" byreference="false" type="array" default=""/>
+  </method>
+  <method name="addOption" start="242" end="262" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds an InputOption object."/>
+      <param description="An InputOption object" type="object" variable="$option">
+        <type full="Symfony\Component\Console\Input\InputOption" namespace="Symfony\Component\Console\Input" name="InputOption"/>
+      </param>
+      <throws description="When option given already exist" type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+    <parameter name="option" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputOption" namespace="Symfony\Component\Console\Input" name="InputOption"/>
+    </parameter>
+  </method>
+  <method name="getOption" start="273" end="280" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an InputOption by name."/>
+      <param description="The InputOption name" type="string" variable="$name"/>
+      <return description="A InputOption object" type="object">
+        <type full="Symfony\Component\Console\Input\InputOption" namespace="Symfony\Component\Console\Input" name="InputOption"/>
+      </return>
+      <throws description="When option given doesn't exist" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasOption" start="289" end="292" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if an InputOption object exists by name."/>
+      <param description="The InputOption name" type="string" variable="$name"/>
+      <return description="true if the InputOption object exists, false otherwise" type="object">
+        <type full="Symfony\Component\Console\Input\bool" namespace="Symfony\Component\Console\Input" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getOptions" start="299" end="302" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the array of InputOption objects."/>
+      <return description="An array of InputOption objects" type="array" of="object">
+        <type full="Symfony\Component\Console\Input\InputOption" namespace="Symfony\Component\Console\Input" name="InputOption"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="hasShortcut" start="311" end="314" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if an InputOption object exists by shortcut."/>
+      <param description="The InputOption shortcut" type="string" variable="$name"/>
+      <return description="true if the InputOption object exists, false otherwise" type="object">
+        <type full="Symfony\Component\Console\Input\bool" namespace="Symfony\Component\Console\Input" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getOptionForShortcut" start="323" end="326" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets an InputOption by shortcut."/>
+      <param description="the Shortcut name" type="string" variable="$shortcut"/>
+      <return description="An InputOption object" type="object">
+        <type full="Symfony\Component\Console\Input\InputOption" namespace="Symfony\Component\Console\Input" name="InputOption"/>
+      </return>
+    </docblock>
+    <parameter name="shortcut" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getOptionDefaults" start="333" end="341" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets an array of default values."/>
+      <return description="An array of all default values" type="array"/>
+    </docblock>
+  </method>
+  <method name="shortcutToName" start="352" end="359" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Returns the InputOption name given a shortcut."/>
+      <param description="The shortcut" type="string" variable="$shortcut"/>
+      <return description="The InputOption name" type="string"/>
+      <throws description="When option given does not exist" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="shortcut" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getSynopsis" start="368" end="411" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the synopsis."/>
+      <param description="Whether to return the short version (with options folded) or not" type="object" variable="$short">
+        <type full="Symfony\Component\Console\Input\bool" namespace="Symfony\Component\Console\Input" name="bool"/>
+      </param>
+      <return description="The synopsis" type="string"/>
+    </docblock>
+    <parameter name="short" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="asText" start="420" end="429" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a textual representation of the InputDefinition."/>
+      <return description="A string representing the InputDefinition" type="string"/>
+      <deprecated value="since version 2.3, to be removed in 3.0."/>
+    </docblock>
+  </method>
+  <method name="asXml" start="440" end="454" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an XML representation of the InputDefinition."/>
+      <param description="Whether to return a DOM or an XML string" type="object" variable="$asDom">
+        <type full="Symfony\Component\Console\Input\bool" namespace="Symfony\Component\Console\Input" name="bool"/>
+      </param>
+      <return description="An XML string representing the InputDefinition" type="object">
+        <type full="Symfony\Component\Console\Input\string|\DOMDocument" namespace="Symfony\Component\Console\Input\string|" name="DOMDocument"/>
+      </return>
+      <deprecated value="since version 2.3, to be removed in 3.0."/>
+    </docblock>
+    <parameter name="asDom" byreference="false" type="boolean" default="false"/>
+  </method>
+</class>

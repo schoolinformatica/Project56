@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\Client" namespace="Symfony\Component\HttpKernel" name="Client" abstract="false" final="false" start="29" end="226">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel" file="Client.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Client.php" size="7037" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="082154dc05055254e8d24782e3b53320b34cd041" relative="vendor/symfony/http-kernel/Client.php"/>
+  <docblock>
+    <description compact="Client simulates a browser and makes requests to a Kernel object."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\BrowserKit\Client" namespace="Symfony\Component\BrowserKit" name="Client"/>
+  <member name="kernel" visibility="protected" line="31"/>
+  <constructor name="__construct" start="41" end="48" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="An HttpKernel instance" type="object" variable="$kernel">
+        <type full="Symfony\Component\HttpKernel\HttpKernelInterface" namespace="Symfony\Component\HttpKernel" name="HttpKernelInterface"/>
+      </param>
+      <param description="The server parameters (equivalent of $_SERVER)" type="array" variable="$server"/>
+      <param description="A History instance to store the browser history" type="object" variable="$history">
+        <type full="Symfony\Component\BrowserKit\History" namespace="Symfony\Component\BrowserKit" name="History"/>
+      </param>
+      <param description="A CookieJar instance to store the cookies" type="object" variable="$cookieJar">
+        <type full="Symfony\Component\BrowserKit\CookieJar" namespace="Symfony\Component\BrowserKit" name="CookieJar"/>
+      </param>
+    </docblock>
+    <parameter name="kernel" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\HttpKernelInterface" namespace="Symfony\Component\HttpKernel" name="HttpKernelInterface"/>
+    </parameter>
+    <parameter name="server" byreference="false" type="array" default=""/>
+    <parameter name="history" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\BrowserKit\History" namespace="Symfony\Component\BrowserKit" name="History"/>
+    </parameter>
+    <parameter name="cookieJar" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\BrowserKit\CookieJar" namespace="Symfony\Component\BrowserKit" name="CookieJar"/>
+    </parameter>
+    <inline>
+      <comment value="These class properties must be set before calling the parent constructor, as it may depend on it." line="43"/>
+    </inline>
+  </constructor>
+  <method name="getRequest" start="55" end="58" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+      <return description="A Request instance" type="object">
+        <type full="Symfony\Component\HttpKernel\Request|null" namespace="Symfony\Component\HttpKernel" name="Request|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getResponse" start="65" end="68" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+      <return description="A Response instance" type="object">
+        <type full="Symfony\Component\HttpKernel\Response|null" namespace="Symfony\Component\HttpKernel" name="Response|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="doRequest" start="77" end="86" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Makes a request."/>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <return description="A Response instance" type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getScript" start="95" end="121" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Returns the script to execute when the request must be insulated."/>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getHandleScript" start="123" end="134" abstract="false" final="false" static="false" visibility="protected"/>
+  <method name="filterRequest" start="143" end="152" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Converts the BrowserKit request to a HttpKernel request."/>
+      <param description="A DomRequest instance" type="object" variable="$request">
+        <type full="Symfony\Component\BrowserKit\Request" namespace="Symfony\Component\BrowserKit" name="Request"/>
+      </param>
+      <return description="A Request instance" type="object">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\BrowserKit\Request" namespace="Symfony\Component\BrowserKit" name="Request"/>
+    </parameter>
+  </method>
+  <method name="filterFiles" start="169" end="199" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Filters an array of files.">This method created test instances of UploadedFile so that the move()
+method can be called on those instances.
+
+If the size of a file is greater than the allowed size (from php.ini) then
+an invalid UploadedFile is returned with an error set to UPLOAD_ERR_INI_SIZE.</description>
+      <see value="UploadedFile"/>
+      <param description="An array of files" type="array" variable="$files"/>
+      <return description="An array with all uploaded files marked as already moved" type="array"/>
+    </docblock>
+    <parameter name="files" byreference="false" type="array"/>
+  </method>
+  <method name="filterResponse" start="208" end="225" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Converts the HttpKernel response to a BrowserKit response."/>
+      <param description="A Response instance" type="object" variable="$response">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </param>
+      <return description="A DomResponse instance" type="object">
+        <type full="Symfony\Component\BrowserKit\Response" namespace="Symfony\Component\BrowserKit" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="response" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="this is needed to support StreamedResponse" line="219"/>
+    </inline>
+  </method>
+</class>

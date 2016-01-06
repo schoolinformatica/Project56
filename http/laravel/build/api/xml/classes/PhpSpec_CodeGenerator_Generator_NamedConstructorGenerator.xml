@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpSpec\CodeGenerator\Generator\NamedConstructorGenerator" namespace="PhpSpec\CodeGenerator\Generator" name="NamedConstructorGenerator" abstract="false" final="false" start="24" end="144">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/CodeGenerator/Generator" file="NamedConstructorGenerator.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/CodeGenerator/Generator/NamedConstructorGenerator.php" size="3890" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="f50d4760325d89c14c985dafe9c53e4004f7c447" relative="vendor/phpspec/phpspec/src/PhpSpec/CodeGenerator/Generator/NamedConstructorGenerator.php"/>
+  <implements full="PhpSpec\CodeGenerator\Generator\GeneratorInterface" namespace="PhpSpec\CodeGenerator\Generator" name="GeneratorInterface"/>
+  <member name="io" visibility="private" line="29">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\Console\IO" namespace="PhpSpec\Console" name="IO"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="templates" visibility="private" line="34">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\CodeGenerator\TemplateRenderer" namespace="PhpSpec\CodeGenerator" name="TemplateRenderer"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="filesystem" visibility="private" line="39">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\Util\Filesystem" namespace="PhpSpec\Util" name="Filesystem"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="codeWriter" visibility="private" line="43">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\CodeGenerator\Writer\CodeWriter" namespace="PhpSpec\CodeGenerator\Writer" name="CodeWriter"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="51" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$io">
+        <type full="PhpSpec\Console\IO" namespace="PhpSpec\Console" name="IO"/>
+      </param>
+      <param type="object" variable="$templates">
+        <type full="PhpSpec\CodeGenerator\TemplateRenderer" namespace="PhpSpec\CodeGenerator" name="TemplateRenderer"/>
+      </param>
+      <param type="object" variable="$filesystem">
+        <type full="PhpSpec\Util\Filesystem" namespace="PhpSpec\Util" name="Filesystem"/>
+      </param>
+      <param type="object" variable="$codeWriter">
+        <type full="PhpSpec\CodeGenerator\Writer\CodeWriter" namespace="PhpSpec\CodeGenerator\Writer" name="CodeWriter"/>
+      </param>
+    </docblock>
+    <parameter name="io" byreference="false" type="object">
+      <type full="PhpSpec\Console\IO" namespace="PhpSpec\Console" name="IO"/>
+    </parameter>
+    <parameter name="templates" byreference="false" type="object">
+      <type full="PhpSpec\CodeGenerator\TemplateRenderer" namespace="PhpSpec\CodeGenerator" name="TemplateRenderer"/>
+    </parameter>
+    <parameter name="filesystem" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="PhpSpec\Util\Filesystem" namespace="PhpSpec\Util" name="Filesystem"/>
+    </parameter>
+    <parameter name="codeWriter" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="PhpSpec\CodeGenerator\Writer\CodeWriter" namespace="PhpSpec\CodeGenerator\Writer" name="CodeWriter"/>
+    </parameter>
+  </constructor>
+  <method name="supports" start="66" end="69" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$resource">
+        <type full="PhpSpec\Locator\ResourceInterface" namespace="PhpSpec\Locator" name="ResourceInterface"/>
+      </param>
+      <param type="string" variable="$generation"/>
+      <param type="array" variable="$data"/>
+      <return type="object">
+        <type full="PhpSpec\CodeGenerator\Generator\bool" namespace="PhpSpec\CodeGenerator\Generator" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="resource" byreference="false" type="object">
+      <type full="PhpSpec\Locator\ResourceInterface" namespace="PhpSpec\Locator" name="ResourceInterface"/>
+    </parameter>
+    <parameter name="generation" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="array"/>
+  </method>
+  <method name="generate" start="75" end="95" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$resource">
+        <type full="PhpSpec\Locator\ResourceInterface" namespace="PhpSpec\Locator" name="ResourceInterface"/>
+      </param>
+      <param type="array" variable="$data"/>
+    </docblock>
+    <parameter name="resource" byreference="false" type="object">
+      <type full="PhpSpec\Locator\ResourceInterface" namespace="PhpSpec\Locator" name="ResourceInterface"/>
+    </parameter>
+    <parameter name="data" byreference="false" type="array" default=""/>
+  </method>
+  <method name="getPriority" start="100" end="103" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getContent" start="111" end="129" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$resource">
+        <type full="PhpSpec\Locator\ResourceInterface" namespace="PhpSpec\Locator" name="ResourceInterface"/>
+      </param>
+      <param type="string" variable="$methodName"/>
+      <param type="array" variable="$arguments"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="resource" byreference="false" type="object">
+      <type full="PhpSpec\Locator\ResourceInterface" namespace="PhpSpec\Locator" name="ResourceInterface"/>
+    </parameter>
+    <parameter name="methodName" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="appendMethodToCode" start="136" end="143" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$code"/>
+      <param type="string" variable="$method"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="code" byreference="false" type="{unknown}"/>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+  </method>
+</class>

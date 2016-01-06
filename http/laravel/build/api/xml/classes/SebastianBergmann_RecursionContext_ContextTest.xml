@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SebastianBergmann\RecursionContext\ContextTest" namespace="SebastianBergmann\RecursionContext" name="ContextTest" abstract="false" final="false" start="18" end="144">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/sebastian/recursion-context/tests" file="ContextTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/sebastian/recursion-context/tests/ContextTest.php" size="4139" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="3874e1ba0d31cfe220ebf8718449526dca0eb8fd" relative="vendor/sebastian/recursion-context/tests/ContextTest.php"/>
+  <docblock>
+    <description/>
+    <covers value="SebastianBergmann\RecursionContext\Context"/>
+  </docblock>
+  <extends full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+  <member name="context" visibility="private" line="23">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="\SebastianBergmann\RecursionContext\Context" namespace="\SebastianBergmann\RecursionContext" name="Context"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="setUp" start="25" end="28" abstract="false" final="false" static="false" visibility="protected"/>
+  <method name="failsProvider" start="30" end="41" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="valuesProvider" start="43" end="79" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="@codingStandardsIgnoreStart" line="51"/>
+      <comment value="@codingStandardsIgnoreEnd" line="53"/>
+    </inline>
+  </method>
+  <method name="testAddFails" start="86" end="93" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <covers value="SebastianBergmann\RecursionContext\Context::add"/>
+      <uses value="SebastianBergmann\RecursionContext\InvalidArgumentException"/>
+      <dataprovider value="failsProvider"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testContainsFails" start="100" end="107" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <covers value="SebastianBergmann\RecursionContext\Context::contains"/>
+      <uses value="SebastianBergmann\RecursionContext\InvalidArgumentException"/>
+      <dataprovider value="failsProvider"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testAdd" start="113" end="119" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <covers value="SebastianBergmann\RecursionContext\Context::add"/>
+      <dataprovider value="valuesProvider"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Test we get the same key on subsequent adds" line="117"/>
+    </inline>
+  </method>
+  <method name="testContainsFound" start="127" end="134" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <covers value="SebastianBergmann\RecursionContext\Context::contains"/>
+      <uses value="SebastianBergmann\RecursionContext\Context::add"/>
+      <depends value="testAdd"/>
+      <dataprovider value="valuesProvider"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Test we get the same key on subsequent calls" line="132"/>
+    </inline>
+  </method>
+  <method name="testContainsNotFound" start="140" end="143" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <covers value="SebastianBergmann\RecursionContext\Context::contains"/>
+      <dataprovider value="valuesProvider"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+</class>

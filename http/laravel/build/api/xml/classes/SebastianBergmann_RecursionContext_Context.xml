@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SebastianBergmann\RecursionContext\Context" namespace="SebastianBergmann\RecursionContext" name="Context" abstract="false" final="true" start="17" end="153">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/sebastian/recursion-context/src" file="Context.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/sebastian/recursion-context/src/Context.php" size="3749" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="c43da1edf0e608c74d85c28bf90f0d52c3657719" relative="vendor/sebastian/recursion-context/src/Context.php"/>
+  <docblock>
+    <description compact="A context containing previously processed arrays and objects when recursively processing a value."/>
+  </docblock>
+  <member name="arrays" visibility="private" line="22">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="SebastianBergmann\RecursionContext\array" namespace="SebastianBergmann\RecursionContext" name="array"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="objects" visibility="private" line="27">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="\SplObjectStorage" namespace="" name="SplObjectStorage"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="32" end="36" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Initialises the context"/>
+    </docblock>
+  </constructor>
+  <method name="add" start="47" end="60" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a value to the context."/>
+      <param description="The value to add." type="object" variable="$value">
+        <type full="SebastianBergmann\RecursionContext\array|object" namespace="SebastianBergmann\RecursionContext" name="array|object"/>
+      </param>
+      <return description="The ID of the stored value, either as" type="object">a string or integer.<type full="SebastianBergmann\RecursionContext\int|string" namespace="SebastianBergmann\RecursionContext" name="int|string"/></return>
+      <throws description="Thrown if $value is not an array or" type="object">object<type full="SebastianBergmann\RecursionContext\InvalidArgumentException" namespace="SebastianBergmann\RecursionContext" name="InvalidArgumentException"/></throws>
+    </docblock>
+    <parameter name="value" byreference="true" type="{unknown}"/>
+  </method>
+  <method name="contains" start="72" end="85" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks if the given value exists within the context."/>
+      <param description="The value to check." type="object" variable="$value">
+        <type full="SebastianBergmann\RecursionContext\array|object" namespace="SebastianBergmann\RecursionContext" name="array|object"/>
+      </param>
+      <return description="The string or integer ID of the stored" type="object">value if it has already been seen, or
+                                       false if the value is not stored.<type full="SebastianBergmann\RecursionContext\int|string|false" namespace="SebastianBergmann\RecursionContext" name="int|string|false"/></return>
+      <throws description="Thrown if $value is not an array or" type="object">object<type full="SebastianBergmann\RecursionContext\InvalidArgumentException" namespace="SebastianBergmann\RecursionContext" name="InvalidArgumentException"/></throws>
+    </docblock>
+    <parameter name="value" byreference="true" type="{unknown}"/>
+  </method>
+  <method name="addArray" start="91" end="102" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="array" variable="$array"/>
+      <return type="object">
+        <type full="SebastianBergmann\RecursionContext\bool|int" namespace="SebastianBergmann\RecursionContext" name="bool|int"/>
+      </return>
+    </docblock>
+    <parameter name="array" byreference="true" type="array"/>
+  </method>
+  <method name="addObject" start="108" end="115" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$object"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="object" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="containsArray" start="121" end="139" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="array" variable="$array"/>
+      <return type="object">
+        <type full="SebastianBergmann\RecursionContext\int|false" namespace="SebastianBergmann\RecursionContext" name="int|false"/>
+      </return>
+    </docblock>
+    <parameter name="array" byreference="true" type="array"/>
+  </method>
+  <method name="containsObject" start="145" end="152" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$value"/>
+      <return type="object">
+        <type full="SebastianBergmann\RecursionContext\string|false" namespace="SebastianBergmann\RecursionContext" name="string|false"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+</class>

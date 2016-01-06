@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpFoundation\AcceptHeader" namespace="Symfony\Component\HttpFoundation" name="AcceptHeader" abstract="false" final="false" start="22" end="172">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation" file="AcceptHeader.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/AcceptHeader.php" size="3608" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="da5f4c369c0b6003f3025ae4c0ccd393ef3ed05b" relative="vendor/symfony/http-foundation/AcceptHeader.php"/>
+  <docblock>
+    <description compact="Represents an Accept-* header.">An accept header is compound with a list of items,
+sorted by descending quality.</description>
+    <author value="Jean-François Simon &lt;contact@jfsimon.fr&gt;"/>
+  </docblock>
+  <member name="items" type="array" default="" visibility="private" line="27">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="Symfony\Component\HttpFoundation\AcceptHeaderItem" namespace="Symfony\Component\HttpFoundation" name="AcceptHeaderItem"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="sorted" type="boolean" default="true" visibility="private" line="32">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="39" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param type="array" variable="$items" of="object">
+        <type full="Symfony\Component\HttpFoundation\AcceptHeaderItem" namespace="Symfony\Component\HttpFoundation" name="AcceptHeaderItem"/>
+      </param>
+    </docblock>
+    <parameter name="items" byreference="false" type="array"/>
+  </constructor>
+  <method name="fromString" start="53" end="63" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Builds an AcceptHeader instance from a string."/>
+      <param type="string" variable="$headerValue"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\AcceptHeader" namespace="Symfony\Component\HttpFoundation" name="AcceptHeader"/>
+      </return>
+    </docblock>
+    <parameter name="headerValue" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__toString" start="70" end="73" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns header value's string representation."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="has" start="82" end="85" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Tests if header has given value."/>
+      <param type="string" variable="$value"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\bool" namespace="Symfony\Component\HttpFoundation" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get" start="94" end="97" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns given value's item, if exists."/>
+      <param type="string" variable="$value"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\AcceptHeaderItem|null" namespace="Symfony\Component\HttpFoundation" name="AcceptHeaderItem|null"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="add" start="106" end="112" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds an item."/>
+      <param type="object" variable="$item">
+        <type full="Symfony\Component\HttpFoundation\AcceptHeaderItem" namespace="Symfony\Component\HttpFoundation" name="AcceptHeaderItem"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\AcceptHeader" namespace="Symfony\Component\HttpFoundation" name="AcceptHeader"/>
+      </return>
+    </docblock>
+    <parameter name="item" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\AcceptHeaderItem" namespace="Symfony\Component\HttpFoundation" name="AcceptHeaderItem"/>
+    </parameter>
+  </method>
+  <method name="all" start="119" end="124" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns all items."/>
+      <return type="array" of="object">
+        <type full="Symfony\Component\HttpFoundation\AcceptHeaderItem" namespace="Symfony\Component\HttpFoundation" name="AcceptHeaderItem"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="filter" start="133" end="138" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Filters items on their value using given regex."/>
+      <param type="string" variable="$pattern"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\AcceptHeader" namespace="Symfony\Component\HttpFoundation" name="AcceptHeader"/>
+      </return>
+    </docblock>
+    <parameter name="pattern" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="first" start="145" end="150" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns first item."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\AcceptHeaderItem|null" namespace="Symfony\Component\HttpFoundation" name="AcceptHeaderItem|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="sort" start="155" end="171" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Sorts items by descending quality."/>
+    </docblock>
+  </method>
+</class>

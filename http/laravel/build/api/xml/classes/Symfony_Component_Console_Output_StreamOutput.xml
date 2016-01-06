@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Console\Output\StreamOutput" namespace="Symfony\Component\Console\Output" name="StreamOutput" abstract="false" final="false" start="29" end="99">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Output" file="StreamOutput.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Output/StreamOutput.php" size="3006" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="a07acac2dfdefbf11fcd037c386ae702fc19c613" relative="vendor/symfony/console/Output/StreamOutput.php"/>
+  <docblock>
+    <description compact="StreamOutput writes the output to a given stream.">Usage:
+
+$output = new StreamOutput(fopen('php://stdout', 'w'));
+
+As `StreamOutput` can use any stream, you can also use a file:
+
+$output = new StreamOutput(fopen('/path/to/output.log', 'a', false));</description>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\Console\Output\Output" namespace="Symfony\Component\Console\Output" name="Output"/>
+  <member name="stream" visibility="private" line="31"/>
+  <constructor name="__construct" start="43" end="56" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="A stream resource" type="resource" variable="$stream"/>
+      <param description="The verbosity level (one of the VERBOSITY constants in OutputInterface)" type="int" variable="$verbosity"/>
+      <param description="Whether to decorate messages (null for auto-guessing)" type="object" variable="$decorated">
+        <type full="Symfony\Component\Console\Output\bool|null" namespace="Symfony\Component\Console\Output" name="bool|null"/>
+      </param>
+      <param description="Output formatter instance (null to use default OutputFormatter)" type="object" variable="$formatter">
+        <type full="Symfony\Component\Console\Output\OutputFormatterInterface|null" namespace="Symfony\Component\Console\Output" name="OutputFormatterInterface|null"/>
+      </param>
+      <throws description="When first argument is not a real stream" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="stream" byreference="false" type="{unknown}"/>
+    <parameter name="verbosity" byreference="false" type="{unknown}" default="" constant="self::VERBOSITY_NORMAL"/>
+    <parameter name="decorated" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="formatter" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\Console\Formatter\OutputFormatterInterface" namespace="Symfony\Component\Console\Formatter" name="OutputFormatterInterface"/>
+    </parameter>
+  </constructor>
+  <method name="getStream" start="63" end="66" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the stream attached to this StreamOutput instance."/>
+      <return description="A stream resource" type="resource"/>
+    </docblock>
+  </method>
+  <method name="doWrite" start="71" end="79" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="newline" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasColorSupport" start="91" end="98" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Returns true if the stream supports colorization.">Colorization is disabled if not supported by the stream:
+
+ -  Windows without Ansicon, ConEmu or Mintty
+ -  non tty consoles</description>
+      <return description="true if the stream supports colorization, false otherwise" type="object">
+        <type full="Symfony\Component\Console\Output\bool" namespace="Symfony\Component\Console\Output" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+</class>

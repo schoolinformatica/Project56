@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Faker\ORM\Doctrine\EntityPopulator" namespace="Faker\ORM\Doctrine" name="EntityPopulator" abstract="false" final="false" start="12" end="193">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/fzaninotto/faker/src/Faker/ORM/Doctrine" file="EntityPopulator.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/fzaninotto/faker/src/Faker/ORM/Doctrine/EntityPopulator.php" size="5626" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="62c355e74a6394e27337d887e5368f25792a1021" relative="vendor/fzaninotto/faker/src/Faker/ORM/Doctrine/EntityPopulator.php"/>
+  <docblock>
+    <description compact="Service class for populating a table through a Doctrine Entity class."/>
+  </docblock>
+  <member name="class" visibility="protected" line="17">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Doctrine\ORM\Mapping\ClassMetadata" namespace="Doctrine\ORM\Mapping" name="ClassMetadata"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="columnFormatters" type="array" default="" visibility="protected" line="21">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="modifiers" type="array" default="" visibility="protected" line="25">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="32" end="35" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Class constructor."/>
+      <param type="object" variable="$class">
+        <type full="Doctrine\ORM\Mapping\ClassMetadata" namespace="Doctrine\ORM\Mapping" name="ClassMetadata"/>
+      </param>
+    </docblock>
+    <parameter name="class" byreference="false" type="object">
+      <type full="Doctrine\ORM\Mapping\ClassMetadata" namespace="Doctrine\ORM\Mapping" name="ClassMetadata"/>
+    </parameter>
+  </constructor>
+  <method name="getClass" start="40" end="43" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setColumnFormatters" start="45" end="48" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="columnFormatters" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getColumnFormatters" start="50" end="53" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="mergeColumnFormattersWith" start="55" end="58" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="columnFormatters" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setModifiers" start="60" end="63" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="modifiers" byreference="false" type="array"/>
+  </method>
+  <method name="getModifiers" start="65" end="68" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="mergeModifiersWith" start="70" end="73" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="modifiers" byreference="false" type="array"/>
+  </method>
+  <method name="guessColumnFormatters" start="75" end="134" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="generator" byreference="false" type="object">
+      <type full="Faker\Generator" namespace="Faker" name="Generator"/>
+    </parameter>
+  </method>
+  <method name="execute" start="139" end="157" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Insert one new record using the Entity class."/>
+    </docblock>
+    <parameter name="manager" byreference="false" type="object">
+      <type full="Doctrine\Common\Persistence\ObjectManager" namespace="Doctrine\Common\Persistence" name="ObjectManager"/>
+    </parameter>
+    <parameter name="insertedEntities" byreference="false" type="{unknown}"/>
+    <parameter name="generateId" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="fillColumns" start="159" end="167" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="obj" byreference="false" type="{unknown}"/>
+    <parameter name="insertedEntities" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="callMethods" start="169" end="174" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="obj" byreference="false" type="{unknown}"/>
+    <parameter name="insertedEntities" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="generateId" start="176" end="192" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="obj" byreference="false" type="{unknown}"/>
+    <parameter name="column" byreference="false" type="{unknown}"/>
+    <parameter name="manager" byreference="false" type="object">
+      <type full="Doctrine\ORM\EntityManagerInterface" namespace="Doctrine\ORM" name="EntityManagerInterface"/>
+    </parameter>
+  </method>
+</class>

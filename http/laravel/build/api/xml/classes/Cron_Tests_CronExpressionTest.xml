@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Cron\Tests\CronExpressionTest" namespace="Cron\Tests" name="CronExpressionTest" abstract="false" final="false" start="12" end="376">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/mtdowling/cron-expression/tests/Cron" file="CronExpressionTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/mtdowling/cron-expression/tests/Cron/CronExpressionTest.php" size="17291" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="b0a78e79870f6169536c1c2204b742e2e8981656" relative="vendor/mtdowling/cron-expression/tests/Cron/CronExpressionTest.php"/>
+  <docblock>
+    <description/>
+    <author value="Michael Dowling &lt;mtdowling@gmail.com&gt;"/>
+  </docblock>
+  <extends full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+  <method name="testFactoryRecognizesTemplates" start="17" end="22" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <covers value="Cron\CronExpression::factory"/>
+    </docblock>
+  </method>
+  <method name="testParsesCronSchedule" start="29" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <covers value="Cron\CronExpression::__construct"/>
+      <covers value="Cron\CronExpression::getExpression"/>
+      <covers value="Cron\CronExpression::__toString"/>
+    </docblock>
+    <inline>
+      <comment value="'2010-09-10 12:00:00'" line="31"/>
+    </inline>
+  </method>
+  <method name="testParsesCronScheduleWithAnySpaceCharsAsSeparators" start="54" end="63" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <covers value="Cron\CronExpression::__construct"/>
+      <covers value="Cron\CronExpression::getExpression"/>
+      <dataprovider value="scheduleWithDifferentSeparatorsProvider"/>
+    </docblock>
+    <parameter name="schedule" byreference="false" type="{unknown}"/>
+    <parameter name="expected" byreference="false" type="array"/>
+  </method>
+  <method name="scheduleWithDifferentSeparatorsProvider" start="70" end="78" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Data provider for testParsesCronScheduleWithAnySpaceCharsAsSeparators"/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="testInvalidCronsWillFail" start="86" end="90" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <covers value="Cron\CronExpression::__construct"/>
+      <covers value="Cron\CronExpression::setExpression"/>
+      <covers value="Cron\CronExpression::setPart"/>
+      <expectedexception value="InvalidArgumentException"/>
+    </docblock>
+    <inline>
+      <comment value="Only four values" line="88"/>
+    </inline>
+  </method>
+  <method name="testInvalidPartsWillFail" start="96" end="101" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <covers value="Cron\CronExpression::setPart"/>
+      <expectedexception value="InvalidArgumentException"/>
+    </docblock>
+    <inline>
+      <comment value="Only four values" line="98"/>
+    </inline>
+  </method>
+  <method name="scheduleProvider" start="108" end="176" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Data provider for cron schedule"/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="testDeterminesIfCronIsDue" start="190" end="204" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <covers value="Cron\CronExpression::isDue"/>
+      <covers value="Cron\CronExpression::getNextRunDate"/>
+      <covers value="Cron\DayOfMonthField"/>
+      <covers value="Cron\DayOfWeekField"/>
+      <covers value="Cron\MinutesField"/>
+      <covers value="Cron\HoursField"/>
+      <covers value="Cron\MonthField"/>
+      <covers value="Cron\YearField"/>
+      <covers value="Cron\CronExpression::getRunDate"/>
+      <dataprovider value="scheduleProvider"/>
+    </docblock>
+    <parameter name="schedule" byreference="false" type="{unknown}"/>
+    <parameter name="relativeTime" byreference="false" type="{unknown}"/>
+    <parameter name="nextRun" byreference="false" type="{unknown}"/>
+    <parameter name="isDue" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Test next run date" line="194"/>
+    </inline>
+  </method>
+  <method name="testIsDueHandlesDifferentDates" start="209" end="216" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <covers value="Cron\CronExpression::isDue"/>
+    </docblock>
+  </method>
+  <method name="testIsDueHandlesDifferentTimezones" start="221" end="243" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <covers value="Cron\CronExpression::isDue"/>
+    </docblock>
+    <inline>
+      <comment value="Wednesday at 15:00" line="223"/>
+      <comment value="Wednesday" line="224"/>
+    </inline>
+  </method>
+  <method name="testCanGetPreviousRunDates" start="248" end="264" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <covers value="Cron\CronExpression::getPreviousRunDate"/>
+    </docblock>
+  </method>
+  <method name="testProvidesMultipleRunDates" start="269" end="278" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <covers value="Cron\CronExpression::getMultipleRunDates"/>
+    </docblock>
+  </method>
+  <method name="testCanIterateOverNextRuns" start="283" end="302" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <covers value="Cron\CronExpression"/>
+    </docblock>
+    <inline>
+      <comment value="true is cast to 1" line="289"/>
+      <comment value="You can iterate over them" line="293"/>
+      <comment value="You can skip more than one" line="297"/>
+    </inline>
+  </method>
+  <method name="testSkipsCurrentDateByDefault" start="307" end="314" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <covers value="Cron\CronExpression::getRunDate"/>
+    </docblock>
+  </method>
+  <method name="testStripsForSeconds" start="320" end="325" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <covers value="Cron\CronExpression::getRunDate"/>
+      <ticket value="7"/>
+    </docblock>
+  </method>
+  <method name="testFixesPhpBugInDateIntervalMonth" start="330" end="334" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <covers value="Cron\CronExpression::getRunDate"/>
+    </docblock>
+  </method>
+  <method name="testIssue29" start="336" end="343" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testIssue20" start="348" end="363" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <see value="https://github.com/mtdowling/cron-expression/issues/20"/>
+    </docblock>
+  </method>
+  <method name="testKeepOriginalTime" start="368" end="375" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <covers value="Cron\CronExpression::getRunDate"/>
+    </docblock>
+  </method>
+</class>

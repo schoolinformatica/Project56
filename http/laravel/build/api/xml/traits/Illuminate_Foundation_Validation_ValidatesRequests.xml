@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trait xmlns="http://xml.phpdox.net/src" full="Illuminate\Foundation\Validation\ValidatesRequests" namespace="Illuminate\Foundation\Validation" name="ValidatesRequests" abstract="false" final="false" start="12" end="150">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Validation" file="ValidatesRequests.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Validation/ValidatesRequests.php" size="4255" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="48b7d02be80c077fdff07914ca7702a63bc159c0" relative="vendor/laravel/framework/src/Illuminate/Foundation/Validation/ValidatesRequests.php"/>
+  <member name="validatesRequestErrorBag" visibility="protected" line="19">
+    <docblock>
+      <description compact="The default error bag."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <method name="validate" start="32" end="39" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Validate the given request with the given rules."/>
+      <param type="object" variable="$request">
+        <type full="\Illuminate\Http\Request" namespace="\Illuminate\Http" name="Request"/>
+      </param>
+      <param type="array" variable="$rules"/>
+      <param type="array" variable="$messages"/>
+      <param type="array" variable="$customAttributes"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Validation\void" namespace="Illuminate\Foundation\Validation" name="void"/>
+      </return>
+      <throws type="object">
+        <type full="\Illuminate\Http\Exception\HttpResponseException" namespace="\Illuminate\Http\Exception" name="HttpResponseException"/>
+      </throws>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+    </parameter>
+    <parameter name="rules" byreference="false" type="array"/>
+    <parameter name="messages" byreference="false" type="array" default=""/>
+    <parameter name="customAttributes" byreference="false" type="array" default=""/>
+  </method>
+  <method name="validateWithBag" start="53" end="58" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Validate the given request with the given rules."/>
+      <param type="string" variable="$errorBag"/>
+      <param type="object" variable="$request">
+        <type full="\Illuminate\Http\Request" namespace="\Illuminate\Http" name="Request"/>
+      </param>
+      <param type="array" variable="$rules"/>
+      <param type="array" variable="$messages"/>
+      <param type="array" variable="$customAttributes"/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Validation\void" namespace="Illuminate\Foundation\Validation" name="void"/>
+      </return>
+      <throws type="object">
+        <type full="\Illuminate\Http\Exception\HttpResponseException" namespace="\Illuminate\Http\Exception" name="HttpResponseException"/>
+      </throws>
+    </docblock>
+    <parameter name="errorBag" byreference="false" type="{unknown}"/>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+    </parameter>
+    <parameter name="rules" byreference="false" type="array"/>
+    <parameter name="messages" byreference="false" type="array" default=""/>
+    <parameter name="customAttributes" byreference="false" type="array" default=""/>
+  </method>
+  <method name="throwValidationException" start="69" end="74" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Throw the failed validation exception."/>
+      <param type="object" variable="$request">
+        <type full="\Illuminate\Http\Request" namespace="\Illuminate\Http" name="Request"/>
+      </param>
+      <param type="object" variable="$validator">
+        <type full="\Illuminate\Contracts\Validation\Validator" namespace="\Illuminate\Contracts\Validation" name="Validator"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\Validation\void" namespace="Illuminate\Foundation\Validation" name="void"/>
+      </return>
+      <throws type="object">
+        <type full="\Illuminate\Http\Exception\HttpResponseException" namespace="\Illuminate\Http\Exception" name="HttpResponseException"/>
+      </throws>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+    </parameter>
+    <parameter name="validator" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="buildFailedValidationResponse" start="83" end="92" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create the response for when a request fails validation."/>
+      <param type="object" variable="$request">
+        <type full="\Illuminate\Http\Request" namespace="\Illuminate\Http" name="Request"/>
+      </param>
+      <param type="array" variable="$errors"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+    </parameter>
+    <parameter name="errors" byreference="false" type="array"/>
+  </method>
+  <method name="formatValidationErrors" start="100" end="103" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Format the validation errors to be returned."/>
+      <param type="object" variable="$validator">
+        <type full="\Illuminate\Contracts\Validation\Validator" namespace="\Illuminate\Contracts\Validation" name="Validator"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="validator" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Validation\Validator" namespace="Illuminate\Contracts\Validation" name="Validator"/>
+    </parameter>
+  </method>
+  <method name="getRedirectUrl" start="110" end="113" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the URL we should redirect to."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getValidationFactory" start="120" end="123" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get a validation factory instance."/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Validation\Factory" namespace="\Illuminate\Contracts\Validation" name="Factory"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="withErrorBag" start="132" end="139" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Execute a Closure within with a given error bag set as the default bag."/>
+      <param type="string" variable="$errorBag"/>
+      <param type="object" variable="$callback">
+        <type full="Illuminate\Foundation\Validation\callable" namespace="Illuminate\Foundation\Validation" name="callable"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\Validation\void" namespace="Illuminate\Foundation\Validation" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="errorBag" byreference="false" type="{unknown}"/>
+    <parameter name="callback" byreference="false" type="object">
+      <type full="Illuminate\Foundation\Validation\callable" namespace="Illuminate\Foundation\Validation" name="callable"/>
+    </parameter>
+  </method>
+  <method name="errorBag" start="146" end="149" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the key to be used for the view error bag."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+</trait>

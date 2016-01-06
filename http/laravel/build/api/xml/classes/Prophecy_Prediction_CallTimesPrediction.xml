@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Prophecy\Prediction\CallTimesPrediction" namespace="Prophecy\Prediction" name="CallTimesPrediction" abstract="false" final="false" start="28" end="107">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Prediction" file="CallTimesPrediction.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Prediction/CallTimesPrediction.php" size="3219" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="2d4f9d82278a5381acff6905d61962311dff49f0" relative="vendor/phpspec/prophecy/src/Prophecy/Prediction/CallTimesPrediction.php"/>
+  <docblock>
+    <description compact="Prediction interface.">Predictions are logical test blocks, tied to `should...` keyword.</description>
+    <author value="Konstantin Kudryashov &lt;ever.zet@gmail.com&gt;"/>
+  </docblock>
+  <implements full="Prophecy\Prediction\PredictionInterface" namespace="Prophecy\Prediction" name="PredictionInterface"/>
+  <member name="times" visibility="private" line="30"/>
+  <member name="util" visibility="private" line="31"/>
+  <constructor name="__construct" start="39" end="43" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Initializes prediction."/>
+      <param type="int" variable="$times"/>
+      <param type="object" variable="$util">
+        <type full="Prophecy\Util\StringUtil" namespace="Prophecy\Util" name="StringUtil"/>
+      </param>
+    </docblock>
+    <parameter name="times" byreference="false" type="{unknown}"/>
+    <parameter name="util" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Prophecy\Util\StringUtil" namespace="Prophecy\Util" name="StringUtil"/>
+    </parameter>
+  </constructor>
+  <method name="check" start="54" end="106" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Tests that there was exact amount of calls made."/>
+      <param type="array" variable="$calls" of="object">
+        <type full="Prophecy\Prediction\Call" namespace="Prophecy\Prediction" name="Call"/>
+      </param>
+      <param type="object" variable="$object">
+        <type full="Prophecy\Prophecy\ObjectProphecy" namespace="Prophecy\Prophecy" name="ObjectProphecy"/>
+      </param>
+      <param type="object" variable="$method">
+        <type full="Prophecy\Prophecy\MethodProphecy" namespace="Prophecy\Prophecy" name="MethodProphecy"/>
+      </param>
+      <throws type="object">
+        <type full="\Prophecy\Exception\Prediction\UnexpectedCallsCountException" namespace="\Prophecy\Exception\Prediction" name="UnexpectedCallsCountException"/>
+      </throws>
+    </docblock>
+    <parameter name="calls" byreference="false" type="array"/>
+    <parameter name="object" byreference="false" type="object">
+      <type full="Prophecy\Prophecy\ObjectProphecy" namespace="Prophecy\Prophecy" name="ObjectProphecy"/>
+    </parameter>
+    <parameter name="method" byreference="false" type="object">
+      <type full="Prophecy\Prophecy\MethodProphecy" namespace="Prophecy\Prophecy" name="MethodProphecy"/>
+    </parameter>
+  </method>
+</class>

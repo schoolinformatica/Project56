@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Process\Tests\SimpleProcessTest" namespace="Symfony\Component\Process\Tests" name="SimpleProcessTest" abstract="false" final="false" start="16" end="225">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/process/Tests" file="SimpleProcessTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/process/Tests/SimpleProcessTest.php" size="8529" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="85968452a6da706008cac8ab7231eccca4ff48d3" relative="vendor/symfony/process/Tests/SimpleProcessTest.php"/>
+  <extends full="Symfony\Component\Process\Tests\AbstractProcessTest" namespace="Symfony\Component\Process\Tests" name="AbstractProcessTest"/>
+  <member name="enabledSigchild" type="boolean" default="false" visibility="private" line="18"/>
+  <method name="setUp" start="20" end="26" abstract="false" final="false" static="false" visibility="protected"/>
+  <method name="testGetExitCode" start="28" end="32" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="This test use exitcode that is not available in this case" line="30"/>
+    </inline>
+  </method>
+  <method name="testExitCodeCommandFailed" start="34" end="38" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="This test use exitcode that is not available in this case" line="36"/>
+    </inline>
+  </method>
+  <method name="testProcessIsSignaledIfStopped" start="40" end="44" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testProcessWithTermSignal" start="46" end="50" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testProcessIsNotSignaled" start="52" end="56" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testProcessWithoutTermSignal" start="58" end="62" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testExitCodeText" start="64" end="68" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="This test use exitcode that is not available in this case" line="66"/>
+    </inline>
+  </method>
+  <method name="testIsSuccessful" start="70" end="74" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="This test use PID that is not available in this case" line="72"/>
+    </inline>
+  </method>
+  <method name="testIsNotSuccessful" start="76" end="80" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="This test use PID that is not available in this case" line="78"/>
+    </inline>
+  </method>
+  <method name="testGetPid" start="82" end="86" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="This test use PID that is not available in this case" line="84"/>
+    </inline>
+  </method>
+  <method name="testGetPidIsNullBeforeStart" start="88" end="92" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="This test use PID that is not available in this case" line="90"/>
+    </inline>
+  </method>
+  <method name="testGetPidIsNullAfterRun" start="94" end="98" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="This test use PID that is not available in this case" line="96"/>
+    </inline>
+  </method>
+  <method name="testSignal" start="100" end="104" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testProcessWithoutTermSignalIsNotSignaled" start="106" end="110" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testProcessThrowsExceptionWhenExternallySignaled" start="112" end="116" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="This test use PID that is not available in this case" line="114"/>
+    </inline>
+  </method>
+  <method name="testExitCodeIsAvailableAfterSignal" start="118" end="122" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSignalProcessNotRunning" start="128" end="131" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\Symfony\Component\Process\Exception\LogicException"/>
+      <expectedexceptionmessage value="Can not send signal on a non running process."/>
+    </docblock>
+  </method>
+  <method name="testSignalWithWrongIntSignal" start="133" end="141" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSignalWithWrongNonIntSignal" start="143" end="151" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testStopTerminatesProcessCleanly" start="153" end="163" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testKillSignalTerminatesProcessCleanly" start="165" end="179" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testTermSignalTerminatesProcessCleanly" start="181" end="195" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testStopWithTimeoutIsActuallyWorking" start="197" end="202" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getProcess" start="207" end="210" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="commandline" byreference="false" type="{unknown}"/>
+    <parameter name="cwd" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="env" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="input" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="timeout" byreference="false" type="integer" default="60"/>
+    <parameter name="options" byreference="false" type="array" default=""/>
+  </method>
+  <method name="skipIfPHPSigchild" start="212" end="217" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="expectExceptionIfPHPSigchild" start="219" end="224" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="classname" byreference="false" type="{unknown}"/>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+  </method>
+</class>

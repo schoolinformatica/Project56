@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Debug\DebugClassLoader" namespace="Symfony\Component\Debug" name="DebugClassLoader" abstract="false" final="false" start="25" end="309">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/debug" file="DebugClassLoader.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/debug/DebugClassLoader.php" size="11595" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="b6d67a7a5aee2d47113af6ad77b7c8f3cf89b899" relative="vendor/symfony/debug/DebugClassLoader.php"/>
+  <docblock>
+    <description compact="Autoloader checking if the class is really defined in the file found.">The ClassLoader will wrap all registered autoloaders
+and will throw an exception if a file is found but does
+not declare the class.</description>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+    <author value="Christophe Coevoet &lt;stof@notk.org&gt;"/>
+    <author value="Nicolas Grekas &lt;p@tchwork.com&gt;"/>
+  </docblock>
+  <member name="classLoader" visibility="private" line="27"/>
+  <member name="isFinder" visibility="private" line="28"/>
+  <member name="wasFinder" visibility="private" line="29"/>
+  <member name="caseCheck" visibility="private" line="30"/>
+  <member name="deprecated" type="array" default="" visibility="private" line="31"/>
+  <member name="php7Reserved" type="array" default="" visibility="private" line="32"/>
+  <member name="darwinCache" type="array" default="" visibility="private" line="33"/>
+  <constructor name="__construct" start="40" end="56" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="Passing an object is @deprecated since version 2.5 and support for it will be removed in 3.0" type="object" variable="$classLoader">
+        <type full="Symfony\Component\Debug\callable|object" namespace="Symfony\Component\Debug" name="callable|object"/>
+      </param>
+    </docblock>
+    <parameter name="classLoader" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="getClassLoader" start="63" end="66" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the wrapped class loader."/>
+      <return description="A class loader. Since version 2.5, returning an object is @deprecated and support for it will be removed in 3.0" type="object">
+        <type full="Symfony\Component\Debug\callable|object" namespace="Symfony\Component\Debug" name="callable|object"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="enable" start="71" end="92" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Wraps all autoloaders."/>
+    </docblock>
+    <inline>
+      <comment value="Ensures we don't hit https://bugs.php.net/42098" line="73"/>
+    </inline>
+  </method>
+  <method name="disable" start="97" end="114" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Disables the wrapping."/>
+    </docblock>
+  </method>
+  <method name="findFile" start="125" end="132" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Finds a file by class name."/>
+      <param description="A class name to resolve to file" type="string" variable="$class"/>
+      <return type="object">
+        <type full="Symfony\Component\Debug\string|null" namespace="Symfony\Component\Debug" name="string|null"/>
+      </return>
+      <deprecated value="since version 2.5, to be removed in 3.0."/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="loadClass" start="143" end="308" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Loads the given class or interface."/>
+      <param description="The name of the class" type="string" variable="$class"/>
+      <return description="True, if loaded" type="object">
+        <type full="Symfony\Component\Debug\bool|null" namespace="Symfony\Component\Debug" name="bool|null"/>
+      </return>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+  </method>
+</class>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Queue\NullQueue" namespace="Illuminate\Queue" name="NullQueue" abstract="false" final="false" start="7" end="59">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Queue" file="NullQueue.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Queue/NullQueue.php" size="1200" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="75903f95344b1374b4b2c64ece56f248a3044fba" relative="vendor/laravel/framework/src/Illuminate/Queue/NullQueue.php"/>
+  <extends full="Illuminate\Queue\Queue" namespace="Illuminate\Queue" name="Queue"/>
+  <implements full="Illuminate\Contracts\Queue\Queue" namespace="Illuminate\Contracts\Queue" name="Queue"/>
+  <method name="push" start="17" end="20" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Push a new job onto the queue."/>
+      <param type="string" variable="$job"/>
+      <param type="mixed" variable="$data"/>
+      <param type="string" variable="$queue"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="job" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="string" default="''"/>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="pushRaw" start="30" end="33" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Push a raw payload onto the queue."/>
+      <param type="string" variable="$payload"/>
+      <param type="string" variable="$queue"/>
+      <param type="array" variable="$options"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="payload" byreference="false" type="{unknown}"/>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="options" byreference="false" type="array" default=""/>
+  </method>
+  <method name="later" start="44" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Push a new job onto the queue after a delay."/>
+      <param type="object" variable="$delay">
+        <type full="\DateTime|int" namespace="" name="DateTime|int"/>
+      </param>
+      <param type="string" variable="$job"/>
+      <param type="mixed" variable="$data"/>
+      <param type="string" variable="$queue"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="delay" byreference="false" type="{unknown}"/>
+    <parameter name="job" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="string" default="''"/>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="pop" start="55" end="58" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Pop the next job off of the queue."/>
+      <param type="string" variable="$queue"/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Queue\Job|null" namespace="\Illuminate\Contracts\Queue" name="Job|null"/>
+      </return>
+    </docblock>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+</class>

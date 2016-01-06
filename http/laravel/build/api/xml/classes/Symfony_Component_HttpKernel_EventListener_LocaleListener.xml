@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\EventListener\LocaleListener" namespace="Symfony\Component\HttpKernel\EventListener" name="LocaleListener" abstract="false" final="false" start="32" end="113">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/EventListener" file="LocaleListener.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/EventListener/LocaleListener.php" size="3530" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="26d437f39f91d40d043d63c731e6df415c5ac6a4" relative="vendor/symfony/http-kernel/EventListener/LocaleListener.php"/>
+  <docblock>
+    <description compact="Initializes the locale based on the current request.">This listener works in 2 modes:
+
+ * 2.3 compatibility mode where you must call setRequest whenever the Request changes.
+ * 2.4+ mode where you must pass a RequestStack instance in the constructor.</description>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\EventDispatcher\EventSubscriberInterface" namespace="Symfony\Component\EventDispatcher" name="EventSubscriberInterface"/>
+  <member name="router" visibility="private" line="34"/>
+  <member name="defaultLocale" visibility="private" line="35"/>
+  <member name="requestStack" visibility="private" line="36"/>
+  <constructor name="__construct" start="41" end="46" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="RequestStack will become required in 3.0."/>
+    </docblock>
+    <parameter name="defaultLocale" byreference="false" type="string" default="'en'"/>
+    <parameter name="router" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\Routing\RequestContextAwareInterface" namespace="Symfony\Component\Routing" name="RequestContextAwareInterface"/>
+    </parameter>
+    <parameter name="requestStack" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\HttpFoundation\RequestStack" namespace="Symfony\Component\HttpFoundation" name="RequestStack"/>
+    </parameter>
+  </constructor>
+  <method name="setRequest" start="59" end="69" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the current Request.">This method was used to synchronize the Request, but as the HttpKernel
+is doing that automatically now, you should never call it directly.
+It is kept public for BC with the 2.3 version.</description>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpKernel\EventListener\Request|null" namespace="Symfony\Component\HttpKernel\EventListener" name="Request|null"/>
+      </param>
+      <deprecated value="since version 2.4, to be removed in 3.0."/>
+    </docblock>
+    <parameter name="request" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+  </method>
+  <method name="onKernelRequest" start="71" end="78" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="event" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\Event\GetResponseEvent" namespace="Symfony\Component\HttpKernel\Event" name="GetResponseEvent"/>
+    </parameter>
+  </method>
+  <method name="onKernelFinishRequest" start="80" end="89" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="event" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\Event\FinishRequestEvent" namespace="Symfony\Component\HttpKernel\Event" name="FinishRequestEvent"/>
+    </parameter>
+  </method>
+  <method name="setLocale" start="91" end="96" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+  </method>
+  <method name="setRouterContext" start="98" end="103" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+  </method>
+  <method name="getSubscribedEvents" start="105" end="112" abstract="false" final="false" static="true" visibility="public"/>
+</class>

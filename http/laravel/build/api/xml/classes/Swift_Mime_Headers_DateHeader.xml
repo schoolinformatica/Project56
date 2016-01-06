@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_Mime_Headers_DateHeader" namespace="" name="Swift_Mime_Headers_DateHeader" abstract="false" final="false" start="16" end="125">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Headers" file="DateHeader.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Headers/DateHeader.php" size="2808" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="bb73cb86577baa9f28edb3a7838b627bc90e3ca3" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Headers/DateHeader.php"/>
+  <docblock>
+    <description compact="A Date MIME Header for Swift Mailer."/>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <extends full="Swift_Mime_Headers_AbstractHeader" namespace="" name="Swift_Mime_Headers_AbstractHeader"/>
+  <member name="_timestamp" visibility="private" line="23">
+    <docblock>
+      <description compact="The UNIX timestamp value of this Header."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="38" end="42" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Creates a new DateHeader with $name and $timestamp.">Example:
+&lt;code&gt;
+&lt;?php
+$header = new Swift_Mime_Headers_DateHeader('Date', time());
+?&gt;
+&lt;/code&gt;</description>
+      <param description="of Header" type="string" variable="$name"/>
+      <param type="object" variable="$grammar">
+        <type full="Swift_Mime_Grammar" namespace="" name="Swift_Mime_Grammar"/>
+      </param>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="grammar" byreference="false" type="object">
+      <type full="Swift_Mime_Grammar" namespace="" name="Swift_Mime_Grammar"/>
+    </parameter>
+  </constructor>
+  <method name="getFieldType" start="52" end="55" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the type of Header that this instance represents."/>
+      <see value="TYPE_TEXT, TYPE_PARAMETERIZED, TYPE_MAILBOX"/>
+      <see value="TYPE_DATE, TYPE_ID, TYPE_PATH"/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="setFieldBodyModel" start="64" end="67" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the model for the field body.">This method takes a UNIX timestamp.</description>
+      <param type="int" variable="$model"/>
+    </docblock>
+    <parameter name="model" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getFieldBodyModel" start="76" end="79" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the model for the field body.">This method returns a UNIX timestamp.</description>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+  <method name="getTimestamp" start="86" end="89" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the UNIX timestamp of the Date in this Header."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="setTimestamp" start="96" end="103" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the UNIX timestamp of the Date in this Header."/>
+      <param type="int" variable="$timestamp"/>
+    </docblock>
+    <parameter name="timestamp" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getFieldBody" start="115" end="124" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the string value of the body in this Header.">This is not necessarily RFC 2822 compliant since folding white space will
+not be added at this stage (see <link xmlns="http://xml.phpdox.net/src" value="toString()"/> for that).
+</description>
+      <see value="toString()"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+</class>

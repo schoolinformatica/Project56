@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\HttpCache\SurrogateInterface" namespace="Symfony\Component\HttpKernel\HttpCache" name="SurrogateInterface" abstract="false" final="false" start="17" end="103">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/HttpCache" file="SurrogateInterface.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/HttpCache/SurrogateInterface.php" size="3015" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="97b805ed2b956583830bcc83fd52c29dafc7aebd" relative="vendor/symfony/http-kernel/HttpCache/SurrogateInterface.php"/>
+  <method name="getName" start="24" end="24" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns surrogate name."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="createCacheStrategy" start="31" end="31" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a new cache strategy instance."/>
+      <return description="A ResponseCacheStrategyInterface instance" type="object">
+        <type full="Symfony\Component\HttpKernel\HttpCache\ResponseCacheStrategyInterface" namespace="Symfony\Component\HttpKernel\HttpCache" name="ResponseCacheStrategyInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="hasSurrogateCapability" start="40" end="40" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks that at least one surrogate has Surrogate capability."/>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <return description="true if one surrogate has Surrogate capability, false otherwise" type="object">
+        <type full="Symfony\Component\HttpKernel\HttpCache\bool" namespace="Symfony\Component\HttpKernel\HttpCache" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+  </method>
+  <method name="addSurrogateCapability" start="47" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds Surrogate-capability to the given Request."/>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+  </method>
+  <method name="addSurrogateControl" start="56" end="56" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds HTTP headers to specify that the Response needs to be parsed for Surrogate.">This method only adds an Surrogate HTTP header if the Response has some Surrogate tags.</description>
+      <param description="A Response instance" type="object" variable="$response">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </param>
+    </docblock>
+    <parameter name="response" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+    </parameter>
+  </method>
+  <method name="needsParsing" start="65" end="65" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks that the Response needs to be parsed for Surrogate tags."/>
+      <param description="A Response instance" type="object" variable="$response">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </param>
+      <return description="true if the Response needs to be parsed, false otherwise" type="object">
+        <type full="Symfony\Component\HttpKernel\HttpCache\bool" namespace="Symfony\Component\HttpKernel\HttpCache" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="response" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+    </parameter>
+  </method>
+  <method name="renderIncludeTag" start="77" end="77" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Renders a Surrogate tag."/>
+      <param description="A URI" type="string" variable="$uri"/>
+      <param description="An alternate URI" type="string" variable="$alt"/>
+      <param description="Whether to ignore errors or not" type="object" variable="$ignoreErrors">
+        <type full="Symfony\Component\HttpKernel\HttpCache\bool" namespace="Symfony\Component\HttpKernel\HttpCache" name="bool"/>
+      </param>
+      <param description="A comment to add as an esi:include tag" type="string" variable="$comment"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="uri" byreference="false" type="{unknown}"/>
+    <parameter name="alt" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="ignoreErrors" byreference="false" type="boolean" default="true"/>
+    <parameter name="comment" byreference="false" type="string" default="''"/>
+  </method>
+  <method name="process" start="87" end="87" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Replaces a Response Surrogate tags with the included resource content."/>
+      <param description="A Request instance" type="object" variable="$request">
+        <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+      </param>
+      <param description="A Response instance" type="object" variable="$response">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="response" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Response" namespace="Symfony\Component\HttpFoundation" name="Response"/>
+    </parameter>
+  </method>
+  <method name="handle" start="102" end="102" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Handles a Surrogate from the cache."/>
+      <param description="An HttpCache instance" type="object" variable="$cache">
+        <type full="Symfony\Component\HttpKernel\HttpCache\HttpCache" namespace="Symfony\Component\HttpKernel\HttpCache" name="HttpCache"/>
+      </param>
+      <param description="The main URI" type="string" variable="$uri"/>
+      <param description="An alternative URI" type="string" variable="$alt"/>
+      <param description="Whether to ignore errors or not" type="object" variable="$ignoreErrors">
+        <type full="Symfony\Component\HttpKernel\HttpCache\bool" namespace="Symfony\Component\HttpKernel\HttpCache" name="bool"/>
+      </param>
+      <return type="string"/>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+      <throws type="object">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="cache" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\HttpCache\HttpCache" namespace="Symfony\Component\HttpKernel\HttpCache" name="HttpCache"/>
+    </parameter>
+    <parameter name="uri" byreference="false" type="{unknown}"/>
+    <parameter name="alt" byreference="false" type="{unknown}"/>
+    <parameter name="ignoreErrors" byreference="false" type="{unknown}"/>
+  </method>
+</interface>

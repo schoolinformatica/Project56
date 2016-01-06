@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Console\Tests\Helper\ProgressBarTest" namespace="Symfony\Component\Console\Tests\Helper" name="ProgressBarTest" abstract="false" final="false" start="21" end="650">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Tests/Helper" file="ProgressBarTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Tests/Helper/ProgressBarTest.php" size="22640" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="aa593abe276ab926b94b4e3f231958454e66e174" relative="vendor/symfony/console/Tests/Helper/ProgressBarTest.php"/>
+  <docblock>
+    <description/>
+    <group value="time-sensitive"/>
+  </docblock>
+  <extends full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+  <method name="testMultipleStart" start="23" end="37" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testAdvance" start="39" end="51" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testAdvanceWithStep" start="53" end="65" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testAdvanceMultipleTimes" start="67" end="81" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testAdvanceOverMax" start="83" end="97" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testFormat" start="99" end="144" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="max in construct, no format" line="107"/>
+      <comment value="max in start, no format" line="116"/>
+      <comment value="max in construct, explicit format before" line="125"/>
+      <comment value="max in start, explicit format before" line="135"/>
+    </inline>
+  </method>
+  <method name="testCustomizations" start="146" end="163" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testDisplayWithoutStart" start="165" end="175" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testDisplayWithQuietVerbosity" start="177" end="187" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testFinishWithoutStart" start="189" end="199" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testPercent" start="201" end="217" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testOverwriteWithShorterLine" start="219" end="239" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="set shorter format" line="227"/>
+    </inline>
+  </method>
+  <method name="testStartWithMax" start="241" end="254" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSetCurrentProgress" start="256" end="274" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testSetCurrentBeforeStarting" start="278" end="283" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+    </docblock>
+  </method>
+  <method name="testRegressProgress" start="289" end="295" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\LogicException"/>
+      <expectedexceptionmessage value="You can't regress the progress bar"/>
+    </docblock>
+  </method>
+  <method name="testRedrawFrequency" start="297" end="308" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testMultiByteSupport" start="313" end="326" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <requires value="extension mbstring"/>
+    </docblock>
+  </method>
+  <method name="testClear" start="328" end="342" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testPercentNotHundredBeforeComplete" start="344" end="360" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testNonDecoratedOutput" start="362" end="388" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testNonDecoratedOutputWithClear" start="390" end="406" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testNonDecoratedOutputWithoutMax" start="408" end="420" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testParallelBars" start="422" end="479" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testWithoutMax" start="481" end="501" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testAddingPlaceholderFormatter" start="503" end="522" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testMultilineFormat" start="524" end="542" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testAnsiColorsAndEmojis" start="547" end="588" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <requires value="extension mbstring"/>
+    </docblock>
+  </method>
+  <method name="testSetFormat" start="590" end="609" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testFormatsWithoutMax" start="614" end="622" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="provideFormat"/>
+    </docblock>
+    <parameter name="format" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="provideFormat" start="629" end="637" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Provides each defined format."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getOutputStream" start="639" end="642" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="decorated" byreference="false" type="boolean" default="true"/>
+    <parameter name="verbosity" byreference="false" type="{unknown}" default="" constant="StreamOutput::VERBOSITY_NORMAL"/>
+  </method>
+  <method name="generateOutput" start="644" end="649" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+  </method>
+</class>

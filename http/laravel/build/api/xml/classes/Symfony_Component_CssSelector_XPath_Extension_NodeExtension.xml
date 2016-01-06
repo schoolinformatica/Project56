@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\CssSelector\XPath\Extension\NodeExtension" namespace="Symfony\Component\CssSelector\XPath\Extension" name="NodeExtension" abstract="false" final="false" start="26" end="271">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/css-selector/XPath/Extension" file="NodeExtension.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/css-selector/XPath/Extension/NodeExtension.php" size="7187" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="dd14323c1e70f30cde61e8ba173f749f29486b2c" relative="vendor/symfony/css-selector/XPath/Extension/NodeExtension.php"/>
+  <docblock>
+    <description compact="XPath expression translator node extension.">This component is a port of the Python cssselect library,
+which is copyright Ian Bicking, @see https://github.com/SimonSapin/cssselect.</description>
+    <author value="Jean-François Simon &lt;jeanfrancois.simon@sensiolabs.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\CssSelector\XPath\Extension\AbstractExtension" namespace="Symfony\Component\CssSelector\XPath\Extension" name="AbstractExtension"/>
+  <constant type="integer" name="ELEMENT_NAME_IN_LOWER_CASE" value="1"/>
+  <constant type="integer" name="ATTRIBUTE_NAME_IN_LOWER_CASE" value="2"/>
+  <constant type="integer" name="ATTRIBUTE_VALUE_IN_LOWER_CASE" value="4"/>
+  <member name="flags" visibility="private" line="35">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="42" end="45" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param type="int" variable="$flags"/>
+    </docblock>
+    <parameter name="flags" byreference="false" type="integer" default="0"/>
+  </constructor>
+  <method name="setFlag" start="53" end="64" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="int" variable="$flag"/>
+      <param type="object" variable="$on">
+        <type full="Symfony\Component\CssSelector\XPath\Extension\bool" namespace="Symfony\Component\CssSelector\XPath\Extension" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\XPath\Extension\NodeExtension" namespace="Symfony\Component\CssSelector\XPath\Extension" name="NodeExtension"/>
+      </return>
+    </docblock>
+    <parameter name="flag" byreference="false" type="{unknown}"/>
+    <parameter name="on" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasFlag" start="71" end="74" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="int" variable="$flag"/>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\XPath\Extension\bool" namespace="Symfony\Component\CssSelector\XPath\Extension" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="flag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getNodeTranslators" start="79" end="92" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="translateSelector" start="100" end="103" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$node">
+        <type full="Symfony\Component\CssSelector\XPath\Extension\Node\SelectorNode" namespace="Symfony\Component\CssSelector\XPath\Extension\Node" name="SelectorNode"/>
+      </param>
+      <param type="object" variable="$translator">
+        <type full="Symfony\Component\CssSelector\XPath\Translator" namespace="Symfony\Component\CssSelector\XPath" name="Translator"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\XPath\XPathExpr" namespace="Symfony\Component\CssSelector\XPath" name="XPathExpr"/>
+      </return>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\Node\SelectorNode" namespace="Symfony\Component\CssSelector\Node" name="SelectorNode"/>
+    </parameter>
+    <parameter name="translator" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\XPath\Translator" namespace="Symfony\Component\CssSelector\XPath" name="Translator"/>
+    </parameter>
+  </method>
+  <method name="translateCombinedSelector" start="111" end="114" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$node">
+        <type full="Symfony\Component\CssSelector\XPath\Extension\Node\CombinedSelectorNode" namespace="Symfony\Component\CssSelector\XPath\Extension\Node" name="CombinedSelectorNode"/>
+      </param>
+      <param type="object" variable="$translator">
+        <type full="Symfony\Component\CssSelector\XPath\Translator" namespace="Symfony\Component\CssSelector\XPath" name="Translator"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\XPath\XPathExpr" namespace="Symfony\Component\CssSelector\XPath" name="XPathExpr"/>
+      </return>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\Node\CombinedSelectorNode" namespace="Symfony\Component\CssSelector\Node" name="CombinedSelectorNode"/>
+    </parameter>
+    <parameter name="translator" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\XPath\Translator" namespace="Symfony\Component\CssSelector\XPath" name="Translator"/>
+    </parameter>
+  </method>
+  <method name="translateNegation" start="122" end="133" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$node">
+        <type full="Symfony\Component\CssSelector\XPath\Extension\Node\NegationNode" namespace="Symfony\Component\CssSelector\XPath\Extension\Node" name="NegationNode"/>
+      </param>
+      <param type="object" variable="$translator">
+        <type full="Symfony\Component\CssSelector\XPath\Translator" namespace="Symfony\Component\CssSelector\XPath" name="Translator"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\XPath\XPathExpr" namespace="Symfony\Component\CssSelector\XPath" name="XPathExpr"/>
+      </return>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\Node\NegationNode" namespace="Symfony\Component\CssSelector\Node" name="NegationNode"/>
+    </parameter>
+    <parameter name="translator" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\XPath\Translator" namespace="Symfony\Component\CssSelector\XPath" name="Translator"/>
+    </parameter>
+  </method>
+  <method name="translateFunction" start="141" end="146" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$node">
+        <type full="Symfony\Component\CssSelector\XPath\Extension\Node\FunctionNode" namespace="Symfony\Component\CssSelector\XPath\Extension\Node" name="FunctionNode"/>
+      </param>
+      <param type="object" variable="$translator">
+        <type full="Symfony\Component\CssSelector\XPath\Translator" namespace="Symfony\Component\CssSelector\XPath" name="Translator"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\XPath\XPathExpr" namespace="Symfony\Component\CssSelector\XPath" name="XPathExpr"/>
+      </return>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\Node\FunctionNode" namespace="Symfony\Component\CssSelector\Node" name="FunctionNode"/>
+    </parameter>
+    <parameter name="translator" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\XPath\Translator" namespace="Symfony\Component\CssSelector\XPath" name="Translator"/>
+    </parameter>
+  </method>
+  <method name="translatePseudo" start="154" end="159" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$node">
+        <type full="Symfony\Component\CssSelector\XPath\Extension\Node\PseudoNode" namespace="Symfony\Component\CssSelector\XPath\Extension\Node" name="PseudoNode"/>
+      </param>
+      <param type="object" variable="$translator">
+        <type full="Symfony\Component\CssSelector\XPath\Translator" namespace="Symfony\Component\CssSelector\XPath" name="Translator"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\XPath\XPathExpr" namespace="Symfony\Component\CssSelector\XPath" name="XPathExpr"/>
+      </return>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\Node\PseudoNode" namespace="Symfony\Component\CssSelector\Node" name="PseudoNode"/>
+    </parameter>
+    <parameter name="translator" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\XPath\Translator" namespace="Symfony\Component\CssSelector\XPath" name="Translator"/>
+    </parameter>
+  </method>
+  <method name="translateAttribute" start="167" end="190" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$node">
+        <type full="Symfony\Component\CssSelector\XPath\Extension\Node\AttributeNode" namespace="Symfony\Component\CssSelector\XPath\Extension\Node" name="AttributeNode"/>
+      </param>
+      <param type="object" variable="$translator">
+        <type full="Symfony\Component\CssSelector\XPath\Translator" namespace="Symfony\Component\CssSelector\XPath" name="Translator"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\XPath\XPathExpr" namespace="Symfony\Component\CssSelector\XPath" name="XPathExpr"/>
+      </return>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\Node\AttributeNode" namespace="Symfony\Component\CssSelector\Node" name="AttributeNode"/>
+    </parameter>
+    <parameter name="translator" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\XPath\Translator" namespace="Symfony\Component\CssSelector\XPath" name="Translator"/>
+    </parameter>
+  </method>
+  <method name="translateClass" start="198" end="203" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$node">
+        <type full="Symfony\Component\CssSelector\XPath\Extension\Node\ClassNode" namespace="Symfony\Component\CssSelector\XPath\Extension\Node" name="ClassNode"/>
+      </param>
+      <param type="object" variable="$translator">
+        <type full="Symfony\Component\CssSelector\XPath\Translator" namespace="Symfony\Component\CssSelector\XPath" name="Translator"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\XPath\XPathExpr" namespace="Symfony\Component\CssSelector\XPath" name="XPathExpr"/>
+      </return>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\Node\ClassNode" namespace="Symfony\Component\CssSelector\Node" name="ClassNode"/>
+    </parameter>
+    <parameter name="translator" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\XPath\Translator" namespace="Symfony\Component\CssSelector\XPath" name="Translator"/>
+    </parameter>
+  </method>
+  <method name="translateHash" start="211" end="216" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$node">
+        <type full="Symfony\Component\CssSelector\XPath\Extension\Node\HashNode" namespace="Symfony\Component\CssSelector\XPath\Extension\Node" name="HashNode"/>
+      </param>
+      <param type="object" variable="$translator">
+        <type full="Symfony\Component\CssSelector\XPath\Translator" namespace="Symfony\Component\CssSelector\XPath" name="Translator"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\XPath\XPathExpr" namespace="Symfony\Component\CssSelector\XPath" name="XPathExpr"/>
+      </return>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\Node\HashNode" namespace="Symfony\Component\CssSelector\Node" name="HashNode"/>
+    </parameter>
+    <parameter name="translator" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\XPath\Translator" namespace="Symfony\Component\CssSelector\XPath" name="Translator"/>
+    </parameter>
+  </method>
+  <method name="translateElement" start="223" end="250" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$node">
+        <type full="Symfony\Component\CssSelector\XPath\Extension\Node\ElementNode" namespace="Symfony\Component\CssSelector\XPath\Extension\Node" name="ElementNode"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\XPath\XPathExpr" namespace="Symfony\Component\CssSelector\XPath" name="XPathExpr"/>
+      </return>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\Node\ElementNode" namespace="Symfony\Component\CssSelector\Node" name="ElementNode"/>
+    </parameter>
+  </method>
+  <method name="getName" start="255" end="258" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="isSafeName" start="267" end="270" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Tests if given name is safe."/>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="Symfony\Component\CssSelector\XPath\Extension\bool" namespace="Symfony\Component\CssSelector\XPath\Extension" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+</class>

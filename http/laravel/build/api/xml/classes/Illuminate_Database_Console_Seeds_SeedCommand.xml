@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Database\Console\Seeds\SeedCommand" namespace="Illuminate\Database\Console\Seeds" name="SeedCommand" abstract="false" final="false" start="10" end="103">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds" file="SeedCommand.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php" size="2380" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="ffb0c439bc5703899ac43b50995ef191406bda90" relative="vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php"/>
+  <extends full="Illuminate\Console\Command" namespace="Illuminate\Console" name="Command"/>
+  <uses full="Illuminate\Console\ConfirmableTrait" namespace="Illuminate\Console" name="ConfirmableTrait" start="12" end="12"/>
+  <member name="name" type="string" default="'db:seed'" visibility="protected" line="19">
+    <docblock>
+      <description compact="The console command name."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="description" type="string" default="'Seed the database with records'" visibility="protected" line="26">
+    <docblock>
+      <description compact="The console command description."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="resolver" visibility="protected" line="33">
+    <docblock>
+      <description compact="The connection resolver instance."/>
+      <var type="object">
+        <type full="\Illuminate\Database\ConnectionResolverInterface" namespace="\Illuminate\Database" name="ConnectionResolverInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="41" end="46" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new database seed command instance."/>
+      <param type="object" variable="$resolver">
+        <type full="\Illuminate\Database\ConnectionResolverInterface" namespace="\Illuminate\Database" name="ConnectionResolverInterface"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Database\Console\Seeds\void" namespace="Illuminate\Database\Console\Seeds" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="resolver" byreference="false" type="object">
+      <type full="Illuminate\Database\ConnectionResolverInterface" namespace="Illuminate\Database" name="ConnectionResolverInterface"/>
+    </parameter>
+  </constructor>
+  <method name="fire" start="53" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Execute the console command."/>
+      <return type="object">
+        <type full="Illuminate\Database\Console\Seeds\void" namespace="Illuminate\Database\Console\Seeds" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getSeeder" start="69" end="74" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get a seeder instance from the container."/>
+      <return type="object">
+        <type full="\Illuminate\Database\Seeder" namespace="\Illuminate\Database" name="Seeder"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getDatabase" start="81" end="86" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the name of the database connection to use."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getOptions" start="93" end="102" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the console command options."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+</class>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\View\Engines\CompilerEngine" namespace="Illuminate\View\Engines" name="CompilerEngine" abstract="false" final="false" start="8" end="101">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/View/Engines" file="CompilerEngine.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php" size="2581" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="26f53d809940c94a19ddfc450a4b1cc198c89607" relative="vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php"/>
+  <extends full="Illuminate\View\Engines\PhpEngine" namespace="Illuminate\View\Engines" name="PhpEngine"/>
+  <member name="compiler" visibility="protected" line="15">
+    <docblock>
+      <description compact="The Blade compiler instance."/>
+      <var type="object">
+        <type full="\Illuminate\View\Compilers\CompilerInterface" namespace="\Illuminate\View\Compilers" name="CompilerInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="lastCompiled" type="array" default="" visibility="protected" line="22">
+    <docblock>
+      <description compact="A stack of the last compiled templates."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="30" end="33" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new Blade view engine instance."/>
+      <param type="object" variable="$compiler">
+        <type full="\Illuminate\View\Compilers\CompilerInterface" namespace="\Illuminate\View\Compilers" name="CompilerInterface"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\View\Engines\void" namespace="Illuminate\View\Engines" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="compiler" byreference="false" type="object">
+      <type full="Illuminate\View\Compilers\CompilerInterface" namespace="Illuminate\View\Compilers" name="CompilerInterface"/>
+    </parameter>
+  </constructor>
+  <method name="get" start="42" end="63" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the evaluated contents of the view."/>
+      <param type="string" variable="$path"/>
+      <param type="array" variable="$data"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="array" default=""/>
+    <inline>
+      <comment value="If this given view has expired, which means it has simply been edited since" line="46"/>
+      <comment value="it was last compiled, we will re-compile the views so we can evaluate a" line="47"/>
+      <comment value="fresh copy of the view. We'll pass the compiler the path of the view." line="48"/>
+      <comment value="Once we have the path to the compiled file, we will evaluate the paths with" line="55"/>
+      <comment value="typical PHP just like any other templates. We also keep a stack of views" line="56"/>
+      <comment value="which have been rendered for right exception messages to be generated." line="57"/>
+    </inline>
+  </method>
+  <method name="handleViewException" start="74" end="79" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Handle a view exception."/>
+      <param type="object" variable="$e">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </param>
+      <param type="int" variable="$obLevel"/>
+      <return type="object">
+        <type full="Illuminate\View\Engines\void" namespace="Illuminate\View\Engines" name="void"/>
+      </return>
+      <throws type="object">
+        <type full="Illuminate\View\Engines\$e" namespace="Illuminate\View\Engines" name="$e"/>
+      </throws>
+    </docblock>
+    <parameter name="e" byreference="false" type="{unknown}"/>
+    <parameter name="obLevel" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getMessage" start="87" end="90" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the exception message for an exception."/>
+      <param type="object" variable="$e">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="e" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getCompiler" start="97" end="100" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the compiler implementation."/>
+      <return type="object">
+        <type full="\Illuminate\View\Compilers\CompilerInterface" namespace="\Illuminate\View\Compilers" name="CompilerInterface"/>
+      </return>
+    </docblock>
+  </method>
+</class>

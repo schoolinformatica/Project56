@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\Profiler\RedisProfilerStorage" namespace="Symfony\Component\HttpKernel\Profiler" name="RedisProfilerStorage" abstract="false" final="false" start="20" end="394">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Profiler" file="RedisProfilerStorage.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Profiler/RedisProfilerStorage.php" size="10323" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="ff861ba4bf6934c223217087546201f33196d08d" relative="vendor/symfony/http-kernel/Profiler/RedisProfilerStorage.php"/>
+  <docblock>
+    <description compact="RedisProfilerStorage stores profiling information in Redis."/>
+    <author value="Andrej Hudec &lt;pulzarraider@gmail.com&gt;"/>
+    <author value="Stephane PY &lt;py.stephane1@gmail.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\HttpKernel\Profiler\ProfilerStorageInterface" namespace="Symfony\Component\HttpKernel\Profiler" name="ProfilerStorageInterface"/>
+  <constant type="string" name="TOKEN_PREFIX" value="'sf_profiler_'"/>
+  <constant type="integer" name="REDIS_OPT_SERIALIZER" value="1"/>
+  <constant type="integer" name="REDIS_OPT_PREFIX" value="2"/>
+  <constant type="integer" name="REDIS_SERIALIZER_NONE" value="0"/>
+  <constant type="integer" name="REDIS_SERIALIZER_PHP" value="1"/>
+  <member name="dsn" visibility="protected" line="29"/>
+  <member name="lifetime" visibility="protected" line="30"/>
+  <member name="redis" visibility="private" line="35">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="\Redis" namespace="" name="Redis"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="45" end="49" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="A data source name" type="string" variable="$dsn"/>
+      <param description="Not used" type="string" variable="$username"/>
+      <param description="Not used" type="string" variable="$password"/>
+      <param description="The lifetime to use for the purge" type="int" variable="$lifetime"/>
+    </docblock>
+    <parameter name="dsn" byreference="false" type="{unknown}"/>
+    <parameter name="username" byreference="false" type="string" default="''"/>
+    <parameter name="password" byreference="false" type="string" default="''"/>
+    <parameter name="lifetime" byreference="false" type="integer" default="86400"/>
+  </constructor>
+  <method name="find" start="54" end="105" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="ip" byreference="false" type="{unknown}"/>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+    <parameter name="limit" byreference="false" type="{unknown}"/>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="start" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="end" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="purge" start="110" end="138" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <inline>
+      <comment value="delete only items from index" line="112"/>
+    </inline>
+  </method>
+  <method name="read" start="143" end="156" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="token" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="write" start="161" end="198" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="profile" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\Profiler\Profile" namespace="Symfony\Component\HttpKernel\Profiler" name="Profile"/>
+    </parameter>
+  </method>
+  <method name="getRedis" start="207" end="237" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Internal convenience method that returns the instance of Redis."/>
+      <return type="object">
+        <type full="\Redis" namespace="" name="Redis"/>
+      </return>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="setRedis" start="244" end="247" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set instance of the Redis."/>
+      <param type="object" variable="$redis">
+        <type full="\Redis" namespace="" name="Redis"/>
+      </param>
+    </docblock>
+    <parameter name="redis" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="createProfileFromData" start="249" end="279" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="token" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="parent" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getItemName" start="288" end="297" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Gets the item name."/>
+      <param type="string" variable="$token"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="token" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getIndexName" start="304" end="313" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Gets the name of the index."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="isItemNameValid" start="315" end="324" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getValue" start="334" end="340" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Retrieves an item from the Redis server."/>
+      <param type="string" variable="$key"/>
+      <param type="int" variable="$serializer"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="serializer" byreference="false" type="{unknown}" default="" constant="self::REDIS_SERIALIZER_NONE"/>
+  </method>
+  <method name="setValue" start="352" end="358" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Stores an item on the Redis server under the specified key."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <param type="int" variable="$expiration"/>
+      <param type="int" variable="$serializer"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\bool" namespace="Symfony\Component\HttpKernel\Profiler" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="expiration" byreference="false" type="integer" default="0"/>
+    <parameter name="serializer" byreference="false" type="{unknown}" default="" constant="self::REDIS_SERIALIZER_NONE"/>
+  </method>
+  <method name="appendValue" start="369" end="381" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Appends data to an existing item on the Redis server."/>
+      <param type="string" variable="$key"/>
+      <param type="string" variable="$value"/>
+      <param type="int" variable="$expiration"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\bool" namespace="Symfony\Component\HttpKernel\Profiler" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="expiration" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="delete" start="390" end="393" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Removes the specified keys."/>
+      <param type="array" variable="$keys"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\bool" namespace="Symfony\Component\HttpKernel\Profiler" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="keys" byreference="false" type="array"/>
+  </method>
+</class>

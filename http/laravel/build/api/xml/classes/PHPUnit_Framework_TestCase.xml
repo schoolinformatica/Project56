@@ -1,0 +1,1267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase" abstract="true" final="false" start="65" end="2205">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Framework" file="TestCase.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpunit/phpunit/src/Framework/TestCase.php" size="63233" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="58a9edb564d60b7efbc1c8485282c863ee56cfa9" relative="vendor/phpunit/phpunit/src/Framework/TestCase.php"/>
+  <docblock>
+    <description compact="A TestCase defines the fixture to run multiple tests.">To define a TestCase
+
+  1) Implement a subclass of PHPUnit_Framework_TestCase.
+  2) Define instance variables that store the state of the fixture.
+  3) Initialize the fixture state by overriding setUp().
+  4) Clean-up after a test by overriding tearDown().
+
+Each test runs in its own fixture so there can be no side effects
+among test runs.
+
+Here is an example:
+
+&lt;code&gt;
+&lt;?php
+class MathTest extends PHPUnit_Framework_TestCase
+{
+    public $value1;
+    public $value2;
+
+    protected function setUp()
+    {
+        $this-&gt;value1 = 2;
+        $this-&gt;value2 = 3;
+    }
+}
+?&gt;
+&lt;/code&gt;
+
+For each test implement a method which interacts with the fixture.
+Verify the expected results with assertions specified by calling
+assert with a boolean.
+
+&lt;code&gt;
+&lt;?php
+public function testPass()
+{
+    $this-&gt;assertTrue($this-&gt;value1 + $this-&gt;value2 == 5);
+}
+?&gt;
+&lt;/code&gt;</description>
+    <since value="Class available since Release 2.0.0"/>
+  </docblock>
+  <extends full="PHPUnit_Framework_Assert" namespace="" name="PHPUnit_Framework_Assert"/>
+  <implements full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+  <implements full="PHPUnit_Framework_SelfDescribing" namespace="" name="PHPUnit_Framework_SelfDescribing"/>
+  <member name="backupGlobals" type="{unknown}" default="" constant="null" visibility="protected" line="74">
+    <docblock>
+      <description compact="Enable or disable the backup and restoration of the $GLOBALS array.">Overwrite this attribute in a child class of TestCase.
+Setting this attribute in setUp() has no effect!</description>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="backupGlobalsBlacklist" type="array" default="" visibility="protected" line="79">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="backupStaticAttributes" type="{unknown}" default="" constant="null" visibility="protected" line="88">
+    <docblock>
+      <description compact="Enable or disable the backup and restoration of static attributes.">Overwrite this attribute in a child class of TestCase.
+Setting this attribute in setUp() has no effect!</description>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="backupStaticAttributesBlacklist" type="array" default="" visibility="protected" line="93">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="runTestInSeparateProcess" type="{unknown}" default="" constant="null" visibility="protected" line="100">
+    <docblock>
+      <description compact="Whether or not this test is to be run in a separate PHP process."/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="preserveGlobalState" type="boolean" default="true" visibility="protected" line="108">
+    <docblock>
+      <description compact="Whether or not this test should preserve the global state when running in a separate PHP process."/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="inIsolation" type="boolean" default="false" visibility="private" line="115">
+    <docblock>
+      <description compact="Whether or not this test is running in a separate PHP process."/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="data" type="array" default="" visibility="private" line="120">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="dataName" type="string" default="''" visibility="private" line="125">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="useErrorHandler" type="{unknown}" default="" constant="null" visibility="private" line="130">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="expectedException" type="{unknown}" default="" constant="null" visibility="private" line="137">
+    <docblock>
+      <description compact="The name of the expected Exception."/>
+      <var type="mixed"/>
+    </docblock>
+  </member>
+  <member name="expectedExceptionMessage" type="string" default="''" visibility="private" line="144">
+    <docblock>
+      <description compact="The message of the expected Exception."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="expectedExceptionMessageRegExp" type="string" default="''" visibility="private" line="151">
+    <docblock>
+      <description compact="The regex pattern to validate the expected Exception message."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="expectedExceptionCode" visibility="private" line="158">
+    <docblock>
+      <description compact="The code of the expected Exception."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="name" type="{unknown}" default="" constant="null" visibility="private" line="165">
+    <docblock>
+      <description compact="The name of the test case."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="dependencies" type="array" default="" visibility="private" line="170">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="dependencyInput" type="array" default="" visibility="private" line="175">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="iniSettings" type="array" default="" visibility="private" line="180">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="locale" type="array" default="" visibility="private" line="185">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="mockObjects" type="array" default="" visibility="private" line="190">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="mockObjectGenerator" type="{unknown}" default="" constant="null" visibility="private" line="195">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="status" visibility="private" line="200">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="statusMessage" type="string" default="''" visibility="private" line="205">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="numAssertions" type="integer" default="0" visibility="private" line="210">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="result" visibility="private" line="215">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PHPUnit_Framework_TestResult" namespace="" name="PHPUnit_Framework_TestResult"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="testResult" visibility="private" line="220">
+    <docblock>
+      <description/>
+      <var type="mixed"/>
+    </docblock>
+  </member>
+  <member name="output" type="string" default="''" visibility="private" line="225">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="outputExpectedRegex" type="{unknown}" default="" constant="null" visibility="private" line="230">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="outputExpectedString" type="{unknown}" default="" constant="null" visibility="private" line="235">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="outputCallback" type="boolean" default="false" visibility="private" line="240">
+    <docblock>
+      <description/>
+      <var type="mixed"/>
+    </docblock>
+  </member>
+  <member name="outputBufferingActive" type="boolean" default="false" visibility="private" line="245">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="outputBufferingLevel" visibility="private" line="250">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="snapshot" visibility="private" line="255">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="SebastianBergmann\GlobalState\Snapshot" namespace="SebastianBergmann\GlobalState" name="Snapshot"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="prophet" visibility="private" line="260">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Prophecy\Prophet" namespace="Prophecy" name="Prophet"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="disallowChangesToGlobalState" type="boolean" default="false" visibility="private" line="265">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="274" end="282" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructs a test case with the given name."/>
+      <param type="string" variable="$name"/>
+      <param type="array" variable="$data"/>
+      <param type="string" variable="$dataName"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="data" byreference="false" type="array" default=""/>
+    <parameter name="dataName" byreference="false" type="string" default="''"/>
+  </constructor>
+  <method name="toString" start="289" end="300" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a string representation of the test case."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="count" start="307" end="310" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Counts the number of test cases executed by run(TestResult result)."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getAnnotations" start="319" end="325" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the annotations for this test."/>
+      <return type="array"/>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+  </method>
+  <method name="getName" start="334" end="341" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the name of a TestCase."/>
+      <param type="object" variable="$withDataSet">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="withDataSet" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="getSize" start="350" end="356" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the size of the test."/>
+      <return type="int"/>
+      <since value="Method available since Release 3.6.0"/>
+    </docblock>
+  </method>
+  <method name="getActualOutput" start="363" end="370" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="string"/>
+      <since value="Method available since Release 3.6.0"/>
+    </docblock>
+  </method>
+  <method name="hasOutput" start="377" end="388" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <since value="Method available since Release 3.6.0"/>
+    </docblock>
+  </method>
+  <method name="expectOutputRegex" start="397" end="406" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$expectedRegex"/>
+      <since value="Method available since Release 3.6.0"/>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="expectedRegex" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="expectOutputString" start="413" end="422" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$expectedString"/>
+      <since value="Method available since Release 3.6.0"/>
+    </docblock>
+    <parameter name="expectedString" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasPerformedExpectationsOnOutput" start="430" end="433" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <since value="Method available since Release 3.6.5"/>
+      <deprecated/>
+    </docblock>
+  </method>
+  <method name="hasExpectationOnOutput" start="440" end="443" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <since value="Method available since Release 4.3.3"/>
+    </docblock>
+  </method>
+  <method name="getExpectedException" start="450" end="453" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="string"/>
+      <since value="Method available since Release 3.2.0"/>
+    </docblock>
+  </method>
+  <method name="setExpectedException" start="462" end="467" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="mixed" variable="$exceptionName"/>
+      <param type="string" variable="$exceptionMessage"/>
+      <param type="int" variable="$exceptionCode"/>
+      <since value="Method available since Release 3.2.0"/>
+    </docblock>
+    <parameter name="exceptionName" byreference="false" type="{unknown}"/>
+    <parameter name="exceptionMessage" byreference="false" type="string" default="''"/>
+    <parameter name="exceptionCode" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="setExpectedExceptionRegExp" start="476" end="481" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="mixed" variable="$exceptionName"/>
+      <param type="string" variable="$exceptionMessageRegExp"/>
+      <param type="int" variable="$exceptionCode"/>
+      <since value="Method available since Release 4.3.0"/>
+    </docblock>
+    <parameter name="exceptionName" byreference="false" type="{unknown}"/>
+    <parameter name="exceptionMessageRegExp" byreference="false" type="string" default="''"/>
+    <parameter name="exceptionCode" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="setExpectedExceptionFromAnnotation" start="486" end="511" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+  </method>
+  <method name="setUseErrorHandler" start="518" end="521" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$useErrorHandler">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+    <parameter name="useErrorHandler" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setUseErrorHandlerFromAnnotation" start="526" end="539" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+  </method>
+  <method name="checkRequirements" start="544" end="558" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <since value="Method available since Release 3.6.0"/>
+    </docblock>
+  </method>
+  <method name="getStatus" start="567" end="570" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the status of this test."/>
+      <return type="int"/>
+      <since value="Method available since Release 3.1.0"/>
+    </docblock>
+  </method>
+  <method name="getStatusMessage" start="579" end="582" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the status message of this test."/>
+      <return type="string"/>
+      <since value="Method available since Release 3.3.0"/>
+    </docblock>
+  </method>
+  <method name="hasFailed" start="591" end="597" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns whether or not this test has failed."/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <since value="Method available since Release 3.0.0"/>
+    </docblock>
+  </method>
+  <method name="run" start="609" end="734" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Runs the test case and collects the results in a TestResult object.">If no TestResult object is passed a new one will be created.</description>
+      <param type="object" variable="$result">
+        <type full="PHPUnit_Framework_TestResult" namespace="" name="PHPUnit_Framework_TestResult"/>
+      </param>
+      <return type="object">
+        <type full="PHPUnit_Framework_TestResult" namespace="" name="PHPUnit_Framework_TestResult"/>
+      </return>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="result" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="PHPUnit_Framework_TestResult" namespace="" name="PHPUnit_Framework_TestResult"/>
+    </parameter>
+  </method>
+  <method name="runBare" start="739" end="880" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Runs the bare test sequence."/>
+    </docblock>
+    <inline>
+      <comment value="Clean up the mock objects." line="796"/>
+      <comment value="Tear down the fixture. An exception raised in tearDown() will be" line="800"/>
+      <comment value="caught and passed on when no exception was raised before." line="801"/>
+      <comment value="Clean up INI settings." line="840"/>
+      <comment value="Clean up locale settings." line="847"/>
+      <comment value="Perform assertion on output." line="852"/>
+      <comment value="Workaround for missing &quot;finally&quot;." line="867"/>
+    </inline>
+  </method>
+  <method name="runTest" start="890" end="987" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Override to run the test and assert its state."/>
+      <return type="mixed"/>
+      <throws type="object">
+        <type full="Exception|PHPUnit_Framework_Exception" namespace="" name="Exception|PHPUnit_Framework_Exception"/>
+      </throws>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="verifyMockObjects" start="994" end="1025" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Verifies the mock object expectations."/>
+      <since value="Method available since Release 3.5.0"/>
+    </docblock>
+  </method>
+  <method name="setName" start="1032" end="1035" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the name of a TestCase."/>
+      <param type="string"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setDependencies" start="1044" end="1047" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the dependencies of a TestCase."/>
+      <param type="array" variable="$dependencies"/>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+    <parameter name="dependencies" byreference="false" type="array"/>
+  </method>
+  <method name="hasDependencies" start="1056" end="1059" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if the tests has dependencies"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <since value="Method available since Release 4.0.0"/>
+    </docblock>
+  </method>
+  <method name="setDependencyInput" start="1068" end="1071" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets"/>
+      <param type="array" variable="$dependencyInput"/>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+    <parameter name="dependencyInput" byreference="false" type="array"/>
+  </method>
+  <method name="setDisallowChangesToGlobalState" start="1078" end="1081" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$disallowChangesToGlobalState">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <since value="Method available since Release 4.6.0"/>
+    </docblock>
+    <parameter name="disallowChangesToGlobalState" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setBackupGlobals" start="1090" end="1095" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Calling this method in setUp() has no effect!"/>
+      <param type="object" variable="$backupGlobals">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <since value="Method available since Release 3.3.0"/>
+    </docblock>
+    <parameter name="backupGlobals" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setBackupStaticAttributes" start="1104" end="1110" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Calling this method in setUp() has no effect!"/>
+      <param type="object" variable="$backupStaticAttributes">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+    <parameter name="backupStaticAttributes" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setRunTestInSeparateProcess" start="1119" end="1128" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$runTestInSeparateProcess">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+    <parameter name="runTestInSeparateProcess" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setPreserveGlobalState" start="1137" end="1144" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$preserveGlobalState">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+    <parameter name="preserveGlobalState" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setInIsolation" start="1153" end="1160" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$inIsolation">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+    <parameter name="inIsolation" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isInIsolation" start="1167" end="1170" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+      <since value="Method available since Release 4.3.0"/>
+    </docblock>
+  </method>
+  <method name="getResult" start="1177" end="1180" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="mixed"/>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+  </method>
+  <method name="setResult" start="1187" end="1190" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="mixed" variable="$result"/>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+    <parameter name="result" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setOutputCallback" start="1199" end="1206" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$callback">
+        <type full="callable" namespace="" name="callable"/>
+      </param>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+      <since value="Method available since Release 3.6.0"/>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getTestResultObject" start="1213" end="1216" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="PHPUnit_Framework_TestResult" namespace="" name="PHPUnit_Framework_TestResult"/>
+      </return>
+      <since value="Method available since Release 3.5.7"/>
+    </docblock>
+  </method>
+  <method name="setTestResultObject" start="1223" end="1226" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$result">
+        <type full="PHPUnit_Framework_TestResult" namespace="" name="PHPUnit_Framework_TestResult"/>
+      </param>
+      <since value="Method available since Release 3.6.0"/>
+    </docblock>
+    <parameter name="result" byreference="false" type="object">
+      <type full="PHPUnit_Framework_TestResult" namespace="" name="PHPUnit_Framework_TestResult"/>
+    </parameter>
+  </method>
+  <method name="iniSet" start="1240" end="1259" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="This method is a wrapper for the ini_set() function that automatically resets the modified php.ini setting to its original value after the test is run."/>
+      <param type="string" variable="$varName"/>
+      <param type="string" variable="$newValue"/>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+      <since value="Method available since Release 3.0.0"/>
+    </docblock>
+    <parameter name="varName" byreference="false" type="{unknown}"/>
+    <parameter name="newValue" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setLocale" start="1272" end="1310" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="This method is a wrapper for the setlocale() function that automatically resets the locale to its original value after the test is run."/>
+      <param type="int" variable="$category"/>
+      <param type="string" variable="$locale"/>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+      <since value="Method available since Release 3.1.0"/>
+    </docblock>
+  </method>
+  <method name="getMock" start="1334" end="1351" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a mock object for the specified class."/>
+      <param description="Name of the class to mock." type="string" variable="$originalClassName"/>
+      <param description="When provided, only methods whose names are in the array" type="object" variable="$methods">are replaced with a configurable test double. The behavior
+                                           of the other methods is not changed.
+                                           Providing null means that no methods will be replaced.<type full="array|null" namespace="" name="array|null"/></param>
+      <param description="Parameters to pass to the original class' constructor." type="array" variable="$arguments"/>
+      <param description="Class name for the generated test double class." type="string" variable="$mockClassName"/>
+      <param description="Can be used to disable the call to the original class' constructor." type="object" variable="$callOriginalConstructor">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param description="Can be used to disable the call to the original class' clone constructor." type="object" variable="$callOriginalClone">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param description="Can be used to disable __autoload() during the generation of the test double class." type="object" variable="$callAutoload">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param type="object" variable="$cloneArguments">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param type="object" variable="$callOriginalMethods">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_MockObject" namespace="" name="PHPUnit_Framework_MockObject_MockObject"/>
+      </return>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+      <since value="Method available since Release 3.0.0"/>
+    </docblock>
+    <parameter name="originalClassName" byreference="false" type="{unknown}"/>
+    <parameter name="methods" byreference="false" type="array" default=""/>
+    <parameter name="arguments" byreference="false" type="array" default=""/>
+    <parameter name="mockClassName" byreference="false" type="string" default="''"/>
+    <parameter name="callOriginalConstructor" byreference="false" type="boolean" default="true"/>
+    <parameter name="callOriginalClone" byreference="false" type="boolean" default="true"/>
+    <parameter name="callAutoload" byreference="false" type="boolean" default="true"/>
+    <parameter name="cloneArguments" byreference="false" type="boolean" default="false"/>
+    <parameter name="callOriginalMethods" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="getMockBuilder" start="1362" end="1365" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a builder object to create mock objects using a fluent interface."/>
+      <param type="string" variable="$className"/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_MockBuilder" namespace="" name="PHPUnit_Framework_MockObject_MockBuilder"/>
+      </return>
+      <since value="Method available since Release 3.5.0"/>
+    </docblock>
+    <parameter name="className" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getMockClass" start="1385" end="1399" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Mocks the specified class and returns the name of the mocked class."/>
+      <param type="string" variable="$originalClassName"/>
+      <param type="array" variable="$methods"/>
+      <param type="array" variable="$arguments"/>
+      <param type="string" variable="$mockClassName"/>
+      <param type="object" variable="$callOriginalConstructor">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param type="object" variable="$callOriginalClone">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param type="object" variable="$callAutoload">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param type="object" variable="$cloneArguments">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="string"/>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+      <since value="Method available since Release 3.5.0"/>
+    </docblock>
+    <parameter name="originalClassName" byreference="false" type="{unknown}"/>
+    <parameter name="methods" byreference="false" type="array" default=""/>
+    <parameter name="arguments" byreference="false" type="array" default=""/>
+    <parameter name="mockClassName" byreference="false" type="string" default="''"/>
+    <parameter name="callOriginalConstructor" byreference="false" type="boolean" default="false"/>
+    <parameter name="callOriginalClone" byreference="false" type="boolean" default="true"/>
+    <parameter name="callAutoload" byreference="false" type="boolean" default="true"/>
+    <parameter name="cloneArguments" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="getMockForAbstractClass" start="1421" end="1437" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a mock object for the specified abstract class with all abstract methods of the class mocked. Concrete methods are not mocked by default.">To mock concrete methods, use the 7th parameter ($mockedMethods).</description>
+      <param type="string" variable="$originalClassName"/>
+      <param type="array" variable="$arguments"/>
+      <param type="string" variable="$mockClassName"/>
+      <param type="object" variable="$callOriginalConstructor">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param type="object" variable="$callOriginalClone">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param type="object" variable="$callAutoload">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param type="array" variable="$mockedMethods"/>
+      <param type="object" variable="$cloneArguments">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_MockObject" namespace="" name="PHPUnit_Framework_MockObject_MockObject"/>
+      </return>
+      <since value="Method available since Release 3.4.0"/>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="originalClassName" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="array" default=""/>
+    <parameter name="mockClassName" byreference="false" type="string" default="''"/>
+    <parameter name="callOriginalConstructor" byreference="false" type="boolean" default="true"/>
+    <parameter name="callOriginalClone" byreference="false" type="boolean" default="true"/>
+    <parameter name="callAutoload" byreference="false" type="boolean" default="true"/>
+    <parameter name="mockedMethods" byreference="false" type="array" default=""/>
+    <parameter name="cloneArguments" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="getMockFromWsdl" start="1453" end="1479" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Returns a mock object based on the given WSDL file."/>
+      <param type="string" variable="$wsdlFile"/>
+      <param type="string" variable="$originalClassName"/>
+      <param type="string" variable="$mockClassName"/>
+      <param type="array" variable="$methods"/>
+      <param type="object" variable="$callOriginalConstructor">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param description="An array of options passed to SOAPClient::_construct" type="array" variable="$options"/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_MockObject" namespace="" name="PHPUnit_Framework_MockObject_MockObject"/>
+      </return>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+    <parameter name="wsdlFile" byreference="false" type="{unknown}"/>
+    <parameter name="originalClassName" byreference="false" type="string" default="''"/>
+    <parameter name="mockClassName" byreference="false" type="string" default="''"/>
+    <parameter name="methods" byreference="false" type="array" default=""/>
+    <parameter name="callOriginalConstructor" byreference="false" type="boolean" default="true"/>
+    <parameter name="options" byreference="false" type="array" default=""/>
+  </method>
+  <method name="getMockForTrait" start="1501" end="1517" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a mock object for the specified trait with all abstract methods of the trait mocked. Concrete methods to mock can be specified with the `$mockedMethods` parameter."/>
+      <param type="string" variable="$traitName"/>
+      <param type="array" variable="$arguments"/>
+      <param type="string" variable="$mockClassName"/>
+      <param type="object" variable="$callOriginalConstructor">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param type="object" variable="$callOriginalClone">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param type="object" variable="$callAutoload">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param type="array" variable="$mockedMethods"/>
+      <param type="object" variable="$cloneArguments">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_MockObject" namespace="" name="PHPUnit_Framework_MockObject_MockObject"/>
+      </return>
+      <since value="Method available since Release 4.0.0"/>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="traitName" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="array" default=""/>
+    <parameter name="mockClassName" byreference="false" type="string" default="''"/>
+    <parameter name="callOriginalConstructor" byreference="false" type="boolean" default="true"/>
+    <parameter name="callOriginalClone" byreference="false" type="boolean" default="true"/>
+    <parameter name="callAutoload" byreference="false" type="boolean" default="true"/>
+    <parameter name="mockedMethods" byreference="false" type="array" default=""/>
+    <parameter name="cloneArguments" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="getObjectForTrait" start="1536" end="1547" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Returns an object for the specified trait."/>
+      <param type="string" variable="$traitName"/>
+      <param type="array" variable="$arguments"/>
+      <param type="string" variable="$traitClassName"/>
+      <param type="object" variable="$callOriginalConstructor">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param type="object" variable="$callOriginalClone">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param type="object" variable="$callAutoload">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param type="object" variable="$cloneArguments">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="object"/>
+      <since value="Method available since Release 3.6.0"/>
+      <throws type="object">
+        <type full="PHPUnit_Framework_Exception" namespace="" name="PHPUnit_Framework_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="traitName" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="array" default=""/>
+    <parameter name="traitClassName" byreference="false" type="string" default="''"/>
+    <parameter name="callOriginalConstructor" byreference="false" type="boolean" default="true"/>
+    <parameter name="callOriginalClone" byreference="false" type="boolean" default="true"/>
+    <parameter name="callAutoload" byreference="false" type="boolean" default="true"/>
+    <parameter name="cloneArguments" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="prophesize" start="1558" end="1561" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="object" variable="$classOrInterface">
+        <type full="string|null" namespace="" name="string|null"/>
+      </param>
+      <return type="object">
+        <type full="\Prophecy\Prophecy\ObjectProphecy" namespace="\Prophecy\Prophecy" name="ObjectProphecy"/>
+      </return>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <since value="Method available since Release 4.5.0"/>
+    </docblock>
+    <parameter name="classOrInterface" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="addToAssertionCount" start="1570" end="1573" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a value to the assertion counter."/>
+      <param type="int" variable="$count"/>
+      <since value="Method available since Release 3.3.3"/>
+    </docblock>
+    <parameter name="count" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getNumAssertions" start="1582" end="1585" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the number of assertions performed by this test."/>
+      <return type="int"/>
+      <since value="Method available since Release 3.3.0"/>
+    </docblock>
+  </method>
+  <method name="any" start="1595" end="1598" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns a matcher that matches when the method is executed zero or more times."/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_Matcher_AnyInvokedCount" namespace="" name="PHPUnit_Framework_MockObject_Matcher_AnyInvokedCount"/>
+      </return>
+      <since value="Method available since Release 3.0.0"/>
+    </docblock>
+  </method>
+  <method name="never" start="1607" end="1610" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns a matcher that matches when the method is never executed."/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_Matcher_InvokedCount" namespace="" name="PHPUnit_Framework_MockObject_Matcher_InvokedCount"/>
+      </return>
+      <since value="Method available since Release 3.0.0"/>
+    </docblock>
+  </method>
+  <method name="atLeast" start="1622" end="1627" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns a matcher that matches when the method is executed at least N times."/>
+      <param type="int" variable="$requiredInvocations"/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_Matcher_InvokedAtLeastCount" namespace="" name="PHPUnit_Framework_MockObject_Matcher_InvokedAtLeastCount"/>
+      </return>
+      <since value="Method available since Release 4.2.0"/>
+    </docblock>
+    <parameter name="requiredInvocations" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="atLeastOnce" start="1636" end="1639" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns a matcher that matches when the method is executed at least once."/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_Matcher_InvokedAtLeastOnce" namespace="" name="PHPUnit_Framework_MockObject_Matcher_InvokedAtLeastOnce"/>
+      </return>
+      <since value="Method available since Release 3.0.0"/>
+    </docblock>
+  </method>
+  <method name="once" start="1648" end="1651" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns a matcher that matches when the method is executed exactly once."/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_Matcher_InvokedCount" namespace="" name="PHPUnit_Framework_MockObject_Matcher_InvokedCount"/>
+      </return>
+      <since value="Method available since Release 3.0.0"/>
+    </docblock>
+  </method>
+  <method name="exactly" start="1663" end="1666" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns a matcher that matches when the method is executed exactly $count times."/>
+      <param type="int" variable="$count"/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_Matcher_InvokedCount" namespace="" name="PHPUnit_Framework_MockObject_Matcher_InvokedCount"/>
+      </return>
+      <since value="Method available since Release 3.0.0"/>
+    </docblock>
+    <parameter name="count" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="atMost" start="1678" end="1683" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns a matcher that matches when the method is executed at most N times."/>
+      <param type="int" variable="$allowedInvocations"/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_Matcher_InvokedAtMostCount" namespace="" name="PHPUnit_Framework_MockObject_Matcher_InvokedAtMostCount"/>
+      </return>
+      <since value="Method available since Release 4.2.0"/>
+    </docblock>
+    <parameter name="allowedInvocations" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="at" start="1695" end="1698" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns a matcher that matches when the method is executed at the given index."/>
+      <param type="int" variable="$index"/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_Matcher_InvokedAtIndex" namespace="" name="PHPUnit_Framework_MockObject_Matcher_InvokedAtIndex"/>
+      </return>
+      <since value="Method available since Release 3.0.0"/>
+    </docblock>
+    <parameter name="index" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="returnValue" start="1707" end="1710" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_Stub_Return" namespace="" name="PHPUnit_Framework_MockObject_Stub_Return"/>
+      </return>
+      <since value="Method available since Release 3.0.0"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="returnValueMap" start="1719" end="1722" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="array" variable="$valueMap"/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_Stub_ReturnValueMap" namespace="" name="PHPUnit_Framework_MockObject_Stub_ReturnValueMap"/>
+      </return>
+      <since value="Method available since Release 3.6.0"/>
+    </docblock>
+    <parameter name="valueMap" byreference="false" type="array"/>
+  </method>
+  <method name="returnArgument" start="1731" end="1736" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="int" variable="$argumentIndex"/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_Stub_ReturnArgument" namespace="" name="PHPUnit_Framework_MockObject_Stub_ReturnArgument"/>
+      </return>
+      <since value="Method available since Release 3.3.0"/>
+    </docblock>
+    <parameter name="argumentIndex" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="returnCallback" start="1745" end="1748" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="mixed" variable="$callback"/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_Stub_ReturnCallback" namespace="" name="PHPUnit_Framework_MockObject_Stub_ReturnCallback"/>
+      </return>
+      <since value="Method available since Release 3.3.0"/>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="returnSelf" start="1759" end="1762" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns the current object.">This method is useful when mocking a fluent interface.</description>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_Stub_ReturnSelf" namespace="" name="PHPUnit_Framework_MockObject_Stub_ReturnSelf"/>
+      </return>
+      <since value="Method available since Release 3.6.0"/>
+    </docblock>
+  </method>
+  <method name="throwException" start="1771" end="1774" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$exception">
+        <type full="Exception" namespace="" name="Exception"/>
+      </param>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_Stub_Exception" namespace="" name="PHPUnit_Framework_MockObject_Stub_Exception"/>
+      </return>
+      <since value="Method available since Release 3.1.0"/>
+    </docblock>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+  </method>
+  <method name="onConsecutiveCalls" start="1783" end="1788" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param description="..." type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_Stub_ConsecutiveCalls" namespace="" name="PHPUnit_Framework_MockObject_Stub_ConsecutiveCalls"/>
+      </return>
+      <since value="Method available since Release 3.0.0"/>
+    </docblock>
+  </method>
+  <method name="getDataSetAsString" start="1799" end="1818" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Gets the data set description of a TestCase."/>
+      <param type="object" variable="$includeData">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="string"/>
+      <since value="Method available since Release 3.3.0"/>
+    </docblock>
+    <parameter name="includeData" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="createResult" start="1825" end="1828" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Creates a default TestResult object."/>
+      <return type="object">
+        <type full="PHPUnit_Framework_TestResult" namespace="" name="PHPUnit_Framework_TestResult"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="handleDependencies" start="1833" end="1894" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <since value="Method available since Release 3.5.4"/>
+    </docblock>
+  </method>
+  <method name="setUpBeforeClass" start="1901" end="1903" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="This method is called before the first test of this test class is run."/>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+  </method>
+  <method name="setUp" start="1909" end="1911" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Sets up the fixture, for example, open a network connection.">This method is called before a test is executed.</description>
+    </docblock>
+  </method>
+  <method name="assertPreConditions" start="1921" end="1923" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Performs assertions shared by all tests of a test case.">This method is called before the execution of a test starts
+and after setUp() is called.</description>
+      <since value="Method available since Release 3.2.8"/>
+    </docblock>
+  </method>
+  <method name="assertPostConditions" start="1933" end="1935" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Performs assertions shared by all tests of a test case.">This method is called before the execution of a test ends
+and before tearDown() is called.</description>
+      <since value="Method available since Release 3.2.8"/>
+    </docblock>
+  </method>
+  <method name="tearDown" start="1941" end="1943" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Tears down the fixture, for example, close a network connection.">This method is called after a test is executed.</description>
+    </docblock>
+  </method>
+  <method name="tearDownAfterClass" start="1950" end="1952" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="This method is called after the last test of this test class is run."/>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+  </method>
+  <method name="onNotSuccessfulTest" start="1963" end="1966" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="This method is called when a test method did not execute successfully."/>
+      <param type="object" variable="$e">
+        <type full="Exception" namespace="" name="Exception"/>
+      </param>
+      <since value="Method available since Release 3.4.0"/>
+      <throws type="object">
+        <type full="Exception" namespace="" name="Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="e" byreference="false" type="object">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+  </method>
+  <method name="prepareTemplate" start="1975" end="1977" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Performs custom preparations on the process isolation template."/>
+      <param type="object" variable="$template">
+        <type full="Text_Template" namespace="" name="Text_Template"/>
+      </param>
+      <since value="Method available since Release 3.4.0"/>
+    </docblock>
+    <parameter name="template" byreference="false" type="object">
+      <type full="Text_Template" namespace="" name="Text_Template"/>
+    </parameter>
+  </method>
+  <method name="getMockObjectGenerator" start="1984" end="1991" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the mock object generator, creating it if it doesn't exist."/>
+      <return type="object">
+        <type full="PHPUnit_Framework_MockObject_Generator" namespace="" name="PHPUnit_Framework_MockObject_Generator"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="startOutputBuffering" start="1996" end="2006" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <since value="Method available since Release 4.2.0"/>
+    </docblock>
+  </method>
+  <method name="stopOutputBuffering" start="2011" end="2038" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <since value="Method available since Release 4.2.0"/>
+    </docblock>
+  </method>
+  <method name="snapshotGlobalState" start="2040" end="2050" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="restoreGlobalState" start="2052" end="2088" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="createGlobalStateSnapshot" start="2095" end="2133" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$backupGlobals">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="SebastianBergmann\GlobalState\Snapshot" namespace="SebastianBergmann\GlobalState" name="Snapshot"/>
+      </return>
+    </docblock>
+    <parameter name="backupGlobals" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="compareGlobalStateSnapshots" start="2141" end="2166" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$before">
+        <type full="SebastianBergmann\GlobalState\Snapshot" namespace="SebastianBergmann\GlobalState" name="Snapshot"/>
+      </param>
+      <param type="object" variable="$after">
+        <type full="SebastianBergmann\GlobalState\Snapshot" namespace="SebastianBergmann\GlobalState" name="Snapshot"/>
+      </param>
+      <throws type="object">
+        <type full="PHPUnit_Framework_RiskyTestError" namespace="" name="PHPUnit_Framework_RiskyTestError"/>
+      </throws>
+    </docblock>
+    <parameter name="before" byreference="false" type="object">
+      <type full="SebastianBergmann\GlobalState\Snapshot" namespace="SebastianBergmann\GlobalState" name="Snapshot"/>
+    </parameter>
+    <parameter name="after" byreference="false" type="object">
+      <type full="SebastianBergmann\GlobalState\Snapshot" namespace="SebastianBergmann\GlobalState" name="Snapshot"/>
+    </parameter>
+  </method>
+  <method name="compareGlobalStateSnapshotPart" start="2175" end="2190" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="array" variable="$before"/>
+      <param type="array" variable="$after"/>
+      <param type="string" variable="$header"/>
+      <throws type="object">
+        <type full="PHPUnit_Framework_RiskyTestError" namespace="" name="PHPUnit_Framework_RiskyTestError"/>
+      </throws>
+    </docblock>
+    <parameter name="before" byreference="false" type="array"/>
+    <parameter name="after" byreference="false" type="array"/>
+    <parameter name="header" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getProphet" start="2197" end="2204" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="Prophecy\Prophet" namespace="Prophecy" name="Prophet"/>
+      </return>
+      <since value="Method available since Release 4.5.0"/>
+    </docblock>
+  </method>
+</class>

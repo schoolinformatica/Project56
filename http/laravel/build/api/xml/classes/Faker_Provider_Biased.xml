@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Faker\Provider\Biased" namespace="Faker\Provider" name="Biased" abstract="false" final="false" start="5" end="64">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/fzaninotto/faker/src/Faker/Provider" file="Biased.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/fzaninotto/faker/src/Faker/Provider/Biased.php" size="1853" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="41ec7f61dfdc2b131e631f59442e1ec6d6e9da86" relative="vendor/fzaninotto/faker/src/Faker/Provider/Biased.php"/>
+  <extends full="Faker\Provider\Base" namespace="Faker\Provider" name="Base"/>
+  <method name="biasedNumberBetween" start="22" end="30" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a biased integer between $min and $max (both inclusive).">The distribution depends on $function.
+
+The algorithm creates two doubles, x ∈ [0, 1], y ∈ [0, 1) and checks whether the
+return value of $function for x is greater than or equal to y. If this is
+the case the number is accepted and x is mapped to the appropriate integer
+between $min and $max. Otherwise two new doubles are created until the pair
+is accepted.</description>
+      <param description="Minimum value of the generated integers." type="integer" variable="$min"/>
+      <param description="Maximum value of the generated integers." type="integer" variable="$max"/>
+      <param description="A function mapping x ∈ [0, 1] onto a double ∈ [0, 1]" type="object" variable="$function">
+        <type full="Faker\Provider\callable" namespace="Faker\Provider" name="callable"/>
+      </param>
+      <return description="An integer between $min and $max." type="integer"/>
+    </docblock>
+    <parameter name="min" byreference="false" type="integer" default="0"/>
+    <parameter name="max" byreference="false" type="integer" default="100"/>
+    <parameter name="function" byreference="false" type="string" default="'sqrt'"/>
+  </method>
+  <method name="unbiased" start="38" end="41" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="'unbiased' creates an unbiased distribution by giving each value the same value of one."/>
+      <return type="integer"/>
+    </docblock>
+    <parameter name="x" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="linearLow" start="49" end="52" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="'linearLow' favors lower numbers. The probability decreases in a linear fashion."/>
+      <return type="integer"/>
+    </docblock>
+    <parameter name="x" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="linearHigh" start="60" end="63" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="'linearHigh' favors higher numbers. The probability increases in a linear fashion."/>
+      <return type="integer"/>
+    </docblock>
+    <parameter name="x" byreference="false" type="{unknown}"/>
+  </method>
+</class>

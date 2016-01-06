@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Swift_Mime_Message" namespace="" name="Swift_Mime_Message" abstract="false" final="false" start="16" end="223">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime" file="Message.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Message.php" size="6048" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="cf86d447bc7ff1591353418b9a5487c08b5e7712" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Message.php"/>
+  <docblock>
+    <description compact="A Message (RFC 2822) object."/>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <extends full="Swift_Mime_MimeEntity" namespace="" name="Swift_Mime_MimeEntity"/>
+  <method name="generateId" start="23" end="23" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Generates a valid Message-ID and switches to it."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setSubject" start="30" end="30" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the subject of the message."/>
+      <param type="string" variable="$subject"/>
+    </docblock>
+    <parameter name="subject" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getSubject" start="37" end="37" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the subject of the message."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setDate" start="44" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the origination date of the message as a UNIX timestamp."/>
+      <param type="int" variable="$date"/>
+    </docblock>
+    <parameter name="date" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getDate" start="51" end="51" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the origination date of the message as a UNIX timestamp."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="setReturnPath" start="58" end="58" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the return-path (bounce-detect) address."/>
+      <param type="string" variable="$address"/>
+    </docblock>
+    <parameter name="address" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getReturnPath" start="65" end="65" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the return-path (bounce-detect) address."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setSender" start="84" end="84" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the sender of this message.">If multiple addresses are present in the From field, this SHOULD be set.
+
+According to RFC 2822 it is a requirement when there are multiple From
+addresses, but Swift itself does not require it directly.
+
+An associative array (with one element!) can be used to provide a display-
+name: i.e. array('email@address' =&gt; 'Real Name').
+
+If the second parameter is provided and the first is a string, then $name
+is associated with the address.</description>
+      <param type="mixed" variable="$address"/>
+      <param description="optional" type="string" variable="$name"/>
+    </docblock>
+    <parameter name="address" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getSender" start="93" end="93" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the sender address for this message.">This has a higher significance than the From address.</description>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setFrom" start="112" end="112" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the From address of this message.">It is permissible for multiple From addresses to be set using an array.
+
+If multiple From addresses are used, you SHOULD set the Sender address and
+according to RFC 2822, MUST set the sender address.
+
+An array can be used if display names are to be provided: i.e.
+array('email@address.com' =&gt; 'Real Name').
+
+If the second parameter is provided and the first is a string, then $name
+is associated with the address.</description>
+      <param type="mixed" variable="$addresses"/>
+      <param description="optional" type="string" variable="$name"/>
+    </docblock>
+    <parameter name="addresses" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getFrom" start="122" end="122" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the From address(es) of this message.">This method always returns an associative array where the keys are the
+addresses.</description>
+      <return type="array" of="string"/>
+    </docblock>
+  </method>
+  <method name="setReplyTo" start="139" end="139" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the Reply-To address(es).">Any replies from the receiver will be sent to this address.
+It is permissible for multiple reply-to addresses to be set using an array.
+This method has the same synopsis as <link xmlns="http://xml.phpdox.net/src" value="setFrom()"/> and <link xmlns="http://xml.phpdox.net/src" value="setTo()"/>.
+If the second parameter is provided and the first is a string, then $name
+is associated with the address.
+</description>
+      <param type="mixed" variable="$addresses"/>
+      <param description="optional" type="string" variable="$name"/>
+    </docblock>
+    <parameter name="addresses" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getReplyTo" start="149" end="149" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the Reply-To addresses for this message.">This method always returns an associative array where the keys provide the
+email addresses.</description>
+      <return type="array" of="string"/>
+    </docblock>
+  </method>
+  <method name="setTo" start="164" end="164" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the To address(es).">Recipients set in this field will receive a copy of this message.
+This method has the same synopsis as <link xmlns="http://xml.phpdox.net/src" value="setFrom()"/> and <link xmlns="http://xml.phpdox.net/src" value="setCc()"/>.
+If the second parameter is provided and the first is a string, then $name
+is associated with the address.
+</description>
+      <param type="mixed" variable="$addresses"/>
+      <param description="optional" type="string" variable="$name"/>
+    </docblock>
+    <parameter name="addresses" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getTo" start="174" end="174" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the To addresses for this message.">This method always returns an associative array, whereby the keys provide
+the actual email addresses.</description>
+      <return type="array" of="string"/>
+    </docblock>
+  </method>
+  <method name="setCc" start="186" end="186" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the Cc address(es).">Recipients set in this field will receive a 'carbon-copy' of this message.
+This method has the same synopsis as <link xmlns="http://xml.phpdox.net/src" value="setFrom()"/> and <link xmlns="http://xml.phpdox.net/src" value="setTo()"/>.
+</description>
+      <param type="mixed" variable="$addresses"/>
+      <param description="optional" type="string" variable="$name"/>
+    </docblock>
+    <parameter name="addresses" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getCc" start="196" end="196" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the Cc addresses for this message.">This method always returns an associative array, whereby the keys provide
+the actual email addresses.</description>
+      <return type="array" of="string"/>
+    </docblock>
+  </method>
+  <method name="setBcc" start="212" end="212" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the Bcc address(es).">Recipients set in this field will receive a 'blind-carbon-copy' of this
+message.
+In other words, they will get the message, but any other recipients of the
+message will have no such knowledge of their receipt of it.
+This method has the same synopsis as <link xmlns="http://xml.phpdox.net/src" value="setFrom()"/> and <link xmlns="http://xml.phpdox.net/src" value="setTo()"/>.
+</description>
+      <param type="mixed" variable="$addresses"/>
+      <param description="optional" type="string" variable="$name"/>
+    </docblock>
+    <parameter name="addresses" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getBcc" start="222" end="222" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the Bcc addresses for this message.">This method always returns an associative array, whereby the keys provide
+the actual email addresses.</description>
+      <return type="array" of="string"/>
+    </docblock>
+  </method>
+</interface>

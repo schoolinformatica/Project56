@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Yaml\Tests\InlineTest" namespace="Symfony\Component\Yaml\Tests" name="InlineTest" abstract="false" final="false" start="16" end="429">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/yaml/Tests" file="InlineTest.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/yaml/Tests/InlineTest.php" size="19050" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="75a21b456ea01786b57c16d512d0ed9eb6ab70b1" relative="vendor/symfony/yaml/Tests/InlineTest.php"/>
+  <extends full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+  <method name="testParse" start="21" end="24" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getTestsForParse"/>
+    </docblock>
+    <parameter name="yaml" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testParseWithMapObjects" start="29" end="34" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getTestsForParseWithMapObjects"/>
+    </docblock>
+    <parameter name="yaml" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testDump" start="39" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getTestsForDump"/>
+    </docblock>
+    <parameter name="yaml" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testDumpNumericValueWithLocale" start="46" end="64" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testHashStringsResemblingExponentialNumericsShouldNotBeChangedToINF" start="66" end="71" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testParseScalarWithNonEscapedBlackslashShouldThrowException" start="77" end="80" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\Symfony\Component\Yaml\Exception\ParseException"/>
+      <expectedexceptionmessage value="Found unknown escape character &quot;\V&quot;."/>
+    </docblock>
+  </method>
+  <method name="testParseScalarWithNonEscapedBlackslashAtTheEndShouldThrowException" start="85" end="88" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\Symfony\Component\Yaml\Exception\ParseException"/>
+    </docblock>
+  </method>
+  <method name="testParseScalarWithIncorrectlyQuotedStringShouldThrowException" start="93" end="97" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\Symfony\Component\Yaml\Exception\ParseException"/>
+    </docblock>
+  </method>
+  <method name="testParseScalarWithIncorrectlyDoubleQuotedStringShouldThrowException" start="102" end="106" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\Symfony\Component\Yaml\Exception\ParseException"/>
+    </docblock>
+  </method>
+  <method name="testParseInvalidMappingKeyShouldThrowException" start="111" end="115" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\Symfony\Component\Yaml\Exception\ParseException"/>
+    </docblock>
+  </method>
+  <method name="testParseInvalidMappingShouldThrowException" start="120" end="123" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\Symfony\Component\Yaml\Exception\ParseException"/>
+    </docblock>
+  </method>
+  <method name="testParseInvalidSequenceShouldThrowException" start="128" end="131" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\Symfony\Component\Yaml\Exception\ParseException"/>
+    </docblock>
+  </method>
+  <method name="testParseScalarWithCorrectlyQuotedStringShouldReturnString" start="133" end="139" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testParseReferences" start="144" end="147" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getDataForParseReferences"/>
+    </docblock>
+    <parameter name="yaml" byreference="false" type="{unknown}"/>
+    <parameter name="expected" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getDataForParseReferences" start="149" end="161" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testParseMapReferenceInSequence" start="163" end="171" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testParseUnquotedAsterisk" start="177" end="180" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\Symfony\Component\Yaml\Exception\ParseException"/>
+      <expectedexceptionmessage value="A reference must contain at least one character."/>
+    </docblock>
+  </method>
+  <method name="testParseUnquotedAsteriskFollowedByAComment" start="186" end="189" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <expectedexception value="\Symfony\Component\Yaml\Exception\ParseException"/>
+      <expectedexceptionmessage value="A reference must contain at least one character."/>
+    </docblock>
+  </method>
+  <method name="testParseUnquotedScalarStartingWithReservedIndicator" start="196" end="199" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getReservedIndicators"/>
+      <expectedexception value="Symfony\Component\Yaml\Exception\ParseException"/>
+      <expectedexceptionmessage value="cannot start a plain scalar; you need to quote the scalar."/>
+    </docblock>
+    <parameter name="indicator" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getReservedIndicators" start="201" end="204" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testParseUnquotedScalarStartingWithScalarIndicator" start="211" end="214" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <dataprovider value="getScalarIndicators"/>
+      <expectedexception value="Symfony\Component\Yaml\Exception\ParseException"/>
+      <expectedexceptionmessage value="cannot start a plain scalar; you need to quote the scalar."/>
+    </docblock>
+    <parameter name="indicator" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getScalarIndicators" start="216" end="219" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getTestsForParse" start="221" end="294" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getTestsForParseWithMapObjects" start="296" end="373" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getTestsForDump" start="375" end="428" abstract="false" final="false" static="false" visibility="public"/>
+</class>

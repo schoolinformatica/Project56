@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Pipeline\Pipeline" namespace="Illuminate\Pipeline" name="Pipeline" abstract="false" final="false" start="9" end="159">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Pipeline" file="Pipeline.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php" size="3834" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="776f8a4bfe2063e5d8a98f9a960da4a3a7d8a4c7" relative="vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php"/>
+  <implements full="Illuminate\Contracts\Pipeline\Pipeline" namespace="Illuminate\Contracts\Pipeline" name="Pipeline"/>
+  <member name="container" visibility="protected" line="16">
+    <docblock>
+      <description compact="The container implementation."/>
+      <var type="object">
+        <type full="\Illuminate\Contracts\Container\Container" namespace="\Illuminate\Contracts\Container" name="Container"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="passable" visibility="protected" line="23">
+    <docblock>
+      <description compact="The object being passed through the pipeline."/>
+      <var type="mixed"/>
+    </docblock>
+  </member>
+  <member name="pipes" type="array" default="" visibility="protected" line="30">
+    <docblock>
+      <description compact="The array of class pipes."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="method" type="string" default="'handle'" visibility="protected" line="37">
+    <docblock>
+      <description compact="The method to call on each pipe."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="45" end="48" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new class instance."/>
+      <param type="object" variable="$container">
+        <type full="\Illuminate\Contracts\Container\Container" namespace="\Illuminate\Contracts\Container" name="Container"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Pipeline\void" namespace="Illuminate\Pipeline" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="container" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Container\Container" namespace="Illuminate\Contracts\Container" name="Container"/>
+    </parameter>
+  </constructor>
+  <method name="send" start="56" end="61" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the object being sent through the pipeline."/>
+      <param type="mixed" variable="$passable"/>
+      <return type="object">
+        <type full="Illuminate\Pipeline\$this" namespace="Illuminate\Pipeline" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="passable" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="through" start="69" end="74" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the array of pipes."/>
+      <param type="object" variable="$pipes">
+        <type full="Illuminate\Pipeline\array|mixed" namespace="Illuminate\Pipeline" name="array|mixed"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Pipeline\$this" namespace="Illuminate\Pipeline" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="pipes" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="via" start="82" end="87" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the method to call on the pipes."/>
+      <param type="string" variable="$method"/>
+      <return type="object">
+        <type full="Illuminate\Pipeline\$this" namespace="Illuminate\Pipeline" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="then" start="95" end="104" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Run the pipeline with a final destination callback."/>
+      <param type="object" variable="$destination">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="destination" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="getSlice" start="111" end="128" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get a Closure that represents a slice of the application onion."/>
+      <return type="object">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getInitialSlice" start="136" end="141" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the initial slice to begin the stack call."/>
+      <param type="object" variable="$destination">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </return>
+    </docblock>
+    <parameter name="destination" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="parsePipeString" start="149" end="158" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Parse full pipe string to get name and parameters."/>
+      <param type="string" variable="$pipe"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="pipe" byreference="false" type="{unknown}"/>
+  </method>
+</class>

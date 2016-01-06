@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Pagination\AbstractPaginator" namespace="Illuminate\Pagination" name="AbstractPaginator" abstract="true" final="false" start="8" end="487">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Pagination" file="AbstractPaginator.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Pagination/AbstractPaginator.php" size="9930" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="55b1a2165dc4c8838fe78ea229b1d70f3acc57b7" relative="vendor/laravel/framework/src/Illuminate/Pagination/AbstractPaginator.php"/>
+  <member name="items" visibility="protected" line="15">
+    <docblock>
+      <description compact="All of the items being paginated."/>
+      <var type="object">
+        <type full="\Illuminate\Support\Collection" namespace="\Illuminate\Support" name="Collection"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="perPage" visibility="protected" line="22">
+    <docblock>
+      <description compact="The number of items to be shown per page."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="currentPage" visibility="protected" line="29">
+    <docblock>
+      <description compact="The current page being &quot;viewed&quot;."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="path" type="string" default="'/'" visibility="protected" line="36">
+    <docblock>
+      <description compact="The base path to assign to all URLs."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="query" type="array" default="" visibility="protected" line="43">
+    <docblock>
+      <description compact="The query parameters to add to all URLs."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="fragment" type="{unknown}" default="" constant="null" visibility="protected" line="50">
+    <docblock>
+      <description compact="The URL fragment to add to all URLs."/>
+      <var type="object">
+        <type full="Illuminate\Pagination\string|null" namespace="Illuminate\Pagination" name="string|null"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="pageName" type="string" default="'page'" visibility="protected" line="57">
+    <docblock>
+      <description compact="The query string variable used to store the page."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="currentPathResolver" visibility="protected" line="64">
+    <docblock>
+      <description compact="The current page resolver callback."/>
+      <var type="object">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="currentPageResolver" visibility="protected" line="71">
+    <docblock>
+      <description compact="The current page resolver callback."/>
+      <var type="object">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="presenterResolver" visibility="protected" line="78">
+    <docblock>
+      <description compact="The default presenter resolver."/>
+      <var type="object">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="isValidPageNumber" start="86" end="89" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Determine if the given value is a valid page number."/>
+      <param type="int" variable="$page"/>
+      <return type="object">
+        <type full="Illuminate\Pagination\bool" namespace="Illuminate\Pagination" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="page" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getUrlRange" start="98" end="107" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a range of pagination URLs."/>
+      <param type="int" variable="$start"/>
+      <param type="int" variable="$end"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="start" byreference="false" type="{unknown}"/>
+    <parameter name="end" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="url" start="115" end="133" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a URL for a given page number."/>
+      <param type="int" variable="$page"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="page" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="If we have any extra query string key / value pairs that need to be added" line="121"/>
+      <comment value="onto the URL, we will put them in query string form and then attach it" line="122"/>
+      <comment value="to the URL. This allows for extra information like sortings storage." line="123"/>
+    </inline>
+  </method>
+  <method name="previousPageUrl" start="140" end="145" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the URL for the previous page."/>
+      <return type="object">
+        <type full="Illuminate\Pagination\string|null" namespace="Illuminate\Pagination" name="string|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="fragment" start="153" end="162" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get / set the URL fragment to be appended to URLs."/>
+      <param type="object" variable="$fragment">
+        <type full="Illuminate\Pagination\string|null" namespace="Illuminate\Pagination" name="string|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Pagination\$this|string|null" namespace="Illuminate\Pagination" name="$this|string|null"/>
+      </return>
+    </docblock>
+    <parameter name="fragment" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="appends" start="171" end="178" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a set of query string values to the paginator."/>
+      <param type="object" variable="$key">
+        <type full="Illuminate\Pagination\array|string" namespace="Illuminate\Pagination" name="array|string"/>
+      </param>
+      <param type="object" variable="$value">
+        <type full="Illuminate\Pagination\string|null" namespace="Illuminate\Pagination" name="string|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Pagination\$this" namespace="Illuminate\Pagination" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="appendArray" start="186" end="193" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Add an array of query string values."/>
+      <param type="array" variable="$keys"/>
+      <return type="object">
+        <type full="Illuminate\Pagination\$this" namespace="Illuminate\Pagination" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="keys" byreference="false" type="array"/>
+  </method>
+  <method name="addQuery" start="202" end="209" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a query string value to the paginator."/>
+      <param type="string" variable="$key"/>
+      <param type="string" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Pagination\$this" namespace="Illuminate\Pagination" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="buildFragment" start="216" end="219" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Build the full fragment portion of a URL."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="items" start="226" end="229" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the slice of items being paginated."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="firstItem" start="236" end="239" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the number of the first item in the slice."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="lastItem" start="246" end="249" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the number of the last item in the slice."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="perPage" start="256" end="259" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the number of items shown per page."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="currentPage" start="266" end="269" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the current page."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="hasPages" start="276" end="279" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if there are enough items to split into multiple pages."/>
+      <return type="object">
+        <type full="Illuminate\Pagination\bool" namespace="Illuminate\Pagination" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="resolveCurrentPath" start="287" end="294" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Resolve the current request path or return the default value."/>
+      <param type="string" variable="$default"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="default" byreference="false" type="string" default="'/'"/>
+  </method>
+  <method name="currentPathResolver" start="302" end="305" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set the current request path resolver callback."/>
+      <param type="object" variable="$resolver">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Pagination\void" namespace="Illuminate\Pagination" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="resolver" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="resolveCurrentPage" start="314" end="321" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Resolve the current page or return the default value."/>
+      <param type="string" variable="$pageName"/>
+      <param type="int" variable="$default"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="pageName" byreference="false" type="string" default="'page'"/>
+    <parameter name="default" byreference="false" type="integer" default="1"/>
+  </method>
+  <method name="currentPageResolver" start="329" end="332" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set the current page resolver callback."/>
+      <param type="object" variable="$resolver">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Pagination\void" namespace="Illuminate\Pagination" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="resolver" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="presenter" start="340" end="343" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set the default Presenter resolver."/>
+      <param type="object" variable="$resolver">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Pagination\void" namespace="Illuminate\Pagination" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="resolver" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="getPageName" start="350" end="353" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the query string variable used to store the page."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setPageName" start="361" end="366" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the query string variable used to store the page."/>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="Illuminate\Pagination\$this" namespace="Illuminate\Pagination" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setPath" start="374" end="379" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the base path to assign to all URLs."/>
+      <param type="string" variable="$path"/>
+      <return type="object">
+        <type full="Illuminate\Pagination\$this" namespace="Illuminate\Pagination" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getIterator" start="386" end="389" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get an iterator for the items."/>
+      <return type="object">
+        <type full="\ArrayIterator" namespace="" name="ArrayIterator"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isEmpty" start="396" end="399" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the list of items is empty or not."/>
+      <return type="object">
+        <type full="Illuminate\Pagination\bool" namespace="Illuminate\Pagination" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="count" start="406" end="409" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the number of items for the current page."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getCollection" start="416" end="419" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the paginator's underlying collection."/>
+      <return type="object">
+        <type full="\Illuminate\Support\Collection" namespace="\Illuminate\Support" name="Collection"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="offsetExists" start="427" end="430" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the given item exists."/>
+      <param type="mixed" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Pagination\bool" namespace="Illuminate\Pagination" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetGet" start="438" end="441" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the item at the given offset."/>
+      <param type="mixed" variable="$key"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetSet" start="450" end="453" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the item at the given offset."/>
+      <param type="mixed" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Pagination\void" namespace="Illuminate\Pagination" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetUnset" start="461" end="464" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Unset the item at the given key."/>
+      <param type="mixed" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Pagination\void" namespace="Illuminate\Pagination" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__call" start="473" end="476" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Make dynamic calls into the collection."/>
+      <param type="string" variable="$method"/>
+      <param type="array" variable="$parameters"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__toString" start="483" end="486" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Render the contents of the paginator when casting to string."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+</class>

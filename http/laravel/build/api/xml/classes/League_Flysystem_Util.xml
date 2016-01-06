@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="League\Flysystem\Util" namespace="League\Flysystem" name="Util" abstract="false" final="false" start="8" end="297">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/league/flysystem/src" file="Util.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/league/flysystem/src/Util.php" size="7087" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="b9e2d33326926ec620054594c7f5d3086865459d" relative="vendor/league/flysystem/src/Util.php"/>
+  <method name="pathinfo" start="17" end="25" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get normalized pathinfo."/>
+      <param type="string" variable="$path"/>
+      <return description="pathinfo" type="array"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="normalizeDirname" start="34" end="41" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Normalize a dirname return value."/>
+      <param type="string" variable="$dirname"/>
+      <return description="normalized dirname" type="string"/>
+    </docblock>
+    <parameter name="dirname" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="dirname" start="50" end="53" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get a normalized dirname from a path."/>
+      <param type="string" variable="$path"/>
+      <return description="dirname" type="string"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="map" start="63" end="76" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Map result arrays."/>
+      <param type="array" variable="$object"/>
+      <param type="array" variable="$map"/>
+      <return description="mapped result" type="array"/>
+    </docblock>
+    <parameter name="object" byreference="false" type="array"/>
+    <parameter name="map" byreference="false" type="array"/>
+  </method>
+  <method name="normalizePath" start="87" end="103" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Normalize path."/>
+      <param type="string" variable="$path"/>
+      <throws type="object">
+        <type full="LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <return type="string"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Remove any kind of funky unicode whitespace" line="89"/>
+    </inline>
+  </method>
+  <method name="normalizeRelativePath" start="112" end="125" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Normalize relative directories in a path."/>
+      <param type="string" variable="$path"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Path remove self referring paths (&quot;/./&quot;)." line="114"/>
+      <comment value="Regex for resolving relative paths" line="117"/>
+    </inline>
+  </method>
+  <method name="normalizePrefix" start="135" end="138" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Normalize prefix."/>
+      <param type="string" variable="$prefix"/>
+      <param type="string" variable="$separator"/>
+      <return description="normalized path" type="string"/>
+    </docblock>
+    <parameter name="prefix" byreference="false" type="{unknown}"/>
+    <parameter name="separator" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="contentSize" start="147" end="150" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get content size."/>
+      <param type="string" variable="$contents"/>
+      <return description="content size" type="int"/>
+    </docblock>
+    <parameter name="contents" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="guessMimeType" start="160" end="173" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Guess MIME Type based on the path of the file and it's content."/>
+      <param type="string" variable="$path"/>
+      <param type="string" variable="$content"/>
+      <return description="MIME Type or NULL if no extension detected" type="object">
+        <type full="League\Flysystem\string|null" namespace="League\Flysystem" name="string|null"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="emulateDirectories" start="182" end="202" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Emulate directories."/>
+      <param type="array" variable="$listing"/>
+      <return description="listing with emulated directories" type="array"/>
+    </docblock>
+    <parameter name="listing" byreference="false" type="array"/>
+  </method>
+  <method name="ensureConfig" start="213" end="228" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Ensure a Config instance."/>
+      <param type="object" variable="$config">
+        <type full="League\Flysystem\null|array|Config" namespace="League\Flysystem" name="null|array|Config"/>
+      </param>
+      <return description="config instance" type="object">
+        <type full="League\Flysystem\Config" namespace="League\Flysystem" name="Config"/>
+      </return>
+      <throw value="LogicException"/>
+    </docblock>
+    <parameter name="config" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="rewindStream" start="235" end="240" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Rewind a stream."/>
+      <param type="resource" variable="$resource"/>
+    </docblock>
+    <parameter name="resource" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isSeekableStream" start="242" end="247" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="resource" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getStreamSize" start="256" end="261" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get the size of a stream."/>
+      <param type="resource" variable="$resource"/>
+      <return description="stream size" type="int"/>
+    </docblock>
+    <parameter name="resource" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="emulateObjectDirectories" start="272" end="296" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Emulate the directories of a single object."/>
+      <param type="array" variable="$object"/>
+      <param type="array" variable="$directories"/>
+      <param type="array" variable="$listedDirectories"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="object" byreference="false" type="array"/>
+    <parameter name="directories" byreference="false" type="array"/>
+    <parameter name="listedDirectories" byreference="false" type="array"/>
+  </method>
+</class>

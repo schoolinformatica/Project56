@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_Mime_SimpleMimeEntity" namespace="" name="Swift_Mime_SimpleMimeEntity" abstract="false" final="false" start="16" end="867">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime" file="SimpleMimeEntity.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleMimeEntity.php" size="24028" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="aca7fe19dc369b4daf5eed7dc4598f51adaf97e2" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleMimeEntity.php"/>
+  <docblock>
+    <description compact="A MIME entity, in a multipart message."/>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <implements full="Swift_Mime_MimeEntity" namespace="" name="Swift_Mime_MimeEntity"/>
+  <member name="_headers" visibility="private" line="19">
+    <docblock>
+      <description compact="A collection of Headers for this mime entity"/>
+    </docblock>
+  </member>
+  <member name="_body" visibility="private" line="22">
+    <docblock>
+      <description compact="The body as a string, or a stream"/>
+    </docblock>
+  </member>
+  <member name="_encoder" visibility="private" line="25">
+    <docblock>
+      <description compact="The encoder that encodes the body into a streamable format"/>
+    </docblock>
+  </member>
+  <member name="_grammar" visibility="private" line="28">
+    <docblock>
+      <description compact="The grammar to use for id validation"/>
+    </docblock>
+  </member>
+  <member name="_boundary" visibility="private" line="31">
+    <docblock>
+      <description compact="A mime boundary, if any is used"/>
+    </docblock>
+  </member>
+  <member name="_compositeRanges" type="array" default="" visibility="private" line="34">
+    <docblock>
+      <description compact="Mime types to be used based on the nesting level"/>
+    </docblock>
+  </member>
+  <member name="_compoundLevelFilters" type="array" default="" visibility="private" line="41">
+    <docblock>
+      <description compact="A set of filter rules to define what level an entity should be nested at"/>
+    </docblock>
+  </member>
+  <member name="_nestingLevel" type="{unknown}" default="" constant="self::LEVEL_ALTERNATIVE" visibility="private" line="44">
+    <docblock>
+      <description compact="The nesting level of this entity"/>
+    </docblock>
+  </member>
+  <member name="_cache" visibility="private" line="47">
+    <docblock>
+      <description compact="A KeyCache instance used during encoding and streaming"/>
+    </docblock>
+  </member>
+  <member name="_immediateChildren" type="array" default="" visibility="private" line="50">
+    <docblock>
+      <description compact="Direct descendants of this entity"/>
+    </docblock>
+  </member>
+  <member name="_children" type="array" default="" visibility="private" line="53">
+    <docblock>
+      <description compact="All descendants of this entity"/>
+    </docblock>
+  </member>
+  <member name="_maxLineLength" type="integer" default="78" visibility="private" line="56">
+    <docblock>
+      <description compact="The maximum line length of the body of this entity"/>
+    </docblock>
+  </member>
+  <member name="_alternativePartOrder" type="array" default="" visibility="private" line="59">
+    <docblock>
+      <description compact="The order in which alternative mime types should appear"/>
+    </docblock>
+  </member>
+  <member name="_id" visibility="private" line="66">
+    <docblock>
+      <description compact="The CID of this entity"/>
+    </docblock>
+  </member>
+  <member name="_cacheKey" visibility="private" line="69">
+    <docblock>
+      <description compact="The key used for accessing the cache"/>
+    </docblock>
+  </member>
+  <member name="_userContentType" visibility="protected" line="71"/>
+  <constructor name="__construct" start="81" end="113" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new SimpleMimeEntity with $headers, $encoder and $cache."/>
+      <param type="object" variable="$headers">
+        <type full="Swift_Mime_HeaderSet" namespace="" name="Swift_Mime_HeaderSet"/>
+      </param>
+      <param type="object" variable="$encoder">
+        <type full="Swift_Mime_ContentEncoder" namespace="" name="Swift_Mime_ContentEncoder"/>
+      </param>
+      <param type="object" variable="$cache">
+        <type full="Swift_KeyCache" namespace="" name="Swift_KeyCache"/>
+      </param>
+      <param type="object" variable="$grammar">
+        <type full="Swift_Mime_Grammar" namespace="" name="Swift_Mime_Grammar"/>
+      </param>
+    </docblock>
+    <parameter name="headers" byreference="false" type="object">
+      <type full="Swift_Mime_HeaderSet" namespace="" name="Swift_Mime_HeaderSet"/>
+    </parameter>
+    <parameter name="encoder" byreference="false" type="object">
+      <type full="Swift_Mime_ContentEncoder" namespace="" name="Swift_Mime_ContentEncoder"/>
+    </parameter>
+    <parameter name="cache" byreference="false" type="object">
+      <type full="Swift_KeyCache" namespace="" name="Swift_KeyCache"/>
+    </parameter>
+    <parameter name="grammar" byreference="false" type="object">
+      <type full="Swift_Mime_Grammar" namespace="" name="Swift_Mime_Grammar"/>
+    </parameter>
+    <inline>
+      <comment value="This array specifies that, when the entire MIME document contains" line="90"/>
+      <comment value="$compoundLevel, then for each child within $level, if its Content-Type" line="91"/>
+      <comment value="is $contentType then it should be treated as if it's level is" line="92"/>
+      <comment value="$neededLevel instead.  I tried to write that unambiguously! :-\" line="93"/>
+      <comment value="Data Structure:" line="94"/>
+      <comment value="array (" line="95"/>
+      <comment value="$compoundLevel =&gt; array(" line="96"/>
+      <comment value="$level =&gt; array(" line="97"/>
+      <comment value="$contentType =&gt; $neededLevel" line="98"/>
+      <comment value=")" line="99"/>
+      <comment value=")" line="100"/>
+      <comment value=")" line="101"/>
+    </inline>
+  </constructor>
+  <method name="generateId" start="120" end="125" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Generate a new Content-ID or Message-ID for this MIME entity."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getHeaders" start="132" end="135" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the {@link Swift_Mime_HeaderSet} for this entity."/>
+      <return type="object">
+        <type full="Swift_Mime_HeaderSet" namespace="" name="Swift_Mime_HeaderSet"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getNestingLevel" start="144" end="147" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the nesting level of this entity."/>
+      <see value="LEVEL_TOP, LEVEL_MIXED, LEVEL_RELATED, LEVEL_ALTERNATIVE"/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getContentType" start="154" end="157" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the Content-type of this entity."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setContentType" start="166" end="174" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the Content-type of this entity."/>
+      <param type="string" variable="$type"/>
+      <return type="object">
+        <type full="Swift_Mime_SimpleMimeEntity" namespace="" name="Swift_Mime_SimpleMimeEntity"/>
+      </return>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Keep track of the value so that if the content-type changes automatically" line="169"/>
+      <comment value="due to added child entities, it can be restored if they are later removed" line="170"/>
+    </inline>
+  </method>
+  <method name="getId" start="183" end="188" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the CID of this entity.">The CID will only be present in headers if a Content-ID header is present.</description>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setId" start="197" end="205" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the CID of this entity."/>
+      <param type="string" variable="$id"/>
+      <return type="object">
+        <type full="Swift_Mime_SimpleMimeEntity" namespace="" name="Swift_Mime_SimpleMimeEntity"/>
+      </return>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getDescription" start="214" end="217" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the description of this entity.">This value comes from the Content-Description header if set.</description>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setDescription" start="228" end="235" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the description of this entity.">This method sets a value in the Content-ID header.</description>
+      <param type="string" variable="$description"/>
+      <return type="object">
+        <type full="Swift_Mime_SimpleMimeEntity" namespace="" name="Swift_Mime_SimpleMimeEntity"/>
+      </return>
+    </docblock>
+    <parameter name="description" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getMaxLineLength" start="242" end="245" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the maximum line length of the body of this entity."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="setMaxLineLength" start="256" end="261" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the maximum line length of lines in this body.">Though not enforced by the library, lines should not exceed 1000 chars.</description>
+      <param type="int" variable="$length"/>
+      <return type="object">
+        <type full="Swift_Mime_SimpleMimeEntity" namespace="" name="Swift_Mime_SimpleMimeEntity"/>
+      </return>
+    </docblock>
+    <parameter name="length" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getChildren" start="268" end="271" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get all children added to this entity."/>
+      <return type="array" of="object">
+        <type full="Swift_Mime_MimeEntity" namespace="" name="Swift_Mime_MimeEntity"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setChildren" start="281" end="343" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set all children of this entity."/>
+      <param type="array" variable="$children" of="object">
+        <type full="Swift_Mime_MimeEntity" namespace="" name="Swift_Mime_MimeEntity"/>
+      </param>
+      <param description="For internal use only" type="int" variable="$compoundLevel"/>
+      <return type="object">
+        <type full="Swift_Mime_SimpleMimeEntity" namespace="" name="Swift_Mime_SimpleMimeEntity"/>
+      </return>
+    </docblock>
+    <parameter name="children" byreference="false" type="array"/>
+    <parameter name="compoundLevel" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <todo value="Try to refactor this logic" line="283"/>
+    </inline>
+  </method>
+  <method name="getBody" start="350" end="355" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the body of this entity as a string."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setBody" start="366" end="378" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the body of this entity, either as a string, or as an instance of {@link Swift_OutputByteStream}."/>
+      <param type="mixed" variable="$body"/>
+      <param description="optional" type="string" variable="$contentType"/>
+      <return type="object">
+        <type full="Swift_Mime_SimpleMimeEntity" namespace="" name="Swift_Mime_SimpleMimeEntity"/>
+      </return>
+    </docblock>
+    <parameter name="body" byreference="false" type="{unknown}"/>
+    <parameter name="contentType" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getEncoder" start="385" end="388" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the encoder used for the body of this entity."/>
+      <return type="object">
+        <type full="Swift_Mime_ContentEncoder" namespace="" name="Swift_Mime_ContentEncoder"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setEncoder" start="397" end="408" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the encoder used for the body of this entity."/>
+      <param type="object" variable="$encoder">
+        <type full="Swift_Mime_ContentEncoder" namespace="" name="Swift_Mime_ContentEncoder"/>
+      </param>
+      <return type="object">
+        <type full="Swift_Mime_SimpleMimeEntity" namespace="" name="Swift_Mime_SimpleMimeEntity"/>
+      </return>
+    </docblock>
+    <parameter name="encoder" byreference="false" type="object">
+      <type full="Swift_Mime_ContentEncoder" namespace="" name="Swift_Mime_ContentEncoder"/>
+    </parameter>
+  </method>
+  <method name="getBoundary" start="415" end="422" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the boundary used to separate children in this entity."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setBoundary" start="433" end="439" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the boundary used to separate children in this entity."/>
+      <param type="string" variable="$boundary"/>
+      <throws type="object">
+        <type full="Swift_RfcComplianceException" namespace="" name="Swift_RfcComplianceException"/>
+      </throws>
+      <return type="object">
+        <type full="Swift_Mime_SimpleMimeEntity" namespace="" name="Swift_Mime_SimpleMimeEntity"/>
+      </return>
+    </docblock>
+    <parameter name="boundary" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="charsetChanged" start="447" end="450" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Receive notification that the charset of this entity, or a parent entity has changed."/>
+      <param type="string" variable="$charset"/>
+    </docblock>
+    <parameter name="charset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="encoderChanged" start="458" end="461" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Receive notification that the encoder of this entity or a parent entity has changed."/>
+      <param type="object" variable="$encoder">
+        <type full="Swift_Mime_ContentEncoder" namespace="" name="Swift_Mime_ContentEncoder"/>
+      </param>
+    </docblock>
+    <parameter name="encoder" byreference="false" type="object">
+      <type full="Swift_Mime_ContentEncoder" namespace="" name="Swift_Mime_ContentEncoder"/>
+    </parameter>
+  </method>
+  <method name="toString" start="468" end="474" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get this entire entity as a string."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="_bodyToString" start="481" end="508" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get this entire entity as a string."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="__toString" start="517" end="520" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a string representation of this object."/>
+      <see value="toString()"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="toByteStream" start="527" end="533" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Write this entire entity to a {@see Swift_InputByteStream}."/>
+      <param type="object">
+        <type full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+      </param>
+    </docblock>
+    <parameter name="is" byreference="false" type="object">
+      <type full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+    </parameter>
+  </method>
+  <method name="_bodyToByteStream" start="540" end="576" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Write this entire entity to a {@link Swift_InputByteStream}."/>
+      <param type="object">
+        <type full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+      </param>
+    </docblock>
+    <parameter name="is" byreference="false" type="object">
+      <type full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+    </parameter>
+  </method>
+  <method name="_getIdField" start="581" end="584" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the name of the header that provides the ID of this entity."/>
+    </docblock>
+  </method>
+  <method name="_getHeaderFieldModel" start="589" end="594" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the model data (usually an array or a string) for $field."/>
+    </docblock>
+    <parameter name="field" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_setHeaderFieldModel" start="599" end="608" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Set the model data for $field."/>
+    </docblock>
+    <parameter name="field" byreference="false" type="{unknown}"/>
+    <parameter name="model" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_getHeaderParameter" start="613" end="618" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the parameter value of $parameter on $field header."/>
+    </docblock>
+    <parameter name="field" byreference="false" type="{unknown}"/>
+    <parameter name="parameter" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_setHeaderParameter" start="623" end="632" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Set the parameter value of $parameter on $field header."/>
+    </docblock>
+    <parameter name="field" byreference="false" type="{unknown}"/>
+    <parameter name="parameter" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_fixHeaders" start="637" end="648" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Re-evaluate what content type and encoding should be used on this entity."/>
+    </docblock>
+  </method>
+  <method name="_getCache" start="655" end="658" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the KeyCache used in this entity."/>
+      <return type="object">
+        <type full="Swift_KeyCache" namespace="" name="Swift_KeyCache"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="_getGrammar" start="665" end="668" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the grammar used for validation."/>
+      <return type="object">
+        <type full="Swift_Mime_Grammar" namespace="" name="Swift_Mime_Grammar"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="_clearCache" start="673" end="676" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Empty the KeyCache for this entity."/>
+    </docblock>
+  </method>
+  <method name="getRandomId" start="683" end="696" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Returns a random Content-ID or Message-ID."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="_readStream" start="698" end="708" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="os" byreference="false" type="object">
+      <type full="Swift_OutputByteStream" namespace="" name="Swift_OutputByteStream"/>
+    </parameter>
+  </method>
+  <method name="_setEncoding" start="710" end="715" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="encoding" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_assertValidBoundary" start="717" end="724" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="boundary" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_setContentTypeInHeaders" start="726" end="731" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="type" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_setNestingLevel" start="733" end="736" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="level" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_getCompoundLevel" start="738" end="746" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="children" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_getNeededChildLevel" start="748" end="766" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="child" byreference="false" type="{unknown}"/>
+    <parameter name="compoundLevel" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_createChild" start="768" end="772" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="_notifyEncoderChanged" start="774" end="779" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="encoder" byreference="false" type="object">
+      <type full="Swift_Mime_ContentEncoder" namespace="" name="Swift_Mime_ContentEncoder"/>
+    </parameter>
+  </method>
+  <method name="_notifyCharsetChanged" start="781" end="788" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="charset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_sortChildren" start="790" end="805" abstract="false" final="false" static="false" visibility="private">
+    <inline>
+      <comment value="Sort in order of preference, if there is one" line="801"/>
+    </inline>
+  </method>
+  <method name="_childSortAlgorithm" start="807" end="821" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="a" byreference="false" type="{unknown}"/>
+    <parameter name="b" byreference="false" type="{unknown}"/>
+  </method>
+  <destructor name="__destruct" start="828" end="831" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Empties it's own contents from the cache."/>
+    </docblock>
+  </destructor>
+  <method name="_assertValidId" start="840" end="851" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Throws an Exception if the id passed does not comply with RFC 2822."/>
+      <param type="string" variable="$id"/>
+      <throws type="object">
+        <type full="Swift_RfcComplianceException" namespace="" name="Swift_RfcComplianceException"/>
+      </throws>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__clone" start="856" end="866" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Make a deep copy of object."/>
+    </docblock>
+  </method>
+</class>

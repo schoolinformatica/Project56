@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Prophecy\Argument\Token\ObjectStateToken" namespace="Prophecy\Argument\Token" name="ObjectStateToken" abstract="false" final="false" start="23" end="104">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Argument/Token" file="ObjectStateToken.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Argument/Token/ObjectStateToken.php" size="2617" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="602dd91b93c0075777e2690e69f39bacdfbb44d4" relative="vendor/phpspec/prophecy/src/Prophecy/Argument/Token/ObjectStateToken.php"/>
+  <docblock>
+    <description compact="Object state-checker token."/>
+    <author value="Konstantin Kudryashov &lt;ever.zet@gmail.com&gt;"/>
+  </docblock>
+  <implements full="Prophecy\Argument\Token\TokenInterface" namespace="Prophecy\Argument\Token" name="TokenInterface"/>
+  <member name="name" visibility="private" line="25"/>
+  <member name="value" visibility="private" line="26"/>
+  <member name="util" visibility="private" line="27"/>
+  <member name="comparatorFactory" visibility="private" line="28"/>
+  <constructor name="__construct" start="38" end="49" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Initializes token."/>
+      <param type="string" variable="$methodName"/>
+      <param description="Expected return value" type="mixed" variable="$value"/>
+      <param type="object" variable="$util">
+        <type full="Prophecy\Argument\Token\null|StringUtil" namespace="Prophecy\Argument\Token" name="null|StringUtil"/>
+      </param>
+      <param type="object" variable="$comparatorFactory">
+        <type full="Prophecy\Comparator\Factory" namespace="Prophecy\Comparator" name="Factory"/>
+      </param>
+    </docblock>
+    <parameter name="methodName" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="util" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Prophecy\Util\StringUtil" namespace="Prophecy\Util" name="StringUtil"/>
+    </parameter>
+    <parameter name="comparatorFactory" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Prophecy\Comparator\Factory" namespace="Prophecy\Comparator" name="Factory"/>
+    </parameter>
+  </constructor>
+  <method name="scoreArgument" start="58" end="80" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Scores 8 if argument is an object, which method returns expected value."/>
+      <param type="mixed" variable="$argument"/>
+      <return type="object">
+        <type full="Prophecy\Argument\Token\bool|int" namespace="Prophecy\Argument\Token" name="bool|int"/>
+      </return>
+    </docblock>
+    <parameter name="argument" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isLast" start="87" end="90" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns false."/>
+      <return type="object">
+        <type full="Prophecy\Argument\Token\bool" namespace="Prophecy\Argument\Token" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="__toString" start="97" end="103" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns string representation for token."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+</class>

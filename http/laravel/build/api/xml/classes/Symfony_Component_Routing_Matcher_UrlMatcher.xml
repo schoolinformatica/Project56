@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Routing\Matcher\UrlMatcher" namespace="Symfony\Component\Routing\Matcher" name="UrlMatcher" abstract="false" final="false" start="28" end="251">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/routing/Matcher" file="UrlMatcher.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/routing/Matcher/UrlMatcher.php" size="7571" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="0ae22d727c74bc9d537ddf6397c91c765a111587" relative="vendor/symfony/routing/Matcher/UrlMatcher.php"/>
+  <docblock>
+    <description compact="UrlMatcher matches URL based on a set of routes."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\Routing\Matcher\UrlMatcherInterface" namespace="Symfony\Component\Routing\Matcher" name="UrlMatcherInterface"/>
+  <implements full="Symfony\Component\Routing\Matcher\RequestMatcherInterface" namespace="Symfony\Component\Routing\Matcher" name="RequestMatcherInterface"/>
+  <constant type="integer" name="REQUIREMENT_MATCH" value="0"/>
+  <constant type="integer" name="REQUIREMENT_MISMATCH" value="1"/>
+  <constant type="integer" name="ROUTE_MATCH" value="2"/>
+  <member name="context" visibility="protected" line="37">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\Routing\RequestContext" namespace="Symfony\Component\Routing" name="RequestContext"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="allow" type="array" default="" visibility="protected" line="42">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="routes" visibility="protected" line="47">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\Routing\RouteCollection" namespace="Symfony\Component\Routing" name="RouteCollection"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="request" visibility="protected" line="49"/>
+  <member name="expressionLanguage" visibility="protected" line="50"/>
+  <member name="expressionLanguageProviders" type="array" default="" visibility="protected" line="55">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="Symfony\Component\Routing\Matcher\ExpressionFunctionProviderInterface" namespace="Symfony\Component\Routing\Matcher" name="ExpressionFunctionProviderInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="63" end="67" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="A RouteCollection instance" type="object" variable="$routes">
+        <type full="Symfony\Component\Routing\RouteCollection" namespace="Symfony\Component\Routing" name="RouteCollection"/>
+      </param>
+      <param description="The context" type="object" variable="$context">
+        <type full="Symfony\Component\Routing\RequestContext" namespace="Symfony\Component\Routing" name="RequestContext"/>
+      </param>
+    </docblock>
+    <parameter name="routes" byreference="false" type="object">
+      <type full="Symfony\Component\Routing\RouteCollection" namespace="Symfony\Component\Routing" name="RouteCollection"/>
+    </parameter>
+    <parameter name="context" byreference="false" type="object">
+      <type full="Symfony\Component\Routing\RequestContext" namespace="Symfony\Component\Routing" name="RequestContext"/>
+    </parameter>
+  </constructor>
+  <method name="setContext" start="72" end="75" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="context" byreference="false" type="object">
+      <type full="Symfony\Component\Routing\RequestContext" namespace="Symfony\Component\Routing" name="RequestContext"/>
+    </parameter>
+  </method>
+  <method name="getContext" start="80" end="83" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="match" start="88" end="99" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="pathinfo" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="matchRequest" start="104" end="113" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+  </method>
+  <method name="addExpressionLanguageProvider" start="115" end="118" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="provider" byreference="false" type="object">
+      <type full="Symfony\Component\ExpressionLanguage\ExpressionFunctionProviderInterface" namespace="Symfony\Component\ExpressionLanguage" name="ExpressionFunctionProviderInterface"/>
+    </parameter>
+  </method>
+  <method name="matchCollection" start="131" end="176" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Tries to match a URL with a set of routes."/>
+      <param description="The path info to be parsed" type="string" variable="$pathinfo"/>
+      <param description="The set of routes" type="object" variable="$routes">
+        <type full="Symfony\Component\Routing\RouteCollection" namespace="Symfony\Component\Routing" name="RouteCollection"/>
+      </param>
+      <return description="An array of parameters" type="array"/>
+      <throws description="If the resource could not be found" type="object">
+        <type full="Symfony\Component\Routing\Exception\ResourceNotFoundException" namespace="Symfony\Component\Routing\Exception" name="ResourceNotFoundException"/>
+      </throws>
+      <throws description="If the resource was found but the request method is not allowed" type="object">
+        <type full="Symfony\Component\Routing\Exception\MethodNotAllowedException" namespace="Symfony\Component\Routing\Exception" name="MethodNotAllowedException"/>
+      </throws>
+    </docblock>
+    <parameter name="pathinfo" byreference="false" type="{unknown}"/>
+    <parameter name="routes" byreference="false" type="object">
+      <type full="Symfony\Component\Routing\RouteCollection" namespace="Symfony\Component\Routing" name="RouteCollection"/>
+    </parameter>
+  </method>
+  <method name="getAttributes" start="191" end="196" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Returns an array of values to use as request attributes.">As this method requires the Route object, it is not available
+in matchers that do not have access to the matched Route instance
+(like the PHP and Apache matcher dumpers).</description>
+      <param description="The route we are matching against" type="object" variable="$route">
+        <type full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route"/>
+      </param>
+      <param description="The name of the route" type="string" variable="$name"/>
+      <param description="An array of attributes from the matcher" type="array" variable="$attributes"/>
+      <return description="An array of parameters" type="array"/>
+    </docblock>
+    <parameter name="route" byreference="false" type="object">
+      <type full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route"/>
+    </parameter>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="attributes" byreference="false" type="array"/>
+  </method>
+  <method name="handleRouteRequirements" start="207" end="219" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Handles specific route requirements."/>
+      <param description="The path" type="string" variable="$pathinfo"/>
+      <param description="The route name" type="string" variable="$name"/>
+      <param description="The route" type="object" variable="$route">
+        <type full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route"/>
+      </param>
+      <return description="The first element represents the status, the second contains additional information" type="array"/>
+    </docblock>
+    <parameter name="pathinfo" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="route" byreference="false" type="object">
+      <type full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route"/>
+    </parameter>
+    <inline>
+      <comment value="expression condition" line="209"/>
+      <comment value="check HTTP scheme requirement" line="214"/>
+    </inline>
+  </method>
+  <method name="mergeDefaults" start="229" end="238" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get merged default parameters."/>
+      <param description="The parameters" type="array" variable="$params"/>
+      <param description="The defaults" type="array" variable="$defaults"/>
+      <return description="Merged default parameters" type="array"/>
+    </docblock>
+    <parameter name="params" byreference="false" type="{unknown}"/>
+    <parameter name="defaults" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getExpressionLanguage" start="240" end="250" abstract="false" final="false" static="false" visibility="protected"/>
+</class>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Diff" namespace="" name="Diff" abstract="false" final="false" start="46" end="177">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/php-diff/lib" file="Diff.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/php-diff/lib/Diff.php" size="5800" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="f2ee6268ce1039a0d4c83f3703ab43476f3c7485" relative="vendor/phpspec/php-diff/lib/Diff.php"/>
+  <docblock>
+    <description compact="Diff">A comprehensive library for generating differences between two strings
+in multiple formats (unified, side by side HTML etc)
+
+PHP version 5
+
+Copyright (c) 2009 Chris Boulton &lt;chris.boulton@interspire.com&gt;
+
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+ - Redistributions of source code must retain the above copyright notice,
+   this list of conditions and the following disclaimer.
+ - Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+ - Neither the name of the Chris Boulton nor the names of its contributors
+   may be used to endorse or promote products derived from this software
+   without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.</description>
+    <package value="Diff"/>
+    <author value="Chris Boulton &lt;chris.boulton@interspire.com&gt;"/>
+    <copyright value="(c) 2009 Chris Boulton"/>
+    <license name="New BSD License http://www.opensource.org/licenses/bsd-license.php"/>
+    <version value="1.1"/>
+    <link value="http://github.com/chrisboulton/php-diff"/>
+  </docblock>
+  <member name="a" type="{unknown}" default="" constant="null" visibility="private" line="51">
+    <docblock>
+      <description/>
+      <var description="The &quot;old&quot; sequence to use as the basis for the comparison." type="array"/>
+    </docblock>
+  </member>
+  <member name="b" type="{unknown}" default="" constant="null" visibility="private" line="56">
+    <docblock>
+      <description/>
+      <var description="The &quot;new&quot; sequence to generate the changes for." type="array"/>
+    </docblock>
+  </member>
+  <member name="groupedCodes" type="{unknown}" default="" constant="null" visibility="private" line="61">
+    <docblock>
+      <description/>
+      <var description="Array containing the generated opcodes for the differences between the two items." type="array"/>
+    </docblock>
+  </member>
+  <member name="defaultOptions" type="array" default="" visibility="private" line="66">
+    <docblock>
+      <description/>
+      <var description="Associative array of the default options available for the diff class and their default value." type="array"/>
+    </docblock>
+  </member>
+  <member name="options" type="array" default="" visibility="private" line="76">
+    <docblock>
+      <description/>
+      <var description="Array of the options that have been applied for generating the diff." type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="85" end="91" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="The constructor."/>
+      <param description="Array containing the lines of the first string to compare." type="array" variable="$a"/>
+      <param description="Array containing the lines for the second string to compare." type="array" variable="$b"/>
+      <param type="array" variable="$options"/>
+    </docblock>
+    <parameter name="a" byreference="false" type="{unknown}"/>
+    <parameter name="b" byreference="false" type="{unknown}"/>
+    <parameter name="options" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="render" start="99" end="103" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Render a diff using the supplied rendering class and return it."/>
+      <param description="An instance of the rendering object to use for generating the diff." type="object" variable="$renderer">
+        <type full="Diff_Renderer_Abstract" namespace="" name="Diff_Renderer_Abstract"/>
+      </param>
+      <return description="The generated diff. Exact return value depends on the rendered." type="mixed"/>
+    </docblock>
+    <parameter name="renderer" byreference="false" type="object">
+      <type full="Diff_Renderer_Abstract" namespace="" name="Diff_Renderer_Abstract"/>
+    </parameter>
+  </method>
+  <method name="getA" start="115" end="130" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a range of lines from $start to $end from the first comparison string and return them as an array. If no values are supplied, the entire string is returned. It's also possible to specify just one line to return only that line."/>
+      <param description="The starting number." type="int" variable="$start"/>
+      <param description="The ending number. If not supplied, only the item in $start will be returned." type="int" variable="$end"/>
+      <return description="Array of all of the lines between the specified range." type="array"/>
+    </docblock>
+    <parameter name="start" byreference="false" type="integer" default="0"/>
+    <parameter name="end" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getB" start="142" end="156" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a range of lines from $start to $end from the second comparison string and return them as an array. If no values are supplied, the entire string is returned. It's also possible to specify just one line to return only that line."/>
+      <param description="The starting number." type="int" variable="$start"/>
+      <param description="The ending number. If not supplied, only the item in $start will be returned." type="int" variable="$end"/>
+      <return description="Array of all of the lines between the specified range." type="array"/>
+    </docblock>
+    <parameter name="start" byreference="false" type="integer" default="0"/>
+    <parameter name="end" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getGroupedOpcodes" start="166" end="176" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Generate a list of the compiled and grouped opcodes for the differences between the two strings. Generally called by the renderer, this class instantiates the sequence matcher and performs the actual diff generation and return an array of the opcodes for it. Once generated, the results are cached in the diff class instance."/>
+      <return description="Array of the grouped opcodes for the generated diff." type="array"/>
+    </docblock>
+  </method>
+</class>

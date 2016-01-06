@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Symfony\Component\CssSelector\XPath\TranslatorInterface" namespace="Symfony\Component\CssSelector\XPath" name="TranslatorInterface" abstract="false" final="false" start="24" end="45">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/css-selector/XPath" file="TranslatorInterface.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/css-selector/XPath/TranslatorInterface.php" size="1169" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="ed1fee807b267884287e6ee78406007a08361827" relative="vendor/symfony/css-selector/XPath/TranslatorInterface.php"/>
+  <docblock>
+    <description compact="XPath expression translator interface.">This component is a port of the Python cssselect library,
+which is copyright Ian Bicking, @see https://github.com/SimonSapin/cssselect.</description>
+    <author value="Jean-François Simon &lt;jeanfrancois.simon@sensiolabs.com&gt;"/>
+  </docblock>
+  <method name="cssToXPath" start="34" end="34" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Translates a CSS selector to an XPath expression."/>
+      <param type="string" variable="$cssExpr"/>
+      <param type="string" variable="$prefix"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="cssExpr" byreference="false" type="{unknown}"/>
+    <parameter name="prefix" byreference="false" type="string" default="'descendant-or-self::'"/>
+  </method>
+  <method name="selectorToXPath" start="44" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Translates a parsed selector node to an XPath expression."/>
+      <param type="object" variable="$selector">
+        <type full="Symfony\Component\CssSelector\Node\SelectorNode" namespace="Symfony\Component\CssSelector\Node" name="SelectorNode"/>
+      </param>
+      <param type="string" variable="$prefix"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="selector" byreference="false" type="object">
+      <type full="Symfony\Component\CssSelector\Node\SelectorNode" namespace="Symfony\Component\CssSelector\Node" name="SelectorNode"/>
+    </parameter>
+    <parameter name="prefix" byreference="false" type="string" default="'descendant-or-self::'"/>
+  </method>
+</interface>

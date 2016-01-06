@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Mail\Transport\SesTransport" namespace="Illuminate\Mail\Transport" name="SesTransport" abstract="false" final="false" start="8" end="42">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Mail/Transport" file="SesTransport.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Mail/Transport/SesTransport.php" size="855" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="d96a076988fcc32595b576b971f19f6b65312d03" relative="vendor/laravel/framework/src/Illuminate/Mail/Transport/SesTransport.php"/>
+  <extends full="Illuminate\Mail\Transport\Transport" namespace="Illuminate\Mail\Transport" name="Transport"/>
+  <member name="ses" visibility="protected" line="15">
+    <docblock>
+      <description compact="The Amazon SES instance."/>
+      <var type="object">
+        <type full="\Aws\Ses\SesClient" namespace="\Aws\Ses" name="SesClient"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="23" end="26" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new SES transport instance."/>
+      <param type="object" variable="$ses">
+        <type full="\Aws\Ses\SesClient" namespace="\Aws\Ses" name="SesClient"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Mail\Transport\void" namespace="Illuminate\Mail\Transport" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="ses" byreference="false" type="object">
+      <type full="Aws\Ses\SesClient" namespace="Aws\Ses" name="SesClient"/>
+    </parameter>
+  </constructor>
+  <method name="send" start="31" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="message" byreference="false" type="object">
+      <type full="Swift_Mime_Message" namespace="" name="Swift_Mime_Message"/>
+    </parameter>
+    <parameter name="failedRecipients" byreference="true" type="{unknown}" default="" constant="null"/>
+  </method>
+</class>

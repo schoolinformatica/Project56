@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Handler\FlowdockHandler" namespace="Monolog\Handler" name="FlowdockHandler" abstract="false" final="false" start="29" end="127">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler" file="FlowdockHandler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler/FlowdockHandler.php" size="3357" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="5f919a0a30656c87d310ba9adf56db975ffab564" relative="vendor/monolog/monolog/src/Monolog/Handler/FlowdockHandler.php"/>
+  <docblock>
+    <description compact="Sends notifications through the Flowdock push API">This must be configured with a FlowdockFormatter instance via setFormatter()
+
+Notes:
+API token - Flowdock API token</description>
+    <author value="Dominik Liebler &lt;liebler.dominik@gmail.com&gt;"/>
+    <see value="https://www.flowdock.com/api/push"/>
+  </docblock>
+  <extends full="Monolog\Handler\SocketHandler" namespace="Monolog\Handler" name="SocketHandler"/>
+  <member name="apiToken" visibility="protected" line="34">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="43" end="51" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$apiToken"/>
+      <param description="The minimum logging level at which this handler will be triggered" type="object" variable="$level">
+        <type full="Monolog\Handler\bool|int" namespace="Monolog\Handler" name="bool|int"/>
+      </param>
+      <param description="Whether the messages that are handled can bubble up the stack or not" type="object" variable="$bubble">
+        <type full="Monolog\Handler\bool" namespace="Monolog\Handler" name="bool"/>
+      </param>
+      <throws description="if OpenSSL is missing" type="object">
+        <type full="Monolog\Handler\MissingExtensionException" namespace="Monolog\Handler" name="MissingExtensionException"/>
+      </throws>
+    </docblock>
+    <parameter name="apiToken" byreference="false" type="{unknown}"/>
+    <parameter name="level" byreference="false" type="{unknown}" default="" constant="Logger::DEBUG"/>
+    <parameter name="bubble" byreference="false" type="boolean" default="true"/>
+  </constructor>
+  <method name="setFormatter" start="56" end="63" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="formatter" byreference="false" type="object">
+      <type full="Monolog\Formatter\FormatterInterface" namespace="Monolog\Formatter" name="FormatterInterface"/>
+    </parameter>
+  </method>
+  <method name="getDefaultFormatter" start="70" end="73" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Gets the default formatter."/>
+      <return type="object">
+        <type full="Monolog\Formatter\FormatterInterface" namespace="Monolog\Formatter" name="FormatterInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="write" start="80" end="85" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+      <param type="array" variable="$record"/>
+    </docblock>
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+  <method name="generateDataStream" start="93" end="98" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+      <param type="array" variable="$record"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="record" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="buildContent" start="106" end="109" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Builds the body of API call"/>
+      <param type="array" variable="$record"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="record" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="buildHeader" start="117" end="126" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Builds the header of the API Call"/>
+      <param type="string" variable="$content"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+</class>

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Queue\RedisQueue" namespace="Illuminate\Queue" name="RedisQueue" abstract="false" final="false" start="11" end="319">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Queue" file="RedisQueue.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Queue/RedisQueue.php" size="8151" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="bc6a469f03b4730d35f4e67bde0eaa463bc2a560" relative="vendor/laravel/framework/src/Illuminate/Queue/RedisQueue.php"/>
+  <extends full="Illuminate\Queue\Queue" namespace="Illuminate\Queue" name="Queue"/>
+  <implements full="Illuminate\Contracts\Queue\Queue" namespace="Illuminate\Contracts\Queue" name="Queue"/>
+  <member name="redis" visibility="protected" line="18">
+    <docblock>
+      <description compact="The Redis database instance."/>
+      <var type="object">
+        <type full="\Illuminate\Redis\Database" namespace="\Illuminate\Redis" name="Database"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="connection" visibility="protected" line="25">
+    <docblock>
+      <description compact="The connection name."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="default" visibility="protected" line="32">
+    <docblock>
+      <description compact="The name of the default queue."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="expire" type="integer" default="60" visibility="protected" line="39">
+    <docblock>
+      <description compact="The expiration time of a job."/>
+      <var type="object">
+        <type full="Illuminate\Queue\int|null" namespace="Illuminate\Queue" name="int|null"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="49" end="54" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new Redis queue instance."/>
+      <param type="object" variable="$redis">
+        <type full="\Illuminate\Redis\Database" namespace="\Illuminate\Redis" name="Database"/>
+      </param>
+      <param type="string" variable="$default"/>
+      <param type="string" variable="$connection"/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="redis" byreference="false" type="object">
+      <type full="Illuminate\Redis\Database" namespace="Illuminate\Redis" name="Database"/>
+    </parameter>
+    <parameter name="default" byreference="false" type="string" default="'default'"/>
+    <parameter name="connection" byreference="false" type="{unknown}" default="" constant="null"/>
+  </constructor>
+  <method name="push" start="64" end="67" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Push a new job onto the queue."/>
+      <param type="string" variable="$job"/>
+      <param type="mixed" variable="$data"/>
+      <param type="string" variable="$queue"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="job" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="string" default="''"/>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="pushRaw" start="77" end="82" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Push a raw payload onto the queue."/>
+      <param type="string" variable="$payload"/>
+      <param type="string" variable="$queue"/>
+      <param type="array" variable="$options"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="payload" byreference="false" type="{unknown}"/>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="options" byreference="false" type="array" default=""/>
+  </method>
+  <method name="later" start="93" end="102" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Push a new job onto the queue after a delay."/>
+      <param type="object" variable="$delay">
+        <type full="\DateTime|int" namespace="" name="DateTime|int"/>
+      </param>
+      <param type="string" variable="$job"/>
+      <param type="mixed" variable="$data"/>
+      <param type="string" variable="$queue"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="delay" byreference="false" type="{unknown}"/>
+    <parameter name="job" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="string" default="''"/>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="release" start="113" end="118" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Release a reserved job back onto the queue."/>
+      <param type="string" variable="$queue"/>
+      <param type="string" variable="$payload"/>
+      <param type="int" variable="$delay"/>
+      <param type="int" variable="$attempts"/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="queue" byreference="false" type="{unknown}"/>
+    <parameter name="payload" byreference="false" type="{unknown}"/>
+    <parameter name="delay" byreference="false" type="{unknown}"/>
+    <parameter name="attempts" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="pop" start="126" end="143" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Pop the next job off of the queue."/>
+      <param type="string" variable="$queue"/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Queue\Job|null" namespace="\Illuminate\Contracts\Queue" name="Job|null"/>
+      </return>
+    </docblock>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="deleteReserved" start="152" end="155" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Delete a reserved job from the queue."/>
+      <param type="string" variable="$queue"/>
+      <param type="string" variable="$job"/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="queue" byreference="false" type="{unknown}"/>
+    <parameter name="job" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="migrateAllExpiredJobs" start="163" end="168" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Migrate all of the waiting jobs in the queue."/>
+      <param type="string" variable="$queue"/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="queue" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="migrateExpiredJobs" start="177" end="198" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Migrate the delayed jobs that are ready to the regular queue."/>
+      <param type="string" variable="$from"/>
+      <param type="string" variable="$to"/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="from" byreference="false" type="{unknown}"/>
+    <parameter name="to" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getExpiredJobs" start="208" end="211" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the expired jobs from a given queue."/>
+      <param type="object" variable="$transaction">
+        <type full="\Predis\Transaction\MultiExec" namespace="\Predis\Transaction" name="MultiExec"/>
+      </param>
+      <param type="string" variable="$from"/>
+      <param type="int" variable="$time"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="transaction" byreference="false" type="{unknown}"/>
+    <parameter name="from" byreference="false" type="{unknown}"/>
+    <parameter name="time" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="removeExpiredJobs" start="221" end="226" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Remove the expired jobs from a given queue."/>
+      <param type="object" variable="$transaction">
+        <type full="\Predis\Transaction\MultiExec" namespace="\Predis\Transaction" name="MultiExec"/>
+      </param>
+      <param type="string" variable="$from"/>
+      <param type="int" variable="$time"/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="transaction" byreference="false" type="{unknown}"/>
+    <parameter name="from" byreference="false" type="{unknown}"/>
+    <parameter name="time" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="pushExpiredJobsOntoNewQueue" start="236" end="239" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Push all of the given jobs onto another queue."/>
+      <param type="object" variable="$transaction">
+        <type full="\Predis\Transaction\MultiExec" namespace="\Predis\Transaction" name="MultiExec"/>
+      </param>
+      <param type="string" variable="$to"/>
+      <param type="array" variable="$jobs"/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="transaction" byreference="false" type="{unknown}"/>
+    <parameter name="to" byreference="false" type="{unknown}"/>
+    <parameter name="jobs" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="createPayload" start="249" end="256" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create a payload string from the given job and data."/>
+      <param type="string" variable="$job"/>
+      <param type="mixed" variable="$data"/>
+      <param type="string" variable="$queue"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="job" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="string" default="''"/>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getRandomId" start="263" end="266" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get a random ID string."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getQueue" start="274" end="277" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the queue or return the default."/>
+      <param type="object" variable="$queue">
+        <type full="Illuminate\Queue\string|null" namespace="Illuminate\Queue" name="string|null"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="queue" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getConnection" start="284" end="287" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the connection for the queue."/>
+      <return type="object">
+        <type full="\Predis\ClientInterface" namespace="\Predis" name="ClientInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getRedis" start="294" end="297" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the underlying Redis instance."/>
+      <return type="object">
+        <type full="\Illuminate\Redis\Database" namespace="\Illuminate\Redis" name="Database"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getExpire" start="304" end="307" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the expiration time in seconds."/>
+      <return type="object">
+        <type full="Illuminate\Queue\int|null" namespace="Illuminate\Queue" name="int|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setExpire" start="315" end="318" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the expiration time in seconds."/>
+      <param type="object" variable="$seconds">
+        <type full="Illuminate\Queue\int|null" namespace="Illuminate\Queue" name="int|null"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="seconds" byreference="false" type="{unknown}"/>
+  </method>
+</class>

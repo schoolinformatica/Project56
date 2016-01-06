@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag" namespace="Symfony\Component\HttpFoundation\Session\Attribute" name="AttributeBag" abstract="false" final="false" start="17" end="157">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/Session/Attribute" file="AttributeBag.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-foundation/Session/Attribute/AttributeBag.php" size="3001" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="4f76d0f5e9b6c03964412ed6f4a8aa37113441ac" relative="vendor/symfony/http-foundation/Session/Attribute/AttributeBag.php"/>
+  <docblock>
+    <description compact="This class relates to session attribute storage."/>
+  </docblock>
+  <implements full="Symfony\Component\HttpFoundation\Session\Attribute\AttributeBagInterface" namespace="Symfony\Component\HttpFoundation\Session\Attribute" name="AttributeBagInterface"/>
+  <implements full="IteratorAggregate" namespace="" name="IteratorAggregate"/>
+  <implements full="Countable" namespace="" name="Countable"/>
+  <member name="name" type="string" default="'attributes'" visibility="private" line="19"/>
+  <member name="storageKey" visibility="private" line="24">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="attributes" type="array" default="" visibility="protected" line="29">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="36" end="39" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="The key used to store attributes in the session" type="string" variable="$storageKey"/>
+    </docblock>
+    <parameter name="storageKey" byreference="false" type="string" default="'_sf2_attributes'"/>
+  </constructor>
+  <method name="getName" start="44" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="setName" start="49" end="52" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="initialize" start="57" end="60" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="attributes" byreference="true" type="array"/>
+  </method>
+  <method name="getStorageKey" start="65" end="68" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="has" start="73" end="76" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get" start="81" end="84" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="set" start="89" end="92" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="all" start="97" end="100" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="replace" start="105" end="111" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array"/>
+  </method>
+  <method name="remove" start="116" end="125" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="clear" start="130" end="136" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="getIterator" start="143" end="146" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an iterator for attributes."/>
+      <return description="An \ArrayIterator instance" type="object">
+        <type full="\ArrayIterator" namespace="" name="ArrayIterator"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="count" start="153" end="156" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the number of attributes."/>
+      <return description="The number of attributes" type="int"/>
+    </docblock>
+  </method>
+</class>

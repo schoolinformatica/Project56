@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Prophecy\Doubler\Doubler" namespace="Prophecy\Doubler" name="Doubler" abstract="false" final="false" start="27" end="146">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Doubler" file="Doubler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Doubler/Doubler.php" size="4239" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="6d6d48d01155bfe93e231778356c970e7718b09b" relative="vendor/phpspec/prophecy/src/Prophecy/Doubler/Doubler.php"/>
+  <docblock>
+    <description compact="Cached class doubler.">Prevents mirroring/creation of the same structure twice.</description>
+    <author value="Konstantin Kudryashov &lt;ever.zet@gmail.com&gt;"/>
+  </docblock>
+  <member name="mirror" visibility="private" line="29"/>
+  <member name="creator" visibility="private" line="30"/>
+  <member name="namer" visibility="private" line="31"/>
+  <member name="patches" type="array" default="" visibility="private" line="36">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="Prophecy\Doubler\ClassPatchInterface" namespace="Prophecy\Doubler" name="ClassPatchInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="instantiator" visibility="private" line="41">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="\Doctrine\Instantiator\Instantiator" namespace="\Doctrine\Instantiator" name="Instantiator"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="50" end="56" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Initializes doubler."/>
+      <param type="object" variable="$mirror">
+        <type full="Prophecy\Doubler\Generator\ClassMirror" namespace="Prophecy\Doubler\Generator" name="ClassMirror"/>
+      </param>
+      <param type="object" variable="$creator">
+        <type full="Prophecy\Doubler\Generator\ClassCreator" namespace="Prophecy\Doubler\Generator" name="ClassCreator"/>
+      </param>
+      <param type="object" variable="$namer">
+        <type full="Prophecy\Doubler\NameGenerator" namespace="Prophecy\Doubler" name="NameGenerator"/>
+      </param>
+    </docblock>
+    <parameter name="mirror" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Prophecy\Doubler\Generator\ClassMirror" namespace="Prophecy\Doubler\Generator" name="ClassMirror"/>
+    </parameter>
+    <parameter name="creator" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Prophecy\Doubler\Generator\ClassCreator" namespace="Prophecy\Doubler\Generator" name="ClassCreator"/>
+    </parameter>
+    <parameter name="namer" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Prophecy\Doubler\NameGenerator" namespace="Prophecy\Doubler" name="NameGenerator"/>
+    </parameter>
+  </constructor>
+  <method name="getClassPatches" start="63" end="66" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns list of registered class patches."/>
+      <return type="array" of="object">
+        <type full="Prophecy\Doubler\ClassPatchInterface" namespace="Prophecy\Doubler" name="ClassPatchInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="registerClassPatch" start="73" end="80" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Registers new class patch."/>
+      <param type="object" variable="$patch">
+        <type full="Prophecy\Doubler\ClassPatch\ClassPatchInterface" namespace="Prophecy\Doubler\ClassPatch" name="ClassPatchInterface"/>
+      </param>
+    </docblock>
+    <parameter name="patch" byreference="false" type="object">
+      <type full="Prophecy\Doubler\ClassPatch\ClassPatchInterface" namespace="Prophecy\Doubler\ClassPatch" name="ClassPatchInterface"/>
+    </parameter>
+  </method>
+  <method name="double" start="93" end="121" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Creates double from specific class or/and list of interfaces."/>
+      <param type="object" variable="$class">
+        <type full="ReflectionClass" namespace="" name="ReflectionClass"/>
+      </param>
+      <param description="Array of ReflectionClass instances" type="array" variable="$interfaces" of="object">
+        <type full="Prophecy\Doubler\ReflectionClass" namespace="Prophecy\Doubler" name="ReflectionClass"/>
+      </param>
+      <param description="Constructor arguments" type="array" variable="$args"/>
+      <return type="object">
+        <type full="Prophecy\Doubler\DoubleInterface" namespace="Prophecy\Doubler" name="DoubleInterface"/>
+      </return>
+      <throws type="object">
+        <type full="\Prophecy\Exception\InvalidArgumentException" namespace="\Prophecy\Exception" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="ReflectionClass" namespace="" name="ReflectionClass"/>
+    </parameter>
+    <parameter name="interfaces" byreference="false" type="array"/>
+    <parameter name="args" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="createDoubleClass" start="131" end="145" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Creates double class and returns its FQN."/>
+      <param type="object" variable="$class">
+        <type full="ReflectionClass" namespace="" name="ReflectionClass"/>
+      </param>
+      <param type="array" variable="$interfaces" of="object">
+        <type full="Prophecy\Doubler\ReflectionClass" namespace="Prophecy\Doubler" name="ReflectionClass"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="ReflectionClass" namespace="" name="ReflectionClass"/>
+    </parameter>
+    <parameter name="interfaces" byreference="false" type="array"/>
+  </method>
+</class>

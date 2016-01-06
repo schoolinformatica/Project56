@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Support\Fluent" namespace="Illuminate\Support" name="Fluent" abstract="false" final="false" start="10" end="192">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Support" file="Fluent.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Support/Fluent.php" size="3845" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="32242e8fa79a7f05e71783e64f815f4b6016be8b" relative="vendor/laravel/framework/src/Illuminate/Support/Fluent.php"/>
+  <implements full="ArrayAccess" namespace="" name="ArrayAccess"/>
+  <implements full="Illuminate\Contracts\Support\Arrayable" namespace="Illuminate\Contracts\Support" name="Arrayable"/>
+  <implements full="Illuminate\Contracts\Support\Jsonable" namespace="Illuminate\Contracts\Support" name="Jsonable"/>
+  <implements full="JsonSerializable" namespace="" name="JsonSerializable"/>
+  <member name="attributes" type="array" default="" visibility="protected" line="17">
+    <docblock>
+      <description compact="All of the attributes set on the container."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="25" end="30" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new fluent container instance."/>
+      <param type="object" variable="$attributes">
+        <type full="Illuminate\Support\array|object" namespace="Illuminate\Support" name="array|object"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Support\void" namespace="Illuminate\Support" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="get" start="39" end="46" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get an attribute from the container."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$default"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getAttributes" start="53" end="56" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the attributes from the container."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="toArray" start="63" end="66" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Convert the Fluent instance to an array."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="jsonSerialize" start="73" end="76" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Convert the object into something JSON serializable."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="toJson" start="84" end="87" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Convert the Fluent instance to JSON."/>
+      <param type="int" variable="$options"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="options" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="offsetExists" start="95" end="98" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the given offset exists."/>
+      <param type="string" variable="$offset"/>
+      <return type="object">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="offset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetGet" start="106" end="109" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the value for a given offset."/>
+      <param type="string" variable="$offset"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="offset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetSet" start="118" end="121" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the value at the given offset."/>
+      <param type="string" variable="$offset"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Support\void" namespace="Illuminate\Support" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="offset" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="offsetUnset" start="129" end="132" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Unset the value at the given offset."/>
+      <param type="string" variable="$offset"/>
+      <return type="object">
+        <type full="Illuminate\Support\void" namespace="Illuminate\Support" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="offset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__call" start="141" end="146" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Handle dynamic calls to the container to set attributes."/>
+      <param type="string" variable="$method"/>
+      <param type="array" variable="$parameters"/>
+      <return type="object">
+        <type full="Illuminate\Support\$this" namespace="Illuminate\Support" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__get" start="154" end="157" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Dynamically retrieve the value of an attribute."/>
+      <param type="string" variable="$key"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__set" start="166" end="169" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Dynamically set the value of an attribute."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Illuminate\Support\void" namespace="Illuminate\Support" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__isset" start="177" end="180" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Dynamically check if an attribute is set."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Support\bool" namespace="Illuminate\Support" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__unset" start="188" end="191" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Dynamically unset an attribute."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Illuminate\Support\void" namespace="Illuminate\Support" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+</class>

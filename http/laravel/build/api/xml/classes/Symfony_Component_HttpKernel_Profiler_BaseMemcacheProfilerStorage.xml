@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\Profiler\BaseMemcacheProfilerStorage" namespace="Symfony\Component\HttpKernel\Profiler" name="BaseMemcacheProfilerStorage" abstract="true" final="false" start="19" end="310">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Profiler" file="BaseMemcacheProfilerStorage.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Profiler/BaseMemcacheProfilerStorage.php" size="7832" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="0c182c176df698bfaa3b7a9caec20027bc9db125" relative="vendor/symfony/http-kernel/Profiler/BaseMemcacheProfilerStorage.php"/>
+  <docblock>
+    <description compact="Base Memcache storage for profiling information in a Memcache."/>
+    <author value="Andrej Hudec &lt;pulzarraider@gmail.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\HttpKernel\Profiler\ProfilerStorageInterface" namespace="Symfony\Component\HttpKernel\Profiler" name="ProfilerStorageInterface"/>
+  <constant type="string" name="TOKEN_PREFIX" value="'sf_profiler_'"/>
+  <member name="dsn" visibility="protected" line="23"/>
+  <member name="lifetime" visibility="protected" line="24"/>
+  <constructor name="__construct" start="34" end="38" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="A data source name" type="string" variable="$dsn"/>
+      <param type="string" variable="$username"/>
+      <param type="string" variable="$password"/>
+      <param description="The lifetime to use for the purge" type="int" variable="$lifetime"/>
+    </docblock>
+    <parameter name="dsn" byreference="false" type="{unknown}"/>
+    <parameter name="username" byreference="false" type="string" default="''"/>
+    <parameter name="password" byreference="false" type="string" default="''"/>
+    <parameter name="lifetime" byreference="false" type="integer" default="86400"/>
+  </constructor>
+  <method name="find" start="43" end="103" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="ip" byreference="false" type="{unknown}"/>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+    <parameter name="limit" byreference="false" type="{unknown}"/>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="start" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="end" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="purge" start="108" end="132" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <inline>
+      <comment value="delete only items from index" line="110"/>
+    </inline>
+  </method>
+  <method name="read" start="137" end="150" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="token" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="write" start="155" end="192" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="profile" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\Profiler\Profile" namespace="Symfony\Component\HttpKernel\Profiler" name="Profile"/>
+    </parameter>
+  </method>
+  <method name="getValue" start="201" end="201" abstract="true" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Retrieve item from the memcache server."/>
+      <param type="string" variable="$key"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setValue" start="212" end="212" abstract="true" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Store an item on the memcache server under the specified key."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <param type="int" variable="$expiration"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\bool" namespace="Symfony\Component\HttpKernel\Profiler" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="expiration" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="delete" start="221" end="221" abstract="true" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Delete item from the memcache server."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\bool" namespace="Symfony\Component\HttpKernel\Profiler" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="appendValue" start="232" end="232" abstract="true" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Append data to an existing item on the memcache server."/>
+      <param type="string" variable="$key"/>
+      <param type="string" variable="$value"/>
+      <param type="int" variable="$expiration"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\bool" namespace="Symfony\Component\HttpKernel\Profiler" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="expiration" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="createProfileFromData" start="234" end="264" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="token" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="parent" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getItemName" start="273" end="282" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Get item name."/>
+      <param type="string" variable="$token"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="token" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getIndexName" start="289" end="298" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Get name of index."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="isItemNameValid" start="300" end="309" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+</class>

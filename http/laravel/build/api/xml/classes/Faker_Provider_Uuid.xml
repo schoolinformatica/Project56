@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Faker\Provider\Uuid" namespace="Faker\Provider" name="Uuid" abstract="false" final="false" start="5" end="57">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/fzaninotto/faker/src/Faker/Provider" file="Uuid.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/fzaninotto/faker/src/Faker/Provider/Uuid.php" size="1703" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="2de8d51cc08b6f56ee0f0826a29f08b29ab9dd60" relative="vendor/fzaninotto/faker/src/Faker/Provider/Uuid.php"/>
+  <extends full="Faker\Provider\Base" namespace="Faker\Provider" name="Base"/>
+  <method name="uuid" start="11" end="56" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Generate name based md5 UUID (version 3)."/>
+      <example value="'7e57d004-2b97-0e7a-b45f-5387367791cd'"/>
+    </docblock>
+    <inline>
+      <comment value="fix for compatibility with 32bit architecture; seed range restricted to 62bit" line="13"/>
+      <comment value="Hash the seed and convert to a byte array" line="16"/>
+      <comment value="extract fields from byte array" line="20"/>
+      <comment value="correct byte order for big edian architecture" line="27"/>
+      <comment value="apply version number" line="35"/>
+      <comment value="cast to string" line="39"/>
+    </inline>
+  </method>
+</class>

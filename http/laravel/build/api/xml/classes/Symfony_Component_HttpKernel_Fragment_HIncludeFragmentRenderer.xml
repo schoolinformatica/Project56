@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\Fragment\HIncludeFragmentRenderer" namespace="Symfony\Component\HttpKernel\Fragment" name="HIncludeFragmentRenderer" abstract="false" final="false" start="25" end="164">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Fragment" file="HIncludeFragmentRenderer.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Fragment/HIncludeFragmentRenderer.php" size="5608" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="dbba6cfabb46241320fd077a8a61e4e148c1e7fe" relative="vendor/symfony/http-kernel/Fragment/HIncludeFragmentRenderer.php"/>
+  <docblock>
+    <description compact="Implements the Hinclude rendering strategy."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\HttpKernel\Fragment\RoutableFragmentRenderer" namespace="Symfony\Component\HttpKernel\Fragment" name="RoutableFragmentRenderer"/>
+  <member name="globalDefaultTemplate" visibility="private" line="27"/>
+  <member name="signer" visibility="private" line="28"/>
+  <member name="templating" visibility="private" line="29"/>
+  <member name="charset" visibility="private" line="30"/>
+  <constructor name="__construct" start="40" end="46" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="An EngineInterface or a \Twig_Environment instance" type="object" variable="$templating">
+        <type full="Symfony\Component\HttpKernel\Fragment\EngineInterface|\Twig_Environment" namespace="Symfony\Component\HttpKernel\Fragment\EngineInterface|" name="Twig_Environment"/>
+      </param>
+      <param description="A UriSigner instance" type="object" variable="$signer">
+        <type full="Symfony\Component\HttpKernel\UriSigner" namespace="Symfony\Component\HttpKernel" name="UriSigner"/>
+      </param>
+      <param description="The global default content (it can be a template name or the content)" type="string" variable="$globalDefaultTemplate"/>
+      <param type="string" variable="$charset"/>
+    </docblock>
+    <parameter name="templating" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="signer" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\HttpKernel\UriSigner" namespace="Symfony\Component\HttpKernel" name="UriSigner"/>
+    </parameter>
+    <parameter name="globalDefaultTemplate" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="charset" byreference="false" type="string" default="'utf-8'"/>
+  </constructor>
+  <method name="setTemplating" start="55" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the templating engine to use to render the default content."/>
+      <param description="An EngineInterface or a \Twig_Environment instance" type="object" variable="$templating">
+        <type full="Symfony\Component\HttpKernel\Fragment\EngineInterface|\Twig_Environment|null" namespace="Symfony\Component\HttpKernel\Fragment\EngineInterface|" name="Twig_Environment|null"/>
+      </param>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="templating" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasTemplating" start="69" end="72" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks if a templating engine has been set."/>
+      <return description="true if the templating engine has been set, false otherwise" type="object">
+        <type full="Symfony\Component\HttpKernel\Fragment\bool" namespace="Symfony\Component\HttpKernel\Fragment" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="render" start="83" end="125" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}">Additional available options:
+
+ * default:    The default content (it can be a template name or the content)
+ * id:         An optional hx:include tag id attribute
+ * attributes: An optional array of hx:include tag attributes</description>
+    </docblock>
+    <parameter name="uri" byreference="false" type="{unknown}"/>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="options" byreference="false" type="array" default=""/>
+    <inline>
+      <comment value="We need to replace ampersands in the URI with the encoded form in order to return valid html/xml content." line="94"/>
+    </inline>
+  </method>
+  <method name="templateExists" start="132" end="155" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$template"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Fragment\bool" namespace="Symfony\Component\HttpKernel\Fragment" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="template" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getName" start="160" end="163" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+</class>

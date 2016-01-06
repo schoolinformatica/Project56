@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Prophecy\Doubler\LazyDouble" namespace="Prophecy\Doubler" name="LazyDouble" abstract="false" final="false" start="25" end="127">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Doubler" file="LazyDouble.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Doubler/LazyDouble.php" size="3398" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="ddadacc5655b0c1e2631236c71603df0648329db" relative="vendor/phpspec/prophecy/src/Prophecy/Doubler/LazyDouble.php"/>
+  <docblock>
+    <description compact="Lazy double.">Gives simple interface to describe double before creating it.</description>
+    <author value="Konstantin Kudryashov &lt;ever.zet@gmail.com&gt;"/>
+  </docblock>
+  <member name="doubler" visibility="private" line="27"/>
+  <member name="class" visibility="private" line="28"/>
+  <member name="interfaces" type="array" default="" visibility="private" line="29"/>
+  <member name="arguments" type="{unknown}" default="" constant="null" visibility="private" line="30"/>
+  <member name="double" visibility="private" line="31"/>
+  <constructor name="__construct" start="38" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Initializes lazy double."/>
+      <param type="object" variable="$doubler">
+        <type full="Prophecy\Doubler\Doubler" namespace="Prophecy\Doubler" name="Doubler"/>
+      </param>
+    </docblock>
+    <parameter name="doubler" byreference="false" type="object">
+      <type full="Prophecy\Doubler\Doubler" namespace="Prophecy\Doubler" name="Doubler"/>
+    </parameter>
+  </constructor>
+  <method name="setParentClass" start="51" end="66" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Tells doubler to use specific class as parent one for double."/>
+      <param type="object" variable="$class">
+        <type full="Prophecy\Doubler\string|ReflectionClass" namespace="Prophecy\Doubler" name="string|ReflectionClass"/>
+      </param>
+      <throws type="object">
+        <type full="\Prophecy\Exception\Doubler\ClassNotFoundException" namespace="\Prophecy\Exception\Doubler" name="ClassNotFoundException"/>
+      </throws>
+      <throws type="object">
+        <type full="\Prophecy\Exception\Doubler\DoubleException" namespace="\Prophecy\Exception\Doubler" name="DoubleException"/>
+      </throws>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addInterface" start="76" end="96" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Tells doubler to implement specific interface with double."/>
+      <param type="object" variable="$interface">
+        <type full="Prophecy\Doubler\string|ReflectionClass" namespace="Prophecy\Doubler" name="string|ReflectionClass"/>
+      </param>
+      <throws type="object">
+        <type full="\Prophecy\Exception\Doubler\InterfaceNotFoundException" namespace="\Prophecy\Exception\Doubler" name="InterfaceNotFoundException"/>
+      </throws>
+      <throws type="object">
+        <type full="\Prophecy\Exception\Doubler\DoubleException" namespace="\Prophecy\Exception\Doubler" name="DoubleException"/>
+      </throws>
+    </docblock>
+    <parameter name="interface" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setArguments" start="103" end="106" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets constructor arguments."/>
+      <param type="array" variable="$arguments"/>
+    </docblock>
+    <parameter name="arguments" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getInstance" start="113" end="126" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Creates double instance or returns already created one."/>
+      <return type="object">
+        <type full="Prophecy\Doubler\DoubleInterface" namespace="Prophecy\Doubler" name="DoubleInterface"/>
+      </return>
+    </docblock>
+  </method>
+</class>

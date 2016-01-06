@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Formatter\MongoDBFormatter" namespace="Monolog\Formatter" name="MongoDBFormatter" abstract="false" final="false" start="19" end="105">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Formatter" file="MongoDBFormatter.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Formatter/MongoDBFormatter.php" size="3260" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="732987c328633d7b089ca56bb05312e05d903c53" relative="vendor/monolog/monolog/src/Monolog/Formatter/MongoDBFormatter.php"/>
+  <docblock>
+    <description compact="Formats a record for use with the MongoDBHandler."/>
+    <author value="Florian Plattner &lt;me@florianplattner.de&gt;"/>
+  </docblock>
+  <implements full="Monolog\Formatter\FormatterInterface" namespace="Monolog\Formatter" name="FormatterInterface"/>
+  <member name="exceptionTraceAsString" visibility="private" line="21"/>
+  <member name="maxNestingLevel" visibility="private" line="22"/>
+  <constructor name="__construct" start="28" end="32" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param description="0 means infinite nesting, the $record itself is level 1, $record['context'] is 2" type="int" variable="$maxNestingLevel"/>
+      <param description="set to false to log exception traces as a sub documents instead of strings" type="object" variable="$exceptionTraceAsString">
+        <type full="Monolog\Formatter\bool" namespace="Monolog\Formatter" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="maxNestingLevel" byreference="false" type="integer" default="3"/>
+    <parameter name="exceptionTraceAsString" byreference="false" type="boolean" default="true"/>
+  </constructor>
+  <method name="format" start="37" end="40" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritDoc}"/>
+    </docblock>
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+  <method name="formatBatch" start="45" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritDoc}"/>
+    </docblock>
+    <parameter name="records" byreference="false" type="array"/>
+  </method>
+  <method name="formatArray" start="54" end="73" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="record" byreference="false" type="array"/>
+    <parameter name="nestingLevel" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="formatObject" start="75" end="81" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="nestingLevel" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="formatException" start="83" end="99" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="exception" byreference="false" type="object">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+    <parameter name="nestingLevel" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="formatDate" start="101" end="104" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="value" byreference="false" type="object">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+    <parameter name="nestingLevel" byreference="false" type="{unknown}"/>
+  </method>
+</class>

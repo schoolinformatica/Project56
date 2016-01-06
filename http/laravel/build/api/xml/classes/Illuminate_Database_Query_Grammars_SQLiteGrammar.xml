@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Database\Query\Grammars\SQLiteGrammar" namespace="Illuminate\Database\Query\Grammars" name="SQLiteGrammar" abstract="false" final="false" start="7" end="140">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Query/Grammars" file="SQLiteGrammar.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Query/Grammars/SQLiteGrammar.php" size="4134" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="7221b35ae687e63324901f3b2c97ded2ec4dea51" relative="vendor/laravel/framework/src/Illuminate/Database/Query/Grammars/SQLiteGrammar.php"/>
+  <extends full="Illuminate\Database\Query\Grammars\Grammar" namespace="Illuminate\Database\Query\Grammars" name="Grammar"/>
+  <member name="operators" type="array" default="" visibility="protected" line="14">
+    <docblock>
+      <description compact="All of the available clause operators."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="compileInsert" start="27" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compile an insert statement into SQL."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </param>
+      <param type="array" variable="$values"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Query\Builder" namespace="Illuminate\Database\Query" name="Builder"/>
+    </parameter>
+    <parameter name="values" byreference="false" type="array"/>
+    <inline>
+      <comment value="Essentially we will force every insert to be treated as a batch insert which" line="29"/>
+      <comment value="simply makes creating the SQL easier for us since we can utilize the same" line="30"/>
+      <comment value="basic routine regardless of an amount of records given to us to insert." line="31"/>
+      <comment value="If there is only one record being inserted, we will just use the usual query" line="38"/>
+      <comment value="grammar insert builder because no special syntax is needed for the single" line="39"/>
+      <comment value="row inserts in SQLite. However, if there are multiples, we'll continue." line="40"/>
+      <comment value="SQLite requires us to build the multi-row insert as a listing of select with" line="49"/>
+      <comment value="unions joining them together. So we'll build out this list of columns and" line="50"/>
+      <comment value="then join them all together with select unions to complete the queries." line="51"/>
+    </inline>
+  </method>
+  <method name="compileTruncate" start="67" end="74" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compile a truncate table statement into SQL."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Query\Builder" namespace="Illuminate\Database\Query" name="Builder"/>
+    </parameter>
+  </method>
+  <method name="whereDate" start="83" end="86" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Compile a &quot;where date&quot; clause."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </param>
+      <param type="array" variable="$where"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Query\Builder" namespace="Illuminate\Database\Query" name="Builder"/>
+    </parameter>
+    <parameter name="where" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="whereDay" start="95" end="98" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Compile a &quot;where day&quot; clause."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </param>
+      <param type="array" variable="$where"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Query\Builder" namespace="Illuminate\Database\Query" name="Builder"/>
+    </parameter>
+    <parameter name="where" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="whereMonth" start="107" end="110" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Compile a &quot;where month&quot; clause."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </param>
+      <param type="array" variable="$where"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Query\Builder" namespace="Illuminate\Database\Query" name="Builder"/>
+    </parameter>
+    <parameter name="where" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="whereYear" start="119" end="122" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Compile a &quot;where year&quot; clause."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </param>
+      <param type="array" variable="$where"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Query\Builder" namespace="Illuminate\Database\Query" name="Builder"/>
+    </parameter>
+    <parameter name="where" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="dateBasedWhere" start="132" end="139" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Compile a date based where clause."/>
+      <param type="string" variable="$type"/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Query\Builder" namespace="\Illuminate\Database\Query" name="Builder"/>
+      </param>
+      <param type="array" variable="$where"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Query\Builder" namespace="Illuminate\Database\Query" name="Builder"/>
+    </parameter>
+    <parameter name="where" byreference="false" type="{unknown}"/>
+  </method>
+</class>

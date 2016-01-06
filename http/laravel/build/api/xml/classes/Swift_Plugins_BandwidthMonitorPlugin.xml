@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_Plugins_BandwidthMonitorPlugin" namespace="" name="Swift_Plugins_BandwidthMonitorPlugin" abstract="false" final="false" start="16" end="164">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Plugins" file="BandwidthMonitorPlugin.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Plugins/BandwidthMonitorPlugin.php" size="3631" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="0ed26bd846e393013a48611120a773d66b1b7ae3" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Plugins/BandwidthMonitorPlugin.php"/>
+  <docblock>
+    <description compact="Reduces network flooding when sending large amounts of mail."/>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <implements full="Swift_Events_SendListener" namespace="" name="Swift_Events_SendListener"/>
+  <implements full="Swift_Events_CommandListener" namespace="" name="Swift_Events_CommandListener"/>
+  <implements full="Swift_Events_ResponseListener" namespace="" name="Swift_Events_ResponseListener"/>
+  <implements full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+  <member name="_out" type="integer" default="0" visibility="private" line="23">
+    <docblock>
+      <description compact="The outgoing traffic counter."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="_in" type="integer" default="0" visibility="private" line="30">
+    <docblock>
+      <description compact="The incoming traffic counter."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="_mirrors" type="array" default="" visibility="private" line="33">
+    <docblock>
+      <description compact="Bound byte streams"/>
+    </docblock>
+  </member>
+  <method name="beforeSendPerformed" start="38" end="40" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Not used."/>
+    </docblock>
+    <parameter name="evt" byreference="false" type="object">
+      <type full="Swift_Events_SendEvent" namespace="" name="Swift_Events_SendEvent"/>
+    </parameter>
+  </method>
+  <method name="sendPerformed" start="47" end="51" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Invoked immediately after the Message is sent."/>
+      <param type="object" variable="$evt">
+        <type full="Swift_Events_SendEvent" namespace="" name="Swift_Events_SendEvent"/>
+      </param>
+    </docblock>
+    <parameter name="evt" byreference="false" type="object">
+      <type full="Swift_Events_SendEvent" namespace="" name="Swift_Events_SendEvent"/>
+    </parameter>
+  </method>
+  <method name="commandSent" start="58" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Invoked immediately following a command being sent."/>
+      <param type="object" variable="$evt">
+        <type full="Swift_Events_CommandEvent" namespace="" name="Swift_Events_CommandEvent"/>
+      </param>
+    </docblock>
+    <parameter name="evt" byreference="false" type="object">
+      <type full="Swift_Events_CommandEvent" namespace="" name="Swift_Events_CommandEvent"/>
+    </parameter>
+  </method>
+  <method name="responseReceived" start="69" end="73" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Invoked immediately following a response coming back."/>
+      <param type="object" variable="$evt">
+        <type full="Swift_Events_ResponseEvent" namespace="" name="Swift_Events_ResponseEvent"/>
+      </param>
+    </docblock>
+    <parameter name="evt" byreference="false" type="object">
+      <type full="Swift_Events_ResponseEvent" namespace="" name="Swift_Events_ResponseEvent"/>
+    </parameter>
+  </method>
+  <method name="write" start="80" end="86" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Called when a message is sent so that the outgoing counter can be increased."/>
+      <param type="string" variable="$bytes"/>
+    </docblock>
+    <parameter name="bytes" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="commit" start="91" end="93" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Not used."/>
+    </docblock>
+  </method>
+  <method name="bind" start="103" end="106" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Attach $is to this stream.">The stream acts as an observer, receiving all data that is written.
+All <link xmlns="http://xml.phpdox.net/src" value="write()"/> and <link xmlns="http://xml.phpdox.net/src" value="flushBuffers()"/> operations will be mirrored.
+</description>
+      <param type="object" variable="$is">
+        <type full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+      </param>
+    </docblock>
+    <parameter name="is" byreference="false" type="object">
+      <type full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+    </parameter>
+  </method>
+  <method name="unbind" start="117" end="124" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remove an already bound stream.">If $is is not bound, no errors will be raised.
+If the stream currently has any buffered data it will be written to $is
+before unbinding occurs.</description>
+      <param type="object" variable="$is">
+        <type full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+      </param>
+    </docblock>
+    <parameter name="is" byreference="false" type="object">
+      <type full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+    </parameter>
+  </method>
+  <method name="flushBuffers" start="129" end="134" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Not used."/>
+    </docblock>
+  </method>
+  <method name="getBytesOut" start="141" end="144" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the total number of bytes sent to the server."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getBytesIn" start="151" end="154" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the total number of bytes received from the server."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="reset" start="159" end="163" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Reset the internal counters to zero."/>
+    </docblock>
+  </method>
+</class>

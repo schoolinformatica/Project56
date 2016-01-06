@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Handler\StreamHandler" namespace="Monolog\Handler" name="StreamHandler" abstract="false" final="false" start="23" end="146">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler" file="StreamHandler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php" size="4554" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="afe7e711a1130ddf2740fc0bf49bedb67bb32698" relative="vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php"/>
+  <docblock>
+    <description compact="Stores to any stream resource">Can be used to store into php://stderr, remote and local files, etc.</description>
+    <author value="Jordi Boggiano &lt;j.boggiano@seld.be&gt;"/>
+  </docblock>
+  <extends full="Monolog\Handler\AbstractProcessingHandler" namespace="Monolog\Handler" name="AbstractProcessingHandler"/>
+  <member name="stream" visibility="protected" line="25"/>
+  <member name="url" visibility="protected" line="26"/>
+  <member name="errorMessage" visibility="private" line="27"/>
+  <member name="filePermission" visibility="protected" line="28"/>
+  <member name="useLocking" visibility="protected" line="29"/>
+  <member name="dirCreated" visibility="private" line="30"/>
+  <constructor name="__construct" start="42" end="55" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$stream">
+        <type full="Monolog\Handler\resource|string" namespace="Monolog\Handler" name="resource|string"/>
+      </param>
+      <param description="The minimum logging level at which this handler will be triggered" type="integer" variable="$level"/>
+      <param description="Whether the messages that are handled can bubble up the stack or not" type="object" variable="$bubble">
+        <type full="Monolog\Handler\Boolean" namespace="Monolog\Handler" name="Boolean"/>
+      </param>
+      <param description="Optional file permissions (default (0644) are only for owner read/write)" type="object" variable="$filePermission">
+        <type full="Monolog\Handler\int|null" namespace="Monolog\Handler" name="int|null"/>
+      </param>
+      <param description="Try to lock log file before doing any writes" type="object" variable="$useLocking">
+        <type full="Monolog\Handler\Boolean" namespace="Monolog\Handler" name="Boolean"/>
+      </param>
+      <throws description="If a missing directory is not buildable" type="object">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </throws>
+      <throws description="If stream is not a resource or string" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="stream" byreference="false" type="{unknown}"/>
+    <parameter name="level" byreference="false" type="{unknown}" default="" constant="Logger::DEBUG"/>
+    <parameter name="bubble" byreference="false" type="boolean" default="true"/>
+    <parameter name="filePermission" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="useLocking" byreference="false" type="boolean" default="false"/>
+  </constructor>
+  <method name="close" start="60" end="66" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+  </method>
+  <method name="write" start="71" end="101" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+  <method name="customErrorHandler" start="103" end="106" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="code" byreference="false" type="{unknown}"/>
+    <parameter name="msg" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getDirFromStream" start="113" end="125" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$stream"/>
+      <return type="object">
+        <type full="Monolog\Handler\null|string" namespace="Monolog\Handler" name="null|string"/>
+      </return>
+    </docblock>
+    <parameter name="stream" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="createDir" start="127" end="145" abstract="false" final="false" static="false" visibility="private">
+    <inline>
+      <comment value="Do not try to create dir if it has already been tried." line="129"/>
+    </inline>
+  </method>
+</class>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Console\Tester\CommandTester" namespace="Symfony\Component\Console\Tester" name="CommandTester" abstract="false" final="false" start="25" end="132">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Tester" file="CommandTester.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Tester/CommandTester.php" size="3659" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="8a38bd30435cc86b350e315388e6f55d76d9e55c" relative="vendor/symfony/console/Tester/CommandTester.php"/>
+  <docblock>
+    <description compact="Eases the testing of console commands."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <member name="command" visibility="private" line="27"/>
+  <member name="input" visibility="private" line="28"/>
+  <member name="output" visibility="private" line="29"/>
+  <member name="statusCode" visibility="private" line="30"/>
+  <constructor name="__construct" start="37" end="40" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="A Command instance to test." type="object" variable="$command">
+        <type full="Symfony\Component\Console\Command\Command" namespace="Symfony\Component\Console\Command" name="Command"/>
+      </param>
+    </docblock>
+    <parameter name="command" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Command\Command" namespace="Symfony\Component\Console\Command" name="Command"/>
+    </parameter>
+  </constructor>
+  <method name="execute" start="56" end="81" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Executes the command.">Available execution options:
+
+ * interactive: Sets the input interactive flag
+ * decorated:   Sets the output decorated flag
+ * verbosity:   Sets the output verbosity flag</description>
+      <param description="An array of command arguments and options" type="array" variable="$input"/>
+      <param description="An array of execution options" type="array" variable="$options"/>
+      <return description="The command exit code" type="int"/>
+    </docblock>
+    <parameter name="input" byreference="false" type="array"/>
+    <parameter name="options" byreference="false" type="array" default=""/>
+    <inline>
+      <comment value="set the command name automatically if the application requires" line="58"/>
+      <comment value="this argument and no command name was passed" line="59"/>
+    </inline>
+  </method>
+  <method name="getDisplay" start="90" end="101" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the display returned by the last execution of the command."/>
+      <param description="Whether to normalize end of lines to \n or not" type="object" variable="$normalize">
+        <type full="Symfony\Component\Console\Tester\bool" namespace="Symfony\Component\Console\Tester" name="bool"/>
+      </param>
+      <return description="The display" type="string"/>
+    </docblock>
+    <parameter name="normalize" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="getInput" start="108" end="111" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the input instance used by the last execution of the command."/>
+      <return description="The current input instance" type="object">
+        <type full="Symfony\Component\Console\Input\InputInterface" namespace="Symfony\Component\Console\Input" name="InputInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getOutput" start="118" end="121" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the output instance used by the last execution of the command."/>
+      <return description="The current output instance" type="object">
+        <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getStatusCode" start="128" end="131" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the status code returned by the last execution of the application."/>
+      <return description="The status code" type="int"/>
+    </docblock>
+  </method>
+</class>

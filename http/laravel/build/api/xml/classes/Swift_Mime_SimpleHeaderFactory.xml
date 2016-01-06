@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_Mime_SimpleHeaderFactory" namespace="" name="Swift_Mime_SimpleHeaderFactory" abstract="false" final="false" start="16" end="198">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime" file="SimpleHeaderFactory.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleHeaderFactory.php" size="5325" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="c131dffa12f2a8ff884fc7f01feb2893ad4daba3" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleHeaderFactory.php"/>
+  <docblock>
+    <description compact="Creates MIME headers."/>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <implements full="Swift_Mime_HeaderFactory" namespace="" name="Swift_Mime_HeaderFactory"/>
+  <member name="_encoder" visibility="private" line="19">
+    <docblock>
+      <description compact="The HeaderEncoder used by these headers"/>
+    </docblock>
+  </member>
+  <member name="_paramEncoder" visibility="private" line="22">
+    <docblock>
+      <description compact="The Encoder used by parameters"/>
+    </docblock>
+  </member>
+  <member name="_grammar" visibility="private" line="25">
+    <docblock>
+      <description compact="The Grammar"/>
+    </docblock>
+  </member>
+  <member name="_charset" visibility="private" line="28">
+    <docblock>
+      <description compact="The charset of created Headers"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="38" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Creates a new SimpleHeaderFactory using $encoder and $paramEncoder."/>
+      <param type="object" variable="$encoder">
+        <type full="Swift_Mime_HeaderEncoder" namespace="" name="Swift_Mime_HeaderEncoder"/>
+      </param>
+      <param type="object" variable="$paramEncoder">
+        <type full="Swift_Encoder" namespace="" name="Swift_Encoder"/>
+      </param>
+      <param type="object" variable="$grammar">
+        <type full="Swift_Mime_Grammar" namespace="" name="Swift_Mime_Grammar"/>
+      </param>
+      <param type="object" variable="$charset">
+        <type full="string|null" namespace="" name="string|null"/>
+      </param>
+    </docblock>
+    <parameter name="encoder" byreference="false" type="object">
+      <type full="Swift_Mime_HeaderEncoder" namespace="" name="Swift_Mime_HeaderEncoder"/>
+    </parameter>
+    <parameter name="paramEncoder" byreference="false" type="object">
+      <type full="Swift_Encoder" namespace="" name="Swift_Encoder"/>
+    </parameter>
+    <parameter name="grammar" byreference="false" type="object">
+      <type full="Swift_Mime_Grammar" namespace="" name="Swift_Mime_Grammar"/>
+    </parameter>
+    <parameter name="charset" byreference="false" type="{unknown}" default="" constant="null"/>
+  </constructor>
+  <method name="createMailboxHeader" start="54" end="63" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new Mailbox Header with a list of $addresses."/>
+      <param type="string" variable="$name"/>
+      <param type="object" variable="$addresses">
+        <type full="array|string|null" namespace="" name="array|string|null"/>
+      </param>
+      <return type="object">
+        <type full="Swift_Mime_Header" namespace="" name="Swift_Mime_Header"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="addresses" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="createDateHeader" start="73" end="82" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new Date header using $timestamp (UNIX time)."/>
+      <param type="string" variable="$name"/>
+      <param type="object" variable="$timestamp">
+        <type full="int|null" namespace="" name="int|null"/>
+      </param>
+      <return type="object">
+        <type full="Swift_Mime_Header" namespace="" name="Swift_Mime_Header"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="timestamp" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="createTextHeader" start="92" end="101" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new basic text header with $name and $value."/>
+      <param type="string" variable="$name"/>
+      <param type="string" variable="$value"/>
+      <return type="object">
+        <type full="Swift_Mime_Header" namespace="" name="Swift_Mime_Header"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="createParameterizedHeader" start="112" end="130" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new ParameterizedHeader with $name, $value and $params."/>
+      <param type="string" variable="$name"/>
+      <param type="string" variable="$value"/>
+      <param type="array" variable="$params"/>
+      <return type="object">
+        <type full="Swift_Mime_ParameterizedHeader" namespace="" name="Swift_Mime_ParameterizedHeader"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="params" byreference="false" type="array" default=""/>
+  </method>
+  <method name="createIdHeader" start="140" end="149" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new ID header for Message-ID or Content-ID."/>
+      <param type="string" variable="$name"/>
+      <param type="object" variable="$ids">
+        <type full="string|array" namespace="" name="string|array"/>
+      </param>
+      <return type="object">
+        <type full="Swift_Mime_Header" namespace="" name="Swift_Mime_Header"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="ids" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="createPathHeader" start="159" end="168" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new Path header with an address (path) in it."/>
+      <param type="string" variable="$name"/>
+      <param type="string" variable="$path"/>
+      <return type="object">
+        <type full="Swift_Mime_Header" namespace="" name="Swift_Mime_Header"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="path" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="charsetChanged" start="175" end="180" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Notify this observer that the entity's charset has changed."/>
+      <param type="string" variable="$charset"/>
+    </docblock>
+    <parameter name="charset" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__clone" start="185" end="189" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Make a deep copy of object."/>
+    </docblock>
+  </method>
+  <method name="_setHeaderCharset" start="192" end="197" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Apply the charset to the Header"/>
+    </docblock>
+    <parameter name="header" byreference="false" type="object">
+      <type full="Swift_Mime_Header" namespace="" name="Swift_Mime_Header"/>
+    </parameter>
+  </method>
+</class>

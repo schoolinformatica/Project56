@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Mail\Transport\LogTransport" namespace="Illuminate\Mail\Transport" name="LogTransport" abstract="false" final="false" start="9" end="55">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Mail/Transport" file="LogTransport.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Mail/Transport/LogTransport.php" size="1246" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="eb3794a777d0aaa183e444a119a09bbe5f93052d" relative="vendor/laravel/framework/src/Illuminate/Mail/Transport/LogTransport.php"/>
+  <extends full="Illuminate\Mail\Transport\Transport" namespace="Illuminate\Mail\Transport" name="Transport"/>
+  <member name="logger" visibility="protected" line="16">
+    <docblock>
+      <description compact="The Logger instance."/>
+      <var type="object">
+        <type full="\Psr\Log\LoggerInterface" namespace="\Psr\Log" name="LoggerInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="24" end="27" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new log transport instance."/>
+      <param type="object" variable="$logger">
+        <type full="\Psr\Log\LoggerInterface" namespace="\Psr\Log" name="LoggerInterface"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Mail\Transport\void" namespace="Illuminate\Mail\Transport" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="logger" byreference="false" type="object">
+      <type full="Psr\Log\LoggerInterface" namespace="Psr\Log" name="LoggerInterface"/>
+    </parameter>
+  </constructor>
+  <method name="send" start="32" end="37" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="message" byreference="false" type="object">
+      <type full="Swift_Mime_Message" namespace="" name="Swift_Mime_Message"/>
+    </parameter>
+    <parameter name="failedRecipients" byreference="true" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getMimeEntityString" start="45" end="54" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get a loggable string out of a Swiftmailer entity."/>
+      <param type="object" variable="$entity">
+        <type full="\Swift_Mime_MimeEntity" namespace="" name="Swift_Mime_MimeEntity"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="entity" byreference="false" type="object">
+      <type full="Swift_Mime_MimeEntity" namespace="" name="Swift_Mime_MimeEntity"/>
+    </parameter>
+  </method>
+</class>

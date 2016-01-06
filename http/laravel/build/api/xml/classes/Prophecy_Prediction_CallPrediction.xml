@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Prophecy\Prediction\CallPrediction" namespace="Prophecy\Prediction" name="CallPrediction" abstract="false" final="false" start="27" end="86">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Prediction" file="CallPrediction.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Prediction/CallPrediction.php" size="2385" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="200bcb30a24008e8442eead6019baee53babef60" relative="vendor/phpspec/prophecy/src/Prophecy/Prediction/CallPrediction.php"/>
+  <docblock>
+    <description compact="Call prediction."/>
+    <author value="Konstantin Kudryashov &lt;ever.zet@gmail.com&gt;"/>
+  </docblock>
+  <implements full="Prophecy\Prediction\PredictionInterface" namespace="Prophecy\Prediction" name="PredictionInterface"/>
+  <member name="util" visibility="private" line="29"/>
+  <constructor name="__construct" start="36" end="39" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Initializes prediction."/>
+      <param type="object" variable="$util">
+        <type full="Prophecy\Util\StringUtil" namespace="Prophecy\Util" name="StringUtil"/>
+      </param>
+    </docblock>
+    <parameter name="util" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Prophecy\Util\StringUtil" namespace="Prophecy\Util" name="StringUtil"/>
+    </parameter>
+  </constructor>
+  <method name="check" start="50" end="85" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Tests that there was at least one call."/>
+      <param type="array" variable="$calls" of="object">
+        <type full="Prophecy\Prediction\Call" namespace="Prophecy\Prediction" name="Call"/>
+      </param>
+      <param type="object" variable="$object">
+        <type full="Prophecy\Prophecy\ObjectProphecy" namespace="Prophecy\Prophecy" name="ObjectProphecy"/>
+      </param>
+      <param type="object" variable="$method">
+        <type full="Prophecy\Prophecy\MethodProphecy" namespace="Prophecy\Prophecy" name="MethodProphecy"/>
+      </param>
+      <throws type="object">
+        <type full="\Prophecy\Exception\Prediction\NoCallsException" namespace="\Prophecy\Exception\Prediction" name="NoCallsException"/>
+      </throws>
+    </docblock>
+    <parameter name="calls" byreference="false" type="array"/>
+    <parameter name="object" byreference="false" type="object">
+      <type full="Prophecy\Prophecy\ObjectProphecy" namespace="Prophecy\Prophecy" name="ObjectProphecy"/>
+    </parameter>
+    <parameter name="method" byreference="false" type="object">
+      <type full="Prophecy\Prophecy\MethodProphecy" namespace="Prophecy\Prophecy" name="MethodProphecy"/>
+    </parameter>
+  </method>
+</class>

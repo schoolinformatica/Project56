@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\EventListener\DumpListener" namespace="Symfony\Component\HttpKernel\EventListener" name="DumpListener" abstract="false" final="false" start="25" end="55">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/EventListener" file="DumpListener.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/EventListener/DumpListener.php" size="1499" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="7e6783a1453de0994ce4ecd29a9b23f298b2a343" relative="vendor/symfony/http-kernel/EventListener/DumpListener.php"/>
+  <docblock>
+    <description compact="Configures dump() handler."/>
+    <author value="Nicolas Grekas &lt;p@tchwork.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\EventDispatcher\EventSubscriberInterface" namespace="Symfony\Component\EventDispatcher" name="EventSubscriberInterface"/>
+  <member name="cloner" visibility="private" line="27"/>
+  <member name="dumper" visibility="private" line="28"/>
+  <constructor name="__construct" start="34" end="38" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param description="Cloner service." type="object" variable="$cloner">
+        <type full="Symfony\Component\VarDumper\Cloner\ClonerInterface" namespace="Symfony\Component\VarDumper\Cloner" name="ClonerInterface"/>
+      </param>
+      <param description="Dumper service." type="object" variable="$dumper">
+        <type full="Symfony\Component\VarDumper\Dumper\DataDumperInterface" namespace="Symfony\Component\VarDumper\Dumper" name="DataDumperInterface"/>
+      </param>
+    </docblock>
+    <parameter name="cloner" byreference="false" type="object">
+      <type full="Symfony\Component\VarDumper\Cloner\ClonerInterface" namespace="Symfony\Component\VarDumper\Cloner" name="ClonerInterface"/>
+    </parameter>
+    <parameter name="dumper" byreference="false" type="object">
+      <type full="Symfony\Component\VarDumper\Dumper\DataDumperInterface" namespace="Symfony\Component\VarDumper\Dumper" name="DataDumperInterface"/>
+    </parameter>
+  </constructor>
+  <method name="configure" start="40" end="48" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getSubscribedEvents" start="50" end="54" abstract="false" final="false" static="true" visibility="public">
+    <inline>
+      <comment value="Register early to have a working dump() as early as possible" line="52"/>
+    </inline>
+  </method>
+</class>

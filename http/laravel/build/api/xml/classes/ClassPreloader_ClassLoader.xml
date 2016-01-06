@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="ClassPreloader\ClassLoader" namespace="ClassPreloader" name="ClassLoader" abstract="false" final="false" start="22" end="150">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/classpreloader/classpreloader/src" file="ClassLoader.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/classpreloader/classpreloader/src/ClassLoader.php" size="3610" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="628c7277197800d36bb59a4e6abc514bd22e417e" relative="vendor/classpreloader/classpreloader/src/ClassLoader.php"/>
+  <docblock>
+    <description compact="This is the class loader class.">This creates an autoloader that intercepts and keeps track of each include
+in order that files must be included. This autoloader proxies to all other
+underlying autoloaders.</description>
+  </docblock>
+  <member name="classList" visibility="public" line="29">
+    <docblock>
+      <description compact="The list of loaded classes."/>
+      <var type="object">
+        <type full="\ClassPreloader\ClassList" namespace="\ClassPreloader" name="ClassList"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="36" end="39" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new class loader instance."/>
+      <return type="object">
+        <type full="ClassPreloader\void" namespace="ClassPreloader" name="void"/>
+      </return>
+    </docblock>
+  </constructor>
+  <destructor name="__destruct" start="48" end="51" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Destroy the class loader.">This makes sure we're unregistered from the autoloader.</description>
+      <return type="object">
+        <type full="ClassPreloader\void" namespace="ClassPreloader" name="void"/>
+      </return>
+    </docblock>
+  </destructor>
+  <method name="getIncludes" start="60" end="72" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Wrap a block of code in the autoloader and get a list of loaded classes."/>
+      <param type="object" variable="$func">
+        <type full="ClassPreloader\callable" namespace="ClassPreloader" name="callable"/>
+      </param>
+      <return type="object">
+        <type full="\ClassPreloader\Config" namespace="\ClassPreloader" name="Config"/>
+      </return>
+    </docblock>
+    <parameter name="func" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="register" start="79" end="82" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Registers this instance as an autoloader."/>
+      <return type="object">
+        <type full="ClassPreloader\void" namespace="ClassPreloader" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="unregister" start="89" end="92" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Unregisters this instance as an autoloader."/>
+      <return type="object">
+        <type full="ClassPreloader\void" namespace="ClassPreloader" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="loadClass" start="103" end="118" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Loads the given class, interface or trait.">We'll return true if it was loaded.</description>
+      <param type="string" variable="$class"/>
+      <return type="object">
+        <type full="ClassPreloader\bool" namespace="ClassPreloader" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getFilenames" start="125" end="149" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get an array of loaded file names in order of loading."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+</class>

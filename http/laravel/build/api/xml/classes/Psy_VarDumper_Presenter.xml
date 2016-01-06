@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\VarDumper\Presenter" namespace="Psy\VarDumper" name="Presenter" abstract="false" final="false" start="21" end="123">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/VarDumper" file="Presenter.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/VarDumper/Presenter.php" size="3309" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="23950699d167dd3406f7bb523df55c35a3e5da50" relative="vendor/psy/psysh/src/Psy/VarDumper/Presenter.php"/>
+  <docblock>
+    <description compact="A Presenter service."/>
+  </docblock>
+  <constant type="integer" name="VERBOSE" value="1"/>
+  <member name="cloner" visibility="private" line="25"/>
+  <member name="dumper" visibility="private" line="26"/>
+  <member name="exceptionsImportants" type="array" default="" visibility="private" line="27"/>
+  <member name="styles" type="array" default="" visibility="private" line="34"/>
+  <constructor name="__construct" start="49" end="66" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="formatter" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Formatter\OutputFormatter" namespace="Symfony\Component\Console\Formatter" name="OutputFormatter"/>
+    </parameter>
+  </constructor>
+  <method name="addCasters" start="75" end="78" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register casters."/>
+      <see value="http://symfony.com/doc/current/components/var_dumper/advanced.html#casters"/>
+      <param description="A map of casters." type="array" variable="$casters" of="object">
+        <type full="Psy\VarDumper\callable" namespace="Psy\VarDumper" name="callable"/>
+      </param>
+    </docblock>
+    <parameter name="casters" byreference="false" type="array"/>
+  </method>
+  <method name="presentRef" start="87" end="90" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Present a reference to the value."/>
+      <param type="mixed" variable="$value"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="present" start="103" end="122" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Present a full representation of the value.">If $depth is 0, the value will be presented as a ref instead.</description>
+      <param type="mixed" variable="$value"/>
+      <param description="(default: null)" type="int" variable="$depth"/>
+      <param description="One of Presenter constants" type="int" variable="$options"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="depth" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="options" byreference="false" type="integer" default="0"/>
+  </method>
+</class>

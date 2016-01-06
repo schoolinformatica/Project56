@@ -2,63 +2,11 @@
 // Created by robert on 12/10/15.
 //
 
-// main.cpp -- take 2
-#include "UnitTest++/UnitTest++.h"
+#include "pqcon/configreader.h"
 #include "pqcon/pgsqlcon.h"
-#include "csvreader/csvreader.h"
-
-TEST(testCsvReaderNullParams)
-{
-    cout << "Testing csvreader() with both params empty..." << endl;
-
-    string csvFileParam = "";
-    string tableParam = "";
-    int expectedResult = 0;
-
-    int actualResult = csvreader(csvFileParam, tableParam);
-
-    CHECK_EQUAL(expectedResult, actualResult);
-}
-
-TEST(testCsvReaderFirstParamGood)
-{
-    cout << "Testing csvreader() with table param empty..." << endl;
-
-    string csvFileParam = "/home/robert/Hogeschool/Project56/Project56/input/csv_converter/positions.csv";
-    string tableParam = "";
-    int expectedResult = 0;
-
-    int actualResult = csvreader(csvFileParam, tableParam);
-
-    CHECK_EQUAL(expectedResult, actualResult);
-}
-
-TEST(testCsvReaderSecondParamGood)
-{
-    cout << "Testing csvreader() with csvfile param empty..." << endl;
-
-    string csvFileParam = "";
-    string tableParam = "positions";
-    int expectedResult = 0;
-
-    int actualResult = csvreader(csvFileParam, tableParam);
-
-    CHECK_EQUAL(expectedResult, actualResult);
-}
-
-TEST(testCsvReaderBothParamsGood)
-{
-    cout << "Testing csvreader() with both params good..." << endl;
-
-    string csvFileParam = "/home/robert/Desktop/Hogeschool/Project56/Project56/input/csv_converter/positions.csv";
-    string tableParam = "positions";
-    int expectedResult = 1;
-
-    int actualResult = csvreader(csvFileParam, tableParam);
-
-    CHECK_EQUAL(expectedResult, actualResult);
-}
-//exec none trans en normale trans, good n bad param
+#include "dbpusher/dbpusher.h"
+#include "UnitTest++/UnitTest++.h"
+#include "UnitTest++/XmlTestReporter.h"
 
 TEST(testExecNoneTransBadParam)
 {
@@ -66,10 +14,10 @@ TEST(testExecNoneTransBadParam)
 
     string param = "";
     int expectedResult = 0;
-    Pgsqlcon* instance = new Pgsqlcon();
+    Pgsqlcon p;
 
-    instance->exec_none_transaction(param);
-    int actualResult = instance->getErrorCode();
+    p.exec_none_transaction(param);
+    int actualResult = p.getErrorCode();
 
     CHECK_EQUAL(expectedResult, actualResult);
 }
@@ -81,16 +29,35 @@ TEST(testExecTransBadParam)
     vector<string> param;
     param.push_back("");
     int expectedResult = 0;
-    Pgsqlcon* instance = new Pgsqlcon();
 
-    instance->exec_transaction(param);
-    int actualResult = instance->getErrorCode();
+    Pgsqlcon p;
+
+    p.exec_transaction(param);
+    int actualResult = p.getErrorCode();
 
     CHECK_EQUAL(expectedResult, actualResult);
 }
+
+TEST(testPushListToDatabaseBadParam)
+{
+    cout << "Testing dbpusher::PushListToDatabase with empty param..." << endl;
+
+    string param = "";
+    int expectedResult = 0;
+
+    int actualResult = push_list_to_database(param);
+
+    CHECK_EQUAL(expectedResult, actualResult);
+}
+
 int main(int, const char *[])
 {
-    return UnitTest::RunAllTests();
+    std::ofstream f("testreport.xml");
+    UnitTest::XmlTestReporter reporter(f);
+
+    UnitTest::TestRunner runner(reporter);
+
+    return runner.RunTestsIf(UnitTest::Test::GetTestList(), NULL, UnitTest::True(), 0);
 }
 
 

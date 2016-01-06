@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\EventDispatcher\ImmutableEventDispatcher" namespace="Symfony\Component\EventDispatcher" name="ImmutableEventDispatcher" abstract="false" final="false" start="19" end="101">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/event-dispatcher" file="ImmutableEventDispatcher.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/event-dispatcher/ImmutableEventDispatcher.php" size="2431" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="1c5c44fd0c5156d902592427be59f7012d8b178e" relative="vendor/symfony/event-dispatcher/ImmutableEventDispatcher.php"/>
+  <docblock>
+    <description compact="A read-only proxy for an event dispatcher."/>
+    <author value="Bernhard Schussek &lt;bschussek@gmail.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\EventDispatcher\EventDispatcherInterface" namespace="Symfony\Component\EventDispatcher" name="EventDispatcherInterface"/>
+  <member name="dispatcher" visibility="private" line="26">
+    <docblock>
+      <description compact="The proxied dispatcher."/>
+      <var type="object">
+        <type full="Symfony\Component\EventDispatcher\EventDispatcherInterface" namespace="Symfony\Component\EventDispatcher" name="EventDispatcherInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="33" end="36" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Creates an unmodifiable proxy for an event dispatcher."/>
+      <param description="The proxied event dispatcher." type="object" variable="$dispatcher">
+        <type full="Symfony\Component\EventDispatcher\EventDispatcherInterface" namespace="Symfony\Component\EventDispatcher" name="EventDispatcherInterface"/>
+      </param>
+    </docblock>
+    <parameter name="dispatcher" byreference="false" type="object">
+      <type full="Symfony\Component\EventDispatcher\EventDispatcherInterface" namespace="Symfony\Component\EventDispatcher" name="EventDispatcherInterface"/>
+    </parameter>
+  </constructor>
+  <method name="dispatch" start="41" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="eventName" byreference="false" type="{unknown}"/>
+    <parameter name="event" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\EventDispatcher\Event" namespace="Symfony\Component\EventDispatcher" name="Event"/>
+    </parameter>
+  </method>
+  <method name="addListener" start="49" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="eventName" byreference="false" type="{unknown}"/>
+    <parameter name="listener" byreference="false" type="{unknown}"/>
+    <parameter name="priority" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="addSubscriber" start="57" end="60" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="subscriber" byreference="false" type="object">
+      <type full="Symfony\Component\EventDispatcher\EventSubscriberInterface" namespace="Symfony\Component\EventDispatcher" name="EventSubscriberInterface"/>
+    </parameter>
+  </method>
+  <method name="removeListener" start="65" end="68" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="eventName" byreference="false" type="{unknown}"/>
+    <parameter name="listener" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="removeSubscriber" start="73" end="76" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="subscriber" byreference="false" type="object">
+      <type full="Symfony\Component\EventDispatcher\EventSubscriberInterface" namespace="Symfony\Component\EventDispatcher" name="EventSubscriberInterface"/>
+    </parameter>
+  </method>
+  <method name="getListeners" start="81" end="84" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="eventName" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="getListenerPriority" start="89" end="92" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="eventName" byreference="false" type="{unknown}"/>
+    <parameter name="listener" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasListeners" start="97" end="100" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="eventName" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+</class>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\DataCollector\DataCollector" namespace="Symfony\Component\HttpKernel\DataCollector" name="DataCollector" abstract="true" final="false" start="24" end="58">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/DataCollector" file="DataCollector.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/DataCollector/DataCollector.php" size="1335" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="000964881cbc02f2509203de2876ca589260f5b9" relative="vendor/symfony/http-kernel/DataCollector/DataCollector.php"/>
+  <docblock>
+    <description compact="DataCollector.">Children of this class must store the collected data in the data property.</description>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+    <author value="Bernhard Schussek &lt;bschussek@symfony.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\HttpKernel\DataCollector\DataCollectorInterface" namespace="Symfony\Component\HttpKernel\DataCollector" name="DataCollectorInterface"/>
+  <implements full="Serializable" namespace="" name="Serializable"/>
+  <member name="data" type="array" default="" visibility="protected" line="26"/>
+  <member name="valueExporter" visibility="private" line="31">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\HttpKernel\DataCollector\Util\ValueExporter" namespace="Symfony\Component\HttpKernel\DataCollector\Util" name="ValueExporter"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="serialize" start="33" end="36" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="unserialize" start="38" end="41" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="varToString" start="50" end="57" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Converts a PHP variable to a string."/>
+      <param description="A PHP variable" type="mixed" variable="$var"/>
+      <return description="The string representation of the variable" type="string"/>
+    </docblock>
+    <parameter name="var" byreference="false" type="{unknown}"/>
+  </method>
+</class>

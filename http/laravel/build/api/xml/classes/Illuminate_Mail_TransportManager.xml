@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Mail\TransportManager" namespace="Illuminate\Mail" name="TransportManager" abstract="false" final="false" start="17" end="149">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Mail" file="TransportManager.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Mail/TransportManager.php" size="4166" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="d1064fe07a5d37be2828b3f5f086e4a2b305d4c8" relative="vendor/laravel/framework/src/Illuminate/Mail/TransportManager.php"/>
+  <extends full="Illuminate\Support\Manager" namespace="Illuminate\Support" name="Manager"/>
+  <method name="createSmtpDriver" start="24" end="49" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create an instance of the SMTP Swift Transport driver."/>
+      <return type="object">
+        <type full="\Swift_SmtpTransport" namespace="" name="Swift_SmtpTransport"/>
+      </return>
+    </docblock>
+    <inline>
+      <comment value="The Swift SMTP transport instance will allow us to use any SMTP backend" line="28"/>
+      <comment value="for delivering mail such as Sendgrid, Amazon SES, or a custom server" line="29"/>
+      <comment value="a developer has available. We will just pass this configured host." line="30"/>
+      <comment value="Once we have the transport we will check for the presence of a username" line="39"/>
+      <comment value="and password. If we have it we will set the credentials on the Swift" line="40"/>
+      <comment value="transporter instance so that we'll properly authenticate delivery." line="41"/>
+    </inline>
+  </method>
+  <method name="createSendmailDriver" start="56" end="61" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create an instance of the Sendmail Swift Transport driver."/>
+      <return type="object">
+        <type full="\Swift_SendmailTransport" namespace="" name="Swift_SendmailTransport"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="createSesDriver" start="68" end="81" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create an instance of the Amazon SES Swift Transport driver."/>
+      <return type="object">
+        <type full="\Swift_SendmailTransport" namespace="" name="Swift_SendmailTransport"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="createMailDriver" start="88" end="91" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create an instance of the Mail Swift Transport driver."/>
+      <return type="object">
+        <type full="\Swift_MailTransport" namespace="" name="Swift_MailTransport"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="createMailgunDriver" start="98" end="104" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create an instance of the Mailgun Swift Transport driver."/>
+      <return type="object">
+        <type full="\Illuminate\Mail\Transport\MailgunTransport" namespace="\Illuminate\Mail\Transport" name="MailgunTransport"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="createMandrillDriver" start="111" end="117" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create an instance of the Mandrill Swift Transport driver."/>
+      <return type="object">
+        <type full="\Illuminate\Mail\Transport\MandrillTransport" namespace="\Illuminate\Mail\Transport" name="MandrillTransport"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="createLogDriver" start="124" end="127" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create an instance of the Log Swift Transport driver."/>
+      <return type="object">
+        <type full="\Illuminate\Mail\Transport\LogTransport" namespace="\Illuminate\Mail\Transport" name="LogTransport"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getDefaultDriver" start="134" end="137" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the default cache driver name."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setDefaultDriver" start="145" end="148" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the default cache driver name."/>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="Illuminate\Mail\void" namespace="Illuminate\Mail" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+</class>

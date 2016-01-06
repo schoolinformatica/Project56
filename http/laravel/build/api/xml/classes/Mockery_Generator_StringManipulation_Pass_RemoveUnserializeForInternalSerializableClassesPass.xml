@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Mockery\Generator\StringManipulation\Pass\RemoveUnserializeForInternalSerializableClassesPass" namespace="Mockery\Generator\StringManipulation\Pass" name="RemoveUnserializeForInternalSerializableClassesPass" abstract="false" final="false" start="13" end="40">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass" file="RemoveUnserializeForInternalSerializableClassesPass.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/RemoveUnserializeForInternalSerializableClassesPass.php" size="1120" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="9ea9097bc396b7cc5fa2410efebd2f5698142047" relative="vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/RemoveUnserializeForInternalSerializableClassesPass.php"/>
+  <docblock>
+    <description compact="Internal classes can not be instantiated with the newInstanceWithoutArgs reflection method, so need the serialization hack. If the class also implements Serializable, we need to replace the standard unserialize method definition with a dummy"/>
+  </docblock>
+  <constant type="string" name="DUMMY_METHOD_DEFINITION" value="'public function unserialize($string) {} '"/>
+  <method name="apply" start="17" end="32" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="code" byreference="false" type="{unknown}"/>
+    <parameter name="config" byreference="false" type="object">
+      <type full="Mockery\Generator\MockConfiguration" namespace="Mockery\Generator" name="MockConfiguration"/>
+    </parameter>
+  </method>
+  <method name="appendToClass" start="34" end="39" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="code" byreference="false" type="{unknown}"/>
+  </method>
+</class>

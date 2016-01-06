@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Routing\Matcher\Dumper\DumperPrefixCollection" namespace="Symfony\Component\Routing\Matcher\Dumper" name="DumperPrefixCollection" abstract="false" final="false" start="21" end="107">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/routing/Matcher/Dumper" file="DumperPrefixCollection.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/routing/Matcher/Dumper/DumperPrefixCollection.php" size="2733" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="b3ae7137af4fbc24d8d5f3e2d800cc9dd3633482" relative="vendor/symfony/routing/Matcher/Dumper/DumperPrefixCollection.php"/>
+  <docblock>
+    <description compact="Prefix tree of routes preserving routes order."/>
+    <author value="Arnaud Le Blanc &lt;arnaud.lb@gmail.com&gt;"/>
+    <internal/>
+  </docblock>
+  <extends full="Symfony\Component\Routing\Matcher\Dumper\DumperCollection" namespace="Symfony\Component\Routing\Matcher\Dumper" name="DumperCollection"/>
+  <member name="prefix" type="string" default="''" visibility="private" line="26">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <method name="getPrefix" start="33" end="36" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the prefix."/>
+      <return description="The prefix" type="string"/>
+    </docblock>
+  </method>
+  <method name="setPrefix" start="43" end="46" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the prefix."/>
+      <param description="The prefix" type="string" variable="$prefix"/>
+    </docblock>
+    <parameter name="prefix" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addPrefixRoute" start="57" end="81" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a route in the tree."/>
+      <param description="The route" type="object" variable="$route">
+        <type full="Symfony\Component\Routing\Matcher\Dumper\DumperRoute" namespace="Symfony\Component\Routing\Matcher\Dumper" name="DumperRoute"/>
+      </param>
+      <return description="The node the route was added to" type="object">
+        <type full="Symfony\Component\Routing\Matcher\Dumper\DumperPrefixCollection" namespace="Symfony\Component\Routing\Matcher\Dumper" name="DumperPrefixCollection"/>
+      </return>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+    <parameter name="route" byreference="false" type="object">
+      <type full="Symfony\Component\Routing\Matcher\Dumper\DumperRoute" namespace="Symfony\Component\Routing\Matcher\Dumper" name="DumperRoute"/>
+    </parameter>
+    <inline>
+      <comment value="Reached only if the root has a non empty prefix" line="79"/>
+    </inline>
+  </method>
+  <method name="mergeSlashNodes" start="88" end="106" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Merges nodes whose prefix ends with a slash.">Children of a node whose prefix ends with a slash are moved to the parent node</description>
+    </docblock>
+  </method>
+</class>

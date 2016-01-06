@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher" namespace="Symfony\Component\HttpKernel\Debug" name="TraceableEventDispatcher" abstract="false" final="false" start="26" end="99">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Debug" file="TraceableEventDispatcher.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Debug/TraceableEventDispatcher.php" size="3658" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="f6f8f13a64c1d5e3ca812826d60bf4f1afab8bda" relative="vendor/symfony/http-kernel/Debug/TraceableEventDispatcher.php"/>
+  <docblock>
+    <description compact="Collects some data about event listeners.">This event dispatcher delegates the dispatching to another one.</description>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\EventDispatcher\Debug\TraceableEventDispatcher" namespace="Symfony\Component\EventDispatcher\Debug" name="TraceableEventDispatcher"/>
+  <method name="setProfiler" start="39" end="42" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the profiler.">The traceable event dispatcher does not use the profiler anymore.
+The job is now done directly by the Profiler listener and the
+data collectors themselves.</description>
+      <param description="A Profiler instance" type="object" variable="$profiler">
+        <type full="Symfony\Component\HttpKernel\Debug\Profiler|null" namespace="Symfony\Component\HttpKernel\Debug" name="Profiler|null"/>
+      </param>
+      <deprecated value="since version 2.4, to be removed in 3.0."/>
+    </docblock>
+    <parameter name="profiler" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\HttpKernel\Profiler\Profiler" namespace="Symfony\Component\HttpKernel\Profiler" name="Profiler"/>
+    </parameter>
+  </method>
+  <method name="preDispatch" start="47" end="73" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="eventName" byreference="false" type="{unknown}"/>
+    <parameter name="event" byreference="false" type="object">
+      <type full="Symfony\Component\EventDispatcher\Event" namespace="Symfony\Component\EventDispatcher" name="Event"/>
+    </parameter>
+  </method>
+  <method name="postDispatch" start="78" end="98" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="eventName" byreference="false" type="{unknown}"/>
+    <parameter name="event" byreference="false" type="object">
+      <type full="Symfony\Component\EventDispatcher\Event" namespace="Symfony\Component\EventDispatcher" name="Event"/>
+    </parameter>
+  </method>
+</class>

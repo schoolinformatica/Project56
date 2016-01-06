@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Queue\BeanstalkdQueue" namespace="Illuminate\Queue" name="BeanstalkdQueue" abstract="false" final="false" start="10" end="143">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Queue" file="BeanstalkdQueue.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Queue/BeanstalkdQueue.php" size="3457" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="132894df4cb0bf22e52bf30739ef1a728e874991" relative="vendor/laravel/framework/src/Illuminate/Queue/BeanstalkdQueue.php"/>
+  <extends full="Illuminate\Queue\Queue" namespace="Illuminate\Queue" name="Queue"/>
+  <implements full="Illuminate\Contracts\Queue\Queue" namespace="Illuminate\Contracts\Queue" name="Queue"/>
+  <member name="pheanstalk" visibility="protected" line="17">
+    <docblock>
+      <description compact="The Pheanstalk instance."/>
+      <var type="object">
+        <type full="\Pheanstalk\Pheanstalk" namespace="\Pheanstalk" name="Pheanstalk"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="default" visibility="protected" line="24">
+    <docblock>
+      <description compact="The name of the default tube."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="timeToRun" visibility="protected" line="31">
+    <docblock>
+      <description compact="The &quot;time to run&quot; for all pushed jobs."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="41" end="46" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new Beanstalkd queue instance."/>
+      <param type="object" variable="$pheanstalk">
+        <type full="\Pheanstalk\Pheanstalk" namespace="\Pheanstalk" name="Pheanstalk"/>
+      </param>
+      <param type="string" variable="$default"/>
+      <param type="int" variable="$timeToRun"/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="pheanstalk" byreference="false" type="object">
+      <type full="Pheanstalk\Pheanstalk" namespace="Pheanstalk" name="Pheanstalk"/>
+    </parameter>
+    <parameter name="default" byreference="false" type="{unknown}"/>
+    <parameter name="timeToRun" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="push" start="56" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Push a new job onto the queue."/>
+      <param type="string" variable="$job"/>
+      <param type="mixed" variable="$data"/>
+      <param type="string" variable="$queue"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="job" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="string" default="''"/>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="pushRaw" start="69" end="74" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Push a raw payload onto the queue."/>
+      <param type="string" variable="$payload"/>
+      <param type="string" variable="$queue"/>
+      <param type="array" variable="$options"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="payload" byreference="false" type="{unknown}"/>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="options" byreference="false" type="array" default=""/>
+  </method>
+  <method name="later" start="85" end="92" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Push a new job onto the queue after a delay."/>
+      <param type="object" variable="$delay">
+        <type full="\DateTime|int" namespace="" name="DateTime|int"/>
+      </param>
+      <param type="string" variable="$job"/>
+      <param type="mixed" variable="$data"/>
+      <param type="string" variable="$queue"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="delay" byreference="false" type="{unknown}"/>
+    <parameter name="job" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="string" default="''"/>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="pop" start="100" end="109" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Pop the next job off of the queue."/>
+      <param type="string" variable="$queue"/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Queue\Job|null" namespace="\Illuminate\Contracts\Queue" name="Job|null"/>
+      </return>
+    </docblock>
+    <parameter name="queue" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="deleteMessage" start="118" end="121" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Delete a message from the Beanstalk queue."/>
+      <param type="string" variable="$queue"/>
+      <param type="string" variable="$id"/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="queue" byreference="false" type="{unknown}"/>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getQueue" start="129" end="132" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the queue or return the default."/>
+      <param type="object" variable="$queue">
+        <type full="Illuminate\Queue\string|null" namespace="Illuminate\Queue" name="string|null"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="queue" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getPheanstalk" start="139" end="142" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the underlying Pheanstalk instance."/>
+      <return type="object">
+        <type full="\Pheanstalk\Pheanstalk" namespace="\Pheanstalk" name="Pheanstalk"/>
+      </return>
+    </docblock>
+  </method>
+</class>

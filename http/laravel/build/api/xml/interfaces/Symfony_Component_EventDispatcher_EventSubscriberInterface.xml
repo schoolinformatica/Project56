@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Symfony\Component\EventDispatcher\EventSubscriberInterface" namespace="Symfony\Component\EventDispatcher" name="EventSubscriberInterface" abstract="false" final="false" start="25" end="46">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/event-dispatcher" file="EventSubscriberInterface.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/event-dispatcher/EventSubscriberInterface.php" size="1551" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="f122db0d3e635c1b2643e1db5f8f92cf14b79f5a" relative="vendor/symfony/event-dispatcher/EventSubscriberInterface.php"/>
+  <docblock>
+    <description compact="An EventSubscriber knows himself what events he is interested in.">If an EventSubscriber is added to an EventDispatcherInterface, the manager invokes
+{@link getSubscribedEvents} and registers the subscriber as a listener for all
+returned events.</description>
+    <author value="Guilherme Blanco &lt;guilhermeblanco@hotmail.com&gt;"/>
+    <author value="Jonathan Wage &lt;jonwage@gmail.com&gt;"/>
+    <author value="Roman Borschel &lt;roman@code-factory.org&gt;"/>
+    <author value="Bernhard Schussek &lt;bschussek@gmail.com&gt;"/>
+  </docblock>
+  <method name="getSubscribedEvents" start="45" end="45" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns an array of event names this subscriber wants to listen to.">The array keys are event names and the value can be:
+
+ * The method name to call (priority defaults to 0)
+ * An array composed of the method name to call and the priority
+ * An array of arrays composed of the method names to call and respective
+   priorities, or 0 if unset
+
+For instance:
+
+ * array('eventName' =&gt; 'methodName')
+ * array('eventName' =&gt; array('methodName', $priority))
+ * array('eventName' =&gt; array(array('methodName1', $priority), array('methodName2'))</description>
+      <return description="The event names to listen to" type="array"/>
+    </docblock>
+  </method>
+</interface>

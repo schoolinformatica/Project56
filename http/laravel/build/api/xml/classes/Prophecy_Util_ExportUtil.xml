@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Prophecy\Util\ExportUtil" namespace="Prophecy\Util" name="ExportUtil" abstract="false" final="false" start="26" end="185">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Util" file="ExportUtil.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Util/ExportUtil.php" size="6020" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="6e6b1859ce493176e94294baad1ea5f789070eb2" relative="vendor/phpspec/prophecy/src/Prophecy/Util/ExportUtil.php"/>
+  <docblock>
+    <description compact="Exporting utility.">This class is derived from the PHPUnit testing framework.</description>
+    <author value="Sebastiaan Stok &lt;s.stok@rollerscapes.net"/>
+    <author value="Sebastian Bergmann &lt;sebastian@phpunit.de&gt;"/>
+    <license name="http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License&gt;"/>
+  </docblock>
+  <method name="export" start="46" end="49" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Exports a value into a string.">The output of this method is similar to the output of print_r(), but
+improved in various aspects:
+
+ - NULL is rendered as "null" (instead of "")
+ - true is rendered as "true" (instead of "1")
+ - FALSE is rendered as "false" (instead of "")
+ - Strings are always quoted with single quotes
+ - Carriage returns and newlines are normalized to \n
+ - Recursion and repeated rendering is treated properly</description>
+      <param description="The value to export" type="mixed" variable="$value"/>
+      <param description="The indentation level of the 2nd+ line" type="integer" variable="$indentation"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="indentation" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="toArray" start="59" end="90" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Converts an object to an array containing all of its private, protected and public properties."/>
+      <param type="object" variable="$object"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="object" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Some internal classes like SplObjectStorage don't work with the" line="77"/>
+      <comment value="above (fast) mechanism nor with reflection" line="78"/>
+      <comment value="Format the output similarly to print_r() in this case" line="79"/>
+    </inline>
+  </method>
+  <method name="recursiveExport" start="102" end="184" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Recursive implementation of export."/>
+      <param description="The value to export" type="mixed" variable="$value"/>
+      <param description="The indentation level of the 2nd+ line" type="integer" variable="$indentation"/>
+      <param description="Contains all objects that were already" type="array" variable="$processedObjects">rendered</param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="indentation" byreference="false" type="{unknown}"/>
+    <parameter name="processedObjects" byreference="true" type="array" default=""/>
+  </method>
+</class>

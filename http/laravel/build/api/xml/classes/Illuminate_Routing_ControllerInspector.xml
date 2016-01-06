@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Routing\ControllerInspector" namespace="Illuminate\Routing" name="ControllerInspector" abstract="false" final="false" start="9" end="133">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Routing" file="ControllerInspector.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Routing/ControllerInspector.php" size="3529" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="538f675c8e8158ccbf5f12eacbe18d84f4c2b149" relative="vendor/laravel/framework/src/Illuminate/Routing/ControllerInspector.php"/>
+  <member name="verbs" type="array" default="" visibility="protected" line="16">
+    <docblock>
+      <description compact="An array of HTTP verbs."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="getRoutable" start="28" end="55" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the routable methods for a controller."/>
+      <param type="string" variable="$controller"/>
+      <param type="string" variable="$prefix"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="controller" byreference="false" type="{unknown}"/>
+    <parameter name="prefix" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="To get the routable methods, we will simply spin through all methods on the" line="36"/>
+      <comment value="controller instance checking to see if it belongs to the given class and" line="37"/>
+      <comment value="is a publicly routable method. If so, we will add it to this listings." line="38"/>
+    </inline>
+  </method>
+  <method name="isRoutable" start="63" end="70" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the given controller method is routable."/>
+      <param type="object" variable="$method">
+        <type full="\ReflectionMethod" namespace="" name="ReflectionMethod"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Routing\bool" namespace="Illuminate\Routing" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="method" byreference="false" type="object">
+      <type full="ReflectionMethod" namespace="" name="ReflectionMethod"/>
+    </parameter>
+  </method>
+  <method name="getMethodData" start="79" end="86" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the method data for a given method."/>
+      <param type="object" variable="$method">
+        <type full="\ReflectionMethod" namespace="" name="ReflectionMethod"/>
+      </param>
+      <param type="string" variable="$prefix"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="method" byreference="false" type="object">
+      <type full="ReflectionMethod" namespace="" name="ReflectionMethod"/>
+    </parameter>
+    <parameter name="prefix" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getIndexData" start="95" end="98" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the routable data for an index method."/>
+      <param type="array" variable="$data"/>
+      <param type="string" variable="$prefix"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="prefix" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getVerb" start="106" end="109" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Extract the verb from a controller action."/>
+      <param type="string" variable="$name"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getPlainUri" start="118" end="121" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine the URI from the given method name."/>
+      <param type="string" variable="$name"/>
+      <param type="string" variable="$prefix"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="prefix" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addUriWildcards" start="129" end="132" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add wildcards to the given URI."/>
+      <param type="string" variable="$uri"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="uri" byreference="false" type="{unknown}"/>
+  </method>
+</class>

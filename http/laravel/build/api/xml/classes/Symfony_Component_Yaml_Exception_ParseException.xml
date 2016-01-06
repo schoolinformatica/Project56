@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Yaml\Exception\ParseException" namespace="Symfony\Component\Yaml\Exception" name="ParseException" abstract="false" final="false" start="19" end="141">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/yaml/Exception" file="ParseException.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/yaml/Exception/ParseException.php" size="3421" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="68bef882d994ffa5f85a009cb2142917d60c76dd" relative="vendor/symfony/yaml/Exception/ParseException.php"/>
+  <docblock>
+    <description compact="Exception class thrown when an error occurs during parsing."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\Yaml\Exception\RuntimeException" namespace="Symfony\Component\Yaml\Exception" name="RuntimeException"/>
+  <member name="parsedFile" visibility="private" line="21"/>
+  <member name="parsedLine" visibility="private" line="22"/>
+  <member name="snippet" visibility="private" line="23"/>
+  <member name="rawMessage" visibility="private" line="24"/>
+  <constructor name="__construct" start="35" end="45" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="The error message" type="string" variable="$message"/>
+      <param description="The line where the error occurred" type="int" variable="$parsedLine"/>
+      <param description="The snippet of code near the problem" type="int" variable="$snippet"/>
+      <param description="The file name where the error occurred" type="string" variable="$parsedFile"/>
+      <param description="The previous exception" type="object" variable="$previous">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </param>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="parsedLine" byreference="false" type="integer" default="1"/>
+    <parameter name="snippet" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="parsedFile" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="previous" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+  </constructor>
+  <method name="getSnippet" start="52" end="55" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the snippet of code near the error."/>
+      <return description="The snippet of code" type="string"/>
+    </docblock>
+  </method>
+  <method name="setSnippet" start="62" end="67" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the snippet of code near the error."/>
+      <param description="The code snippet" type="string" variable="$snippet"/>
+    </docblock>
+    <parameter name="snippet" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getParsedFile" start="76" end="79" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the filename where the error occurred.">This method returns null if a string is parsed.</description>
+      <return description="The filename" type="string"/>
+    </docblock>
+  </method>
+  <method name="setParsedFile" start="86" end="91" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the filename where the error occurred."/>
+      <param description="The filename" type="string" variable="$parsedFile"/>
+    </docblock>
+    <parameter name="parsedFile" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getParsedLine" start="98" end="101" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the line where the error occurred."/>
+      <return description="The file line" type="int"/>
+    </docblock>
+  </method>
+  <method name="setParsedLine" start="108" end="113" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the line where the error occurred."/>
+      <param description="The file line" type="int" variable="$parsedLine"/>
+    </docblock>
+    <parameter name="parsedLine" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="updateRepr" start="115" end="140" abstract="false" final="false" static="false" visibility="private"/>
+</class>

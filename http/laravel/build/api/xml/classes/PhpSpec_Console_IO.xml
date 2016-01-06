@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpSpec\Console\IO" namespace="PhpSpec\Console" name="IO" abstract="false" final="false" start="24" end="345">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Console" file="IO.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Console/IO.php" size="8108" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="ece73f97ea4ecbdc7f967f7942bf8a25cd16c579" relative="vendor/phpspec/phpspec/src/PhpSpec/Console/IO.php"/>
+  <docblock>
+    <description compact="Class IO deals with input and output from command line interaction"/>
+  </docblock>
+  <implements full="PhpSpec\IO\IOInterface" namespace="PhpSpec\IO" name="IOInterface"/>
+  <constant type="integer" name="COL_MIN_WIDTH" value="40"/>
+  <constant type="integer" name="COL_DEFAULT_WIDTH" value="60"/>
+  <constant type="integer" name="COL_MAX_WIDTH" value="80"/>
+  <member name="input" visibility="private" line="33">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\Console\Input\InputInterface" namespace="Symfony\Component\Console\Input" name="InputInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="output" visibility="private" line="38">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="lastMessage" visibility="private" line="43">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="hasTempString" type="boolean" default="false" visibility="private" line="48">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\Console\bool" namespace="PhpSpec\Console" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="config" visibility="private" line="53">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\Config\OptionsConfig" namespace="PhpSpec\Config" name="OptionsConfig"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="consoleWidth" visibility="private" line="58">
+    <docblock>
+      <description/>
+      <var type="integer"/>
+    </docblock>
+  </member>
+  <member name="prompter" visibility="private" line="63">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\Console\Prompter" namespace="PhpSpec\Console" name="Prompter"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="71" end="81" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$input">
+        <type full="Symfony\Component\Console\Input\InputInterface" namespace="Symfony\Component\Console\Input" name="InputInterface"/>
+      </param>
+      <param type="object" variable="$output">
+        <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+      </param>
+      <param type="object" variable="$config">
+        <type full="PhpSpec\Config\OptionsConfig" namespace="PhpSpec\Config" name="OptionsConfig"/>
+      </param>
+      <param type="object" variable="$prompter">
+        <type full="PhpSpec\Console\Prompter" namespace="PhpSpec\Console" name="Prompter"/>
+      </param>
+    </docblock>
+    <parameter name="input" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputInterface" namespace="Symfony\Component\Console\Input" name="InputInterface"/>
+    </parameter>
+    <parameter name="output" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Output\OutputInterface" namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+    </parameter>
+    <parameter name="config" byreference="false" type="object">
+      <type full="PhpSpec\Config\OptionsConfig" namespace="PhpSpec\Config" name="OptionsConfig"/>
+    </parameter>
+    <parameter name="prompter" byreference="false" type="object">
+      <type full="PhpSpec\Console\Prompter" namespace="PhpSpec\Console" name="Prompter"/>
+    </parameter>
+  </constructor>
+  <method name="isInteractive" start="86" end="89" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="PhpSpec\Console\bool" namespace="PhpSpec\Console" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isDecorated" start="94" end="97" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="PhpSpec\Console\bool" namespace="PhpSpec\Console" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isCodeGenerationEnabled" start="102" end="110" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="PhpSpec\Console\bool" namespace="PhpSpec\Console" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isStopOnFailureEnabled" start="115" end="119" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="PhpSpec\Console\bool" namespace="PhpSpec\Console" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isVerbose" start="124" end="127" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="PhpSpec\Console\bool" namespace="PhpSpec\Console" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getLastWrittenMessage" start="132" end="135" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="writeln" start="141" end="144" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$message"/>
+      <param type="object" variable="$indent">
+        <type full="PhpSpec\Console\integer|null" namespace="PhpSpec\Console" name="integer|null"/>
+      </param>
+    </docblock>
+    <parameter name="message" byreference="false" type="string" default="''"/>
+    <parameter name="indent" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="writeTemp" start="150" end="154" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$message"/>
+      <param type="object" variable="$indent">
+        <type full="PhpSpec\Console\integer|null" namespace="PhpSpec\Console" name="integer|null"/>
+      </param>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="indent" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="cutTemp" start="159" end="169" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="PhpSpec\Console\null|string" namespace="PhpSpec\Console" name="null|string"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="freezeTemp" start="174" end="177" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+    </docblock>
+  </method>
+  <method name="write" start="184" end="199" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$message"/>
+      <param type="object" variable="$indent">
+        <type full="PhpSpec\Console\integer|null" namespace="PhpSpec\Console" name="integer|null"/>
+      </param>
+      <param type="object" variable="$newline">
+        <type full="PhpSpec\Console\bool" namespace="PhpSpec\Console" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="indent" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="newline" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="overwriteln" start="205" end="208" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$message"/>
+      <param type="object" variable="$indent">
+        <type full="PhpSpec\Console\integer|null" namespace="PhpSpec\Console" name="integer|null"/>
+      </param>
+    </docblock>
+    <parameter name="message" byreference="false" type="string" default="''"/>
+    <parameter name="indent" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="overwrite" start="215" end="245" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$message"/>
+      <param type="object" variable="$indent">
+        <type full="PhpSpec\Console\integer|null" namespace="PhpSpec\Console" name="integer|null"/>
+      </param>
+      <param type="object" variable="$newline">
+        <type full="PhpSpec\Console\bool" namespace="PhpSpec\Console" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="indent" byreference="false" type="{unknown}" default="" constant="null"/>
+    <parameter name="newline" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="getCommonPrefix" start="247" end="262" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="stringA" byreference="false" type="{unknown}"/>
+    <parameter name="stringB" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="askConfirmation" start="270" end="283" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$question"/>
+      <param type="object" variable="$default">
+        <type full="PhpSpec\Console\bool" namespace="PhpSpec\Console" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="PhpSpec\Console\Boolean" namespace="PhpSpec\Console" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="question" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="indentText" start="291" end="299" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$text"/>
+      <param type="integer" variable="$indent"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="text" byreference="false" type="{unknown}"/>
+    <parameter name="indent" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isRerunEnabled" start="301" end="304" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="isFakingEnabled" start="306" end="309" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getBootstrapPath" start="311" end="321" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="setConsoleWidth" start="326" end="329" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="integer" variable="$width"/>
+    </docblock>
+    <parameter name="width" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getBlockWidth" start="334" end="344" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="integer"/>
+    </docblock>
+  </method>
+</class>

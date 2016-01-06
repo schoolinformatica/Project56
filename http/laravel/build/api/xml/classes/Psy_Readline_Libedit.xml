@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\Readline\Libedit" namespace="Psy\Readline" name="Libedit" abstract="false" final="false" start="23" end="83">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Readline" file="Libedit.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/Readline/Libedit.php" size="2313" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="0feaf24156fdea8736a26ace589b926f2c4965e7" relative="vendor/psy/psysh/src/Psy/Readline/Libedit.php"/>
+  <docblock>
+    <description compact="A Libedit-based Readline implementation.">This is largely the same as the Readline implementation, but it emulates
+support for `readline_list_history` since PHP decided it was a good idea to
+ship a fake Readline implementation that is missing history support.</description>
+  </docblock>
+  <extends full="Psy\Readline\GNUReadline" namespace="Psy\Readline" name="GNUReadline"/>
+  <method name="isSupported" start="30" end="33" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Let's emulate GNU Readline by manually reading and parsing the history file!"/>
+      <return type="object">
+        <type full="Psy\Readline\bool" namespace="Psy\Readline" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="listHistory" start="38" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <inline>
+      <comment value="libedit doesn't seem to support non-unix line separators." line="45"/>
+      <comment value="shift the history signature, ensure it's valid" line="48"/>
+      <comment value="decode the line" line="53"/>
+      <comment value="filter empty lines &amp; comments" line="55"/>
+    </inline>
+  </method>
+  <method name="parseHistoryLine" start="69" end="82" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="From GNUReadline (readline/histfile.c &amp; readline/histexpand.c): lines starting with &quot;\0&quot; are comments or timestamps; if &quot;\0&quot; is found in an entry, everything from it until the next line is a comment."/>
+      <param description="The history line to parse." type="string" variable="$line"/>
+      <return description="| null" type="string"/>
+    </docblock>
+    <parameter name="line" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="empty line, comment or timestamp" line="71"/>
+      <comment value="if &quot;\0&quot; is found in an entry, then" line="75"/>
+      <comment value="everything from it until the end of line is a comment." line="76"/>
+    </inline>
+  </method>
+</class>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_Plugins_ImpersonatePlugin" namespace="" name="Swift_Plugins_ImpersonatePlugin" abstract="false" final="false" start="16" end="69">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Plugins" file="ImpersonatePlugin.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Plugins/ImpersonatePlugin.php" size="1694" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="34be9e2446f4c2100937c316e340b3a40154e220" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Plugins/ImpersonatePlugin.php"/>
+  <docblock>
+    <description compact="Replaces the sender of a message."/>
+    <author value="Arjen Brouwer"/>
+  </docblock>
+  <implements full="Swift_Events_SendListener" namespace="" name="Swift_Events_SendListener"/>
+  <member name="_sender" visibility="private" line="23">
+    <docblock>
+      <description compact="The sender to impersonate."/>
+      <var type="object">
+        <type full="String" namespace="" name="String"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="30" end="33" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new ImpersonatePlugin to impersonate $sender."/>
+      <param description="address" type="string" variable="$sender"/>
+    </docblock>
+    <parameter name="sender" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="beforeSendPerformed" start="40" end="50" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Invoked immediately before the Message is sent."/>
+      <param type="object" variable="$evt">
+        <type full="Swift_Events_SendEvent" namespace="" name="Swift_Events_SendEvent"/>
+      </param>
+    </docblock>
+    <parameter name="evt" byreference="false" type="object">
+      <type full="Swift_Events_SendEvent" namespace="" name="Swift_Events_SendEvent"/>
+    </parameter>
+    <inline>
+      <comment value="save current recipients" line="45"/>
+      <comment value="replace them with the one to send to" line="48"/>
+    </inline>
+  </method>
+  <method name="sendPerformed" start="57" end="68" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Invoked immediately after the Message is sent."/>
+      <param type="object" variable="$evt">
+        <type full="Swift_Events_SendEvent" namespace="" name="Swift_Events_SendEvent"/>
+      </param>
+    </docblock>
+    <parameter name="evt" byreference="false" type="object">
+      <type full="Swift_Events_SendEvent" namespace="" name="Swift_Events_SendEvent"/>
+    </parameter>
+    <inline>
+      <comment value="restore original headers" line="61"/>
+    </inline>
+  </method>
+</class>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Psy\CodeCleaner\ValidFunctionNamePass" namespace="Psy\CodeCleaner" name="ValidFunctionNamePass" abstract="false" final="false" start="27" end="73">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/CodeCleaner" file="ValidFunctionNamePass.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/psy/psysh/src/Psy/CodeCleaner/ValidFunctionNamePass.php" size="2373" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="23aaa763d281d7f68a638d59d6bb10303ef07b38" relative="vendor/psy/psysh/src/Psy/CodeCleaner/ValidFunctionNamePass.php"/>
+  <docblock>
+    <description compact="Validate that function calls will succeed.">This pass throws a FatalErrorException rather than letting PHP run
+headfirst into a real fatal error and die.</description>
+  </docblock>
+  <extends full="Psy\CodeCleaner\NamespaceAwarePass" namespace="Psy\CodeCleaner" name="NamespaceAwarePass"/>
+  <method name="enterNode" start="34" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Store newly defined function names on the way in, to allow recursion."/>
+      <param type="object" variable="$node">
+        <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+      </param>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+    </parameter>
+  </method>
+  <method name="leaveNode" start="57" end="72" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Validate that function calls will succeed."/>
+      <throws description="if a function is redefined." type="object">
+        <type full="Psy\Exception\FatalErrorException" namespace="Psy\Exception" name="FatalErrorException"/>
+      </throws>
+      <throws description="if the function name is a string (not an expression) and is not defined." type="object">
+        <type full="Psy\Exception\FatalErrorException" namespace="Psy\Exception" name="FatalErrorException"/>
+      </throws>
+      <param type="object" variable="$node">
+        <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+      </param>
+    </docblock>
+    <parameter name="node" byreference="false" type="object">
+      <type full="PhpParser\Node" namespace="PhpParser" name="Node"/>
+    </parameter>
+  </method>
+</class>

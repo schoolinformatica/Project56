@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Finder\Shell\Command" namespace="Symfony\Component\Finder\Shell" name="Command" abstract="false" final="false" start="17" end="294">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/finder/Shell" file="Command.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/finder/Shell/Command.php" size="6329" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="427796f0f9ff7b682214d05ac75e9d4ad25e5213" relative="vendor/symfony/finder/Shell/Command.php"/>
+  <docblock>
+    <description/>
+    <author value="Jean-François Simon &lt;contact@jfsimon.fr&gt;"/>
+  </docblock>
+  <member name="parent" visibility="private" line="22">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\Finder\Shell\Command|null" namespace="Symfony\Component\Finder\Shell" name="Command|null"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="bits" type="array" default="" visibility="private" line="27">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="labels" type="array" default="" visibility="private" line="32">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="errorHandler" visibility="private" line="37">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="\Closure|null" namespace="" name="Closure|null"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="44" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="Parent command" type="object" variable="$parent">
+        <type full="Symfony\Component\Finder\Shell\Command|null" namespace="Symfony\Component\Finder\Shell" name="Command|null"/>
+      </param>
+    </docblock>
+    <parameter name="parent" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\Finder\Shell\Command" namespace="Symfony\Component\Finder\Shell" name="Command"/>
+    </parameter>
+  </constructor>
+  <method name="__toString" start="54" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns command as string."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="create" start="66" end="69" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Creates a new Command instance."/>
+      <param description="Parent command" type="object" variable="$parent">
+        <type full="Symfony\Component\Finder\Shell\Command|null" namespace="Symfony\Component\Finder\Shell" name="Command|null"/>
+      </param>
+      <return description="New Command instance" type="object">
+        <type full="Symfony\Component\Finder\Shell\Command" namespace="Symfony\Component\Finder\Shell" name="Command"/>
+      </return>
+    </docblock>
+    <parameter name="parent" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\Finder\Shell\Command" namespace="Symfony\Component\Finder\Shell" name="Command"/>
+    </parameter>
+  </method>
+  <method name="escape" start="78" end="81" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Escapes special chars from input."/>
+      <param description="A string to escape" type="string" variable="$input"/>
+      <return description="The escaped string" type="string"/>
+    </docblock>
+    <parameter name="input" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="quote" start="90" end="93" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Quotes input."/>
+      <param description="An argument string" type="string" variable="$input"/>
+      <return description="The quoted string" type="string"/>
+    </docblock>
+    <parameter name="input" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="add" start="102" end="107" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Appends a string or a Command instance."/>
+      <param type="object" variable="$bit">
+        <type full="Symfony\Component\Finder\Shell\string|Command" namespace="Symfony\Component\Finder\Shell" name="string|Command"/>
+      </param>
+      <return description="The current Command instance" type="object">
+        <type full="Symfony\Component\Finder\Shell\Command" namespace="Symfony\Component\Finder\Shell" name="Command"/>
+      </return>
+    </docblock>
+    <parameter name="bit" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="top" start="116" end="125" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Prepends a string or a command instance."/>
+      <param type="object" variable="$bit">
+        <type full="Symfony\Component\Finder\Shell\string|Command" namespace="Symfony\Component\Finder\Shell" name="string|Command"/>
+      </param>
+      <return description="The current Command instance" type="object">
+        <type full="Symfony\Component\Finder\Shell\Command" namespace="Symfony\Component\Finder\Shell" name="Command"/>
+      </return>
+    </docblock>
+    <parameter name="bit" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="arg" start="134" end="139" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Appends an argument, will be quoted."/>
+      <param type="string" variable="$arg"/>
+      <return description="The current Command instance" type="object">
+        <type full="Symfony\Component\Finder\Shell\Command" namespace="Symfony\Component\Finder\Shell" name="Command"/>
+      </return>
+    </docblock>
+    <parameter name="arg" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="cmd" start="148" end="153" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Appends escaped special command chars."/>
+      <param type="string" variable="$esc"/>
+      <return description="The current Command instance" type="object">
+        <type full="Symfony\Component\Finder\Shell\Command" namespace="Symfony\Component\Finder\Shell" name="Command"/>
+      </return>
+    </docblock>
+    <parameter name="esc" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="ins" start="164" end="174" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Inserts a labeled command to feed later."/>
+      <param description="The unique label" type="string" variable="$label"/>
+      <return description="The current Command instance" type="object">
+        <type full="Symfony\Component\Finder\Shell\Command" namespace="Symfony\Component\Finder\Shell" name="Command"/>
+      </return>
+      <throws description="If label already exists" type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="label" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get" start="185" end="192" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieves a previously labeled command."/>
+      <param type="string" variable="$label"/>
+      <return description="The labeled command" type="object">
+        <type full="Symfony\Component\Finder\Shell\Command" namespace="Symfony\Component\Finder\Shell" name="Command"/>
+      </return>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="label" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="end" start="201" end="208" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns parent command (if any)."/>
+      <return description="Parent command" type="object">
+        <type full="Symfony\Component\Finder\Shell\Command" namespace="Symfony\Component\Finder\Shell" name="Command"/>
+      </return>
+      <throws description="If command has no parent" type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="length" start="215" end="218" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Counts bits stored in command."/>
+      <return description="The bits count" type="int"/>
+    </docblock>
+  </method>
+  <method name="setErrorHandler" start="225" end="230" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$errorHandler">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Symfony\Component\Finder\Shell\Command" namespace="Symfony\Component\Finder\Shell" name="Command"/>
+      </return>
+    </docblock>
+    <parameter name="errorHandler" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="getErrorHandler" start="235" end="238" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="\Closure|null" namespace="" name="Closure|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="execute" start="247" end="263" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Executes current command."/>
+      <return description="The command result" type="array"/>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="join" start="270" end="278" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Joins bits."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="addAtIndex" start="288" end="293" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Insert a string or a Command instance before the bit at given position $index (index starts from 0)."/>
+      <param type="object" variable="$bit">
+        <type full="Symfony\Component\Finder\Shell\string|Command" namespace="Symfony\Component\Finder\Shell" name="string|Command"/>
+      </param>
+      <param type="int" variable="$index"/>
+      <return description="The current Command instance" type="object">
+        <type full="Symfony\Component\Finder\Shell\Command" namespace="Symfony\Component\Finder\Shell" name="Command"/>
+      </return>
+    </docblock>
+    <parameter name="bit" byreference="false" type="{unknown}"/>
+    <parameter name="index" byreference="false" type="{unknown}"/>
+  </method>
+</class>

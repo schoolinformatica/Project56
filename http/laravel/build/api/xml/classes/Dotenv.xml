@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Dotenv" namespace="" name="Dotenv" abstract="false" final="false" start="8" end="307">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/vlucas/phpdotenv/src" file="Dotenv.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/vlucas/phpdotenv/src/Dotenv.php" size="9093" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="f6b48fdf6e0e39cd0601f79a03814849ad3372e4" relative="vendor/vlucas/phpdotenv/src/Dotenv.php"/>
+  <docblock>
+    <description compact="Dotenv.">Loads a `.env` file in the given directory and sets the environment vars.</description>
+  </docblock>
+  <member name="immutable" type="boolean" default="true" visibility="protected" line="15">
+    <docblock>
+      <description compact="If true, then environment variables will not be overwritten."/>
+      <var type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="load" start="25" end="59" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Load `.env` file in given directory."/>
+      <param type="string" variable="$path"/>
+      <param type="string" variable="$file"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="file" byreference="false" type="string" default="'.env'"/>
+    <inline>
+      <comment value="Read file into an array of lines with auto-detected line endings" line="43"/>
+    </inline>
+  </method>
+  <method name="setEnvironmentVariable" start="76" end="89" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set a variable.">Variable set using:
+- putenv
+- $_ENV
+- $_SERVER.
+
+The environment variable value is stripped of single and double quotes.</description>
+      <param type="string" variable="$name"/>
+      <param type="object" variable="$value">
+        <type full="string|null" namespace="" name="string|null"/>
+      </param>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="" constant="null"/>
+    <inline>
+      <comment value="Don't overwrite existing environment variables if we're immutable" line="80"/>
+      <comment value="Ruby's dotenv does this with `ENV[key] ||= value`." line="81"/>
+    </inline>
+  </method>
+  <method name="required" start="103" end="130" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Require specified ENV vars to be present, or throw an exception.">You can also pass through an set of allowed values for the environment variable.</description>
+      <param type="mixed" variable="$environmentVariables"/>
+      <param type="array" variable="$allowedValues" of="string"/>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+      <return type="object">
+        <type full="true" namespace="" name="true"/>
+      </return>
+    </docblock>
+    <parameter name="environmentVariables" byreference="false" type="{unknown}"/>
+    <parameter name="allowedValues" byreference="false" type="array" default=""/>
+  </method>
+  <method name="normaliseEnvironmentVariable" start="146" end="154" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Takes value as passed in by developer.">We're also:
+- ensuring we're dealing with a separate name and value, breaking apart the name string if needed
+- cleaning the value of quotes
+- cleaning the name of quotes
+- resolving nested variables</description>
+      <param type="string" variable="$name"/>
+      <param type="string" variable="$value"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="splitCompoundStringIntoParts" start="164" end="171" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="If the $name contains an = sign, then we split it into 2 parts, a name &amp; value."/>
+      <param type="string" variable="$name"/>
+      <param type="string" variable="$value"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="sanitiseVariableValue" start="180" end="209" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Strips quotes from the environment variable value."/>
+      <param type="string" variable="$value"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="sanitiseVariableName" start="218" end="221" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Strips quotes and the optional leading &quot;export &quot; from the environment variable name."/>
+      <param type="string" variable="$name"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="resolveNestedVariables" start="232" end="250" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Look for {$varname} patterns in the variable value.">Replace with an existing environment variable.</description>
+      <param type="string" variable="$value"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="findEnvironmentVariable" start="259" end="270" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Search the different places for environment variables and return first value found."/>
+      <param type="string" variable="$name"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isImmutable" start="279" end="282" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Check Dotenv immutable status.">Returns true if immutable, false if mutable.</description>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="makeImmutable" start="291" end="294" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Make Dotenv immutable.">This means that once set, an environment variable cannot be overridden.</description>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="makeMutable" start="303" end="306" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Make Dotenv mutable.">Environment variables will act as, well, variables.</description>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+  </method>
+</class>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="League\Flysystem\File" namespace="League\Flysystem" name="File" abstract="false" final="false" start="5" end="202">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/league/flysystem/src" file="File.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/league/flysystem/src/File.php" size="3955" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="d8da1130de4b28855a70b9098c6a07fac69ec856" relative="vendor/league/flysystem/src/File.php"/>
+  <extends full="League\Flysystem\Handler" namespace="League\Flysystem" name="Handler"/>
+  <method name="exists" start="12" end="15" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check whether the file exists."/>
+      <return type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="read" start="22" end="25" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Read the file."/>
+      <return description="file contents" type="string"/>
+    </docblock>
+  </method>
+  <method name="readStream" start="32" end="35" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Read the file as a stream."/>
+      <return description="file stream" type="resource"/>
+    </docblock>
+  </method>
+  <method name="write" start="44" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Write the new file."/>
+      <param type="string" variable="$content"/>
+      <return description="success boolean" type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="writeStream" start="56" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Write the new file using a stream."/>
+      <param type="resource" variable="$resource"/>
+      <return description="success boolean" type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="resource" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="update" start="68" end="71" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Update the file contents."/>
+      <param type="string" variable="$content"/>
+      <return description="success boolean" type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="updateStream" start="80" end="83" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Update the file contents with a stream."/>
+      <param type="resource" variable="$resource"/>
+      <return description="success boolean" type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="resource" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="put" start="92" end="95" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create the file or update if exists."/>
+      <param type="string" variable="$content"/>
+      <return description="success boolean" type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="putStream" start="104" end="107" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create the file or update if exists using a stream."/>
+      <param type="resource" variable="$resource"/>
+      <return description="success boolean" type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="resource" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="rename" start="116" end="125" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Rename the file."/>
+      <param type="string" variable="$newpath"/>
+      <return description="success boolean" type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="newpath" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="copy" start="134" end="141" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Copy the file."/>
+      <param type="string" variable="$newpath"/>
+      <return description="new file or false" type="object">
+        <type full="League\Flysystem\File|false" namespace="League\Flysystem" name="File|false"/>
+      </return>
+    </docblock>
+    <parameter name="newpath" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getTimestamp" start="148" end="151" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the file's timestamp."/>
+      <return description="unix timestamp" type="int"/>
+    </docblock>
+  </method>
+  <method name="getMimetype" start="158" end="161" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the file's mimetype."/>
+      <return description="mimetime" type="string"/>
+    </docblock>
+  </method>
+  <method name="getVisibility" start="168" end="171" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the file's visibility."/>
+      <return description="visibility" type="string"/>
+    </docblock>
+  </method>
+  <method name="getMetadata" start="178" end="181" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the file's metadata."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getSize" start="188" end="191" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the file size."/>
+      <return description="file size" type="int"/>
+    </docblock>
+  </method>
+  <method name="delete" start="198" end="201" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Delete the file."/>
+      <return description="success boolean" type="object">
+        <type full="League\Flysystem\bool" namespace="League\Flysystem" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+</class>

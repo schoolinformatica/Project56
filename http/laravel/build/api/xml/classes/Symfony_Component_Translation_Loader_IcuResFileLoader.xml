@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Translation\Loader\IcuResFileLoader" namespace="Symfony\Component\Translation\Loader" name="IcuResFileLoader" abstract="false" final="false" start="24" end="92">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation/Loader" file="IcuResFileLoader.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation/Loader/IcuResFileLoader.php" size="2941" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="e64dc0e65244f93150761d32b6470c6fd4d7cfb9" relative="vendor/symfony/translation/Loader/IcuResFileLoader.php"/>
+  <docblock>
+    <description compact="IcuResFileLoader loads translations from a resource bundle."/>
+    <author value="stealth35"/>
+  </docblock>
+  <implements full="Symfony\Component\Translation\Loader\LoaderInterface" namespace="Symfony\Component\Translation\Loader" name="LoaderInterface"/>
+  <method name="load" start="29" end="61" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="resource" byreference="false" type="{unknown}"/>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="domain" byreference="false" type="string" default="'messages'"/>
+  </method>
+  <method name="flatten" start="79" end="91" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Flattens an ResourceBundle.">The scheme used is:
+  key { key2 { key3 { "value" } } }
+Becomes:
+  'key.key2.key3' =&gt; 'value'
+
+This function takes an array by reference and will modify it</description>
+      <param description="the ResourceBundle that will be flattened" type="object" variable="$rb">
+        <type full="\ResourceBundle" namespace="" name="ResourceBundle"/>
+      </param>
+      <param description="used internally for recursive calls" type="array" variable="$messages"/>
+      <param description="current path being parsed, used internally for recursive calls" type="string" variable="$path"/>
+      <return description="the flattened ResourceBundle" type="array"/>
+    </docblock>
+    <parameter name="rb" byreference="false" type="object">
+      <type full="ResourceBundle" namespace="" name="ResourceBundle"/>
+    </parameter>
+    <parameter name="messages" byreference="true" type="array" default=""/>
+    <parameter name="path" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+</class>

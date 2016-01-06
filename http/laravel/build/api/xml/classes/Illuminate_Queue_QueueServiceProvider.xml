@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Queue\QueueServiceProvider" namespace="Illuminate\Queue" name="QueueServiceProvider" abstract="false" final="false" start="21" end="326">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Queue" file="QueueServiceProvider.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Queue/QueueServiceProvider.php" size="8399" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="59b7fa664092afbdffa6017614093869504da8aa" relative="vendor/laravel/framework/src/Illuminate/Queue/QueueServiceProvider.php"/>
+  <extends full="Illuminate\Support\ServiceProvider" namespace="Illuminate\Support" name="ServiceProvider"/>
+  <member name="defer" type="boolean" default="true" visibility="protected" line="28">
+    <docblock>
+      <description compact="Indicates if loading of the provider is deferred."/>
+      <var type="object">
+        <type full="Illuminate\Queue\bool" namespace="Illuminate\Queue" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="register" start="35" end="48" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register the service provider."/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="registerManager" start="55" end="71" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register the queue manager."/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="registerWorker" start="78" end="87" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register the queue worker."/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="registerWorkCommand" start="94" end="101" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register the queue worker console command."/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="registerListener" start="108" end="115" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register the queue listener."/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="registerListenCommand" start="122" end="129" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register the queue listener console command."/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="registerRestartCommand" start="136" end="143" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register the queue restart console command."/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="registerSubscriber" start="150" end="157" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register the push queue subscribe command."/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="registerConnectors" start="165" end="170" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register the connectors on the queue manager."/>
+      <param type="object" variable="$manager">
+        <type full="\Illuminate\Queue\QueueManager" namespace="\Illuminate\Queue" name="QueueManager"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="manager" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="registerNullConnector" start="178" end="183" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register the Null queue connector."/>
+      <param type="object" variable="$manager">
+        <type full="\Illuminate\Queue\QueueManager" namespace="\Illuminate\Queue" name="QueueManager"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="manager" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="registerSyncConnector" start="191" end="196" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register the Sync queue connector."/>
+      <param type="object" variable="$manager">
+        <type full="\Illuminate\Queue\QueueManager" namespace="\Illuminate\Queue" name="QueueManager"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="manager" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="registerBeanstalkdConnector" start="204" end="209" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register the Beanstalkd queue connector."/>
+      <param type="object" variable="$manager">
+        <type full="\Illuminate\Queue\QueueManager" namespace="\Illuminate\Queue" name="QueueManager"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="manager" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="registerDatabaseConnector" start="217" end="222" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register the database queue connector."/>
+      <param type="object" variable="$manager">
+        <type full="\Illuminate\Queue\QueueManager" namespace="\Illuminate\Queue" name="QueueManager"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="manager" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="registerRedisConnector" start="230" end="237" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register the Redis queue connector."/>
+      <param type="object" variable="$manager">
+        <type full="\Illuminate\Queue\QueueManager" namespace="\Illuminate\Queue" name="QueueManager"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="manager" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="registerSqsConnector" start="245" end="250" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register the Amazon SQS queue connector."/>
+      <param type="object" variable="$manager">
+        <type full="\Illuminate\Queue\QueueManager" namespace="\Illuminate\Queue" name="QueueManager"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="manager" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="registerIronConnector" start="258" end="267" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register the IronMQ queue connector."/>
+      <param type="object" variable="$manager">
+        <type full="\Illuminate\Queue\QueueManager" namespace="\Illuminate\Queue" name="QueueManager"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="manager" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="registerIronRequestBinder" start="274" end="281" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register the request rebinding event for the Iron queue."/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="registerFailedJobServices" start="288" end="299" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register the failed job services."/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="registerQueueClosure" start="306" end="311" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register the Illuminate queued closure job."/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="provides" start="318" end="325" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the services provided by the provider."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+</class>

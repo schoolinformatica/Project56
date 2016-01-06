@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Foundation\Http\Middleware\VerifyCsrfToken" namespace="Illuminate\Foundation\Http\Middleware" name="VerifyCsrfToken" abstract="false" final="false" start="11" end="131">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware" file="VerifyCsrfToken.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php" size="3342" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="82dbceebaffec36d93394a3156c17501430a385f" relative="vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php"/>
+  <member name="encrypter" visibility="protected" line="18">
+    <docblock>
+      <description compact="The encrypter implementation."/>
+      <var type="object">
+        <type full="\Illuminate\Contracts\Encryption\Encrypter" namespace="\Illuminate\Contracts\Encryption" name="Encrypter"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="except" type="array" default="" visibility="protected" line="25">
+    <docblock>
+      <description compact="The URIs that should be excluded from CSRF verification."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="33" end="36" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new middleware instance."/>
+      <param type="object" variable="$encrypter">
+        <type full="\Illuminate\Contracts\Encryption\Encrypter" namespace="\Illuminate\Contracts\Encryption" name="Encrypter"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\Http\Middleware\void" namespace="Illuminate\Foundation\Http\Middleware" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="encrypter" byreference="false" type="object">
+      <type full="Illuminate\Contracts\Encryption\Encrypter" namespace="Illuminate\Contracts\Encryption" name="Encrypter"/>
+    </parameter>
+  </constructor>
+  <method name="handle" start="47" end="54" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Handle an incoming request."/>
+      <param type="object" variable="$request">
+        <type full="\Illuminate\Http\Request" namespace="\Illuminate\Http" name="Request"/>
+      </param>
+      <param type="object" variable="$next">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="mixed"/>
+      <throws type="object">
+        <type full="\Illuminate\Session\TokenMismatchException" namespace="\Illuminate\Session" name="TokenMismatchException"/>
+      </throws>
+    </docblock>
+    <parameter name="request" byreference="false" type="{unknown}"/>
+    <parameter name="next" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="shouldPassThrough" start="62" end="75" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Determine if the request has a URI that should pass through CSRF verification."/>
+      <param type="object" variable="$request">
+        <type full="\Illuminate\Http\Request" namespace="\Illuminate\Http" name="Request"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\Http\Middleware\bool" namespace="Illuminate\Foundation\Http\Middleware" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="tokensMatch" start="83" end="98" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Determine if the session and input CSRF tokens match."/>
+      <param type="object" variable="$request">
+        <type full="\Illuminate\Http\Request" namespace="\Illuminate\Http" name="Request"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\Http\Middleware\bool" namespace="Illuminate\Foundation\Http\Middleware" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addCookieToResponse" start="107" end="119" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Add the CSRF token to the response cookies."/>
+      <param type="object" variable="$request">
+        <type full="\Illuminate\Http\Request" namespace="\Illuminate\Http" name="Request"/>
+      </param>
+      <param type="object" variable="$response">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="{unknown}"/>
+    <parameter name="response" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isReading" start="127" end="130" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Determine if the HTTP request uses a ‘read’ verb."/>
+      <param type="object" variable="$request">
+        <type full="\Illuminate\Http\Request" namespace="\Illuminate\Http" name="Request"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Foundation\Http\Middleware\bool" namespace="Illuminate\Foundation\Http\Middleware" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="{unknown}"/>
+  </method>
+</class>

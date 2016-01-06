@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Routing\RouteCompiler" namespace="Symfony\Component\Routing" name="RouteCompiler" abstract="false" final="false" start="20" end="229">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/routing" file="RouteCompiler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/routing/RouteCompiler.php" size="10081" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="4a9064a2f7a64bb1ea6b570270f54fbf6852fc50" relative="vendor/symfony/routing/RouteCompiler.php"/>
+  <docblock>
+    <description compact="RouteCompiler compiles Route instances to CompiledRoute instances."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+    <author value="Tobias Schultze &lt;http://tobion.de&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\Routing\RouteCompilerInterface" namespace="Symfony\Component\Routing" name="RouteCompilerInterface"/>
+  <constant type="string" name="REGEX_DELIMITER" value="'#'"/>
+  <constant type="string" name="SEPARATORS" value="'/,;.:-_~+*=@|'">
+    <docblock>
+      <description compact="This string defines the characters that are automatically considered separators in front of optional placeholders (with default and no static text following). Such a single separator can be left out together with the optional placeholder from matching and generating URLs."/>
+    </docblock>
+  </constant>
+  <method name="compile" start="38" end="77" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+      <throws description="If a variable is referenced more than once" type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws description="If a variable name is numeric because PHP raises an error for such" type="object">subpatterns in PCRE and thus would break matching, e.g. "(?P&lt;123&gt;.+)".<type full="\DomainException" namespace="" name="DomainException"/></throws>
+    </docblock>
+    <parameter name="route" byreference="false" type="object">
+      <type full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route"/>
+    </parameter>
+  </method>
+  <method name="compilePattern" start="79" end="170" abstract="false" final="false" static="true" visibility="private">
+    <parameter name="route" byreference="false" type="object">
+      <type full="Symfony\Component\Routing\Route" namespace="Symfony\Component\Routing" name="Route"/>
+    </parameter>
+    <parameter name="pattern" byreference="false" type="{unknown}"/>
+    <parameter name="isHost" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Match all variables enclosed in &quot;{}&quot; and iterate over them. But we only want to match the innermost variable" line="87"/>
+      <comment value="in case of nested &quot;{}&quot;, e.g. {foo{bar}}. This in ensured because \w does not match &quot;{&quot; or &quot;}&quot; itself." line="88"/>
+      <comment value="find the first optional token" line="145"/>
+      <comment value="compute the matching regexp" line="158"/>
+    </inline>
+  </method>
+  <method name="findNextSeparator" start="179" end="189" abstract="false" final="false" static="true" visibility="private">
+    <docblock>
+      <description compact="Returns the next static character in the Route pattern that will serve as a separator."/>
+      <param description="The route pattern" type="string" variable="$pattern"/>
+      <return description="The next static character that functions as separator (or empty string when none available)" type="string"/>
+    </docblock>
+    <parameter name="pattern" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="first remove all placeholders from the pattern so we can find the next real static character" line="185"/>
+    </inline>
+  </method>
+  <method name="computeRegexp" start="200" end="228" abstract="false" final="false" static="true" visibility="private">
+    <docblock>
+      <description compact="Computes the regexp used to match a specific token. It can be static text or a subpattern."/>
+      <param description="The route tokens" type="array" variable="$tokens"/>
+      <param description="The index of the current token" type="int" variable="$index"/>
+      <param description="The index of the first optional token" type="int" variable="$firstOptional"/>
+      <return description="The regexp pattern for a single token" type="string"/>
+    </docblock>
+    <parameter name="tokens" byreference="false" type="array"/>
+    <parameter name="index" byreference="false" type="{unknown}"/>
+    <parameter name="firstOptional" byreference="false" type="{unknown}"/>
+  </method>
+</class>

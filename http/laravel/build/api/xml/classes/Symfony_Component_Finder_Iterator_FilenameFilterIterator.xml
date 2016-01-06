@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Finder\Iterator\FilenameFilterIterator" namespace="Symfony\Component\Finder\Iterator" name="FilenameFilterIterator" abstract="false" final="false" start="21" end="67">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/finder/Iterator" file="FilenameFilterIterator.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/finder/Iterator/FilenameFilterIterator.php" size="1721" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="fa1eba72556e62eee9841c4c721c6eeca8501bb8" relative="vendor/symfony/finder/Iterator/FilenameFilterIterator.php"/>
+  <docblock>
+    <description compact="FilenameFilterIterator filters files by patterns (a regexp, a glob, or a string)."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\Finder\Iterator\MultiplePcreFilterIterator" namespace="Symfony\Component\Finder\Iterator" name="MultiplePcreFilterIterator"/>
+  <method name="accept" start="28" end="51" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Filters the iterator values."/>
+      <return description="true if the value should be kept, false otherwise" type="object">
+        <type full="Symfony\Component\Finder\Iterator\bool" namespace="Symfony\Component\Finder\Iterator" name="bool"/>
+      </return>
+    </docblock>
+    <inline>
+      <comment value="should at least not match one rule to exclude" line="32"/>
+      <comment value="should at least match one rule" line="39"/>
+    </inline>
+  </method>
+  <method name="toRegex" start="63" end="66" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Converts glob to regexp.">PCRE patterns are left unchanged.
+Glob strings are transformed with Glob::toRegex().</description>
+      <param description="Pattern: glob or regexp" type="string" variable="$str"/>
+      <return description="regexp corresponding to a given glob or regexp" type="string"/>
+    </docblock>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+  </method>
+</class>

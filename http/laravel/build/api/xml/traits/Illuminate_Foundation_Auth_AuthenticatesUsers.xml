@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trait xmlns="http://xml.phpdox.net/src" full="Illuminate\Foundation\Auth\AuthenticatesUsers" namespace="Illuminate\Foundation\Auth" name="AuthenticatesUsers" abstract="false" final="false" start="9" end="154">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Auth" file="AuthenticatesUsers.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php" size="4287" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="5dc2a080deedec27b77e57887370f14100713ee0" relative="vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php"/>
+  <uses full="Illuminate\Foundation\Auth\RedirectsUsers" namespace="Illuminate\Foundation\Auth" name="RedirectsUsers" start="11" end="11"/>
+  <method name="getLogin" start="18" end="25" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Show the application login form."/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="postLogin" start="33" end="66" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Handle a login request to the application."/>
+      <param type="object" variable="$request">
+        <type full="\Illuminate\Http\Request" namespace="\Illuminate\Http" name="Request"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+    </parameter>
+    <inline>
+      <comment value="If the class is using the ThrottlesLogins trait, we can automatically throttle" line="39"/>
+      <comment value="the login attempts for this application. We'll key this by the username and" line="40"/>
+      <comment value="the IP address of the client making these requests into this application." line="41"/>
+      <comment value="If the login attempt was unsuccessful we will increment the number of attempts" line="54"/>
+      <comment value="to login and redirect the user back to the login form. Of course, when this" line="55"/>
+      <comment value="user surpasses their maximum number of attempts they will get locked out." line="56"/>
+    </inline>
+  </method>
+  <method name="handleUserWasAuthenticated" start="75" end="86" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Send the response after the user was authenticated."/>
+      <param type="object" variable="$request">
+        <type full="\Illuminate\Http\Request" namespace="\Illuminate\Http" name="Request"/>
+      </param>
+      <param type="object" variable="$throttles">
+        <type full="Illuminate\Foundation\Auth\bool" namespace="Illuminate\Foundation\Auth" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+    </parameter>
+    <parameter name="throttles" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getCredentials" start="94" end="97" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the needed authorization credentials from the request."/>
+      <param type="object" variable="$request">
+        <type full="\Illuminate\Http\Request" namespace="\Illuminate\Http" name="Request"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+    </parameter>
+  </method>
+  <method name="getFailedLoginMessage" start="104" end="109" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the failed login message."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getLogout" start="116" end="121" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Log the user out of the application."/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="loginPath" start="128" end="131" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the path to the login route."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="loginUsername" start="138" end="141" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the login username to be used by the controller."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="isUsingThrottlesLoginsTrait" start="148" end="153" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Determine if the class is using the ThrottlesLogins trait."/>
+      <return type="object">
+        <type full="Illuminate\Foundation\Auth\bool" namespace="Illuminate\Foundation\Auth" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+</trait>

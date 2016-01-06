@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_Transport_Esmtp_AuthHandler" namespace="" name="Swift_Transport_Esmtp_AuthHandler" abstract="false" final="false" start="16" end="263">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/Esmtp" file="AuthHandler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/Esmtp/AuthHandler.php" size="5929" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="0eaa407f93fdc4abec57da429b5b8fd12a1ca363" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/Esmtp/AuthHandler.php"/>
+  <docblock>
+    <description compact="An ESMTP handler for AUTH support."/>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <implements full="Swift_Transport_EsmtpHandler" namespace="" name="Swift_Transport_EsmtpHandler"/>
+  <member name="_authenticators" type="array" default="" visibility="private" line="23">
+    <docblock>
+      <description compact="Authenticators available to process the request."/>
+      <var type="array" of="object">
+        <type full="Swift_Transport_Esmtp_Authenticator" namespace="" name="Swift_Transport_Esmtp_Authenticator"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="_username" visibility="private" line="30">
+    <docblock>
+      <description compact="The username for authentication."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_password" visibility="private" line="37">
+    <docblock>
+      <description compact="The password for authentication."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_auth_mode" visibility="private" line="44">
+    <docblock>
+      <description compact="The auth mode for authentication."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_esmtpParams" type="array" default="" visibility="private" line="51">
+    <docblock>
+      <description compact="The ESMTP AUTH parameters available."/>
+      <var type="array" of="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="58" end="61" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new AuthHandler with $authenticators for support."/>
+      <param type="array" variable="$authenticators" of="object">
+        <type full="Swift_Transport_Esmtp_Authenticator" namespace="" name="Swift_Transport_Esmtp_Authenticator"/>
+      </param>
+    </docblock>
+    <parameter name="authenticators" byreference="false" type="array"/>
+  </constructor>
+  <method name="setAuthenticators" start="68" end="71" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the Authenticators which can process a login request."/>
+      <param type="array" variable="$authenticators" of="object">
+        <type full="Swift_Transport_Esmtp_Authenticator" namespace="" name="Swift_Transport_Esmtp_Authenticator"/>
+      </param>
+    </docblock>
+    <parameter name="authenticators" byreference="false" type="array"/>
+  </method>
+  <method name="getAuthenticators" start="78" end="81" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the Authenticators which can process a login request."/>
+      <return type="array" of="object">
+        <type full="Swift_Transport_Esmtp_Authenticator" namespace="" name="Swift_Transport_Esmtp_Authenticator"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setUsername" start="88" end="91" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the username to authenticate with."/>
+      <param type="string" variable="$username"/>
+    </docblock>
+    <parameter name="username" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getUsername" start="98" end="101" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the username to authenticate with."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setPassword" start="108" end="111" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the password to authenticate with."/>
+      <param type="string" variable="$password"/>
+    </docblock>
+    <parameter name="password" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getPassword" start="118" end="121" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the password to authenticate with."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setAuthMode" start="128" end="131" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the auth mode to use to authenticate."/>
+      <param type="string" variable="$mode"/>
+    </docblock>
+    <parameter name="mode" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getAuthMode" start="138" end="141" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the auth mode to use to authenticate."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getHandledKeyword" start="148" end="151" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the name of the ESMTP extension this handles."/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setKeywordParams" start="158" end="161" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the parameters which the EHLO greeting indicated."/>
+      <param type="array" variable="$parameters" of="string"/>
+    </docblock>
+    <parameter name="parameters" byreference="false" type="array"/>
+  </method>
+  <method name="afterEhlo" start="168" end="186" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Runs immediately after a EHLO has been issued."/>
+      <param description="to read/write" type="object" variable="$agent">
+        <type full="Swift_Transport_SmtpAgent" namespace="" name="Swift_Transport_SmtpAgent"/>
+      </param>
+    </docblock>
+    <parameter name="agent" byreference="false" type="object">
+      <type full="Swift_Transport_SmtpAgent" namespace="" name="Swift_Transport_SmtpAgent"/>
+    </parameter>
+  </method>
+  <method name="getMailParams" start="191" end="194" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Not used."/>
+    </docblock>
+  </method>
+  <method name="getRcptParams" start="199" end="202" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Not used."/>
+    </docblock>
+  </method>
+  <method name="onCommand" start="207" end="209" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Not used."/>
+    </docblock>
+    <parameter name="agent" byreference="false" type="object">
+      <type full="Swift_Transport_SmtpAgent" namespace="" name="Swift_Transport_SmtpAgent"/>
+    </parameter>
+    <parameter name="command" byreference="false" type="{unknown}"/>
+    <parameter name="codes" byreference="false" type="array" default=""/>
+    <parameter name="failedRecipients" byreference="true" type="{unknown}" default="" constant="null"/>
+    <parameter name="stop" byreference="true" type="boolean" default="false"/>
+  </method>
+  <method name="getPriorityOver" start="220" end="223" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns +1, -1 or 0 according to the rules for usort().">This method is called to ensure extensions can be execute in an appropriate order.</description>
+      <param description="to compare with" type="string" variable="$esmtpKeyword"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="esmtpKeyword" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="exposeMixinMethods" start="230" end="233" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an array of method names which are exposed to the Esmtp class."/>
+      <return type="array" of="string"/>
+    </docblock>
+  </method>
+  <method name="resetState" start="238" end="240" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Not used."/>
+    </docblock>
+  </method>
+  <method name="_getAuthenticatorsForAgent" start="249" end="262" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Returns the authenticator list for the given agent."/>
+      <param type="object" variable="$agent">
+        <type full="Swift_Transport_SmtpAgent" namespace="" name="Swift_Transport_SmtpAgent"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+  </method>
+</class>

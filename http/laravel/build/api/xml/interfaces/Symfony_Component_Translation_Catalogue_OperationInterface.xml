@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Translation\Catalogue\OperationInterface" namespace="Symfony\Component\Translation\Catalogue" name="OperationInterface" abstract="false" final="false" start="21" end="63">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation/Catalogue" file="OperationInterface.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/translation/Catalogue/OperationInterface.php" size="1292" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="5242e2148d52ef4f7a6148056916392931bd05a0" relative="vendor/symfony/translation/Catalogue/OperationInterface.php"/>
+  <docblock>
+    <description compact="Represents an operation on catalogue(s)."/>
+    <author value="Jean-François Simon &lt;jeanfrancois.simon@sensiolabs.com&gt;"/>
+  </docblock>
+  <method name="getDomains" start="28" end="28" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns domains affected by operation."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getMessages" start="37" end="37" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns all valid messages after operation."/>
+      <param type="string" variable="$domain"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="domain" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getNewMessages" start="46" end="46" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns new messages after operation."/>
+      <param type="string" variable="$domain"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="domain" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getObsoleteMessages" start="55" end="55" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns obsolete messages after operation."/>
+      <param type="string" variable="$domain"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="domain" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getResult" start="62" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns resulting catalogue."/>
+      <return type="object">
+        <type full="Symfony\Component\Translation\MessageCatalogueInterface" namespace="Symfony\Component\Translation" name="MessageCatalogueInterface"/>
+      </return>
+    </docblock>
+  </method>
+</interface>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Processor\MemoryProcessor" namespace="Monolog\Processor" name="MemoryProcessor" abstract="true" final="false" start="19" end="63">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Processor" file="MemoryProcessor.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Processor/MemoryProcessor.php" size="1821" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="43abdeb12f265bb114c6750169e982df4ddc2313" relative="vendor/monolog/monolog/src/Monolog/Processor/MemoryProcessor.php"/>
+  <docblock>
+    <description compact="Some methods that are common for all memory processors"/>
+    <author value="Rob Jensen"/>
+  </docblock>
+  <member name="realUsage" visibility="protected" line="24">
+    <docblock>
+      <description/>
+      <var description="If true, get the real size of memory allocated from system. Else, only the memory used by emalloc() is reported." type="boolean"/>
+    </docblock>
+  </member>
+  <member name="useFormatting" visibility="protected" line="29">
+    <docblock>
+      <description/>
+      <var description="If true, then format memory size to human readable string (MB, KB, B depending on size)" type="boolean"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="35" end="39" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param description="Set this to true to get the real size of memory allocated from system." type="boolean" variable="$realUsage"/>
+      <param description="If true, then format memory size to human readable string (MB, KB, B depending on size)" type="boolean" variable="$useFormatting"/>
+    </docblock>
+    <parameter name="realUsage" byreference="false" type="boolean" default="true"/>
+    <parameter name="useFormatting" byreference="false" type="boolean" default="true"/>
+  </constructor>
+  <method name="formatBytes" start="47" end="62" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Formats bytes into a human readable string if $this-&gt;useFormatting is true, otherwise return $bytes as is"/>
+      <param type="int" variable="$bytes"/>
+      <return description="Formatted string if $this-&gt;useFormatting is true, otherwise return $bytes as is" type="object">
+        <type full="Monolog\Processor\string|int" namespace="Monolog\Processor" name="string|int"/>
+      </return>
+    </docblock>
+    <parameter name="bytes" byreference="false" type="{unknown}"/>
+  </method>
+</class>

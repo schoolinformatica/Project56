@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\CssSelector\CssSelector" namespace="Symfony\Component\CssSelector" name="CssSelector" abstract="false" final="false" start="65" end="112">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/css-selector" file="CssSelector.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/css-selector/CssSelector.php" size="3885" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="7a6a8f4a2f824422602487f25a229baf43fb637a" relative="vendor/symfony/css-selector/CssSelector.php"/>
+  <docblock>
+    <description compact="CssSelector is the main entry point of the component and can convert CSS selectors to XPath expressions.">$xpath = CssSelector::toXpath('h1.foo');
+
+This component is a port of the Python cssselect library,
+which is copyright Ian Bicking, @see https://github.com/SimonSapin/cssselect.
+
+Copyright (c) 2007-2012 Ian Bicking and contributors. See AUTHORS
+for more details.
+
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+1. Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the
+distribution.
+
+3. Neither the name of Ian Bicking nor the names of its contributors may
+be used to endorse or promote products derived from this software
+without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL IAN BICKING OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</description>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <member name="html" type="boolean" default="true" visibility="private" line="67"/>
+  <method name="toXPath" start="79" end="95" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Translates a CSS expression to its XPath equivalent.">Optionally, a prefix can be added to the resulting XPath
+expression with the $prefix parameter.</description>
+      <param description="The CSS expression." type="mixed" variable="$cssExpr"/>
+      <param description="An optional prefix for the XPath expression." type="string" variable="$prefix"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="cssExpr" byreference="false" type="{unknown}"/>
+    <parameter name="prefix" byreference="false" type="string" default="'descendant-or-self::'"/>
+  </method>
+  <method name="enableHtmlExtension" start="100" end="103" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Enables the HTML extension."/>
+    </docblock>
+  </method>
+  <method name="disableHtmlExtension" start="108" end="111" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Disables the HTML extension."/>
+    </docblock>
+  </method>
+</class>

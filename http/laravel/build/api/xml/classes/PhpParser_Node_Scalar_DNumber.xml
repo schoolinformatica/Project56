@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpParser\Node\Scalar\DNumber" namespace="PhpParser\Node\Scalar" name="DNumber" abstract="false" final="false" start="7" end="64">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/nikic/php-parser/lib/PhpParser/Node/Scalar" file="DNumber.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/nikic/php-parser/lib/PhpParser/Node/Scalar/DNumber.php" size="1674" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="9bf891b503598ce3377f0f34ac03dfb201450c69" relative="vendor/nikic/php-parser/lib/PhpParser/Node/Scalar/DNumber.php"/>
+  <extends full="PhpParser\Node\Scalar" namespace="PhpParser\Node" name="Scalar"/>
+  <member name="value" visibility="public" line="10">
+    <docblock>
+      <description compact="@var float Number value"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="18" end="21" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructs a float number scalar node."/>
+      <param description="Value of the number" type="float" variable="$value"/>
+      <param description="Additional attributes" type="array" variable="$attributes"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="attributes" byreference="false" type="array" default=""/>
+  </constructor>
+  <method name="getSubNodeNames" start="23" end="25" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="parse" start="36" end="63" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <internal/>
+      <param description="A string number" type="string" variable="$str"/>
+      <return description="The parsed number" type="float"/>
+    </docblock>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="if string contains any of .eE just cast it to float" line="37"/>
+      <comment value="otherwise it's an integer notation that overflowed into a float" line="42"/>
+      <comment value="if it starts with 0 it's one of the special integer notations" line="43"/>
+      <comment value="dec" line="61"/>
+    </inline>
+  </method>
+</class>

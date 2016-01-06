@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Finder\Iterator\MultiplePcreFilterIterator" namespace="Symfony\Component\Finder\Iterator" name="MultiplePcreFilterIterator" abstract="true" final="false" start="21" end="66">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/finder/Iterator" file="MultiplePcreFilterIterator.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/finder/Iterator/MultiplePcreFilterIterator.php" size="1771" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="b5689b457e453ea0eddbaea01cf485469ddb216f" relative="vendor/symfony/finder/Iterator/MultiplePcreFilterIterator.php"/>
+  <docblock>
+    <description compact="MultiplePcreFilterIterator filters files using patterns (regexps, globs or strings)."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\Finder\Iterator\FilterIterator" namespace="Symfony\Component\Finder\Iterator" name="FilterIterator"/>
+  <member name="matchRegexps" type="array" default="" visibility="protected" line="23"/>
+  <member name="noMatchRegexps" type="array" default="" visibility="protected" line="24"/>
+  <constructor name="__construct" start="33" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="The Iterator to filter" type="object" variable="$iterator">
+        <type full="\Iterator" namespace="" name="Iterator"/>
+      </param>
+      <param description="An array of patterns that need to match" type="array" variable="$matchPatterns"/>
+      <param description="An array of patterns that need to not match" type="array" variable="$noMatchPatterns"/>
+    </docblock>
+    <parameter name="iterator" byreference="false" type="object">
+      <type full="Iterator" namespace="" name="Iterator"/>
+    </parameter>
+    <parameter name="matchPatterns" byreference="false" type="array"/>
+    <parameter name="noMatchPatterns" byreference="false" type="array"/>
+  </constructor>
+  <method name="isRegex" start="53" end="56" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Checks whether the string is a regex."/>
+      <param type="string" variable="$str"/>
+      <return description="Whether the given string is a regex" type="object">
+        <type full="Symfony\Component\Finder\Iterator\bool" namespace="Symfony\Component\Finder\Iterator" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="toRegex" start="65" end="65" abstract="true" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Converts string into regexp."/>
+      <param description="Pattern" type="string" variable="$str"/>
+      <return description="regexp corresponding to a given string" type="string"/>
+    </docblock>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+  </method>
+</class>

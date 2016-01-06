@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\Tests\Profiler\Mock\RedisMock" namespace="Symfony\Component\HttpKernel\Tests\Profiler\Mock" name="RedisMock" abstract="false" final="false" start="19" end="247">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Tests/Profiler/Mock" file="RedisMock.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Tests/Profiler/Mock/RedisMock.php" size="4573" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="b331b12cd75359a35ab3622c6a25ec66ce3197ed" relative="vendor/symfony/http-kernel/Tests/Profiler/Mock/RedisMock.php"/>
+  <docblock>
+    <description compact="RedisMock for simulating Redis extension in tests."/>
+    <author value="Andrej Hudec &lt;pulzarraider@gmail.com&gt;"/>
+  </docblock>
+  <member name="connected" type="boolean" default="false" visibility="private" line="21"/>
+  <member name="storage" type="array" default="" visibility="private" line="22"/>
+  <method name="connect" start="33" end="42" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a server to connection pool."/>
+      <param type="string" variable="$host"/>
+      <param type="int" variable="$port"/>
+      <param type="float" variable="$timeout"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Tests\Profiler\Mock\bool" namespace="Symfony\Component\HttpKernel\Tests\Profiler\Mock" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="host" byreference="false" type="{unknown}"/>
+    <parameter name="port" byreference="false" type="integer" default="6379"/>
+    <parameter name="timeout" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="setOption" start="52" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set client option."/>
+      <param type="int" variable="$name"/>
+      <param type="int" variable="$value"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Tests\Profiler\Mock\bool" namespace="Symfony\Component\HttpKernel\Tests\Profiler\Mock" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="exists" start="68" end="75" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Verify if the specified key exists."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Tests\Profiler\Mock\bool" namespace="Symfony\Component\HttpKernel\Tests\Profiler\Mock" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setex" start="86" end="95" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Store data at the server with expiration time."/>
+      <param type="string" variable="$key"/>
+      <param type="int" variable="$ttl"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Tests\Profiler\Mock\bool" namespace="Symfony\Component\HttpKernel\Tests\Profiler\Mock" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="ttl" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setTimeout" start="105" end="116" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets an expiration time on an item."/>
+      <param type="string" variable="$key"/>
+      <param type="int" variable="$ttl"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Tests\Profiler\Mock\bool" namespace="Symfony\Component\HttpKernel\Tests\Profiler\Mock" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="ttl" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get" start="125" end="132" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Retrieve item from the server."/>
+      <param type="string" variable="$key"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Tests\Profiler\Mock\bool" namespace="Symfony\Component\HttpKernel\Tests\Profiler\Mock" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="append" start="142" end="155" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Append data to an existing item."/>
+      <param type="string" variable="$key"/>
+      <param type="string" variable="$value"/>
+      <return description="Size of the value after the append." type="int"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="delete" start="164" end="189" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remove specified keys."/>
+      <param type="object" variable="$key">
+        <type full="Symfony\Component\HttpKernel\Tests\Profiler\Mock\string|array" namespace="Symfony\Component\HttpKernel\Tests\Profiler\Mock" name="string|array"/>
+      </param>
+      <return type="int"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="flushAll" start="196" end="205" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Flush all existing items from all databases at the server."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Tests\Profiler\Mock\bool" namespace="Symfony\Component\HttpKernel\Tests\Profiler\Mock" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="close" start="212" end="217" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Close Redis server connection."/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Tests\Profiler\Mock\bool" namespace="Symfony\Component\HttpKernel\Tests\Profiler\Mock" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getData" start="219" end="226" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="storeData" start="228" end="233" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="select" start="235" end="246" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="dbnum" byreference="false" type="{unknown}"/>
+  </method>
+</class>

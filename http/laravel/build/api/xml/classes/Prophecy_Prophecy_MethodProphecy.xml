@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Prophecy\Prophecy\MethodProphecy" namespace="Prophecy\Prophecy" name="MethodProphecy" abstract="false" final="false" start="27" end="437">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Prophecy" file="MethodProphecy.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Prophecy/MethodProphecy.php" size="11359" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="135932b2365d1f2149c16236a5950e5f3379e4e4" relative="vendor/phpspec/prophecy/src/Prophecy/Prophecy/MethodProphecy.php"/>
+  <docblock>
+    <description compact="Method prophecy."/>
+    <author value="Konstantin Kudryashov &lt;ever.zet@gmail.com&gt;"/>
+  </docblock>
+  <member name="objectProphecy" visibility="private" line="29"/>
+  <member name="methodName" visibility="private" line="30"/>
+  <member name="argumentsWildcard" visibility="private" line="31"/>
+  <member name="promise" visibility="private" line="32"/>
+  <member name="prediction" visibility="private" line="33"/>
+  <member name="checkedPredictions" type="array" default="" visibility="private" line="34"/>
+  <member name="bound" type="boolean" default="false" visibility="private" line="35"/>
+  <constructor name="__construct" start="46" end="98" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Initializes method prophecy."/>
+      <param type="object" variable="$objectProphecy">
+        <type full="Prophecy\Prophecy\ObjectProphecy" namespace="Prophecy\Prophecy" name="ObjectProphecy"/>
+      </param>
+      <param type="string" variable="$methodName"/>
+      <param type="object" variable="$arguments">
+        <type full="Prophecy\Prophecy\null|Argument\ArgumentsWildcard|array" namespace="Prophecy\Prophecy\null|Argument" name="ArgumentsWildcard|array"/>
+      </param>
+      <throws description="If method not found" type="object">
+        <type full="\Prophecy\Exception\Doubler\MethodNotFoundException" namespace="\Prophecy\Exception\Doubler" name="MethodNotFoundException"/>
+      </throws>
+    </docblock>
+    <parameter name="objectProphecy" byreference="false" type="object">
+      <type full="Prophecy\Prophecy\ObjectProphecy" namespace="Prophecy\Prophecy" name="ObjectProphecy"/>
+    </parameter>
+    <parameter name="methodName" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}" default="" constant="null"/>
+  </constructor>
+  <method name="withArguments" start="109" end="126" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets argument wildcard."/>
+      <param type="object" variable="$arguments">
+        <type full="Prophecy\Prophecy\array|Argument\ArgumentsWildcard" namespace="Prophecy\Prophecy\array|Argument" name="ArgumentsWildcard"/>
+      </param>
+      <return type="object">
+        <type full="Prophecy\Prophecy\$this" namespace="Prophecy\Prophecy" name="$this"/>
+      </return>
+      <throws type="object">
+        <type full="\Prophecy\Exception\InvalidArgumentException" namespace="\Prophecy\Exception" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="arguments" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="will" start="137" end="154" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets custom promise to the prophecy."/>
+      <param type="object" variable="$promise">
+        <type full="Prophecy\Prophecy\callable|Promise\PromiseInterface" namespace="Prophecy\Prophecy\callable|Promise" name="PromiseInterface"/>
+      </param>
+      <return type="object">
+        <type full="Prophecy\Prophecy\$this" namespace="Prophecy\Prophecy" name="$this"/>
+      </return>
+      <throws type="object">
+        <type full="\Prophecy\Exception\InvalidArgumentException" namespace="\Prophecy\Exception" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="promise" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="willReturn" start="163" end="166" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets return promise to the prophecy."/>
+      <see value="Prophecy\Promise\ReturnPromise"/>
+      <return type="object">
+        <type full="Prophecy\Prophecy\$this" namespace="Prophecy\Prophecy" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="willReturnArgument" start="177" end="180" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets return argument promise to the prophecy."/>
+      <param description="The zero-indexed number of the argument to return" type="int" variable="$index"/>
+      <see value="Prophecy\Promise\ReturnArgumentPromise"/>
+      <return type="object">
+        <type full="Prophecy\Prophecy\$this" namespace="Prophecy\Prophecy" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="index" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="willThrow" start="191" end="194" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets throw promise to the prophecy."/>
+      <see value="Prophecy\Promise\ThrowPromise"/>
+      <param description="Exception class or instance" type="object" variable="$exception">
+        <type full="Prophecy\Prophecy\string|\Exception" namespace="Prophecy\Prophecy\string|" name="Exception"/>
+      </param>
+      <return type="object">
+        <type full="Prophecy\Prophecy\$this" namespace="Prophecy\Prophecy" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="exception" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="should" start="205" end="222" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets custom prediction to the prophecy."/>
+      <param type="object" variable="$prediction">
+        <type full="Prophecy\Prophecy\callable|Prediction\PredictionInterface" namespace="Prophecy\Prophecy\callable|Prediction" name="PredictionInterface"/>
+      </param>
+      <return type="object">
+        <type full="Prophecy\Prophecy\$this" namespace="Prophecy\Prophecy" name="$this"/>
+      </return>
+      <throws type="object">
+        <type full="\Prophecy\Exception\InvalidArgumentException" namespace="\Prophecy\Exception" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="prediction" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="shouldBeCalled" start="231" end="234" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets call prediction to the prophecy."/>
+      <see value="Prophecy\Prediction\CallPrediction"/>
+      <return type="object">
+        <type full="Prophecy\Prophecy\$this" namespace="Prophecy\Prophecy" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="shouldNotBeCalled" start="243" end="246" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets no calls prediction to the prophecy."/>
+      <see value="Prophecy\Prediction\NoCallsPrediction"/>
+      <return type="object">
+        <type full="Prophecy\Prophecy\$this" namespace="Prophecy\Prophecy" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="shouldBeCalledTimes" start="257" end="260" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets call times prediction to the prophecy."/>
+      <see value="Prophecy\Prediction\CallTimesPrediction"/>
+      <param variable="$count"/>
+      <return type="object">
+        <type full="Prophecy\Prophecy\$this" namespace="Prophecy\Prophecy" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="count" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="shouldHave" start="271" end="303" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks provided prediction immediately."/>
+      <param type="object" variable="$prediction">
+        <type full="Prophecy\Prophecy\callable|Prediction\PredictionInterface" namespace="Prophecy\Prophecy\callable|Prediction" name="PredictionInterface"/>
+      </param>
+      <return type="object">
+        <type full="Prophecy\Prophecy\$this" namespace="Prophecy\Prophecy" name="$this"/>
+      </return>
+      <throws type="object">
+        <type full="\Prophecy\Exception\InvalidArgumentException" namespace="\Prophecy\Exception" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="prediction" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="shouldHaveBeenCalled" start="312" end="315" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks call prediction."/>
+      <see value="Prophecy\Prediction\CallPrediction"/>
+      <return type="object">
+        <type full="Prophecy\Prophecy\$this" namespace="Prophecy\Prophecy" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="shouldNotHaveBeenCalled" start="324" end="327" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks no calls prediction."/>
+      <see value="Prophecy\Prediction\NoCallsPrediction"/>
+      <return type="object">
+        <type full="Prophecy\Prophecy\$this" namespace="Prophecy\Prophecy" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="shouldNotBeenCalled" start="337" end="340" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks no calls prediction."/>
+      <see value="Prophecy\Prediction\NoCallsPrediction"/>
+      <deprecated/>
+      <return type="object">
+        <type full="Prophecy\Prophecy\$this" namespace="Prophecy\Prophecy" name="$this"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="shouldHaveBeenCalledTimes" start="351" end="354" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks call times prediction."/>
+      <see value="Prophecy\Prediction\CallTimesPrediction"/>
+      <param type="int" variable="$count"/>
+      <return type="object">
+        <type full="Prophecy\Prophecy\$this" namespace="Prophecy\Prophecy" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="count" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="checkPrediction" start="359" end="366" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks currently registered [with should(...)] prediction."/>
+    </docblock>
+  </method>
+  <method name="getPromise" start="373" end="376" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns currently registered promise."/>
+      <return type="object">
+        <type full="Prophecy\Prophecy\null|Promise\PromiseInterface" namespace="Prophecy\Prophecy\null|Promise" name="PromiseInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getPrediction" start="383" end="386" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns currently registered prediction."/>
+      <return type="object">
+        <type full="Prophecy\Prophecy\null|Prediction\PredictionInterface" namespace="Prophecy\Prophecy\null|Prediction" name="PredictionInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getCheckedPredictions" start="393" end="396" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns predictions that were checked on this object."/>
+      <return type="array" of="object">
+        <type full="Prophecy\Prophecy\Prediction\PredictionInterface" namespace="Prophecy\Prophecy\Prediction" name="PredictionInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getObjectProphecy" start="403" end="406" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns object prophecy this method prophecy is tied to."/>
+      <return type="object">
+        <type full="Prophecy\Prophecy\ObjectProphecy" namespace="Prophecy\Prophecy" name="ObjectProphecy"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getMethodName" start="413" end="416" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns method name."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getArgumentsWildcard" start="423" end="426" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns arguments wildcard."/>
+      <return type="object">
+        <type full="Prophecy\Prophecy\Argument\ArgumentsWildcard" namespace="Prophecy\Prophecy\Argument" name="ArgumentsWildcard"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="bindToObjectProphecy" start="428" end="436" abstract="false" final="false" static="false" visibility="private"/>
+</class>

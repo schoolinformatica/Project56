@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Monolog\Handler\FleepHookHandler" namespace="Monolog\Handler" name="FleepHookHandler" abstract="false" final="false" start="25" end="126">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler" file="FleepHookHandler.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/monolog/monolog/src/Monolog/Handler/FleepHookHandler.php" size="3362" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="b5b9ab25c58fa041673a0ca2b5744a385068b106" relative="vendor/monolog/monolog/src/Monolog/Handler/FleepHookHandler.php"/>
+  <docblock>
+    <description compact="Sends logs to Fleep.io using Webhook integrations">You'll need a Fleep.io account to use this handler.</description>
+    <see value="https://fleep.io/integrations/webhooks/ Fleep Webhooks Documentation"/>
+    <author value="Ando Roots &lt;ando@sqroot.eu&gt;"/>
+  </docblock>
+  <extends full="Monolog\Handler\SocketHandler" namespace="Monolog\Handler" name="SocketHandler"/>
+  <constant type="string" name="FLEEP_HOST" value="'fleep.io'"/>
+  <constant type="string" name="FLEEP_HOOK_URI" value="'/hook/'"/>
+  <member name="token" visibility="protected" line="34">
+    <docblock>
+      <description/>
+      <var description="Webhook token (specifies the conversation where logs are sent)" type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="47" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Construct a new Fleep.io Handler.">For instructions on how to create a new web hook in your conversations
+see https://fleep.io/integrations/webhooks/</description>
+      <param description="Webhook token" type="string" variable="$token"/>
+      <param description="The minimum logging level at which this handler will be triggered" type="object" variable="$level">
+        <type full="Monolog\Handler\bool|int" namespace="Monolog\Handler" name="bool|int"/>
+      </param>
+      <param description="Whether the messages that are handled can bubble up the stack or not" type="object" variable="$bubble">
+        <type full="Monolog\Handler\bool" namespace="Monolog\Handler" name="bool"/>
+      </param>
+      <throws type="object">
+        <type full="Monolog\Handler\MissingExtensionException" namespace="Monolog\Handler" name="MissingExtensionException"/>
+      </throws>
+    </docblock>
+    <parameter name="token" byreference="false" type="{unknown}"/>
+    <parameter name="level" byreference="false" type="{unknown}" default="" constant="Logger::DEBUG"/>
+    <parameter name="bubble" byreference="false" type="boolean" default="true"/>
+  </constructor>
+  <method name="getDefaultFormatter" start="66" end="69" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Returns the default formatter to use with this handler">Overloaded to remove empty context and extra arrays from the end of the log message.</description>
+      <return type="object">
+        <type full="Monolog\Formatter\LineFormatter" namespace="Monolog\Formatter" name="LineFormatter"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="write" start="76" end="80" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Handles a log record"/>
+      <param type="array" variable="$record"/>
+    </docblock>
+    <parameter name="record" byreference="false" type="array"/>
+  </method>
+  <method name="generateDataStream" start="88" end="93" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+      <param type="array" variable="$record"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="record" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="buildHeader" start="101" end="110" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Builds the header of the API Call"/>
+      <param type="string" variable="$content"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="buildContent" start="118" end="125" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Builds the body of API call"/>
+      <param type="array" variable="$record"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="record" byreference="false" type="{unknown}"/>
+  </method>
+</class>

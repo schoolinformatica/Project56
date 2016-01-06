@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Database\Eloquent\Relations\BelongsTo" namespace="Illuminate\Database\Eloquent\Relations" name="BelongsTo" abstract="false" final="false" start="10" end="306">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations" file="BelongsTo.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsTo.php" size="8818" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="1b784021101c4b97e37bf6d64be5016ab10c824f" relative="vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsTo.php"/>
+  <extends full="Illuminate\Database\Eloquent\Relations\Relation" namespace="Illuminate\Database\Eloquent\Relations" name="Relation"/>
+  <member name="foreignKey" visibility="protected" line="17">
+    <docblock>
+      <description compact="The foreign key of the parent model."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="otherKey" visibility="protected" line="24">
+    <docblock>
+      <description compact="The associated key on the parent model."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="relation" visibility="protected" line="31">
+    <docblock>
+      <description compact="The name of the relationship."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="43" end="50" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new belongs to relationship instance."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </param>
+      <param type="object" variable="$parent">
+        <type full="\Illuminate\Database\Eloquent\Model" namespace="\Illuminate\Database\Eloquent" name="Model"/>
+      </param>
+      <param type="string" variable="$foreignKey"/>
+      <param type="string" variable="$otherKey"/>
+      <param type="string" variable="$relation"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\Relations\void" namespace="Illuminate\Database\Eloquent\Relations" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Builder" namespace="Illuminate\Database\Eloquent" name="Builder"/>
+    </parameter>
+    <parameter name="parent" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Model" namespace="Illuminate\Database\Eloquent" name="Model"/>
+    </parameter>
+    <parameter name="foreignKey" byreference="false" type="{unknown}"/>
+    <parameter name="otherKey" byreference="false" type="{unknown}"/>
+    <parameter name="relation" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="getResults" start="57" end="60" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the results of the relationship."/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+  <method name="addConstraints" start="67" end="77" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the base constraints on the relation query."/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\Relations\void" namespace="Illuminate\Database\Eloquent\Relations" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getRelationCountQuery" start="86" end="97" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add the constraints for a relationship count query."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </param>
+      <param type="object" variable="$parent">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </return>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Builder" namespace="Illuminate\Database\Eloquent" name="Builder"/>
+    </parameter>
+    <parameter name="parent" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Builder" namespace="Illuminate\Database\Eloquent" name="Builder"/>
+    </parameter>
+  </method>
+  <method name="getRelationCountQueryForSelfRelation" start="106" end="115" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add the constraints for a relationship count query on the same table."/>
+      <param type="object" variable="$query">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </param>
+      <param type="object" variable="$parent">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Builder" namespace="\Illuminate\Database\Eloquent" name="Builder"/>
+      </return>
+    </docblock>
+    <parameter name="query" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Builder" namespace="Illuminate\Database\Eloquent" name="Builder"/>
+    </parameter>
+    <parameter name="parent" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Builder" namespace="Illuminate\Database\Eloquent" name="Builder"/>
+    </parameter>
+  </method>
+  <method name="getRelationCountHash" start="122" end="125" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get a relationship join table hash."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="addEagerConstraints" start="133" end="141" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the constraints for an eager load of the relation."/>
+      <param type="array" variable="$models"/>
+      <return type="object">
+        <type full="Illuminate\Database\Eloquent\Relations\void" namespace="Illuminate\Database\Eloquent\Relations" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="models" byreference="false" type="array"/>
+    <inline>
+      <comment value="We'll grab the primary key name of the related models since it could be set to" line="135"/>
+      <comment value="a non-standard name and not &quot;id&quot;. We will then construct the constraint for" line="136"/>
+      <comment value="our eagerly loading query so it returns the proper models from execution." line="137"/>
+    </inline>
+  </method>
+  <method name="getEagerModelKeys" start="149" end="170" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Gather the keys from an array of related models."/>
+      <param type="array" variable="$models"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="models" byreference="false" type="array"/>
+    <inline>
+      <comment value="First we need to gather all of the keys from the parent models so we know what" line="153"/>
+      <comment value="to query for via the eager loading query. We will add them to an array then" line="154"/>
+      <comment value="execute a &quot;where in&quot; statement to gather up all of those related records." line="155"/>
+      <comment value="If there are no keys that were not null we will just return an array with 0 in" line="162"/>
+      <comment value="it so the query doesn't fail, but will not return any results, which should" line="163"/>
+      <comment value="be what this developer is expecting in a case where this happens to them." line="164"/>
+    </inline>
+  </method>
+  <method name="initRelation" start="179" end="186" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Initialize the relation on a set of models."/>
+      <param type="array" variable="$models"/>
+      <param type="string" variable="$relation"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="models" byreference="false" type="array"/>
+    <parameter name="relation" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="match" start="196" end="221" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Match the eagerly loaded results to their parents."/>
+      <param type="array" variable="$models"/>
+      <param type="object" variable="$results">
+        <type full="\Illuminate\Database\Eloquent\Collection" namespace="\Illuminate\Database\Eloquent" name="Collection"/>
+      </param>
+      <param type="string" variable="$relation"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="models" byreference="false" type="array"/>
+    <parameter name="results" byreference="false" type="object">
+      <type full="Illuminate\Database\Eloquent\Collection" namespace="Illuminate\Database\Eloquent" name="Collection"/>
+    </parameter>
+    <parameter name="relation" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="First we will get to build a dictionary of the child models by their primary" line="202"/>
+      <comment value="key of the relationship, then we can easily match the children back onto" line="203"/>
+      <comment value="the parents using that dictionary and the primary key of the children." line="204"/>
+      <comment value="Once we have the dictionary constructed, we can loop through all the parents" line="211"/>
+      <comment value="and match back onto their children using these keys of the dictionary and" line="212"/>
+      <comment value="the primary key of the children to map them onto the correct instances." line="213"/>
+    </inline>
+  </method>
+  <method name="associate" start="229" end="240" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Associate the model instance to the given parent."/>
+      <param type="object" variable="$model">
+        <type full="\Illuminate\Database\Eloquent\Model|int" namespace="\Illuminate\Database\Eloquent" name="Model|int"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Model" namespace="\Illuminate\Database\Eloquent" name="Model"/>
+      </return>
+    </docblock>
+    <parameter name="model" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="dissociate" start="247" end="252" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Dissociate previously associated model from the given parent."/>
+      <return type="object">
+        <type full="\Illuminate\Database\Eloquent\Model" namespace="\Illuminate\Database\Eloquent" name="Model"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="update" start="260" end="265" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Update the parent model on the relationship."/>
+      <param type="array" variable="$attributes"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="array"/>
+  </method>
+  <method name="getForeignKey" start="272" end="275" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the foreign key of the relationship."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getQualifiedForeignKey" start="282" end="285" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the fully qualified foreign key of the relationship."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getOtherKey" start="292" end="295" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the associated key of the relationship."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getQualifiedOtherKeyName" start="302" end="305" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the fully qualified associated key of the relationship."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+</class>

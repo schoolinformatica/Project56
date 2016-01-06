@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Swift_Transport" namespace="" name="Swift_Transport" abstract="false" final="false" start="16" end="54">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift" file="Transport.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport.php" size="1267" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="045b4fc417430bf5ccc1137ff6b7773098cb7e74" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport.php"/>
+  <docblock>
+    <description compact="Sends Messages via an abstract Transport subsystem."/>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <method name="isStarted" start="23" end="23" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Test if this Transport mechanism has started."/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="start" start="28" end="28" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Start this Transport mechanism."/>
+    </docblock>
+  </method>
+  <method name="stop" start="33" end="33" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Stop this Transport mechanism."/>
+    </docblock>
+  </method>
+  <method name="send" start="46" end="46" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Send the given Message.">Recipient/sender data will be retrieved from the Message API.
+The return value is the number of recipients who were accepted for delivery.</description>
+      <param type="object" variable="$message">
+        <type full="Swift_Mime_Message" namespace="" name="Swift_Mime_Message"/>
+      </param>
+      <param description="An array of failures by-reference" type="array" variable="$failedRecipients" of="string"/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="message" byreference="false" type="object">
+      <type full="Swift_Mime_Message" namespace="" name="Swift_Mime_Message"/>
+    </parameter>
+    <parameter name="failedRecipients" byreference="true" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="registerPlugin" start="53" end="53" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a plugin in the Transport."/>
+      <param type="object" variable="$plugin">
+        <type full="Swift_Events_EventListener" namespace="" name="Swift_Events_EventListener"/>
+      </param>
+    </docblock>
+    <parameter name="plugin" byreference="false" type="object">
+      <type full="Swift_Events_EventListener" namespace="" name="Swift_Events_EventListener"/>
+    </parameter>
+  </method>
+</interface>

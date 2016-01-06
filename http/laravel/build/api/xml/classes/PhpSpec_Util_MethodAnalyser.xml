@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpSpec\Util\MethodAnalyser" namespace="PhpSpec\Util" name="MethodAnalyser" abstract="false" final="false" start="18" end="178">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Util" file="MethodAnalyser.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Util/MethodAnalyser.php" size="4954" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="255d0ba861f5c48060d515007d74226909628cbe" relative="vendor/phpspec/phpspec/src/PhpSpec/Util/MethodAnalyser.php"/>
+  <method name="methodIsEmpty" start="26" end="29" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$class"/>
+      <param type="string" variable="$method"/>
+      <return type="boolean"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="reflectionMethodIsEmpty" start="36" end="46" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$method">
+        <type full="\ReflectionMethod" namespace="" name="ReflectionMethod"/>
+      </param>
+      <return type="object">
+        <type full="PhpSpec\Util\bool" namespace="PhpSpec\Util" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="method" byreference="false" type="object">
+      <type full="ReflectionMethod" namespace="" name="ReflectionMethod"/>
+    </parameter>
+  </method>
+  <method name="getMethodOwnerName" start="54" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$class"/>
+      <param type="string" variable="$method"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getCodeBody" start="69" end="80" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$reflectionMethod">
+        <type full="\ReflectionMethod" namespace="" name="ReflectionMethod"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="reflectionMethod" byreference="false" type="object">
+      <type full="ReflectionMethod" namespace="" name="ReflectionMethod"/>
+    </parameter>
+  </method>
+  <method name="getMethodOwner" start="89" end="102" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$reflectionMethod">
+        <type full="\ReflectionMethod" namespace="" name="ReflectionMethod"/>
+      </param>
+      <param type="int" variable="$methodStartLine"/>
+      <param type="int" variable="$methodEndLine"/>
+      <return type="object">
+        <type full="\ReflectionClass" namespace="" name="ReflectionClass"/>
+      </return>
+    </docblock>
+    <parameter name="reflectionMethod" byreference="false" type="object">
+      <type full="ReflectionMethod" namespace="" name="ReflectionMethod"/>
+    </parameter>
+    <parameter name="methodStartLine" byreference="false" type="{unknown}"/>
+    <parameter name="methodEndLine" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="PHP &lt;=5.3 does not handle traits" line="93"/>
+    </inline>
+  </method>
+  <method name="getDeclaringTrait" start="112" end="124" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="array" variable="$traits" of="object">
+        <type full="\ReflectionClass" namespace="" name="ReflectionClass"/>
+      </param>
+      <param type="string" variable="$file"/>
+      <param type="int" variable="$start"/>
+      <param type="int" variable="$end"/>
+      <return type="object">
+        <type full="PhpSpec\Util\null|\ReflectionClass" namespace="PhpSpec\Util\null|" name="ReflectionClass"/>
+      </return>
+    </docblock>
+    <parameter name="traits" byreference="false" type="array"/>
+    <parameter name="file" byreference="false" type="{unknown}"/>
+    <parameter name="start" byreference="false" type="{unknown}"/>
+    <parameter name="end" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="stripComments" start="130" end="148" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$code"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="code" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="codeIsOnlyBlocksAndWhitespace" start="154" end="157" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="string" variable="$codeWithoutComments"/>
+      <return type="object">
+        <type full="PhpSpec\Util\bool" namespace="PhpSpec\Util" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="codeWithoutComments" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isNotImplementedInPhp" start="163" end="177" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$method">
+        <type full="\ReflectionMethod" namespace="" name="ReflectionMethod"/>
+      </param>
+      <return type="object">
+        <type full="PhpSpec\Util\bool" namespace="PhpSpec\Util" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="method" byreference="false" type="object">
+      <type full="ReflectionMethod" namespace="" name="ReflectionMethod"/>
+    </parameter>
+    <inline>
+      <comment value="HHVM &lt;=3.2.0 does not return FALSE correctly" line="171"/>
+    </inline>
+  </method>
+</class>

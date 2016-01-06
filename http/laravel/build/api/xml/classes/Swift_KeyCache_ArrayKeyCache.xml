@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_KeyCache_ArrayKeyCache" namespace="" name="Swift_KeyCache_ArrayKeyCache" abstract="false" final="false" start="16" end="206">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/KeyCache" file="ArrayKeyCache.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/KeyCache/ArrayKeyCache.php" size="5601" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="1c1272e5065da5312ba3df35cf79048d03433905" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/KeyCache/ArrayKeyCache.php"/>
+  <docblock>
+    <description compact="A basic KeyCache backed by an array."/>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <implements full="Swift_KeyCache" namespace="" name="Swift_KeyCache"/>
+  <member name="_contents" type="array" default="" visibility="private" line="23">
+    <docblock>
+      <description compact="Cache contents."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="_stream" visibility="private" line="30">
+    <docblock>
+      <description compact="An InputStream for cloning."/>
+      <var type="object">
+        <type full="Swift_KeyCache_KeyCacheInputStream" namespace="" name="Swift_KeyCache_KeyCacheInputStream"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="38" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new ArrayKeyCache with the given $stream for cloning to make InputByteStreams."/>
+      <param type="object" variable="$stream">
+        <type full="Swift_KeyCache_KeyCacheInputStream" namespace="" name="Swift_KeyCache_KeyCacheInputStream"/>
+      </param>
+    </docblock>
+    <parameter name="stream" byreference="false" type="object">
+      <type full="Swift_KeyCache_KeyCacheInputStream" namespace="" name="Swift_KeyCache_KeyCacheInputStream"/>
+    </parameter>
+  </constructor>
+  <method name="setString" start="53" end="72" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set a string into the cache under $itemKey for the namespace $nsKey."/>
+      <see value="MODE_WRITE, MODE_APPEND"/>
+      <param type="string" variable="$nsKey"/>
+      <param type="string" variable="$itemKey"/>
+      <param type="string" variable="$string"/>
+      <param type="int" variable="$mode"/>
+    </docblock>
+    <parameter name="nsKey" byreference="false" type="{unknown}"/>
+    <parameter name="itemKey" byreference="false" type="{unknown}"/>
+    <parameter name="string" byreference="false" type="{unknown}"/>
+    <parameter name="mode" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="importFromByteStream" start="84" end="104" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set a ByteStream into the cache under $itemKey for the namespace $nsKey."/>
+      <see value="MODE_WRITE, MODE_APPEND"/>
+      <param type="string" variable="$nsKey"/>
+      <param type="string" variable="$itemKey"/>
+      <param type="object" variable="$os">
+        <type full="Swift_OutputByteStream" namespace="" name="Swift_OutputByteStream"/>
+      </param>
+      <param type="int" variable="$mode"/>
+    </docblock>
+    <parameter name="nsKey" byreference="false" type="{unknown}"/>
+    <parameter name="itemKey" byreference="false" type="{unknown}"/>
+    <parameter name="os" byreference="false" type="object">
+      <type full="Swift_OutputByteStream" namespace="" name="Swift_OutputByteStream"/>
+    </parameter>
+    <parameter name="mode" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getInputByteStream" start="117" end="128" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Provides a ByteStream which when written to, writes data to $itemKey.">NOTE: The stream will always write in append mode.</description>
+      <param type="string" variable="$nsKey"/>
+      <param type="string" variable="$itemKey"/>
+      <param type="object" variable="$writeThrough">
+        <type full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+      </param>
+      <return type="object">
+        <type full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+      </return>
+    </docblock>
+    <parameter name="nsKey" byreference="false" type="{unknown}"/>
+    <parameter name="itemKey" byreference="false" type="{unknown}"/>
+    <parameter name="writeThrough" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+    </parameter>
+  </method>
+  <method name="getString" start="138" end="144" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get data back out of the cache as a string."/>
+      <param type="string" variable="$nsKey"/>
+      <param type="string" variable="$itemKey"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="nsKey" byreference="false" type="{unknown}"/>
+    <parameter name="itemKey" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="exportToByteStream" start="153" end="157" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get data back out of the cache as a ByteStream."/>
+      <param type="string" variable="$nsKey"/>
+      <param type="string" variable="$itemKey"/>
+      <param description="to write the data to" type="object" variable="$is">
+        <type full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+      </param>
+    </docblock>
+    <parameter name="nsKey" byreference="false" type="{unknown}"/>
+    <parameter name="itemKey" byreference="false" type="{unknown}"/>
+    <parameter name="is" byreference="false" type="object">
+      <type full="Swift_InputByteStream" namespace="" name="Swift_InputByteStream"/>
+    </parameter>
+  </method>
+  <method name="hasKey" start="167" end="172" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check if the given $itemKey exists in the namespace $nsKey."/>
+      <param type="string" variable="$nsKey"/>
+      <param type="string" variable="$itemKey"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="nsKey" byreference="false" type="{unknown}"/>
+    <parameter name="itemKey" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="clearKey" start="180" end="183" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Clear data for $itemKey in the namespace $nsKey if it exists."/>
+      <param type="string" variable="$nsKey"/>
+      <param type="string" variable="$itemKey"/>
+    </docblock>
+    <parameter name="nsKey" byreference="false" type="{unknown}"/>
+    <parameter name="itemKey" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="clearAll" start="190" end="193" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Clear all data in the namespace $nsKey if it exists."/>
+      <param type="string" variable="$nsKey"/>
+    </docblock>
+    <parameter name="nsKey" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_prepareCache" start="200" end="205" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Initialize the namespace of $nsKey if needed."/>
+      <param type="string" variable="$nsKey"/>
+    </docblock>
+    <parameter name="nsKey" byreference="false" type="{unknown}"/>
+  </method>
+</class>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpSpec\Formatter\ProgressFormatter" namespace="PhpSpec\Formatter" name="ProgressFormatter" abstract="false" final="false" start="20" end="171">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Formatter" file="ProgressFormatter.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Formatter/ProgressFormatter.php" size="5056" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="691f19a7ef1733fade2586f30c5cd30bed174553" relative="vendor/phpspec/phpspec/src/PhpSpec/Formatter/ProgressFormatter.php"/>
+  <extends full="PhpSpec\Formatter\ConsoleFormatter" namespace="PhpSpec\Formatter" name="ConsoleFormatter"/>
+  <constant type="integer" name="FPS" value="10"/>
+  <member name="lastDraw" visibility="private" line="24"/>
+  <method name="afterExample" start="26" end="35" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="event" byreference="false" type="object">
+      <type full="PhpSpec\Event\ExampleEvent" namespace="PhpSpec\Event" name="ExampleEvent"/>
+    </parameter>
+  </method>
+  <method name="afterSuite" start="37" end="64" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="event" byreference="false" type="object">
+      <type full="PhpSpec\Event\SuiteEvent" namespace="PhpSpec\Event" name="SuiteEvent"/>
+    </parameter>
+  </method>
+  <method name="getPercentages" start="71" end="85" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param variable="$total"/>
+      <param variable="$counts"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="total" byreference="false" type="{unknown}"/>
+    <parameter name="counts" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getBarLengths" start="91" end="104" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="array" variable="$counts"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="counts" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="formatProgressOutput" start="112" end="142" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="array" variable="$barLengths"/>
+      <param type="array" variable="$percents"/>
+      <param type="boolean" variable="$isDecorated"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="barLengths" byreference="false" type="{unknown}"/>
+    <parameter name="percents" byreference="false" type="{unknown}"/>
+    <parameter name="isDecorated" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="updateProgressBar" start="149" end="158" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$io">
+        <type full="PhpSpec\Console\IO" namespace="PhpSpec\Console" name="IO"/>
+      </param>
+      <param type="array" variable="$progress"/>
+      <param type="int" variable="$total"/>
+    </docblock>
+    <parameter name="io" byreference="false" type="object">
+      <type full="PhpSpec\Console\IO" namespace="PhpSpec\Console" name="IO"/>
+    </parameter>
+    <parameter name="progress" byreference="false" type="array"/>
+    <parameter name="total" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="drawStats" start="160" end="170" abstract="false" final="false" static="false" visibility="private"/>
+</class>

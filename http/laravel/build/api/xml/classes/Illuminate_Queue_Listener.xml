@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Illuminate\Queue\Listener" namespace="Illuminate\Queue" name="Listener" abstract="false" final="false" start="10" end="265">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Queue" file="Listener.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/laravel/framework/src/Illuminate/Queue/Listener.php" size="6402" time="2015-12-17T18:44:09+00:00" unixtime="1450377849" sha1="ec62ca0f25cf7231f78e128363bdcc518e53ef24" relative="vendor/laravel/framework/src/Illuminate/Queue/Listener.php"/>
+  <member name="commandPath" visibility="protected" line="17">
+    <docblock>
+      <description compact="The command working path."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="environment" visibility="protected" line="24">
+    <docblock>
+      <description compact="The environment the workers should run under."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="sleep" type="integer" default="3" visibility="protected" line="31">
+    <docblock>
+      <description compact="The amount of seconds to wait before polling the queue."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="maxTries" type="integer" default="0" visibility="protected" line="38">
+    <docblock>
+      <description compact="The amount of times to try a job before logging it failed."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="workerCommand" visibility="protected" line="45">
+    <docblock>
+      <description compact="The queue worker command line."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="outputHandler" visibility="protected" line="52">
+    <docblock>
+      <description compact="The output handler callback."/>
+      <var type="object">
+        <type full="\Closure|null" namespace="" name="Closure|null"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="60" end="64" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new queue listener."/>
+      <param type="string" variable="$commandPath"/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="commandPath" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="buildWorkerCommand" start="71" end="88" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Build the environment specific worker command."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="listen" start="100" end="107" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Listen to the given queue connection."/>
+      <param type="string" variable="$connection"/>
+      <param type="string" variable="$queue"/>
+      <param type="string" variable="$delay"/>
+      <param type="string" variable="$memory"/>
+      <param type="int" variable="$timeout"/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="connection" byreference="false" type="{unknown}"/>
+    <parameter name="queue" byreference="false" type="{unknown}"/>
+    <parameter name="delay" byreference="false" type="{unknown}"/>
+    <parameter name="memory" byreference="false" type="{unknown}"/>
+    <parameter name="timeout" byreference="false" type="integer" default="60"/>
+  </method>
+  <method name="runProcess" start="116" end="128" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Run the given process."/>
+      <param type="object" variable="$process">
+        <type full="\Symfony\Component\Process\Process" namespace="\Symfony\Component\Process" name="Process"/>
+      </param>
+      <param type="int" variable="$memory"/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="process" byreference="false" type="object">
+      <type full="Symfony\Component\Process\Process" namespace="Symfony\Component\Process" name="Process"/>
+    </parameter>
+    <parameter name="memory" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Once we have run the job we'll go check if the memory limit has been" line="122"/>
+      <comment value="exceeded for the script. If it has, we will kill this script so a" line="123"/>
+      <comment value="process manager will restart this with a clean slate of memory." line="124"/>
+    </inline>
+  </method>
+  <method name="makeProcess" start="140" end="165" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new Symfony process for the worker."/>
+      <param type="string" variable="$connection"/>
+      <param type="string" variable="$queue"/>
+      <param type="int" variable="$delay"/>
+      <param type="int" variable="$memory"/>
+      <param type="int" variable="$timeout"/>
+      <return type="object">
+        <type full="\Symfony\Component\Process\Process" namespace="\Symfony\Component\Process" name="Process"/>
+      </return>
+    </docblock>
+    <parameter name="connection" byreference="false" type="{unknown}"/>
+    <parameter name="queue" byreference="false" type="{unknown}"/>
+    <parameter name="delay" byreference="false" type="{unknown}"/>
+    <parameter name="memory" byreference="false" type="{unknown}"/>
+    <parameter name="timeout" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="If the environment is set, we will append it to the command string so the" line="144"/>
+      <comment value="workers will run under the specified environment. Otherwise, they will" line="145"/>
+      <comment value="just run under the production environment which is not always right." line="146"/>
+      <comment value="Next, we will just format out the worker commands with all of the various" line="151"/>
+      <comment value="options available for the command. This will produce the final command" line="152"/>
+      <comment value="line that we will pass into a Symfony process object for processing." line="153"/>
+    </inline>
+  </method>
+  <method name="handleWorkerOutput" start="174" end="179" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Handle output from the worker process."/>
+      <param type="int" variable="$type"/>
+      <param type="string" variable="$line"/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+    <parameter name="line" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="memoryExceeded" start="187" end="190" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine if the memory limit has been exceeded."/>
+      <param type="int" variable="$memoryLimit"/>
+      <return type="object">
+        <type full="Illuminate\Queue\bool" namespace="Illuminate\Queue" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="memoryLimit" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="stop" start="197" end="200" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Stop listening and bail out of the script."/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setOutputHandler" start="208" end="211" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the output handler callback."/>
+      <param type="object" variable="$outputHandler">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="outputHandler" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="getEnvironment" start="218" end="221" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the current listener environment."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setEnvironment" start="229" end="232" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the current environment."/>
+      <param type="string" variable="$environment"/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="environment" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getSleep" start="239" end="242" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the amount of seconds to wait before polling the queue."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="setSleep" start="250" end="253" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the amount of seconds to wait before polling the queue."/>
+      <param type="int" variable="$sleep"/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="sleep" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setMaxTries" start="261" end="264" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the amount of times to try a job before logging it failed."/>
+      <param type="int" variable="$tries"/>
+      <return type="object">
+        <type full="Illuminate\Queue\void" namespace="Illuminate\Queue" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="tries" byreference="false" type="{unknown}"/>
+  </method>
+</class>

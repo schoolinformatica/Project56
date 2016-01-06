@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Swift_Mime_HeaderEncoder_QpHeaderEncoder" namespace="" name="Swift_Mime_HeaderEncoder_QpHeaderEncoder" abstract="false" final="false" start="16" end="65">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/HeaderEncoder" file="QpHeaderEncoder.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/HeaderEncoder/QpHeaderEncoder.php" size="1773" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="b7326844e1ab140b9e59e6746ffa2230b1238daf" relative="vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/HeaderEncoder/QpHeaderEncoder.php"/>
+  <docblock>
+    <description compact="Handles Quoted Printable (Q) Header Encoding in Swift Mailer."/>
+    <author value="Chris Corbyn"/>
+  </docblock>
+  <extends full="Swift_Encoder_QpEncoder" namespace="" name="Swift_Encoder_QpEncoder"/>
+  <implements full="Swift_Mime_HeaderEncoder" namespace="" name="Swift_Mime_HeaderEncoder"/>
+  <constructor name="__construct" start="23" end="26" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Creates a new QpHeaderEncoder for the given CharacterStream."/>
+      <param description="to use for reading characters" type="object" variable="$charStream">
+        <type full="Swift_CharacterStream" namespace="" name="Swift_CharacterStream"/>
+      </param>
+    </docblock>
+    <parameter name="charStream" byreference="false" type="object">
+      <type full="Swift_CharacterStream" namespace="" name="Swift_CharacterStream"/>
+    </parameter>
+  </constructor>
+  <method name="initSafeMap" start="28" end="36" abstract="false" final="false" static="false" visibility="protected"/>
+  <method name="getName" start="45" end="48" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the name of this encoding scheme.">Returns the string 'Q'.</description>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="encodeString" start="59" end="64" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Takes an unencoded string and produces a QP encoded string from it."/>
+      <param description="string to encode" type="string" variable="$string"/>
+      <param description="optional" type="int" variable="$firstLineOffset"/>
+      <param description="optional, 0 indicates the default of 76 chars" type="int" variable="$maxLineLength"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="string" byreference="false" type="{unknown}"/>
+    <parameter name="firstLineOffset" byreference="false" type="integer" default="0"/>
+    <parameter name="maxLineLength" byreference="false" type="integer" default="0"/>
+  </method>
+</class>

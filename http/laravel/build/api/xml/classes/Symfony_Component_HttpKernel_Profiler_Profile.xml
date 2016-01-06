@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\Profiler\Profile" namespace="Symfony\Component\HttpKernel\Profiler" name="Profile" abstract="false" final="false" start="21" end="292">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Profiler" file="Profile.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/Profiler/Profile.php" size="5594" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="a17703f6ac0f796fcc9243cf650cb58e002f6058" relative="vendor/symfony/http-kernel/Profiler/Profile.php"/>
+  <docblock>
+    <description compact="Profile."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <member name="token" visibility="private" line="23"/>
+  <member name="collectors" type="array" default="" visibility="private" line="28">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\DataCollectorInterface" namespace="Symfony\Component\HttpKernel\Profiler" name="DataCollectorInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="ip" visibility="private" line="30"/>
+  <member name="method" visibility="private" line="31"/>
+  <member name="url" visibility="private" line="32"/>
+  <member name="time" visibility="private" line="33"/>
+  <member name="statusCode" visibility="private" line="34"/>
+  <member name="parent" visibility="private" line="39">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\Profile" namespace="Symfony\Component\HttpKernel\Profiler" name="Profile"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="children" type="array" default="" visibility="private" line="44">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\Profile" namespace="Symfony\Component\HttpKernel\Profiler" name="Profile"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="51" end="54" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="The token" type="string" variable="$token"/>
+    </docblock>
+    <parameter name="token" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="setToken" start="61" end="64" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the token."/>
+      <param description="The token" type="string" variable="$token"/>
+    </docblock>
+    <parameter name="token" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getToken" start="71" end="74" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the token."/>
+      <return description="The token" type="string"/>
+    </docblock>
+  </method>
+  <method name="setParent" start="81" end="84" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the parent token."/>
+      <param description="The parent Profile" type="object" variable="$parent">
+        <type full="Symfony\Component\HttpKernel\Profiler\Profile" namespace="Symfony\Component\HttpKernel\Profiler" name="Profile"/>
+      </param>
+    </docblock>
+    <parameter name="parent" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\Profiler\Profile" namespace="Symfony\Component\HttpKernel\Profiler" name="Profile"/>
+    </parameter>
+  </method>
+  <method name="getParent" start="91" end="94" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the parent profile."/>
+      <return description="The parent profile" type="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\Profile" namespace="Symfony\Component\HttpKernel\Profiler" name="Profile"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getParentToken" start="101" end="104" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the parent token."/>
+      <return description="The parent token" type="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\null|string" namespace="Symfony\Component\HttpKernel\Profiler" name="null|string"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getIp" start="111" end="114" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the IP."/>
+      <return description="The IP" type="string"/>
+    </docblock>
+  </method>
+  <method name="setIp" start="121" end="124" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the IP."/>
+      <param type="string" variable="$ip"/>
+    </docblock>
+    <parameter name="ip" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getMethod" start="131" end="134" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the request method."/>
+      <return description="The request method" type="string"/>
+    </docblock>
+  </method>
+  <method name="setMethod" start="136" end="139" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="method" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getUrl" start="146" end="149" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the URL."/>
+      <return description="The URL" type="string"/>
+    </docblock>
+  </method>
+  <method name="setUrl" start="151" end="154" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="url" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getTime" start="161" end="168" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the time."/>
+      <return description="The time" type="string"/>
+    </docblock>
+  </method>
+  <method name="setTime" start="170" end="173" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="time" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setStatusCode" start="178" end="181" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="int" variable="$statusCode"/>
+    </docblock>
+    <parameter name="statusCode" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getStatusCode" start="186" end="189" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getChildren" start="196" end="199" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Finds children profilers."/>
+      <return description="An array of Profile" type="array" of="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\Profile" namespace="Symfony\Component\HttpKernel\Profiler" name="Profile"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setChildren" start="206" end="212" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets children profiler."/>
+      <param description="An array of Profile" type="array" variable="$children" of="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\Profile" namespace="Symfony\Component\HttpKernel\Profiler" name="Profile"/>
+      </param>
+    </docblock>
+    <parameter name="children" byreference="false" type="array"/>
+  </method>
+  <method name="addChild" start="219" end="223" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds the child token."/>
+      <param description="The child Profile" type="object" variable="$child">
+        <type full="Symfony\Component\HttpKernel\Profiler\Profile" namespace="Symfony\Component\HttpKernel\Profiler" name="Profile"/>
+      </param>
+    </docblock>
+    <parameter name="child" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\Profiler\Profile" namespace="Symfony\Component\HttpKernel\Profiler" name="Profile"/>
+    </parameter>
+  </method>
+  <method name="getCollector" start="234" end="241" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets a Collector by name."/>
+      <param description="A collector name" type="string" variable="$name"/>
+      <return description="A DataCollectorInterface instance" type="object">
+        <type full="Symfony\Component\HttpKernel\DataCollector\DataCollectorInterface" namespace="Symfony\Component\HttpKernel\DataCollector" name="DataCollectorInterface"/>
+      </return>
+      <throws description="if the collector does not exist" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getCollectors" start="248" end="251" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the Collectors associated with this profile."/>
+      <return type="array" of="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\DataCollectorInterface" namespace="Symfony\Component\HttpKernel\Profiler" name="DataCollectorInterface"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setCollectors" start="258" end="264" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the Collectors associated with this profile."/>
+      <param type="array" variable="$collectors" of="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\DataCollectorInterface" namespace="Symfony\Component\HttpKernel\Profiler" name="DataCollectorInterface"/>
+      </param>
+    </docblock>
+    <parameter name="collectors" byreference="false" type="array"/>
+  </method>
+  <method name="addCollector" start="271" end="274" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a Collector."/>
+      <param description="A DataCollectorInterface instance" type="object" variable="$collector">
+        <type full="Symfony\Component\HttpKernel\DataCollector\DataCollectorInterface" namespace="Symfony\Component\HttpKernel\DataCollector" name="DataCollectorInterface"/>
+      </param>
+    </docblock>
+    <parameter name="collector" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\DataCollector\DataCollectorInterface" namespace="Symfony\Component\HttpKernel\DataCollector" name="DataCollectorInterface"/>
+    </parameter>
+  </method>
+  <method name="hasCollector" start="283" end="286" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if a Collector for the given name exists."/>
+      <param description="A collector name" type="string" variable="$name"/>
+      <return type="object">
+        <type full="Symfony\Component\HttpKernel\Profiler\bool" namespace="Symfony\Component\HttpKernel\Profiler" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__sleep" start="288" end="291" abstract="false" final="false" static="false" visibility="public"/>
+</class>

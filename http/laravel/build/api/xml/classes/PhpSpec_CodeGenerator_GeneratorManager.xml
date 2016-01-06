@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpSpec\CodeGenerator\GeneratorManager" namespace="PhpSpec\CodeGenerator" name="GeneratorManager" abstract="false" final="false" start="22" end="61">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/CodeGenerator" file="GeneratorManager.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/CodeGenerator/GeneratorManager.php" size="1630" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="9baf5a806736581c09f60ed943dc0fd1ec135764" relative="vendor/phpspec/phpspec/src/PhpSpec/CodeGenerator/GeneratorManager.php"/>
+  <docblock>
+    <description compact="Uses registered generators to generate code honoring priority order"/>
+  </docblock>
+  <member name="generators" type="array" default="" visibility="private" line="27">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="registerGenerator" start="32" end="38" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$generator">
+        <type full="PhpSpec\CodeGenerator\Generator\GeneratorInterface" namespace="PhpSpec\CodeGenerator\Generator" name="GeneratorInterface"/>
+      </param>
+    </docblock>
+    <parameter name="generator" byreference="false" type="object">
+      <type full="PhpSpec\CodeGenerator\Generator\GeneratorInterface" namespace="PhpSpec\CodeGenerator\Generator" name="GeneratorInterface"/>
+    </parameter>
+  </method>
+  <method name="generate" start="48" end="60" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$resource">
+        <type full="PhpSpec\Locator\ResourceInterface" namespace="PhpSpec\Locator" name="ResourceInterface"/>
+      </param>
+      <param type="string" variable="$name"/>
+      <param type="array" variable="$data"/>
+      <return type="mixed"/>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="resource" byreference="false" type="object">
+      <type full="PhpSpec\Locator\ResourceInterface" namespace="PhpSpec\Locator" name="ResourceInterface"/>
+    </parameter>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="array" default=""/>
+  </method>
+</class>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Prophecy\Doubler\Generator\ClassMirror" namespace="Prophecy\Doubler\Generator" name="ClassMirror" abstract="false" final="false" start="26" end="210">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Doubler/Generator" file="ClassMirror.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/prophecy/src/Prophecy/Doubler/Generator/ClassMirror.php" size="6611" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="d506efc81d25a1ff9b09138479e4c02cd4f06da9" relative="vendor/phpspec/prophecy/src/Prophecy/Doubler/Generator/ClassMirror.php"/>
+  <docblock>
+    <description compact="Class mirror.">Core doubler class. Mirrors specific class and/or interfaces into class node tree.</description>
+    <author value="Konstantin Kudryashov &lt;ever.zet@gmail.com&gt;"/>
+  </docblock>
+  <member name="reflectableMethods" type="array" default="" visibility="private" line="28"/>
+  <method name="reflect" start="47" end="85" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Reflects provided arguments into class node."/>
+      <param type="object" variable="$class">
+        <type full="ReflectionClass" namespace="" name="ReflectionClass"/>
+      </param>
+      <param type="array" variable="$interfaces" of="object">
+        <type full="Prophecy\Doubler\Generator\ReflectionClass" namespace="Prophecy\Doubler\Generator" name="ReflectionClass"/>
+      </param>
+      <return type="object">
+        <type full="Prophecy\Doubler\Generator\Node\ClassNode" namespace="Prophecy\Doubler\Generator\Node" name="ClassNode"/>
+      </return>
+      <throws type="object">
+        <type full="\Prophecy\Exception\InvalidArgumentException" namespace="\Prophecy\Exception" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="ReflectionClass" namespace="" name="ReflectionClass"/>
+    </parameter>
+    <parameter name="interfaces" byreference="false" type="array"/>
+  </method>
+  <method name="reflectClassToNode" start="87" end="117" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="class" byreference="false" type="object">
+      <type full="ReflectionClass" namespace="" name="ReflectionClass"/>
+    </parameter>
+    <parameter name="node" byreference="false" type="object">
+      <type full="Prophecy\Doubler\Generator\Node\ClassNode" namespace="Prophecy\Doubler\Generator\Node" name="ClassNode"/>
+    </parameter>
+  </method>
+  <method name="reflectInterfaceToNode" start="119" end="126" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="interface" byreference="false" type="object">
+      <type full="ReflectionClass" namespace="" name="ReflectionClass"/>
+    </parameter>
+    <parameter name="node" byreference="false" type="object">
+      <type full="Prophecy\Doubler\Generator\Node\ClassNode" namespace="Prophecy\Doubler\Generator\Node" name="ClassNode"/>
+    </parameter>
+  </method>
+  <method name="reflectMethodToNode" start="128" end="155" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="method" byreference="false" type="object">
+      <type full="ReflectionMethod" namespace="" name="ReflectionMethod"/>
+    </parameter>
+    <parameter name="classNode" byreference="false" type="object">
+      <type full="Prophecy\Doubler\Generator\Node\ClassNode" namespace="Prophecy\Doubler\Generator\Node" name="ClassNode"/>
+    </parameter>
+  </method>
+  <method name="reflectArgumentToNode" start="157" end="177" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="parameter" byreference="false" type="object">
+      <type full="ReflectionParameter" namespace="" name="ReflectionParameter"/>
+    </parameter>
+    <parameter name="methodNode" byreference="false" type="object">
+      <type full="Prophecy\Doubler\Generator\Node\MethodNode" namespace="Prophecy\Doubler\Generator\Node" name="MethodNode"/>
+    </parameter>
+  </method>
+  <method name="getTypeHint" start="179" end="198" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="parameter" byreference="false" type="object">
+      <type full="ReflectionParameter" namespace="" name="ReflectionParameter"/>
+    </parameter>
+  </method>
+  <method name="getParameterClassName" start="200" end="209" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="parameter" byreference="false" type="object">
+      <type full="ReflectionParameter" namespace="" name="ReflectionParameter"/>
+    </parameter>
+  </method>
+</class>

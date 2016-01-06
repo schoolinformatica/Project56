@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PhpSpec\Matcher\ObjectStateMatcher" namespace="PhpSpec\Matcher" name="ObjectStateMatcher" abstract="false" final="false" start="20" end="129">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Matcher" file="ObjectStateMatcher.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/phpspec/phpspec/src/PhpSpec/Matcher/ObjectStateMatcher.php" size="3735" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="70606abf77fc0ff8a604b461a96b1a2c3be913e1" relative="vendor/phpspec/phpspec/src/PhpSpec/Matcher/ObjectStateMatcher.php"/>
+  <implements full="PhpSpec\Matcher\MatcherInterface" namespace="PhpSpec\Matcher" name="MatcherInterface"/>
+  <member name="regex" type="string" default="'/(be|have)(.+)/'" visibility="private" line="25">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="presenter" visibility="private" line="29">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="PhpSpec\Formatter\Presenter\PresenterInterface" namespace="PhpSpec\Formatter\Presenter" name="PresenterInterface"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="34" end="37" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$presenter">
+        <type full="PhpSpec\Formatter\Presenter\PresenterInterface" namespace="PhpSpec\Formatter\Presenter" name="PresenterInterface"/>
+      </param>
+    </docblock>
+    <parameter name="presenter" byreference="false" type="object">
+      <type full="PhpSpec\Formatter\Presenter\PresenterInterface" namespace="PhpSpec\Formatter\Presenter" name="PresenterInterface"/>
+    </parameter>
+  </constructor>
+  <method name="supports" start="46" end="51" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$name"/>
+      <param type="mixed" variable="$subject"/>
+      <param type="array" variable="$arguments"/>
+      <return type="object">
+        <type full="PhpSpec\Matcher\bool" namespace="PhpSpec\Matcher" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="subject" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="array"/>
+  </method>
+  <method name="positiveMatch" start="61" end="77" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$name"/>
+      <param type="mixed" variable="$subject"/>
+      <param type="array" variable="$arguments"/>
+      <throws type="object">
+        <type full="\PhpSpec\Exception\Example\FailureException" namespace="\PhpSpec\Exception\Example" name="FailureException"/>
+      </throws>
+      <throws type="object">
+        <type full="\PhpSpec\Exception\Fracture\MethodNotFoundException" namespace="\PhpSpec\Exception\Fracture" name="MethodNotFoundException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="subject" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="array"/>
+  </method>
+  <method name="negativeMatch" start="87" end="103" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$name"/>
+      <param type="mixed" variable="$subject"/>
+      <param type="array" variable="$arguments"/>
+      <throws type="object">
+        <type full="\PhpSpec\Exception\Example\FailureException" namespace="\PhpSpec\Exception\Example" name="FailureException"/>
+      </throws>
+      <throws type="object">
+        <type full="\PhpSpec\Exception\Fracture\MethodNotFoundException" namespace="\PhpSpec\Exception\Fracture" name="MethodNotFoundException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="subject" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="array"/>
+  </method>
+  <method name="getPriority" start="108" end="111" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getFailureExceptionFor" start="120" end="128" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$callable">
+        <type full="PhpSpec\Matcher\callable" namespace="PhpSpec\Matcher" name="callable"/>
+      </param>
+      <param type="object" variable="$expectedBool">
+        <type full="PhpSpec\Matcher\Boolean" namespace="PhpSpec\Matcher" name="Boolean"/>
+      </param>
+      <param type="object" variable="$result">
+        <type full="PhpSpec\Matcher\Boolean" namespace="PhpSpec\Matcher" name="Boolean"/>
+      </param>
+      <return type="object">
+        <type full="PhpSpec\Exception\Example\FailureException" namespace="PhpSpec\Exception\Example" name="FailureException"/>
+      </return>
+    </docblock>
+    <parameter name="callable" byreference="false" type="{unknown}"/>
+    <parameter name="expectedBool" byreference="false" type="{unknown}"/>
+    <parameter name="result" byreference="false" type="{unknown}"/>
+  </method>
+</class>

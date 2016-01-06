@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Console\Input\Input" namespace="Symfony\Component\Console\Input" name="Input" abstract="true" final="false" start="25" end="233">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Input" file="Input.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/console/Input/Input.php" size="6494" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="df6e497da445f0490fee29de588b7f76b8393a7b" relative="vendor/symfony/console/Input/Input.php"/>
+  <docblock>
+    <description compact="Input is the base class for all concrete Input classes.">Three concrete classes are provided by default:
+
+ * `ArgvInput`: The input comes from the CLI arguments (argv)
+ * `StringInput`: The input is provided as a string
+ * `ArrayInput`: The input is provided as an array</description>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <implements full="Symfony\Component\Console\Input\InputInterface" namespace="Symfony\Component\Console\Input" name="InputInterface"/>
+  <member name="definition" visibility="protected" line="30">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Symfony\Component\Console\Input\InputDefinition" namespace="Symfony\Component\Console\Input" name="InputDefinition"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="options" type="array" default="" visibility="protected" line="31"/>
+  <member name="arguments" type="array" default="" visibility="protected" line="32"/>
+  <member name="interactive" type="boolean" default="true" visibility="protected" line="33"/>
+  <constructor name="__construct" start="40" end="48" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="A InputDefinition instance" type="object" variable="$definition">
+        <type full="Symfony\Component\Console\Input\InputDefinition" namespace="Symfony\Component\Console\Input" name="InputDefinition"/>
+      </param>
+    </docblock>
+    <parameter name="definition" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\Console\Input\InputDefinition" namespace="Symfony\Component\Console\Input" name="InputDefinition"/>
+    </parameter>
+  </constructor>
+  <method name="bind" start="55" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Binds the current Input instance with the given arguments and options."/>
+      <param description="A InputDefinition instance" type="object" variable="$definition">
+        <type full="Symfony\Component\Console\Input\InputDefinition" namespace="Symfony\Component\Console\Input" name="InputDefinition"/>
+      </param>
+    </docblock>
+    <parameter name="definition" byreference="false" type="object">
+      <type full="Symfony\Component\Console\Input\InputDefinition" namespace="Symfony\Component\Console\Input" name="InputDefinition"/>
+    </parameter>
+  </method>
+  <method name="parse" start="67" end="67" abstract="true" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Processes command line arguments."/>
+    </docblock>
+  </method>
+  <method name="validate" start="74" end="86" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Validates the input."/>
+      <throws description="When not enough arguments are given" type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="isInteractive" start="93" end="96" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks if the input is interactive."/>
+      <return description="Returns true if the input is interactive" type="object">
+        <type full="Symfony\Component\Console\Input\bool" namespace="Symfony\Component\Console\Input" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setInteractive" start="103" end="106" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the input interactivity."/>
+      <param description="If the input should be interactive" type="object" variable="$interactive">
+        <type full="Symfony\Component\Console\Input\bool" namespace="Symfony\Component\Console\Input" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="interactive" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getArguments" start="113" end="116" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the argument values."/>
+      <return description="An array of argument values" type="array"/>
+    </docblock>
+  </method>
+  <method name="getArgument" start="127" end="134" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the argument value for a given argument name."/>
+      <param description="The argument name" type="string" variable="$name"/>
+      <return description="The argument value" type="mixed"/>
+      <throws description="When argument given doesn't exist" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setArgument" start="144" end="151" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets an argument value by name."/>
+      <param description="The argument name" type="string" variable="$name"/>
+      <param description="The argument value" type="string" variable="$value"/>
+      <throws description="When argument given doesn't exist" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasArgument" start="160" end="163" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if an InputArgument object exists by name or position."/>
+      <param description="The InputArgument name or position" type="object" variable="$name">
+        <type full="Symfony\Component\Console\Input\string|int" namespace="Symfony\Component\Console\Input" name="string|int"/>
+      </param>
+      <return description="true if the InputArgument object exists, false otherwise" type="object">
+        <type full="Symfony\Component\Console\Input\bool" namespace="Symfony\Component\Console\Input" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getOptions" start="170" end="173" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the options values."/>
+      <return description="An array of option values" type="array"/>
+    </docblock>
+  </method>
+  <method name="getOption" start="184" end="191" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the option value for a given option name."/>
+      <param description="The option name" type="string" variable="$name"/>
+      <return description="The option value" type="mixed"/>
+      <throws description="When option given doesn't exist" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setOption" start="201" end="208" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets an option value by name."/>
+      <param description="The option name" type="string" variable="$name"/>
+      <param description="The option value" type="object" variable="$value">
+        <type full="Symfony\Component\Console\Input\string|bool" namespace="Symfony\Component\Console\Input" name="string|bool"/>
+      </param>
+      <throws description="When option given doesn't exist" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasOption" start="217" end="220" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if an InputOption object exists by name."/>
+      <param description="The InputOption name" type="string" variable="$name"/>
+      <return description="true if the InputOption object exists, false otherwise" type="object">
+        <type full="Symfony\Component\Console\Input\bool" namespace="Symfony\Component\Console\Input" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="escapeToken" start="229" end="232" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Escapes a token through escapeshellarg if it contains unsafe chars."/>
+      <param type="string" variable="$token"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="token" byreference="false" type="{unknown}"/>
+  </method>
+</class>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\Routing\Loader\AnnotationFileLoader" namespace="Symfony\Component\Routing\Loader" name="AnnotationFileLoader" abstract="false" final="false" start="25" end="121">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/routing/Loader" file="AnnotationFileLoader.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/routing/Loader/AnnotationFileLoader.php" size="3487" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="cff81b5d384adec271615b7d02050cd3653cd86f" relative="vendor/symfony/routing/Loader/AnnotationFileLoader.php"/>
+  <docblock>
+    <description compact="AnnotationFileLoader loads routing information from annotations set on a PHP class and its methods."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+  </docblock>
+  <extends full="Symfony\Component\Config\Loader\FileLoader" namespace="Symfony\Component\Config\Loader" name="FileLoader"/>
+  <member name="loader" visibility="protected" line="27"/>
+  <constructor name="__construct" start="37" end="46" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="A FileLocator instance" type="object" variable="$locator">
+        <type full="Symfony\Component\Config\FileLocatorInterface" namespace="Symfony\Component\Config" name="FileLocatorInterface"/>
+      </param>
+      <param description="An AnnotationClassLoader instance" type="object" variable="$loader">
+        <type full="Symfony\Component\Routing\Loader\AnnotationClassLoader" namespace="Symfony\Component\Routing\Loader" name="AnnotationClassLoader"/>
+      </param>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="locator" byreference="false" type="object">
+      <type full="Symfony\Component\Config\FileLocatorInterface" namespace="Symfony\Component\Config" name="FileLocatorInterface"/>
+    </parameter>
+    <parameter name="loader" byreference="false" type="object">
+      <type full="Symfony\Component\Routing\Loader\AnnotationClassLoader" namespace="Symfony\Component\Routing\Loader" name="AnnotationClassLoader"/>
+    </parameter>
+  </constructor>
+  <method name="load" start="58" end="69" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Loads from annotations from a file."/>
+      <param description="A PHP file path" type="string" variable="$file"/>
+      <param description="The resource type" type="object" variable="$type">
+        <type full="Symfony\Component\Routing\Loader\string|null" namespace="Symfony\Component\Routing\Loader" name="string|null"/>
+      </param>
+      <return description="A RouteCollection instance" type="object">
+        <type full="Symfony\Component\Routing\RouteCollection" namespace="Symfony\Component\Routing" name="RouteCollection"/>
+      </return>
+      <throws description="When the file does not exist or its routes cannot be parsed" type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="file" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="supports" start="74" end="77" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="resource" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}" default="" constant="null"/>
+  </method>
+  <method name="findClass" start="86" end="120" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Returns the full class name for the first class in the file."/>
+      <param description="A PHP file path" type="string" variable="$file"/>
+      <return description="Full class name if found, false otherwise" type="object">
+        <type full="Symfony\Component\Routing\Loader\string|false" namespace="Symfony\Component\Routing\Loader" name="string|false"/>
+      </return>
+    </docblock>
+    <parameter name="file" byreference="false" type="{unknown}"/>
+  </method>
+</class>

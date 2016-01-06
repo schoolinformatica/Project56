@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Symfony\Component\HttpKernel\DependencyInjection\ContainerAwareHttpKernel" namespace="Symfony\Component\HttpKernel\DependencyInjection" name="ContainerAwareHttpKernel" abstract="false" final="false" start="31" end="82">
+  <file path="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/DependencyInjection" file="ContainerAwareHttpKernel.php" realpath="/home/robert/Desktop/Hogeschool/2ejaars Development/DevBOpdrachten/project56/http/laravel/vendor/symfony/http-kernel/DependencyInjection/ContainerAwareHttpKernel.php" size="3054" time="2015-12-17T18:44:10+00:00" unixtime="1450377850" sha1="7f4154150edc3bd582c2411b1ff7e812ec91cf68" relative="vendor/symfony/http-kernel/DependencyInjection/ContainerAwareHttpKernel.php"/>
+  <docblock>
+    <description compact="Adds a managed request scope."/>
+    <author value="Fabien Potencier &lt;fabien@symfony.com&gt;"/>
+    <author value="Johannes M. Schmitt &lt;schmittjoh@gmail.com&gt;"/>
+    <deprecated value="since version 2.7, to be removed in 3.0."/>
+  </docblock>
+  <extends full="Symfony\Component\HttpKernel\HttpKernel" namespace="Symfony\Component\HttpKernel" name="HttpKernel"/>
+  <member name="container" visibility="protected" line="33"/>
+  <constructor name="__construct" start="44" end="58" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor."/>
+      <param description="An EventDispatcherInterface instance" type="object" variable="$dispatcher">
+        <type full="Symfony\Component\EventDispatcher\EventDispatcherInterface" namespace="Symfony\Component\EventDispatcher" name="EventDispatcherInterface"/>
+      </param>
+      <param description="A ContainerInterface instance" type="object" variable="$container">
+        <type full="Symfony\Component\DependencyInjection\ContainerInterface" namespace="Symfony\Component\DependencyInjection" name="ContainerInterface"/>
+      </param>
+      <param description="A ControllerResolverInterface instance" type="object" variable="$controllerResolver">
+        <type full="Symfony\Component\HttpKernel\Controller\ControllerResolverInterface" namespace="Symfony\Component\HttpKernel\Controller" name="ControllerResolverInterface"/>
+      </param>
+      <param description="A stack for master/sub requests" type="object" variable="$requestStack">
+        <type full="Symfony\Component\HttpFoundation\RequestStack" namespace="Symfony\Component\HttpFoundation" name="RequestStack"/>
+      </param>
+      <param description="Whether or not to trigger the deprecation warning for the ContainerAwareHttpKernel" type="object" variable="$triggerDeprecation">
+        <type full="Symfony\Component\HttpKernel\DependencyInjection\bool" namespace="Symfony\Component\HttpKernel\DependencyInjection" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="dispatcher" byreference="false" type="object">
+      <type full="Symfony\Component\EventDispatcher\EventDispatcherInterface" namespace="Symfony\Component\EventDispatcher" name="EventDispatcherInterface"/>
+    </parameter>
+    <parameter name="container" byreference="false" type="object">
+      <type full="Symfony\Component\DependencyInjection\ContainerInterface" namespace="Symfony\Component\DependencyInjection" name="ContainerInterface"/>
+    </parameter>
+    <parameter name="controllerResolver" byreference="false" type="object">
+      <type full="Symfony\Component\HttpKernel\Controller\ControllerResolverInterface" namespace="Symfony\Component\HttpKernel\Controller" name="ControllerResolverInterface"/>
+    </parameter>
+    <parameter name="requestStack" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Symfony\Component\HttpFoundation\RequestStack" namespace="Symfony\Component\HttpFoundation" name="RequestStack"/>
+    </parameter>
+    <parameter name="triggerDeprecation" byreference="false" type="boolean" default="true"/>
+    <inline>
+      <comment value="the request scope might have been created before (see FrameworkBundle)" line="54"/>
+    </inline>
+  </constructor>
+  <method name="handle" start="63" end="81" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="{@inheritdoc}"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Symfony\Component\HttpFoundation\Request" namespace="Symfony\Component\HttpFoundation" name="Request"/>
+    </parameter>
+    <parameter name="type" byreference="false" type="{unknown}" default="" constant="HttpKernelInterface::MASTER_REQUEST"/>
+    <parameter name="catch" byreference="false" type="boolean" default="true"/>
+  </method>
+</class>
