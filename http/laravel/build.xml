@@ -1,7 +1,6 @@
 
-
 <project name="Project56 - Output" default="full-build">
-<!--  By default, we assume all tools to be on the $PATH -->  
+<!--  By default, we assume all tools to be on the $PATH -->
 <property name="phpdox" value="phpdox"/>
 <property name="phploc" value="phploc"/>
 <property name="phpunit" value="phpunit"/>
@@ -53,11 +52,11 @@
 <target name="lint" unless="lint.done" description="Perform syntax check of sourcecode files">
 <apply executable="php" taskname="lint">
 <arg value="-l"/>
-<fileset dir="${basedir}/laravel">
+<fileset dir="${basedir}">
 <include name="**/*.php"/>
 <modified/>
 </fileset>
-<fileset dir="${basedir}/laravel/tests">
+<fileset dir="${basedir}/tests">
 <include name="**/*.php"/>
 <modified/>
 </fileset>
@@ -71,7 +70,7 @@
 <target name="phploc" unless="phploc.done" description="Measure project size using PHPLOC and print human readable output. Intended for usage on the command line.">
 <exec executable="${phploc}" taskname="phploc">
 <arg value="--count-tests"/>
-<arg path="${basedir}/laravel"/>
+ <arg path="${basedir}"/>
 <arg path="${basedir}/tests"/>
 </exec>
 <property name="phploc.done" value="true"/>
@@ -85,8 +84,8 @@
 <arg path="${basedir}/build/logs/phploc.csv"/>
 <arg value="--log-xml"/>
 <arg path="${basedir}/build/logs/phploc.xml"/>
-<arg path="${basedir}/laravel"/>
-<arg path="${basedir}/laravel/tests"/>
+<arg path="${basedir}"/>
+<arg path="${basedir}/tests"/>
 </exec>
 <property name="phploc.done" value="true"/>
 </target>
@@ -95,7 +94,7 @@
 <target name="phpunit" unless="phpunit.done" depends="prepare" description="Run unit tests with PHPUnit">
 <exec executable="${phpunit}" resultproperty="result.phpunit" taskname="phpunit">
 <arg value="--configuration"/>
-<arg path="${basedir}/build/phpunit.xml"/>
+<arg path="${basedir}/phpunit.xml"/>
 </exec>
 <property name="phpunit.done" value="true"/>
 </target>
@@ -104,7 +103,7 @@
 <target name="phpunit-no-coverage" unless="phpunit.done" depends="prepare" description="Run unit tests with PHPUnit (without generating code coverage reports)">
 <exec executable="${phpunit}" failonerror="true" taskname="phpunit">
 <arg value="--configuration"/>
-<arg path="${basedir}/build/phpunit.xml"/>
+<arg path="${basedir}/phpunit.xml"/>
 <arg value="--no-coverage"/>
 </exec>
 <property name="phpunit.done" value="true"/>
@@ -128,4 +127,18 @@
 </target>
 
 </project>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
