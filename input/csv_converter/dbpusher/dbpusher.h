@@ -35,24 +35,32 @@ int push_list_to_database(string pathToFile)
         if(csvName.compare("positions.csv") == 0)
         {
             p.exec_none_transaction(createQuery(pathToFile, csvName));
-            cout << "CSV file entered." << endl;
+
         }
         else if(csvName.compare("connections.csv") == 0)
         {
             p.exec_none_transaction(createQuery(pathToFile, csvName));
-            cout << "CSV file entered." << endl;
+
         }
         else if(csvName.compare("monitoring.csv") == 0)
         {
             p.exec_none_transaction(createQuery(pathToFile, csvName));
-            cout << "CSV file entered." << endl;
+
         }
         else if(csvName.compare("events.csv") == 0)
         {
             p.exec_none_transaction(createQuery(pathToFile, csvName));
-            cout << "CSV file entered." << endl;
+
         }
-        return 1;
+
+        if (p.getErrorCode() == 1) {
+            cout << "CSV file entered." << endl;
+            return  1; //OK
+        }
+        else {
+            cout << "CSV file couldn't be entered." << endl;
+            return  0; //FAIL
+        }
     }
     else
     {
