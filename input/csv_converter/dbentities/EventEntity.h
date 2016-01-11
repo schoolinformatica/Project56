@@ -63,13 +63,13 @@ void EventEntity::set_unit_id(string Unit_id) { unit_id = Unit_id; }
 void EventEntity::set_value(int Value) { value = Value; }
 
 //Getters
-string EventEntity::get_date_time() { return date_time; }
+const string EventEntity::get_date_time() { return date_time; }
 
-string EventEntity::get_port() { return port; }
+const string EventEntity::get_port() { return port; }
 
-string EventEntity::get_unit_id() { return unit_id; }
+const string EventEntity::get_unit_id() { return unit_id; }
 
-int EventEntity::get_value() { return value; }
+const int EventEntity::get_value() { return value; }
 
 
 

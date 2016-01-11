@@ -65,12 +65,12 @@ void ConnectionEntity::set_port(string Port) { port = Port; }
 void ConnectionEntity::set_value(bool Value) { value = Value; }
 
 // Getters
-string ConnectionEntity::get_date_time() { return date_time; }
+const string ConnectionEntity::get_date_time() { return date_time; }
 
-string ConnectionEntity::get_unit_id() { return unit_id; }
+const string ConnectionEntity::get_unit_id() { return unit_id; }
 
-string ConnectionEntity::get_port() { return port; }
+const string ConnectionEntity::get_port() { return port; }
 
-bool ConnectionEntity::get_value() { return value; }
+const bool ConnectionEntity::get_value() { return value; }
 
 #endif //INPUT_PROCESS_CONNECTIONENTITY_H
