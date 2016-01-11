@@ -125,7 +125,14 @@
 
         <ul class="nav navbar-nav navbar-right">
             @if(Auth::check())
-                <li><a href="/auth/login/">Logout</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Welcome,  {{ Auth::user()->name }}
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/auth/logout/">Logout</a></li>
+                        <li><a href="/myfiles/">My reports</a></li>
+                    </ul>
+                </li>
             @else
                 <li><a href="/auth/login/">Login</a></li>
             @endif

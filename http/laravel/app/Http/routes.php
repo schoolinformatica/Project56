@@ -24,6 +24,7 @@ Route::get('download', 'PagesController@download');
 Route::get('uploaded', 'PagesController@uploadFinished');
 //Route::get('uploaded', ['middleware' => 'auth', 'uses' => 'PagesController@uploadFinished']);
 Route::get('vehicles', 'VehiclesController@vehicles');
+Route::get('myfiles', 'MyfilesController@myfiles');
 
 //Routes for the uploadpage and the post request for uploading files
 Route::get('uploadPage',  'UploadController@upload');
