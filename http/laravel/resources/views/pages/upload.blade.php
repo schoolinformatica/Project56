@@ -160,7 +160,7 @@
                     percent.html(percentVal);
                 },
                 complete: function (xhr) {
-                    status.html(xhr.responseText);
+                    window.location.href = "/uploaded/";
                 }
             });
 
