@@ -65,7 +65,7 @@ int push_list_to_database(string pathToFile)
     else
     {
         cout << "CSV file not recognized as CityGis CSV file." << endl;
-        return 0;
+        return 0; // FAIL
     }
 }
 
