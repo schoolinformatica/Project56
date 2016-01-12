@@ -12,38 +12,51 @@
 
     <style type="text/css">
 
+        .height-200 {
+            height: 200px;
+        }
+
+        .box {
+            -webkit-box-shadow: 0px 0px 32px 4px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 0px 32px 4px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 0px 32px 4px rgba(0, 0, 0, 0.75);
+            padding: 30px;
+        }
+
+        .full-width {
+            width: 100%;
+        }
+
+        /* Wrapper for page content to push down footer */
+        .wrap {
+
+            min-height: 100% !important;
+            height: auto !important;
+
+        }
+
+        html {
+            height: 100%;
+        }
 
         body {
             padding-top: 0px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+            height: 100%;
+            background-color: #E9E9E9;
         }
 
-//        .container {
-//            width:100%;
-//            margin-top:60px;
-//        }
-//
-//        .row {
-//            margin-bottom:50px;
-//            background-color:#eeeeee;
-//        }
-//
-//        .row div {
-//            margin:auto;
-//            padding-top:20px;
-//            float:initial;
-//            max-width:800px;
-//            height:100%;;
-//        }
+        .btn-primary {
+            background-color: #3299BB !important;
+        }
 
         .container {
-            //width:100%;
             margin-top:60px;
         }
 
         .row {
-            margin-bottom:50px;
-            //background-color:#eeeeee;
+            background-color: white;
         }
+
 
         .row div {
             margin:auto;
@@ -53,30 +66,39 @@
             height:100%;;
         }
 
-        .leadh1 {
-            margin-top:0px;
-        }
 
-        .navbar-inverse {
+        .navbar-custom {
             border-radius:0px;
+            background-color: #3299BB !important;
+            color: white;
+            padding-right: 10px;
+
+            -webkit-box-shadow: 0px 0px 32px 4px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 0px 32px 4px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 0px 32px 4px rgba(0, 0, 0, 0.75);
         }
 
-        .navbar-fixed-top .nav {
-            padding: 15px 0;
+        .navbar-custom .navbar-nav > li > a {
+            color:#fff;
         }
 
-        .navbar-fixed-top .navbar-brand {
-            padding: 0 15px;
+        .navbar-custom li:hover > a {
+            color: #424242 !important;
         }
 
-        footer {
-            padding-top: 50px;
-            margin:0px,0px,0px,10px;
+        .navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+            color: #424242 !important;
+            background-color:transparent;
         }
-        #footer {
-            padding-top:0px;
-            margin-left:10px;
-            width:100%;
+
+        .navbar-custom label {
+            color: #302d33;
+        }
+
+
+        .footer {
+            height: 60px;
+            background-color: #BCBCBC;
         }
 
         @media(min-width:768px) {
@@ -84,15 +106,12 @@
                 padding-top: 0px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
             }
 
-            .navbar-fixed-top .navbar-brand {
-                padding: 15px 0;
-            }
         }
     </style>
 </head>
 <body>
 
-<nav role="navigation" class="navbar navbar-inverse">
+<nav role="navigation" class="navbar navbar-custom navbar-fixed-top">
     <!--toggle is grouped for better mobile display -->
     <div class="navbar-header">
         <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
@@ -134,32 +153,81 @@
                     </ul>
                 </li>
             @else
-                <li><a href="/auth/login/">Login</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
+                    <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px; margin-top: 10px;">
+                                @if (count($errors) > 0)
+                                    <div class="alert alert-danger">
+                                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+
+                                <form class="form-horizontal" role="form" method="POST" action="/auth/login">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">E-Mail Address</label>
+
+                                        <div class="col-md-6">
+                                            <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Password</label>
+
+                                        <div class="col-md-6">
+                                            <input type="password" class="form-control" name="password">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-md-offset-4">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="remember"> Remember Me
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-md-offset-4">
+                                            <button type="submit" class="btn btn-primary">Login</button>
+
+
+                                        </div>
+                                    </div>
+                                </form>
+                                    <a class="btn btn-link" href="{{ url('/auth/register') }}">Don`t have an account yet?
+                                        Register here!</a>
+
+                </li>
+
             @endif
         </ul>
     </div>
 
 </nav>
 
-<!-- Page Content -->
-<div class="container">
+
 
     @yield('content')
 
-</div>
-<!-- /.container -->
+
 
 <!-- Footer -->
-<footer>
-    <div class="row" id="footer" style="background-color:white; ">
-        <div class="col-lg-120">
-            <p>Copyright &copy;: Cooperatio 2015</p>
-        </div>
+<footer class="footer">
+    <div class="container">
+        <br>
+        <p align="center" class="text-muted">Copyright &copy;: Cooperatio 2015</p>
     </div>
 </footer>
-
-</div>
-<!-- /.container -->
 
 
 </body>

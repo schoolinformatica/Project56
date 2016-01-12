@@ -5,24 +5,6 @@
 @section("content")
     <style type="text/css">
 
-        .row {
-            margin-bottom: 50px;
-            padding: 20px;
-            background-color: #eeeeee;
-        }
-
-        .content {
-            margin: auto;
-            padding-top: 20px;
-            float: initial;
-            max-width: 800px;
-            height: 100%;
-        }
-
-        .container {
-            width: 100%;
-            margin-top: 60px;
-        }
 
         .btn-file {
             position: relative;
@@ -49,91 +31,73 @@
             cursor: text !important;
         }
 
-        body {
-            padding-top: 0px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+        .form-group {
+            padding-bottom: 10px;
         }
 
-        .navbar-inverse {
-            border-radius: 0px;
+        .progress {
+            margin-top: 40px !important;
         }
 
-        .navbar-fixed-top .nav {
-            padding: 15px 0;
-        }
 
-        .navbar-fixed-top .navbar-brand {
-            padding: 0 15px;
-        }
-
-        footer {
-            padding-top: 50px;
-            margin: 0px, 0px, 0px, 10px;
-        }
-
-        #footer {
-            padding-top: 0px;
-            margin-left: 10px;
-            width: 100%;
-        }
-
-        @media (min-width: 768px) {
-            body {
-                padding-top: 0px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
-            }
-
-            .navbar-fixed-top .navbar-brand {
-                padding: 15px 0;
-            }
-        }
     </style>
+    <div class="container wrap full-width">
 
-    <div class="row">
-        <div class="content">
-            <div class="col-lg-12 text-center">
-                <h1 class="leadh1">Upload</h1>
+        <div class="row height-200">
+            <div class="content">
+                <div class="col-lg-12 text-center">
+                    <br>
+                    <h1 class="leadh1">Upload</h1>
 
-                <p class="lead">
-                    Dear User, on this page you can upload files to our servers. Our servers will process the file and
-                    create reports of it.
-                    For inserting only .CSV files are allowed.
-                </p>
+                    <p class="lead">
+                        Dear User, on this page you can upload files to our servers. Our servers will process the file
+                        and
+                        create reports of it.
+                        For inserting only .CSV files are allowed.
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
+        <div class="container">
+            <div class="row box">
+                <div class="col-md-4">
+                    <img class="img-responsive"
+                         src="http://bethink.virtualcolors.net/wp-content/uploads/2014/03/csv-xxl.png">
+                </div>
+                <div class="col-md-8">
+                    <h2>Upload</h2>
+                    <form class="fileUploadForm" action="/uploadMultiple/" method="post" enctype="multipart/form-data"
+                          files=true>
+                        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
-    <div class="row">
-        <div class="content">
-            <form class="fileUploadForm" action="/uploadMultiple/" method="post" enctype="multipart/form-data"
-                  files=true>
-                <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                <label for="exampleInputFile">File input</label>
-
-                <div class="form-group">
+                        <div class="form-group">
 
                            <span class="btn btn-primary btn-file">
                                Browse&hellip; <input type="file" id="exampleInputFile" multiple="multiple"
                                                      name="images[]" multiple>
                            </span>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" readonly>
+                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                        </div>
+                        <button type="submit" class="btn btn-default">Upload</button>
+                    </form>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"
+                             aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                            <p class="percent">
+                                0%
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" readonly>
-                    <!--<p class="help-block">Example block-level help text here.</p>-->
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form>
+
+
+            </div>
+
         </div>
     </div>
-
-    <div class="progress">
-        <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"
-             aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:0%">
-            <p class="percent">
-                0%
-            </p>
-        </div>
-    </div>
-    <div id="status"></div>
-
     <script src="http://malsup.github.com/jquery.form.js"></script>
     <script>
         (function () {

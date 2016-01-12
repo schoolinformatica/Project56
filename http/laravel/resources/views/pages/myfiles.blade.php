@@ -1,6 +1,6 @@
 @extends('template')
 @section('content')
-
+    <div class="container wrap">
 
     @if(count($my_files) > 0)
         <div class="container">
@@ -31,5 +31,5 @@
         <h2>Download reports</h2>
         <p>You have no reports to download.</p>
     @endif
-
+</div>
 @stop
