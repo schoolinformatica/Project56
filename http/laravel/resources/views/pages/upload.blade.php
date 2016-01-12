@@ -41,12 +41,18 @@
 
 
     </style>
+
+    @if(Session::has('submitted'))
+        <script>$('#succes-modal').modal('toggle');</script>
+    @endif
+
     <div class="container wrap full-width">
 
         <div class="row height-200">
             <div class="content">
                 <div class="col-lg-12 text-center">
                     <br>
+
                     <h1 class="leadh1">Upload</h1>
 
                     <p class="lead">
@@ -66,6 +72,7 @@
                 </div>
                 <div class="col-md-8">
                     <h2>Upload</h2>
+
                     <form class="fileUploadForm" action="/uploadMultiple/" method="post" enctype="multipart/form-data"
                           files=true>
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
@@ -98,6 +105,28 @@
 
         </div>
     </div>
+
+    <!-- Modal -->
+    <div id="succes-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Successfully uploaded</h4>
+                </div>
+                <div class="modal-body">
+                    <p>All the files are successfully uploaded. Our system is processing them now.
+                        This might take minutes, depending on the size of the files.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="http://malsup.github.com/jquery.form.js"></script>
     <script>
         (function () {
@@ -124,7 +153,7 @@
                     percent.html(percentVal);
                 },
                 complete: function (xhr) {
-                    window.location.href = "/uploaded/";
+                    $('#succes-modal').modal('toggle');
                 }
             });
 
