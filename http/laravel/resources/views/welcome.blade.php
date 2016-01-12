@@ -74,7 +74,7 @@
                     <a class="btn btn-default" href="/auth/login/">More Info</a>
                 </div>
                 <!-- /.col-md-4 -->
-                
+
                 <div class="col-md-4">
                     <span class="glyphicon glyphicon-upload"></span>
                     <h2>Upload data</h2>
