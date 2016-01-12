@@ -13,8 +13,8 @@ class CreateUserhaspdfsTable extends Migration
     public function up()
     {
         Schema::create('userhaspdfs', function (Blueprint $table) {
-            $table->charset('filename');
-            $table->charset('email');
+            $table->char('filename');
+            $table->char('email');
         });
     }
 

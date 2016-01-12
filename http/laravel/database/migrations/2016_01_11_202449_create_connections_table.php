@@ -15,7 +15,7 @@ class CreateConnectionsTable extends Migration
         Schema::create('connections', function (Blueprint $table) {
             $table->timestamp('DateTime');
             $table->bigInteger('UnitId');
-            $table->charset('Port');
+            $table->char('Port');
             $table->integer('Value');
 
         });

@@ -21,7 +21,7 @@ class CreatePositionsTable extends Migration
             $table->double('Course');
             $table->integer('NumSatellites');
             $table->integer('HDOP');
-            $table->charset('Quality');
+            $table->char('Quality');
         });
     }
 

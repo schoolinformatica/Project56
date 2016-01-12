@@ -16,7 +16,7 @@ class CreateMonitoringTable extends Migration
             $table->bigInteger('UnitId');
             $table->timestamp('BeginTime');
             $table->timestamp('EndTime');
-            $table->charset('Type');
+            $table->char('Type');
             $table->double('Min');
             $table->double('Max');
             $table->double('Sum');
