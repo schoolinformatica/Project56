@@ -46,7 +46,7 @@
         <script>$('#succes-modal').modal('toggle');</script>
     @endif
 
-    <div class="container wrap full-width">
+    <div class="container wrap full-width margin-top">
 
         <div class="row height-200">
             <div class="content">
@@ -64,7 +64,7 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container margin-top">
             <div class="row box">
                 <div class="col-md-4">
                     <img class="img-responsive"

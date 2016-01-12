@@ -12,6 +12,15 @@
 
     <style type="text/css">
 
+        .form-table {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-table td {
+            padding-right: 40px;
+        }
+
         .height-200 {
             height: 200px;
         }
@@ -45,12 +54,8 @@
             background-color: #E9E9E9;
         }
 
-        .btn-primary {
-            background-color: #3299BB !important;
-        }
-
-        .container {
-            margin-top:60px;
+        .margin-top {
+            margin-top: 60px;
         }
 
         .row {

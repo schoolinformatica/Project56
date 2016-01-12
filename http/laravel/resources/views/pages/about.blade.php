@@ -11,10 +11,6 @@
             vertical-align: middle;
         }
 
-        .margin-top {
-            margin-top: 60px;
-        }
-
         span {
             display: inline-block;
             vertical-align: middle;
@@ -25,7 +21,7 @@
         }
     </style>
 
-    <div class="container wrap">
+    <div class="container wrap margin-top">
         <div class="row margin-top box">
             <div class="col-lg-4">
                 <img class="img-responsive img-ver-center"

@@ -3,52 +3,69 @@
     download
 @stop
 @section("content")
-    <div class="container wrap">
-    <div class="row">
-        <div class="content">
-            <h2>Download</h2>
+    <div class="container wrap full-width margin-top">
+        <div class="row height-200">
+            <div class="content">
+                <div class="col-lg-12 text-center">
+                    <br>
 
-            <p>Selecteer een van de hieronderstaande data en klik dan op download</p>
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Download</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Connections.csv</td>
-                    <td align='left'>
-                        <form><input type=submit value="Download" style="width:30%"></form>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Positions.csv</td>
-                    <td align='left'>
-                        <form><input type=submit value="Download" style="width:30%"></form>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Events.csv</td>
-                    <td align='left'>
-                        <form><input type=submit value="Download" style="width:30%"></form>
-                    </td>
-                </tr>
-                <tr>
-                    td>4</td>
-                    <td>Monitoring.csv</td>
-                    <td align='left'>
-                        <form><input type=submit value="Download" style="width:30%"></form>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+                    <h1 class="leadh1">Download</h1>
+
+                    <p class="lead">
+                        On this page it is possible to generate reports of the City-gis
+                        data.
+                    </p>
+                </div>
+            </div>
         </div>
-    </div>
+        <div class="container margin-top">
+            <div class="row box">
+                <div class="col-md-4">
+                    <img class="img-responsive" src="http://www.experian.com/assets/marketing-services/images/benchmark-report-graph-q3.png">
+                </div>
+                <div class="col-md-8">
+                    <h3>How it works</h3>
+                    <p>
+                        After you pressed the "Generate" button the system starts generating
+                        your custom report file. This mights take minutes, depending on your
+                        preferences and the amount of data. When the report is done, you
+                        will be notified by email and the download to the file will be
+                        added to your files in the "My reports" section.
+                    </p>
+                    <h2>Download</h2>
+                    <form action="145.24.222.182/PDFMaker/processing/downloadFormHandler.php" method="post" role="form">
+                        <div class="form-group">
+                            <label for="table">Table:</label>
+                            <select class="form-control" name="table" id="table-select">
+                                <option value="connections">connections</option>
+                                <option value="events">events</option>
+                                <option value="monitoring">monitoring</option>
+                                <option value="positions">positions</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <table class="form-table">
+                                <tr>
+                                    <td>
+                                        <label for="date-1">From:</label>
+                                        <input id="date-1" type="date" class="form-control" name="date-start" required>
+                                    </td>
+                                    <td>
+                                        <label for="date-2">Untill:</label>
+                                        <input id="date-2" type="date" class="form-control" name="date-end" required>
+                                    </td>
+                                </tr>
+                            </table>
+                            <button type="submit" class="btn btn-default">Generate</button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
     </div>
 @stop
