@@ -3,6 +3,7 @@
     download
 @stop
 @section("content")
+    <div class="container wrap">
     <div class="row">
         <div class="content">
             <h2>Download</h2>
@@ -48,5 +49,6 @@
                 </tbody>
             </table>
         </div>
+    </div>
     </div>
 @stop

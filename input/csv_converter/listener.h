@@ -72,6 +72,7 @@ int listener(string path) {
                     if (strstr(event->name, ".csv") != NULL)
                     {
                         string goodEventName = strToLower(event->name);
+                        rename(path + event->name, path + goodEventName);
                         string input = path + goodEventName;
                         thread t1(push_list_to_database, input);
                         t1.detach();
@@ -96,9 +97,11 @@ int listener(string path) {
                     if (strstr(event->name, ".csv") != NULL)
                     {
                         string goodEventName = strToLower(event->name);
+                        rename(path + event->name, path + goodEventName);
                         string input = path + goodEventName;
                         thread t1(push_list_to_database, input);
                         t1.detach();
+
                     }
                     else
                     {
@@ -120,9 +123,11 @@ int listener(string path) {
                     if (strstr(event->name, ".csv") != NULL)
                     {
                         string goodEventName = strToLower(event->name);
+                        rename(path + event->name, path + goodEventName);
                         string input = path + goodEventName;
                         thread t1(push_list_to_database, input);
                         t1.detach();
+
                     }
                     else
                     {
@@ -144,6 +149,7 @@ int listener(string path) {
                     if (strstr(event->name, ".csv") != NULL)
                     {
                         string goodEventName = strToLower(event->name);
+                        rename(path + event->name, path + goodEventName);
                         string input = path + goodEventName;
                         thread t1(push_list_to_database, input);
                         t1.detach();

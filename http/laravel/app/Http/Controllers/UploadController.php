@@ -45,8 +45,7 @@ class UploadController extends Controller {
                     }
                 }
                 if($uploadcount == $file_count){
-                    Session::flash('success', 'Upload successfully');
-                    return redirect('uploaded');
+                    return Redirect::back()->with('submitted','true');
                 }
                 else //If the upload failed (partially or completely)
                 {

@@ -3,7 +3,7 @@
     vehicles
     @stop
 @section("content")
-
+    <div class="container wrap">
 
 
     <style type="text/css">
@@ -100,5 +100,5 @@
 
         </div>
     </div>
-
+</div>
 @stop

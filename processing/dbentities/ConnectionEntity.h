@@ -75,13 +75,13 @@ void ConnectionEntity::set_value(bool Value) { value = Value; }
 void ConnectionEntity::set_countOfValue(int countValue) { countOfValue = countValue; }
 
 // Getters
-string ConnectionEntity::get_date_time() { return date_time; }
+const string ConnectionEntity::get_date_time() { return date_time; }
 
-string ConnectionEntity::get_unit_id() { return unit_id; }
+const string ConnectionEntity::get_unit_id() { return unit_id; }
 
-string ConnectionEntity::get_port() { return port; }
+const string ConnectionEntity::get_port() { return port; }
 
-bool ConnectionEntity::get_value() { return value; }
+const bool ConnectionEntity::get_value() { return value; }
 
-int ConnectionEntity::get_countOfValue() { return countOfValue; }
+const int ConnectionEntity::get_countOfValue() { return countOfValue; }
 #endif //INPUT_PROCESS_CONNECTIONENTITY_H

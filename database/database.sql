@@ -54,3 +54,4 @@ WITH (
 );
 ALTER TABLE public.positions
   OWNER TO postgres;
+CREATE TABLE userhaspdfs (filename varchar(40), email varchar(40));

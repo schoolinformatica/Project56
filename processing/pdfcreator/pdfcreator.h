@@ -137,7 +137,7 @@ int connectPDFToUser(string email, string filename){
     Pgsqlcon pgsqlcon;
 
     //create insert query
-    string insert_query = "INSERT INTO userhaspdf (filename, email) VALUES ('" + filename + "' , '" + email + "');";
+    string insert_query = "INSERT INTO userhaspdfs (filename, email) VALUES ('" + filename + "' , '" + email + "');";
 
     //create vector with the query
     vector<string> queries;
