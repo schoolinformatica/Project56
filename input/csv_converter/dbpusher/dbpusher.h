@@ -20,7 +20,9 @@ string extractCsvFileName(string fullPathToCsvFile)
 {
     //Find last backslash in string, return everything after that
     size_t found = fullPathToCsvFile.find_last_of("/\\");
-    return fullPathToCsvFile.substr(found + 1);
+    fullPathToCsvFile.substr(found + 1);
+    _tolower(fullPathToCsvFile);
+    return fullPathToCsvFile;
 }
 
 int push_list_to_database(string pathToFile)
