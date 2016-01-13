@@ -33,8 +33,9 @@
                         added to your files in the "My reports" section.
                     </p>
                     <h2>Download</h2>
-                    <form action="http://145.24.222.182/PDFMaker/processing/downloadFormHandler.php" method="post" role="form">
+                    <form action="/generateReport" method="post" role="form">
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                        <input type="hidden" name="email" value="{{ $user->email }}" >
                         <div class="form-group">
                             <label for="table">Table:</label>
                             <select class="form-control" name="table" id="table-select">

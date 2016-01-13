@@ -5,12 +5,12 @@ error_reporting(E_ALL);
 
 //We check wether the GET var email was set, then we check wether it is not empty.
 //The same applies to the GET var csv.
-if(isset($_POST['email'])){
-	if($_POST['email'] <> "") {
-		if (isset($_POST['csv'])){
+if(isset($_GET['email'])){
+	if($_GET['email'] <> "") {
+		if (isset($_GET['table'])){
 			//We 'unpack' the GET vars our caller send us
-			$email = $_POST['email'];
-			$csv = $_POST['csv'];
+			$email = $_GET['email'];
+			$csv = $_GET['table'];
 
 			//Then we try to call our c++ .out file with the get vars as parameters.
 			try {

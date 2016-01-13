@@ -27,6 +27,7 @@ Route::get('vehicles', 'VehiclesController@vehicles');
 Route::get('myfiles', 'MyfilesController@myfiles');
 Route::get('admin', 'AdminController@admin');
 Route::post('/admin/update', 'AdminController@update');
+Route::post('/generateReport', 'DownloadController@generate_report');
 
 //Routes for the uploadpage and the post request for uploading files
 Route::get('uploadPage',  'UploadController@upload');

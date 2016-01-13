@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -36,7 +36,8 @@ class PagesController extends Controller
 
     public function download()
     {
-        return view('pages.download');
+
+        return view('pages.download')->with("user", Auth::user());
     }
 
 
