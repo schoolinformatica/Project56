@@ -133,7 +133,7 @@ int connectPDFToUser(string email, string filename){
      * CREATE TABLE SCRIPT
      * CREATE TABLE userhaspdf (filename varchar(40), email varchar(40));
      */
-
+	cout << "connection user to pdf" << endl; 
     Pgsqlcon pgsqlcon;
 
     //create insert query
