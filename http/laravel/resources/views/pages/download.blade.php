@@ -4,7 +4,7 @@
 @stop
 @section("content")
 
-    @if(isset($_GET['succes']))
+    @if(Session::has('message'))
         <script>$('#succes-modal').modal('toggle');</script>
     @endif
 
