@@ -20,7 +20,7 @@ if(isset($_GET['email'])){
 				foreach($out as $line){
 					echo $line . "\n" ;
 				}
-				header("Location: http://145.24.222.182/downloads?succes=1");
+				header("Location: http://145.24.222.182/download?succes=1");
 			}
 			//catch the exceptions if there are some.. 
 			catch(Exception $tx) {				
