@@ -21,7 +21,7 @@ string extractCsvFileName(string fullPathToCsvFile)
     //Find last backslash in string, return everything after that
     size_t found = fullPathToCsvFile.find_last_of("/\\");
     fullPathToCsvFile.substr(found + 1);
-    _tolower(fullPathToCsvFile);
+    transform(fullPathToCsvFile.begin(), fullPathToCsvFile.end(), fullPathToCsvFile.begin(), ::tolower);
     return fullPathToCsvFile;
 }
 
@@ -36,7 +36,7 @@ int push_list_to_database(string pathToFile)
         //0 == strings are equal
         if(csvName.compare("positions.csv") == 0)
         {
-sleep(1);
+            sleep(1);
             p.exec_none_transaction(createQuery(pathToFile, csvName));
 
         }
