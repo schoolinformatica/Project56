@@ -38,4 +38,6 @@ else {
 	echo 'email is not given!';
 }
 
+return Redirect::back()->with('message',$error)->with('exception', $exceptio);
+
 ?>
