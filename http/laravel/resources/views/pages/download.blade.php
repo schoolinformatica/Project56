@@ -44,7 +44,7 @@
                         {{ "exception output " }}
                         {{ Session::has('exception') }}
                     @endif
-                    <form action="http://145.24.222.182/PDFMaker/processing/downloadFormHandler.php" method="get" role="form">
+                    <form action="/generateReport" method="post" role="form">
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                         <input type="hidden" name="email" value="{{ $user->email }}" >
                         <div class="form-group">

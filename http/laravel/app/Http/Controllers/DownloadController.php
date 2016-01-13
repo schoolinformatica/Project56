@@ -23,10 +23,13 @@ class DownloadController extends Controller {
     public function generate_report(Request $request) {
         $error = "";
         $exceptio = "";
+        $csv = $request->table;
+        $email = $request->email;
         //Then we try to call our c++ .out file with the get vars as parameters.
         try {
             //We assign main.out's output to the variable $out.
-            exec("./main.out '$request->table' '$request->email'", $out);
+            chdir('/var/www/laravel/public/PDFMaker/proccesing');
+            exec("./main.out $csv $email", $out);
             //we display the content of $out in the browser
             foreach($out as $line){
                 $error =  $line . "\n" ;
