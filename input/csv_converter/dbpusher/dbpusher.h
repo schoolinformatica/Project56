@@ -21,6 +21,7 @@ string extractCsvFileName(string fullPathToCsvFile)
     //Find last backslash in string, return everything after that
     size_t found = fullPathToCsvFile.find_last_of("/\\");
     fullPathToCsvFile.substr(found + 1);
+    cout << "String that is supposed to be lowercase is: " << fullPathToCsvFile << endl;
     transform(fullPathToCsvFile.begin(), fullPathToCsvFile.end(), fullPathToCsvFile.begin(), ::tolower);
     cout << "String that is supposed to be lowercase is: " << fullPathToCsvFile << endl;
     return fullPathToCsvFile;
