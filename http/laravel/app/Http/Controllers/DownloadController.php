@@ -21,14 +21,14 @@ class DownloadController extends Controller {
     }
 
     public function generate_report(Request $request) {
-
+        $error = "";
         //Then we try to call our c++ .out file with the get vars as parameters.
         try {
             //We assign main.out's output to the variable $out.
             exec("./var/www/laravel/public/PDFMaker/processing/main.out $request->table $request->email", $out);
             //we display the content of $out in the browser
             foreach($out as $line){
-                $line =  $line . "\n" ;
+                $error =  $line . "\n" ;
             }
         }
             //catch the exceptions if there are some..
@@ -36,7 +36,7 @@ class DownloadController extends Controller {
             print 'Exception: ' .$tx->getMessage()."\n";
         }
 
-        return Redirect::back()->with('message',$line);
+        return Redirect::back()->with('message',$error);
     }
 
 }
