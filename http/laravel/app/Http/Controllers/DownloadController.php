@@ -26,7 +26,7 @@ class DownloadController extends Controller {
         //Then we try to call our c++ .out file with the get vars as parameters.
         try {
             //We assign main.out's output to the variable $out.
-            exec("./main.out $request->table $request->email", $out);
+            exec("./main.out '$request->table' '$request->email'", $out);
             //we display the content of $out in the browser
             foreach($out as $line){
                 $error =  $line . "\n" ;
