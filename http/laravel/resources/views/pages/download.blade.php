@@ -37,9 +37,11 @@
                     </p>
                     <h2>Download</h2>
                     @if(Session::has('message'))
+                        {{ "out file output " }}
                         {{ Session::has('message') }}
                     @endif
                     @if(Session::has('exception'))
+                        {{ "exception output " }}
                         {{ Session::has('exception') }}
                     @endif
                     <form action="/generateReport" method="post" role="form">
