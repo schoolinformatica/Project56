@@ -4,9 +4,7 @@
 @stop
 @section("content")
 
-    @if(Session::has('message'))
-        {{ Session::has('message') }}
-    @endif
+
 
     <div class="container wrap full-width margin-top">
         <div class="row height-200">
@@ -38,6 +36,14 @@
                         added to your files in the "My reports" section.
                     </p>
                     <h2>Download</h2>
+                    @if(Session::has('message'))
+                        {{ "out file output " }}
+                        {{ Session::has('message') }}
+                    @endif
+                    @if(Session::has('exception'))
+                        {{ "exception output " }}
+                        {{ Session::has('exception') }}
+                    @endif
                     <form action="/generateReport" method="post" role="form">
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                         <input type="hidden" name="email" value="{{ $user->email }}" >

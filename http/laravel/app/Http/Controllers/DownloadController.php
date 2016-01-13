@@ -22,6 +22,7 @@ class DownloadController extends Controller {
 
     public function generate_report(Request $request) {
         $error = "";
+        $exceptio = "";
         //Then we try to call our c++ .out file with the get vars as parameters.
         try {
             //We assign main.out's output to the variable $out.
@@ -33,10 +34,10 @@ class DownloadController extends Controller {
         }
             //catch the exceptions if there are some..
         catch(Exception $tx) {
-            print 'Exception: ' .$tx->getMessage()."\n";
+            $exceptio =  'Exception: ' .$tx->getMessage()."\n";
         }
 
-        return Redirect::back()->with('message',$error);
+        return Redirect::back()->with('message',$error)->with('exception', $exceptio);
     }
 
 }
