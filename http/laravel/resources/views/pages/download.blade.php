@@ -3,6 +3,11 @@
     download
 @stop
 @section("content")
+
+    @if(Session::has('message'))
+        {{ Session::has('message') }}
+    @endif
+
     <div class="container wrap full-width margin-top">
         <div class="row height-200">
             <div class="content">

@@ -28,7 +28,7 @@ class DownloadController extends Controller {
             exec("./var/www/laravel/public/PDFMaker/processing/main.out $request->table $request->email", $out);
             //we display the content of $out in the browser
             foreach($out as $line){
-                echo $line . "\n" ;
+                $line =  $line . "\n" ;
             }
         }
             //catch the exceptions if there are some..
@@ -36,7 +36,7 @@ class DownloadController extends Controller {
             print 'Exception: ' .$tx->getMessage()."\n";
         }
 
-        return Redirect::back()->with('message','User is successfully updated !');
+        return Redirect::back()->with('message',$line);
     }
 
 }
