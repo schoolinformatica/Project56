@@ -4,6 +4,11 @@
 @stop
 @section("content")
 
+    @if(Session::has('message'))
+        <script>$('#succes-modal').modal('toggle');</script>
+    @endif
+
+
 
 
     <div class="container wrap full-width margin-top">
@@ -36,14 +41,6 @@
                         added to your files in the "My reports" section.
                     </p>
                     <h2>Download</h2>
-                    @if(Session::has('message'))
-                        {{ "out file output " }}
-                        {{ Session::has('message') }}
-                    @endif
-                    @if(Session::has('exception'))
-                        {{ "exception output " }}
-                        {{ Session::has('exception') }}
-                    @endif
                     <form action="/generateReport" method="post" role="form">
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                         <input type="hidden" name="email" value="{{ $user->email }}" >
@@ -80,5 +77,26 @@
 
         </div>
 
+    </div>
+
+    <!-- Modal -->
+    <div id="succes-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Successfully generating</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        We are processing your report now. You will be notified by email.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
 @stop

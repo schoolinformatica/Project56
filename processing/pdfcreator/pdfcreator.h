@@ -52,7 +52,6 @@ bool pdf_writer(PDF &pdf, string email) {
     filename.erase(remove(filename.begin(), filename.end(), '\n'), filename.end());
 
 
-    connectPDFToUser(email,filename);
     //Remove underscores from filename and concat it with the server download dir
     string dir = "http://145.24.222.182/downloads/" + filename;
     const char *dirchar = dir.c_str();
@@ -133,7 +132,7 @@ int connectPDFToUser(string email, string filename){
      * CREATE TABLE SCRIPT
      * CREATE TABLE userhaspdf (filename varchar(40), email varchar(40));
      */
-
+	cout << "connection user to pdf" << endl; 
     Pgsqlcon pgsqlcon;
 
     //create insert query

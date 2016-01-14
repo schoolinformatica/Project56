@@ -124,26 +124,26 @@ void PositionEntity::set_countOfUnitID(int count) { countOfUnitID = count; }
 void PositionEntity::set_qualityCount(int count) { qualityCount = count; }
 
 // Getters
-const string PositionEntity::get_date_time() { return date_time; }
+string PositionEntity::get_date_time() { return date_time; }
 
-const string PositionEntity::get_unit_id() { return unit_id; }
+string PositionEntity::get_unit_id() { return unit_id; }
 
-const int PositionEntity::get_rdx() { return rdx; }
+int PositionEntity::get_rdx() { return rdx; }
 
-const int PositionEntity::get_rdy() { return rdy; }
+int PositionEntity::get_rdy() { return rdy; }
 
-const int PositionEntity::get_speed() { return speed; }
+int PositionEntity::get_speed() { return speed; }
 
-const int PositionEntity::get_course() { return course; }
+int PositionEntity::get_course() { return course; }
 
-const int PositionEntity::get_num_satelites() { return num_satelites; }
+int PositionEntity::get_num_satelites() { return num_satelites; }
 
-const int PositionEntity::get_hdop() { return hdop; }
+int PositionEntity::get_hdop() { return hdop; }
 
-const string PositionEntity::get_quality() { return quality; }
+string PositionEntity::get_quality() { return quality; }
 
-const int PositionEntity::get_countOfUnitID() { return countOfUnitID; }
+int PositionEntity::get_countOfUnitID() { return countOfUnitID; }
 
-const int PositionEntity::get_qualityCount() { return qualityCount; }
+int PositionEntity::get_qualityCount() { return qualityCount; }
 
 #endif //INPUT_PROCESS_POSITIONENTITY_H

@@ -95,19 +95,19 @@ void MonitoringEntity::set_sum(float Sum){sum = Sum;};
 
 
 // Getters
-const string MonitoringEntity::get_unit_id(){ return unit_id; } ;
+string MonitoringEntity::get_unit_id(){ return unit_id; } ;
 
-const string MonitoringEntity::get_begin_time(){ return begin_time; };
+string MonitoringEntity::get_begin_time(){ return begin_time; };
 
-const string MonitoringEntity::get_end_time(){ return end_time;};
+string MonitoringEntity::get_end_time(){ return end_time;};
 
-const string MonitoringEntity::get_type(){ return type;};
+string MonitoringEntity::get_type(){ return type;};
 
-const float MonitoringEntity::get_min(){ return min;};
+float MonitoringEntity::get_min(){ return min;};
 
-const float MonitoringEntity::get_max(){ return max;};
+float MonitoringEntity::get_max(){ return max;};
 
-const float MonitoringEntity::get_sum(){return sum;};
+float MonitoringEntity::get_sum(){return sum;};
 
 
 #endif //INPUT_PROCESS_MONITORINGENTITY_H
