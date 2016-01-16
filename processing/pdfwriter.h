@@ -38,7 +38,7 @@ void connections_to_pdf(vector<ConnectionEntity> connectionEntities, string emai
     PDF pdf = writePdfFrontPage("Connections");
 
     pair<double, double> TimePercentages = getAverages(connectionEntities);
-    
+
     string bestTimePercentageString = checkIfDataAvailable(std::to_string(get<0>(TimePercentages)));
     string worstTimePercentageString = checkIfDataAvailable(std::to_string(get<1>(TimePercentages)));
 
