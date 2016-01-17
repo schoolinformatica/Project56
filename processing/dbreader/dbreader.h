@@ -10,7 +10,7 @@
 #include "../dbentities/DBEntityManager.h"
 #include "pqxx/pqxx"
 #include "../pdfcreator/pdf.h"
-#include "../pdfcreator/pdfcreator.h"
+#include "../pdfcreator/dataAggregator.h"
 
 using namespace std;
 using namespace pqxx;

@@ -1,10 +1,14 @@
 #include <iostream>
 
-#include "pdfwriter.h"
-#include "pdfcreator/pdfcreator.h"
+#include "pdfcreator/pdfwriter.h"
+#include "pdfcreator/dataAggregator.h"
 #include "helperfunc/helperfunc.h"
 #include "dbentities/DBEntityManager.h"
 #include "dbentities/ConnectionEntity.h"
+#include "dbreader/dbreader.h"
+#include "dbentities/PositionEntity.h"
+#include "dbentities/EventEntity.h"
+#include "dbentities/MonitoringEntity.h"
 #include "dbreader/dbreader.h"
 
 
@@ -21,22 +25,30 @@ int start(string file, string email, string startDate, string endDate) {
     if (equals(file, "positions"))
     {
          vectorPositions = convert_to_positions("nothing");
-         positions_to_pdf(vectorPositions, email, startDate, endDate);
+         pdfwriterClass writer;
+         writer.setClassValues(startDate, endDate, email);
+         writer.positions_to_pdf(vectorPositions);
     }
     else if (equals(file, "monitoring"))
     {
-         vectorMonitoring = convert_to_monitor("nothing");
-         monitor_to_pdf(vectorMonitoring, email, startDate, endDate);
+        vectorMonitoring = convert_to_monitor("nothing");
+        pdfwriterClass writer;
+        writer.setClassValues(startDate, endDate, email);
+        writer.monitoring_to_pdf(vectorMonitoring);
     }
     else if (equals(file, "connections"))
     {
-         vectorConnections = convert_to_connections("nothing");
-         connections_to_pdf(vectorConnections, email, startDate, endDate);
+        vectorConnections = convert_to_connections("nothing");
+        pdfwriterClass writer;
+        writer.setClassValues(startDate, endDate, email);
+        writer.connections_to_pdf(vectorConnections);
     }
     else if (equals(file, "events"))
     {
-         vectorEvents = convert_to_events("nothing");
-         events_to_pdf(vectorEvents, email, startDate, endDate);
+        vectorEvents = convert_to_events("nothing");
+        pdfwriterClass writer;
+        writer.setClassValues(startDate, endDate, email);
+        writer.events_to_pdf(vectorEvents);
     }
 
     cout << "Done!" << endl;

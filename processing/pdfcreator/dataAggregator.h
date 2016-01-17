@@ -1,5 +1,5 @@
-#ifndef PDFCreator
-#define PDFCreator
+#ifndef dataAggregator
+#define dataAggregator
 /**************************
  * Headers
  **************************/
@@ -20,6 +20,7 @@
 #include "pdf.cpp"
 #include "pdf.h"
 #include "pdfhelperfunctions.h"
+#include "pdfwriter.h"
 #include "../dbentities/PositionEntity.h"
 #include "../dbentities/EventEntity.h"
 #include "../dbentities/ConnectionEntity.h"
@@ -28,137 +29,32 @@
 #include "../dbreader/dbreader.h"
 
 
+
 /**************************
- * Using Declarations
+ * Class Declarations
  **************************/
 
 using namespace std;
-int sendDirToPHP(const char *directory, const char *email);
-int connectPDFToUser(string email, string filename);
 
+class dataAggregatorClass
+{
+    string startDate;
+    string endDate;
 
-/**************************
- * PDF WRITER
- **************************/
+public:
+    template <typename T> pair<double,double> getAverages(vector<T>);
+    string getCarWithBestOrWorstDataLoss(bool, string);
+    vector<string> getCarsAndDowntimes(string);
+    string getCarConnectionDataAverage(bool, string);
+    string getCarWithMostStoppage(bool);
+    vector<string> getCoordinatesWithMostStoppage();
+    void setClassValues(string startDateParam, string endDateParam)
+    {
+        startDate = startDateParam;
+        endDate = endDateParam;
+    };
+};
 
-
-bool pdf_writer(PDF &pdf, string email) {
-    //Create time_t object as param for Ctime, set filename to Ctime
-    time_t rawtime;
-    time(&rawtime);
-    string filename = ctime(&rawtime);
-    filename = filename + ".pdf";
-    replace(filename.begin(), filename.end(), ' ', '_');
-    filename.erase(remove(filename.begin(), filename.end(), '\n'), filename.end());
-
-
-    //Remove underscores from filename and concat it with the server download dir
-    string dir = "http://145.24.222.182/downloads/" + filename;
-    const char *dirchar = dir.c_str();
-    const char *emailchar = email.c_str();
-
-    //writing the PDF to a location on the disk
-    string errMsg;
-    if (!pdf.writeToFile(filename, errMsg)) {
-        cout << "Error writing PDF file!" << errMsg << endl;
-        return false;
-    }
-    else {
-        cout << "PDF File Successfully Written" << endl;
-
-        //call function that connects the created pdf to the user-email
-        connectPDFToUser(email,filename);
-
-        //edit this next line when deploying on server
-        if (sendDirToPHP(dirchar, emailchar) != 0) {
-            cout << "Your report can be found at: <a target='_blank' href='" << dirchar << "'> " << dirchar <<
-            "</a> " << endl;
-            return true;
-        }
-        else {
-            cout << "Error in sendDirToPHP() ocurred." << endl;
-            return false;
-        }
-    }
-}
-
-int sendDirToPHP(const char *directory, const char *email) {
-    //declaring vars +  a struct (chunk of memory) for our socket
-    int s, error;
-    struct sockaddr_in addr;
-
-    if ((s = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
-        cout << "Error 01: creating socket failed!\n";
-        close(s);
-        return 0;
-    }
-
-    //Setting server destination
-    addr.sin_family = AF_INET;
-    addr.sin_port = htons(80);
-    inet_aton("145.24.222.182", &addr.sin_addr);
-
-    //Try to connect to socket
-    error = connect(s, (sockaddr *) &addr, sizeof(addr));
-    if (error != 0) {
-        cout << "Error 02: conecting to server failed!\n";
-        close(s);
-        return 0;
-    }
-
-    //We create a stringstream with the necessary URL and header values.Connection: close makes sure the connection to the url is closed.
-    stringstream ss;
-    ss << "GET /mailer.php?dir="
-    << directory
-    << "&emailadress="
-    << email
-    << " HTTP/1.1\r\n"
-    << "Host: 145.24.222.182\r\n"
-    << "Connection: close\r\n"
-    << "\r\n";
-    string requeststr = ss.str();
-    cout << requeststr << endl;
-    //We send our request
-    send(s, requeststr.c_str(), requeststr.length(), 0);
-    //And close our socket to the server
-    close(s);
-
-    return 1;
-}
-
-//this function connects the email to the filename of the created PDF, so we can store who downloaded which report
-int connectPDFToUser(string email, string filename){
-    /*
-     * CREATE TABLE SCRIPT
-     * CREATE TABLE userhaspdf (filename varchar(40), email varchar(40));
-     */
-	cout << "connection user to pdf" << endl;
-    Pgsqlcon pgsqlcon;
-
-    //create insert query
-    string insert_query = "INSERT INTO userhaspdfs (filename, email) VALUES ('" + filename + "' , '" + email + "');";
-
-    //create vector with the query
-    vector<string> queries;
-    queries.push_back(insert_query);
-
-    //execute the query
-    pgsqlcon.exec_transaction(queries);
-
-    cout << "succesfully created connection" << endl;
-
-    return 1;
-}
-
-
-/*********************************
- * MONITORING
- * *******************************
- */
-
-void monitor_to_pdf(vector<MonitoringEntity> monitoringEntities, string email) {
-    PDF pdf;
-}
 
 /*********************************
  * POSITIONS
@@ -166,14 +62,14 @@ void monitor_to_pdf(vector<MonitoringEntity> monitoringEntities, string email) {
  */
 
 //GENERIFIED FOR USE WITH BOTH HDOP AND NUMOFSATELLITES
-string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
+string dataAggregatorClass::getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
 {
     EntityManager em;
     //Note! We do not use the standard converting method, because our query does not return all columns!
 
     if (typeOfSearch.compare("HDOP") == 0)
     {
-        vector<PositionEntity> positionsEntities = convert_to_positionsHDOP(em.getHDOPPerCar());
+        vector<PositionEntity> positionsEntities = convert_to_positionsHDOP(em.getHDOPPerCar(this->startDate, this->endDate));
         vector<string> unitIDs;
         vector<int> totalHDOPValue;
         vector<int> totalCarCount;
@@ -213,7 +109,7 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
     }
     else if (typeOfSearch.compare("Satellites") == 0)
     {
-        vector<PositionEntity> positionsEntities = convert_to_positionsSats(em.getNumSatellitesPerCar());
+        vector<PositionEntity> positionsEntities = convert_to_positionsSats(em.getNumSatellitesPerCar(this->startDate, this->endDate));
         vector<string> unitIDs;
         vector<int> totalSatsValue;
         vector<int> totalCarCount;
@@ -253,7 +149,7 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
     }
     else if (typeOfSearch.compare("Quality") == 0)
     {
-        vector<PositionEntity> positionsEntities = convert_to_positionsQuality(em.getQualityPerCar());
+        vector<PositionEntity> positionsEntities = convert_to_positionsQuality(em.getQualityPerCar(this->startDate, this->endDate));
         vector<string> unitIDs;
         vector<int> totalQualityValue;
         ostringstream returnvalue;
@@ -294,11 +190,11 @@ string getCarConnectionDataAverage(bool searchForWorst, string typeOfSearch)
     }
 }
 
-string getCarWithMostStoppage(bool searchForWorstCar)
+string dataAggregatorClass::getCarWithMostStoppage(bool searchForWorstCar)
 {
     EntityManager em;
     //Note! We do not use the standard converting method, because our query does not return all columns!
-    vector<PositionEntity> positionsEntities = convert_to_positionsStops(em.getStopsPerCoordinate());
+    vector<PositionEntity> positionsEntities = convert_to_positionsStops(em.getStopsPerCoordinate(this->startDate, this->endDate));
     vector<string> coordinatesAndStops;
     vector<string> stopsCount;
 
@@ -320,11 +216,11 @@ string getCarWithMostStoppage(bool searchForWorstCar)
 }
 
 
-vector<string> getCoordinatesWithMostStoppage()
+vector<string> dataAggregatorClass::getCoordinatesWithMostStoppage()
 {
     EntityManager em;
     //Note! We do not use the standard converting method, because our query does not return all columns!
-    vector<PositionEntity> positionsEntities = convert_to_positionsStops(em.getStopsPerCoordinate());
+    vector<PositionEntity> positionsEntities = convert_to_positionsStops(em.getStopsPerCoordinate(this->startDate, this->endDate));
     vector<string> coordinatesAndStops;
 
     for(PositionEntity p : positionsEntities)
@@ -345,8 +241,8 @@ vector<string> getCoordinatesWithMostStoppage()
 //GENERIFIED FOR USE IN BOTH CONNECTIONS AND EVENTS
 //Average loss and gain of T in percentage
 
-template <typename T>
-pair<double,double> getAverages(vector<T> listOfEntities)
+
+template <typename T> pair<double,double> dataAggregatorClass::getAverages(vector<T> listOfEntities)
 {
     vector<bool> allTruePortValues;
     vector<bool> allFalsePortValues;
@@ -379,13 +275,13 @@ pair<double,double> getAverages(vector<T> listOfEntities)
 
 //GENERIFIED FOR USE IN BOTH CONNECTIONS AND EVENTS
 //All downtimes for each car
-vector<string> getCarsAndDowntimes(string typeOfCsv)
+vector<string> dataAggregatorClass::getCarsAndDowntimes(string typeOfCsv)
 {
     if(typeOfCsv.compare("connections") == 0)
     {
         EntityManager em;
         //Note! We do not use the standard converting method, because our query does not return all columns!
-        vector<ConnectionEntity> connectionEntities = convert_to_connectionsLite(em.getConnectionFailuresPerCar());
+        vector<ConnectionEntity> connectionEntities = convert_to_connectionsLite(em.getConnectionFailuresPerCar(this->startDate, this->endDate));
         vector<string> carsAndDownTimes;
 
         for(ConnectionEntity c : connectionEntities)
@@ -399,7 +295,7 @@ vector<string> getCarsAndDowntimes(string typeOfCsv)
     {
         EntityManager em;
         //Note! We do not use the standard converting method, because our query does not return all columns!
-        vector<EventEntity> eventEntities = convert_to_eventsLite(em.getIgnitionFailuresPerCar());
+        vector<EventEntity> eventEntities = convert_to_eventsLite(em.getIgnitionFailuresPerCar(this->startDate, this->endDate));
         vector<string> carsAndDownTimes;
 
         for(EventEntity e : eventEntities)
@@ -413,7 +309,7 @@ vector<string> getCarsAndDowntimes(string typeOfCsv)
 
 //GENERIFIED FOR USE IN BOTH CONNECTIONS AND EVENTS
 //Car with biggest/smallest connection/ignition loss number
-string getCarWithBestOrWorstDataLoss(bool searchForWorst, string typeOfCsv)
+string dataAggregatorClass::getCarWithBestOrWorstDataLoss(bool searchForWorst, string typeOfCsv)
 {
     vector<string> carsAndDownTimes;
     vector<int> valuesOnly;
@@ -423,7 +319,7 @@ string getCarWithBestOrWorstDataLoss(bool searchForWorst, string typeOfCsv)
         EntityManager em;
 
         //Note! We do not use the standard converting method, because our query does not return all columns!
-        vector<ConnectionEntity> connectionEntities = convert_to_connectionsLite(em.getConnectionFailuresPerCar());
+        vector<ConnectionEntity> connectionEntities = convert_to_connectionsLite(em.getConnectionFailuresPerCar(this->startDate, this->endDate));
 
         for(ConnectionEntity c : connectionEntities)
         {
@@ -438,7 +334,7 @@ string getCarWithBestOrWorstDataLoss(bool searchForWorst, string typeOfCsv)
         EntityManager em;
 
         //Note! We do not use the standard converting method, because our query does not return all columns!
-        vector<EventEntity> eventEntities = convert_to_eventsLite(em.getIgnitionFailuresPerCar());
+        vector<EventEntity> eventEntities = convert_to_eventsLite(em.getIgnitionFailuresPerCar(this->startDate, this->endDate));
 
         for(EventEntity e : eventEntities)
         {
