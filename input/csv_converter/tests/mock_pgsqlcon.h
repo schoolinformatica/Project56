@@ -10,6 +10,7 @@
 
 
 using namespace pqxx;
+using namespace std;
 
 class mock_pgsqlcon {
     int errorCode;
