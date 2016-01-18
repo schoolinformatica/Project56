@@ -73,7 +73,7 @@
                 <div class="col-md-8">
                     <h2>Upload</h2>
 
-                    <form class="fileUploadForm" action="/uploadMultiple/" method="post" enctype="multipart/form-data"
+                    <form class="fileUploadForm" action="/uploadMultiple" method="post" enctype="multipart/form-data"
                           files=true>
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
@@ -127,38 +127,38 @@
         </div>
     </div>
 
-    {{--<script src="http://malsup.github.com/jquery.form.js"></script>--}}
-    {{--<script>--}}
-        {{--(function () {--}}
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+    <script>
+        (function () {
 
-            {{--var bar = $('.progress-bar');--}}
-            {{--var percent = $('.percent');--}}
-            {{--var status = $('#status');--}}
+            var bar = $('.progress-bar');
+            var percent = $('.percent');
+            var status = $('#status');
 
-            {{--$('form').ajaxForm({--}}
-                {{--beforeSend: function () {--}}
-                    {{--status.empty();--}}
-                    {{--var percentVal = '0%';--}}
-                    {{--bar.width(percentVal)--}}
-                    {{--percent.html(percentVal);--}}
-                {{--},--}}
-                {{--uploadProgress: function (event, position, total, percentComplete) {--}}
-                    {{--var percentVal = percentComplete + '%';--}}
-                    {{--bar.width(percentVal)--}}
-                    {{--percent.html(percentVal);--}}
-                {{--},--}}
-                {{--success: function () {--}}
-                    {{--var percentVal = '100%';--}}
-                    {{--bar.width(percentVal)--}}
-                    {{--percent.html(percentVal);--}}
-                {{--},--}}
-                {{--complete: function (xhr) {--}}
-                    {{--$('#succes-modal').modal('toggle');--}}
-                {{--}--}}
-            {{--});--}}
+            $('form').ajaxForm({
+                beforeSend: function () {
+                    status.empty();
+                    var percentVal = '0%';
+                    bar.width(percentVal)
+                    percent.html(percentVal);
+                },
+                uploadProgress: function (event, position, total, percentComplete) {
+                    var percentVal = percentComplete + '%';
+                    bar.width(percentVal)
+                    percent.html(percentVal);
+                },
+                success: function () {
+                    var percentVal = '100%';
+                    bar.width(percentVal)
+                    percent.html(percentVal);
+                },
+                complete: function (xhr) {
+                    $('#succes-modal').modal('toggle');
+                }
+            });
 
-        {{--})();--}}
-    {{--</script>--}}
+        })();
+    </script>
 
     <script> //Script to let the file feedback work (the readonly textblock which shows the chosen file)
         $(document).on('change', '.btn-file :file', function () {
