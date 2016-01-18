@@ -7,6 +7,7 @@
 
 #include "configreader.h"
 #include <pqxx/pqxx>
+#include <unistd.h>
 
 using namespace std;
 using namespace pqxx;
