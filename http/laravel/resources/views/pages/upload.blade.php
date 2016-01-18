@@ -73,7 +73,7 @@
                 <div class="col-md-8">
                     <h2>Upload</h2>
 
-                    <form class="fileUploadForm" action="/uploadMultiple/" method="post" enctype="multipart/form-data"
+                    <form class="fileUploadForm" action="/uploadMultiple" method="post" enctype="multipart/form-data"
                           files=true>
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 

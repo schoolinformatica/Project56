@@ -77,9 +77,13 @@ string dataAggregatorClass::getCarConnectionDataAverage(bool searchForWorst, str
 
         for(PositionEntity p : positionsEntities)
         {
-            unitIDs.push_back(p.get_unit_id());
-            totalHDOPValue.push_back(p.get_hdop());
-            totalCarCount.push_back(p.get_countOfUnitID());
+            if(positionsEntities.size() > 0)
+            {
+                unitIDs.push_back(p.get_unit_id());
+                totalHDOPValue.push_back(p.get_hdop());
+                totalCarCount.push_back(p.get_countOfUnitID());
+            }
+
         }
 
         if(searchForWorst == true && totalHDOPValue.size() > 0)
@@ -117,9 +121,12 @@ string dataAggregatorClass::getCarConnectionDataAverage(bool searchForWorst, str
 
         for(PositionEntity p : positionsEntities)
         {
-            unitIDs.push_back(p.get_unit_id());
-            totalSatsValue.push_back(p.get_num_satelites());
-            totalCarCount.push_back(p.get_countOfUnitID());
+            if(positionsEntities.size() > 0)
+            {
+                unitIDs.push_back(p.get_unit_id());
+                totalSatsValue.push_back(p.get_num_satelites());
+                totalCarCount.push_back(p.get_countOfUnitID());
+            }
         }
 
         if(searchForWorst == true && totalSatsValue.size() > 0)
@@ -156,8 +163,11 @@ string dataAggregatorClass::getCarConnectionDataAverage(bool searchForWorst, str
 
         for(PositionEntity p : positionsEntities)
         {
-            unitIDs.push_back(p.get_unit_id());
-            totalQualityValue.push_back(p.get_qualityCount());
+            if(positionsEntities.size() > 0)
+            {
+                unitIDs.push_back(p.get_unit_id());
+                totalQualityValue.push_back(p.get_qualityCount());
+            }
         }
 
         if(searchForWorst == true && totalQualityValue.size() > 0)
@@ -200,17 +210,28 @@ string dataAggregatorClass::getCarWithMostStoppage(bool searchForWorstCar)
 
     for(PositionEntity p : positionsEntities)
     {
-        coordinatesAndStops.push_back
-                ("At coordinates " + to_string(p.get_rdx()) + ", "
-                 + to_string(p.get_rdy()) +  " Car no. " + to_string(p.get_unit_id()) + " was stopped " + to_string(p.get_speed()) + " times.");
-        stopsCount.push_back(to_string(p.get_speed()));
+        if(positionsEntities.size() > 0)
+        {
+            coordinatesAndStops.push_back
+                    ("At coordinates " + to_string(p.get_rdx()) + ", "
+                     + to_string(p.get_rdy()) + " Car no. " + to_string(p.get_unit_id())
+                     + " was stopped " + to_string(p.get_speed()) + " times.");
+            stopsCount.push_back(to_string(p.get_speed()));
+        }
+        else
+        {
+            coordinatesAndStops.push_back("Error: No data found!");
+            stopsCount.push_back(0);
+        }
     }
     //Get the index of the biggest element, return the element at that index in the coordinatesAndStops-vector.
     int index;
-    if(searchForWorstCar == true)
+    if(searchForWorstCar == true && stopsCount.size() > 0)
         index = distance(stopsCount.begin(), max_element(stopsCount.begin(), stopsCount.end()));
-    else
+    else if (searchForWorstCar == false && stopsCount.size() > 0)
         index = distance(stopsCount.begin(), min_element(stopsCount.begin(), stopsCount.end()));
+    else
+        index = 0;
 
     return coordinatesAndStops[index];
 }
@@ -225,9 +246,14 @@ vector<string> dataAggregatorClass::getCoordinatesWithMostStoppage()
 
     for(PositionEntity p : positionsEntities)
     {
-        coordinatesAndStops.push_back
-                ("At coordinates " + to_string(p.get_rdx()) + ", "
-                 + to_string(p.get_rdy()) + " cars were stopped " + to_string(p.get_speed()) + " times.");
+        if(positionsEntities.size() > 0)
+        {
+            coordinatesAndStops.push_back
+                    ("At coordinates " + to_string(p.get_rdx()) + ", "
+                     + to_string(p.get_rdy()) + " cars were stopped " + to_string(p.get_speed()) + " times.");
+        }
+        else
+            coordinatesAndStops.push_back("Error: No data found!");
     }
     return coordinatesAndStops;
 }
@@ -254,10 +280,15 @@ template <typename T> pair<double,double> dataAggregatorClass::getAverages(vecto
     {
         for (T e : listOfEntities)
         {
-            if (e.get_value() == true)
+            if (e.get_value() == true && listOfEntities.size() > 0)
                 allTruePortValues.push_back(e.get_value());
-            else
+            else if(e.get_value() == false && listOfEntities.size() > 0)
                 allFalsePortValues.push_back(e.get_value());
+            else
+            {
+                cout << "Empty list in dataAggregator::getAverages()" << endl;
+                return make_pair(0.0, 0.0);
+            }
         }
     }
     else
@@ -286,8 +317,11 @@ vector<string> dataAggregatorClass::getCarsAndDowntimes(string typeOfCsv)
 
         for(ConnectionEntity c : connectionEntities)
         {
-            //We get the Distinct unitIds and the amount of 0 values for each unitID. (see dbreader.h and EntityManager.h for more details)
-            carsAndDownTimes.push_back("Car no. : " + c.get_unit_id() + " has lost connection " + to_string(c.get_countOfValue()) + " times.");
+            if(connectionEntities.size() > 0)
+                //We get the Distinct unitIds and the amount of 0 values for each unitID. (see dbreader.h and EntityManager.h for more details)
+                carsAndDownTimes.push_back("Car no. : " + c.get_unit_id() + " has lost connection " + to_string(c.get_countOfValue()) + " times.");
+            else
+                carsAndDownTimes.push_back("Error: No data found!");
         }
         return carsAndDownTimes;
     }
@@ -300,8 +334,11 @@ vector<string> dataAggregatorClass::getCarsAndDowntimes(string typeOfCsv)
 
         for(EventEntity e : eventEntities)
         {
-            //We get the Distinct unitIds and the amount of 0 values for each unitID. (see dbreader.h and EntityManager.h for more details)
-            carsAndDownTimes.push_back("Car no. : " + e.get_unit_id() + " has stopped " + to_string(e.get_countOfValue()) + " times.");
+            if(eventEntities.size() > 0)
+                //We get the Distinct unitIds and the amount of 0 values for each unitID. (see dbreader.h and EntityManager.h for more details)
+                carsAndDownTimes.push_back("Car no. : " + e.get_unit_id() + " has stopped " + to_string(e.get_countOfValue()) + " times.");
+            else
+                carsAndDownTimes.push_back("Error: No data found!");
         }
         return carsAndDownTimes;
     }
@@ -323,9 +360,17 @@ string dataAggregatorClass::getCarWithBestOrWorstDataLoss(bool searchForWorst, s
 
         for(ConnectionEntity c : connectionEntities)
         {
-            //We get the Distinct unitIds and the amount of 0 values for each unitID. (see dbreader.h and EntityManager.h for more details)
-            carsAndDownTimes.push_back("Car no. : " + c.get_unit_id() + " has lost connection " + to_string(c.get_countOfValue()) + " times.");
-            valuesOnly.push_back(c.get_countOfValue());
+            if(connectionEntities.size() > 0)
+            {
+                //We get the Distinct unitIds and the amount of 0 values for each unitID. (see dbreader.h and EntityManager.h for more details)
+                carsAndDownTimes.push_back("Car no. : " + c.get_unit_id() + " has lost connection " + to_string(c.get_countOfValue()) + " times.");
+                valuesOnly.push_back(c.get_countOfValue());
+            }
+            else
+            {
+                carsAndDownTimes.push_back("Error: No data found!");
+                valuesOnly.push_back(0);
+            }
         }
     }
     //Bit of duplication to make the code less complicated.
@@ -338,9 +383,17 @@ string dataAggregatorClass::getCarWithBestOrWorstDataLoss(bool searchForWorst, s
 
         for(EventEntity e : eventEntities)
         {
-            //We get the Distinct unitIds and the amount of 0 values for each unitID. (see dbreader.h and EntityManager.h for more details)
-            carsAndDownTimes.push_back("Car no. : " + e.get_unit_id() + " has stopped " + to_string(e.get_countOfValue()) + " times.");
-            valuesOnly.push_back(e.get_countOfValue());
+            if(eventEntities.size() > 0)
+            {
+                //We get the Distinct unitIds and the amount of 0 values for each unitID. (see dbreader.h and EntityManager.h for more details)
+                carsAndDownTimes.push_back("Car no. : " + e.get_unit_id() + " has stopped " + to_string(e.get_countOfValue()) + " times.");
+                valuesOnly.push_back(e.get_countOfValue());
+            }
+            else
+            {
+                carsAndDownTimes.push_back("Error: No data found!");
+                valuesOnly.push_back(0);
+            }
         }
     }
     else

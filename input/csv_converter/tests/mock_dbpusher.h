@@ -1,5 +1,5 @@
-#ifndef dbpusher
-#define dbpusher
+#ifndef mock_dbpusher
+#define mock_dbpusher
 
 #include "mock_pgsqlcon.h"
 #include "../helperfunc/helperfunc.h"
@@ -34,22 +34,23 @@ int push_list_to_database(string pathToFile)
         //0 == strings are equal
         if(csvName.compare("positions.csv") == 0)
         {
-            p.exec_none_transaction(createQuery(pathToFile, csvName));
+            p.mock_exec_none_transaction(createQuery(pathToFile, csvName));
+
             cout << "CSV file entered." << endl;
         }
         else if(csvName.compare("connections.csv") == 0)
         {
-            p.exec_none_transaction(createQuery(pathToFile, csvName));
+            p.mock_exec_none_transaction(createQuery(pathToFile, csvName));
             cout << "CSV file entered." << endl;
         }
         else if(csvName.compare("monitoring.csv") == 0)
         {
-            p.exec_none_transaction(createQuery(pathToFile, csvName));
+            p.mock_exec_none_transaction(createQuery(pathToFile, csvName));
             cout << "CSV file entered." << endl;
         }
         else if(csvName.compare("events.csv") == 0)
         {
-            p.exec_none_transaction(createQuery(pathToFile, csvName));
+            p.mock_exec_none_transaction(createQuery(pathToFile, csvName));
             cout << "CSV file entered." << endl;
         }
         return 1;

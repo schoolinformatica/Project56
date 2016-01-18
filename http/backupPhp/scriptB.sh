@@ -51,3 +51,32 @@ echo "Building using Ant! Do you want to build fully, or just run the unit tests
         * ) ant full-build;;
     esac
 
+echo "Since the build completed succesfully, we are going to copy the contents of http/Laravel to /var/www/laravel!"
+
+#postgres check
+echo "Before we copy everything, I'm going to make sure the psql and nginx processes are running."
+
+if  [ $(pgrep -n postgres) = "" ] 
+then
+  echo "Postgres is not running, so I will start it."
+  sudo service postgresql restart
+else
+  echo "Postgres is running nicely, no need to do anything."
+fi
+
+#nginx check
+if  [ $(pgrep -n nginx) = "" ]
+then
+  echo "Nginx is not running, so I will start it."
+  sudo service nginx restart
+else
+  echo "Nginx is running nicely, no need to do anything."
+fi
+
+#sudo cp -r Project56/http/laravel/* /var/www/laravel/
+
+echo "All required processes are now running! One last check to see if all dependencies are up to date: "
+cd /var/www/laravel/
+sudo composer update
+
+

@@ -48,8 +48,8 @@ result EntityManager::getConnectionFailuresPerCar(string startDate, string endDa
     //Remember to wrap the column you are referencing in double escaped quotes!
     os << "SELECT DISTINCT \"UnitId\", COUNT(\"Value\")"
     << " FROM connections"
-    << " BETWEEN \'" + startDate + "\'  AND \'" + endDate + "\'"
     << " WHERE \"Value\" = 0"
+    << " AND \"DateTime\" BETWEEN \'" + startDate + "\'  AND \'" + endDate + "\'"
     << " GROUP BY \"UnitId\""
     << " ORDER BY COUNT(\"Value\") ASC"
     << ";";
@@ -66,8 +66,8 @@ result EntityManager::getIgnitionFailuresPerCar(string startDate, string endDate
     //Remember to wrap the column you are referencing in double escaped quotes!
     os << "SELECT DISTINCT \"UnitId\", COUNT(\"Value\")"
     << " FROM events"
-    << " BETWEEN \'" + startDate + "\'  AND \'" + endDate + "\'"
     << " WHERE \"Value\" = 0"
+    << " AND \"DateTime\" BETWEEN \'" + startDate + "\' AND \'" + endDate + "\'"
     << " GROUP BY \"UnitId\""
     << " ORDER BY COUNT(\"Value\") ASC"
     << ";";
@@ -84,8 +84,8 @@ result EntityManager::getStopsPerCoordinate(string startDate, string endDate)
     //Remember to wrap the column you are referencing in double escaped quotes!
     os << "SELECT DISTINCT \"UnitId\", \"Rdx\", \"Rdy\", COUNT(\"Speed\")"
     << " FROM positions"
-    << " BETWEEN \'" + startDate + "\'  AND \'" + endDate + "\'"
     << " WHERE \"Speed\" = 0"
+    << " AND \"DateTime\" BETWEEN \'" + startDate + "\' AND \'" + endDate + "\'"
     << " GROUP BY \"UnitId\", \"Rdx\", \"Rdy\""
     << " ORDER BY COUNT(\"Speed\") DESC"
     << ";";
@@ -102,7 +102,7 @@ result EntityManager::getHDOPPerCar(string startDate, string endDate)
     //Remember to wrap the column you are referencing in double escaped quotes!
     os << "SELECT DISTINCT \"UnitId\", SUM(\"HDOP\"), COUNT(\"UnitId\")"
     << " FROM positions"
-    << " BETWEEN \'" + startDate + "\'  AND \'" + endDate + "\'"
+    << " WHERE \"DateTime\" BETWEEN \'" + startDate + "\'  AND \'" + endDate + "\'"
     << " GROUP BY \"UnitId\", \"HDOP\""
     << ";";
     string query = os.str();
@@ -117,7 +117,7 @@ result EntityManager::getNumSatellitesPerCar(string startDate, string endDate)
     //Remember to wrap the column you are referencing in double escaped quotes!
     os << "SELECT DISTINCT \"UnitId\", SUM(\"NumSatellites\"), COUNT(\"UnitId\")"
     << " FROM positions"
-    << " BETWEEN \'" + startDate + "\'  AND \'" + endDate + "\'"
+    << " WHERE \"DateTime\" BETWEEN \'" + startDate + "\'  AND \'" + endDate + "\'"
     << " GROUP BY \"UnitId\", \"NumSatellites\""
     << ";";
     string query = os.str();
@@ -133,8 +133,8 @@ result EntityManager::getQualityPerCar(string startDate, string endDate)
     //Remember to wrap the column you are referencing in double escaped quotes!
     os << "SELECT DISTINCT \"UnitId\", COUNT(\"Quality\")"
     << " FROM positions"
-    << " BETWEEN \'" + startDate + "\'  AND \'" + endDate + "\'"
     << " WHERE \"Quality\" LIKE \'%DGPS%\'"
+    << " AND \"DateTime\" BETWEEN \'" + startDate + "\'  AND \'" + endDate + "\'"
     << " GROUP BY \"UnitId\", \"Quality\""
     << ";";
     string query = os.str();

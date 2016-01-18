@@ -3,7 +3,8 @@
 //
 
 #include "UnitTest++/UnitTest++.h"
-#include "dbpusher.h"
+#include "mock_dbpusher.h"
+#include "UnitTest++/XmlTestReporter.h"
 
 
 /*
@@ -112,6 +113,11 @@ TEST(dbpusher_push_list_to_database_bad) {
 }
 
 int main(int, const char *[]) {
-    return UnitTest::RunAllTests();
+    std::ofstream f("testreport.xml");
+    UnitTest::XmlTestReporter reporter(f);
+
+    UnitTest::TestRunner runner(reporter);
+
+    return runner.RunTestsIf(UnitTest::Test::GetTestList(), NULL, UnitTest::True(), 0);
 }
 
