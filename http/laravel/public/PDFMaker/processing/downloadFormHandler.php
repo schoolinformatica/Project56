@@ -28,15 +28,22 @@ if(isset($_GET['email'])){
 			}
 		}
 		else {
-			echo 'csv not given!';
+			$output =  'csv not given!';
+			echo $output;
+			return $output;
 		}
 	}
 	else {
-		echo 'email is not given!';
+		 $output =  'email not given!';
+                 echo $output;
+                 return $output;
 	}
 }
 else {
-	echo 'email is not given!';
+	 $output =  'email not given!';
+         echo $output;
+         return $output;
+
 }
 
 
@@ -46,7 +53,7 @@ else {
  *
  * @param string $url
  * @param int $code http code for the redirect (should be 302 or 301)
- */
+ *
 function redirect_now($url, $code = 302)
 {
 	try {
@@ -65,3 +72,4 @@ function redirect_now($url, $code = 302)
 		die;
 	}
 }
+*/
