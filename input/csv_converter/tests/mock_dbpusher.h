@@ -1,5 +1,5 @@
-#ifndef dbpusher
-#define dbpusher
+#ifndef mock_dbpusher
+#define mock_dbpusher
 
 #include "mock_pgsqlcon.h"
 #include "../helperfunc/helperfunc.h"
