@@ -44,7 +44,7 @@ int listener(string path) {
         perror("inotify_init");
     }
 
-    wd = inotify_add_watch(fd, path.c_str(), IN_MODIFY | IN_CREATE | IN_DELETE | IN_CLOSE_WRITE | IN_MOVE);
+    wd = inotify_add_watch(fd, path.c_str(),  IN_CREATE | IN_CLOSE_WRITE | IN_MOVE);
     length = read(fd, buffer, BUF_LEN);
 
     if (length < 0)
@@ -81,28 +81,7 @@ int listener(string path) {
                 }
             }
 
-            else if (event->mask & IN_MODIFY)
-            {
-                if (event->mask & IN_ISDIR)
-                {
-                    printf("The directory %s was modified.\n", event->name);
-                }
-                else
-                {
-                    printf("The file %s was modified.\n", event->name);
-
-                    if (strstr(event->name, ".csv") != NULL)
-                    {
-                        thread t1(push_list_to_database, path + event->name);
-                        t1.detach();
-                    }
-                    else
-                    {
-                        cout << "non valid csv file!" << endl;
-                    }
-                }
-            }
-
+            
             else if (event->mask & IN_MOVE)
             {
                 if (event->mask & IN_ISDIR)
