@@ -35,6 +35,7 @@ int push_list_to_database(string pathToFile)
         if(csvName.compare("positions.csv") == 0)
         {
             p.exec_none_transaction(createQuery(pathToFile, csvName));
+
             cout << "CSV file entered." << endl;
         }
         else if(csvName.compare("connections.csv") == 0)

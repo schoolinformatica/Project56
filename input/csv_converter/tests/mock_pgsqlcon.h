@@ -14,9 +14,11 @@ public:
     int getErrorCode(){return errorCode; }; //0 meaning failure, 1 meaning sucess
 };
 
-result mock_pgsqlcon::exec_none_transaction(const string & query) {
+
+result mock_pgsqlcon::exec_none_transaction(const ::mock_pgsqlcon::string &) {
     result r;
     return r;
+
 }
 
 
