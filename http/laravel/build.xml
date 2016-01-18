@@ -94,6 +94,8 @@
 <exec executable="${phpunit}" failonerror="true" resultproperty="result.phpunit" taskname="phpunit">
 <arg value="--configuration"/>
 <arg path="${basedir}/phpunit.xml"/>
+<arg value="--testdox-html"/>
+<arg path="${basedir}/build/coverage/testdox.html"/>
 </exec>
 <property name="phpunit.done" value="true"/>
 </target>
