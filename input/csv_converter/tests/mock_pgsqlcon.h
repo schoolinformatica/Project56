@@ -8,6 +8,9 @@
 #include "pqxx/pqxx"
 #include <unistd.h>
 
+
+using namespace pqxx;
+
 class mock_pgsqlcon {
     int errorCode;
 public:
