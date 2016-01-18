@@ -11,11 +11,11 @@
 class mock_pgsqlcon {
     int errorCode;
 public:
-    result exec_none_transaction(const string&); // Execute query in non-transaction mode
+    result mock_exec_none_transaction(const string&); // Execute query in non-transaction mode
     int getErrorCode(){return errorCode; }; //0 meaning failure, 1 meaning sucess
 };
 
-result mock_pgsqlcon::exec_none_transaction(const ::mock_pgsqlcon::string &) {
+result mock_pgsqlcon::mock_exec_none_transaction(const ::mock_pgsqlcon::string &) {
 
     result result;
     return  result;
