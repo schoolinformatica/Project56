@@ -165,7 +165,8 @@ void pdfwriterClass::connections_to_pdf(vector<ConnectionEntity> connectionEntit
     dataAggregatorClass DataAggregator;
     DataAggregator.setClassValues(startDate, endDate);
 
-    PDF pdf = writePdfFrontPage("Connections");
+    pair<string, string> dates = make_pair(startDate, endDate);
+    PDF pdf = writePdfFrontPage("Connections", dates);
 
     pair<double, double> TimePercentages = DataAggregator.getAverages(connectionEntities);
 
@@ -231,7 +232,8 @@ void pdfwriterClass::events_to_pdf(vector<EventEntity> eventEntities)
     dataAggregatorClass DataAggregator;
     DataAggregator.setClassValues(startDate, endDate);
 
-    PDF pdf = writePdfFrontPage("Events");
+    pair<string, string> dates = make_pair(startDate, endDate);
+    PDF pdf = writePdfFrontPage("Events", dates);
 
     pair<double, double> IgnitionPercentages = DataAggregator.getAverages(eventEntities);
 
@@ -296,7 +298,8 @@ void pdfwriterClass::positions_to_pdf(vector<PositionEntity> positionEntities)
     dataAggregatorClass DataAggregator;
     DataAggregator.setClassValues(startDate, endDate);
 
-    PDF pdf = writePdfFrontPage("Positions");
+    pair<string, string> dates = make_pair(startDate, endDate);
+    PDF pdf = writePdfFrontPage("Positions" ,dates);
 
     string bestHDOPString = checkIfDataAvailable(DataAggregator.getCarConnectionDataAverage(false, "HDOP"));
     string worstHDOPString = checkIfDataAvailable(DataAggregator.getCarConnectionDataAverage(true, "HDOP"));
@@ -306,9 +309,6 @@ void pdfwriterClass::positions_to_pdf(vector<PositionEntity> positionEntities)
 
     string worstConnectionString = checkIfDataAvailable(DataAggregator.getCarConnectionDataAverage(true, "Satellites"));
     string bestConnectionString = checkIfDataAvailable(DataAggregator.getCarConnectionDataAverage(false, "Satellites"));
-
-    string worstCar = checkIfDataAvailable(DataAggregator.getCarWithBestOrWorstDataLoss(true, "events"));
-    string bestCar = checkIfDataAvailable(DataAggregator.getCarWithBestOrWorstDataLoss(false, "events"));
 
     string worstStoppage = checkIfDataAvailable(DataAggregator.getCarWithMostStoppage(true));
     string bestStoppage = checkIfDataAvailable(DataAggregator.getCarWithMostStoppage(false));

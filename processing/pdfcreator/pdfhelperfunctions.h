@@ -5,6 +5,22 @@
 #ifndef PROCESSING_PDFHELPERFUNCTIONS_H
 #define PROCESSING_PDFHELPERFUNCTIONS_H
 
+#include <iostream>
+#include <algorithm>
+#include <iomanip>
+#include <map>
+#include <sstream>
+#include <fstream>
+#include <complex>
+#include <sys/socket.h>
+#include <resolv.h>
+#include <arpa/inet.h>
+#include <time.h>
+#include <unistd.h>
+#include <utility>
+
+using namespace std;
+
 /****************************************
  * AUXILIARY METHODS USED BY PDFCREATOR.H
  * ***************************************
@@ -40,7 +56,7 @@ string getCurrentDateTime() {
     return filename;
 }
 
-PDF writePdfFrontPage(string typeOfReport)
+PDF writePdfFrontPage(string typeOfReport, pair<string,string> dates)
 {
     PDF pdf;
     pdf.setFont(PDF::Font(6), 27);
@@ -49,6 +65,9 @@ PDF writePdfFrontPage(string typeOfReport)
 
     pdf.showTextXY("CityGis "+ typeOfReport +" Data Report: ", 70, 650);
     pdf.showTextXY(name, 70, 600);
+
+    pdf.setFont(PDF::Font(6), 20);
+    pdf.showTextXY("Data gathered from " + dates.first + " to " + dates.second, 70, 570);
 
     pdf.setFont(PDF::Font(6), 12);
     pdf.showTextXY("Provided by your friends at 'Cooperatio'!", 70, 80);
