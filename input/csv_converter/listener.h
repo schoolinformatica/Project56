@@ -44,7 +44,7 @@ int listener(string path) {
         perror("inotify_init");
     }
 
-    wd = inotify_add_watch(fd, path.c_str(),  IN_CREATE | IN_CLOSE_WRITE | IN_MOVE);
+    wd = inotify_add_watch(fd, path.c_str(),  IN_CLOSE_WRITE | IN_MOVE);
     length = read(fd, buffer, BUF_LEN);
 
     if (length < 0)
@@ -59,30 +59,8 @@ int listener(string path) {
         if (event->len)
         {
 
-            if (event->mask & IN_CREATE)
-            {
-                if (event->mask & IN_ISDIR)
-                {
-                    printf("The directory %s was create.\n", event->name);
-                }
-                else
-                {
-                    printf("The file %s was created.\n", event->name);
-
-                    if (strstr(event->name, ".csv") != NULL)
-                    {
-                        thread t1(push_list_to_database, path + event->name);
-                        t1.detach();
-                    }
-                    else
-                    {
-                        cout << "non valid csv file!" << endl;
-                    }
-                }
-            }
-
             
-            else if (event->mask & IN_MOVE)
+            if (event->mask & IN_MOVE)
             {
                 if (event->mask & IN_ISDIR)
                 {
