@@ -5,7 +5,8 @@
 #ifndef DBCON_MOCK_PGSQLCON_H
 #define DBCON_MOCK_PGSQLCON_H
 
-#include <pqxx/pqxx>
+#include "pqxx/pqxx"
+#include <unistd.h>
 
 class mock_pgsqlcon {
     int errorCode;
