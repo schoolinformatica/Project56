@@ -36,7 +36,7 @@ int push_list_to_database(string pathToFile)
         //0 == strings are equal
         if(csvName.compare("positions.csv") == 0)
         {
-            sleep(1);
+            usleep(1);
             p.exec_none_transaction(createQuery(pathToFile, csvName));
 
         }
