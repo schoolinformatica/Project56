@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Building stage project 56</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.4.1">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/cooperatio/project56/</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>H * * * * </spec>
+    </hudson.triggers.TimerTrigger>
+    <com.cloudbees.jenkins.GitHubPushTrigger plugin="github@1.16.0">
+      <spec></spec>
+    </com.cloudbees.jenkins.GitHubPushTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>ls
+#Get Cmake
+	sudo apt-get --yes install cmake
+
+#Get g++ compiler
+	sudo apt-get --yes install g++
+
+
+#Get libpqxx-4 for compiling c++
+	sudo apt-get --yes install postgresql
+	sudo apt-get --yes install libpq-dev
+
+	wget http://pqxx.org/download/software/libpqxx/libpqxx-4.0.tar.gz
+	tar xvfz libpqxx-4.0.tar.gz
+	cd libpqxx-4.0
+	sudo ./configure
+	sudo make
+	sudo make install
+
+
+#Get UnitTest++ for compiling unittests c++
+	
+	cd ~
+    
+    if [  -d unittest-cpp ]; then
+    	sudo rm -rf unittest-cpp
+    fi
+	
+	git clone https://github.com/unittest-cpp/unittest-cpp
+	cd unittest-cpp
+	cd builds
+	cmake -DCMAKE_BUILD_TYPE=Release ..
+	make -j4
+	
+	if [ -d /usr/local/include/UnitTest++ ]; then
+		sudo rm -rf /usr/local/include/UnitTest++
+		sudo mkdir /usr/local/include/UnitTest++
+	fi
+	sudo mkdir /usr/local/include/UnitTest++/Posix
+	sudo mkdir /usr/local/include/UnitTest++/Win32
+	
+	sudo cp libUnitTest++.a /usr/local/lib
+	cd ../
+	sudo cp UnitTest++/*.h /usr/local/include/UnitTest++
+	sudo cp UnitTest++/Posix/*.h /usr/local/include/UnitTest++/Posix
+	sudo cp UnitTest++/Win32/*.h /usr/local/include/UnitTest++/Win32
+
+#Get cppcheck for c++ style checking
+	sudo apt-get --yes install cppcheck
+
+#Get php
+	sudo apt-get install --yes php5-cli
+
+#Get composer
+	cd ~
+	if [ -d .composer ]; then
+    	sudo rm -rf .composer
+    fi
+	curl -sS https://getcomposer.org/installer | php
+	sudo mv composer.phar /usr/local/bin/composer
+
+#Get docker 
+	sudo apt-get install --yes docker.io	
+	
+</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>echo BUILD FASE
+echo COMPILING INPUT CODE
+cd input/csv_converter/
+g++ main.cpp -o main.out -lpqxx -std=c++11 -pthread
+
+if [ ! -d /home/ubuntu-0902130/processes ]; then
+    sudo mkdir /home/ubuntu-0902130/processes
+else
+	sudo rm -rf /home/ubuntu-0902130/processes/*
+fi
+
+sudo mv main.out /home/ubuntu-0902130/processes/input.out</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>echo COMPILING PROCESSING CODE
+cd processing /
+g++ main.cpp -o main.out -lpqxx -std=c++11
+
+sudo mv main.out /home/ubuntu-0902130/processes/processing.out</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>echo COMPILING TESTS
+cd input/csv_converter/tests
+g++ test_dbpusher.cpp -o test_dbpusher.out -lUnitTest++ -lpqxx -std=c++11
+echo END BUILD FASE
+sudo mv test_dbpusher.out /home/ubuntu-0902130/processes/test_dbpusher.out</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.plugins.warnings.WarningsPublisher plugin="warnings@4.51">
+      <healthy></healthy>
+      <unHealthy></unHealthy>
+      <thresholdLimit>low</thresholdLimit>
+      <pluginName>[WARNINGS] </pluginName>
+      <defaultEncoding></defaultEncoding>
+      <canRunOnFailed>true</canRunOnFailed>
+      <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
+      <useStableBuildAsReference>false</useStableBuildAsReference>
+      <useDeltaValues>false</useDeltaValues>
+      <thresholds plugin="analysis-core@1.75">
+        <unstableTotalAll></unstableTotalAll>
+        <unstableTotalHigh></unstableTotalHigh>
+        <unstableTotalNormal></unstableTotalNormal>
+        <unstableTotalLow></unstableTotalLow>
+        <unstableNewAll></unstableNewAll>
+        <unstableNewHigh></unstableNewHigh>
+        <unstableNewNormal></unstableNewNormal>
+        <unstableNewLow></unstableNewLow>
+        <failedTotalAll></failedTotalAll>
+        <failedTotalHigh></failedTotalHigh>
+        <failedTotalNormal></failedTotalNormal>
+        <failedTotalLow></failedTotalLow>
+        <failedNewAll></failedNewAll>
+        <failedNewHigh></failedNewHigh>
+        <failedNewNormal></failedNewNormal>
+        <failedNewLow></failedNewLow>
+      </thresholds>
+      <shouldDetectModules>false</shouldDetectModules>
+      <dontComputeNew>true</dontComputeNew>
+      <doNotResolveRelativePaths>true</doNotResolveRelativePaths>
+      <includePattern></includePattern>
+      <excludePattern></excludePattern>
+      <messagesPattern></messagesPattern>
+      <parserConfigurations/>
+      <consoleParsers>
+        <hudson.plugins.warnings.ConsoleParser>
+          <parserName>GNU C Compiler 4 (gcc)</parserName>
+        </hudson.plugins.warnings.ConsoleParser>
+      </consoleParsers>
+    </hudson.plugins.warnings.WarningsPublisher>
+    <hudson.tasks.BuildTrigger>
+      <childProjects>project56 - test</childProjects>
+      <threshold>
+        <name>SUCCESS</name>
+        <ordinal>0</ordinal>
+        <color>BLUE</color>
+        <completeBuild>true</completeBuild>
+      </threshold>
+    </hudson.tasks.BuildTrigger>
+  </publishers>
+  <buildWrappers/>
+</project>

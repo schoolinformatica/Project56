@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.4.1">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/cooperatio/project56</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>sudo chmod +x docker_stop_all_containers.sh
+sudo ./docker_stop_all_containers.sh
+</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>
+
+sudo docker pull steven123/postgresproject56:first
+sudo docker pull steven123/laravelproject56:first
+
+sudo docker run -tid -p 5432:5432 -v /var/www/laravel:/var/www/laravel --name postgres -e POSTGRES_PASSWORD=cooperatio steven123/postgresproject56:first
+sudo docker run -tid -p 80:80 -v /var/www/laravel:/var/www --name webserver --link postgres:postgres steven123/laravelproject56:first
+sleep 10s
+sudo docker start postgres
+sleep 5s
+
+
+</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>sudo chmod +x scriptipchange.sh
+sudo ./scriptipchange.sh
+sudo cp .env /var/www/laravel/
+sudo cp processing/credentials.pgconf /var/www/laravel/public/PDFMaker/processing
+
+</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>sudo docker exec postgres psql -U postgres -c &quot;CREATE DATABASE MMORPG;&quot;
+sudo docker exec webserver bash -c &quot;cd &apos;/var/www&apos; &amp;&amp; php artisan migrate&quot;</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.tasks.BuildTrigger>
+      <childProjects>project56 - deployment</childProjects>
+      <threshold>
+        <name>SUCCESS</name>
+        <ordinal>0</ordinal>
+        <color>BLUE</color>
+        <completeBuild>true</completeBuild>
+      </threshold>
+    </hudson.tasks.BuildTrigger>
+  </publishers>
+  <buildWrappers/>
+</project>
