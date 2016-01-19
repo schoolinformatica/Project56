@@ -142,12 +142,11 @@ int pdfwriterClass::sendDirToPHP(const char *directory) {
 
     //We create a stringstream with the necessary URL and header values.Connection: close makes sure the connection to the url is closed.
     stringstream ss;
-    ss << "GET /mailer.php?dir="
-    << directory
-    << "&emailadress="
-    << email.c_str()
+    ss << "POST /mailer.php"
     << " HTTP/1.1\r\n"
     << "Host: 145.24.222.182\r\n"
+    << "Content-Type: text/plain\r\n"
+    << "Content-Length: " email.
     << "Connection: close\r\n"
     << "\r\n";
     string requeststr = ss.str();
