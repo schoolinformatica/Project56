@@ -1,5 +1,6 @@
 #!/bin/bash 
 
+1=$(docker inspect $CID | grep IPAddress | cut -d '"' -f 4)
 
 replacestring=$(cat .env | grep DB_HOST )
 newstring='DB_HOST='$1
