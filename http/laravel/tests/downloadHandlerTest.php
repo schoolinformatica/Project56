@@ -7,7 +7,7 @@ class downloadHandlerTest extends PHPUnit_Framework_TestCase
         $expectedOutput = "email not given!";
 	$_GET['email'] = "";
 	$_GET['csv'] = "connections"; 
-	$actualOutput = include "/home/ubuntu-0902130/project56/Project56/http/laravel/public/PDFMaker/processing/downloadFormHandler.php";
+	$actualOutput = include "/home/ubuntu-0902130/project56/http/laravel/public/PDFMaker/processing/downloadFormHandler.php";
         $this->assertEquals($expectedOutput, $actualOutput);
     }
 
@@ -16,7 +16,7 @@ class downloadHandlerTest extends PHPUnit_Framework_TestCase
         $expectedOutput = "csv not given!";
         $_GET['email'] = "foo@foo.foo";
         $_GET['csv'] = "";
-	$actualOutput = include "/home/ubuntu-0902130/project56/Project56/http/laravel/public/PDFMaker/processing/downloadFormHandler.php";
+	$actualOutput = include "/home/ubuntu-0902130/project56/http/laravel/public/PDFMaker/processing/downloadFormHandler.php";
         $this->assertEquals($expectedOutput, $actualOutput);
     }
 }
