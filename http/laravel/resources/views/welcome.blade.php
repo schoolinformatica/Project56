@@ -1,4 +1,7 @@
 @extends('template')
+@section("title")
+    home
+@stop
 @section('content')
     <style>
         /* Makes images fully responsive */

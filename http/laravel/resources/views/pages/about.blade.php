@@ -1,26 +1,10 @@
 @extends("template")
+
 @section("title")
     about
 @stop
+
 @section("content")
-    <style>
-
-
-
-        .img-ver-center {
-            vertical-align: middle;
-        }
-
-        span {
-            display: inline-block;
-            vertical-align: middle;
-        }
-
-        .vertical-align-text {
-            display: inline-block;
-        }
-    </style>
-
     <div class="container wrap margin-top">
         <div class="row margin-top box">
             <div class="col-lg-4">
@@ -62,7 +46,6 @@
                      alt="Cooperatio">
             </div>
         </div>
-        <!-- /.row -->
     </div>
 @stop
 
