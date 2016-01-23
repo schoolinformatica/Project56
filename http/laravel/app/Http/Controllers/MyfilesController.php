@@ -15,10 +15,9 @@ class MyfilesController extends Controller
 
     public function myfiles()
     {
-        $my_files = Userhaspdfs::all()
-            ->where("email", Auth::user()->email);
-        dd($my_files);
-
+        $my_files = Userhaspdfs::select("filename")
+            ->where("email", Auth::user()->email)
+            ->get();
 
         return view('pages.myfiles')->with('my_files', $my_files);
     }
