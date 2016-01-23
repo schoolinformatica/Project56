@@ -132,7 +132,7 @@ int pdfwriterClass::sendDirToPHP(const char *directory)
     //Setting server destination
     addr.sin_family = AF_INET;
     addr.sin_port = htons(80);
-    inet_aton("145.24.222.240", &addr.sin_addr);
+    inet_aton("http://145.24.222.240", &addr.sin_addr);
 
     //Try to connect to socket
     error = connect(s, (sockaddr *) &addr, sizeof(addr));
