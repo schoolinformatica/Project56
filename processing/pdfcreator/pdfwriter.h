@@ -88,7 +88,7 @@ bool pdfwriterClass::pdf_writer(PDF &pdf) {
 
 
     //Remove underscores from filename and concat it with the server download dir
-    string dir = "http://145.24.222.182/downloads/" + filename;
+    string dir = "http://145.24.222.240/downloads/" + filename;
     const char *dirchar = dir.c_str();
 
     //writing the PDF to a location on the disk
