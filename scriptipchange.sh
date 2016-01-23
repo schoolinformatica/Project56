@@ -7,6 +7,7 @@ newstring='DB_HOST='$ip
 
 sed -i 's/'$replacestring'/'$newstring'/g' .env
 
+ip=$(docker inspect postgres | grep IPAddress | cut -d '"' -f 4)
 
 replacestring1=$(cat credentials.pgconf | grep hostip )
 newstring1='hostip: '$ip
