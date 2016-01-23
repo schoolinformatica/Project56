@@ -32,6 +32,7 @@ class DownloadController extends Controller {
             //We assign main.out's output to the variable $out.
             exec("./processing.out $csv $email $startDate $endDate", $out);
             //we display the content of $out in the browser
+            dd($out);
         }
             //catch the exceptions if there are some..
         catch(Exception $tx) {
