@@ -37,6 +37,7 @@ class DownloadController extends Controller {
             //catch the exceptions if there are some..
         catch(Exception $tx) {
             $exceptio =  'Exception: ' .$tx->getMessage()."\n";
+            dd($exceptio);
         }
 
         return Redirect::back()->with('message', 'succes');
