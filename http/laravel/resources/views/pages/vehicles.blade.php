@@ -5,50 +5,7 @@
 @section("content")
     <div class="container wrap full-width margin-top">
 
-
-        <style type="text/css">
-            .col-marg-bottom {
-                margin-bottom: 30px !important;
-            }
-
-            img.center {
-                display: block;
-                margin: 0 auto;
-            }
-
-            .car:hover {
-                -webkit-box-shadow: 1px 1px 21px 0px rgba(50, 50, 50, 0.75);
-                -moz-box-shadow: 1px 1px 21px 0px rgba(50, 50, 50, 0.75);
-                box-shadow: 1px 1px 21px 0px rgba(50, 50, 50, 0.75);
-
-                cursor: pointer;
-            }
-        </style>
-
-        <script>
-            var cars = <?php echo json_encode($cars); ?>;
-
-            function set_modal(id) {
-                document.getElementById("unit-id").innerText = cars[id].UnitId;
-                document.getElementById("speed").innerText = "Average speed: " + cars[id].averageSpeed + " km/h";
-                document.getElementById("total-starts").innerText = "Total starts: " + cars[id].count;
-                document.getElementById("failed-starts").innerText = "Total failed starts: " + cars[id].failedStarts;
-                if (cars[id].failedStarts < 20) {
-                    document.getElementById("image").src = "/assets/images/car-green.png";
-                    document.getElementById("alert").innerHTML = "";
-                }
-                else {
-                    document.getElementById("image").src = "/assets/images/car-red.png";
-                    var alert = document.createElement("div");
-                    alert.className = "alert alert-danger";
-                    alert.innerHTML = "<strong>Engine failure!</strong> Engine ignition not working properly."
-                    document.getElementById("alert").appendChild(alert);
-                }
-
-
-            }
-        </script>
-
+        {{--cars content--}}
         <div class="container margin-top">
             <div class="row box">
                 @for($i = 0; $i < count($cars); $i++)
@@ -69,12 +26,12 @@
                 @endfor
             </div>
         </div>
+        {{--end of car content--}}
 
-        <!-- Modal -->
+        {{--car info modal--}}
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
 
-                <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -105,4 +62,29 @@
             </div>
         </div>
     </div>
+    {{--end of car info modal--}}
+
+    {{--script for filling car info--}}
+    <script>
+        var cars = <?php echo json_encode($cars); ?>;
+
+        function set_modal(id) {
+            document.getElementById("unit-id").innerText = cars[id].UnitId;
+            document.getElementById("speed").innerText = "Average speed: " + cars[id].averageSpeed + " km/h";
+            document.getElementById("total-starts").innerText = "Total starts: " + cars[id].count;
+            document.getElementById("failed-starts").innerText = "Total failed starts: " + cars[id].failedStarts;
+            if (cars[id].failedStarts < 20) {
+                document.getElementById("image").src = "/assets/images/car-green.png";
+                document.getElementById("alert").innerHTML = "";
+            }
+            else {
+                document.getElementById("image").src = "/assets/images/car-red.png";
+                var alert = document.createElement("div");
+                alert.className = "alert alert-danger";
+                alert.innerHTML = "<strong>Engine failure!</strong> Engine ignition not working properly."
+                document.getElementById("alert").appendChild(alert);
+            }
+        }
+    </script>
+    {{--end of script for filling car info--}}
 @stop
