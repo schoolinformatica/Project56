@@ -47,6 +47,7 @@ public:
         startDate = startDateParam;
         endDate = endDateParam;
         email = emailParam;
+        cout << "Classvalues set!" << endl;
     };
 };
 

@@ -26,6 +26,7 @@ int start(string file, string email, string startDate, string endDate) {
     {
          vectorPositions = convert_to_positions("nothing");
          pdfwriterClass writer;
+         cout << "writer class created" << endl;
          writer.setClassValues(startDate, endDate, email);
          writer.positions_to_pdf(vectorPositions);
     }
