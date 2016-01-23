@@ -30,7 +30,7 @@ class DownloadController extends Controller {
         //Then we try to call our c++ .out file with the get vars as parameters.
         try {
             //We assign main.out's output to the variable $out.
-            exec("./main.out $csv $email $startDate $endDate", $out);
+            exec("./processing.out $csv $email $startDate $endDate", $out);
             //we display the content of $out in the browser
         }
             //catch the exceptions if there are some..
