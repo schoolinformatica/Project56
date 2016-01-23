@@ -4,7 +4,7 @@
 @stop
 @section("content")
 
-    @if(Session::has('message'))
+    @if(Session::has('submitted'))
         <script>$('#succes-modal').modal('toggle');</script>
     @endif
 
@@ -20,6 +20,9 @@
                     <p class="lead">
                         On this page it is possible to generate reports of the City-gis
                         data.
+                        @if(Session::has('submitted'))
+                            {{ "succes" }}
+                        @endif
                     </p>
                 </div>
             </div>
