@@ -56,11 +56,11 @@
                                 <tr>
                                     <td>
                                         <label for="date-1">From:</label>
-                                        <input id="date-1" type="date" class="form-control" name="date-start" required>
+                                        <input id="date-1" type="date" class="form-control" name="dateStart" required>
                                     </td>
                                     <td>
                                         <label for="date-2">Untill:</label>
-                                        <input id="date-2" type="date" class="form-control" name="date-end" required>
+                                        <input id="date-2" type="date" class="form-control" name="dateEnd" required>
                                     </td>
                                 </tr>
                             </table>
