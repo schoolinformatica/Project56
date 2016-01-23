@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require './vendor/autoload.php';
+require '../vendor/autoload.php';
 //We assign our GET-variables to php vars
 $dir = $_POST['dir'];
 $emailadress = $_POST['emailadress'];
