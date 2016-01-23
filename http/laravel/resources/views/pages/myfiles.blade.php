@@ -33,8 +33,8 @@
                         @foreach($my_files as $file)
                             <tr>
                                 <td>{{ $file->filename }}</td>
-                                <td>http://linknaardefile.com/downloads/{{ $file->filename }}</td>
-                                <td><a href="http://linknaardefile.nl/downloads/{{ $file->filename }}" type="button"
+                                <td>http://145.24.222.240/downloads/{{ $file->filename }}</td>
+                                <td><a href="/downloads/{{ $file->filename }}" type="button"
                                        class="btn btn-primary">Download</a></td>
                             </tr>
 
