@@ -6,118 +6,16 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link href="{{ URL::asset('css/template.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ URL::asset('favicon.ico') }}">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    <style type="text/css">
-
-        .form-table {
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-
-        .form-table td {
-            padding-right: 40px;
-        }
-
-        .height-200 {
-            height: 200px;
-        }
-
-        .box {
-            -webkit-box-shadow: 0px 0px 32px 4px rgba(0, 0, 0, 0.75);
-            -moz-box-shadow: 0px 0px 32px 4px rgba(0, 0, 0, 0.75);
-            box-shadow: 0px 0px 32px 4px rgba(0, 0, 0, 0.75);
-            padding: 30px;
-        }
-
-        .full-width {
-            width: 100%;
-        }
-
-        /* Wrapper for page content to push down footer */
-        .wrap {
-
-            min-height: 100% !important;
-            height: auto !important;
-
-        }
-
-        html {
-            height: 100%;
-        }
-
-        body {
-            padding-top: 0px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
-            height: 100%;
-            background-color: #E9E9E9;
-        }
-
-        .margin-top {
-            margin-top: 60px;
-        }
-
-        .row {
-            background-color: white;
-        }
-
-
-        .row div {
-            margin:auto;
-            //padding-top:20px;
-            //float:initial;
-            max-width:800px;
-            height:100%;;
-        }
-
-
-        .navbar-custom {
-            border-radius:0px;
-            background-color: #3299BB !important;
-            color: white;
-            padding-right: 10px;
-
-            -webkit-box-shadow: 0px 0px 32px 4px rgba(0, 0, 0, 0.75);
-            -moz-box-shadow: 0px 0px 32px 4px rgba(0, 0, 0, 0.75);
-            box-shadow: 0px 0px 32px 4px rgba(0, 0, 0, 0.75);
-        }
-
-        .navbar-custom .navbar-nav > li > a {
-            color:#fff;
-        }
-
-        .navbar-custom li:hover > a {
-            color: #424242 !important;
-        }
-
-        .navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
-            color: #424242 !important;
-            background-color:transparent;
-        }
-
-        .navbar-custom label {
-            color: #302d33;
-        }
-
-
-        .footer {
-            height: 60px;
-            background-color: #BCBCBC;
-        }
-
-        @media(min-width:768px) {
-            body {
-                padding-top: 0px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
-            }
-
-        }
-    </style>
 </head>
 <body>
 
 <nav role="navigation" class="navbar navbar-custom navbar-fixed-top">
-    <!--toggle is grouped for better mobile display -->
     <div class="navbar-header">
         <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
             <span class="sr-only">Toggle navigation</span>
@@ -127,7 +25,6 @@
         </button>
     </div>
 
-    <!-- Collection of nav links, forms, and other content for toggling -->
     <div id="navbarCollapse" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>

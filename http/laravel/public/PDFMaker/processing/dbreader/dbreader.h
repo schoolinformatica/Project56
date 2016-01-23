@@ -10,7 +10,7 @@
 #include "../dbentities/DBEntityManager.h"
 #include "pqxx/pqxx"
 #include "../pdfcreator/pdf.h"
-#include "../pdfcreator/pdfcreator.h"
+#include "../pdfcreator/dataAggregator.h"
 
 using namespace std;
 using namespace pqxx;
@@ -185,6 +185,7 @@ vector<PositionEntity> convert_to_positions(result result1) {
 vector<PositionEntity> convert_to_positionsStops(result result1) {
     cout << "positions stops" << endl;
     vector<PositionEntity> positionsEntities;
+
     for (result::const_iterator c = result1.begin(); c != result1.end(); ++c) {
         PositionEntity positionEntity;
         positionEntity.set_unit_id(c[0].as<string>());

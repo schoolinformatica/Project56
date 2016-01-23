@@ -25,10 +25,13 @@ class DownloadController extends Controller {
         $exceptio = "";
         $csv = $request->table;
         $email = $request->email;
+	$startDate = $request->startDate;
+	$endDate = $request->endDate;
+
         //Then we try to call our c++ .out file with the get vars as parameters.
         try {
             //We assign main.out's output to the variable $out.
-            exec("./main.out $csv $email", $out);
+            exec("./main.out $csv $email $startDate $endDate", $out);
             //we display the content of $out in the browser
             foreach($out as $line){
                 $error =  $line . "\n" ;

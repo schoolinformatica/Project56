@@ -1,28 +1,6 @@
 @extends('template')
 @section('content')
 
-    <script>
-        var users = <?php echo json_encode($users); ?>;
-
-        function get_user(id) {
-            for (var i = 0; i < users.length; i++) {
-                var user_obj = users[i];
-                if (user_obj.id == id) {
-                    return user_obj;
-                }
-            }
-        }
-
-        function fill_form(id) {
-            var user = get_user(id);
-
-            $("#sel1").val(id);
-            $("#id").val(id);
-            $("#email").val(user.email);
-            $("#sel2").val(user.role);
-        }
-
-    </script>
     <div class="container wrap margin-top">
         <div class="row">
             <div class="panel panel-default">
@@ -74,5 +52,28 @@
 
         </div>
     </div>
+
+    <script>
+        var users = <?php echo json_encode($users); ?>;
+
+        function get_user(id) {
+            for (var i = 0; i < users.length; i++) {
+                var user_obj = users[i];
+                if (user_obj.id == id) {
+                    return user_obj;
+                }
+            }
+        }
+
+        function fill_form(id) {
+            var user = get_user(id);
+
+            $("#sel1").val(id);
+            $("#id").val(id);
+            $("#email").val(user.email);
+            $("#sel2").val(user.role);
+        }
+
+    </script>
     <script>fill_form(1);</script>
 @stop
