@@ -15,13 +15,13 @@ using namespace std;
 
 class EntityManager {
 public:
-    result port();
-    result getConnectionFailuresPerCar();
-    result getIgnitionFailuresPerCar();
-    result getStopsPerCoordinate();
-    result getHDOPPerCar();
-    result getNumSatellitesPerCar();
-    result getQualityPerCar();
+    result port(string startDate, string endDate);
+    result getConnectionFailuresPerCar(string startDate, string endDate);
+    result getIgnitionFailuresPerCar(string startDate, string endDate);
+    result getStopsPerCoordinate(string startDate, string endDate);
+    result getHDOPPerCar(string startDate, string endDate);
+    result getNumSatellitesPerCar(string startDate, string endDate);
+    result getQualityPerCar(string startDate, string endDate);
     result select(string table,  string where);
 };
 
@@ -30,10 +30,11 @@ public:
  **************************
  */
 
-result EntityManager::port() {
+result EntityManager::port(string startDate, string endDate) {
     ostringstream os;
     //Remember to wrap the column you are referencing in double escaped quotes!
-    os << "SELECT * FROM events WHERE \"Port\" = 'Ignition'";
+    os << "SELECT * FROM events WHERE \"Port\" = 'Ignition'"
+    << " BETWEEN \'" + startDate + "\'  AND \'" + endDate + "\';";
 
     string query = os.str();
     cout << query << endl;
@@ -41,13 +42,14 @@ result EntityManager::port() {
     return pgsqlcon.exec_none_transaction(query);
 }
 
-result EntityManager::getConnectionFailuresPerCar()
+result EntityManager::getConnectionFailuresPerCar(string startDate, string endDate)
 {
     ostringstream os;
     //Remember to wrap the column you are referencing in double escaped quotes!
     os << "SELECT DISTINCT \"UnitId\", COUNT(\"Value\")"
     << " FROM connections"
     << " WHERE \"Value\" = 0"
+    << " AND \"DateTime\" BETWEEN \'" + startDate + "\'  AND \'" + endDate + "\'"
     << " GROUP BY \"UnitId\""
     << " ORDER BY COUNT(\"Value\") ASC"
     << ";";
@@ -58,13 +60,14 @@ result EntityManager::getConnectionFailuresPerCar()
     return pgsqlcon.exec_none_transaction(query);
 }
 
-result EntityManager::getIgnitionFailuresPerCar()
+result EntityManager::getIgnitionFailuresPerCar(string startDate, string endDate)
 {
     ostringstream os;
     //Remember to wrap the column you are referencing in double escaped quotes!
     os << "SELECT DISTINCT \"UnitId\", COUNT(\"Value\")"
     << " FROM events"
     << " WHERE \"Value\" = 0"
+    << " AND \"DateTime\" BETWEEN \'" + startDate + "\' AND \'" + endDate + "\'"
     << " GROUP BY \"UnitId\""
     << " ORDER BY COUNT(\"Value\") ASC"
     << ";";
@@ -75,13 +78,14 @@ result EntityManager::getIgnitionFailuresPerCar()
     return pgsqlcon.exec_none_transaction(query);
 }
 
-result EntityManager::getStopsPerCoordinate()
+result EntityManager::getStopsPerCoordinate(string startDate, string endDate)
 {
     ostringstream os;
     //Remember to wrap the column you are referencing in double escaped quotes!
     os << "SELECT DISTINCT \"UnitId\", \"Rdx\", \"Rdy\", COUNT(\"Speed\")"
     << " FROM positions"
     << " WHERE \"Speed\" = 0"
+    << " AND \"DateTime\" BETWEEN \'" + startDate + "\' AND \'" + endDate + "\'"
     << " GROUP BY \"UnitId\", \"Rdx\", \"Rdy\""
     << " ORDER BY COUNT(\"Speed\") DESC"
     << ";";
@@ -92,12 +96,13 @@ result EntityManager::getStopsPerCoordinate()
     return pgsqlcon.exec_none_transaction(query);
 }
 
-result EntityManager::getHDOPPerCar()
+result EntityManager::getHDOPPerCar(string startDate, string endDate)
 {
     ostringstream os;
     //Remember to wrap the column you are referencing in double escaped quotes!
     os << "SELECT DISTINCT \"UnitId\", SUM(\"HDOP\"), COUNT(\"UnitId\")"
     << " FROM positions"
+    << " WHERE \"DateTime\" BETWEEN \'" + startDate + "\'  AND \'" + endDate + "\'"
     << " GROUP BY \"UnitId\", \"HDOP\""
     << ";";
     string query = os.str();
@@ -106,12 +111,13 @@ result EntityManager::getHDOPPerCar()
     return pgsqlcon.exec_none_transaction(query);
 }
 
-result EntityManager::getNumSatellitesPerCar()
+result EntityManager::getNumSatellitesPerCar(string startDate, string endDate)
 {
     ostringstream os;
     //Remember to wrap the column you are referencing in double escaped quotes!
     os << "SELECT DISTINCT \"UnitId\", SUM(\"NumSatellites\"), COUNT(\"UnitId\")"
     << " FROM positions"
+    << " WHERE \"DateTime\" BETWEEN \'" + startDate + "\'  AND \'" + endDate + "\'"
     << " GROUP BY \"UnitId\", \"NumSatellites\""
     << ";";
     string query = os.str();
@@ -121,13 +127,14 @@ result EntityManager::getNumSatellitesPerCar()
 }
 
 
-result EntityManager::getQualityPerCar()
+result EntityManager::getQualityPerCar(string startDate, string endDate)
 {
     ostringstream os;
     //Remember to wrap the column you are referencing in double escaped quotes!
     os << "SELECT DISTINCT \"UnitId\", COUNT(\"Quality\")"
     << " FROM positions"
     << " WHERE \"Quality\" LIKE \'%DGPS%\'"
+    << " AND \"DateTime\" BETWEEN \'" + startDate + "\'  AND \'" + endDate + "\'"
     << " GROUP BY \"UnitId\", \"Quality\""
     << ";";
     string query = os.str();

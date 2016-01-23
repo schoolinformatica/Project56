@@ -62,8 +62,8 @@ int main(int argc, char *argv[]) {
         //creating 2 string variables for the email and file
         string file1, email1, startDate, endDate;
         //getting email and file from the arguments of the main method.
-        email1 = argv[2];
         file1 = argv[1];
+        email1 = argv[2];
         startDate = argv[3];
         endDate  = argv[4];
 
