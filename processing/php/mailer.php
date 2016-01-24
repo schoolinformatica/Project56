@@ -4,8 +4,16 @@ ini_set('display_errors', 1);
 
 require '../vendor/autoload.php';
 //We assign our GET-variables to php vars
-$dir = $_GET['dir'];
-$emailadress = $_GET['emailadress'];
+if(isset($_GET['dir'])
+{
+  $dir = $_GET['dir'];
+}
+
+if(isset($_GET['emailadress'])
+{
+  $emailadress = $_GET['emailadress'];
+}
+
 
 //We create a new object of class PHPMailer.
 //PHPMailer is the library we use for emailing.
