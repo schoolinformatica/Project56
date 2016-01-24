@@ -144,14 +144,15 @@ int pdfwriterClass::sendDirToPHP(const char *directory)
 
     //We create a stringstream with the necessary URL and header values.Connection: close makes sure the connection to the url is closed.
     stringstream ss;
-    ss << "GET /mailer.php?dir="
-    << directory
-    << "&emailadress="
+    ss << "GET /sendmail?email="
     << email.c_str()
+    << "&file="
+    << directory
     << " HTTP/1.1\r\n"
     << "Host: 145.24.222.240\r\n"
     << "Connection: close\r\n"
     << "\r\n";
+    
 
     string requeststr = ss.str();
     cout << requeststr << endl;
