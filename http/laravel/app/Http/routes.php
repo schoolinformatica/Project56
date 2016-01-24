@@ -11,6 +11,7 @@
 |
 */
 
+
 //The route to the homepage
 Route::get('/', function () {
     return view('welcome');
@@ -28,11 +29,11 @@ Route::get('myfiles', 'MyfilesController@myfiles');
 Route::get('admin', 'AdminController@admin');
 Route::post('/admin/update', 'AdminController@update');
 Route::post('/generateReport', 'DownloadController@generate_report');
-
+Route::get('/sendmail', 'MailController@sendEmail');
 //Routes for the uploadpage and the post request for uploading files
 Route::get('uploadPage',  'UploadController@upload');
 Route::post('uploadMultiple', 'UploadController@multiple_upload');
-
+Route::get('viewemail', 'MailController@email');
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
@@ -46,3 +47,4 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::controllers([
    'password' => 'Auth\PasswordController',
 ]);
+
